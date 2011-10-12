@@ -11,7 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue in "executor/communicator/receiver.c"
+        * Continue with "executor/communicator/receiver.c"
         * Adapt "file_system_receiver.c" and other i/o
 
         * Replace old abstractions with primitive abstractions OR (better) just rename constants
