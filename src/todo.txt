@@ -12,7 +12,7 @@
 #
 
         * Continue with "executor/communicator/receiver.c"
-        * Adapt xml parsing
+        * Adapt xml parsing (cybol parsing already done)
         * Adapt "file_system_receiver.c" and other i/o
 
         * Replace old abstractions with primitive abstractions OR (better) just rename constants
