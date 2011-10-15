@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-10-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move website documents from directory doc/ to www/
+        * Add directory www/ to CVS, as required by GNU Savannah
+        * Remove redundant www files from directory doc/ of SVN
+
 2011-09-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise "executor/converter/decoder/cybol_decoder.c", e.g. root node handling,
