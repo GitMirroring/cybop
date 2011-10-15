@@ -20,10 +20,10 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #
-# http://www.cybop.net
+# http://www.cybop.org/
 # - Cybernetics Oriented Programming -
 #
-# http://www.resmedicinae.org
+# http://www.resmedicinae.org/
 # - Information in Medicine -
 #
 # @version $Revision: 1.1 $ $Date: 2008-08-19 20:41:07 $ $Author: christian $
@@ -34,4 +34,3 @@
 # Generate a glossary file.
 #
 makeindex -s glossary.ist -o thesis.glx thesis.glo
-

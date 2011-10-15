@@ -48,9 +48,6 @@ Description: Cybernetics Oriented Interpreter (CYBOI)
  This package contains the Cybernetics Oriented Interpreter (CYBOI).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/
 
 Package: cyboi-doc
 Architecture: all
@@ -94,9 +91,6 @@ Description: Cybernetics Oriented Interpreter (CYBOI) documentation
  Interpreter (CYBOI).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/
 
 Package: cyboi-dev
 Architecture: any
@@ -140,6 +134,3 @@ Description: Cybernetics Oriented Interpreter (CYBOI) development files
  Interpreter (CYBOI).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/

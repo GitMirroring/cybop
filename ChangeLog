@@ -9,7 +9,7 @@
 # - an entry should not explain why a change was made, but rather what the change was
 #   (the explanation of why belongs in the source code itself)
 #
-# http://www.cybop.net
+# http://www.cybop.org/
 # - Cybernetics Oriented Programming -
 #
 # @version $RCSfile: ChangeLog,v $ $Revision: 1.147 $ $Date: 2009-10-06 21:25:26 $ $Author: christian $
@@ -21,6 +21,7 @@
         * Move website documents from directory doc/ to www/
         * Add directory www/ to CVS, as required by GNU Savannah
         * Remove redundant www files from directory doc/ of SVN
+        * Change link from cybop.net/ to cybop.org/ in all files
 
 2011-09-29  Christian Heller  <christian.heller@tuxtax.de>
 

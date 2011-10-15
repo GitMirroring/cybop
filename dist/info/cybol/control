@@ -48,9 +48,6 @@ Description: Cybernetics Oriented Language (CYBOL) DTD and XSD
  Definition (XSD) of the Cybernetics Oriented Language (CYBOL).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/
 
 Package: cybol-examples
 Architecture: all
@@ -94,9 +91,6 @@ Description: Cybernetics Oriented Language (CYBOL) example applications
  Language (CYBOL).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/
 
 Package: cybol-core
 Architecture: all
@@ -142,9 +136,6 @@ Description: Cybernetics Oriented Language (CYBOL) core libraries
  (CYBOL).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/
 
 Package: cybol-healthcare
 Architecture: all
@@ -190,6 +181,3 @@ Description: Cybernetics Oriented Language (CYBOL) healthcare libraries
  Language (CYBOL).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/

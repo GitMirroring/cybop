@@ -281,20 +281,20 @@ providing anatomical images from their Sobotta -- Atlas der Anatomie.
 
 9 References
 
-[CH04] CHRISTIAN HELLER, KARSTEN HILBERT, ROLAND COLBERG ET AL.:
+[CH04] CHRISTIANï¿½HELLER, KARSTENï¿½HILBERT, ROLAND COLBERG ETï¿½AL.:
 Analysedokument zur Erstellung eines Informationssystems fuer den Einsatz in der Medizin. 
 http://www.resmedicinae.org/model/analysis, 2001-2004
 
-[cyb04] CYBOP - Cybernetics Oriented Programming. http://www.cybop.net, 2002-2004
+[cyb04] CYBOP - Cybernetics Oriented Programming. http://www.cybop.org, 2002-2004
 
-[EG95] ERICH GAMMA, RICHARD HELM, RALPH JOHNSON UND JOHN VLISSIDES (GANG OF FOUR):
+[EG95] ERICHï¿½GAMMA, RICHARDï¿½HELM, RALPH JOHNSON UND JOHN VLISSIDES (GANG OFï¿½FOUR):
 Design Patterns. Elements of reusable object oriented Software.
 Addison-Wesley, Bonn, Boston, Muenchen, 1 , 1995. http://www.aw.com
 
 [jak02] Apache Jakarta Avalon Framework, Web Server and Applications.
 http://jakarta.apache.org, 2002
 
-[JC00] JASON CAI, RANJIT KAPILA, GAURAV PAL: HMVC:
+[JC00] JASONï¿½CAI, RANJITï¿½KAPILA, GAURAVï¿½PAL: HMVC:
 The layered pattern for developing strong client tiers. July 2000
 
 [ope04] OpenEHR - Design Principles Document. http://www.openehr.org, 2001-2004

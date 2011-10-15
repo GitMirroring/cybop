@@ -10,10 +10,10 @@
 % Texts. A copy of the license is included in the section entitled
 % "GNU Free Documentation License".
 %
-% http://www.cybop.net
+% http://www.cybop.org/
 % - Cybernetics Oriented Programming -
 %
-% http://www.resmedicinae.org
+% http://www.resmedicinae.org/
 % - Information in Medicine -
 %
 % Version: $Revision: 1.1 $ $Date: 2008-08-19 20:41:09 $ $Author: christian $

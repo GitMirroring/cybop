@@ -1,5 +1,5 @@
 <model>
-    <part name="url" channel="inline" abstraction="text/plain" model="http://www.cybop.net">
+    <part name="url" channel="inline" abstraction="text/plain" model="http://www.cybop.org">
         <property name="super" channel="inline" abstraction="path/knowledge" model=".ui_control.settings.tui.menu_footer"/>
         <property name="position" channel="inline" abstraction="number/integer" model="25,0,0"/>
         <property name="size" channel="inline" abstraction="number/integer" model="24,1,1"/>

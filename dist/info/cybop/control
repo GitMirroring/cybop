@@ -47,9 +47,6 @@ Description: Cybernetics Oriented Programming (CYBOP) Meta Package
  Programming (CYBOP).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/
 
 Package: cybop-books
 Architecture: all
@@ -94,9 +91,6 @@ Description: Cybernetics Oriented Programming (CYBOP) Books
  (CYBOP).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/
 
 Package: cybop-papers
 Architecture: all
@@ -141,9 +135,6 @@ Description: Cybernetics Oriented Programming (CYBOP) Papers
  (CYBOP).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/
 
 Package: cybop-presentations
 Architecture: all
@@ -188,6 +179,3 @@ Description: Cybernetics Oriented Programming (CYBOP) Presentations
  Programming (CYBOP).
  .
  http://www.cybop.org/
- http://www.cybop.net/
- http://cybop.berlios.de/
- http://developer.berlios.de/projects/cybop/

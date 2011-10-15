@@ -2,7 +2,7 @@
 # This file is the first place a user will look to get an overview for the
 # purpose of cybop, and perhaps special installation instructions.
 #
-# http://www.cybop.net
+# http://www.cybop.org/
 # - Cybernetics Oriented Programming -
 #
 # @version $RCSfile: README,v $ $Revision: 1.7 $ $Date: 2009-02-07 00:39:21 $ $Author: christian $
@@ -22,4 +22,4 @@ Report bugs to <cybop-developers@lists.berlios.de> or enter them at:
 http://developer.berlios.de/bugs/?group_id=669
 
 You may find further information, relevant mailing lists etc. on the website:
-http://www.cybop.net
+http://www.cybop.org/

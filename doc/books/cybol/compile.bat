@@ -10,7 +10,7 @@
 :: Texts. A copy of the license is included in the section entitled
 :: "GNU Free Documentation License".
 ::
-:: http://www.cybop.net
+:: http://www.cybop.org/
 :: - Cybernetics Oriented Programming -
 ::
 :: Version: $Revision: 1.1 $ $Date: 2007-07-17 20:02:36 $ $Author: christian $

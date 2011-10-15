@@ -71,8 +71,8 @@ void startup_x_window_system(void* p0) {
 
         // The display name.
         // An example identifying the second screen of the first
-        // display of host computer earth.cybop.net would be:
-        // char* dn = "earth.cybop.net:0.1"
+        // display of host computer earth.cybop.org would be:
+        // char* dn = "earth.cybop.org:0.1"
         //?? TODO: This has to be built dynamically, later on!
         //?? For now, it is just an empty string.
         char* dn = (char*) *NULL_POINTER_MEMORY_MODEL;

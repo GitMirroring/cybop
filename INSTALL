@@ -1,7 +1,7 @@
 #
 # This file gives installation instructions on how to get started with cybop.
 #
-# http://www.cybop.net
+# http://www.cybop.org/
 # - Cybernetics Oriented Programming -
 #
 # @version $RCSfile: INSTALL,v $ $Revision: 1.9 $ $Date: 2009-02-07 00:39:21 $ $Author: christian $
@@ -41,7 +41,7 @@ _________________
     cd /home/cybop
 
 - Execute the configure files with:
-    
+
     ./autogen.sh
     ./configure
 

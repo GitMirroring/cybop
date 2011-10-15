@@ -13,10 +13,10 @@
 % http://www.tuxtax.de
 % - Software Wisdom is our Passion -
 %
-% http://www.cybop.net
+% http://www.cybop.org/
 % - Cybernetics Oriented Programming -
 %
-% http://www.resmedicinae.org
+% http://www.resmedicinae.org/
 % - Information in Medicine -
 %
 % Version: $Revision: 1.2 $ $Date: 2007-08-01 13:59:01 $ $Author: christian $
