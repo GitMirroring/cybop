@@ -113,7 +113,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             // CAUTION! The details are handed over as well, since sometimes,
             // they are read from the message together with the model, for
             // example when converting from a file in xdt format.
-            receive_file_system(p0, p1, mmd, mmc, lmd, lmc);
+            receive_file_system(p0, p1, p2, p3, p4);
 
             // Receive details by reading meta message data.
             //
@@ -171,8 +171,9 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             // CAUTION! The details are handed over as well, since sometimes,
             // they are read from the message together with the model, for
             // example when converting from a file in xdt format.
-            receive_inline(p0, p1, mmd, mmc, lmd, lmc);
+            receive_inline(p0, p1, p2, p3, p4);
 
+            //?? TODO: The following comment is outdated and may possibly be deleted.
             // CAUTION! Do NOT try to receive meta data here!
             // When calling the following function:
             // communicate_receiving_inline(p6, p7, p8, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p16, p17, p18, p19);

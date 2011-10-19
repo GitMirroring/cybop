@@ -76,7 +76,7 @@
  * @param p5 the source index
  * @param p6 the destination array count
  * @param p7 the destination array size
- * @param p8 the adjust flag
+ * @param p8 the adjust count flag
  */
 void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 

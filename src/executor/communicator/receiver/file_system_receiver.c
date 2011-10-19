@@ -49,7 +49,7 @@
 /**
  * Receives a file stream.
  *
- * @param p0 the destination byte array (Hand over as reference!)
+ * @param p0 the destination data (Hand over as reference!)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source file stream
@@ -70,9 +70,9 @@ void receive_file_stream(void* p0, void* p1, void* p2, void* p3) {
                 break;
             }
 
-            // Set character in destination array.
-            // The array count serves as index for setting the character.
-            overwrite_array(p0, (void*) &c, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+            // Set character into destination data.
+            // The destination count serves as array index for setting the character.
+            overwrite_array(p0, (void*) &c, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
             // Read next character.
             c = fgetc(p3);
@@ -87,88 +87,80 @@ void receive_file_stream(void* p0, void* p1, void* p2, void* p3) {
 /**
  * Receives a file and writes it into a byte array.
  *
- * @param p0 the destination byte array (Hand over as reference!)
- * @param p1 the destination byte array count
- * @param p2 the destination byte array size
- * @param p3 the source file name
- * @param p4 the source file name count
+ * @param p0 the destination data (Hand over as reference!)
+ * @param p1 the destination count
+ * @param p2 the destination size
+ * @param p3 the source data (file name)
+ * @param p4 the source count
  */
 void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Receive file.");
 
-        int* sc = (int*) p4;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    // The file.
+    FILE* f = (FILE*) *NULL_POINTER_MEMORY_MODEL;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Receive file.");
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
-        // The file.
-        FILE* f = (FILE*) *NULL_POINTER_MEMORY_MODEL;
+        compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, (void*) STANDARD_INPUT_STREAM_MODEL_COUNT);
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, (void*) STANDARD_INPUT_STREAM_MODEL_COUNT);
+            // The given string is not a file name, but specifies the "standard_input".
+            f = stdin;
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            receive_file_stream(p0, p1, p2, (void*) f);
+        }
+    }
 
-                // The given string is not a file name, but specifies the "standard_input".
-                f = stdin;
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                receive_file_stream(p0, p1, p2, (void*) f);
-            }
+        // If the given name does not match the standard input, then interpret it as file name.
+
+        // The terminated file name.
+        void* tnd = *NULL_POINTER_MEMORY_MODEL;
+        int tnc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int tns = *NUMBER_0_INTEGER_MEMORY_MODEL;
+
+        // Allocate terminated file name.
+        allocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+
+        // Encode wide character name into multibyte character array.
+        encode_utf_8_unicode_character_vector((void*) &tnd, (void*) &tnc, (void*) &tns, p3, p4);
+
+        // Add null termination character to terminated file name.
+        overwrite_array((void*) &tnd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tnc, (void*) &tns, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+
+        // Open file.
+        // CAUTION! The file name cannot be handed over as is.
+        // CYBOI strings are NOT terminated with the null character '\0'.
+        // Since 'fopen' expects a null terminated string, the termination character
+        // must be added to the string before that is used to open the file.
+        f = fopen((char*) tnd, "r");
+
+        if (f != *NULL_POINTER_MEMORY_MODEL) {
+
+            receive_file_stream(p0, p1, p2, (void*) f);
+
+            // Close file.
+            // CAUTION! Check file for null pointer above
+            // in order to avoid a segmentation fault here!
+            fclose(f);
+
+        } else {
+
+            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive file. The file is null.");
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-            // If the given name does not match the standard input, then interpret it as file name.
-
-            // The terminated file name.
-            void* tn = *NULL_POINTER_MEMORY_MODEL;
-            void* tnc = *NULL_POINTER_MEMORY_MODEL;
-            void* tns = *NULL_POINTER_MEMORY_MODEL;
-
-            // Allocate terminated file name.
-            allocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
-
-            // Encode wide character name into multibyte character array.
-            encode_utf_8_unicode_character_vector((void*) &tn, tnc, tns, p3, p4);
-
-            // Add null termination character to terminated file name.
-            overwrite_array((void*) &tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tnc, tns);
-
-            // Open file.
-            // CAUTION! The file name cannot be handed over as is.
-            // CYBOI strings are NOT terminated with the null character '\0'.
-            // Since 'fopen' expects a null terminated string, the termination character
-            // must be added to the string before that is used to open the file.
-            f = fopen((char*) tn, "r");
-
-            if (f != *NULL_POINTER_MEMORY_MODEL) {
-
-                receive_file_stream(p0, p1, p2, (void*) f);
-
-                // Close file.
-                // CAUTION! Check file for null pointer to avoid a segmentation fault!
-                fclose(f);
-
-            } else {
-
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive file. The file is null.");
-            }
-
-            // Deallocate terminated file name.
-            deallocate_model((void*) &tn, (void*) &tnc, (void*) &tns, *NULL_POINTER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
-        }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive file. The source count is null.");
+        // Deallocate terminated file name.
+        deallocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
     }
 }
 
 /**
- * Applies the receive file system operation.
+ * Receives data via file system.
  *
  * @param p0 the destination model item (Hand over as item, since size may change!)
  * @param p1 the destination details item (Hand over as item, since size may change!)
@@ -180,40 +172,40 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Receive file system.");
 
-    // The encoded array, count, size.
-    void* ea = *NULL_POINTER_MEMORY_MODEL;
+    // The encoded data, count, size.
+    void* ed = *NULL_POINTER_MEMORY_MODEL;
     int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
     int es = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    // Allocate encoded array.
-    allocate_array((void*) &ea, (void*) &es, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    // Allocate encoded data.
+    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-    // Write file into encoded array.
-    receive_file((void*) &ea, (void*) &ec, (void*) &es, p6, p7);
+    // Write file into encoded data.
+    receive_file((void*) &ed, (void*) &ec, (void*) &es, p2, p3);
 
-//??fwprintf(stdout, L"TEST char: %s\n", (char*) ea);
+//??    fwprintf(stdout, L"TEST char: %s\n", (char*) ed);
 
-    // The decoded array, count, size.
-    void* da = *NULL_POINTER_MEMORY_MODEL;
+    // The decoded data, count, size.
+    void* dd = *NULL_POINTER_MEMORY_MODEL;
     int dc = *NUMBER_0_INTEGER_MEMORY_MODEL;
     int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    // Allocate decoded array.
-    allocate_array((void*) &da, (void*) &ds, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    // Allocate decoded data.
+    allocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-    // Decode encoded character array into decoded wide character array.
-    decode_utf_8_unicode_character_vector((void*) &da, (void*) &dc, (void*) &ds, ea, (void*) ec);
+    // Decode encoded data into decoded data.
+    decode_utf_8_unicode_character_vector((void*) &dd, (void*) &dc, (void*) &ds, ed, (void*) &ec);
 
-//??fwprintf(stdout, L"TEST w_char: %ls\n", (wchar_t*) da);
+//??    fwprintf(stdout, L"TEST w_char: %ls\n", (wchar_t*) dd);
 
-    // Deallocate encoded array.
-    deallocate_array((void*) &ea, (void*) &es, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    // Deallocate encoded data.
+    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-    // Deserialise serialised wide character array into destination knowledge model.
-    decode(p0, p1, da, (void*) &dc, p4);
+    // Deserialise decoded data into destination model and details.
+    decode(p0, p1, dd, (void*) &dc, p4);
 
-    // Deallocate decoded array.
-    deallocate_array((void*) &da, (void*) &ds, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    // Deallocate decoded data.
+    deallocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

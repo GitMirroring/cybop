@@ -11,9 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue with "executor/communicator/receiver.c"
-        * Adapt xml parsing (cybol parsing already done)
-        * Adapt "file_system_receiver.c" and other i/o
+        * Adapt all decoders in "executor/converter/decoder/"
+        * Adapt xml parsing
 
         * Replace old abstractions with primitive abstractions OR (better) just rename constants
         * Add primitive integer constants as counterpart to ALL cybol model constants,

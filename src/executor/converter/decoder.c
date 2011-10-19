@@ -74,91 +74,84 @@
 #include "../../executor/communicator/sender/file_sender.c"
 
 /**
- * Decodes the source into the destination, according to the given language.
+ * Decodes the source into the destination, according to the given abstraction.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the source
- * @param p7 the source count
- * @param p8 the knowledge memory
- * @param p9 the knowledge memory count
- * @param p10 the language
- * @param p11 the language count
+ * @param p0 the destination model item (Hand over as item, since size may change!)
+ * @param p1 the destination details item (Hand over as item, since size may change!)
+ * @param p2 the source data
+ * @param p3 the source count
+ * @param p4 the abstraction
  */
-void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) ABSTRACTION_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) ABSTRACTION_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) ABSTRACTION_TEXT_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_abstraction(p0, p1, p2, p6, p7);
+            decode_abstraction(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) AUTHORITY_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) AUTHORITY_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) AUTHORITY_TEXT_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_authority(p0, p1, p2, p3, p4, p5, p6, p7);
+            decode_authority(p0, p1, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) BOOLEAN_LOGICVALUE_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) BOOLEAN_LOGICVALUE_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) BOOLEAN_LOGICVALUE_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_boolean(p0, p1, p2, p6, p7);
+            decode_boolean(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             //?? TODO: Implement the following function!
-            //?? decode_cartesian_complex(p0, p1, p2, p6, p7);
+            //?? decode_cartesian_complex(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) CYBOL_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) CYBOL_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) CYBOL_TEXT_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // The temporary model.
-            void* m = *NULL_POINTER_MEMORY_MODEL;
-            void* mc = *NULL_POINTER_MEMORY_MODEL;
-            void* ms = *NULL_POINTER_MEMORY_MODEL;
-            // The temporary details.
-            void* d = *NULL_POINTER_MEMORY_MODEL;
-            void* dc = *NULL_POINTER_MEMORY_MODEL;
-            void* ds = *NULL_POINTER_MEMORY_MODEL;
+            // The temporary model data, count, size.
+            void* md = *NULL_POINTER_MEMORY_MODEL;
+            int mc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int ms = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            // The temporary details data, count, size.
+            void* dd = *NULL_POINTER_MEMORY_MODEL;
+            int dc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
             // Allocate temporary model.
-            allocate_model((void*) &m, (void*) &mc, (void*) &ms, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+            allocate_array((void*) &md, (void*) &ms, (void*) COMPOUND_MEMORY_ABSTRACTION);
             // Allocate temporary details.
-            allocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+            allocate_array((void*) &dd, (void*) &ds, (void*) COMPOUND_MEMORY_ABSTRACTION);
 
-            // Decode source message (cybol file) into temporary compound memory model.
-            decode_xml((void*) &m, mc, ms, (void*) &d, dc, ds, p6, p7);
+            // Decode source message (cybol file) into temporary model.
+            decode_xml((void*) &md, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds, p2, p3);
 
 //?? TEST BEGIN
             // The model diagram.
@@ -195,12 +188,12 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
             // Decode temporary compound memory model into cyboi knowledge compound memory model.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            decode_cybol(p0, p1, p2, m, mc, d, dc);
+            decode_cybol(p0, m, mc, d, dc);
 
             // Deallocate temporary model.
-            deallocate_model((void*) &m, (void*) &mc, (void*) &ms, *NULL_POINTER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+            deallocate_array((void*) &md, (void*) &ms, (void*) COMPOUND_MEMORY_ABSTRACTION);
             // Deallocate temporary details.
-            deallocate_model((void*) &d, (void*) &dc, (void*) &ds, *NULL_POINTER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+            deallocate_array((void*) &dd, (void*) &ds, (void*) COMPOUND_MEMORY_ABSTRACTION);
 
 //?? TEST BEGIN
             // Reset model diagram.
@@ -237,66 +230,66 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             //?? TEMPORARY solution!
             //?? TODO: Replace with something like "decode_decimal_fraction".
-            //?? decode_double_vector(p0, p1, p2, p6, p7);
+            //?? decode_double_vector(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_array(p0, p6, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p7, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_gnu_linux_console(p0, p1, p2, p6, p7);
+            decode_gnu_linux_console(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) HH_MM_SS_DATETIME_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) HH_MM_SS_DATETIME_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) HH_MM_SS_DATETIME_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             //?? TODO: Rename into "decode_hhmmss_date_time"!
-            //?? decode_date_time(p0, p1, p2, p6, p7);
+            //?? decode_date_time(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) HTML_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) HTML_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) HTML_TEXT_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_html(p0, p1, p2, p6, p7);
+            decode_html(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_http_request(p0, p1, p2, p3, p4, p5, p6, p7);
+            decode_http_request(p0, p1, p2, p3);
 
 //?? TEST BEGIN
             // The model diagram.
@@ -333,11 +326,11 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) HTTP_RESPONSE_MESSAGE_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) HTTP_RESPONSE_MESSAGE_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) HTTP_RESPONSE_MESSAGE_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             // The temporary model.
             void* m = *NULL_POINTER_MEMORY_MODEL;
@@ -354,7 +347,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             allocate((void*) &d, (void*) &ds, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
 
             // Decode source message into temporary compound memory model.
-            decode_xml((void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds, p6, p7);
+            decode_xml((void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds, p2, p3);
 
 //?? TEST BEGIN
             // The model diagram.
@@ -390,7 +383,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 //?? TEST END
 
             // Decode temporary compound memory model into cyboi knowledge compound memory model.
-            decode_cybol(p0, p1, p2, m, (void*) &mc, d, (void*) &dc);
+            decode_cybol(p0, m, (void*) &mc, d, (void*) &dc);
 
             // Deallocate temporary model.
             deallocate((void*) &m, (void*) &ms, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
@@ -432,93 +425,93 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) INTEGER_NUMBER_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) INTEGER_NUMBER_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) INTEGER_NUMBER_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_integer_vector(p0, p1, p2, p6, p7);
+            decode_integer_vector(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) KNOWLEDGE_PATH_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) KNOWLEDGE_PATH_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) KNOWLEDGE_PATH_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_array(p0, p6, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p7, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) LATEX_APPLICATION_X_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) LATEX_APPLICATION_X_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) LATEX_APPLICATION_X_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_latex(p0, p1, p2, p6, p7);
+            decode_latex(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) MODEL_DIAGRAM_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) MODEL_DIAGRAM_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) MODEL_DIAGRAM_TEXT_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_model_diagram(p0, p1, p2, p6, p7);
+            decode_model_diagram(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) PLAIN_OPERATION_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) PLAIN_OPERATION_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) PLAIN_OPERATION_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_array(p0, p6, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p7, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_array(p0, p6, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p7, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) TERMINAL_BACKGROUND_COLOUR_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) TERMINAL_BACKGROUND_COLOUR_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_BACKGROUND_COLOUR_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_terminal_background(p0, p1, p2, p6, p7);
+            decode_terminal_background(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) TERMINAL_FOREGROUND_COLOUR_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) TERMINAL_FOREGROUND_COLOUR_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_FOREGROUND_COLOUR_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_terminal_foreground(p0, p1, p2, p6, p7);
+            decode_terminal_foreground(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) URI_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) URI_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) URI_TEXT_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_uri(p0, p1, p2, p3, p4, p5, p6, p7);
+            decode_uri(p0, p1, p2, p3);
 
 //?? TEST BEGIN
             // The model diagram.
@@ -555,50 +548,50 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) VULGAR_FRACTION_NUMBER_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) VULGAR_FRACTION_NUMBER_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) VULGAR_FRACTION_NUMBER_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             //?? TODO: Rename into "decode_vulgar_fraction"!
-            //?? decode_fraction(p0, p1, p2, p6, p7);
+            //?? decode_fraction(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_x_window_system(p0, p1, p2, p6, p7);
+            decode_x_window_system(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) XDT_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) XDT_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) XDT_TEXT_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_xdt(p0, p1, p2, p3, p4, p5, p6, p7);
+            decode_xdt(p0, p1, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p10, (void*) YYYY_MM_DD_DATETIME_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p11, (void*) YYYY_MM_DD_DATETIME_CYBOL_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) YYYY_MM_DD_DATETIME_CYBOL_ABSTRACTION);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_ddmmyyyy_date_time(p0, p1, p2, p6, p7);
+            decode_ddmmyyyy_date_time(p0, p2, p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not decode. The language is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not decode. The abstraction is unknown.");
     }
 }
 

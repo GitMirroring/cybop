@@ -288,7 +288,7 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
 
         // Fill part model and details.
         // Receive and decode source model, details into part model, details.
-        receive_message(pm, pd, smmd, smmc, (void*) &ra, (void*) &rc);
+        receive_data(pm, pd, smmd, smmc, (void*) &ra, (void*) &rc);
     }
 
     //
