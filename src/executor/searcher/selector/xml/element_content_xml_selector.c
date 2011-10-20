@@ -57,29 +57,25 @@ void decode_xml_end_tag(void* p0, void* p1);
 /**
  * Selects the xml element content.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the break flag
- * @param p7 the current position (Hand over as reference!)
- * @param p8 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the break flag
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
  */
-void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p8 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
 
-        int* rem = (int*) p8;
+        int* rem = (int*) p4;
 
-        if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
 
-            void** pos = (void**) p7;
+            void** pos = (void**) p3;
 
-            if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p2 != *NULL_POINTER_MEMORY_MODEL) {
 
-                int* b = (int*) p6;
+                int* b = (int*) p2;
 
                 log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml element content.");
 
@@ -114,72 +110,72 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
                 //
 
                 // The comparison result.
-                int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    detect_array((void*) &r, p7, p8, (void*) END_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) END_TAG_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+                    detect_array((void*) &r, p3, p4, (void*) END_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) END_TAG_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
 
-                    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                        decode_xml_end_tag(p7, p8);
+                        decode_xml_end_tag(p3, p4);
 
                         // Set break flag, because this xml element's end tag
                         // has been reached and its content fully been decoded.
-                        *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                        *b = *TRUE_BOOLEAN_MEMORY_MODEL;
                     }
                 }
 
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    detect_array((void*) &r, p7, p8, (void*) DECLARATION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DECLARATION_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+                    detect_array((void*) &r, p3, p4, (void*) DECLARATION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DECLARATION_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
 
-                    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
                         // The data contained in an XML declaration are added to the destination details.
-                        decode_xml_declaration(p3, p4, p5, p7, p8);
+                        decode_xml_declaration(p1, p3, p4);
                     }
                 }
 
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    detect_array((void*) &r, p7, p8, (void*) COMMENT_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) COMMENT_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+                    detect_array((void*) &r, p3, p4, (void*) COMMENT_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) COMMENT_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
 
-                    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
                         // The data contained in an XML comment are just ignored.
-                        decode_xml_comment(p7, p8);
+                        decode_xml_comment(p3, p4);
                     }
                 }
 
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    detect_array((void*) &r, p7, p8, (void*) DEFINITION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DEFINITION_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+                    detect_array((void*) &r, p3, p4, (void*) DEFINITION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DEFINITION_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
 
-                    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
                         // The data contained in an XML definition are added to the destination details.
-                        decode_xml_definition(p3, p4, p5, p7, p8);
+                        decode_xml_definition(p1, p3, p4);
                     }
                 }
 
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    detect_array((void*) &r, p7, p8, (void*) START_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) START_TAG_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+                    detect_array((void*) &r, p3, p4, (void*) START_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) START_TAG_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
 
-                    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
                         // The data contained in an XML element are added to the destination model.
-                        decode_xml_element(p0, p1, p2, p7, p8);
+                        decode_xml_element(p0, p3, p4);
                     }
                 }
 
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    // None of the comparisons above delivered a positive (r != 0) result.
-                    // Therefore, increment the current position by one (pointer size).
+                    // None of the comparisons above matched.
+                    // Therefore, increment the source data position by ONE (pointer size).
 
-                    move_position(p7, p8, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+                    move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
                 }
 
             } else {

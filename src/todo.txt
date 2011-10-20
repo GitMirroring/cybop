@@ -11,8 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue adapting xml decoder
         * Adapt all decoders in "executor/converter/decoder/"
-        * Adapt xml parsing
 
         * Replace old abstractions with primitive abstractions OR (better) just rename constants
         * Add primitive integer constants as counterpart to ALL cybol model constants,
@@ -33,9 +33,6 @@
 
         * Move all operation handlers one directory up??
         * Adapt "*_operation_handler.c"
-
-        * Move files of directory "executor/converter/selector/" into "executor/searcher/selector/"
-        * Delete "executor/converter/decoder.c" and "executor/converter/encoder.c"??
 
         * Remove "size" parametre from all "deallocate" functions
         * Offer part deallocation shallow and deep

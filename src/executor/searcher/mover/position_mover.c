@@ -41,8 +41,8 @@
  * Moves the current parsing position by element count
  * and also adapts the remaining element count.
  *
- * @param p0 the current position (Hand over as reference!)
- * @param p1 the remaining count
+ * @param p0 the data position (pointer reference)
+ * @param p1 the count remaining
  * @param p2 the abstraction
  * @param p3 the count
  */

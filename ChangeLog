@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-10-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt xml decoder
+        * Move files of directory "executor/converter/selector/" into "executor/searcher/selector/"
+
 2011-10-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt "executor/communicator/receiver.c" and "file_system_receiver.c"
