@@ -11,10 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Complete files:
-            header_field_http_request_selector.c
-            header_entry_http_response_selector.c
-            http_request_selector.c
+        * CONTINUE WITH "header_field_http_request_selector.c"; see old src in todo/
+        * Complete files "header_field_http_request_selector.c" and "header_entry_http_response_selector.c"
         * Continue adapting xml decoder
         * Adapt all decoders in "executor/converter/decoder/"
 
@@ -30,6 +28,8 @@
         * Create new mime types for this, e.g. comparison/greater-or-equal etc.,
             once for cybol and once more for memory, and put these into constant/model/
 
+        * Adapt file "http_request_selector.c" or delete if not needed anymore
+
         * Change year from 2011 to 2012 in comment block of all source code files
         * Delete comment line " * @version $RCSfile: ..." at beginning of all source code files,
             since "$" tags are specific to CVS but SVN is used since two years
@@ -38,7 +38,7 @@
         * Move all operation handlers one directory up??
         * Adapt "*_operation_handler.c"
 
-        * Remove "size" parametre from all "deallocate" functions
+        * Remove "size" parametre from all "deallocate" functions?
         * Offer part deallocation shallow and deep
             (deep is not always wanted, if a child is referenced by many parts)
 

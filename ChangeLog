@@ -19,6 +19,7 @@
 2011-10-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt all files in directory "executor/searcher/selector/"
+        * Adapt part creation in selector files
 
 2011-10-20  Christian Heller  <christian.heller@tuxtax.de>
 
