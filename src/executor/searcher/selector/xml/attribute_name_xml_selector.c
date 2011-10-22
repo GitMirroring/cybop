@@ -40,22 +40,22 @@
 /**
  * Selects the attribute name.
  *
- * @param p0 the break flag
- * @param p1 the current position (Hand over as reference!)
- * @param p2 the remaining count
+ * @param p0 the destination break flag
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
 void select_xml_attribute_name(void* p0, void* p1, void* p2) {
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml attribute name.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) ATTRIBUTE_VALUE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) ATTRIBUTE_VALUE_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) ATTRIBUTE_VALUE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) ATTRIBUTE_VALUE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             // The attribute name end was found.
             //
@@ -65,13 +65,13 @@ void select_xml_attribute_name(void* p0, void* p1, void* p2) {
             // The attribute count is left as it is.
 
             // Set break flag.
-            copy_integer(p0, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        move_position(p1, p2, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+        move_position(p1, p2, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
     }
 }
 

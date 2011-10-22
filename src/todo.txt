@@ -11,6 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Complete files:
+            header_field_http_request_selector.c
+            header_entry_http_response_selector.c
+            http_request_selector.c
         * Continue adapting xml decoder
         * Adapt all decoders in "executor/converter/decoder/"
 

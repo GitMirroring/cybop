@@ -40,61 +40,34 @@
 /**
  * Selects the xml definition.
  *
- * @param p0 the break flag
- * @param p1 the current position (Hand over as reference!)
- * @param p2 the remaining count
+ * @param p0 the destination break flag
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
 void select_xml_definition(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml definition.");
 
-        int* rem = (int*) p2;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            void** pos = (void**) p1;
+        detect_array((void*) &r, p1, p2, (void*) DEFINITION_END_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DEFINITION_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                int* b = (int*) p0;
-
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml definition.");
-
-                // The comparison result.
-                int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
-
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    detect_array((void*) &r, p1, p2, (void*) DEFINITION_END_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DEFINITION_END_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                        // Set break flag.
-                        *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
-                    }
-                }
-
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    // None of the comparisons above delivered a positive (r != 0) result.
-                    // Therefore, increment the current position by one (pointer size).
-
-                    move_position(p1, p2, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                }
-
-            } else {
-
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml definition. The break flag is null.");
-            }
-
-        } else {
-
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml definition. The current position is null.");
+            // Set break flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml definition. The remaining count is null.");
+        // None of the comparisons above delivered a positive (r != 0) result.
+        // Therefore, increment the current position by one (pointer size).
+
+        move_position(p1, p2, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
     }
 }
 

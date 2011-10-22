@@ -59,138 +59,111 @@ void decode_xml_end_tag(void* p0, void* p1);
  *
  * @param p0 the destination model item
  * @param p1 the destination details item
- * @param p2 the break flag
+ * @param p2 the destination break flag
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining
  */
 void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml element content.");
 
-        int* rem = (int*) p4;
+    //
+    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
+    // Before arbitrary elements -- beginning with just "<" and a term -- can be identified,
+    // all other possibilities (declaration, definition, comment) have to have
+    // been processed, in order to be excluded.
+    // Also, the comment begin <!-- has to be searched BEFORE the definition begin <!.
+    // The very first comparison, however, is to search for the end tag begin "</".
+    // The reason is that all elements begin with a "<" character:
+    // - declaration: <?
+    // - comment: <!--
+    // - definition: <!
+    // - element: <
+    //
+    // CAUTION! The comparison result HAS TO BE ZERO (r == 0),
+    // if a detection is to be taking place!
+    // Many "detect" functions are called in a sequence, below.
+    // If the result of one detection function was positive (r == 1),
+    // then that function increments the current position and decrements the remaining count.
+    // In this case, further detection functions following afterwards might detect
+    // further characters and CHANGE the current position and remaining count, and so forth,
+    // which would have the effect of "jumping" over some characters and produce WRONG RESULTS!
+    // Therefore, the checks for (r == 0) below avoid another detection,
+    // if the result already has a value unequal zero.
+    //
+    // CAUTION! If a detection was successful, then the current position and remaining count
+    // were already adapted within the corresponding "detect" function (as called below),
+    // so that they now point to the first character following the detected character sequence.
+    // Any "decode" function called afterwards can rely on this and start processing right away.
+    //
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-            void** pos = (void**) p3;
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        detect_array((void*) &r, p3, p4, (void*) END_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) END_TAG_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
 
-                int* b = (int*) p2;
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml element content.");
+            decode_xml_end_tag(p3, p4);
 
-                //
-                // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-                // Before arbitrary elements -- beginning with just "<" and a term -- can be identified,
-                // all other possibilities (declaration, definition, comment) have to have
-                // been processed, in order to be excluded.
-                // Also, the comment begin <!-- has to be searched BEFORE the definition begin <!.
-                // The very first comparison, however, is to search for the end tag begin "</".
-                // The reason is that all elements begin with a "<" character:
-                // - declaration: <?
-                // - comment: <!--
-                // - definition: <!
-                // - element: <
-                //
-                // CAUTION! The comparison result HAS TO BE ZERO (r == 0),
-                // if a detection is to be taking place!
-                // Many "detect" functions are called in a sequence, below.
-                // If the result of one detection function was positive (r == 1),
-                // then that function increments the current position and decrements the remaining count.
-                // In this case, further detection functions following afterwards might detect
-                // further characters and CHANGE the current position and remaining count, and so forth,
-                // which would have the effect of "jumping" over some characters and produce WRONG RESULTS!
-                // Therefore, the checks for (r == 0) below avoid another detection,
-                // if the result already has a value unequal zero.
-                //
-                // CAUTION! If a detection was successful, then the current position and remaining count
-                // were already adapted within the corresponding "detect" function (as called below),
-                // so that they now point to the first character following the detected character sequence.
-                // Any "decode" function called afterwards can rely on this and start processing right away.
-                //
-
-                // The comparison result.
-                int r = *FALSE_BOOLEAN_MEMORY_MODEL;
-
-                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                    detect_array((void*) &r, p3, p4, (void*) END_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) END_TAG_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                        decode_xml_end_tag(p3, p4);
-
-                        // Set break flag, because this xml element's end tag
-                        // has been reached and its content fully been decoded.
-                        *b = *TRUE_BOOLEAN_MEMORY_MODEL;
-                    }
-                }
-
-                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                    detect_array((void*) &r, p3, p4, (void*) DECLARATION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DECLARATION_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                        // The data contained in an XML declaration are added to the destination details.
-                        decode_xml_declaration(p1, p3, p4);
-                    }
-                }
-
-                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                    detect_array((void*) &r, p3, p4, (void*) COMMENT_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) COMMENT_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                        // The data contained in an XML comment are just ignored.
-                        decode_xml_comment(p3, p4);
-                    }
-                }
-
-                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                    detect_array((void*) &r, p3, p4, (void*) DEFINITION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DEFINITION_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                        // The data contained in an XML definition are added to the destination details.
-                        decode_xml_definition(p1, p3, p4);
-                    }
-                }
-
-                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                    detect_array((void*) &r, p3, p4, (void*) START_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) START_TAG_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                        // The data contained in an XML element are added to the destination model.
-                        decode_xml_element(p0, p3, p4);
-                    }
-                }
-
-                if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                    // None of the comparisons above matched.
-                    // Therefore, increment the source data position by ONE (pointer size).
-
-                    move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-                }
-
-            } else {
-
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml element content. The break flag is null.");
-            }
-
-        } else {
-
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml element content. The current position is null.");
+            // Set break flag, because this xml element's end tag
+            // has been reached and its content fully been decoded.
+            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml element content. The remaining count is null.");
+        detect_array((void*) &r, p3, p4, (void*) DECLARATION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DECLARATION_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            // The data contained in an XML declaration are added to the destination details.
+            decode_xml_declaration(p1, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        detect_array((void*) &r, p3, p4, (void*) COMMENT_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) COMMENT_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            // The data contained in an XML comment are just ignored.
+            decode_xml_comment(p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        detect_array((void*) &r, p3, p4, (void*) DEFINITION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DEFINITION_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            // The data contained in an XML definition are added to the destination details.
+            decode_xml_definition(p1, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        detect_array((void*) &r, p3, p4, (void*) START_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) START_TAG_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            // The data contained in an XML element are added to the destination model.
+            decode_xml_element(p0, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        // None of the comparisons above matched.
+        // Therefore, increment the source data position by ONE (pointer size).
+
+        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
     }
 }
 

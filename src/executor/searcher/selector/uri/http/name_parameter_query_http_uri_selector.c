@@ -41,63 +41,50 @@
 /**
  * Selects the http uri query parameter name.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the break flag
- * @param p7 the current position (Hand over as reference!)
- * @param p8 the remaining count
- * @param p9 the parameter value (Hand over as reference!)
- * @param p10 the parameter value count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the break flag
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
+ * @param p5 the parameter value (Hand over as reference!)
+ * @param p6 the parameter value count
  */
-void select_http_uri_query_parameter_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void select_http_uri_query_parameter_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select http uri query parameter name.");
 
-        int* b = (int*) p6;
+    //
+    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
+    //
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select http uri query parameter name.");
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        //
-        // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-        //
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            detect_array((void*) &r, p7, p8, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                //
-                // The separator = was found.
-                // It serves as delimiter for the parameter name,
-                // so that the calling function knows its count (length).
-                // The remaining data represent the parameter value,
-                // which was handed over to here and can now be assigned.
+            //
+            // The separator = was found.
+            // It serves as delimiter for the parameter name,
+            // so that the calling function knows its count (length).
+            // The remaining data represent the parameter value,
+            // which was handed over to here and can now be assigned.
 /*?? TODO!
-                assign(p9, p7, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-                assign(p10, p8, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
+            assign(p9, p7, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+            assign(p10, p8, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
 */
 
-                // Set break flag.
-                *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
-            }
+            // Set break flag.
+            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            move_position(p7, p8, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-        }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select http uri query parameter name. The break flag is null.");
+        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
     }
 }
 

@@ -64,71 +64,58 @@
 /**
  * Selects the http request protocol.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the break flag
- * @param p7 the current position (Hand over as reference!)
- * @param p8 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the break flag
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
  */
-void select_http_request_protocol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void select_http_request_protocol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select http request protocol.");
 
-        int* b = (int*) p6;
+    //
+    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
+    // Before the request response line final element http name (ending with "carriage return"
+    // and "line feed") can be identified, the possibility of a body begin http name
+    // (twice "carriage return" and "line feed") indicating the message body
+    // has to be considered:
+    // - twice "carriage return" and "line feed"
+    // - "carriage return" and "line feed"
+    //
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select http request protocol.");
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        //
-        // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-        // Before the request response line final element http name (ending with "carriage return"
-        // and "line feed") can be identified, the possibility of a body begin http name
-        // (twice "carriage return" and "line feed") indicating the message body
-        // has to be considered:
-        // - twice "carriage return" and "line feed"
-        // - "carriage return" and "line feed"
-        //
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        detect_array((void*) &r, p3, p4, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            detect_array((void*) &r, p7, p8, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+            decode_http_request_body(p0, p1, p3, p4);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                decode_http_request_body(p0, p1, p2, p3, p4, p5, p7, p8);
-
-                // Set break flag.
-                *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
-            }
+            // Set break flag.
+            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            detect_array((void*) &r, p7, p8, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                decode_http_request_header_argument(p0, p1, p2, p3, p4, p5, p7, p8);
+            decode_http_request_header_argument(p0, p1, p3, p4);
 
-                // Set break flag.
-                *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
-            }
+            // Set break flag.
+            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            move_position(p7, p8, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-        }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select http request protocol. The break flag is null.");
+        move_position(p3, p4, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
     }
 }
 

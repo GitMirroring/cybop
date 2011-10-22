@@ -62,43 +62,32 @@
 /**
  * Selects the percent-encoding vector element.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the break flag
- * @param p4 the current position (Hand over as reference!)
- * @param p5 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the break flag
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void select_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void select_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select percent-encoding vector element.");
 
-        int* b = (int*) p3;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select percent-encoding vector element.");
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        detect_array((void*) &r, p2, p3, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            detect_array((void*) &r, p4, p5, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                // Set break flag.
-                *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
-            }
+            // Set break flag.
+            copy_integer(p1, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            move_position(p4, p5, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-        }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select percent-encoding vector element. The break flag is null.");
+        move_position(p2, p3, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
     }
 }
 

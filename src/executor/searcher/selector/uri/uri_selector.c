@@ -58,105 +58,101 @@
  * further restrict the syntax and semantics of identifiers
  * using that scheme.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the current position (Hand over as reference!)
- * @param p7 the remaining count
- * @param p8 the scheme
- * @param p9 the scheme count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
+ * @param p4 the scheme
+ * @param p5 the scheme count
  */
-void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select uri.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p8, (void*) FTP_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p9, (void*) FTP_SCHEME_URI_MODEL_COUNT);
+        compare_all_array((void*) &r, p4, (void*) FTP_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p5, (void*) FTP_SCHEME_URI_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-            //?? TODO
-        }
-    }
-
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-        compare_all_array((void*) &r, p8, (void*) HTTP_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p9, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
-
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-            decode_http_uri(p0, p1, p2, p3, p4, p5, *((void**) p6), p7);
-        }
-    }
-
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-        compare_all_array((void*) &r, p8, (void*) LDAP_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p9, (void*) LDAP_SCHEME_URI_MODEL_COUNT);
-
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             //?? TODO
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p8, (void*) MAILTO_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p9, (void*) MAILTO_SCHEME_URI_MODEL_COUNT);
+        compare_all_array((void*) &r, p4, (void*) HTTP_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p5, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            decode_http_uri(p0, p1, *((void**) p2), p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        compare_all_array((void*) &r, p4, (void*) LDAP_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p5, (void*) LDAP_SCHEME_URI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             //?? TODO
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p8, (void*) NEWS_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p9, (void*) NEWS_SCHEME_URI_MODEL_COUNT);
+        compare_all_array((void*) &r, p4, (void*) MAILTO_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p5, (void*) MAILTO_SCHEME_URI_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-            //?? TODO
-        }
-    }
-
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-        compare_all_array((void*) &r, p8, (void*) TEL_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p9, (void*) TEL_SCHEME_URI_MODEL_COUNT);
-
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             //?? TODO
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p8, (void*) TELNET_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p9, (void*) TELNET_SCHEME_URI_MODEL_COUNT);
+        compare_all_array((void*) &r, p4, (void*) NEWS_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p5, (void*) NEWS_SCHEME_URI_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-            //?? TODO
-        }
-    }
-
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-        compare_all_array((void*) &r, p8, (void*) URN_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p9, (void*) URN_SCHEME_URI_MODEL_COUNT);
-
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             //?? TODO
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        compare_all_array((void*) &r, p4, (void*) TEL_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p5, (void*) TEL_SCHEME_URI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            //?? TODO
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        compare_all_array((void*) &r, p4, (void*) TELNET_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p5, (void*) TELNET_SCHEME_URI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            //?? TODO
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        compare_all_array((void*) &r, p4, (void*) URN_SCHEME_URI_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p5, (void*) URN_SCHEME_URI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            //?? TODO
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not select uri. The uri scheme is unknown.");
     }

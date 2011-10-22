@@ -43,61 +43,34 @@
  * @param p0 the destination details (Hand over as reference!)
  * @param p1 the destination details count
  * @param p2 the destination details size
- * @param p3 the break flag
- * @param p4 the current position (Hand over as reference!)
- * @param p5 the remaining count
+ * @param p3 the destination break flag
+ * @param p4 the source data position (pointer reference)
+ * @param p5 the source count remaining
  */
 void select_xml_declaration(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml declaration.");
 
-        int* rem = (int*) p5;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            void** pos = (void**) p4;
+        detect_array((void*) &r, p4, p5, (void*) DECLARATION_END_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DECLARATION_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
-            if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                int* b = (int*) p3;
-
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml declaration.");
-
-                // The comparison result.
-                int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
-
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    detect_array((void*) &r, p4, p5, (void*) DECLARATION_END_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) DECLARATION_END_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                        // Set break flag.
-                        *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
-                    }
-                }
-
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    // None of the comparisons above delivered a positive (r != 0) result.
-                    // Therefore, increment the current position by one (pointer size).
-
-                    move_position(p4, p5, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                }
-
-            } else {
-
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml declaration. The break flag is null.");
-            }
-
-        } else {
-
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml declaration. The current position is null.");
+            // Set break flag.
+            copy_integer(p3, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml declaration. The remaining count is null.");
+        // None of the comparisons above delivered a positive (r != 0) result.
+        // Therefore, increment the current position by one (pointer size).
+
+        move_position(p4, p5, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
     }
 }
 

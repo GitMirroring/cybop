@@ -40,119 +40,74 @@
 /**
  * Selects the attribute begin or tag end.
  *
- * @param p0 the has attribute flag
- * @param p1 the has content flag
- * @param p2 the is empty flag
- * @param p3 the current position (Hand over as reference!)
- * @param p4 the remaining count
+ * @param p0 the destination has attribute flag
+ * @param p1 the destination has content flag
+ * @param p2 the destination is empty flag
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
  */
 void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml attribute begin or tag end.");
 
-        int* rem = (int*) p4;
+    //
+    // CAUTION! The ORDER of the following function calls is IMPORTANT!
+    // The empty tag end "/>" has to be searched BEFORE
+    // the simple tag end ">", because of the slash "/" character.
+    //
+    // CAUTION! The comparison result HAS TO BE ZERO, if a detection is to be taking place!
+    // Many "detect" functions are called in a sequence, below.
+    // If the result of one detection function was positive (r == 1),
+    // then that function increments the current position and decrements the remaining count.
+    // In this case, further detection functions following afterwards might detect
+    // further characters and CHANGE the current position and remaining count, and so forth,
+    // which would have the effect of "jumping" over some characters and produce WRONG RESULTS!
+    // Therefore, the checks for (r == 0) below avoid another detection,
+    // if the result already has a value unequal zero.
+    //
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-            void** pos = (void**) p3;
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        detect_array((void*) &r, p3, p4, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
-                int* ie = (int*) p2;
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                if (p1 != *NULL_POINTER_MEMORY_MODEL) {
-
-                    int* hc = (int*) p1;
-
-                    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
-
-                        int* ha = (int*) p0;
-
-                        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml attribute begin or tag end.");
-
-                        //
-                        // CAUTION! The ORDER of the following function calls is IMPORTANT!
-                        // The empty tag end "/>" has to be searched BEFORE
-                        // the simple tag end ">", because of the slash "/" character.
-                        //
-                        // CAUTION! The comparison result HAS TO BE ZERO, if a detection is to be taking place!
-                        // Many "detect" functions are called in a sequence, below.
-                        // If the result of one detection function was positive (r == 1),
-                        // then that function increments the current position and decrements the remaining count.
-                        // In this case, further detection functions following afterwards might detect
-                        // further characters and CHANGE the current position and remaining count, and so forth,
-                        // which would have the effect of "jumping" over some characters and produce WRONG RESULTS!
-                        // Therefore, the checks for (r == 0) below avoid another detection,
-                        // if the result already has a value unequal zero.
-                        //
-
-                        // The comparison result.
-                        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
-
-                        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                            detect_array((void*) &r, p3, p4, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                                // The empty tag end was found.
-                                // Set is empty flag.
-                                *ie = *NUMBER_1_INTEGER_MEMORY_MODEL;
-                            }
-                        }
-
-                        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                            detect_array((void*) &r, p3, p4, (void*) TAG_END_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) TAG_END_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                                // The tag end, indicating subsequent element content, was found.
-                                // Set has content flag.
-                                *hc = *NUMBER_1_INTEGER_MEMORY_MODEL;
-                            }
-                        }
-
-                        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                            detect_array((void*) &r, p3, p4, (void*) ATTRIBUTE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) ATTRIBUTE_BEGIN_XML_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-                            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                                // The tag name end, indicating subsequent attributes, was found.
-                                // Set has attribute flag.
-                                *ha = *NUMBER_1_INTEGER_MEMORY_MODEL;
-                            }
-                        }
-
-                        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                            move_position(p3, p4, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                        }
-
-                    } else {
-
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml attribute begin or tag end. The has attribute flag is null.");
-                    }
-
-                } else {
-
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml attribute begin or tag end. The has content flag is null.");
-                }
-
-            } else {
-
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml attribute begin or tag end. The is empty flag is null.");
-            }
-
-        } else {
-
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml attribute begin or tag end. The current position is null.");
+            // The empty tag end was found.
+            // Set is empty flag.
+            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xml attribute begin or tag end. The remaining count is null.");
+        detect_array((void*) &r, p3, p4, (void*) TAG_END_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            // The tag end, indicating subsequent element content, was found.
+            // Set has content flag.
+            copy_integer(p1, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        detect_array((void*) &r, p3, p4, (void*) ATTRIBUTE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) ATTRIBUTE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            // The tag name end, indicating subsequent attributes, was found.
+            // Set has attribute flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
     }
 }
 

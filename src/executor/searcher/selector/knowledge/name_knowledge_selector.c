@@ -61,48 +61,48 @@
  * Selects the knowledge name.
  *
  * @param p0 the break flag
- * @param p1 the current position (Hand over as reference!)
- * @param p2 the remaining count
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
 void select_knowledge_name(void* p0, void* p1, void* p2) {
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select knowledge name.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
     // The "." or "#" indicate that a new sub part or meta property begins.
     // They thus get detected as delimiter of the current part name.
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         // CAUTION! Do NOT move the position (last parametre) here,
         // since the "." has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (model).
-        detect_array((void*) &r, p1, p2, (void*) PART_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PART_SEPARATOR_CYBOL_NAME_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) PART_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PART_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             // Set break flag.
-            copy_integer(p0, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         // CAUTION! Do NOT move the position (last parametre) here,
         // since the "#" has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (details).
-        detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             // Set break flag.
-            copy_integer(p0, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         // Move position by one if nothing was found.
         move_position(p1, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
