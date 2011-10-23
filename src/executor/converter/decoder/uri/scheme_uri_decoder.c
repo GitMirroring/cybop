@@ -41,72 +41,66 @@
 /**
  * Decodes the uri scheme.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the current position (Hand over as reference!)
- * @param p7 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void decode_uri_scheme(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_uri_scheme(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode uri scheme.");
 
-        int* rem = (int*) p7;
+    // The element.
+    void* e = *NULL_POINTER_MEMORY_MODEL;
+    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    // Initialise element.
+    copy_pointer((void*) &e, p2);
 
-            void** pos = (void**) p6;
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode uri scheme.");
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-            // The element.
-            void* e = *pos;
-            int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // The break flag.
-            int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            break;
+        }
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        select_uri_scheme(p0, p1, (void*) &b, p2, p3);
 
-                if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    break;
-                }
+            //
+            // Add scheme as full text string.
+            //
 
-                select_uri_scheme(p0, p1, p2, p3, p4, p5, (void*) &b, p6, p7);
+            // The part.
+            void* p = *NULL_POINTER_MEMORY_MODEL;
 
-                if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            // Allocate part.
+            allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-                    // Add scheme as full text string.
-                    append_part(p0, p1, p2,
-                        (void*) CYBOI_SCHEME_URI_NAME, (void*) CYBOI_SCHEME_URI_NAME_COUNT,
-                        (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT,
-                        e, (void*) &ec, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+            // Fill part.
+            overwrite_part_element(p, (void*) CYBOI_SCHEME_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_SCHEME_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+            overwrite_part_element(p, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+            overwrite_part_element(p, e, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) &ec, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
-                    break;
+            // Append part to destination model.
+            append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
-                } else {
-
-                    // Increment element count.
-                    ec++;
-                }
-            }
-
-            // Decode uri depending on given scheme (http, ftp etc.).
-            select_uri(p0, p1, p2, p3, p4, p5, p6, p7, e, (void*) &ec);
+            break;
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode uri scheme. The current position is null.");
+            // Increment element count.
+            ec++;
         }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode uri scheme. The remaining count is null.");
     }
+
+    // Decode uri depending on given scheme (http, ftp etc.).
+    select_uri(p0, p1, p2, p3, e, (void*) &ec);
 }
 
 /* SCHEME_URI_DECODER_SOURCE */

@@ -47,35 +47,21 @@
  */
 void decode_xml_element_content(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml element content.");
 
-        int* rem = (int*) p3;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml element content.");
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-        // The break flag.
-        int b = *FALSE_BOOLEAN_MEMORY_MODEL;
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml element content. The source count remaining is zero or smaller.");
-
-                break;
-            }
-
-            select_xml_element_content(p0, p1, (void*) &b, p2, p3);
-
-            if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                break;
-            }
+            break;
         }
 
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml element content. The source count remaining is null.");
+        select_xml_element_content(p0, p1, (void*) &b, p2, p3);
     }
 }
 

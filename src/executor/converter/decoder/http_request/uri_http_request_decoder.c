@@ -41,13 +41,11 @@
 /**
  * Decodes the http request uri content.
  *
- * @param p0 the destination compound (Hand over as reference!)
- * @param p1 the destination compound count
- * @param p2 the destination compound size
- * @param p3 the source uri
- * @param p4 the source uri count
+ * @param p0 the destination details item
+ * @param p1 the source uri data
+ * @param p2 the source uri count
  */
-void decode_http_request_uri_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_http_request_uri_content(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_MEMORY_MODEL) {
 
@@ -73,7 +71,7 @@ void decode_http_request_uri_content(void* p0, void* p1, void* p2, void* p3, voi
         //
 
         // Decode percent-encoded character array into character array.
-        decode_percent_encoding_vector((void*) &p, pc, ps, p3, p4);
+        decode_percent_encoding_vector((void*) &p, pc, ps, p1, p2);
 
 /*??
     fwprintf(stdout, L"TEST p: %s \n", (char*) p);
@@ -108,11 +106,20 @@ void decode_http_request_uri_content(void* p0, void* p1, void* p2, void* p3, voi
         // 2 as compound hierarchy consisting of parts
         //
 
+        // The part.
+        void* p = *NULL_POINTER_MEMORY_MODEL;
+
+        // Allocate part.
+        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+
+        // Fill part.
         // Add uri as full text string.
-        append_part(p0, p1, p2,
-            (void*) CYBOI_URI_TEXT_HTTP_NAME, (void*) CYBOI_URI_TEXT_HTTP_NAME_COUNT,
-            (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT,
-            s, sc, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+        overwrite_part_element(p, (void*) CYBOI_URI_TEXT_HTTP_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_URI_TEXT_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+        overwrite_part_element(p, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+        overwrite_part_element(p, s, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) &sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+
+        // Append part to destination model.
+        append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
         // The uri part name, abstraction, model, details.
         void* n = *NULL_POINTER_MEMORY_MODEL;
@@ -153,7 +160,7 @@ void decode_http_request_uri_content(void* p0, void* p1, void* p2, void* p3, voi
 
         // Add uri as compound hierarchy consisting of parts.
         // CAUTION! Hand over the name as reference!
-        append_compound_element_by_name(*dd, p1, p2, (void*) &n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
+        append_compound_element_by_name(*dd, (void*) &n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
 
     } else {
 
@@ -164,64 +171,46 @@ void decode_http_request_uri_content(void* p0, void* p1, void* p2, void* p3, voi
 /**
  * Decodes the http request uri.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the current position (Hand over as reference!)
- * @param p7 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void decode_http_request_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_http_request_uri(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http request uri.");
 
-        int* rem = (int*) p7;
+    // The element.
+    void* e = *NULL_POINTER_MEMORY_MODEL;
+    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    // Initialise element.
+    copy_pointer((void*) &e, p2);
 
-            void** pos = (void**) p6;
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http request uri.");
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-            // The element.
-            void* e = *pos;
-            int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // The break flag.
-            int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            break;
+        }
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        select_http_request_uri(p0, p1, (void*) &b, p2, p3);
 
-                if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    break;
-                }
+            decode_http_request_uri_content(p1, e, (void*) &ec);
 
-                select_http_request_uri(p0, p1, p2, p3, p4, p5, (void*) &b, p6, p7);
-
-                if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    decode_http_request_uri_content(p3, p4, p5, e, (void*) &ec);
-
-                    break;
-
-                } else {
-
-                    // Increment uri count.
-                    ec++;
-                }
-            }
+            break;
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http request uri. The current position is null.");
+            // Increment uri count.
+            ec++;
         }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http request uri. The remaining count is null.");
     }
 }
 

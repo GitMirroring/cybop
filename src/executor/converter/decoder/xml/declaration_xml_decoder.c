@@ -40,41 +40,27 @@
 /**
  * Decodes the xml declaration.
  *
- * @param p0 the destination details (Hand over as reference!)
- * @param p1 the destination details count
- * @param p2 the destination details size
- * @param p3 the current position (Hand over as reference!)
- * @param p4 the remaining count
+ * @param p0 the destination details item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void decode_xml_declaration(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_xml_declaration(void* p0, void* p1, void* p2) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml declaration.");
 
-        int* rem = (int*) p4;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml declaration.");
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-        // The break flag.
-        int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                break;
-            }
-
-            select_xml_declaration(p0, p1, p2, (void*) &b, p3, p4);
-
-            if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                break;
-            }
+            break;
         }
 
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml declaration. The remaining bytes count is null.");
+        select_xml_declaration(p0, (void*) &b, p1, p2);
     }
 }
 

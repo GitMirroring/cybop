@@ -42,29 +42,28 @@
  * Converts the given wide characters to characters and
  * appends them to the destination.
  *
- * @param p0 the destination (Hand over as reference!)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source
- * @param p4 the source count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void select_http_response_header_entry_overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_http_response_header_entry_overwrite_array(void* p0, void* p1, void* p2) {
 
-    // The character array.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
-    void* ac = *NULL_POINTER_MEMORY_MODEL;
-    void* as = *NULL_POINTER_MEMORY_MODEL;
+    // The character data, count, size.
+    void* d = *NULL_POINTER_MEMORY_MODEL;
+    int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int s = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    // Allocate character array.
-    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    // Allocate character data.
+    allocate_array((void*) &d, (void*) &s, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-    // Encode wide character array into multibyte character array.
-    encode_utf_8_unicode_character_vector((void*) &a, ac, as, p3, p4);
+    // Encode wide character array into multibyte character data array.
+    encode_utf_8_unicode_character_vector((void*) &d, (void*) &c, (void*) &s, p1, p2);
 
-    overwrite_array(p0, a, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, ac, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    // Append part to destination details.
+    append_item_element(p0, d, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, c, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-    // Deallocate character array.
-    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    // Deallocate character data.
+    deallocate_array((void*) &d, (void*) &s, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 }
 
 /**

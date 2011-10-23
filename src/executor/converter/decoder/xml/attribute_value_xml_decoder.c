@@ -40,77 +40,46 @@
 /**
  * Decodes the xml attribute value.
  *
- * @param p0 the attribute value (Hand over as reference!)
- * @param p1 the attribute value count
- * @param p2 the current position (Hand over as reference!)
- * @param p3 the remaining count
+ * @param p0 the destination attribute value (pointer reference)
+ * @param p1 the destination attribute value count
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
 void decode_xml_attribute_value(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
 
-        int* rem = (int*) p3;
+        int* avc = (int*) p1;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml attribute value.");
 
-            void** pos = (void**) p2;
+        // The break flag.
+        int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-            if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        // Initialise attribute value.
+        copy_pointer(p0, p2);
 
-                int* avc = (int*) p1;
+        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-                if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-                    void** av = (void**) p0;
+            if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml attribute value.");
-
-                    // Set attribute value.
-                    *av = *pos;
-
-                    // The break flag.
-                    int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
-
-                    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
-
-                        if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute value. The remaining count is zero or smaller.");
-
-                            break;
-                        }
-
-                        select_xml_attribute_value((void*) &b, p2, p3);
-
-                        if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                            break;
-
-                        } else {
-
-                            // Increment attribute value count.
-                            (*avc)++;
-                        }
-                    }
-
-                } else {
-
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute value. The attribute value is null.");
-                }
-
-            } else {
-
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute value. The attribute value count is null.");
+                break;
             }
 
-        } else {
+            select_xml_attribute_value((void*) &b, p2, p3);
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute value. The current position is null.");
+            if (b == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+                // Increment attribute value count.
+                (*avc)++;
+            }
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute value. The remaining count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute value. The attribute value count is null.");
     }
 }
 

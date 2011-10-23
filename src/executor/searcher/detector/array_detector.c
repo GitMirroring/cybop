@@ -65,64 +65,41 @@ void detect_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         int* m = (int*) p6;
 
-        if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
 
-            int* c = (int*) p5;
+            int* r = (int*) p0;
 
-            if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Detect array.");
 
-                int* rem = (int*) p2;
+            // The count flag.
+            int c = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-                if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+            // CAUTION! This comparison ensures that array boundaries are not crossed.
+            // The count is used for both, the array AND source data.
+            compare_integer_greater_or_equal((void*) &c, p2, p5);
 
-                    void** pos = (void**) p1;
+            if (c != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                // CAUTION! The remaining count may NOT be handed over as position count,
+                // since it might be greater than the array count and would thus differ.
+                compare_all_array(p0, *((void**) p1), p3, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, p4, p5, p5);
 
-                        int* r = (int*) p0;
+                if (*r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Detect array.");
+                    if (*m != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                        // CAUTION! This comparison ensures that array boundaries
-                        // of p4 / element count / *ec are not crossed, since p4 is
-                        // handed over as count for the source p3 AND destination *pos.
-                        if (*rem >= *c) {
-
-                            // CAUTION! The remaining count may NOT be handed over as position count,
-                            // since it might be greater than the array count and would thus differ.
-                            compare_all_array(p0, *pos, p3, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, p4, p5, p5);
-
-                            if (*r != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                                if (*m != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-                                    move_position(p1, p2, p4, p5);
-                                }
-                            }
-
-                        } else {
-
-                            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The remaining count is smaller than the array count.");
-                        }
-
-                    } else {
-
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The comparison result is null.");
+                        move_position(p1, p2, p4, p5);
                     }
-
-                } else {
-
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The current position is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The remaining count is null.");
+                log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The remaining count is smaller than the array count.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The element count is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The comparison result is null.");
         }
 
     } else {

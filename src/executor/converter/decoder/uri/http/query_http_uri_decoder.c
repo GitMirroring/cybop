@@ -41,13 +41,11 @@
 /**
  * Decodes the http uri query content.
  *
- * @param p0 the destination compound (Hand over as reference!)
- * @param p1 the destination compound count
- * @param p2 the destination compound size
- * @param p3 the source query
- * @param p4 the source query count
+ * @param p0 the destination model item
+ * @param p1 the source query
+ * @param p2 the source query count
  */
-void decode_http_uri_query_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_http_uri_query_content(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_MEMORY_MODEL) {
 
@@ -86,11 +84,26 @@ void decode_http_uri_query_content(void* p0, void* p1, void* p2, void* p3, void*
 
         // Decode query model and details.
         // CAUTION! Hand over p3 as reference!
-        decode_http_uri_query_parameter((void*) &m, (void*) mc, (void*) ms, (void*) &d, (void*) dc, (void*) ds, (void*) &p3, p4);
+        decode_http_uri_query_parameter((void*) &m, (void*) mc, (void*) ms, (void*) &d, (void*) dc, (void*) ds, (void*) &p1, p2);
 
         // Add query as compound hierarchy consisting of parts.
         // CAUTION! Hand over the name as reference!
-        append_compound_element_by_name(*dd, p1, p2, (void*) &n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
+        append_compound_element_by_name(*dd, (void*) &n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
+--
+        // The part.
+        void* p = *NULL_POINTER_MEMORY_MODEL;
+
+        // Allocate part.
+        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+
+        // Fill part.
+        overwrite_part_element(p, (void*) CYBOI_HOSTNAME_AUTHORITY_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_HOSTNAME_AUTHORITY_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+        overwrite_part_element(p, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+        overwrite_part_element(p, e, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) &ec, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+
+        // Append part to destination model.
+        append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+--
 
     } else {
 
@@ -101,71 +114,49 @@ void decode_http_uri_query_content(void* p0, void* p1, void* p2, void* p3, void*
 /**
  * Decodes the http uri query.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the current position (Hand over as reference!)
- * @param p7 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void decode_http_uri_query(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_http_uri_query(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri query.");
 
-        int* rem = (int*) p7;
+    // The element.
+    void* e = *NULL_POINTER_MEMORY_MODEL;
+    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    // Initialise element.
+    copy_pointer((void*) &e, p2);
 
-            void** pos = (void**) p6;
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri query.");
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-            // The element.
-            void* e = *pos;
-            int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // The break flag.
-            int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
-
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
-
-                if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    break;
-                }
-
-                select_http_uri_query(p0, p1, p2, p3, p4, p5, (void*) &b, p6, p7);
-
-                if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    break;
-
-                } else {
-
-                    // Increment element count.
-                    ec++;
-                }
-            }
-
-            // The query is always added, independent from whether
-            // or not a fragment separator was found.
-            //
-            // If a fragment was found right at
-            // the first position, then no query was given.
-            // In this case, a query with empty value is added.
-            decode_http_uri_query_content(p0, p1, p2, e, (void*) &ec);
-
-        } else {
-
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http uri query. The current position is null.");
+            break;
         }
 
-    } else {
+        select_http_uri_query(p0, p1, (void*) &b, p2, p3);
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http uri query. The remaining count is null.");
+        if (b == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            // Increment element count.
+            ec++;
+        }
     }
+
+    // The query is always added, independent from whether
+    // or not a fragment separator was found.
+    //
+    // If a fragment was found right at
+    // the first position, then no query was given.
+    // In this case, a query with empty value is added.
+    decode_http_uri_query_content(p0, e, (void*) &ec);
 }
 
 /* QUERY_HTTP_URI_DECODER_SOURCE */

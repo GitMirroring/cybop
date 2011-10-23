@@ -42,110 +42,91 @@
 /**
  * Decodes the xml attribute.
  *
- * @param p0 the destination details (Hand over as reference!)
- * @param p1 the destination details count
- * @param p2 the destination details size
- * @param p3 the has content flag
- * @param p4 the is empty flag
- * @param p5 the current position (Hand over as reference!)
- * @param p6 the remaining count
+ * @param p0 the destination details item
+ * @param p1 the has content flag
+ * @param p2 the is empty flag
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
  */
-void decode_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void decode_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
 
-        int* rem = (int*) p6;
+        int* ie = (int*) p2;
 
-        if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
 
-            void** pos = (void**) p5;
+            int* hc = (int*) p1;
 
-            if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml attribute.");
 
-                int* ie = (int*) p4;
+            // The source attribute name.
+            void* an = *NULL_POINTER_MEMORY_MODEL;
+            int anc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            // The source attribute value.
+            void* av = *NULL_POINTER_MEMORY_MODEL;
+            int avc = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-                if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+            decode_xml_attribute_name((void*) &an, (void*) &anc, p3, p4);
+            decode_xml_attribute_value((void*) &av, (void*) &avc, p3, p4);
 
-                    int* hc = (int*) p3;
+            // The part.
+            void* p = *NULL_POINTER_MEMORY_MODEL;
 
-                    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            // Allocate part.
+            allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-                        void** dd = (void**) p0;
+            // Fill part.
+            overwrite_part_element(p, an, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) &anc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+            overwrite_part_element(p, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+            overwrite_part_element(p, av, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) &avc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
-                        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml attribute.");
+            // Append part to destination model.
+            append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
-                        // The source attribute name.
-                        void* an = *NULL_POINTER_MEMORY_MODEL;
-                        int anc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                        // The source attribute value.
-                        void* av = *NULL_POINTER_MEMORY_MODEL;
-                        int avc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            // The has attribute flag.
+            // CAUTION! This HAS TO BE a local variable, because the function
+            // may be called recursively and if the flag were handed over
+            // as argument to this function, then it would have an initial value
+            // from a previous call of this function, which might lead to wrong results.
+            int ha = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-                        decode_xml_attribute_name((void*) &an, (void*) &anc, p5, p6);
-                        decode_xml_attribute_value((void*) &av, (void*) &avc, p5, p6);
+            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-                        append_part(p0, p1, p2, an, (void*) &anc,
-                            (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT,
-                            av, (void*) &avc, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+                compare_integer_smaller_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-                        // The has attribute flag.
-                        // CAUTION! This HAS TO BE a local variable, because the function
-                        // may be called recursively and if the flag were handed over
-                        // as argument to this function, then it would have an initial value
-                        // from a previous call of this function, which might lead to wrong results.
-                        int ha = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
-
-                            if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute. The remaining count is zero or smaller.");
-
-                                break;
-                            }
-
-                            select_xml_attribute_begin_or_tag_end((void*) &ha, p3, p4, p5, p6);
-
-                            if (ha != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                                // A space character as indicator of subsequent attributes was detected.
-
-                                // Call this function itself recursively.
-                                decode_xml_attribute(p0, p1, p2, p3, p4, p5, p6);
-                            }
-
-                            if ((*hc != *NUMBER_0_INTEGER_MEMORY_MODEL) || (*ie != *NUMBER_0_INTEGER_MEMORY_MODEL)) {
-
-                                // A tag end character as indicator of subsequent element content or
-                                // an empty tag end character was detected.
-
-                                break;
-                            }
-                        }
-
-                    } else {
-
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute. The destination details is null.");
-                    }
-
-                } else {
-
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute. The has content flag is null.");
+                    break;
                 }
 
-            } else {
+                select_xml_attribute_begin_or_tag_end((void*) &ha, p1, p2, p3, p4);
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute. The is empty flag is null.");
+                if (ha != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+                    // A space character as indicator of subsequent attributes was detected.
+
+                    // Call this function itself recursively.
+                    decode_xml_attribute(p0, p1, p2, p3, p4);
+                }
+
+                if ((*hc != *FALSE_BOOLEAN_MEMORY_MODEL) || (*ie != *FALSE_BOOLEAN_MEMORY_MODEL)) {
+
+                    // A tag end character as indicator of subsequent element content or
+                    // an empty tag end character was detected.
+
+                    break;
+                }
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute. The current position is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute. The has content flag is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute. The remaining count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml attribute. The is empty flag is null.");
     }
 }
 

@@ -40,13 +40,15 @@
 /**
  * Decodes the http uri authority content.
  *
- * @param p0 the destination compound (Hand over as reference!)
- * @param p1 the destination compound count
- * @param p2 the destination compound size
- * @param p3 the source uri
- * @param p4 the source uri count
+ * The uri is added twice to the destination details:
+ * - as full text representation
+ * - as compound hierarchy consisting of parts
+ *
+ * @param p0 the destination model item
+ * @param p1 the source uri
+ * @param p2 the source uri count
  */
-void decode_http_uri_authority_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_http_uri_authority_content(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_MEMORY_MODEL) {
 
@@ -55,55 +57,49 @@ void decode_http_uri_authority_content(void* p0, void* p1, void* p2, void* p3, v
         log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri authority content.");
 
         //
-        // CAUTION! The uri is added twice to the destination details:
-        //
-        // 1 as full text representation
-        // 2 as compound hierarchy consisting of parts
+        // Add authority as full text representation.
         //
 
-        // Add authority as full text string.
-        append_part(p0, p1, p2,
-            (void*) CYBOI_AUTHORITY_TEXT_URI_NAME, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME_COUNT,
-            (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT,
-            p3, p4, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+        // The text part.
+        void* t = *NULL_POINTER_MEMORY_MODEL;
 
-        // The authority name, abstraction, model, details.
-        void* n = *NULL_POINTER_MEMORY_MODEL;
-        void* nc = *NULL_POINTER_MEMORY_MODEL;
-        void* ns = *NULL_POINTER_MEMORY_MODEL;
-        void* a = *NULL_POINTER_MEMORY_MODEL;
-        void* ac = *NULL_POINTER_MEMORY_MODEL;
-        void* as = *NULL_POINTER_MEMORY_MODEL;
-        void* m = *NULL_POINTER_MEMORY_MODEL;
-        void* mc = *NULL_POINTER_MEMORY_MODEL;
-        void* ms = *NULL_POINTER_MEMORY_MODEL;
-        void* d = *NULL_POINTER_MEMORY_MODEL;
-        void* dc = *NULL_POINTER_MEMORY_MODEL;
-        void* ds = *NULL_POINTER_MEMORY_MODEL;
+        // Allocate text part.
+        allocate_part((void*) &t, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-        // Allocate authority.
-        allocate_part((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-            (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-            (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+        // Fill text part.
+        overwrite_part_element(t, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+        overwrite_part_element(t, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+        overwrite_part_element(t, p1, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
-        // Decode authority name.
-        decode((void*) &n, (void*) nc, (void*) ns, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) CYBOI_AUTHORITY_URI_NAME, (void*) CYBOI_AUTHORITY_URI_NAME_COUNT, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) PLAIN_TEXT_CYBOL_ABSTRACTION, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION_COUNT);
+        // Append text part to destination model.
+        append_item_element(p0, (void*) &t, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
-        // Decode authority abstraction.
-        decode((void*) &a, (void*) ac, (void*) as, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) PLAIN_TEXT_CYBOL_ABSTRACTION, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION_COUNT);
+        //
+        // Add authority as hierarchy consisting of parts.
+        //
 
-        // Decode authority model and details.
-        decode((void*) &m, (void*) mc, (void*) ms, (void*) &d, (void*) dc, (void*) ds,
-            p3, p4, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) AUTHORITY_TEXT_CYBOL_ABSTRACTION, (void*) AUTHORITY_TEXT_CYBOL_ABSTRACTION_COUNT);
+        // The hierarchy part.
+        void* h = *NULL_POINTER_MEMORY_MODEL;
+        // The hierarchy part model, details.
+        void* hm = *NULL_POINTER_MEMORY_MODEL;
+        void* hd = *NULL_POINTER_MEMORY_MODEL;
 
-        // Add authority as compound hierarchy consisting of parts.
-        // CAUTION! Hand over the name as reference!
-        append_compound_element_by_name(*dd, p1, p2, (void*) &n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
+        // Allocate hierarchy part.
+        allocate_part((void*) &h, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION);
+
+        // Fill hierarchy part.
+        overwrite_part_element(h, (void*) CYBOI_AUTHORITY_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_AUTHORITY_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+        overwrite_part_element(h, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+
+        // Get hierarchy part model, details.
+        copy_array_forward((void*) &hm, h, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+        copy_array_forward((void*) &hd, h, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+
+        // Receive hierarchy model, details.
+        receive_inline(hm, hd, p1, p2, (void*) AUTHORITY_TEXT_CYBOL_ABSTRACTION);
+
+        // Append hierarchy part to destination model.
+        append_item_element(p0, (void*) &h, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     } else {
 
@@ -114,71 +110,49 @@ void decode_http_uri_authority_content(void* p0, void* p1, void* p2, void* p3, v
 /**
  * Decodes the http uri authority.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the current position (Hand over as reference!)
- * @param p7 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void decode_http_uri_authority(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_http_uri_authority(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri authority.");
 
-        int* rem = (int*) p7;
+    // The element.
+    void* e = *NULL_POINTER_MEMORY_MODEL;
+    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    // Initialise element.
+    copy_pointer((void*) &e, p2);
 
-            void** pos = (void**) p6;
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri authority.");
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-            // The element.
-            void* e = *pos;
-            int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // The break flag.
-            int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
-
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
-
-                if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    break;
-                }
-
-                select_http_uri_authority(p0, p1, p2, p3, p4, p5, (void*) &b, p6, p7);
-
-                if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    break;
-
-                } else {
-
-                    // Increment element count.
-                    ec++;
-                }
-            }
-
-            // The authority is always added, independent from whether
-            // or not a path or query or fragment separator was found.
-            //
-            // If a path or query or fragment was found right at
-            // the first position, then no authority was given.
-            // In this case, an authority with empty value is added.
-            decode_http_uri_authority_content(p0, p1, p2, e, (void*) &ec);
-
-        } else {
-
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http uri authority. The current position is null.");
+            break;
         }
 
-    } else {
+        select_http_uri_authority(p0, p1, (void*) &b, p2, p3);
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http uri authority. The remaining count is null.");
+        if (b == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            // Increment element count.
+            ec++;
+        }
     }
+
+    // The authority is always added, independent from whether
+    // or not a path or query or fragment separator was found.
+    //
+    // If a path or query or fragment was found right at
+    // the first position, then no authority was given.
+    // In this case, an authority with empty value is added.
+    decode_http_uri_authority_content(p0, e, (void*) &ec);
 }
 
 /* AUTHORITY_HTTP_URI_DECODER_SOURCE */

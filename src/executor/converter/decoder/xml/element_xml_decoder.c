@@ -33,7 +33,6 @@
 #include "../../../../executor/accessor/appender/compound_appender.c"
 #include "../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../executor/converter/decoder/xml/attribute_xml_decoder.c"
-//?? #include "../../../../executor/converter/decoder/xml/element_content_xml_decoder.c"
 #include "../../../../executor/converter/decoder/xml/tag_name_xml_decoder.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../logger/logger.c"
@@ -47,13 +46,11 @@ void decode_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 /**
  * Decodes the xml element.
  *
- * @param p0 the destination whole model (Hand over as reference!)
- * @param p1 the destination whole model count
- * @param p2 the destination whole model size
- * @param p3 the source data position (Hand over as reference!)
- * @param p4 the source count remaining
+ * @param p0 the destination model item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void decode_xml_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_xml_element(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_MEMORY_MODEL) {
 
@@ -100,35 +97,50 @@ void decode_xml_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // depending on the source wide character array.
 
         // The has attribute flag.
-        int ha = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int ha = *FALSE_BOOLEAN_MEMORY_MODEL;
         // The has content flag.
-        int hc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int hc = *FALSE_BOOLEAN_MEMORY_MODEL;
         // The is empty flag.
-        int ie = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int ie = *FALSE_BOOLEAN_MEMORY_MODEL;
 
         // Decode tag name.
-        decode_xml_tag_name((void*) &d, (void*) dc, (void*) ds, (void*) &ha, (void*) &hc, (void*) &ie, p3, p4);
+        decode_xml_tag_name((void*) &d, (void*) dc, (void*) ds, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
 
-        if (ha != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (ha != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             // Reset has attributes flag.
-            ha = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            ha = *FALSE_BOOLEAN_MEMORY_MODEL;
 
             // Decode attribute.
-            decode_xml_attribute((void*) &d, (void*) dc, (void*) ds, (void*) &hc, (void*) &ie, p3, p4);
+            decode_xml_attribute((void*) &d, (void*) dc, (void*) ds, (void*) &hc, (void*) &ie, p1, p2);
         }
 
-        if (hc != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (hc != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             // Decode the element's content.
-            decode_xml_element_content((void*) &m, (void*) mc, (void*) ms, (void*) &d, (void*) dc, (void*) ds, p3, p4);
+            decode_xml_element_content((void*) &m, (void*) mc, (void*) ms, (void*) &d, (void*) dc, (void*) ds, p1, p2);
         }
 
         // Add part to whole (compound) model.
         // CAUTION! Hand over the name as reference!
         // Storing many parts with identical tag name is not a problem,
         // since the tag name of a part is added to its details compound.
-        append_compound_element_by_name_with_suffix(*dd, p1, p2, (void*) &n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
+
+        // The part.
+        void* p = *NULL_POINTER_MEMORY_MODEL;
+
+        // Allocate part.
+        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+
+        // Fill part.
+        overwrite_part_element(p, (void*) CYBOI_HOSTNAME_AUTHORITY_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_HOSTNAME_AUTHORITY_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+        overwrite_part_element(p, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+        overwrite_part_element(p, e, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) &ec, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+
+        // Append part to destination model.
+        append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+--
+        append_compound_element_by_name_with_suffix(*dd, (void*) &n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
 
     } else {
 

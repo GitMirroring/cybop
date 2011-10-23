@@ -40,38 +40,26 @@
 /**
  * Decodes the xml comment.
  *
- * @param p0 the current position (Hand over as reference!)
- * @param p1 the remaining bytes count
+ * @param p0 the source data position (pointer reference)
+ * @param p1 the source count remaining
  */
 void decode_xml_comment(void* p0, void* p1) {
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml comment.");
 
-        int* rem = (int*) p1;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml comment.");
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-        // The break flag.
-        int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        compare_integer_smaller_or_equal((void*) &b, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                break;
-            }
-
-            select_xml_comment((void*) &b, p0, p1);
-
-            if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                break;
-            }
+            break;
         }
 
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml comment. The remaining bytes count is null.");
+        select_xml_comment((void*) &b, p0, p1);
     }
 }
 

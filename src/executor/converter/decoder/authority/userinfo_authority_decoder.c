@@ -42,81 +42,63 @@
 /**
  * Decodes the authority userinfo.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the current position (Hand over as reference!)
- * @param p7 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void decode_authority_userinfo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_authority_userinfo(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode authority userinfo.");
 
-        int* rem = (int*) p7;
+    // The element.
+    void* e = *NULL_POINTER_MEMORY_MODEL;
+    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    // Initialise element.
+    copy_pointer((void*) &e, p2);
 
-            void** pos = (void**) p6;
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode authority userinfo.");
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-            // The element.
-            void* e = *pos;
-            int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // The break flag.
-            int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            // The userinfo separator @ was NOT found.
+            // That is, a userinfo and password were not given.
+            // The source represents a hostname only,
+            // possibly followed by a port number.
+            //
+            // CAUTION! The parameters p6 and p7 may NOT be used,
+            // since their values were counted on and changed
+            // inside the "select_authority_userinfo" function.
+            // Instead, hand over e and ec. REFERENCES are expected!
+            decode_authority_hostname(p0, p1, (void*) &e, (void*) &ec);
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+            break;
+        }
 
-                if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        select_authority_userinfo(p0, p1, (void*) &b, p2, p3);
 
-                    // The userinfo separator @ was NOT found.
-                    // That is, a userinfo and password were not given.
-                    // The source represents a hostname only,
-                    // possibly followed by a port number.
-                    //
-                    // CAUTION! The parameters p6 and p7 may NOT be used,
-                    // since their values were counted on and changed
-                    // inside the "select_authority_userinfo" function.
-                    // Instead, hand over e and ec. REFERENCES are expected!
-                    decode_authority_hostname(p0, p1, p2, p3, p4, p5, (void*) &e, (void*) &ec);
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    break;
-                }
+            // The userinfo separator @ WAS found.
+            // That is, a userinfo was given,
+            // possibly followed by a password.
+            //
+            // In this case, the hostname was already decoded
+            // inside the "select_authority_userinfo" function.
+            decode_authority_username(p0, p1, (void*) &e, (void*) &ec);
 
-                select_authority_userinfo(p0, p1, p2, p3, p4, p5, (void*) &b, p6, p7);
-
-                if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    // The userinfo separator @ WAS found.
-                    // That is, a userinfo was given,
-                    // possibly followed by a password.
-                    //
-                    // In this case, the hostname was already decoded
-                    // inside the "select_authority_userinfo" function.
-                    decode_authority_username(p0, p1, p2, p3, p4, p5, (void*) &e, (void*) &ec);
-
-                    break;
-
-                } else {
-
-                    // Increment element count.
-                    ec++;
-                }
-            }
+            break;
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode authority userinfo. The current position is null.");
+            // Increment element count.
+            ec++;
         }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode authority userinfo. The remaining count is null.");
     }
 }
 

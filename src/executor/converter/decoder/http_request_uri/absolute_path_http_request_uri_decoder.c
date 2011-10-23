@@ -36,51 +36,43 @@
 /**
  * Decodes the absolute path http request uri.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the comparison result
- * @param p7 the current position (Hand over as reference!)
- * @param p8 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the comparison result
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
  */
-void decode_absolute_path_http_request_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void decode_absolute_path_http_request_uri(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p8 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
 
-        int* rem = (int*) p8;
+        int* r = (int*) p2;
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode absolute path http request uri.");
 
-            int* r = (int*) p6;
+        // The break flag.
+        int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode absolute path http request uri.");
+        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+            compare_integer_smaller_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-                if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    break;
-                }
-
-                select_absolute_path_http_request_uri(p0, p1, p2, p3, p4, p5, p6, p7, p8);
-
-                if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    break;
-                }
+                break;
             }
 
-        } else {
+            select_absolute_path_http_request_uri(p0, p1, p2, p3, p4);
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode absolute path http request uri. The comparison result is null.");
+            if (*r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+                break;
+            }
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode absolute path http request uri. The remaining count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode absolute path http request uri. The comparison result is null.");
     }
 }
 

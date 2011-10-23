@@ -36,48 +36,35 @@
 /**
  * Decodes the http request body.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the current position (Hand over as reference!)
- * @param p7 the remaining count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void decode_http_request_body(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_http_request_body(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http request body.");
 
-        void** pos = (void**) p6;
+    //
+    // CAUTION! There is NO NEED to detect the body end with a
+    // function like "select_http_request_body".
+    // All of the remaining characters are seen as body.
+    //
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http request body.");
-
-        //
-        // CAUTION! There is NO NEED to detect the body end with a
-        // function like "select_http_request_body".
-        // All of the remaining characters are seen as body.
-        //
-
-        //
-        // The body represents the actual http message content.
-        // Its data are thus added to the destination MODEL (p0, p1, p2),
-        // whilst the destination DETAILS contain meta data, i.e. the http headers.
-        //
-        // CAUTION! The body data may be encoded.
-        // Therefore, use the CHARACTER_MEMORY_ABSTRACTION abstraction here
-        // (and DO NOT convert to WIDE_CHARACTER_MEMORY_ABSTRACTION by chance).
-        //
-        // One of the http request header argument/value pairs defines the encoding,
-        // so that the cybol application will have to decode the data,
-        // because here, the corresponding http encoding header is not available.
-        //
-        overwrite_array(p0, *pos, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p7, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http request body. The current position is null.");
-    }
+    //
+    // The body represents the actual http message content.
+    // Its data are thus added to the destination MODEL (p0, p1, p2),
+    // whilst the destination DETAILS contain meta data, i.e. the http headers.
+    //
+    // CAUTION! The body data may be encoded.
+    // Therefore, use the CHARACTER_MEMORY_ABSTRACTION abstraction here
+    // (and DO NOT convert to WIDE_CHARACTER_MEMORY_ABSTRACTION by chance).
+    //
+    // One of the http request header argument/value pairs defines the encoding,
+    // so that the cybol application will have to decode the data,
+    // because here, the corresponding http encoding header is not available.
+    //
+    overwrite_array(p0, *((void**) p2), (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p7, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 }
 
 /* BODY_HTTP_REQUEST_DECODER_SOURCE */

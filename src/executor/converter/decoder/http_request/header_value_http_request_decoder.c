@@ -41,66 +41,48 @@
 /**
  * Decodes the http request header value.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the current position (Hand over as reference!)
- * @param p7 the remaining count
- * @param p8 the header argument
- * @param p9 the header argument count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
+ * @param p4 the header argument
+ * @param p5 the header argument count
  */
-void decode_http_request_header_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void decode_http_request_header_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http request header value.");
 
-        int* rem = (int*) p7;
+    // The element.
+    void* e = *NULL_POINTER_MEMORY_MODEL;
+    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    // Initialise element.
+    copy_pointer((void*) &e, p2);
 
-            void** pos = (void**) p6;
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http request header value.");
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-            // The element.
-            void* e = *pos;
-            int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // The break flag.
-            int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            break;
+        }
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        select_http_request_header_value(p0, p1, (void*) &b, p2, p3);
 
-                if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                    break;
-                }
+            select_http_request_header_field(p1, p4, p5, e, (void*) &ec);
 
-                select_http_request_header_value(p0, p1, p2, p3, p4, p5, (void*) &b, p6, p7);
-
-                if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                    select_http_request_header_field(p3, p4, p5, p8, p9, e, (void*) &ec);
-
-                    break;
-
-                } else {
-
-                    // Increment header value count.
-                    ec++;
-                }
-            }
+            break;
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http request header value. The current position is null.");
+            // Increment header value count.
+            ec++;
         }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http request header value. The remaining count is null.");
     }
 }
 

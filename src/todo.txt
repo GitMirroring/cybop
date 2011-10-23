@@ -11,10 +11,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH "header_field_http_request_selector.c"; see old src in todo/
-        * Complete files "header_field_http_request_selector.c" and "header_entry_http_response_selector.c"
-        * Continue adapting xml decoder
-        * Adapt all decoders in "executor/converter/decoder/"
+        * Adapt decoder files (others are already done):
+            method_http_request_decoder.c
+            protocol_http_request_decoder.c
+            uri_http_request_decoder.c
+            authority_http_uri_decoder.c
+            query_http_uri_decoder.c
+            element_xml_decoder.c
+        * Adapt files in root of directory "executor/converter/decoder/"
+        * Adapt files "header_field_http_request_selector.c" and "header_entry_http_response_selector.c"
 
         * Replace old abstractions with primitive abstractions OR (better) just rename constants
         * Add primitive integer constants as counterpart to ALL cybol model constants,
