@@ -40,71 +40,48 @@
 /**
  * Decodes the http uri authority content.
  *
- * The uri is added twice to the destination details:
+ * The authority is added twice to the destination details:
  * - as full text representation
- * - as compound hierarchy consisting of parts
+ * - as hierarchy consisting of parts
  *
  * @param p0 the destination model item
- * @param p1 the source uri
+ * @param p1 the source uri data
  * @param p2 the source uri count
  */
 void decode_http_uri_authority_content(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri authority content.");
 
-        void** dd = (void**) p0;
+    //
+    // Add authority as full text representation.
+    //
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri authority content.");
+    append_item_allocate_part(p0, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME_COUNT, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, p2, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
 
-        //
-        // Add authority as full text representation.
-        //
+    //
+    // Add authority as hierarchy consisting of parts.
+    //
 
-        // The text part.
-        void* t = *NULL_POINTER_MEMORY_MODEL;
+    // The hierarchy part.
+    void* h = *NULL_POINTER_MEMORY_MODEL;
+    // The hierarchy part model, details.
+    void* hm = *NULL_POINTER_MEMORY_MODEL;
+    void* hd = *NULL_POINTER_MEMORY_MODEL;
 
-        // Allocate text part.
-        allocate_part((void*) &t, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    // Allocate hierarchy part.
+    allocate_part((void*) &h, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION);
 
-        // Fill text part.
-        overwrite_part_element(t, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-        overwrite_part_element(t, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-        overwrite_part_element(t, p1, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    // Get hierarchy part model, details.
+    copy_array_forward((void*) &hm, h, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &hd, h, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
 
-        // Append text part to destination model.
-        append_item_element(p0, (void*) &t, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    // Fill hierarchy part.
+    overwrite_part_element(h, (void*) CYBOI_AUTHORITY_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_AUTHORITY_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(h, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+    receive_inline(hm, hd, p1, p2, (void*) AUTHORITY_TEXT_CYBOL_ABSTRACTION);
 
-        //
-        // Add authority as hierarchy consisting of parts.
-        //
-
-        // The hierarchy part.
-        void* h = *NULL_POINTER_MEMORY_MODEL;
-        // The hierarchy part model, details.
-        void* hm = *NULL_POINTER_MEMORY_MODEL;
-        void* hd = *NULL_POINTER_MEMORY_MODEL;
-
-        // Allocate hierarchy part.
-        allocate_part((void*) &h, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION);
-
-        // Fill hierarchy part.
-        overwrite_part_element(h, (void*) CYBOI_AUTHORITY_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_AUTHORITY_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-        overwrite_part_element(h, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-
-        // Get hierarchy part model, details.
-        copy_array_forward((void*) &hm, h, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-        copy_array_forward((void*) &hd, h, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
-
-        // Receive hierarchy model, details.
-        receive_inline(hm, hd, p1, p2, (void*) AUTHORITY_TEXT_CYBOL_ABSTRACTION);
-
-        // Append hierarchy part to destination model.
-        append_item_element(p0, (void*) &h, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http uri authority content. The destination details is null.");
-    }
+    // Append hierarchy part to destination model.
+    append_item_element(p0, (void*) &h, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /**

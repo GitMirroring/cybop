@@ -11,15 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Adapt decoder files (others are already done):
-            method_http_request_decoder.c
-            protocol_http_request_decoder.c
-            uri_http_request_decoder.c
-            authority_http_uri_decoder.c
-            query_http_uri_decoder.c
-            element_xml_decoder.c
         * Adapt files in root of directory "executor/converter/decoder/"
-        * Adapt files "header_field_http_request_selector.c" and "header_entry_http_response_selector.c"
+        * Adapt files in directory "executor/converter/encoder/"
 
         * Replace old abstractions with primitive abstractions OR (better) just rename constants
         * Add primitive integer constants as counterpart to ALL cybol model constants,

@@ -41,131 +41,66 @@
 /**
  * Decodes the http request uri content.
  *
+ * The uri is added twice to the destination details:
+ * - as full text representation
+ * - as hierarchy consisting of parts
+ *
  * @param p0 the destination details item
  * @param p1 the source uri data
  * @param p2 the source uri count
  */
 void decode_http_request_uri_content(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http request uri content.");
 
-        void** dd = (void**) p0;
+    // The character data, count, size.
+    void* cd = *NULL_POINTER_MEMORY_MODEL;
+    int cc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int cs = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http request uri content.");
+    // Allocate character data.
+    allocate_array((void*) &cd, (void*) &cs, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-        // The percent-decoded character array.
-        void* p = *NULL_POINTER_MEMORY_MODEL;
-        void* pc = *NULL_POINTER_MEMORY_MODEL;
-        void* ps = *NULL_POINTER_MEMORY_MODEL;
+    //
+    // CAUTION! Percent-encoding may be used for all URI, including URL and URN.
+    //
 
-        // Allocate percent-decoded character array.
-        allocate_model((void*) &p, (void*) &pc, (void*) &ps, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    // Decode percent-encoded character array into character data.
+    decode_percent_encoding_vector((void*) &cd, (void*) &cc, (void*) &cs, p1, p2);
 
-/*??
-    fwprintf(stdout, L"TEST p3: %s \n", (char*) p3);
-    fwprintf(stdout, L"TEST p4: %i \n", *((int*) p4));
-*/
+    //
+    // Add uri as full text representation.
+    //
 
-        //
-        // CAUTION! Percent-encoding may be used for all URI, including URL and URN.
-        //
+    append_item_allocate_part_decode_character(p0, (void*) CYBOI_URI_TEXT_HTTP_NAME, (void*) CYBOI_URI_TEXT_HTTP_NAME_COUNT, cd, (void*) &cc);
 
-        // Decode percent-encoded character array into character array.
-        decode_percent_encoding_vector((void*) &p, pc, ps, p1, p2);
+    //
+    // Add uri as hierarchy consisting of parts.
+    //
 
-/*??
-    fwprintf(stdout, L"TEST p: %s \n", (char*) p);
-    fwprintf(stdout, L"TEST pc: %i \n", *((int*) pc));
-    fwprintf(stdout, L"TEST ps: %i \n", *((int*) ps));
-*/
+    // The uri part.
+    void* p = *NULL_POINTER_MEMORY_MODEL;
+    // The uri part model, details.
+    void* pm = *NULL_POINTER_MEMORY_MODEL;
+    void* pd = *NULL_POINTER_MEMORY_MODEL;
 
-        // The serialised wide character array.
-        void* s = *NULL_POINTER_MEMORY_MODEL;
-        void* sc = *NULL_POINTER_MEMORY_MODEL;
-        void* ss = *NULL_POINTER_MEMORY_MODEL;
+    // Allocate uri part.
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-        // Allocate serialised wide character array.
-        allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    // Get uri part model, details.
+    copy_array_forward((void*) &pm, p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pd, p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
 
-        // Decode encoded character array into serialised wide character array.
-        decode_utf_8_unicode_character_vector((void*) &s, sc, ss, p, pc);
+    // Fill uri part.
+    overwrite_part_element(p, (void*) CYBOI_URI_HTTP_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_URI_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(p, (void*) PART_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+    receive_inline(pm, pd, cd, (void*) &cc, (void*) URI_TEXT_CYBOL_ABSTRACTION);
 
-/*??
-    fwprintf(stdout, L"TEST s: %ls \n", (wchar_t*) s);
-    fwprintf(stdout, L"TEST sc: %i \n", *((int*) sc));
-    fwprintf(stdout, L"TEST ss: %i \n", *((int*) ss));
-*/
+    // Deallocate character data.
+    deallocate_array((void*) &cd, (void*) &cs, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
 
-        // Deallocate percent-decoded character array.
-        deallocate_model((void*) &p, (void*) &pc, (void*) &ps, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
-
-        //
-        // CAUTION! The uri is added twice to the destination details:
-        //
-        // 1 as full text representation
-        // 2 as compound hierarchy consisting of parts
-        //
-
-        // The part.
-        void* p = *NULL_POINTER_MEMORY_MODEL;
-
-        // Allocate part.
-        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
-
-        // Fill part.
-        // Add uri as full text string.
-        overwrite_part_element(p, (void*) CYBOI_URI_TEXT_HTTP_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_URI_TEXT_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-        overwrite_part_element(p, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-        overwrite_part_element(p, s, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) &sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-
-        // Append part to destination model.
-        append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-
-        // The uri part name, abstraction, model, details.
-        void* n = *NULL_POINTER_MEMORY_MODEL;
-        void* nc = *NULL_POINTER_MEMORY_MODEL;
-        void* ns = *NULL_POINTER_MEMORY_MODEL;
-        void* a = *NULL_POINTER_MEMORY_MODEL;
-        void* ac = *NULL_POINTER_MEMORY_MODEL;
-        void* as = *NULL_POINTER_MEMORY_MODEL;
-        void* m = *NULL_POINTER_MEMORY_MODEL;
-        void* mc = *NULL_POINTER_MEMORY_MODEL;
-        void* ms = *NULL_POINTER_MEMORY_MODEL;
-        void* d = *NULL_POINTER_MEMORY_MODEL;
-        void* dc = *NULL_POINTER_MEMORY_MODEL;
-        void* ds = *NULL_POINTER_MEMORY_MODEL;
-
-        // Allocate uri part.
-        allocate_part((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-            (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-            (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
-
-        // Decode uri part name.
-        decode((void*) &n, (void*) nc, (void*) ns, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) CYBOI_URI_HTTP_NAME, (void*) CYBOI_URI_HTTP_NAME_COUNT, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) PLAIN_TEXT_CYBOL_ABSTRACTION, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION_COUNT);
-
-        // Decode uri part abstraction.
-        decode((void*) &a, (void*) ac, (void*) as, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) PLAIN_TEXT_CYBOL_ABSTRACTION, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION_COUNT);
-
-        // Decode uri part model and details.
-        decode((void*) &m, (void*) mc, (void*) ms, (void*) &d, (void*) dc, (void*) ds,
-            s, sc, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) URI_TEXT_CYBOL_ABSTRACTION, (void*) URI_TEXT_CYBOL_ABSTRACTION_COUNT);
-
-        // Deallocate serialised wide character array.
-        deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
-
-        // Add uri as compound hierarchy consisting of parts.
-        // CAUTION! Hand over the name as reference!
-        append_compound_element_by_name(*dd, (void*) &n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode http request uri content. The destination details is null.");
-    }
+    // Add uri part to destination item.
+    append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /**

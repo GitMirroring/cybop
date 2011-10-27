@@ -52,100 +52,57 @@ void decode_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
  */
 void decode_xml_element(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml element.");
 
-        void** dd = (void**) p0;
+    // The part.
+    void* p = *NULL_POINTER_MEMORY_MODEL;
+    // The part model, details.
+    void* pm = *NULL_POINTER_MEMORY_MODEL;
+    void* pd = *NULL_POINTER_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml element.");
+    // Allocate part.
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION);
 
-        // The part name, abstraction, model, details.
-        void* n = *NULL_POINTER_MEMORY_MODEL;
-        void* nc = *NULL_POINTER_MEMORY_MODEL;
-        void* ns = *NULL_POINTER_MEMORY_MODEL;
-        void* a = *NULL_POINTER_MEMORY_MODEL;
-        void* ac = *NULL_POINTER_MEMORY_MODEL;
-        void* as = *NULL_POINTER_MEMORY_MODEL;
-        void* m = *NULL_POINTER_MEMORY_MODEL;
-        void* mc = *NULL_POINTER_MEMORY_MODEL;
-        void* ms = *NULL_POINTER_MEMORY_MODEL;
-        void* d = *NULL_POINTER_MEMORY_MODEL;
-        void* dc = *NULL_POINTER_MEMORY_MODEL;
-        void* ds = *NULL_POINTER_MEMORY_MODEL;
+    // Get part model, details.
+    copy_array_forward((void*) &pm, p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pd, p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
 
-        // Allocate destination part.
-        allocate_part((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-            (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-            (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+    // Fill part.
+    // CAUTION! The pre-defined constant "part" is used as name here!
+    overwrite_part_element(p, (void*) NODE_XML_CYBOL_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) NODE_XML_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    // CAUTION! All xml elements are of the abstraction "part".
+    // If an xml element is empty, the part (compound) will just not contain any child parts.
+    overwrite_part_element(p, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
 
-        // Decode destination part name.
-        // CAUTION! The pre-defined constant "part" is used as name here!
-        // The "append_compound_element_by_name" function below will automatically
-        // add a number as suffix, to make the name unique.
-        decode((void*) &n, (void*) nc, (void*) ns, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) NODE_XML_CYBOL_NAME, (void*) NODE_XML_CYBOL_NAME_COUNT, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) PLAIN_TEXT_CYBOL_ABSTRACTION, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION_COUNT);
+    // The has attribute flag.
+    int ha = *FALSE_BOOLEAN_MEMORY_MODEL;
+    // The has content flag.
+    int hc = *FALSE_BOOLEAN_MEMORY_MODEL;
+    // The is empty flag.
+    int ie = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        // Decode destination part abstraction.
-        // CAUTION! All xml elements (parts) are of the abstraction "compound",
-        // as internally used by the function "allocate_part" above.
-        // If an xml element is empty, the compound will just not contain any parts.
-        decode((void*) &a, (void*) ac, (void*) as, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
-            (void*) PLAIN_TEXT_CYBOL_ABSTRACTION, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION_COUNT);
+    // Decode tag name.
+    decode_xml_tag_name(pd, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
 
-        // The destination part model and details are decoded further below,
-        // depending on the source wide character array.
+    if (ha != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // The has attribute flag.
-        int ha = *FALSE_BOOLEAN_MEMORY_MODEL;
-        // The has content flag.
-        int hc = *FALSE_BOOLEAN_MEMORY_MODEL;
-        // The is empty flag.
-        int ie = *FALSE_BOOLEAN_MEMORY_MODEL;
+        // Reset has attributes flag.
+        ha = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        // Decode tag name.
-        decode_xml_tag_name((void*) &d, (void*) dc, (void*) ds, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
-
-        if (ha != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-            // Reset has attributes flag.
-            ha = *FALSE_BOOLEAN_MEMORY_MODEL;
-
-            // Decode attribute.
-            decode_xml_attribute((void*) &d, (void*) dc, (void*) ds, (void*) &hc, (void*) &ie, p1, p2);
-        }
-
-        if (hc != *FALSE_BOOLEAN_MEMORY_MODEL) {
-
-            // Decode the element's content.
-            decode_xml_element_content((void*) &m, (void*) mc, (void*) ms, (void*) &d, (void*) dc, (void*) ds, p1, p2);
-        }
-
-        // Add part to whole (compound) model.
-        // CAUTION! Hand over the name as reference!
-        // Storing many parts with identical tag name is not a problem,
-        // since the tag name of a part is added to its details compound.
-
-        // The part.
-        void* p = *NULL_POINTER_MEMORY_MODEL;
-
-        // Allocate part.
-        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
-
-        // Fill part.
-        overwrite_part_element(p, (void*) CYBOI_HOSTNAME_AUTHORITY_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_HOSTNAME_AUTHORITY_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-        overwrite_part_element(p, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-        overwrite_part_element(p, e, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) &ec, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-
-        // Append part to destination model.
-        append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
---
-        append_compound_element_by_name_with_suffix(*dd, (void*) &n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xml element. The destination is null.");
+        // Decode attribute.
+        decode_xml_attribute(pd, (void*) &hc, (void*) &ie, p1, p2);
     }
+
+    if (hc != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        // Decode the element's content.
+        decode_xml_element_content(pm, pd, p1, p2);
+    }
+
+    // Append part to destination model.
+    // Storing many parts with identical tag name is not a problem,
+    // since the tag name of a part is added to its details compound.
+    append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /* ELEMENT_XML_DECODER_SOURCE */

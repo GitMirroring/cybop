@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-10-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue adapting files in directory "executor/converter/decoder/"
+        * Add a number of model conversion convenience files to directory "executor/modifier/appender/"
+        * Adapt files "header_field_http_request_selector.c" and "header_entry_http_response_selector.c"
+
 2011-10-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt files in sub directories of directory "executor/converter/decoder/"

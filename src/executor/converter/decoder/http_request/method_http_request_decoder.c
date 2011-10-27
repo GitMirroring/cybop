@@ -38,55 +38,6 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Converts the given characters to wide characters and
- * appends them to the destination.
- *
- * @param p0 the destination (Hand over as reference!)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source name
- * @param p4 the source name count
- * @param p5 the source abstraction
- * @param p6 the source abstraction count
- * @param p7 the source model
- * @param p8 the source model count
- * @param p9 the source details
- * @param p10 the source details count
- */
-void decode_http_request_method_append_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
-
-    // The serialised wide character array.
-    void* s = *NULL_POINTER_MEMORY_MODEL;
-    void* sc = *NULL_POINTER_MEMORY_MODEL;
-    void* ss = *NULL_POINTER_MEMORY_MODEL;
-
-    // Allocate serialised wide character array.
-    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
-
-    // Decode encoded character array into serialised wide character array.
-    decode_utf_8_unicode_character_vector((void*) &s, sc, ss, p7, p8);
-
-    append_part(p0, p1, p2, p3, p4, p5, p6, s, sc, p9, p10);
-
-    // Deallocate serialised wide character array.
-    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
---
-    // The part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
-
-    // Allocate part.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
-
-    // Fill part.
-    overwrite_part_element(p, (void*) CYBOI_HOSTNAME_AUTHORITY_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CYBOI_HOSTNAME_AUTHORITY_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    overwrite_part_element(p, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-    overwrite_part_element(p, e, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) &ec, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-
-    // Append part to destination model.
-    append_item_element(p0, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-}
-
-/**
  * Decodes the http request method.
  *
  * @param p0 the destination model item
@@ -120,10 +71,7 @@ void decode_http_request_method(void* p0, void* p1, void* p2, void* p3) {
 
         if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            decode_http_request_method_append_part(p1,
-                (void*) CYBOI_METHOD_HTTP_NAME, (void*) CYBOI_METHOD_HTTP_NAME_COUNT,
-                (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT,
-                e, (void*) &ec, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+            append_item_allocate_part_decode_character(p1, (void*) CYBOI_METHOD_HTTP_NAME, (void*) CYBOI_METHOD_HTTP_NAME_COUNT, e, (void*) &ec);
 
             break;
 
