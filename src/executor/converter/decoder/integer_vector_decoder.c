@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <wchar.h>
+
 #include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
 #include "../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
@@ -50,16 +51,16 @@
 #include "../../../variable/reallocation_factor.c"
 
 /**
- * Decodes the wide character array and creates an integer vector model from it.
+ * Decodes the wide character data into an integer vector.
  *
  * CAUTION! Do not mix up "integer" and "integer_vector"!
  * The latter is an array storing one or many integer numbers at different indexes.
  *
- * @param p0 the destination integer vector (Hand over as reference!)
- * @param p1 the destination integer vector count
- * @param p2 the destination integer vector size
- * @param p3 the source wide character array
- * @param p4 the source wide character array count
+ * @param p0 the destination data (pointer reference)
+ * @param p1 the destination count
+ * @param p2 the destination size
+ * @param p3 the source data
+ * @param p4 the source count
  */
 void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

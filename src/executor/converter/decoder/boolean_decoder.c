@@ -40,44 +40,42 @@
 #include "../../../logger/logger.c"
 
 /**
- * Decodes the byte stream and creates a boolean model from it.
+ * Decodes the boolean wide character data into a boolean integer.
  *
- * @param p0 the destination (Hand over as reference!)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source
- * @param p4 the source count
+ * @param p0 the destination data
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void decode_boolean(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_boolean(void* p0, void* p1, void* p2) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode boolean.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         compare_all_array((void*) &r, p3, (void*) TRUE_BOOLEAN_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // Set boolean value to "true", in other words the integer value to "one".
-            overwrite_array(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+            // Set value to "true", i.e. the integer value to "one".
+            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         compare_all_array((void*) &r, p3, (void*) FALSE_BOOLEAN_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // Set boolean value to "false", in other words the integer value to "zero".
-            overwrite_array(p0, (void*) FALSE_BOOLEAN_MEMORY_MODEL, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+            // Set value to "false", i.e. the integer value to "zero".
+            copy_integer(p0, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not decode boolean. The value cannot be interpreted.");
     }

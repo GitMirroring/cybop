@@ -43,11 +43,11 @@
 #include "../../../logger/logger.c"
 
 /**
- * Decodes the cybol channel (wchar_t) into a runtime cyboi channel (int).
+ * Decodes the wide character channel into an integer channel.
  *
- * @param p0 the destination channel
- * @param p1 the source channel
- * @param p2 the source channel count
+ * @param p0 the destination data
+ * @param p1 the source data
+ * @param p2 the source count
  */
 void decode_channel(void* p0, void* p1, void* p2) {
 

@@ -121,47 +121,58 @@
 //
 
 /**
- * Decodes the http request into a compound model and -details.
+ * Decodes the http request character data into a model and details.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the source character array
- * @param p7 the source character array count
+ * An http message is expected to consist of a sequence of octets.
+ * An octet labels eight Bits forming one Byte, e.g.: 01001100
+ *
+ * The http header octets are supposed to represent ASCII characters.
+ * The http body, on the other hand, may be encoded by some mechanism,
+ * on which the meaning of its bytes depends.
+ *
+ * One might get the idea to convert the http message header
+ * AT ONCE from ASCII- to wide characters.
+ * However, this might turn out to be problematic, since
+ * the URI sent within the http message header uses a special
+ * percent-encoding in order to escape reserved characters.
+ *
+ * Therefore, the http message has to be processed AS IS,
+ * and only PIECES OF IT may be converted to wide characters,
+ * e.g.: request method, protocol etc.
+ *
+ * The disadvantage is that for each conversion, a sub routine
+ * has to be called (context switch) and local variables have
+ * to be allocated and deallocated, which causes a delay.
+ *
+ * For the URI, octets have to be decoded from percent-encoding into
+ * standard octets, which then get UTF-8-decoded into wide characters.
+ *
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data
+ * @param p3 the source count
  */
-void decode_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_http_request(void* p0, void* p1, void* p2, void* p3) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode http request.");
 
-    //
-    // An http message is expected to consist of a sequence of octets.
-    // An octet labels eight Bits forming one Byte, e.g.: 01001100
-    //
-    // The http header octets are supposed to represent ASCII characters.
-    // The http body, on the other hand, may be encoded by some mechanism,
-    // on which the meaning of its bytes depends.
-    //
-    // One might get the idea to convert the http message header
-    // AT ONCE from ASCII- to wide characters.
-    // However, this might turn out to be problematic, since
-    // the URI sent within the http message header uses a special
-    // percent-encoding in order to escape reserved characters.
-    //
-    // Therefore, the http message has to be processed AS IS,
-    // and only PIECES OF IT may be converted to wide characters,
-    // e.g.: request method, protocol etc.
-    //
-    // The disadvantage is that for each conversion, a sub routine
-    // has to be called (context switch) and local variables have
-    // to be allocated and deallocated, which causes a delay.
-    //
-    // For the URI, octets have to be decoded from percent-encoding into
-    // standard octets, which then get UTF-8-decoded into wide characters.
-    //
-    decode_http_request_method(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);
+    // The source data position.
+    void* d = *NULL_POINTER_MEMORY_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
+
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p2);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p3);
+
+    // CAUTION! A copy of source count remaining is forwarded here,
+    // so that the original source value does not get changed.
+    // CAUTION! The source data position does NOT have to be copied,
+    // since the parametre that was handed over is already a copy.
+    // A local copy was made anyway, not to risk parametre falsification.
+    // Its reference is forwarded, as it gets incremented by sub routines inside.
+    decode_http_request_method(p0, p1, (void*) &d, (void*) &c);
 }
 
 /* HTTP_REQUEST_DECODER_SOURCE */

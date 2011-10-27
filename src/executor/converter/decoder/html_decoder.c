@@ -39,15 +39,13 @@
 #include "../../../executor/comparator/all/array_all_comparator.c"
 
 /**
- * Decodes an html format into a compound model.
+ * Decodes the html into a model.
  *
- * @param p0 the destination compound (Hand over as reference!)
- * @param p1 the destination compound count
- * @param p2 the destination compound size
- * @param p3 the source html data
- * @param p4 the source html data count
+ * @param p0 the destination item (Hand over as reference!)
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void decode_html(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_html(void* p0, void* p1, void* p2) {
 }
 
 /* HTML_DECODER_SOURCE */

@@ -102,14 +102,14 @@
 //
 
 /**
- * Decodes the percent-encoded character array element into
- * a non-percent-encoded character array element.
+ * Decodes the percent-encoded character element into
+ * a non-percent-encoded character element.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the source current position (Hand over as reference!)
- * @param p4 the source remaining count
+ * @param p0 the destination data (Hand over as reference!)
+ * @param p1 the destination count
+ * @param p2 the destination size
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
  */
 void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

@@ -167,13 +167,13 @@
 //
 
 /**
- * Decodes an (external) UTF-8 Unicode multibyte character stream into an (internal) UTF-32 Unicode wide character vector.
+ * Decodes the UTF-8 Unicode multibyte character data into UTF-32 Unicode wide character data.
  *
- * @param p0 the destination wide character array (Hand over as reference!)
- * @param p1 the destination wide character array count
- * @param p2 the destination wide character array size
- * @param p3 the source UTF-8 Unicode multibyte character stream
- * @param p4 the source UTF-8 Unicode multibyte character stream count
+ * @param p0 the destination data (pointer reference)
+ * @param p1 the destination count
+ * @param p2 the destination size
+ * @param p3 the source data
+ * @param p4 the source count
  */
 void decode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

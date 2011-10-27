@@ -38,13 +38,13 @@
 #include "../../../variable/reallocation_factor.c"
 
 /**
- * Decodes a numeric character reference (html escape code) into a character.
+ * Decodes the numeric character reference (html escape code) into a character.
  *
- * @param p0 the destination character (Hand over as reference!)
- * @param p1 the destination character count
- * @param p2 the destination character size
- * @param p3 the source numeric character reference (html escape code)
- * @param p4 the source numeric character reference (html escape code) count
+ * @param p0 the destination data (Hand over as reference!)
+ * @param p1 the destination count
+ * @param p2 the destination size
+ * @param p3 the source data
+ * @param p4 the source count
  */
 void decode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -2610,7 +2610,7 @@ void decode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, 
                 // Set actual destination, using the temporary value.
                 //
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
                     if ((*dc + tc) > *ds) {
 

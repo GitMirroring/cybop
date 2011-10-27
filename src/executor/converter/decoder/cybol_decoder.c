@@ -85,7 +85,7 @@ void decode_cybol_model_elements(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &mdd, md, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     copy_array_forward((void*) &mdc, md, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
-    decode_cybol_elementp0, mmd, mmc, mdd, mdc, p3);
+    decode_cybol_element(p0, mmd, mmc, mdd, mdc, p3);
 }
 
 /**

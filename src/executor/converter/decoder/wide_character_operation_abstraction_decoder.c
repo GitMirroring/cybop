@@ -28,6 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+
 #include "../../constant/abstraction/memory/primitive_memory_abstraction.c"
 #include "../../constant/abstraction/operation/operation_abstraction.c"
 #include "../../constant/abstraction/operation/primitive_operation_abstraction.c"
@@ -40,80 +41,70 @@
 /**
  * Decodes the wide character operation abstraction into an integer abstraction.
  *
- * @param p0 the destination integer operation abstraction (Hand over as reference!)
- * @param p1 the source wide character operation abstraction
- * @param p2 the source wide character operation abstraction count
+ * @param p0 the destination data
+ * @param p1 the source data
+ * @param p2 the source count
  */
 void decode_wide_character_operation_abstraction(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode wide character operation abstraction.");
 
-        int* d = (int*) p0;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode wide character operation abstraction.");
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        compare_all_array((void*) &r, p1, (void*) EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) EQUAL_OPERATION_ABSTRACTION_COUNT);
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            compare_all_array((void*) &r, p1, (void*) EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) EQUAL_OPERATION_ABSTRACTION_COUNT);
-
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                *d = EQUAL_PRIMITIVE_OPERATION_ABSTRACTION;
-            }
+            copy_integer(p0, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            compare_all_array((void*) &r, p1, (void*) GREATER_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) GREATER_OPERATION_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) GREATER_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) GREATER_OPERATION_ABSTRACTION_COUNT);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                *d = GREATER_PRIMITIVE_OPERATION_ABSTRACTION;
-            }
+            copy_integer(p0, (void*) GREATER_PRIMITIVE_OPERATION_ABSTRACTION);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) GREATER_OR_EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) GREATER_OR_EQUAL_OPERATION_ABSTRACTION_COUNT);
-            compare_array_wide_character_equal((void*) &r, p1, p2, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) INTEGER_MEMORY_ABSTRACTION_COUNT);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                *d = GREATER_OR_EQUAL_PRIMITIVE_OPERATION_ABSTRACTION;
-            }
+            copy_integer(p0, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            compare_all_array((void*) &r, p1, (void*) SMALLER_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) SMALLER_OPERATION_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SMALLER_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) SMALLER_OPERATION_ABSTRACTION_COUNT);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                *d = SMALLER_PRIMITIVE_OPERATION_ABSTRACTION;
-            }
+            copy_integer(p0, (void*) SMALLER_PRIMITIVE_OPERATION_ABSTRACTION);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            compare_all_array((void*) &r, p1, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION_COUNT);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-                *d = SMALLER_OR_EQUAL_PRIMITIVE_OPERATION_ABSTRACTION;
-            }
+            copy_integer(p0, (void*) SMALLER_OR_EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not decode wide character operation abstraction. The source wide character operation abstraction is unknown.");
-        }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode wide character operation abstraction. The destination integer operation abstraction is null.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not decode wide character operation abstraction. The source wide character operation abstraction is unknown.");
     }
 }
 

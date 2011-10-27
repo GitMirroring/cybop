@@ -148,7 +148,7 @@
 //
 
 /**
- * Decodes the uri into a compound model and -details.
+ * Decodes the wide character uri into a model and details.
  *
  * CAUTION! The source character array MUST NOT be given
  * as percent-encoded octets. In other words, it has to
@@ -157,16 +157,12 @@
  * CAUTION! The source character array HAS TO BE given
  * as sequence of wide characters.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the source character array
- * @param p7 the source character array count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data
+ * @param p3 the source count
  */
-void decode_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_uri(void* p0, void* p1, void* p2, void* p3) {
 
     if (p7 != *NULL_POINTER_MEMORY_MODEL) {
 

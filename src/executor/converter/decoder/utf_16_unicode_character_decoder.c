@@ -74,13 +74,13 @@
 //
 
 /**
- * Decodes an UTF-16 Unicode character stream into an UTF-32 Unicode wide character array.
+ * Decodes the UTF-16 Unicode character data into UTF-32 Unicode wide character data.
  *
- * @param p0 the destination wide character array (Hand over as reference!)
- * @param p1 the destination wide character array count
- * @param p2 the destination wide character array size
- * @param p3 the source UTF-16 Unicode character stream
- * @param p4 the source UTF-16 Unicode character stream count
+ * @param p0 the destination data (Hand over as reference!)
+ * @param p1 the destination count
+ * @param p2 the destination size
+ * @param p3 the source data
+ * @param p4 the source count
  */
 void decode_utf_16_unicode_character_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

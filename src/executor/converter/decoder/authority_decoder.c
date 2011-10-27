@@ -50,25 +50,34 @@
 //
 
 /**
- * Decodes the authority into compound model and -details.
+ * Decodes the authority wide character data into a model and details.
  *
- * CAUTION! The source character array HAS TO BE given
- * as sequence of wide characters.
- *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the source character array
- * @param p7 the source character array count
+ * @param p0 the destination model item
+ * @param p1 the destination details item
+ * @param p2 the source data
+ * @param p3 the source count
  */
-void decode_authority(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_authority(void* p0, void* p1, void* p2, void* p3) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode authority.");
 
-    decode_authority_userinfo(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);
+    // The source data position.
+    void* d = *NULL_POINTER_MEMORY_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
+
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p2);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p3);
+
+    // CAUTION! A copy of source count remaining is forwarded here,
+    // so that the original source value does not get changed.
+    // CAUTION! The source data position does NOT have to be copied,
+    // since the parametre that was handed over is already a copy.
+    // A local copy was made anyway, not to risk parametre falsification.
+    // Its reference is forwarded, as it gets incremented by sub routines inside.
+    decode_authority_userinfo(p0, p1, (void*) &d, (void*) &c);
 }
 
 /* AUTHORITY_DECODER_SOURCE */

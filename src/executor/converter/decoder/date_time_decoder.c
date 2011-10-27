@@ -42,7 +42,7 @@
 #include "../../../variable/reallocation_factor.c"
 
 /**
- * Decodes the byte stream and creates a date time model from it.
+ * Decodes the wide character data into a date time model.
  *
  * ISO time format:
  * YYYY-MM-DDThh:mm:ss
@@ -54,10 +54,10 @@
  * 2008-12-29T13:47:30
  * 1981-04-05T14:30:30-05:00
  *
- * @param p0 the destination (Hand over as reference!)
+ * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
- * @param p3 the source
+ * @param p3 the source data
  * @param p4 the source count
  */
 void decode_date_time(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -93,12 +93,12 @@ void decode_date_time(void* p0, void* p1, void* p2, void* p3, void* p4) {
 }
 
 /**
- * Decodes the ddmmyyyy byte stream and creates a date time model from it.
+ * Decodes the ddmmyyyy wide character data into a date time model.
  *
- * @param p0 the destination (Hand over as reference!)
+ * @param p0 the destination data (Hand over as reference!)
  * @param p1 the destination count
  * @param p2 the destination size
- * @param p3 the source
+ * @param p3 the source data
  * @param p4 the source count
  */
 void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4) {

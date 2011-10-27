@@ -45,22 +45,18 @@
 //
 
 /**
- * Decodes the http response into a compound model and -details.
+ * Decodes the http response into a model and details.
  *
- * @param p0 the destination model (Hand over as reference!)
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
- * @param p6 the source wide character array
- * @param p7 the source wide character array count
+ * @param p0 the destination model item (Hand over as reference!)
+ * @param p1 the destination details item (Hand over as reference!)
+ * @param p2 the source wide character array
+ * @param p3 the source wide character array count
  */
-void decode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void decode_http_response(void* p0, void* p1, void* p2, void* p3) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode http response.");
 
-//??    decode_http_response_xx(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);
+//??    decode_http_response_??(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);
 }
 
 /* HTTP_RESPONSE_DECODER_SOURCE */

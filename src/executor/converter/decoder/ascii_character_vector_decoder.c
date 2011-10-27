@@ -35,12 +35,12 @@
 #include "../../../logger/logger.c"
 
 /**
- * Decodes the ascii character byte stream and creates a character vector model from it.
+ * Decodes the ascii character data and creates a character vector model from it.
  *
- * @param p0 the destination (Hand over as reference!)
+ * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
- * @param p3 the source
+ * @param p3 the source data
  * @param p4 the source count
  */
 void decode_ascii_character_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {

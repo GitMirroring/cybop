@@ -39,12 +39,12 @@
 #include "../../../logger/logger.c"
 
 /**
- * Decodes the byte stream and creates a double model from it.
+ * Decodes the wide character data into a double.
  *
- * @param p0 the destination (Hand over as reference!)
+ * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
- * @param p3 the source
+ * @param p3 the source data
  * @param p4 the source count
  */
 void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -123,12 +123,12 @@ void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
 }
 
 /**
- * Decodes the byte stream and creates a double vector model from it.
+ * Decodes the wide character data into a double vector.
  *
- * @param p0 the destination vector model (Hand over as reference!)
+ * @param p0 the destination vector data (Hand over as reference!)
  * @param p1 the destination count
  * @param p2 the destination size
- * @param p3 the source byte stream
+ * @param p3 the source data
  * @param p4 the source count
  */
 void decode_double_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {

@@ -11,7 +11,18 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Adapt files in root of directory "executor/converter/decoder/"
+        * Adapt files in root of directory "executor/converter/decoder/" (all others are done):
+            abstraction_decoder.c
+            ascii_character_vector_decoder.c
+            date_time_decoder.c
+            double_vector_decoder.c
+            fraction_decoder.c
+            integer_decoder.c
+            integer_vector_decoder.c
+            percent_encoding_decoder.c
+            percent_encoding_vector_decoder.c
+            uri_decoder.c
+            url_escape_code_decoder.c
         * Adapt files in directory "executor/converter/encoder/"
 
         * Replace old abstractions with primitive abstractions OR (better) just rename constants

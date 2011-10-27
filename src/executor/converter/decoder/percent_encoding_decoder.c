@@ -49,17 +49,17 @@
 //
 
 /**
- * Decodes a percent-encoded character array into a non-percent-encoded character array.
+ * Decodes the percent-encoded character data into non-percent-encoded character data.
  *
  * All percent-encoded (escaped) characters are resolved,
  * no matter whether or not they are reserved characters
  * according to the URI specification.
  *
- * @param p0 the destination character array (Hand over as reference!)
- * @param p1 the destination character array count
- * @param p2 the destination character array size
- * @param p3 the source current position (Hand over as reference!)
- * @param p4 the source remaining count
+ * @param p0 the destination data (pointer reference)
+ * @param p1 the destination count
+ * @param p2 the destination size
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
  */
 void decode_percent_encoding(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

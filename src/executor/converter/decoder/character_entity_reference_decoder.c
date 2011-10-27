@@ -37,7 +37,7 @@
 /**
  * Decodes a character entity reference (html escape reference) into a character.
  *
- * @param p0 the destination character
+ * @param p0 the destination character data
  * @param p1 the destination character count
  * @param p2 the destination character size
  * @param p3 the source character entity reference (html escape reference)

@@ -37,7 +37,7 @@
 #include "../../../logger/logger.c"
 
 /**
- * Decodes the xml byte array into a compound model and -details.
+ * Decodes the xml wide character data into a model and details.
  *
  * @param p0 the destination model item
  * @param p1 the destination details item

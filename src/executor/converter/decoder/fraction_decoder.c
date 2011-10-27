@@ -39,12 +39,12 @@
 //
 
 /**
- * Decodes the byte stream and creates a fraction model from it.
+ * Decodes the wide character data into a fraction.
  *
- * @param p0 the destination (Hand over as reference!)
+ * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
- * @param p3 the source
+ * @param p3 the source data
  * @param p4 the source count
  */
 void decode_fraction(void* p0, void* p1, void* p2, void* p3, void* p4) {
