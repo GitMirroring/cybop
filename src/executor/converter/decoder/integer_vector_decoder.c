@@ -126,7 +126,7 @@ void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // (which is 3, as needed for the length)
                         decode_integer((void*) &v, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p3, (void*) &fec);
 
-                        overwrite_array(p0, (void*) &v, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+                        overwrite_array(p0, (void*) &v, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
                         if (i > *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

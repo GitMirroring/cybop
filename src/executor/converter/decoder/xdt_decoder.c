@@ -851,9 +851,9 @@ void decode_xdt_decode_model(void* p0, void* p1, void* p2, void* p3, void* p4, v
                                     allocate_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p14, p15);
 
                                     // Decode name.
-                                    decode_ascii_character_vector(p0, (void*) *nc, (void*) *ns, p16, p17);
+                                    overwrite_array(p0, p16, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p17, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
                                     // Decode abstraction.
-                                    decode_ascii_character_vector(p3, (void*) *ac, (void*) *as, p14, p15);
+                                    overwrite_array(p3, p14, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p15, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4, p5, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
                                     // Decode model.
                                     decode(p6, (void*) *mc, (void*) *ms, p9, (void*) *dc, (void*) *ds, p12, p13, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p14, p15);
 

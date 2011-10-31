@@ -73,13 +73,13 @@ void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
             // Copy original string to temporary null-terminated string.
-            overwrite_array(tmp, p3, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps);
+            overwrite_array(tmp, p3, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
             // This is used as index to set the termination character.
             i = *sc;
 
             // Add string termination to temporary null-terminated string.
-            overwrite_array(tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps);
+            overwrite_array(tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
             // The tail variable is useless here and only needed for the string
             // transformation function. If the whole string array consists of
@@ -106,7 +106,7 @@ void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //?? to be able to take the double value?
 
             // Set double value.
-            overwrite_array(p0, (void*) &v, (void*) DOUBLE_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+            overwrite_array(p0, (void*) &v, (void*) DOUBLE_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
             // Destroy temporary null-terminated string.
             deallocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);

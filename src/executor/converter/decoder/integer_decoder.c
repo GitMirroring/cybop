@@ -72,17 +72,17 @@ void decode_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // The temporary null-terminated string.
         void* tmp = *NULL_POINTER_MEMORY_MODEL;
-        void* tmpc = *NULL_POINTER_MEMORY_MODEL;
-        void* tmps = *NULL_POINTER_MEMORY_MODEL;
+        int tmpc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int tmps = *NUMBER_2_INTEGER_MEMORY_MODEL;
 
-        // Create temporary null-terminated string.
-        allocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+        // Allocate temporary null-terminated string.
+        allocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
         // Copy original string to temporary null-terminated string.
-        overwrite_array((void*) &tmp, p3, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, tmpc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps);
+        overwrite_array((void*) &tmp, p3, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, tmpc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         // Add string termination to temporary null-terminated string.
         // The source count is used as index for the termination character.
-        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tmpc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps);
+        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tmpc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         // The tail variable is useless here and only needed for the string
         // transformation function. If the whole string array consists of
@@ -111,8 +111,8 @@ void decode_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
             log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode integer. An error (probably overflow) occured.");
         }
 
-        // Destroy temporary null-terminated string.
-        deallocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+        // Deallocate temporary null-terminated string.
+        deallocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
     } else {
 
