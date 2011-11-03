@@ -45,88 +45,65 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes an html node.
+ * Encodes the html node into html format.
  *
- * @param p0 the destination html data (Hand over as reference!)
- * @param p1 the destination html data count
- * @param p2 the destination html data size
- * @param p3 the source part abstraction
- * @param p4 the source part abstraction count
- * @param p5 the source part model
- * @param p6 the source part model count
- * @param p7 the source part details
- * @param p8 the source part details count
- * @param p9 the knowledge memory
- * @param p10 the knowledge memory count
- * @param p11 the indentation level (only for beautifying the resulting html code)
+ * @param p0 the destination item
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source details data
+ * @param p4 the source details count
+ * @param p5 the indentation level
+ * @param p6 the source abstraction data
  */
-void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4,
-    void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p11 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode html node.");
 
-        int* l = (int*) p11;
+    // The tag part.
+    void* p = *NULL_POINTER_MEMORY_MODEL;
+    // The tag part model.
+    void* m = *NULL_POINTER_MEMORY_MODEL;
+    // The tag part model data, count.
+    void* md = *NULL_POINTER_MEMORY_MODEL;
+    void* mc = *NULL_POINTER_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode html node.");
+    // Get tag part by name.
+    get_name_array((void*) &p, p3, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT, p4);
+    // Get tag part model.
+    copy_array_forward((void*) &m, p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    // Get tag part model data, count.
+    copy_array_forward((void*) &md, m, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
-        // The source part tag name, abstraction, model, details.
-        void** tn = NULL_POINTER_MEMORY_MODEL;
-        void** tnc = NULL_POINTER_MEMORY_MODEL;
-        void** tns = NULL_POINTER_MEMORY_MODEL;
-        void** ta = NULL_POINTER_MEMORY_MODEL;
-        void** tac = NULL_POINTER_MEMORY_MODEL;
-        void** tas = NULL_POINTER_MEMORY_MODEL;
-        void** tm = NULL_POINTER_MEMORY_MODEL;
-        void** tmc = NULL_POINTER_MEMORY_MODEL;
-        void** tms = NULL_POINTER_MEMORY_MODEL;
-        void** td = NULL_POINTER_MEMORY_MODEL;
-        void** tdc = NULL_POINTER_MEMORY_MODEL;
-        void** tds = NULL_POINTER_MEMORY_MODEL;
+    encode_html_begin_tag(p0, md, mc, p3, p4, p5);
 
-        // Get source part tag from details.
-        get_universal_compound_element_by_name(
-            (void*) &tn, (void*) &tnc, (void*) &tns,
-            (void*) &ta, (void*) &tac, (void*) &tas,
-            (void*) &tm, (void*) &tmc, (void*) &tms,
-            (void*) &td, (void*) &tdc, (void*) &tds,
-            p7, p8,
-            (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT,
-            p9, p10);
+    // The new indentation level, which is the old incremented by one.
+    calculate_integer_add(p5, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
 
-        encode_html_begin_tag(p0, p1, p2, *tm, *tmc, p7, p8, p9, p10, p11);
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        // The new indentation level, which is the old incremented by one.
-        int nl = *l + *NUMBER_1_INTEGER_MEMORY_MODEL;
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        compare_integer((void*) &r, p6, (void*) COMPOUND_MEMORY_ABSTRACTION);
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            compare_all_array((void*) &r, p3, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
-
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                encode_html_structured_tag_content(p0, p1, p2, p5, p6, p9, p10, (void*) &nl);
-            }
+            encode_html_structured_tag_content(p0, p1, p2, p5, p6, p9, p10, p5);
         }
-
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-            compare_all_array((void*) &r, p3, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
-
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                encode_html_tag_content(p0, p1, p2, p5, p6, (void*) &nl);
-            }
-        }
-
-        encode_html_end_tag(p0, p1, p2, *tm, *tmc, p11);
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode html node. The indentation level is null.");
     }
+
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        compare_integer((void*) &r, p6, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+
+        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            encode_html_tag_content(p0, p1, p2, p5, p6, p5);
+        }
+    }
+
+    encode_html_end_tag(p0, p1, p2, md, mc, p5);
 }
 
 /* NODE_HTML_ENCODER_SOURCE */

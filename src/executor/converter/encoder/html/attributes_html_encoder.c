@@ -41,101 +41,92 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes the html attribute.
+ * Encodes the html attribute into html format.
  *
- * @param p0 the destination html data (Hand over as reference!)
- * @param p1 the destination html data count
- * @param p2 the destination html data size
- * @param p3 the source details
- * @param p4 the source details count
- * @param p5 the source details part index
+ * @param p0 the destination item
+ * @param p1 the source details data
+ * @param p2 the source index
  */
-void encode_html_attribute(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void encode_html_attribute(void* p0, void* p1, void* p2) {
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode html attribute.");
 
-    // The source part details name, abstraction, model, details.
-    void** n = NULL_POINTER_MEMORY_MODEL;
-    void** nc = NULL_POINTER_MEMORY_MODEL;
-    void** ns = NULL_POINTER_MEMORY_MODEL;
-    void** a = NULL_POINTER_MEMORY_MODEL;
-    void** ac = NULL_POINTER_MEMORY_MODEL;
-    void** as = NULL_POINTER_MEMORY_MODEL;
-    void** m = NULL_POINTER_MEMORY_MODEL;
-    void** mc = NULL_POINTER_MEMORY_MODEL;
-    void** ms = NULL_POINTER_MEMORY_MODEL;
-    void** d = NULL_POINTER_MEMORY_MODEL;
-    void** dc = NULL_POINTER_MEMORY_MODEL;
-    void** ds = NULL_POINTER_MEMORY_MODEL;
+    // The attribute part.
+    void* p = *NULL_POINTER_MEMORY_MODEL;
+    // The attribute part name, model.
+    void* n = *NULL_POINTER_MEMORY_MODEL;
+    void* m = *NULL_POINTER_MEMORY_MODEL;
+    // The attribute part name, model data, count.
+    void* nd = *NULL_POINTER_MEMORY_MODEL;
+    void* nc = *NULL_POINTER_MEMORY_MODEL;
+    void* md = *NULL_POINTER_MEMORY_MODEL;
+    void* mc = *NULL_POINTER_MEMORY_MODEL;
 
-    // Get details part at index.
-    get_compound_element_by_index(p3, p4, p5,
-        (void*) &n, (void*) &nc, (void*) &ns,
-        (void*) &a, (void*) &ac, (void*) &as,
-        (void*) &m, (void*) &mc, (void*) &ms,
-        (void*) &d, (void*) &dc, (void*) &ds);
+    // Get attribute part.
+    copy_array_forward((void*) &p, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
+    // Get attribute part name, model.
+    copy_array_forward((void*) &n, p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    // Get attribute part name, model data, count.
+    copy_array_forward((void*) &nd, n, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nc, n, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-    compare_all_array((void*) &r, *n, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, *nc, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT);
+    compare_all_array((void*) &r, nd, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, nc, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT);
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         // Only add attribute, if the details part name is NOT "tag"!
 
-        // Encode space character.
-        overwrite_array(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
-        // Encode attribute name.
-        overwrite_array(p0, *n, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, *nc, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
-        // Encode equals sign character.
-        overwrite_array(p0, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
-        // Encode quotation mark character.
-        overwrite_array(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
-        // Encode space character.
-        overwrite_array(p0, *m, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, *mc, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
-        // Encode quotation mark character.
-        overwrite_array(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+        // Append space character.
+        append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Append attribute name.
+        append_item_element(p0, nd, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, nc, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Append equals sign character.
+        append_item_element(p0, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Append quotation mark character.
+        append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Append space character.
+        append_item_element(p0, md, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Append quotation mark character.
+        append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     }
 }
 
 /**
- * Encodes the html attributes.
+ * Encodes the html attributes into html format.
  *
- * @param p0 the destination html data (Hand over as reference!)
- * @param p1 the destination html data count
- * @param p2 the destination html data size
- * @param p3 the source details
- * @param p4 the source details count
+ * @param p0 the destination item
+ * @param p1 the source details data
+ * @param p2 the source details count
  */
-void encode_html_attributes(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void encode_html_attributes(void* p0, void* p1, void* p2) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode html attributes.");
 
-        int* sc = (int*) p4;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode html attributes.");
+    // Iterate through details parts.
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-        // The loop variable.
-        int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
-        // Iterate through details parts.
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            if (j >= *sc) {
-
-                break;
-            }
-
-            encode_html_attribute(p0, p1, p2, p3, p4, (void*) &j);
-
-            // Increment loop variable.
-            j++;
+            break;
         }
 
-    } else {
+        encode_html_attribute(p0, p1, (void*) &j);
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode html attributes. The source details count is null.");
+        // Increment loop variable.
+        j++;
     }
 }
 

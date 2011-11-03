@@ -76,8 +76,8 @@
 /**
  * Decodes the source into the destination, according to the given abstraction.
  *
- * @param p0 the destination model item (Hand over as item, since size may change!)
- * @param p1 the destination details item (Hand over as item, since size may change!)
+ * @param p0 the destination model item
+ * @param p1 the destination details item
  * @param p2 the source data
  * @param p3 the source count
  * @param p4 the abstraction

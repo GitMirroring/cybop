@@ -36,48 +36,42 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes the html indentation.
+ * Encodes the html indentation into html format.
  *
- * @param p0 the destination html data (Hand over as reference!)
- * @param p1 the destination html data count
- * @param p2 the destination html data size
- * @param p3 the indentation level (only for beautifying the resulting html code)
+ * @param p0 the destination item
+ * @param p1 the indentation level
  */
-void encode_html_indentation(void* p0, void* p1, void* p2, void* p3) {
+void encode_html_indentation(void* p0, void* p1) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        int* l = (int*) p3;
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-        // The loop variable.
-        int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p1);
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            if (j >= *l) {
-
-                break;
-            }
-
-            // Encode character tabulation character.
-//??            encode_character_vector(p0, p1, p2, (void*) CHARACTER_TABULATION_CONTROL_CHARACTER_CODE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT);
-
-            // Encode space character.
-            overwrite_array(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-            // Encode space character.
-            overwrite_array(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-            // Encode space character.
-            overwrite_array(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-            // Encode space character.
-            overwrite_array(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-
-            // Increment loop count.
-            j++;
+            break;
         }
 
-    } else {
+        // Append space character.
+        append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Append space character.
+        append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Append space character.
+        append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Append space character.
+        append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode html indentation. The indentation level is null.");
+        // Append tabulation character.
+        // CAUTION! This may be used as alternative to the four spaces.
+        // append_item_element(p0, (void*) TABULATION_CONTROL_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+
+        // Increment loop count.
+        j++;
     }
 }
 

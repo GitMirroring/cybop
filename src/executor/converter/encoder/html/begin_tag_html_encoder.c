@@ -37,36 +37,31 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes the html begin tag.
+ * Encodes the html begin tag into html format.
  *
- * @param p0 the destination html data (Hand over as reference!)
- * @param p1 the destination html data count
- * @param p2 the destination html data size
- * @param p3 the source part model
- * @param p4 the source part model count
- * @param p5 the source part details
- * @param p6 the source part details count
- * @param p7 the knowledge memory
- * @param p8 the knowledge memory count
- * @param p9 the indentation level (only for beautifying the resulting html code)
+ * @param p0 the destination item
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source details data
+ * @param p4 the source details count
+ * @param p5 the indentation level
  */
-void encode_html_begin_tag(void* p0, void* p1, void* p2,
-    void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void encode_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode html begin tag.");
 
     // Encode indentation.
-    encode_html_indentation(p0, p1, p2, p9);
-    // Encode less than character.
-    overwrite_array(p0, (void*) LESS_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-    // Encode html tag.
-    overwrite_array(p0, p3, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-    // Encode html tag properties.
-    encode_html_attributes(p0, p1, p2, p5, p6);
-    // Encode greater than character.
-    overwrite_array(p0, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-    // Encode line feed character, for better source reading.
-    overwrite_array(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    encode_html_indentation(p0, p5);
+    // Append less than character.
+    append_item_element(p0, (void*) LESS_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    // Append html tag.
+    append_item_element(p0, p1, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    // Append html tag properties.
+    encode_html_attributes(p0, p3, p4);
+    // Append greater than character.
+    append_item_element(p0, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    // Append line feed character, for better source reading.
+    append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /* BEGIN_TAG_HTML_ENCODER_SOURCE */

@@ -36,16 +36,13 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes the html tag content.
+ * Encodes the html tag content into html format.
  *
- * @param p0 the destination html data (Hand over as reference!)
- * @param p1 the destination html data count
- * @param p2 the destination html data size
- * @param p3 the source part model
- * @param p4 the source part model count
- * @param p5 the indentation level (only for beautifying the resulting html code)
+ * @param p0 the destination item
+ * @param p1 the source part
+ * @param p2 the indentation level (only for beautifying the resulting html code)
  */
-void encode_html_tag_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void encode_html_tag_content(void* p0, void* p1, void* p2) {
 
     if (p4 != *NULL_POINTER_MEMORY_MODEL) {
 
@@ -57,11 +54,11 @@ void encode_html_tag_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // if the source part model is NOT empty.
 
             // Encode indentation.
-            encode_html_indentation(p0, p1, p2, p5);
-            // Encode source part model.
-            overwrite_array(p0, p3, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-            // Encode line feed character, for better source reading.
-            overwrite_array(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+            encode_html_indentation(p0, p2);
+            // Append source part model.
+            append_item_element(p0, md, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            // Append line feed character, for better source reading.
+            overwrite_array(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
 
     } else {

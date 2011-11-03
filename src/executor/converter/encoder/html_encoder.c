@@ -41,36 +41,17 @@
 #include "../../../logger/logger.c"
 
 /**
- * Encodes a compound model into html format.
+ * Encodes the part into html format.
  *
- * @param p0 the destination html data (Hand over as reference!)
- * @param p1 the destination html data count
- * @param p2 the destination html data size
- * @param p3 the source part abstraction
- * @param p4 the source part abstraction count
- * @param p5 the source part model
- * @param p6 the source part model count
- * @param p7 the source part details
- * @param p8 the source part details count
- * @param p9 the knowledge memory
- * @param p10 the knowledge memory count
+ * @param p0 the destination item
+ * @param p1 the source part
  */
-void encode_html(void* p0, void* p1, void* p2, void* p3, void* p4,
-    void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void encode_html(void* p0, void* p1) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode html.");
 
     // The tree level.
     int l = *NUMBER_0_INTEGER_MEMORY_MODEL;
-
-/*??
-    fwprintf(stdout, L"TEST html 0 a: %ls\n", (wchar_t*) p3);
-    fwprintf(stdout, L"TEST html 0 ac: %i\n", *((int*) p4));
-    fwprintf(stdout, L"TEST html 0 m: %ls\n", (wchar_t*) p5);
-    fwprintf(stdout, L"TEST html 0 mc: %i\n", *((int*) p6));
-    fwprintf(stdout, L"TEST html 0 d: %ls\n", (wchar_t*) p7);
-    fwprintf(stdout, L"TEST html 0 dc: %i\n", *((int*) p8));
-*/
 
     // Encode html root node.
     encode_html_node(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, (void*) &l);

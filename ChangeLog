@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-03  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt files in directory "executor/converter/encoder/html/"
+
 2011-10-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete adapting files in directory "executor/converter/decoder/"

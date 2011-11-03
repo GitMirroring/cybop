@@ -44,18 +44,15 @@ void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
 
 /**
- * Encodes an html structured tag content.
+ * Encodes the html structured tag content into html format.
  *
- * @param p0 the destination html data (Hand over as reference!)
- * @param p1 the destination html data count
- * @param p2 the destination html data size
- * @param p3 the source part model
- * @param p4 the source part model count
- * @param p5 the knowledge memory
- * @param p6 the knowledge memory count
- * @param p7 the indentation level (only for beautifying the resulting html code)
+ * @param p0 the destination item
+ * @param p1 the source part model
+ * @param p2 the knowledge memory
+ * @param p3 the knowledge memory count
+ * @param p4 the indentation level (only for beautifying the resulting html code)
  */
-void encode_html_structured_tag_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void encode_html_structured_tag_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p4 != *NULL_POINTER_MEMORY_MODEL) {
 
