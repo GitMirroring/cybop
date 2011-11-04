@@ -39,31 +39,28 @@
  * Encodes the html tag content into html format.
  *
  * @param p0 the destination item
- * @param p1 the source part
- * @param p2 the indentation level (only for beautifying the resulting html code)
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the indentation level
  */
-void encode_html_tag_content(void* p0, void* p1, void* p2) {
+void encode_html_tag_content(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        int* mc = (int*) p4;
+    compare_integer_greater((void*) &r, p2, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
-        if (*mc > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // Only add tabulation, model and line feed,
-            // if the source part model is NOT empty.
+        // Only add tabulation, source model data and line feed,
+        // if the source model is NOT empty (count greater zero).
 
-            // Encode indentation.
-            encode_html_indentation(p0, p2);
-            // Append source part model.
-            append_item_element(p0, md, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            // Append line feed character, for better source reading.
-            overwrite_array(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-        }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode html tag content. The model count is null.");
+        // Encode indentation.
+        encode_html_indentation(p0, p2);
+        // Append source part model.
+        append_item_element(p0, p1, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Append line feed character, for better source reading.
+        append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     }
 }
 

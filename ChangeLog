@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete files in directory "executor/converter/encoder/html/"
+        * Adapt files in directory "executor/converter/encoder/model_diagram/"
+        * Rename "compound_model_diagram_encoder.c" into "part_model_diagram_encoder.c"
+
 2011-11-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt files in directory "executor/converter/encoder/html/"

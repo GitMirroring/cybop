@@ -45,7 +45,7 @@
  *
  * @param p0 the destination item
  * @param p1 the source details data
- * @param p2 the source index
+ * @param p2 the source details index
  */
 void encode_html_attribute(void* p0, void* p1, void* p2) {
 
@@ -62,7 +62,7 @@ void encode_html_attribute(void* p0, void* p1, void* p2) {
     void* md = *NULL_POINTER_MEMORY_MODEL;
     void* mc = *NULL_POINTER_MEMORY_MODEL;
 
-    // Get attribute part.
+    // Get attribute part at index.
     copy_array_forward((void*) &p, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
     // Get attribute part name, model.
     copy_array_forward((void*) &n, p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);

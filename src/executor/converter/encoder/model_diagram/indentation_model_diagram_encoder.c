@@ -42,86 +42,116 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes the model diagram indentation.
+ * Encodes the model diagram indentation branch.
  *
- * @param p0 the destination model diagram (Hand over as reference!)
- * @param p1 the destination model diagram count
- * @param p2 the destination model diagram size
- * @param p3 the tree level
- * @param p4 the details flag
+ * @param p0 the destination model diagram item
+ * @param p1 the details flag
  */
-void encode_model_diagram_indentation(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void encode_model_diagram_indentation_branch(void* p0, void* p1) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode model diagram indentation branch.");
 
-        int* d = (int*) p4;
+    // The details flag.
+    int d = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    compare_integer_equal((void*) &d, p1, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
 
-            int* l = (int*) p3;
+    if (d != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode model diagram indentation.");
+        // This is the part MODEL, so that a plus- and minus character are used.
 
-            // The loop variable.
-            int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        // Append plus character.
+        append_item_element(p0, (void*) PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
-
-                if (j >= *l) {
-
-                    break;
-                }
-
-                // Check if the last of many indentations has been reached.
-                if ((j + *NUMBER_1_INTEGER_MEMORY_MODEL) < *l) {
-
-                    // This is one of many indentations before the actual part appears.
-                    // Therefore, use a pipe- and space character.
-
-                    // Add pipe character to destination array.
-                    overwrite_array(p0, (void*) VERTICAL_LINE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-
-                    // Add space character to destination array.
-                    overwrite_array(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-
-                } else {
-
-                    // This is the last indentation. Special characters are used for it.
-
-                    if (*d == *NUMBER_0_INTEGER_MEMORY_MODEL) {
-
-                        // This is the part model, so that a plus- and minus character are used.
-
-                        // Add plus character to destination array.
-                        overwrite_array(p0, (void*) PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-
-                        // Add minus character to destination array.
-                        overwrite_array(p0, (void*) HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-
-                    } else {
-
-                        // This is the part details, so that a number sign- and minus character are used.
-
-                        // Add plus character to destination array.
-                        overwrite_array(p0, (void*) NUMBER_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-
-                        // Add minus character to destination array.
-                        overwrite_array(p0, (void*) HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                    }
-                }
-
-                // Increment loop variable.
-                j++;
-            }
-
-        } else {
-
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode model diagram indentation. The tree level is null.");
-        }
+        // Append minus character.
+        append_item_element(p0, (void*) HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode model diagram indentation. The details flag is null.");
+        // This is the part DETAILS, so that a number sign- and minus character are used.
+
+        // Append plus character.
+        append_item_element(p0, (void*) NUMBER_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+
+        // Append minus character.
+        append_item_element(p0, (void*) HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    }
+}
+
+/**
+ * Encodes the model diagram indentation line.
+ *
+ * @param p0 the destination model diagram item
+ * @param p1 the details flag
+ * @param p2 the tree level
+ * @param p3 the current level
+ */
+void encode_model_diagram_indentation_line(void* p0, void* p1, void* p2, void* p3) {
+
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode model diagram indentation line.");
+
+    // The next tree level.
+    int n = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The last indentation flag.
+    int l = *FALSE_BOOLEAN_MEMORY_MODEL;
+
+    // Initialise next tree level.
+    copy_integer((void*) &n, p3);
+
+    // Increment next tree level.
+    n++;
+
+    // Check if the last of many indentations has been reached.
+    compare_integer_smaller((void*) &l, (void*) &n, p2);
+
+    if (l != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        // This is ONE OF MANY indentations before the actual part appears.
+        // Therefore, use a pipe- and space character.
+
+        // Append pipe character.
+        append_item_element(p0, (void*) VERTICAL_LINE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+
+        // Append space character.
+        append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+
+    } else {
+
+        // This is the LAST indentation. Special characters are used for it.
+
+        encode_model_diagram_indentation_branch(p0, p1);
+    }
+}
+
+/**
+ * Encodes the model diagram indentation.
+ *
+ * @param p0 the destination model diagram item
+ * @param p1 the details flag
+ * @param p2 the tree level
+ */
+void encode_model_diagram_indentation(void* p0, void* p1, void* p2) {
+
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode model diagram indentation.");
+
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
+
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+            break;
+        }
+
+        encode_model_diagram_indentation_line(p0, p1, p2, (void*) &j);
+
+        // Increment loop variable.
+        j++;
     }
 }
 

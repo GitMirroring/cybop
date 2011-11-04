@@ -89,7 +89,7 @@ void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            encode_html_structured_tag_content(p0, p1, p2, p5, p6, p9, p10, p5);
+            encode_html_structured_tag_content(p0, p1, p2, p5);
         }
     }
 
@@ -99,11 +99,11 @@ void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            encode_html_tag_content(p0, p1, p2, p5, p6, p5);
+            encode_html_tag_content(p0, p1, p2, p5);
         }
     }
 
-    encode_html_end_tag(p0, p1, p2, md, mc, p5);
+    encode_html_end_tag(p0, md, mc, p5);
 }
 
 /* NODE_HTML_ENCODER_SOURCE */
