@@ -62,109 +62,103 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode model diagram node.");
 
-    // Add indentation.
-    encode_model_diagram_indentation(p0, p1, p2, p11, p12);
+    // Append indentation.
+    encode_model_diagram_indentation(p0, p9, p10);
 
-    // Add part name to destination array.
-    overwrite_array(p0, p3, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    // Append part name.
+    append_item_element(p0, p1, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
-    // Add line.
-    encode_model_diagram_line(p0, p1, p2);
+    // Append line.
+    encode_model_diagram_line(p0);
 
-    // Add part abstraction to destination array.
-    overwrite_array(p0, p5, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    // Append part abstraction.
+    encode_abstraction(p0, p3);
+
+    //
+    // Append part model.
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) PART_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) PART_MEMORY_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p3, (void*) PART_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // Add part model to destination array.
-            encode_model_diagram_part(p0, p1, p2, p7, p8, p11, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+            encode_model_diagram_part(p0, p5, p6, (void*) FALSE_BOOLEAN_MEMORY_MODEL, p10);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p3, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            encode_model_diagram_line(p0, p1, p2);
-            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p8, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+            encode_model_diagram_line(p0);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) FRACTION_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) FRACTION_MEMORY_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p3, (void*) FRACTION_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            encode_model_diagram_line(p0, p1, p2);
-            encode_double_vector(p0, p1, p2, p7, p8);
+            encode_model_diagram_line(p0);
+            encode_double_vector(p0, p5, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) INTEGER_MEMORY_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p3, (void*) INTEGER_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            encode_model_diagram_line(p0, p1, p2);
-            encode_integer_vector(p0, p1, p2, p7, p8);
+            encode_model_diagram_line(p0);
+            encode_integer_vector(p0, p5, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) KNOWLEDGE_PATH_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) KNOWLEDGE_PATH_MEMORY_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p3, (void*) KNOWLEDGE_PATH_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            encode_model_diagram_line(p0, p1, p2);
-            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p8, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+            encode_model_diagram_line(p0);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) OPERATION_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) OPERATION_MEMORY_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p3, (void*) OPERATION_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            encode_model_diagram_line(p0, p1, p2);
-            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p8, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+            encode_model_diagram_line(p0);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+        compare_integer_equal((void*) &r, p3, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            encode_model_diagram_line(p0, p1, p2);
-            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p8, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+            encode_model_diagram_line(p0);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
-    // CAUTION! Do NOT move this test to the beginning of the function!
-    // Otherwise, a model will not be processed, if the details happen to be null.
-    if (p10 != *NULL_POINTER_MEMORY_MODEL) {
-
-        // Add part details to destination array.
-        encode_model_diagram_part(p0, p1, p2, p9, p10, p11, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode model diagram node. The details count is null.");
-    }
+    // Append part details.
+    encode_model_diagram_part(p0, p7, p8, (void*) TRUE_BOOLEAN_MEMORY_MODEL, p10);
 }
 
 /* NODE_MODEL_DIAGRAM_ENCODER_SOURCE */

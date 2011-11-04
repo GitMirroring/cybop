@@ -11,8 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: "node_model_diagram_encoder.c" (rest of model diagram is done)
-        * Adapt files in directory "executor/converter/encoder/"
+        * CONTINUE WITH: "abstraction_model_diagram_encoder.c" (rest of model diagram is done)
+        * Adapt files in directory "executor/converter/encoder/*" and "encoder/http_response/"
 
         * Replace old abstractions with primitive abstractions OR (better) just rename constants
         * Add primitive integer constants as counterpart to ALL cybol model constants,
