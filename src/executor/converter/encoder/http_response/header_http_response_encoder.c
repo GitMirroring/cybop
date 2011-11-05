@@ -41,12 +41,10 @@
 /**
  * Encodes the http response header content length.
  *
- * @param p0 the destination character array (Hand over as reference!)
- * @param p1 the destination character array count
- * @param p2 the destination character array size
- * @param p3 the source message model count (content length)
+ * @param p0 the destination character item
+ * @param p1 the source message model count (content length)
  */
-void encode_http_response_header_content_length(void* p0, void* p1, void* p2, void* p3) {
+void encode_http_response_header_content_length(void* p0, void* p1) {
 
     // The wide character array.
     void* a = *NULL_POINTER_MEMORY_MODEL;
@@ -73,49 +71,42 @@ void encode_http_response_header_content_length(void* p0, void* p1, void* p2, vo
 /**
  * Encodes the http response header.
  *
- * @param p0 the destination character array (Hand over as reference!)
- * @param p1 the destination character array count
- * @param p2 the destination character array size
- * @param p3 the source metadata abstraction
- * @param p4 the source metadata abstraction count
- * @param p5 the source metadata model
- * @param p6 the source metadata model count
- * @param p7 the source metadata details
- * @param p8 the source metadata details count
- * @param p9 the source message model count
+ * @param p0 the destination character item
+ * @param p1 the source metadata abstraction
+ * @param p2 the source metadata abstraction count
+ * @param p3 the source metadata model
+ * @param p4 the source metadata model count
+ * @param p5 the source metadata details
+ * @param p6 the source metadata details count
+ * @param p7 the source message model count
  */
-void encode_http_response_header(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void encode_http_response_header(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response header.");
 
-        int* sc = (int*) p6;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response header.");
+    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
-        // The loop variable.
-        int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            if (j >= *sc) {
-
-                break;
-            }
-
-            encode_http_response_header_entry(p0, p1, p2, p5, p6, (void*) &j, p9);
-
-            // Increment loop variable.
-            j++;
+            break;
         }
 
-        // The content length is currently always added
-        // (but this solution may change later).
-        encode_http_response_header_content_length(p0, p1, p2, p9);
+        encode_http_response_header_entry(p0, p3, (void*) &j);
 
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode http response header. The metadata model count is null.");
+        // Increment loop variable.
+        j++;
     }
+
+    // The content length is currently always added
+    // (but this solution may change later).
+    encode_http_response_header_content_length(p0, p7);
 }
 
 /* HEADER_HTTP_RESPONSE_ENCODER_SOURCE */

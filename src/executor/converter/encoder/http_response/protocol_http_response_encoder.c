@@ -40,21 +40,19 @@
 /**
  * Encodes the http response protocol.
  *
- * @param p0 the destination character array (Hand over as reference!)
- * @param p1 the destination character array count
- * @param p2 the destination character array size
- * @param p3 the source metadata abstraction
- * @param p4 the source metadata abstraction count
- * @param p5 the source metadata model
- * @param p6 the source metadata model count
- * @param p7 the source metadata details
- * @param p8 the source metadata details count
+ * @param p0 the destination character item
+ * @param p1 the source metadata abstraction
+ * @param p2 the source metadata abstraction count
+ * @param p3 the source metadata model
+ * @param p4 the source metadata model count
+ * @param p5 the source metadata details
+ * @param p6 the source metadata details count
  */
-void encode_http_response_protocol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void encode_http_response_protocol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response protocol.");
 
-    overwrite_array(p0, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    append_item_element(p0, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /* PROTOCOL_HTTP_RESPONSE_ENCODER_SOURCE */

@@ -21,6 +21,8 @@
         * Add "model_diagram_abstraction.c"
         * Merge "primitive_memory_abstraction.c" into "memory_abstraction.c"
         * Replace old primitive abstractions with standard memory abstractions
+        * Adapt files in directory "executor/converter/encoder/http_response/"
+        * Restructure files in directories "executor/converter/decoder/" and "executor/converter/encoder/"
 
 2011-11-04  Christian Heller  <christian.heller@tuxtax.de>
 

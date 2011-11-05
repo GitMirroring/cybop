@@ -39,56 +39,37 @@
 /**
  * Encodes the http response header entry.
  *
- * @param p0 the destination character array (Hand over as reference!)
- * @param p1 the destination character array count
- * @param p2 the destination character array size
- * @param p3 the source metadata model
- * @param p4 the source metadata model count
- * @param p5 the source metadata model index
- * @param p6 the source message model count
+ * @param p0 the destination character item
+ * @param p1 the source metadata model data
+ * @param p2 the source metadata model index
  */
-void encode_http_response_header_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void encode_http_response_header_entry(void* p0, void* p1, void* p2) {
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response header entry.");
 
-    // The source part details name, abstraction, model, details.
-    void** n = NULL_POINTER_MEMORY_MODEL;
-    void** nc = NULL_POINTER_MEMORY_MODEL;
-    void** ns = NULL_POINTER_MEMORY_MODEL;
-    void** a = NULL_POINTER_MEMORY_MODEL;
-    void** ac = NULL_POINTER_MEMORY_MODEL;
-    void** as = NULL_POINTER_MEMORY_MODEL;
-    void** m = NULL_POINTER_MEMORY_MODEL;
-    void** mc = NULL_POINTER_MEMORY_MODEL;
-    void** ms = NULL_POINTER_MEMORY_MODEL;
-    void** d = NULL_POINTER_MEMORY_MODEL;
-    void** dc = NULL_POINTER_MEMORY_MODEL;
-    void** ds = NULL_POINTER_MEMORY_MODEL;
+    // The part.
+    void* p = *NULL_POINTER_MEMORY_MODEL;
+    // The part name, model.
+    void* n = *NULL_POINTER_MEMORY_MODEL;
+    void* m = *NULL_POINTER_MEMORY_MODEL;
+    // The part name, model data, count.
+    void* nd = *NULL_POINTER_MEMORY_MODEL;
+    void* nc = *NULL_POINTER_MEMORY_MODEL;
+    void* md = *NULL_POINTER_MEMORY_MODEL;
+    void* mc = *NULL_POINTER_MEMORY_MODEL;
 
-//??    fwprintf(stdout, L"TEST encode http response header entry p6: %i\n", *((int*) p6));
+    // Get part at index.
+    copy_array_forward((void*) &p, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
+    // Get part name, model.
+    copy_array_forward((void*) &n, p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    // Get part name, model data, count.
+    copy_array_forward((void*) &nd, n, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nc, n, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
-    // Get source part at index.
-    get_compound_element_by_index(p3, p4, p5,
-        (void*) &n, (void*) &nc, (void*) &ns,
-        (void*) &a, (void*) &ac, (void*) &as,
-        (void*) &m, (void*) &mc, (void*) &ms,
-        (void*) &d, (void*) &dc, (void*) &ds);
-
-/*??
-    fwprintf(stdout, L"TEST encode http response header entry nc: %i\n", *nc);
-    fwprintf(stdout, L"TEST encode http response header entry n: %i\n", *n);
-    fwprintf(stdout, L"TEST encode http response header entry n: %ls\n", (wchar_t*) *n);
-    fwprintf(stdout, L"TEST encode http response header entry ac: %i\n", *ac);
-    fwprintf(stdout, L"TEST encode http response header entry a: %i\n", *a);
-    fwprintf(stdout, L"TEST encode http response header entry a: %ls\n", (wchar_t*) *a);
-    fwprintf(stdout, L"TEST encode http response header entry mc: %i\n", *mc);
-    fwprintf(stdout, L"TEST encode http response header entry m: %i\n", *m);
-    fwprintf(stdout, L"TEST encode http response header entry m: %ls\n", (wchar_t*) *m);
-    fwprintf(stdout, L"TEST encode http response header entry dc: %i\n", *dc);
-    fwprintf(stdout, L"TEST encode http response header entry d: %i\n", *d);
-*/
-
-    select_http_response_header_entry(p0, p1, p2, *n, *nc, *a, *ac, *m, *mc, *d, *dc, p6);
+    select_http_response_header_entry(p0, nd, nc, md, mc);
 }
 
 /* HEADER_ENTRY_HTTP_RESPONSE_ENCODER_SOURCE */

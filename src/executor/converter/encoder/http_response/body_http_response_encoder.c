@@ -40,35 +40,33 @@
 /**
  * Encodes the http response body.
  *
- * @param p0 the destination character array (Hand over as reference!)
- * @param p1 the destination character array count
- * @param p2 the destination character array size
- * @param p3 the source message abstraction
- * @param p4 the source message abstraction count
- * @param p5 the source message model
- * @param p6 the source message model count
- * @param p7 the source message details
- * @param p8 the source message details count
+ * @param p0 the destination character item
+ * @param p1 the source abstraction
+ * @param p2 the source abstraction count
+ * @param p3 the source model
+ * @param p4 the source model count
+ * @param p5 the source details
+ * @param p6 the source details count
  */
-void encode_http_response_body(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void encode_http_response_body(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response body.");
 
-    // The character array.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
-    void* ac = *NULL_POINTER_MEMORY_MODEL;
-    void* as = *NULL_POINTER_MEMORY_MODEL;
+    // The character model.
+    void* md = *NULL_POINTER_MEMORY_MODEL;
+    int mc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int ms = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate character array.
-    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    allocate_model((void*) &md, (void*) &ms, (void*) CHARACTER_MEMORY_ABSTRACTION);
 
     // Encode wide character array into multibyte character array.
-    encode_utf_8_unicode_character_vector((void*) &a, ac, as, p5, p6);
+    encode_utf_8_unicode_character_vector((void*) &md, (void*) &mc, (void*) &ms, p3, p4);
 
-    overwrite_array(p0, a, (void*) CHARACTER_MEMORY_ABSTRACTION, ac, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    append_item_element(p0, md, (void*) CHARACTER_MEMORY_ABSTRACTION, mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
-    // Deallocate character array.
-    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    // Deallocate character model.
+    deallocate_model((void*) &md, (void*) &ms, (void*) CHARACTER_MEMORY_ABSTRACTION);
 }
 
 /* BODY_HTTP_RESPONSE_ENCODER_SOURCE */
