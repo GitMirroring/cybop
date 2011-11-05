@@ -53,7 +53,7 @@ void select_xml_comment(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) COMMENT_END_XML_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) COMMENT_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) COMMENT_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) COMMENT_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

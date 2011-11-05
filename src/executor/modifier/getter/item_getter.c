@@ -53,7 +53,7 @@
  * Example:
  *
  * void* item_reference = *NULL_POINTER_MEMORY_MODEL;
- * get_item_element((void*) &item_reference, whole_item, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &j, (void*) DATA_ITEM_MEMORY_NAME);
+ * get_item_element((void*) &item_reference, whole_item, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &j, (void*) DATA_ITEM_MEMORY_NAME);
  *
  * @param p0 the destination array (if source index is inside of source count boundary; unchanged otherwise)
  * @param p1 the source item
@@ -68,7 +68,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Get item element.");
 
     // CAUTION! Do NOT simplify the lines below to one line like:
-    // copy_array_forward(p0, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    // copy_array_forward(p0, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
     // If doing this, the parametres abstraction, count, index etc.
     // will not be considered.
 
@@ -82,7 +82,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // with a fixed size of one which does not have to be changed.
     // Only a simple reference (pointer) of size one is copied here.
     // Using the "copy_array_forward" function is more efficient.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
@@ -97,7 +97,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         void* c = *NULL_POINTER_MEMORY_MODEL;
 
         // Get destination item element count.
-        copy_array_forward((void*) &c, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+        copy_array_forward((void*) &c, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
         // Reset comparison result.
         copy_integer((void*) &r, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);

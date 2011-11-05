@@ -50,15 +50,15 @@ void allocate_fraction(void* p0, void* p1) {
         log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Allocate fraction.");
 
         // Allocate fraction.
-        allocate_array(p0, (void*) FRACTION_MEMORY_MODEL_COUNT, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+        allocate_array(p0, (void*) FRACTION_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_ABSTRACTION);
 
         // The numerator and denominator.
         void* n = *NULL_POINTER_MEMORY_MODEL;
         void* d = *NULL_POINTER_MEMORY_MODEL;
 
         // Allocate numerator and denominator.
-        allocate_array((void*) &n, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
-        allocate_array((void*) &d, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
+        allocate_array((void*) &n, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_ABSTRACTION);
+        allocate_array((void*) &d, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_ABSTRACTION);
 
 /*?? TODO!
         // Initialise numerator and denominator.

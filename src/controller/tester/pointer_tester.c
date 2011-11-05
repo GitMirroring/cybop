@@ -116,7 +116,7 @@ void test_pointer_return() {
     void* r = *NULL_POINTER_MEMORY_MODEL;
 
     // Get character from character array.
-    get_array_elements((void*) &r, c, (void*) NUMBER_6_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &r, c, (void*) NUMBER_6_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
     // Print result (character array).
     fwprintf(stdout, L"r: %ls\n", (wchar_t*) r);
@@ -156,14 +156,14 @@ void test_character_array_single_element() {
     int cs = *NUMBER_5_INTEGER_MEMORY_MODEL;
 
     // Create character array.
-    allocate_array((void*) &c, (void*) &cs, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    allocate_array((void*) &c, (void*) &cs, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
 /*?? TODO!
-    overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_B_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_C_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    overwrite_array(c, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    overwrite_array(c, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_B_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_C_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    overwrite_array(c, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    overwrite_array(c, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 */
 
     // Print out array contents.
@@ -186,7 +186,7 @@ void test_character_array_single_element() {
     }
 
     // Destroy character array.
-    deallocate_array((void*) &c, (void*) &cs, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &c, (void*) &cs, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 }
 
 /**
@@ -201,7 +201,7 @@ void test_character_array_multiple_elements() {
     int ds = *NUMBER_22_INTEGER_MEMORY_MODEL;
 
     // Create destination array.
-    allocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    allocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
     // The source array.
     wchar_t a[] = {L'T', L'h', L'i', L's', L' ', L'i', L's', L' ', L'a', L' ', L't', L'e', L's', L't', L'.', L'\n', L'\0'};
@@ -210,7 +210,7 @@ void test_character_array_multiple_elements() {
     int* ss = ssa;
 
     // The destination index to which to copy the source array.
-//??    overwrite_array(d, (void*) s, (void*) ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+//??    overwrite_array(d, (void*) s, (void*) ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
     log_write_terminated_message((void*) stdout, (wchar_t*) d);
 
@@ -220,14 +220,14 @@ void test_character_array_multiple_elements() {
     int ossa[] = {14};
     int* oss = ossa;
 
-//??    overwrite_array(d, (void*) os, (void*) oss, (void*) NUMBER_8_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+//??    overwrite_array(d, (void*) os, (void*) oss, (void*) NUMBER_8_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
     log_write_terminated_message((void*) stdout, (wchar_t*) d);
 
     // The remove index.
     int ri = *NUMBER_12_INTEGER_MEMORY_MODEL;
 
-    remove_array_elements(d, (void*) &ds, (void*) &ri, (void*) NUMBER_7_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    remove_array_elements(d, (void*) &ds, (void*) &ri, (void*) NUMBER_7_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
     log_write_terminated_message((void*) stdout, (wchar_t*) d);
 
@@ -235,7 +235,7 @@ void test_character_array_multiple_elements() {
     // including two places for new line '\n' and c string termination '\0'.
     int ns = *NUMBER_15_INTEGER_MEMORY_MODEL;
 
-    reallocate_array((void*) &d, (void*) &ns, (void*) &ns, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    reallocate_array((void*) &d, (void*) &ns, (void*) &ns, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
     log_write_terminated_message((void*) stdout, (wchar_t*) d);
 
@@ -243,12 +243,12 @@ void test_character_array_multiple_elements() {
     void* r = *NULL_POINTER_MEMORY_MODEL;
 
     // Test getting a reference.
-    get_array_elements((void*) &r, d, (void*) NUMBER_8_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &r, d, (void*) NUMBER_8_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
     log_write_terminated_message((void*) stdout, (wchar_t*) r);
 
     // Destroy destination array.
-    deallocate_array((void*) &d, (void*) &ns, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &d, (void*) &ns, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 }
 
 /**
@@ -341,7 +341,7 @@ void test_pointer_array() {
     int ps = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
     // Create pointer array.
-    allocate_array((void*) &p, (void*) &ps, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    allocate_array((void*) &p, (void*) &ps, (void*) POINTER_MEMORY_ABSTRACTION);
 
     fwprintf(stdout, L"p: %i\n", p);
 
@@ -357,13 +357,13 @@ void test_pointer_array() {
 
     // Set character array in pointer array.
     // Hand over character array as reference, because pointer array is expected!
-//??    overwrite_array(p, (void*) &c, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+//??    overwrite_array(p, (void*) &c, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
 
     fwprintf(stdout, L"p[0] after set: %i\n", p[0]);
     fwprintf(stdout, L"p[1] after set: %i\n", p[1]);
 
     // Get character array from pointer array.
-    get_array_elements((void*) &r, p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &r, p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
 
     // Print result (character array).
     fwprintf(stdout, L"r pointer: %i\n", *r);
@@ -374,7 +374,7 @@ void test_pointer_array() {
     //
 
     // Destroy pointer array.
-    deallocate_array((void*) &p, (void*) &ps, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &p, (void*) &ps, (void*) POINTER_MEMORY_ABSTRACTION);
 }
 
 /**
@@ -388,14 +388,14 @@ void test_pointer_array_with_null_values() {
     void* a = *NULL_POINTER_MEMORY_MODEL;
     int as = *NUMBER_5_INTEGER_MEMORY_MODEL;
 
-    allocate_array((void*) &a, (void*) &as, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    allocate_array((void*) &a, (void*) &as, (void*) POINTER_MEMORY_ABSTRACTION);
 
 /*?? TODO!
-    overwrite_array(a, (void*) &COMMERCIAL_AT_UNICODE_CHARACTER_CODE_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    overwrite_array(a, (void*) (void*) &NUMBER_333_INTEGER_MEMORY_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    overwrite_array(a, (void*) (void*) NULL_POINTER_MEMORY_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    overwrite_array(a, (void*) (void*) NULL_POINTER_MEMORY_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    overwrite_array(a, (void*) (void*) &COMMERCIAL_AT_UNICODE_CHARACTER_CODE_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    overwrite_array(a, (void*) &COMMERCIAL_AT_UNICODE_CHARACTER_CODE_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
+    overwrite_array(a, (void*) (void*) &NUMBER_333_INTEGER_MEMORY_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
+    overwrite_array(a, (void*) (void*) NULL_POINTER_MEMORY_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
+    overwrite_array(a, (void*) (void*) NULL_POINTER_MEMORY_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
+    overwrite_array(a, (void*) (void*) &COMMERCIAL_AT_UNICODE_CHARACTER_CODE_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
 */
 
     // The result values.
@@ -405,11 +405,11 @@ void test_pointer_array_with_null_values() {
     void* r3 = *NULL_POINTER_MEMORY_MODEL;
     char** r4 = (char**) NULL_POINTER_MEMORY_MODEL;
 
-    get_array_elements((void*) &r0, a, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    get_array_elements((void*) &r1, a, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    get_array_elements((void*) &r2, a, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    get_array_elements((void*) &r3, a, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-    get_array_elements((void*) &r4, a, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &r0, a, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &r1, a, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &r2, a, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &r3, a, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &r4, a, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
 
     fwprintf(stdout, L"Result pointer as string r0: %s\n", *r0);
     fwprintf(stdout, L"Result pointer as integer r1: %i\n", **r1);
@@ -420,7 +420,7 @@ void test_pointer_array_with_null_values() {
     fwprintf(stdout, L"NULL_POINTER_MEMORY_MODEL: %i \n", NULL_POINTER_MEMORY_MODEL);
     fwprintf(stdout, L"*NULL_POINTER_MEMORY_MODEL: %i \n", *NULL_POINTER_MEMORY_MODEL);
 
-    deallocate_array((void*) &a, (void*) &as, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &a, (void*) &as, (void*) POINTER_MEMORY_ABSTRACTION);
 }
 
 /**
@@ -434,7 +434,7 @@ void test_pointer_array_with_null_values() {
  *
  * The following addition adds 8 instead of just 2.
  * int* m = (int*) *NULL_POINTER_MEMORY_MODEL;
- * allocate((void*) &m, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
+ * allocate((void*) &m, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_ABSTRACTION);
  * overwrite_array(m, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) NUMBER_10_INTEGER_MEMORY_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) INTEGER_MEMORY_ABSTRACTION_COUNT);
  * int* c = m + 2;
  * should be: = 10 + 2 = 12

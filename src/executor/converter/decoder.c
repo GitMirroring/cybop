@@ -146,9 +146,9 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
             // Allocate temporary model.
-            allocate_array((void*) &md, (void*) &ms, (void*) COMPOUND_MEMORY_ABSTRACTION);
+            allocate_array((void*) &md, (void*) &ms, (void*) PART_MEMORY_ABSTRACTION);
             // Allocate temporary details.
-            allocate_array((void*) &dd, (void*) &ds, (void*) COMPOUND_MEMORY_ABSTRACTION);
+            allocate_array((void*) &dd, (void*) &ds, (void*) PART_MEMORY_ABSTRACTION);
 
             // Decode source message (cybol file) into temporary model.
             decode_xml((void*) &md, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds, p2, p3);
@@ -163,7 +163,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT,
+                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT,
                 m, mc, d, dc);
 */
             // The multibyte character stream.
@@ -191,9 +191,9 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             decode_cybol(p0, m, mc, d, dc);
 
             // Deallocate temporary model.
-            deallocate_array((void*) &md, (void*) &ms, (void*) COMPOUND_MEMORY_ABSTRACTION);
+            deallocate_array((void*) &md, (void*) &ms, (void*) PART_MEMORY_ABSTRACTION);
             // Deallocate temporary details.
-            deallocate_array((void*) &dd, (void*) &ds, (void*) COMPOUND_MEMORY_ABSTRACTION);
+            deallocate_array((void*) &dd, (void*) &ds, (void*) PART_MEMORY_ABSTRACTION);
 
 //?? TEST BEGIN
             // Reset model diagram.
@@ -205,7 +205,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT,
+                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
 */
             // Reset multibyte character stream.
@@ -248,7 +248,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
@@ -301,7 +301,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT,
+                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
 */
             // The multibyte character stream.
@@ -342,9 +342,9 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
             // Allocate temporary model.
-            allocate((void*) &m, (void*) &ms, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+            allocate((void*) &m, (void*) &ms, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT);
             // Allocate temporary details.
-            allocate((void*) &d, (void*) &ds, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+            allocate((void*) &d, (void*) &ds, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT);
 
             // Decode source message into temporary compound memory model.
             decode_xml((void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds, p2, p3);
@@ -359,7 +359,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT,
+                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT,
                 m, (void*) &mc, d, (void*) &dc);
 */
             // The multibyte character stream.
@@ -386,9 +386,9 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             decode_cybol(p0, m, (void*) &mc, d, (void*) &dc);
 
             // Deallocate temporary model.
-            deallocate((void*) &m, (void*) &ms, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+            deallocate((void*) &m, (void*) &ms, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT);
             // Deallocate temporary details.
-            deallocate((void*) &d, (void*) &ds, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT);
+            deallocate((void*) &d, (void*) &ds, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT);
 
 //?? TEST BEGIN
             // Reset model diagram.
@@ -400,7 +400,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT,
+                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
 */
             // Reset multibyte character stream.
@@ -441,7 +441,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
@@ -471,7 +471,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
@@ -481,7 +481,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
@@ -523,7 +523,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) COMPOUND_MEMORY_ABSTRACTION, (void*) COMPOUND_MEMORY_ABSTRACTION_COUNT,
+                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
 */
             // The multibyte character stream.

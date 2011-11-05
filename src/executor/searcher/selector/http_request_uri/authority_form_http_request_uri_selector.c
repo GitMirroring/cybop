@@ -110,7 +110,7 @@ void select_authority_form_http_request_uri(void* p0, void* p1, void* p2, void* 
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

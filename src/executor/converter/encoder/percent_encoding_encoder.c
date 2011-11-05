@@ -129,11 +129,11 @@ void encode_percent_encoding(void* p0, void* p1, void* p2, void* p3, void* p4) {
         *ds = (*dc * *ARRAY_REALLOCATION_FACTOR) + *sc;
 
         // Reallocate destination character vector.
-        reallocate_array(p0, p1, p2, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+        reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_ABSTRACTION);
     }
 
     // Set source into destination character vector.
-    overwrite_array(*d, p3, p4, p1, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    overwrite_array(*d, p3, p4, p1, (void*) CHARACTER_MEMORY_ABSTRACTION);
 
     // Increment destination count.
     *dc = *dc + *sc;

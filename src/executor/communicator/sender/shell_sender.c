@@ -84,7 +84,7 @@ void apply_send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (*nl != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            overwrite_array((void*) &s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &sc, (void*) &ss);
+            overwrite_array((void*) &s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &sc, (void*) &ss);
         }
     }
 

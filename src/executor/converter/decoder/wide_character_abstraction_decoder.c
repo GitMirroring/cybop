@@ -52,11 +52,11 @@ void decode_wide_character_abstraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            copy_integer(p0, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+            copy_integer(p0, (void*) CHARACTER_MEMORY_ABSTRACTION);
         }
     }
 
@@ -66,11 +66,11 @@ void decode_wide_character_abstraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) DOUBLE_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) DOUBLE_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) DOUBLE_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) DOUBLE_MEMORY_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            copy_integer(p0, (void*) DOUBLE_PRIMITIVE_MEMORY_ABSTRACTION);
+            copy_integer(p0, (void*) DOUBLE_MEMORY_ABSTRACTION);
         }
     }
 
@@ -78,21 +78,21 @@ void decode_wide_character_abstraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FRACTION_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) FRACTION_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) FRACTION_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) FRACTION_MEMORY_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            copy_integer(p0, (void*) FRACTION_PRIMITIVE_MEMORY_ABSTRACTION);
+            copy_integer(p0, (void*) FRACTION_MEMORY_ABSTRACTION);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) INTEGER_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) INTEGER_MEMORY_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            copy_integer(p0, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
+            copy_integer(p0, (void*) INTEGER_MEMORY_ABSTRACTION);
         }
     }
 
@@ -102,41 +102,41 @@ void decode_wide_character_abstraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) PART_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) PART_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) PART_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) PART_MEMORY_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            copy_integer(p0, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION);
+            copy_integer(p0, (void*) PART_MEMORY_ABSTRACTION);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            copy_integer(p0, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+            copy_integer(p0, (void*) POINTER_MEMORY_ABSTRACTION);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) UNSIGNED_LONG_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) UNSIGNED_LONG_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) UNSIGNED_LONG_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) UNSIGNED_LONG_MEMORY_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            copy_integer(p0, (void*) UNSIGNED_LONG_PRIMITIVE_MEMORY_ABSTRACTION);
+            copy_integer(p0, (void*) UNSIGNED_LONG_MEMORY_ABSTRACTION);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            copy_integer(p0, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+            copy_integer(p0, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
         }
     }
 

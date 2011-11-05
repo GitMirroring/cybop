@@ -76,7 +76,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DOUBLE_PRIMITIVE_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) DOUBLE_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -86,7 +86,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) FRACTION_PRIMITIVE_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) FRACTION_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -96,7 +96,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) INTEGER_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -116,7 +116,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) PART_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -126,7 +126,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) POINTER_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -136,7 +136,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) UNSIGNED_LONG_PRIMITIVE_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) UNSIGNED_LONG_MEMORY_ABSTRACTION);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

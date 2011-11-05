@@ -113,7 +113,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                 *csi = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                                 // Set loop break flag.
                                 // An escape character followed by a left square bracket character
@@ -137,7 +137,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                     *csi = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
                                     // Copy source character to destination character array.
-                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                                 } else {
 
@@ -164,7 +164,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                 *esc = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                             } else if (*c == WEOF) {
 
@@ -178,7 +178,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                             } else {
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                                 // Set loop break flag.
                                 *b = *NUMBER_1_INTEGER_MEMORY_MODEL;

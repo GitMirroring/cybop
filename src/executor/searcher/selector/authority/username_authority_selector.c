@@ -60,7 +60,7 @@ void select_authority_username(void* p0, void* p1, void* p2, void* p3, void* p4)
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) PASSWORD_BEGIN_SEPARATOR_AUTHORITY_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PASSWORD_BEGIN_SEPARATOR_AUTHORITY_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) PASSWORD_BEGIN_SEPARATOR_AUTHORITY_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PASSWORD_BEGIN_SEPARATOR_AUTHORITY_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

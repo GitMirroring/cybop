@@ -64,7 +64,7 @@ void decode_http_request_body(void* p0, void* p1, void* p2, void* p3) {
     // so that the cybol application will have to decode the data,
     // because here, the corresponding http encoding header is not available.
     //
-    overwrite_array(p0, *((void**) p2), (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p7, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, *((void**) p2), (void*) CHARACTER_MEMORY_ABSTRACTION, p7, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 }
 
 /* BODY_HTTP_REQUEST_DECODER_SOURCE */

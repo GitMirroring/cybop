@@ -66,7 +66,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
     encode_model_diagram_indentation(p0, p9, p10);
 
     // Append part name.
-    append_item_element(p0, p1, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, p1, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     // Append line.
     encode_model_diagram_line(p0);
@@ -98,7 +98,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             encode_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -131,7 +131,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             encode_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -142,7 +142,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             encode_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -153,7 +153,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             encode_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 

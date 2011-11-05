@@ -54,7 +54,7 @@ void decode_wide_character_operation_abstraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) EQUAL_OPERATION_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) EQUAL_OPERATION_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -64,7 +64,7 @@ void decode_wide_character_operation_abstraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GREATER_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) GREATER_OPERATION_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) GREATER_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) GREATER_OPERATION_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -74,7 +74,7 @@ void decode_wide_character_operation_abstraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GREATER_OR_EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) GREATER_OR_EQUAL_OPERATION_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) GREATER_OR_EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) GREATER_OR_EQUAL_OPERATION_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -84,7 +84,7 @@ void decode_wide_character_operation_abstraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SMALLER_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) SMALLER_OPERATION_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SMALLER_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) SMALLER_OPERATION_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -94,7 +94,7 @@ void decode_wide_character_operation_abstraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

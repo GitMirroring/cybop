@@ -57,7 +57,7 @@ void find_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     void* e = *NULL_POINTER_MEMORY_MODEL;
 
     // Get investigated part element.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p5);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p5);
 
     // Find the searched array in the investigated part model item.
     find_item_element(p0, e, p2, p3, p4, (void*) DATA_ITEM_MEMORY_NAME);
@@ -81,9 +81,9 @@ void find_part(void* p0, void* p1, void* p2, void* p3) {
     void* sm = *NULL_POINTER_MEMORY_MODEL;
 
     // Get investigated model.
-    copy_array_forward((void*) &im, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &im, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get searched model.
-    copy_array_forward((void*) &sm, p2, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sm, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Find the searched item in the investigated item.
     find_item(p0, im, sm, p3);

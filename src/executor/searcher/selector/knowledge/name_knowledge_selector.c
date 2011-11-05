@@ -79,7 +79,7 @@ void select_knowledge_name(void* p0, void* p1, void* p2) {
         // CAUTION! Do NOT move the position (last parametre) here,
         // since the "." has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (model).
-        detect_array((void*) &r, p1, p2, (void*) PART_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PART_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) PART_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PART_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -93,7 +93,7 @@ void select_knowledge_name(void* p0, void* p1, void* p2) {
         // CAUTION! Do NOT move the position (last parametre) here,
         // since the "#" has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (details).
-        detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -105,7 +105,7 @@ void select_knowledge_name(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
         // Move position by one if nothing was found.
-        move_position(p1, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        move_position(p1, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
     }
 }
 

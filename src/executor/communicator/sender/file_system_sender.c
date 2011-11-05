@@ -59,7 +59,7 @@ void send_file_character(void* p0, void* p1, void* p2, void* p3) {
     char* c = (char*) *NULL_POINTER_MEMORY_MODEL;
 
     // Read character from source array.
-    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_MEMORY_ABSTRACTION);
 
     // Write character to file.
     char e = fputc(*c, (FILE*) p0);
@@ -86,7 +86,7 @@ void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
     char* c = (char*) *NULL_POINTER_MEMORY_MODEL;
 
     // Read character from source array.
-    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_MEMORY_ABSTRACTION);
 
     // Write character to file.
     //
@@ -207,7 +207,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p1, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION, p1, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -231,7 +231,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -270,7 +270,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 encode_utf_8_unicode_character_vector((void*) &tn, tnc, tns, *d, p1);
 
                 // Add null termination character to terminated file name.
-                overwrite_array((void*) &tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tnc, tns);
+                overwrite_array((void*) &tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tnc, tns);
 
                 // Open file.
                 // CAUTION! The file name cannot be handed over as is.

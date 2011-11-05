@@ -190,11 +190,11 @@ void manage(void* p0) {
     // Allocate internal memory array.
     // CAUTION! The internal memory has a pre-defined count/size,
     // given by the constant INTERNAL_MEMORY_MEMORY_MODEL_COUNT.
-    allocate_array((void*) &i, (void*) INTERNAL_MEMORY_MEMORY_MODEL_COUNT, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    allocate_array((void*) &i, (void*) INTERNAL_MEMORY_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_ABSTRACTION);
     // Allocate knowledge memory part.
-    allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION);
+    allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_ABSTRACTION);
     // Allocate signal memory item.
-    allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
 
     // Allocate signal memory interrupt request flag.
     signal_memory_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
@@ -388,11 +388,11 @@ void manage(void* p0) {
     free((void*) cyboi_service_sleep_time);
 
     // Deallocate signal memory item.
-    deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
     // Deallocate knowledge memory part.
-    deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_PRIMITIVE_MEMORY_ABSTRACTION);
+    deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_ABSTRACTION);
     // Deallocate internal memory array.
-    deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_MEMORY_MODEL_COUNT, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_ABSTRACTION);
 }
 
 /* MANAGER_SOURCE */

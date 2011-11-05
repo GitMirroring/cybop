@@ -123,11 +123,11 @@ void encode_integer_vector_elements(void* p0, void* p1, void* p2, void* p3, void
                                 // in order to separate from already existing elements.
 
                                 // Append comma character.
-                                overwrite_array(p0, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                             }
 
                             // Append integer characters.
-                            overwrite_array(p0, c, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, cc, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                            overwrite_array(p0, c, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, cc, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                             // Determine remaining vector elements.
                             //

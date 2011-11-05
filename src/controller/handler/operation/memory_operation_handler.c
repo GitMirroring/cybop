@@ -60,7 +60,7 @@ void handle_memory_operation(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) BUILD_LISTNAME_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) BUILD_LISTNAME_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) BUILD_LISTNAME_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) BUILD_LISTNAME_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -70,7 +70,7 @@ void handle_memory_operation(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) COPY_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) COPY_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) COPY_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) COPY_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -80,7 +80,7 @@ void handle_memory_operation(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) COUNT_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) COUNT_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) COUNT_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) COUNT_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -90,7 +90,7 @@ void handle_memory_operation(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) CREATE_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) CREATE_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) CREATE_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) CREATE_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -100,7 +100,7 @@ void handle_memory_operation(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) DESTROY_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) DESTROY_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) DESTROY_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) DESTROY_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -110,7 +110,7 @@ void handle_memory_operation(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) GET_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) GET_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) GET_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) GET_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -120,7 +120,7 @@ void handle_memory_operation(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) MOVE_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) MOVE_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) MOVE_MEMORY_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) MOVE_MEMORY_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

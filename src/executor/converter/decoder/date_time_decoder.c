@@ -134,11 +134,11 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
                         int tmpys = *NUMBER_4_INTEGER_MEMORY_MODEL + *NUMBER_1_INTEGER_MEMORY_MODEL;
 
                         // Create temporary null-terminated day string.
-                        allocate_array((void*) &tmpd, (void*) &tmpds, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+                        allocate_array((void*) &tmpd, (void*) &tmpds, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
                         // Create temporary null-terminated month string.
-                        allocate_array((void*) &tmpm, (void*) &tmpms, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+                        allocate_array((void*) &tmpm, (void*) &tmpms, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
                         // Create temporary null-terminated year string.
-                        allocate_array((void*) &tmpy, (void*) &tmpys, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+                        allocate_array((void*) &tmpy, (void*) &tmpys, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
                         // The index.
                         int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
@@ -151,11 +151,11 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
 
 /*?? TODO!
                         // Copy original string to temporary null-terminated day string.
-                        overwrite_array((void*) &tmpd, sdi, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpd, sdi, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                         // Copy original string to temporary null-terminated month string.
-                        overwrite_array((void*) &tmpm, smi, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpm, smi, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                         // Copy original string to temporary null-terminated year string.
-                        overwrite_array((void*) &tmpy, syi, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpy, syi, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 */
 
                         // The day termination character index.
@@ -167,11 +167,11 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
 
 /*?? TODO!
                         // Add string termination to temporary null-terminated day string.
-                        overwrite_array((void*) &tmpd, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &dti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpd, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &dti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                         // Add string termination to temporary null-terminated month string.
-                        overwrite_array((void*) &tmpm, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &mti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpm, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &mti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                         // Add string termination to temporary null-terminated year string.
-                        overwrite_array((void*) &tmpy, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &yti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpy, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &yti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 */
 
                         // The tail variable is useless here and only needed for the string
@@ -215,23 +215,23 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
 
 /*?? TODO!
                         // Set date time integer values.
-                        overwrite_array(p0, (void*) &yv, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) YEAR_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, (void*) &mv, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) MONTH_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, (void*) &dv, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) DAY_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, *NULL_POINTER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) HOUR_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, *NULL_POINTER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) MINUTE_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, *NULL_POINTER_MEMORY_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) SECOND_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, (void*) &yv, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) YEAR_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, (void*) &mv, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) MONTH_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, (void*) &dv, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) DAY_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, *NULL_POINTER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) HOUR_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, *NULL_POINTER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) MINUTE_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, *NULL_POINTER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) SECOND_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 */
 
                         // Increase date time count by one, because of new element.
                         (*dc)++;
 
                         // Destroy temporary null-terminated day string.
-                        deallocate_array((void*) &tmpd, (void*) &tmpds, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+                        deallocate_array((void*) &tmpd, (void*) &tmpds, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
                         // Destroy temporary null-terminated month string.
-                        deallocate_array((void*) &tmpm, (void*) &tmpms, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+                        deallocate_array((void*) &tmpm, (void*) &tmpms, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
                         // Destroy temporary null-terminated year string.
-                        deallocate_array((void*) &tmpy, (void*) &tmpys, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+                        deallocate_array((void*) &tmpy, (void*) &tmpys, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
                     } else {
 

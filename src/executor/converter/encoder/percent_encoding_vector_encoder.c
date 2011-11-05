@@ -142,7 +142,7 @@ void encode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void
     *ds = *dc + (*sc * *NUMBER_3_INTEGER_MEMORY_MODEL);
 
     // Reallocate destination character vector.
-    reallocate_array(p0, p1, p2, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_ABSTRACTION);
 
     // Convert percent-encoded characters into ASCII characters.
 

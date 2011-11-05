@@ -67,7 +67,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 determine_size((void*) &ma, p3);
 
                 // Calculate memory area.
-                multiply_with_integer((void*) &ma, p2, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
+                multiply_with_integer((void*) &ma, p2, (void*) INTEGER_MEMORY_ABSTRACTION);
 
                 if (ma > *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -113,7 +113,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         determine_size((void*) &nma, p3);
 
                         // Calculate new memory area.
-                        multiply_with_integer((void*) &nma, (void*) &es, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
+                        multiply_with_integer((void*) &nma, (void*) &es, (void*) INTEGER_MEMORY_ABSTRACTION);
 
                         // The new array elements.
                         void* na = *a + (ma - nma);

@@ -55,7 +55,7 @@ void encode_http_response_status_code(void* p0, void* p1, void* p2, void* p3, vo
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response status code.");
 
-    overwrite_array(p0, (void*) OK_200_STATUS_CODE_HTTP_MODEL, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) OK_200_STATUS_CODE_HTTP_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, (void*) OK_200_STATUS_CODE_HTTP_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) OK_200_STATUS_CODE_HTTP_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 }
 
 /* STATUS_CODE_HTTP_RESPONSE_ENCODER_SOURCE */

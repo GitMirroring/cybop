@@ -67,7 +67,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Get signal part.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1);
+    copy_array_forward((void*) &s, p0, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1);
     // Evaluate direct execution flag.
     compare_integer((void*) &r, p4, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
 
@@ -100,7 +100,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         pthread_mutex_lock(p10);
 
         // Add part model (signal) to signal memory.
-        append_item_element(p8, (void*) &s, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        append_item_element(p8, (void*) &s, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
         // Set interrupt request flag, in order to notify the signal checker
         // that a new signal has been placed in the signal memory.

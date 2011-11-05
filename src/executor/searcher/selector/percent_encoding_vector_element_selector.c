@@ -76,7 +76,7 @@ void select_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p2, p3, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p2, p3, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

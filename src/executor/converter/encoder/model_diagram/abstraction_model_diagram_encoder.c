@@ -26,16 +26,9 @@
 #ifndef ABSTRACTION_MODEL_DIAGRAM_ENCODER_SOURCE
 #define ABSTRACTION_MODEL_DIAGRAM_ENCODER_SOURCE
 
-#include "../../../../constant/abstraction/cybol/compare_cybol_abstraction.c"
-#include "../../../../constant/abstraction/cybol/datetime_cybol_abstraction.c"
-#include "../../../../constant/abstraction/cybol/logicvalue_cybol_abstraction.c"
-//?? Delete this later. Superfluous since replaced with compare/equal etc.
-#include "../../../../constant/abstraction/cybol/operation_cybol_abstraction.c"
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/abstraction/model_diagram/model_diagram_abstraction.c"
 #include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
 #include "../../../../constant/abstraction/operation/operation_abstraction.c"
-#include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
 #include "../../../../constant/model/memory/pointer_memory_model.c"
@@ -60,7 +53,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) BOOLEAN_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) BOOLEAN_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) BOOLEAN_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) BOOLEAN_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -70,7 +63,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -80,8 +73,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) ENCAPSULATED_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) ENCAPSULATED_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            overwrite_array(p0, p1, p2, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_ABSTRACTION, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_ABSTRACTION_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+            append_item_element(p0, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -91,7 +83,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) INTEGER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) INTEGER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) INTEGER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) INTEGER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -101,7 +93,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) KNOWLEDGE_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) KNOWLEDGE_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) KNOWLEDGE_PATH_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) KNOWLEDGE_PATH_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -111,7 +103,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) PART_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PART_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) PART_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PART_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -121,7 +113,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) WIDE_CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) WIDE_CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -132,7 +124,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -142,7 +134,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -152,7 +144,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -162,7 +154,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             overwrite_array(p0, p1, p2, (void*) PREFIX_EQUAL_OPERATION_ABSTRACTION, (void*) PREFIX_EQUAL_OPERATION_ABSTRACTION_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
         }
     }
@@ -173,7 +165,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             overwrite_array(p0, p1, p2, (void*) SMALLER_OPERATION_ABSTRACTION, (void*) SMALLER_OPERATION_ABSTRACTION_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
         }
     }
@@ -184,7 +176,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             overwrite_array(p0, p1, p2, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
         }
     }
@@ -195,7 +187,7 @@ void encode_model_diagram_abstraction(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             overwrite_array(p0, p1, p2, (void*) SUFFIX_EQUAL_OPERATION_ABSTRACTION, (void*) SUFFIX_EQUAL_OPERATION_ABSTRACTION_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
         }
     }

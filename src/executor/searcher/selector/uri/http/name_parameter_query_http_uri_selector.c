@@ -62,7 +62,7 @@ void select_http_uri_query_parameter_name(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -73,8 +73,8 @@ void select_http_uri_query_parameter_name(void* p0, void* p1, void* p2, void* p3
             // The remaining data represent the parameter value,
             // which was handed over to here and can now be assigned.
 /*?? TODO!
-            assign(p9, p7, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
-            assign(p10, p8, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION);
+            assign(p9, p7, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION);
+            assign(p10, p8, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_ABSTRACTION);
 */
 
             // Set break flag.

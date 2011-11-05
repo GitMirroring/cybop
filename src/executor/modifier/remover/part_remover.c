@@ -56,7 +56,7 @@ void remove_part(void* p0, void* p1, void* p2, void* p3) {
     void* m = *NULL_POINTER_MEMORY_MODEL;
 
     // Get part model.
-    copy_array_forward((void*) &m, p0, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p0, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Remove elements from part model.
     remove_item(m, p1, p2, p3);

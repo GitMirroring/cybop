@@ -88,7 +88,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION) {
+            if (*a == *CHARACTER_MEMORY_ABSTRACTION) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -98,7 +98,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *DOUBLE_PRIMITIVE_MEMORY_ABSTRACTION) {
+            if (*a == *DOUBLE_MEMORY_ABSTRACTION) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -108,7 +108,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *FRACTION_PRIMITIVE_MEMORY_ABSTRACTION) {
+            if (*a == *FRACTION_MEMORY_ABSTRACTION) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -118,7 +118,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *INTEGER_PRIMITIVE_MEMORY_ABSTRACTION) {
+            if (*a == *INTEGER_MEMORY_ABSTRACTION) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -138,7 +138,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *PART_PRIMITIVE_MEMORY_ABSTRACTION) {
+            if (*a == *PART_MEMORY_ABSTRACTION) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -148,7 +148,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *POINTER_PRIMITIVE_MEMORY_ABSTRACTION) {
+            if (*a == *POINTER_MEMORY_ABSTRACTION) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -158,7 +158,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *UNSIGNED_LONG_PRIMITIVE_MEMORY_ABSTRACTION) {
+            if (*a == *UNSIGNED_LONG_MEMORY_ABSTRACTION) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -168,7 +168,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION) {
+            if (*a == *WIDE_CHARACTER_MEMORY_ABSTRACTION) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 

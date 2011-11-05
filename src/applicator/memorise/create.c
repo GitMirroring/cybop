@@ -106,19 +106,19 @@ void apply_create(void* p0, void* p1, void* p2) {
     get_name_array((void*) &w, p0, (void*) WHOLE_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) WHOLE_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get name part model.
-    copy_array_forward((void*) &nm, n, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &nm, n, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get abstraction part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get element part model.
-    copy_array_forward((void*) &em, e, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &em, e, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get name part model data, count.
-    copy_array_forward((void*) &nmd, nm, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &nmc, nm, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nmd, nm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nmc, nm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get abstraction part model data, count.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get element part model data, count.
-    copy_array_forward((void*) &emd, em, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &emd, em, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The part.
     void* p = *NULL_POINTER_MEMORY_MODEL;
@@ -127,8 +127,8 @@ void apply_create(void* p0, void* p1, void* p2) {
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, amd);
 
     // Fill part.
-    overwrite_part_element(p, nmd, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, nmc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    overwrite_part_element(p, amd, (void*) INTEGER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+    overwrite_part_element(p, nmd, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, nmc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(p, amd, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_MEMORY_MODEL;
@@ -146,10 +146,10 @@ void apply_create(void* p0, void* p1, void* p2) {
                 log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to whole model.");
 
                 // Append part (handed over as array reference) to whole model (being a part itself).
-                // CAUTION! Do NOT use PART_PRIMITIVE_MEMORY_ABSTRACTION here!
+                // CAUTION! Do NOT use PART_MEMORY_ABSTRACTION here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(w, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+                append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
             } else {
 
@@ -163,10 +163,10 @@ void apply_create(void* p0, void* p1, void* p2) {
                 // Therefore, if the whole part is null, the knowledge memory is used instead.
 
                 // Append part (handed over as array reference) to knowledge memory root model (being a part itself).
-                // CAUTION! Do NOT use PART_PRIMITIVE_MEMORY_ABSTRACTION here!
+                // CAUTION! Do NOT use PART_MEMORY_ABSTRACTION here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(p2, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+                append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
             }
         }
     }
@@ -184,10 +184,10 @@ void apply_create(void* p0, void* p1, void* p2) {
                 log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to whole details.");
 
                 // Append part (handed over as array reference) to whole details (being a part itself).
-                // CAUTION! Do NOT use PART_PRIMITIVE_MEMORY_ABSTRACTION here!
+                // CAUTION! Do NOT use PART_MEMORY_ABSTRACTION here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(w, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+                append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
 
             } else {
 
@@ -201,10 +201,10 @@ void apply_create(void* p0, void* p1, void* p2) {
                 // Therefore, if the whole part is null, the knowledge memory is used instead.
 
                 // Append part (handed over as array reference) to knowledge memory root details (being a part itself).
-                // CAUTION! Do NOT use PART_PRIMITIVE_MEMORY_ABSTRACTION here!
+                // CAUTION! Do NOT use PART_MEMORY_ABSTRACTION here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(p2, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+                append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
             }
         }
     }
@@ -221,10 +221,10 @@ void apply_create(void* p0, void* p1, void* p2) {
             log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to whole model.");
 
             // Append part (handed over as array reference) to whole model (being a part itself).
-            // CAUTION! Do NOT use PART_PRIMITIVE_MEMORY_ABSTRACTION here!
+            // CAUTION! Do NOT use PART_MEMORY_ABSTRACTION here!
             // The reason is that deep copying would be used to assign the part inside,
             // instead of just assigning the part reference in a shallow copying manner.
-            append_part_element(w, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+            append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
         } else {
 
@@ -238,10 +238,10 @@ void apply_create(void* p0, void* p1, void* p2) {
             // Therefore, if the whole part is null, the knowledge memory is used instead.
 
             // Append part (handed over as array reference) to knowledge memory root model (being a part itself).
-            // CAUTION! Do NOT use PART_PRIMITIVE_MEMORY_ABSTRACTION here!
+            // CAUTION! Do NOT use PART_MEMORY_ABSTRACTION here!
             // The reason is that deep copying would be used to assign the part inside,
             // instead of just assigning the part reference in a shallow copying manner.
-            append_part_element(p2, (void*) &p, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+            append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
         }
     }
 }

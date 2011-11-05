@@ -71,11 +71,11 @@ void encode_ascii_character_vector(void* p0, void* p1, void* p2, void* p3, void*
                         *ds = (*dc * *ARRAY_REALLOCATION_FACTOR) + *sc;
 
                         // Reallocate destination character vector.
-                        reallocate_array(p0, p1, p2, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+                        reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_ABSTRACTION);
                     }
 
                     // Set source into destination character vector.
-                    overwrite_array(p0, p3, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                    overwrite_array(p0, p3, (void*) CHARACTER_MEMORY_ABSTRACTION, p4, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                 } else {
 

@@ -101,7 +101,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // this function. If it is smaller or equal to the given index
     // (here: zero), then the signal value s is NOT changed,
     // i.e. it remains NULL if initialised so before.
-    get_item_element((void*) &s, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+    get_item_element((void*) &s, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
 
     if (s != *NULL_POINTER_MEMORY_MODEL) {
 
@@ -109,15 +109,15 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Handling a signal has higher priority than checking for new interrupt requests.
 
         // Get interrupt request.
-        copy_array_forward((void*) &irq, p4, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+        copy_array_forward((void*) &irq, p4, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
         // Get mutex.
-        copy_array_forward((void*) &mt, p4, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
+        copy_array_forward((void*) &mt, p4, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
 
         // Lock signal memory mutex.
         pthread_mutex_lock(mt);
 
         // Remove signal from signal memory.
-        remove_item(p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        remove_item(p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
         // Unlock signal memory mutex.
         pthread_mutex_unlock(mt);

@@ -56,7 +56,7 @@ void find_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* i = *NULL_POINTER_MEMORY_MODEL;
 
     // Get investigated part.
-    copy_array_forward((void*) &i, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4);
+    copy_array_forward((void*) &i, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4);
 
     // Find the searched item in the investigated item.
     find_name_item_element(p0, i, p2, p3);
@@ -79,9 +79,9 @@ void find_name_part(void* p0, void* p1, void* p2) {
     void* s = *NULL_POINTER_MEMORY_MODEL;
 
     // Get investigated part.
-    copy_array_forward((void*) &i, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &i, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get searched name part name.
-    copy_array_forward((void*) &s, p2, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &s, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
 
     // Find the searched name item in the investigated item.
     find_name_item(p0, i, s);

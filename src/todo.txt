@@ -11,10 +11,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: "abstraction_model_diagram_encoder.c" (rest of model diagram is done)
         * Adapt files in directory "executor/converter/encoder/*" and "encoder/http_response/"
 
-        * Replace old abstractions with primitive abstractions OR (better) just rename constants
+        * Merge "primitive_operation_abstraction.c" into "operation_abstraction.c"
         * Add primitive integer constants as counterpart to ALL cybol model constants,
             for faster processing inside cyboi; think through categories first
         * Provide operation integer constants in "constant/model/memory/",
@@ -30,13 +29,12 @@
 
         * Change year from 2011 to 2012 in comment block of all source code files
         * Delete comment line " * @version $RCSfile: ..." at beginning of all source code files,
-            since "$" tags are specific to CVS but SVN is used since two years
-            and does not replace them automatically
+            since "$" tags are specific to CVS but SVN is used since two years and does not replace them automatically;
+            Do use: @version CYBOI 0.11.0 (and update it with each new release)
 
         * Move all operation handlers one directory up??
         * Adapt "*_operation_handler.c"
 
-        * Remove "size" parametre from all "deallocate" functions?
         * Offer part deallocation shallow and deep
             (deep is not always wanted, if a child is referenced by many parts)
 

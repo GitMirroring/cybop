@@ -53,15 +53,15 @@ void determine_size(void* p0, void* p1) {
 
         log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Determine size.");
 
-        if (*a == *CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION) {
+        if (*a == *CHARACTER_MEMORY_ABSTRACTION) {
 
             copy_integer(p0, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *DOUBLE_PRIMITIVE_MEMORY_ABSTRACTION) {
+        } else if (*a == *DOUBLE_MEMORY_ABSTRACTION) {
 
             copy_integer(p0, (void*) DOUBLE_REAL_TYPE_SIZE);
 
-        } else if (*a == *FRACTION_PRIMITIVE_MEMORY_ABSTRACTION) {
+        } else if (*a == *FRACTION_MEMORY_ABSTRACTION) {
 
             // CAUTION! This "fraction" abstraction IS NEEDED,
             // e.g. when DEEP copying a part. Do NOT delete!
@@ -69,11 +69,11 @@ void determine_size(void* p0, void* p1) {
             // pointer references a fraction structure.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *INTEGER_PRIMITIVE_MEMORY_ABSTRACTION) {
+        } else if (*a == *INTEGER_MEMORY_ABSTRACTION) {
 
             copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *PART_PRIMITIVE_MEMORY_ABSTRACTION) {
+        } else if (*a == *PART_MEMORY_ABSTRACTION) {
 
             // CAUTION! This "part" abstraction IS NEEDED,
             // e.g. when DEEP copying a part. Do NOT delete!
@@ -81,15 +81,15 @@ void determine_size(void* p0, void* p1) {
             // pointer references a part structure.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *POINTER_PRIMITIVE_MEMORY_ABSTRACTION) {
+        } else if (*a == *POINTER_MEMORY_ABSTRACTION) {
 
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *UNSIGNED_LONG_PRIMITIVE_MEMORY_ABSTRACTION) {
+        } else if (*a == *UNSIGNED_LONG_MEMORY_ABSTRACTION) {
 
             copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION) {
+        } else if (*a == *WIDE_CHARACTER_MEMORY_ABSTRACTION) {
 
             copy_integer(p0, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 

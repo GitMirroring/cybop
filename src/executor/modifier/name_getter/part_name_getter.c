@@ -54,7 +54,7 @@ void get_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* s = *NULL_POINTER_MEMORY_MODEL;
 
     // Get source whole item.
-    copy_array_forward((void*) &s, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4);
+    copy_array_forward((void*) &s, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4);
 
     // Get destination part with given name from source whole data item.
     get_name_item_element(p0, s, p2, p3);
@@ -77,9 +77,9 @@ void get_name_part(void* p0, void* p1, void* p2) {
     void* n = *NULL_POINTER_MEMORY_MODEL;
 
     // Get source whole part.
-    copy_array_forward((void*) &s, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &s, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get part name part.
-    copy_array_forward((void*) &n, p2, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &n, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
 
     // Get destination part with given name from source whole data item.
     get_name_item(p0, s, n);

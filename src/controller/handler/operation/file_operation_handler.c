@@ -57,7 +57,7 @@ void handle_file_operation(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) ARCHIVE_FILE_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) ARCHIVE_FILE_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) ARCHIVE_FILE_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) ARCHIVE_FILE_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -67,7 +67,7 @@ void handle_file_operation(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) COPY_FILE_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) COPY_FILE_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) COPY_FILE_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) COPY_FILE_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -77,7 +77,7 @@ void handle_file_operation(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         if (*r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            compare_all_array(p0, p1, (void*) LIST_DIRECTORY_CONTENTS_FILE_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p2, (void*) LIST_DIRECTORY_CONTENTS_FILE_OPERATION_CYBOL_MODEL_COUNT);
+            compare_all_array(p0, p1, (void*) LIST_DIRECTORY_CONTENTS_FILE_OPERATION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) LIST_DIRECTORY_CONTENTS_FILE_OPERATION_CYBOL_MODEL_COUNT);
 
             if (*r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

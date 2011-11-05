@@ -75,8 +75,8 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
         allocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
 
         // Append control sequences and null termination character.
-        overwrite_array((void*) &ts, p3, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, p4, tsc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tsc, tss);
-        overwrite_array((void*) &ts, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tsc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tsc, tss);
+        overwrite_array((void*) &ts, p3, (void*) CHARACTER_MEMORY_ABSTRACTION, p4, tsc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tsc, tss);
+        overwrite_array((void*) &ts, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tsc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tsc, tss);
 
         if (*d != *NULL_POINTER_MEMORY_MODEL) {
 
@@ -155,8 +155,8 @@ void apply_send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* 
 
         if (*f != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            overwrite_array((void*) &s, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, sc, ss);
-            overwrite_array((void*) &s, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, sc, ss);
+            overwrite_array((void*) &s, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, sc, ss);
+            overwrite_array((void*) &s, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, sc, ss);
         }
     }
 
@@ -185,7 +185,7 @@ void apply_send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* 
     void** op = NULL_POINTER_MEMORY_MODEL;
 
     // Get gnu/linux console output stream.
-    get_array_elements((void*) &op, p0, (void*) GNU_LINUX_CONSOLE_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &op, p0, (void*) GNU_LINUX_CONSOLE_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION);
 
     // Send encoded array as message to shell standard output.
     send_data((void*) op, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, e, ec, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);

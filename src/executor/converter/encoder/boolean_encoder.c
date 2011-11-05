@@ -79,10 +79,10 @@ void encode_boolean(void* p0, void* p1, void* p2, void* p3, void* p4) {
                                 *ds = *dc + *TRUE_BOOLEAN_CYBOL_MODEL_COUNT;
 
                                 // Reallocate destination character vector.
-                                reallocate_array(p0, p1, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+                                reallocate_array(p0, p1, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
                                 // Set source into destination character vector.
-                                overwrite_array(p0, (void*) TRUE_BOOLEAN_CYBOL_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, (void*) TRUE_BOOLEAN_CYBOL_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                             } else {
 
@@ -90,10 +90,10 @@ void encode_boolean(void* p0, void* p1, void* p2, void* p3, void* p4) {
                                 *ds = *dc + *FALSE_BOOLEAN_CYBOL_MODEL_COUNT;
 
                                 // Reallocate destination character vector.
-                                reallocate_array(p0, p1, p2, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION);
+                                reallocate_array(p0, p1, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
 
                                 // Set source into destination character vector.
-                                overwrite_array(p0, (void*) FALSE_BOOLEAN_CYBOL_MODEL, (void*) WIDE_CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) FALSE_BOOLEAN_CYBOL_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, (void*) FALSE_BOOLEAN_CYBOL_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) FALSE_BOOLEAN_CYBOL_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                             }
 
                         } else {

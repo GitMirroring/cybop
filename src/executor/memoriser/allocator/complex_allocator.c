@@ -44,7 +44,7 @@ void allocate_complex(void* p0, void* p1) {
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Allocate complex.");
 
     // Create complex.
-    allocate_array(p0, p1, (void*) DOUBLE_PRIMITIVE_MEMORY_ABSTRACTION);
+    allocate_array(p0, p1, (void*) DOUBLE_MEMORY_ABSTRACTION);
 }
 
 /* COMPLEX_ALLOCATOR_SOURCE */

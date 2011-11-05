@@ -63,7 +63,7 @@ void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // A part with the given name was found.
 
         // Get part at index from source whole part.
-        copy_array_forward(p0, p1, (void*) POINTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward(p0, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
     }
 }
 

@@ -65,7 +65,7 @@ void encode_http_response_body(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Encode wide character array into multibyte character array.
     encode_utf_8_unicode_character_vector((void*) &a, ac, as, p5, p6);
 
-    overwrite_array(p0, a, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, ac, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, a, (void*) CHARACTER_MEMORY_ABSTRACTION, ac, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
     // Deallocate character array.
     deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);

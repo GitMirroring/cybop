@@ -54,7 +54,7 @@ void encode_http_response_protocol(void* p0, void* p1, void* p2, void* p3, void*
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response protocol.");
 
-    overwrite_array(p0, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL, (void*) CHARACTER_PRIMITIVE_MEMORY_ABSTRACTION, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 }
 
 /* PROTOCOL_HTTP_RESPONSE_ENCODER_SOURCE */
