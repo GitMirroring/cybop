@@ -35,20 +35,20 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../executor/accessor/getter.c"
-#include "../../../executor/converter/decoder/integer_decoder.c"
-#include "../../../executor/memoriser/allocator.c"
-#include "../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../logger/logger.c"
-#include "../../../variable/type_size/integral_type_size.c"
-#include "../../../variable/reallocation_factor.c"
+#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../executor/accessor/getter.c"
+#include "../../../../executor/converter/decoder/integer_decoder.c"
+#include "../../../../executor/memoriser/allocator.c"
+#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/integral_type_size.c"
+#include "../../../../variable/reallocation_factor.c"
 
 /**
  * Decodes the wide character data into an integer vector.

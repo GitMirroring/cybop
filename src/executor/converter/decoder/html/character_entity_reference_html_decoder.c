@@ -26,13 +26,13 @@
 #ifndef CHARACTER_ENTITY_REFERENCE_DECODER_SOURCE
 #define CHARACTER_ENTITY_REFERENCE_DECODER_SOURCE
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../logger/logger.c"
-#include "../../../variable/reallocation_factor.c"
+#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/reallocation_factor.c"
 
 /**
  * Decodes a character entity reference (html escape reference) into a character.

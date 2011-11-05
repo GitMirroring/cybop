@@ -19,32 +19,35 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: complex_converter.c,v $ $Revision: 1.14 $ $Date: 2009-01-31 16:06:33 $ $Author: christian $
+ * @version $RCSfile: fraction_converter.c,v $ $Revision: 1.14 $ $Date: 2009-01-31 16:06:33 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COMPLEX_DECODER_SOURCE
-#define COMPLEX_DECODER_SOURCE
+#ifndef FRACTION_DECODER_SOURCE
+#define FRACTION_DECODER_SOURCE
 
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../logger/logger.c"
 
 //
-// A complex consists of two floats, a real and an imaginary.
+// A fraction consists of two integers, a numerator and a denominator.
+//
+// For higher performance, it is mostly better to use floating point numbers
+// (float) which can be calculated by the Arithmetic Logic Unit (ALU).
 //
 
 /**
- * Decodes the wide character data into a complex model.
+ * Decodes the wide character data into a fraction.
  *
- * @param p0 the destination data (Hand over as reference!)
+ * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source data
  * @param p4 the source count
  */
-void decode_complex(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_fraction(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p4 != *NULL_POINTER_MEMORY_MODEL) {
 
@@ -56,22 +59,22 @@ void decode_complex(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             if (p0 != *NULL_POINTER_MEMORY_MODEL) {
 
-                void* d = (void*) p0;
+                void** d = (void**) p0;
 
 /*??
-            //??    log_message((void*) &INFORMATION_LEVEL_LOG_MODEL, (void*) &"Initialise complex.");
+            //??    log_message((void*) &INFORMATION_LEVEL_LOG_MODEL, (void*) &"Initialise fraction.");
 
-            //??    fscanf(p1, %d, (void*) &(t->real));
-            //??    fscanf(p1, %d, (void*) &(t->imaginary));
+            //??    sscanf(p1, %l, (void*) &(m->value));
 
                 // Initialise elements.
-                int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int d = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int n = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
                 // Set elements.
-                set_array_element(p0, (void*) &DOUBLE_ARRAY, (void*) &REAL_INDEX, (void*) &r);
-                set_array_element(p0, (void*) &DOUBLE_ARRAY, (void*) &IMAGINARY_INDEX, (void*) &i);
+                set_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &NUMERATOR_INDEX, (void*) &n);
+                set_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &DENOMINATOR_INDEX, (void*) &d);
 */
+
             } else {
 
 //??                log_message((void*) &ERROR_LEVEL_LOG_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE_COUNT);
@@ -88,5 +91,5 @@ void decode_complex(void* p0, void* p1, void* p2, void* p3, void* p4) {
     }
 }
 
-/* COMPLEX_DECODER_SOURCE */
+/* FRACTION_DECODER_SOURCE */
 #endif

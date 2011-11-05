@@ -26,9 +26,9 @@
 #ifndef XML_ENCODER_SOURCE
 #define XML_ENCODER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-//?? #include "../../../executor/converter/processor/xml_processor.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/log/message_log_model.c"
+//?? #include "../../../../executor/converter/processor/xml_processor.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Encodes the compound into a xml byte array.

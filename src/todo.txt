@@ -11,9 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Delete "html_character_entity_reference_decoder.c"
-
-        * Adapt files in directory "executor/converter/encoder/*"
+        * Adapt files in directory "executor/converter/encoder/"
 
         * Merge "primitive_operation_abstraction.c" into "operation_abstraction.c"
         * Add primitive integer constants as counterpart to ALL cybol model constants,

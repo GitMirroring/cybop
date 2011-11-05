@@ -26,21 +26,21 @@
 #ifndef XDT_ENCODER_SOURCE
 #define XDT_ENCODER_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../constant/name/xdt/field_xdt_name.c"
-#include "../../../constant/name/xdt/package_xdt_name.c"
-#include "../../../constant/name/xdt/record_xdt_name.c"
-#include "../../../constant/name/xdt_model/field_xdt_model_name.c"
-#include "../../../constant/name/xdt_model/record_xdt_model_name.c"
-#include "../../../executor/converter/encoder/ascii_character_vector_encoder.c"
-#include "../../../executor/converter/encoder/date_time_encoder.c"
-#include "../../../executor/converter/encoder/integer_vector_encoder.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/name/xdt/field_xdt_name.c"
+#include "../../../../constant/name/xdt/package_xdt_name.c"
+#include "../../../../constant/name/xdt/record_xdt_name.c"
+#include "../../../../constant/name/xdt_model/field_xdt_model_name.c"
+#include "../../../../constant/name/xdt_model/record_xdt_model_name.c"
+#include "../../../../executor/converter/encoder/ascii_character_vector_encoder.c"
+#include "../../../../executor/converter/encoder/date_time_encoder.c"
+#include "../../../../executor/converter/encoder/integer_vector_encoder.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../logger/logger.c"
 
 //
 // The "x DatenTransfer" (xDT) is the German version of

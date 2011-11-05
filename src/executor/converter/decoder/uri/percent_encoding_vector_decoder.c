@@ -26,12 +26,12 @@
 #ifndef PERCENT_ENCODING_VECTOR_DECODER_SOURCE
 #define PERCENT_ENCODING_VECTOR_DECODER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../executor/converter/decoder/percent_encoding_decoder.c"
-#include "../../../executor/converter/selector/percent_encoding_vector_element_selector.c"
-#include "../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/boolean_memory_model.c"
+#include "../../../../executor/converter/decoder/percent_encoding_decoder.c"
+#include "../../../../executor/converter/selector/percent_encoding_vector_element_selector.c"
+#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../logger/logger.c"
 
 //
 // Reflexions on character set conversion.

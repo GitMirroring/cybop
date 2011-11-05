@@ -34,16 +34,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <wchar.h>
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../constant/name/memory/primitive_memory_name.c"
-#include "../../../executor/memoriser/allocator.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/name/memory/primitive_memory_name.c"
+#include "../../../../executor/memoriser/allocator.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Encodes the integer model and creates a wide character array from it.

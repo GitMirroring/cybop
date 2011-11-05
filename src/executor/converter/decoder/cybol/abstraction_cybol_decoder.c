@@ -26,21 +26,21 @@
 #ifndef ABSTRACTION_DECODER_SOURCE
 #define ABSTRACTION_DECODER_SOURCE
 
-#include "../../../constant/abstraction/cybol/compare_cybol_abstraction.c"
-#include "../../../constant/abstraction/cybol/datetime_cybol_abstraction.c"
-#include "../../../constant/abstraction/cybol/logicvalue_cybol_abstraction.c"
+#include "../../../../constant/abstraction/cybol/compare_cybol_abstraction.c"
+#include "../../../../constant/abstraction/cybol/datetime_cybol_abstraction.c"
+#include "../../../../constant/abstraction/cybol/logicvalue_cybol_abstraction.c"
 //?? Delete this later. Superfluous since replaced with compare/equal etc.
-#include "../../../constant/abstraction/cybol/operation_cybol_abstraction.c"
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
-#include "../../../constant/abstraction/operation/operation_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/abstraction/cybol/operation_cybol_abstraction.c"
+#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/abstraction/operation/operation_abstraction.c"
+#include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Decodes the abstraction wide character data into an abstraction integer.

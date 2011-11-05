@@ -29,15 +29,16 @@
 #include <errno.h>
 #include <locale.h>
 #include <wchar.h>
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../../logger/logger.c"
-#include "../../../variable/type_size/conversion_type_size.c"
+
+#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../executor/memoriser/reallocator/array_reallocator.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/conversion_type_size.c"
 
 //
 // Reflexions on character set conversion.

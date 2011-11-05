@@ -26,19 +26,19 @@
 #ifndef CYBOL_DECODER_SOURCE
 #define CYBOL_DECODER_SOURCE
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../constant/name/cybop/cybop_name.c"
-#include "../../../executor/accessor/appender/compound_appender.c"
-#include "../../../executor/accessor/getter/compound_getter.c"
-#include "../../../executor/converter/detector/cybol_detector.c"
-#include "../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../executor/memoriser/allocator/part_allocator.c"
-#include "../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/boolean_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/name/cybop/cybop_name.c"
+#include "../../../../executor/accessor/appender/compound_appender.c"
+#include "../../../../executor/accessor/getter/compound_getter.c"
+#include "../../../../executor/converter/detector/cybol_detector.c"
+#include "../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../../logger/logger.c"
 
 //
 // Forward declarations.

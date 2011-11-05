@@ -26,8 +26,8 @@
 #ifndef HTTP_RESPONSE_DECODER_SOURCE
 #define HTTP_RESPONSE_DECODER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../logger/logger.c"
 
 //
 // Many Web servers supply incorrect Content-Type headers with their

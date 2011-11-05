@@ -26,19 +26,19 @@
 #ifndef TERMINAL_FOREGROUND_ENCODER_SOURCE
 #define TERMINAL_FOREGROUND_ENCODER_SOURCE
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
-#include "../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
-#include "../../../constant/model/gnu_linux_console/escape_control_sequence_gnu_linux_console_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../executor/accessor/getter.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
+#include "../../../../constant/model/gnu_linux_console/escape_control_sequence_gnu_linux_console_model.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../executor/accessor/getter.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Encodes the terminal foreground colour name into a control sequence code.

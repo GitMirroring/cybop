@@ -112,83 +112,55 @@ void compare_all_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void compare_all_part_all(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Compare all part all.");
 
-        void** rp = (void**) p2;
+    // The left part name, abstraction, model, details.
+    void* ln = *NULL_POINTER_MEMORY_MODEL;
+    void* la = *NULL_POINTER_MEMORY_MODEL;
+    void* lm = *NULL_POINTER_MEMORY_MODEL;
+    void* ld = *NULL_POINTER_MEMORY_MODEL;
+    // The right part name, abstraction, model, details.
+    void* rn = *NULL_POINTER_MEMORY_MODEL;
+    void* ra = *NULL_POINTER_MEMORY_MODEL;
+    void* rm = *NULL_POINTER_MEMORY_MODEL;
+    void* rd = *NULL_POINTER_MEMORY_MODEL;
+    // The right part elements data, count.
+    void* rad = *NULL_POINTER_MEMORY_MODEL;
+    // The name, abstraction, model, details comparison results.
+    int nr = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int ar = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int mr = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int dr = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    // Get left name, abstraction, model, details.
+    copy_array_forward((void*) &ln, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &la, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+    copy_array_forward((void*) &lm, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    // Get right part name, abstraction, model, details.
+    copy_array_forward((void*) &rn, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &ra, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+    copy_array_forward((void*) &rm, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    // Get right part item data, count.
+    copy_array_forward((void*) &rad, ra, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
-            void** lp = (void**) p1;
+    // Overwrite left- with right part model item.
+    // CAUTION! Do NOT use the basic function "compare_item" here,
+    // since it does not compare the item counts.
+    compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    compare_all_item((void*) &ar, la, ra, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    compare_all_item((void*) &mr, lm, rm, p3, rad);
+    compare_all_item((void*) &dr, ld, rd, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION);
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Compare all part all.");
+    if ((nr == *FALSE_BOOLEAN_MEMORY_MODEL)
+        && (ar == *FALSE_BOOLEAN_MEMORY_MODEL)
+        && (mr == *FALSE_BOOLEAN_MEMORY_MODEL)
+        && (dr == *FALSE_BOOLEAN_MEMORY_MODEL)) {
 
-            // The left part name, abstraction, model, details.
-            void* ln = *NULL_POINTER_MEMORY_MODEL;
-            void* la = *NULL_POINTER_MEMORY_MODEL;
-            void* lm = *NULL_POINTER_MEMORY_MODEL;
-            void* ld = *NULL_POINTER_MEMORY_MODEL;
-            // The right part name, abstraction, model, details.
-            void* rn = *NULL_POINTER_MEMORY_MODEL;
-            void* ra = *NULL_POINTER_MEMORY_MODEL;
-            void* rm = *NULL_POINTER_MEMORY_MODEL;
-            void* rd = *NULL_POINTER_MEMORY_MODEL;
-            // The right part elements data, count.
-            void* rad = *NULL_POINTER_MEMORY_MODEL;
-            void* rac = *NULL_POINTER_MEMORY_MODEL;
-            // The right part abstraction primitive.
-            int rap = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
-            // The name, abstraction, model, details comparison results.
-            int nr = *FALSE_BOOLEAN_MEMORY_MODEL;
-            int ar = *FALSE_BOOLEAN_MEMORY_MODEL;
-            int mr = *FALSE_BOOLEAN_MEMORY_MODEL;
-            int dr = *FALSE_BOOLEAN_MEMORY_MODEL;
-
-            // Get left name, abstraction, model, details.
-            copy_array_forward((void*) &ln, *lp, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-            copy_array_forward((void*) &la, *lp, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-            copy_array_forward((void*) &lm, *lp, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-            copy_array_forward((void*) &ld, *lp, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
-            // Get right part name, abstraction, model, details.
-            copy_array_forward((void*) &rn, *rp, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-            copy_array_forward((void*) &ra, *rp, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-            copy_array_forward((void*) &rm, *rp, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-            copy_array_forward((void*) &rd, *rp, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
-            // Get right part item data, count.
-            copy_array_forward((void*) &rad, ra, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-            copy_array_forward((void*) &rac, ra, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-
-            // Determine primitive abstraction.
-            // CAUTION! The source abstraction arriving here had already been converted
-            // from a cybol- to a cyboi abstraction, e.g. "text/plain" into "wide_character".
-            // Therefore, decoding is only needed from a cyboi- to a primitive abstraction.
-            decode_wide_character_abstraction((void*) &rap, (void*) rad, (void*) rac);
-
-            // Overwrite left- with right part model item.
-            // CAUTION! Do NOT use the basic function "compare_item" here,
-            // since it does not compare the item counts.
-            compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
-            compare_all_item((void*) &ar, la, ra, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
-            compare_all_item((void*) &mr, lm, rm, p3, (void*) &rap);
-            compare_all_item((void*) &dr, ld, rd, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) PART_MEMORY_ABSTRACTION);
-
-            if ((nr == *FALSE_BOOLEAN_MEMORY_MODEL)
-                && (ar == *FALSE_BOOLEAN_MEMORY_MODEL)
-                && (mr == *FALSE_BOOLEAN_MEMORY_MODEL)
-                && (dr == *FALSE_BOOLEAN_MEMORY_MODEL)) {
-
-                // Set result to TRUE only if all comparisons of
-                // name, abstraction, model, details delivered true.
-                copy_integer(p0, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
-            }
-
-        } else {
-
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare all part all. The left part is null.");
-        }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare all part all. The right part is null.");
+        // Set result to TRUE only if all comparisons of
+        // name, abstraction, model, details delivered true.
+        copy_integer(p0, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
     }
 }
 

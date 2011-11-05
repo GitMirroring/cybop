@@ -101,8 +101,6 @@ void compare_part(void* p0, void* p1, void* p2, void* p3) {
                 void* smc = *NULL_POINTER_MEMORY_MODEL;
                 void* sdd = *NULL_POINTER_MEMORY_MODEL;
                 void* sdc = *NULL_POINTER_MEMORY_MODEL;
-                // The source part abstraction primitive.
-                int sap = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
 
                 // Get source part name, abstraction, model, details.
                 copy_array_forward((void*) &sn, *s, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
@@ -119,15 +117,9 @@ void compare_part(void* p0, void* p1, void* p2, void* p3) {
                 copy_array_forward((void*) &sdd, sd, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
                 copy_array_forward((void*) &sdc, sd, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
-                // Determine primitive abstraction.
-                // CAUTION! The source abstraction arriving here had already been converted
-                // from a cybol- to a cyboi abstraction, e.g. "text/plain" into "wide_character".
-                // Therefore, decoding is only needed from a cyboi- to a primitive abstraction.
-                decode_wide_character_abstraction((void*) &sap, (void*) sad, (void*) sac);
-
                 // Allocate destination part.
                 // CAUTION! Use source part abstraction for allocation!
-                allocate_part(p0, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) &sap);
+                allocate_part(p0, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, sad);
 
                 // Copy source part name, abstraction, model, details to destination.
                 // The name is always of abstraction "wide_character".
@@ -135,7 +127,7 @@ void compare_part(void* p0, void* p1, void* p2, void* p3) {
                 // The abstraction is always of abstraction "wide_character".
                 overwrite_part_element(*d, sad, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, sac, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
                 // The model is always of the abstraction determined above.
-                overwrite_part_element(*d, smd, (void*) &sap, smc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+                overwrite_part_element(*d, smd, sad, smc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
                 // The details is always of abstraction "part" (whole, compound).
                 overwrite_part_element(*d, sdd, (void*) PART_MEMORY_ABSTRACTION, sdc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
 

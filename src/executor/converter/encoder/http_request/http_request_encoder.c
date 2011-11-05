@@ -26,8 +26,8 @@
 #ifndef HTTP_REQUEST_ENCODER_SOURCE
 #define HTTP_REQUEST_ENCODER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../logger/logger.c"
 
 //
 // Since http is a stateless protocol, it does not provide a possibility to

@@ -26,9 +26,9 @@
 #ifndef AUTHORITY_DECODER_SOURCE
 #define AUTHORITY_DECODER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../executor/converter/decoder/authority/userinfo_authority_decoder.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../executor/converter/decoder/authority/userinfo_authority_decoder.c"
+#include "../../../../logger/logger.c"
 
 //
 // Example:

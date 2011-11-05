@@ -26,8 +26,8 @@
 #ifndef LATEX_DECODER_SOURCE
 #define LATEX_DECODER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Decodes the wide character data into a latex model.

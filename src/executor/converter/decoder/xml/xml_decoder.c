@@ -26,15 +26,15 @@
 #ifndef XML_DECODER_SOURCE
 #define XML_DECODER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../executor/accessor/appender/compound_appender.c"
-#include "../../../executor/accessor/appender/part_appender.c"
-#include "../../../executor/converter/decoder/xml/element_content_xml_decoder.c"
-#include "../../../executor/memoriser/allocator/part_allocator.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/name/cybol/xml_cybol_name.c"
+#include "../../../../executor/accessor/appender/compound_appender.c"
+#include "../../../../executor/accessor/appender/part_appender.c"
+#include "../../../../executor/converter/decoder/xml/element_content_xml_decoder.c"
+#include "../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Decodes the xml wide character data into a model and details.

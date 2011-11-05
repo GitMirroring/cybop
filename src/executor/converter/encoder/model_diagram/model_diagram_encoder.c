@@ -26,18 +26,18 @@
 #ifndef MODEL_DIAGRAM_ENCODER_SOURCE
 #define MODEL_DIAGRAM_ENCODER_SOURCE
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../executor/converter/encoder/model_diagram/node_model_diagram_encoder.c"
-#include "../../../executor/converter/encoder/integer_vector_encoder.c"
-#include "../../../executor/converter/encoder/double_vector_encoder.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../executor/converter/encoder/model_diagram/node_model_diagram_encoder.c"
+#include "../../../../executor/converter/encoder/integer_vector_encoder.c"
+#include "../../../../executor/converter/encoder/double_vector_encoder.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Encodes the knowledge model and creates a model diagram from it.

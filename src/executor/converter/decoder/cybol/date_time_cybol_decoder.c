@@ -26,20 +26,20 @@
 #ifndef DATE_TIME_DECODER_SOURCE
 #define DATE_TIME_DECODER_SOURCE
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../constant/name/memory/datetime_memory_name.c"
-#include "../../../executor/memoriser/allocator.c"
-#include "../../../executor/memoriser/deallocator.c"
-#include "../../../executor/memoriser/reallocator.c"
-#include "../../../logger/logger.c"
-#include "../../../variable/type_size/integral_type_size.c"
-#include "../../../variable/reallocation_factor.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/name/memory/datetime_memory_name.c"
+#include "../../../../executor/memoriser/allocator.c"
+#include "../../../../executor/memoriser/deallocator.c"
+#include "../../../../executor/memoriser/reallocator.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/integral_type_size.c"
+#include "../../../../variable/reallocation_factor.c"
 
 /**
  * Decodes the wide character data into a date time model.
