@@ -19,6 +19,8 @@
 2011-11-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt files in directory "executor/converter/encoder/cybol/"
+        * Decide that operations are distinguished by their abstraction and NOT model any longer
+        * Merge all operation handlers into "controller/handler/operation_handler.c"
 
 2011-11-05  Christian Heller  <christian.heller@tuxtax.de>
 

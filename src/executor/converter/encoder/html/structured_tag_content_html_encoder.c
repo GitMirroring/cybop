@@ -27,7 +27,7 @@
 #define STRUCTURED_TAG_CONTENT_HTML_ENCODER_SOURCE
 
 #include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"

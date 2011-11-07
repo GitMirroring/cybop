@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: gnu_linux_console_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
+ * @version $RCSfile: terminal_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -36,7 +36,7 @@
 
 #include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
 #include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
@@ -44,7 +44,7 @@
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/gnu_linux_console/escape_control_sequence_gnu_linux_console_model.c"
+#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -63,7 +63,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes the gnu/linux console coordinates.
+ * Encodes the terminal coordinates.
  *
  * @param p0 the destination control sequence code item
  * @param p3 the character
@@ -92,12 +92,12 @@
  * @param p26 the layout
  * @param p27 the layout count
  */
-void encode_gnu_linux_console_coordinates(void* p0, void* p1, void* p2, void* p3, void* p4,
+void encode_terminal_coordinates(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13,
     void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21,
     void* p22, void* p23, void* p24, void* p25, void* p26, void* p27) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode gnu/linux console coordinates.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal coordinates.");
 
     // The source part position x, y, z.
     int* px = (int*) *NULL_POINTER_MEMORY_MODEL;
@@ -189,12 +189,12 @@ void encode_gnu_linux_console_coordinates(void* p0, void* p1, void* p2, void* p3
     }
 
     // Calculate coordinates according to given layout.
-    encode_gnu_linux_console_rectangle_layout((void*) &cpx, (void*) &cpy, (void*) &cpz, (void*) &csx, (void*) &csy, (void*) &csz,
+    encode_terminal_rectangle_layout((void*) &cpx, (void*) &cpy, (void*) &cpz, (void*) &csx, (void*) &csy, (void*) &csz,
         (void*) &fapx, (void*) &fapy, (void*) &fapz, (void*) &fasx, (void*) &fasy, (void*) &fasz,
         (void*) &oapx, (void*) &oapy, (void*) &oapz, (void*) &oasx, (void*) &oasy, (void*) &oasz,
         p24, p25, p26, p27);
 
-    encode_gnu_linux_console_rectangle(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13,
+    encode_terminal_rectangle(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13,
         (void*) &cpx, (void*) &cpy, (void*) &cpz, (void*) &csx, (void*) &csy, (void*) &csz, p22, p23);
 }
 

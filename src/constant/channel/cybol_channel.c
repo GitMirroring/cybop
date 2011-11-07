@@ -46,10 +46,10 @@ static wchar_t FTP_CYBOL_CHANNEL_ARRAY[] = {L'f', L't', L'p'};
 static wchar_t* FTP_CYBOL_CHANNEL = FTP_CYBOL_CHANNEL_ARRAY;
 static int* FTP_CYBOL_CHANNEL_COUNT = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The gnu linux console cybol channel. */
-static wchar_t GNU_LINUX_CONSOLE_CYBOL_CHANNEL_ARRAY[] = {L'g', L'n', L'u', L'-', L'l', L'i', L'n', L'u', L'x', L'-', L'c', L'o', L'n', L's', L'o', L'l', L'e'};
-static wchar_t* GNU_LINUX_CONSOLE_CYBOL_CHANNEL = GNU_LINUX_CONSOLE_CYBOL_CHANNEL_ARRAY;
-static int* GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT = NUMBER_17_INTEGER_MEMORY_MODEL_ARRAY;
+/** The terminal cybol channel. */
+static wchar_t TERMINAL_CYBOL_CHANNEL_ARRAY[] = {L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l'};
+static wchar_t* TERMINAL_CYBOL_CHANNEL = TERMINAL_CYBOL_CHANNEL_ARRAY;
+static int* TERMINAL_CYBOL_CHANNEL_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The hypertext transfer protocol (http) location. */
 /*??

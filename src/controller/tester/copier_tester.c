@@ -27,7 +27,7 @@
 #define COPIER_TESTER
 
 #include <wchar.h>
-#include "../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/copier/part_copier.c"
 #include "../../executor/memoriser/allocator/part_allocator.c"

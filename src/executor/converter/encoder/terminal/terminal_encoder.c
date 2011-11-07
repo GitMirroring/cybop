@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: gnu_linux_console_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
+ * @version $RCSfile: terminal_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -36,7 +36,7 @@
 
 #include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
 #include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
@@ -44,7 +44,7 @@
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/gnu_linux_console/escape_control_sequence_gnu_linux_console_model.c"
+#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -63,9 +63,9 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes a compound model into gnu/linux console control sequences.
+ * Encodes a compound model into terminal control sequences.
  *
- * @param p0 the destination control sequence code item
+ * @param p0 the destination escape control sequence item
  * @param p3 the source part abstraction
  * @param p4 the source part abstraction count
  * @param p5 the source part model
@@ -76,235 +76,45 @@
  * @param p10 the source whole details count
  * @param p11 the source part name (area to be repainted)
  * @param p12 the source part name count
- * @param p13 the knowledge memory
- * @param p14 the knowledge memory count
  */
-void encode_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6,
-    void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode gnu/linux console.");
 
     // The source part name, abstraction, model, details.
-    void** n = NULL_POINTER_MEMORY_MODEL;
-    void** nc = NULL_POINTER_MEMORY_MODEL;
-    void** ns = NULL_POINTER_MEMORY_MODEL;
-    void** a = NULL_POINTER_MEMORY_MODEL;
-    void** ac = NULL_POINTER_MEMORY_MODEL;
-    void** as = NULL_POINTER_MEMORY_MODEL;
-    void** m = NULL_POINTER_MEMORY_MODEL;
-    void** mc = NULL_POINTER_MEMORY_MODEL;
-    void** ms = NULL_POINTER_MEMORY_MODEL;
-    void** d = NULL_POINTER_MEMORY_MODEL;
-    void** dc = NULL_POINTER_MEMORY_MODEL;
-    void** ds = NULL_POINTER_MEMORY_MODEL;
+    void** n = *NULL_POINTER_MEMORY_MODEL;
     // The source part super properties name, abstraction, model, details.
-    void** supern = NULL_POINTER_MEMORY_MODEL;
-    void** supernc = NULL_POINTER_MEMORY_MODEL;
-    void** superns = NULL_POINTER_MEMORY_MODEL;
-    void** supera = NULL_POINTER_MEMORY_MODEL;
-    void** superac = NULL_POINTER_MEMORY_MODEL;
-    void** superas = NULL_POINTER_MEMORY_MODEL;
-    void** superm = NULL_POINTER_MEMORY_MODEL;
-    void** supermc = NULL_POINTER_MEMORY_MODEL;
-    void** superms = NULL_POINTER_MEMORY_MODEL;
-    void** superd = NULL_POINTER_MEMORY_MODEL;
-    void** superdc = NULL_POINTER_MEMORY_MODEL;
-    void** superds = NULL_POINTER_MEMORY_MODEL;
+    void** supern = *NULL_POINTER_MEMORY_MODEL;
     // The source part shape name, abstraction, model, details.
-    void** shn = NULL_POINTER_MEMORY_MODEL;
-    void** shnc = NULL_POINTER_MEMORY_MODEL;
-    void** shns = NULL_POINTER_MEMORY_MODEL;
-    void** sha = NULL_POINTER_MEMORY_MODEL;
-    void** shac = NULL_POINTER_MEMORY_MODEL;
-    void** shas = NULL_POINTER_MEMORY_MODEL;
-    void** shm = NULL_POINTER_MEMORY_MODEL;
-    void** shmc = NULL_POINTER_MEMORY_MODEL;
-    void** shms = NULL_POINTER_MEMORY_MODEL;
-    void** shd = NULL_POINTER_MEMORY_MODEL;
-    void** shdc = NULL_POINTER_MEMORY_MODEL;
-    void** shds = NULL_POINTER_MEMORY_MODEL;
+    void** shn = *NULL_POINTER_MEMORY_MODEL;
     // The source part layout name, abstraction, model, details.
-    void** ln = NULL_POINTER_MEMORY_MODEL;
-    void** lnc = NULL_POINTER_MEMORY_MODEL;
-    void** lns = NULL_POINTER_MEMORY_MODEL;
-    void** la = NULL_POINTER_MEMORY_MODEL;
-    void** lac = NULL_POINTER_MEMORY_MODEL;
-    void** las = NULL_POINTER_MEMORY_MODEL;
-    void** lm = NULL_POINTER_MEMORY_MODEL;
-    void** lmc = NULL_POINTER_MEMORY_MODEL;
-    void** lms = NULL_POINTER_MEMORY_MODEL;
-    void** ld = NULL_POINTER_MEMORY_MODEL;
-    void** ldc = NULL_POINTER_MEMORY_MODEL;
-    void** lds = NULL_POINTER_MEMORY_MODEL;
+    void** ln = *NULL_POINTER_MEMORY_MODEL;
     // The source part cell name, abstraction, model, details.
-    void** cn = NULL_POINTER_MEMORY_MODEL;
-    void** cnc = NULL_POINTER_MEMORY_MODEL;
-    void** cns = NULL_POINTER_MEMORY_MODEL;
-    void** ca = NULL_POINTER_MEMORY_MODEL;
-    void** cac = NULL_POINTER_MEMORY_MODEL;
-    void** cas = NULL_POINTER_MEMORY_MODEL;
-    void** cm = NULL_POINTER_MEMORY_MODEL;
-    void** cmc = NULL_POINTER_MEMORY_MODEL;
-    void** cms = NULL_POINTER_MEMORY_MODEL;
-    void** cd = NULL_POINTER_MEMORY_MODEL;
-    void** cdc = NULL_POINTER_MEMORY_MODEL;
-    void** cds = NULL_POINTER_MEMORY_MODEL;
+    void** cn = *NULL_POINTER_MEMORY_MODEL;
     // The source part position name, abstraction, model, details.
-    void** pn = NULL_POINTER_MEMORY_MODEL;
-    void** pnc = NULL_POINTER_MEMORY_MODEL;
-    void** pns = NULL_POINTER_MEMORY_MODEL;
-    void** pa = NULL_POINTER_MEMORY_MODEL;
-    void** pac = NULL_POINTER_MEMORY_MODEL;
-    void** pas = NULL_POINTER_MEMORY_MODEL;
-    void** pm = NULL_POINTER_MEMORY_MODEL;
-    void** pmc = NULL_POINTER_MEMORY_MODEL;
-    void** pms = NULL_POINTER_MEMORY_MODEL;
-    void** pd = NULL_POINTER_MEMORY_MODEL;
-    void** pdc = NULL_POINTER_MEMORY_MODEL;
-    void** pds = NULL_POINTER_MEMORY_MODEL;
+    void** pn = *NULL_POINTER_MEMORY_MODEL;
     // The source part size name, abstraction, model, details.
-    void** sn = NULL_POINTER_MEMORY_MODEL;
-    void** snc = NULL_POINTER_MEMORY_MODEL;
-    void** sns = NULL_POINTER_MEMORY_MODEL;
-    void** sa = NULL_POINTER_MEMORY_MODEL;
-    void** sac = NULL_POINTER_MEMORY_MODEL;
-    void** sas = NULL_POINTER_MEMORY_MODEL;
-    void** sm = NULL_POINTER_MEMORY_MODEL;
-    void** smc = NULL_POINTER_MEMORY_MODEL;
-    void** sms = NULL_POINTER_MEMORY_MODEL;
-    void** sd = NULL_POINTER_MEMORY_MODEL;
-    void** sdc = NULL_POINTER_MEMORY_MODEL;
-    void** sds = NULL_POINTER_MEMORY_MODEL;
+    void** sn = *NULL_POINTER_MEMORY_MODEL;
     // The source part background colour name, abstraction, model, details.
-    void** bgn = NULL_POINTER_MEMORY_MODEL;
-    void** bgnc = NULL_POINTER_MEMORY_MODEL;
-    void** bgns = NULL_POINTER_MEMORY_MODEL;
-    void** bga = NULL_POINTER_MEMORY_MODEL;
-    void** bgac = NULL_POINTER_MEMORY_MODEL;
-    void** bgas = NULL_POINTER_MEMORY_MODEL;
-    void** bgm = NULL_POINTER_MEMORY_MODEL;
-    void** bgmc = NULL_POINTER_MEMORY_MODEL;
-    void** bgms = NULL_POINTER_MEMORY_MODEL;
-    void** bgd = NULL_POINTER_MEMORY_MODEL;
-    void** bgdc = NULL_POINTER_MEMORY_MODEL;
-    void** bgds = NULL_POINTER_MEMORY_MODEL;
+    void** bgn = *NULL_POINTER_MEMORY_MODEL;
     // The source part foreground colour name, abstraction, model, details.
-    void** fgn = NULL_POINTER_MEMORY_MODEL;
-    void** fgnc = NULL_POINTER_MEMORY_MODEL;
-    void** fgns = NULL_POINTER_MEMORY_MODEL;
-    void** fga = NULL_POINTER_MEMORY_MODEL;
-    void** fgac = NULL_POINTER_MEMORY_MODEL;
-    void** fgas = NULL_POINTER_MEMORY_MODEL;
-    void** fgm = NULL_POINTER_MEMORY_MODEL;
-    void** fgmc = NULL_POINTER_MEMORY_MODEL;
-    void** fgms = NULL_POINTER_MEMORY_MODEL;
-    void** fgd = NULL_POINTER_MEMORY_MODEL;
-    void** fgdc = NULL_POINTER_MEMORY_MODEL;
-    void** fgds = NULL_POINTER_MEMORY_MODEL;
+    void** fgn = *NULL_POINTER_MEMORY_MODEL;
     // The source part border name, abstraction, model, details.
-    void** bon = NULL_POINTER_MEMORY_MODEL;
-    void** bonc = NULL_POINTER_MEMORY_MODEL;
-    void** bons = NULL_POINTER_MEMORY_MODEL;
-    void** boa = NULL_POINTER_MEMORY_MODEL;
-    void** boac = NULL_POINTER_MEMORY_MODEL;
-    void** boas = NULL_POINTER_MEMORY_MODEL;
-    void** bom = NULL_POINTER_MEMORY_MODEL;
-    void** bomc = NULL_POINTER_MEMORY_MODEL;
-    void** boms = NULL_POINTER_MEMORY_MODEL;
-    void** bod = NULL_POINTER_MEMORY_MODEL;
-    void** bodc = NULL_POINTER_MEMORY_MODEL;
-    void** bods = NULL_POINTER_MEMORY_MODEL;
+    void** bon = *NULL_POINTER_MEMORY_MODEL;
     // The source part hidden property name, abstraction, model, details.
-    void** hn = NULL_POINTER_MEMORY_MODEL;
-    void** hnc = NULL_POINTER_MEMORY_MODEL;
-    void** hns = NULL_POINTER_MEMORY_MODEL;
-    void** ha = NULL_POINTER_MEMORY_MODEL;
-    void** hac = NULL_POINTER_MEMORY_MODEL;
-    void** has = NULL_POINTER_MEMORY_MODEL;
-    void** hm = NULL_POINTER_MEMORY_MODEL;
-    void** hmc = NULL_POINTER_MEMORY_MODEL;
-    void** hms = NULL_POINTER_MEMORY_MODEL;
-    void** hd = NULL_POINTER_MEMORY_MODEL;
-    void** hdc = NULL_POINTER_MEMORY_MODEL;
-    void** hds = NULL_POINTER_MEMORY_MODEL;
+    void** hn = *NULL_POINTER_MEMORY_MODEL;
     // The source part inverse property name, abstraction, model, details.
-    void** in = NULL_POINTER_MEMORY_MODEL;
-    void** inc = NULL_POINTER_MEMORY_MODEL;
-    void** ins = NULL_POINTER_MEMORY_MODEL;
-    void** ia = NULL_POINTER_MEMORY_MODEL;
-    void** iac = NULL_POINTER_MEMORY_MODEL;
-    void** ias = NULL_POINTER_MEMORY_MODEL;
-    void** im = NULL_POINTER_MEMORY_MODEL;
-    void** imc = NULL_POINTER_MEMORY_MODEL;
-    void** ims = NULL_POINTER_MEMORY_MODEL;
-    void** id = NULL_POINTER_MEMORY_MODEL;
-    void** idc = NULL_POINTER_MEMORY_MODEL;
-    void** ids = NULL_POINTER_MEMORY_MODEL;
+    void** in = *NULL_POINTER_MEMORY_MODEL;
     // The source part blink property name, abstraction, model, details.
-    void** bln = NULL_POINTER_MEMORY_MODEL;
-    void** blnc = NULL_POINTER_MEMORY_MODEL;
-    void** blns = NULL_POINTER_MEMORY_MODEL;
-    void** bla = NULL_POINTER_MEMORY_MODEL;
-    void** blac = NULL_POINTER_MEMORY_MODEL;
-    void** blas = NULL_POINTER_MEMORY_MODEL;
-    void** blm = NULL_POINTER_MEMORY_MODEL;
-    void** blmc = NULL_POINTER_MEMORY_MODEL;
-    void** blms = NULL_POINTER_MEMORY_MODEL;
-    void** bld = NULL_POINTER_MEMORY_MODEL;
-    void** bldc = NULL_POINTER_MEMORY_MODEL;
-    void** blds = NULL_POINTER_MEMORY_MODEL;
+    void** bln = *NULL_POINTER_MEMORY_MODEL;
     // The source part underline property name, abstraction, model, details.
-    void** un = NULL_POINTER_MEMORY_MODEL;
-    void** unc = NULL_POINTER_MEMORY_MODEL;
-    void** uns = NULL_POINTER_MEMORY_MODEL;
-    void** ua = NULL_POINTER_MEMORY_MODEL;
-    void** uac = NULL_POINTER_MEMORY_MODEL;
-    void** uas = NULL_POINTER_MEMORY_MODEL;
-    void** um = NULL_POINTER_MEMORY_MODEL;
-    void** umc = NULL_POINTER_MEMORY_MODEL;
-    void** ums = NULL_POINTER_MEMORY_MODEL;
-    void** ud = NULL_POINTER_MEMORY_MODEL;
-    void** udc = NULL_POINTER_MEMORY_MODEL;
-    void** uds = NULL_POINTER_MEMORY_MODEL;
+    void** un = *NULL_POINTER_MEMORY_MODEL;
     // The source part bold property name, abstraction, model, details.
-    void** bn = NULL_POINTER_MEMORY_MODEL;
-    void** bnc = NULL_POINTER_MEMORY_MODEL;
-    void** bns = NULL_POINTER_MEMORY_MODEL;
-    void** ba = NULL_POINTER_MEMORY_MODEL;
-    void** bac = NULL_POINTER_MEMORY_MODEL;
-    void** bas = NULL_POINTER_MEMORY_MODEL;
-    void** bm = NULL_POINTER_MEMORY_MODEL;
-    void** bmc = NULL_POINTER_MEMORY_MODEL;
-    void** bms = NULL_POINTER_MEMORY_MODEL;
-    void** bd = NULL_POINTER_MEMORY_MODEL;
-    void** bdc = NULL_POINTER_MEMORY_MODEL;
-    void** bds = NULL_POINTER_MEMORY_MODEL;
+    void** bn = *NULL_POINTER_MEMORY_MODEL;
     // The source whole position name, abstraction, model, details.
-    void** wpn = NULL_POINTER_MEMORY_MODEL;
-    void** wpnc = NULL_POINTER_MEMORY_MODEL;
-    void** wpns = NULL_POINTER_MEMORY_MODEL;
-    void** wpa = NULL_POINTER_MEMORY_MODEL;
-    void** wpac = NULL_POINTER_MEMORY_MODEL;
-    void** wpas = NULL_POINTER_MEMORY_MODEL;
-    void** wpm = NULL_POINTER_MEMORY_MODEL;
-    void** wpmc = NULL_POINTER_MEMORY_MODEL;
-    void** wpms = NULL_POINTER_MEMORY_MODEL;
-    void** wpd = NULL_POINTER_MEMORY_MODEL;
-    void** wpdc = NULL_POINTER_MEMORY_MODEL;
-    void** wpds = NULL_POINTER_MEMORY_MODEL;
+    void** wpn = *NULL_POINTER_MEMORY_MODEL;
     // The source whole size name, abstraction, model, details.
-    void** wsn = NULL_POINTER_MEMORY_MODEL;
-    void** wsnc = NULL_POINTER_MEMORY_MODEL;
-    void** wsns = NULL_POINTER_MEMORY_MODEL;
-    void** wsa = NULL_POINTER_MEMORY_MODEL;
-    void** wsac = NULL_POINTER_MEMORY_MODEL;
-    void** wsas = NULL_POINTER_MEMORY_MODEL;
-    void** wsm = NULL_POINTER_MEMORY_MODEL;
-    void** wsmc = NULL_POINTER_MEMORY_MODEL;
-    void** wsms = NULL_POINTER_MEMORY_MODEL;
-    void** wsd = NULL_POINTER_MEMORY_MODEL;
-    void** wsdc = NULL_POINTER_MEMORY_MODEL;
-    void** wsds = NULL_POINTER_MEMORY_MODEL;
+    void** wsn = *NULL_POINTER_MEMORY_MODEL;
 
     // The element name.
     void* en = *NULL_POINTER_MEMORY_MODEL;
@@ -689,7 +499,7 @@ void encode_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4, 
                 // in the hierarchy are not painted that way, to be more efficient.
 
                 // Encode shape.
-                encode_gnu_linux_console_shape(p0, p1, p2,
+                encode_terminal_shape(p0, p1, p2,
                     *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
                     *hm, *hmc, *im, *imc, *blm, *blmc, *um, *umc, *bm, *bmc,
                     *bgm, *bgmc, *fgm, *fgmc, *pm, *pmc, *sm, *smc,
@@ -730,7 +540,7 @@ void encode_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4, 
                         // given cascade of separated names, pointing to a knowledge model.
 
                         // Recursively call this procedure for compound part model.
-                        encode_gnu_linux_console(p0, p1, p2, *a, *ac, *m, *mc, *d, *dc, p7, p8, rn, (void*) &rnc, p13, p14);
+                        encode_terminal(p0, p1, p2, *a, *ac, *m, *mc, *d, *dc, p7, p8, rn, (void*) &rnc, p13, p14);
                     }
 
                     // Reset source part name, abstraction, model, details
@@ -757,7 +567,7 @@ void encode_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode compound model into gnu/linux console control sequences. The source count parameter is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode compound model into terminal control sequences. The source count parameter is null.");
             }
 
         } else {
@@ -779,7 +589,7 @@ void encode_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4, 
                 // in the hierarchy are not painted that way, to be more efficient.
 
                 // Encode shape.
-                encode_gnu_linux_console_shape(p0, p1, p2, p5, p6, p3, p4,
+                encode_terminal_shape(p0, p1, p2, p5, p6, p3, p4,
                     *hm, *hmc, *im, *imc, *blm, *blmc, *um, *umc, *bm, *bmc,
                     *bgm, *bgmc, *fgm, *fgmc, *pm, *pmc, *sm, *smc,
                     *wpm, *wpmc, *wsm, *wsmc, *bom, *bomc,
@@ -789,7 +599,7 @@ void encode_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode compound model into gnu/linux console control sequences. The hierarchical compound element name contains a meta element, while only part elements are permitted.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode compound model into terminal control sequences. The hierarchical compound element name contains a meta element, while only part elements are permitted.");
     }
 }
 

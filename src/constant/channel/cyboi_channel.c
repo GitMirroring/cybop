@@ -33,8 +33,8 @@
 /** The file system cyboi channel. */
 static int* FILE_SYSTEM_CYBOI_CHANNEL = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The gnu linux console cyboi channel. */
-static int* GNU_LINUX_CONSOLE_CYBOI_CHANNEL = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+/** The terminal cyboi channel. */
+static int* TERMINAL_CYBOI_CHANNEL = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The inline cyboi channel. */
 static int* INLINE_CYBOI_CHANNEL = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;

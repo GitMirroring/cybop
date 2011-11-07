@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: gnu_linux_console_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
+ * @version $RCSfile: terminal_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -36,7 +36,7 @@
 
 #include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
 #include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
@@ -44,7 +44,7 @@
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/gnu_linux_console/escape_control_sequence_gnu_linux_console_model.c"
+#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"

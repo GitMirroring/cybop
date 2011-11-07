@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: gnu_linux_console_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
+ * @version $RCSfile: terminal_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -36,7 +36,7 @@
 
 #include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
 #include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
@@ -44,7 +44,7 @@
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/gnu_linux_console/escape_control_sequence_gnu_linux_console_model.c"
+#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -63,7 +63,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes a gnu/linux console rectangle.
+ * Encodes a terminal rectangle.
  *
  * @param p0 the destination control sequence code item
  * @param p3 the character
@@ -86,7 +86,7 @@
  * @param p20 the border
  * @param p21 the border count
  */
-void encode_gnu_linux_console_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
+void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13,
     void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
 
@@ -116,7 +116,7 @@ void encode_gnu_linux_console_rectangle(void* p0, void* p1, void* p2, void* p3, 
 
                             int* cc = (int*) p4;
 
-                            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode gnu/linux console rectangle.");
+                            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal rectangle.");
 
                             // The horizontal character.
                             wchar_t hc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
@@ -132,7 +132,7 @@ void encode_gnu_linux_console_rectangle(void* p0, void* p1, void* p2, void* p3, 
                             wchar_t rbc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
                             // Determine border characters.
-                            encode_gnu_linux_console_rectangle_border((void*) &hc, (void*) &vc,
+                            encode_terminal_rectangle_border((void*) &hc, (void*) &vc,
                                 (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p20, p21);
 
                             // The z loop count.
@@ -190,11 +190,11 @@ void encode_gnu_linux_console_rectangle(void* p0, void* p1, void* p2, void* p3, 
                                                 }
 
                                                 // Encode character using escape codes.
-                                                encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, c);
+                                                encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, c);
 
                                             } else {
 
-                                                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode gnu/linux console rectangle. The character count is null.");
+                                                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
                                             }
 
                                         } else {
@@ -206,17 +206,17 @@ void encode_gnu_linux_console_rectangle(void* p0, void* p1, void* p2, void* p3, 
                                                 if (x == *px) {
 
                                                     // Encode left top border character using escape codes.
-                                                    encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &ltc);
+                                                    encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &ltc);
 
                                                 } else if (x == (xl - *NUMBER_1_INTEGER_MEMORY_MODEL)) {
 
                                                     // Encode right top border character using escape codes.
-                                                    encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rtc);
+                                                    encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rtc);
 
                                                 } else {
 
                                                     // Encode horizontal border character using escape codes.
-                                                    encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &hc);
+                                                    encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &hc);
                                                 }
 
                                             } else if (y == (yl - *NUMBER_1_INTEGER_MEMORY_MODEL)) {
@@ -224,17 +224,17 @@ void encode_gnu_linux_console_rectangle(void* p0, void* p1, void* p2, void* p3, 
                                                 if (x == *px) {
 
                                                     // Encode left bottom border character using escape codes.
-                                                    encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &lbc);
+                                                    encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &lbc);
 
                                                 } else if (x == (xl - *NUMBER_1_INTEGER_MEMORY_MODEL)) {
 
                                                     // Encode right bottom border character using escape codes.
-                                                    encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rbc);
+                                                    encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rbc);
 
                                                 } else {
 
                                                     // Encode horizontal border character using escape codes.
-                                                    encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &hc);
+                                                    encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &hc);
                                                 }
 
                                             } else {
@@ -242,12 +242,12 @@ void encode_gnu_linux_console_rectangle(void* p0, void* p1, void* p2, void* p3, 
                                                 if (x == *px) {
 
                                                     // Encode left bottom border character using escape codes.
-                                                    encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
+                                                    encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
 
                                                 } else if (x == (xl - *NUMBER_1_INTEGER_MEMORY_MODEL)) {
 
                                                     // Encode right bottom border character using escape codes.
-                                                    encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
+                                                    encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
 
                                                 } else {
 
@@ -265,11 +265,11 @@ void encode_gnu_linux_console_rectangle(void* p0, void* p1, void* p2, void* p3, 
 
                                                     } else {
 
-                                                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode gnu/linux console rectangle. The character count is null.");
+                                                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
                                                     }
 
                                                     // Encode character using escape codes.
-                                                    encode_gnu_linux_console_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, c);
+                                                    encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, c);
                                                 }
                                             }
                                         }

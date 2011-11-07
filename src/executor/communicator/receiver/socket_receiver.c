@@ -40,7 +40,7 @@
 #include <unistd.h>
 */
 
-#include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../constant/model/log/level_log_model.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../executor/communicator/receiver/stream_socket_receiver.c"

@@ -27,7 +27,7 @@
 #define CONVERTER_TESTER
 
 #include <stdio.h>
-#include "../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../executor/memoriser/allocator/model_allocator.c"
 #include "../../executor/memoriser/deallocator/model_deallocator.c"
 #include "../../logger/logger.c"

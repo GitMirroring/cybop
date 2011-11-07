@@ -11,30 +11,25 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Adapt files in directory "executor/converter/encoder/"
-        * Continue with "terminal"
-
+        * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"
+        * Create new operation mime types, e.g. comparison/greater-or-equal etc.,
+            once for cybol and once more for cyboi
         * Merge "primitive_operation_abstraction.c" into "operation_abstraction.c"
+        * Delete operation integer constants from "constant/model/memory/" and "constant/model/cybol/operation/"
         * Add primitive integer constants as counterpart to ALL cybol model constants,
             for faster processing inside cyboi; think through categories first
-        * Provide operation integer constants in "constant/model/memory/",
-            similar to those in "constant/model/cybol/operation/"
         * Convert cybol operand abstraction given as parametre (model) into integer,
             by creating a special mime type, for faster processing within cyboi
         * Adapt function "startup_socket_get_host_address", variable "terminated address model"
             in file "socket_starter.c" to new model constants
-        * Create new mime types for this, e.g. comparison/greater-or-equal etc.,
-            once for cybol and once more for memory, and put these into constant/model/
-
         * Adapt file "http_request_selector.c" or delete if not needed anymore
+
+        * Adapt files in directory "executor/converter/encoder/" (continue with "terminal")
 
         * Change year from 2011 to 2012 in comment block of all source code files
         * Delete comment line " * @version $RCSfile: ..." at beginning of all source code files,
             since "$" tags are specific to CVS but SVN is used since two years and does not replace them automatically;
             Do use: @version CYBOI 0.11.0 (and update it with each new release)
-
-        * Move all operation handlers one directory up??
-        * Adapt "*_operation_handler.c"
 
         * Offer part deallocation shallow and deep
             (deep is not always wanted, if a child is referenced by many parts)

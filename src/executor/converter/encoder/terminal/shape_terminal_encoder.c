@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: gnu_linux_console_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
+ * @version $RCSfile: terminal_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -36,7 +36,7 @@
 
 #include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
 #include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
@@ -44,7 +44,7 @@
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/gnu_linux_console/escape_control_sequence_gnu_linux_console_model.c"
+#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -63,7 +63,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes a gnu/linux console shape.
+ * Encodes a terminal shape.
  *
  * @param p0 the destination control sequence code item
  * @param p3 the character
@@ -101,12 +101,12 @@
  * @param p35 the shape
  * @param p36 the shape count
  */
-void encode_gnu_linux_console_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6,
+void encode_terminal_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6,
     void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16,
     void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23, void* p24, void* p25, void* p26,
     void* p27, void* p28, void* p29, void* p30, void* p31, void* p32, void* p33, void* p34, void* p35, void* p36) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode gnu/linux console shape.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal shape.");
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
@@ -117,7 +117,7 @@ void encode_gnu_linux_console_shape(void* p0, void* p1, void* p2, void* p3, void
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            encode_gnu_linux_console_coordinates(p0, p1, p2,
+            encode_terminal_coordinates(p0, p1, p2,
                 p3, p4,
                 p7, p9, p11, p13, p15,
                 p17, p18, p19, p20, p21, p22, p23, p24,
@@ -132,7 +132,7 @@ void encode_gnu_linux_console_shape(void* p0, void* p1, void* p2, void* p3, void
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
 /*??
-            encode_gnu_linux_console_coordinates(p0, p1, p2, c, cc, &h, &i, &bl, &u, &b,
+            encode_terminal_coordinates(p0, p1, p2, c, cc, &h, &i, &bl, &u, &b,
                 bg, (void*) &bgc, fg, (void*) &fgc, p21, p22, p23, p24,
                 p25, p26, p27, p28, p29, p30, p31, p32, p33, p34);
 */
@@ -146,7 +146,7 @@ void encode_gnu_linux_console_shape(void* p0, void* p1, void* p2, void* p3, void
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
 /*??
-            encode_gnu_linux_console_coordinates(p0, p1, p2, c, cc, &h, &i, &bl, &u, &b,
+            encode_terminal_coordinates(p0, p1, p2, c, cc, &h, &i, &bl, &u, &b,
                 bg, (void*) &bgc, fg, (void*) &fgc, p21, p22, p23, p24,
                 p25, p26, p27, p28, p29, p30, p31, p32, p33, p34);
 */

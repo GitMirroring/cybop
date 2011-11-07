@@ -29,7 +29,7 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
 #include "../../logger/logger.c"
 

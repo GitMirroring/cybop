@@ -65,28 +65,6 @@ static wchar_t* EQUAL_COMPARE_CYBOL_ABSTRACTION = EQUAL_COMPARE_CYBOL_ABSTRACTIO
 static int* EQUAL_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_13_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
- * The compare/greater cybol abstraction.
- *
- * Comparison operation to be processed by the Central Processing Unit (CPU).
- *
- * This is a CYBOL extension.
- */
-static wchar_t GREATER_COMPARE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'g', L'r', L'e', L'a', L't', L'e', L'r'};
-static wchar_t* GREATER_COMPARE_CYBOL_ABSTRACTION = GREATER_COMPARE_CYBOL_ABSTRACTION_ARRAY;
-static int* GREATER_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
-
-/**
- * The compare/greater-or-equal cybol abstraction.
- *
- * Comparison operation to be processed by the Central Processing Unit (CPU).
- *
- * This is a CYBOL extension.
- */
-static wchar_t GREATER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'g', L'r', L'e', L'a', L't', L'e', L'r', L'-', L'o', L'r', L'-', L'e', L'q', L'u', L'a', L'l'};
-static wchar_t* GREATER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION = GREATER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY;
-static int* GREATER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_24_INTEGER_MEMORY_MODEL_ARRAY;
-
-/**
  * The compare/equal-part cybol abstraction.
  *
  * Comparison operation to be processed by the Central Processing Unit (CPU).
@@ -107,6 +85,39 @@ static int* PART_EQUAL_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_18_INTEGER_MEMOR
 static wchar_t PREFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L'p', L'r', L'e', L'f', L'i', L'x'};
 static wchar_t* PREFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION = PREFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY;
 static int* PREFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_20_INTEGER_MEMORY_MODEL_ARRAY;
+
+/**
+ * The compare/equal-suffix cybol abstraction.
+ *
+ * Comparison operation to be processed by the Central Processing Unit (CPU).
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t SUFFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L's', L'u', L'f', L'f', L'i', L'x'};
+static wchar_t* SUFFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION = SUFFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY;
+static int* SUFFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_20_INTEGER_MEMORY_MODEL_ARRAY;
+
+/**
+ * The compare/greater cybol abstraction.
+ *
+ * Comparison operation to be processed by the Central Processing Unit (CPU).
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t GREATER_COMPARE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'g', L'r', L'e', L'a', L't', L'e', L'r'};
+static wchar_t* GREATER_COMPARE_CYBOL_ABSTRACTION = GREATER_COMPARE_CYBOL_ABSTRACTION_ARRAY;
+static int* GREATER_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+
+/**
+ * The compare/greater-or-equal cybol abstraction.
+ *
+ * Comparison operation to be processed by the Central Processing Unit (CPU).
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t GREATER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'g', L'r', L'e', L'a', L't', L'e', L'r', L'-', L'o', L'r', L'-', L'e', L'q', L'u', L'a', L'l'};
+static wchar_t* GREATER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION = GREATER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY;
+static int* GREATER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_24_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
  * The compare/smaller cybol abstraction.
@@ -131,15 +142,15 @@ static wchar_t* SMALLER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION = SMALLER_OR_EQUAL_CO
 static int* SMALLER_OR_EQUAL_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_24_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
- * The compare/equal-suffix cybol abstraction.
+ * The compare/unequal cybol abstraction.
  *
  * Comparison operation to be processed by the Central Processing Unit (CPU).
  *
  * This is a CYBOL extension.
  */
-static wchar_t SUFFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L's', L'u', L'f', L'f', L'i', L'x'};
-static wchar_t* SUFFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION = SUFFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY;
-static int* SUFFIX_EQUAL_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_20_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t UNEQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'u', L'n', L'e', L'q', L'u', L'a', L'l'};
+static wchar_t* UNEQUAL_COMPARE_CYBOL_ABSTRACTION = UNEQUAL_COMPARE_CYBOL_ABSTRACTION_ARRAY;
+static int* UNEQUAL_COMPARE_CYBOL_ABSTRACTION_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
 
 /* COMPARE_CYBOL_ABSTRACTION_CONSTANTS_SOURCE */
 #endif

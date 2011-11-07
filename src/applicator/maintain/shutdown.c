@@ -30,7 +30,7 @@
 #include "../../applicator/maintainer/shutting/socket_shutting_maintainer.c"
 #include "../../applicator/maintainer/shutting/x_window_system_shutting_maintainer.c"
 #include "../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../constant/abstraction/operation/primitive_operation_abstraction.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"

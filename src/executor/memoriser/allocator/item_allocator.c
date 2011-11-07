@@ -26,7 +26,7 @@
 #ifndef ITEM_ALLOCATOR_SOURCE
 #define ITEM_ALLOCATOR_SOURCE
 
-#include "../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/name/memory/item_memory_name.c"
 #include "../../../constant/name/memory/primitive_memory_name.c"

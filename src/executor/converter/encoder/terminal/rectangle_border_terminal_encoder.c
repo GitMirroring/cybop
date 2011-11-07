@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: gnu_linux_console_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
+ * @version $RCSfile: terminal_converter.c,v $ $Revision: 1.38 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -36,7 +36,7 @@
 
 #include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
 #include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/memory_abstraction.c"
 #include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
@@ -44,7 +44,7 @@
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/gnu_linux_console/escape_control_sequence_gnu_linux_console_model.c"
+#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -63,7 +63,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes a gnu/linux console rectangle border.
+ * Encodes a terminal rectangle border.
  *
  * @param p0 the horizontal character
  * @param p1 the vertical character
@@ -74,7 +74,7 @@
  * @param p6 the border
  * @param p7 the border count
  */
-void encode_gnu_linux_console_rectangle_border(void* p0, void* p1,
+void encode_terminal_rectangle_border(void* p0, void* p1,
     void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     if (p5 != *NULL_POINTER_MEMORY_MODEL) {
@@ -101,7 +101,7 @@ void encode_gnu_linux_console_rectangle_border(void* p0, void* p1,
 
                             wchar_t* hc = (wchar_t*) p0;
 
-                            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode gnu/linux console rectangle border.");
+                            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal rectangle border.");
 
                             // The comparison result.
                             int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
@@ -168,32 +168,32 @@ void encode_gnu_linux_console_rectangle_border(void* p0, void* p1,
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode gnu/linux console rectangle border. The horizontal character is null.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The horizontal character is null.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode gnu/linux console rectangle border. The vertical character is null.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The vertical character is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode gnu/linux console rectangle border. The left top character is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The left top character is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode gnu/linux console rectangle border. The right top character is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The right top character is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode gnu/linux console rectangle border. The left bottom character is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The left bottom character is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode gnu/linux console rectangle border. The right bottom character is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The right bottom character is null.");
     }
 }
 

@@ -54,9 +54,22 @@
 //
 
 /**
+ * The calculate/absolute cybol abstraction.
+ *
+ * Arithmetic operation determining the absolute value of a number.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t ABSOLUTE_CALCULATE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'a', L'b', L's', L'o', L'l', L'u', L't', L'e'};
+static wchar_t* ABSOLUTE_CALCULATE_CYBOL_ABSTRACTION = ABSOLUTE_CALCULATE_CYBOL_ABSTRACTION_ARRAY;
+static int* ABSOLUTE_CALCULATE_CYBOL_ABSTRACTION_COUNT = NUMBER_18_INTEGER_MEMORY_MODEL_ARRAY;
+
+/**
  * The calculate/add cybol abstraction.
  *
- * Arithmetic operation to be processed by the Central Processing Unit (CPU).
+ * Arithmetic operation adding two numbers.
+ *
+ * sum = summand_1 + summand_2
  *
  * This is a CYBOL extension.
  */
@@ -67,7 +80,9 @@ static int* ADD_CALCULATE_CYBOL_ABSTRACTION_COUNT = NUMBER_13_INTEGER_MEMORY_MOD
 /**
  * The calculate/divide cybol abstraction.
  *
- * Arithmetic operation to be processed by the Central Processing Unit (CPU).
+ * Arithmetic operation dividing a number by another.
+ *
+ * quotient = dividend / divisor
  *
  * This is a CYBOL extension.
  */
@@ -78,7 +93,9 @@ static int* DIVIDE_CALCULATE_CYBOL_ABSTRACTION_COUNT = NUMBER_16_INTEGER_MEMORY_
 /**
  * The calculate/multiply cybol abstraction.
  *
- * Arithmetic operation to be processed by the Central Processing Unit (CPU).
+ * Arithmetic operation multiplying two numbers.
+ *
+ * product = factor_1 * factor_2
  *
  * This is a CYBOL extension.
  */
@@ -87,9 +104,35 @@ static wchar_t* MULTIPLY_CALCULATE_CYBOL_ABSTRACTION = MULTIPLY_CALCULATE_CYBOL_
 static int* MULTIPLY_CALCULATE_CYBOL_ABSTRACTION_COUNT = NUMBER_18_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
+ * The calculate/negate cybol abstraction.
+ *
+ * Arithmetic operation negating a number (altering the sign).
+ *
+ * result = - number
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t NEGATE_CALCULATE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'n', L'e', L'g', L'a', L't', L'e'};
+static wchar_t* NEGATE_CALCULATE_CYBOL_ABSTRACTION = NEGATE_CALCULATE_CYBOL_ABSTRACTION_ARRAY;
+static int* NEGATE_CALCULATE_CYBOL_ABSTRACTION_COUNT = NUMBER_16_INTEGER_MEMORY_MODEL_ARRAY;
+
+/**
+ * The calculate/reduce cybol abstraction.
+ *
+ * Arithmetic operation reducing a fraction to the lowest common denominator.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t REDUCE_CALCULATE_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L'd', L'u', L'c', L'e'};
+static wchar_t* REDUCE_CALCULATE_CYBOL_ABSTRACTION = REDUCE_CALCULATE_CYBOL_ABSTRACTION_ARRAY;
+static int* REDUCE_CALCULATE_CYBOL_ABSTRACTION_COUNT = NUMBER_16_INTEGER_MEMORY_MODEL_ARRAY;
+
+/**
  * The calculate/subtract cybol abstraction.
  *
- * Arithmetic operation to be processed by the Central Processing Unit (CPU).
+ * Arithmetic operation subtracting a number from another.
+ *
+ * difference = minuend - subtrahend
  *
  * This is a CYBOL extension.
  */
