@@ -19,43 +19,47 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: date_time_converter.c,v $ $Revision: 1.21 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
+ * @version $RCSfile: boolean_converter.c,v $ $Revision: 1.24 $ $Date: 2009-01-31 16:06:33 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATE_TIME_ENCODER_SOURCE
-#define DATE_TIME_ENCODER_SOURCE
+#ifndef SEPARATOR_BOOLEAN_CYBOL_ENCODER_SOURCE
+#define SEPARATOR_BOOLEAN_CYBOL_ENCODER_SOURCE
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
 #include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/abstraction/memory/primitive_memory_abstraction.c"
+#include "../../../../constant/model/cybol/boolean_cybol_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
 #include "../../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../../constant/name/memory/datetime_memory_name.c"
+#include "../../../../constant/name/memory/primitive_memory_name.c"
 #include "../../../../logger/logger.c"
 #include "../../../../executor/memoriser/allocator.c"
-#include "../../../../variable/reallocation_factor.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
 
 /**
- * Encodes the date time model and creates a byte stream from it.
+ * Encodes the boolean separator.
  *
  * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p1 the source boolean index
  */
-void encode_date_time(void* p0, void* p1, void* p2) {
+void encode_cybol_boolean_separator(void* p0, void* p1) {
+
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode cybol boolean separator.");
+
+    // The index flag.
+    int f = *FALSE_BOOLEAN_MEMORY_MODEL;
+
+    // Test if this is NOT the first value.
+    compare_integer_unequal((void*) &f, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+
+    if (f != *FALSE_BOOLEAN_MEMORY_MODEL) {
+
+        // Append comma prefix if this is NOT the first value.
+        append_item_element(p0, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    }
 }
 
-/**
- * Encodes the date time model and creates a ddmmyyyy byte stream from it.
- *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
- */
-void encode_ddmmyyyy_date_time(void* p0, void* p1, void* p2) {
-}
-
-/* DATE_TIME_ENCODER_SOURCE */
+/* SEPARATOR_BOOLEAN_CYBOL_ENCODER_SOURCE */
 #endif

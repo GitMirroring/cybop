@@ -12,6 +12,7 @@
 #
 
         * Adapt files in directory "executor/converter/encoder/"
+        * Continue with "terminal"
 
         * Merge "primitive_operation_abstraction.c" into "operation_abstraction.c"
         * Add primitive integer constants as counterpart to ALL cybol model constants,

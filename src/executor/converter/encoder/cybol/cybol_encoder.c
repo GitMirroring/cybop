@@ -32,13 +32,11 @@
 /**
  * Encodes cybol.
  *
- * @param p0 the destination (Hand over as reference!)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source model
- * @param p4 the source model count
+ * @param p0 the destination item
+ * @param p1 the source model data
+ * @param p2 the source model count
  */
-void encode_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void encode_cybol(void* p0, void* p1, void* p2) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode cybol.");
 }

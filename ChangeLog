@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt files in directory "executor/converter/encoder/cybol/"
+
 2011-11-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add "model_diagram_abstraction.c"

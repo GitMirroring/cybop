@@ -34,13 +34,11 @@
 /**
  * Encodes the fraction model and creates a byte stream from it.
  *
- * @param p0 the destination (Hand over as reference!)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source
- * @param p4 the source count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void encode_fraction(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void encode_fraction(void* p0, void* p1, void* p2) {
 
 /*??
     //?? log_message((void*) &INFORMATION_LEVEL_LOG_MODEL, (void*) &"Finalise fraction.");
