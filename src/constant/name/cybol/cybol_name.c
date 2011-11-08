@@ -23,31 +23,32 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CYBOP_NAME_SOURCE
-#define CYBOP_NAME_SOURCE
+#ifndef CYBOL_NAME_CONSTANT_SOURCE
+#define CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
-/** The name cybop name. */
-static wchar_t NAME_CYBOP_NAME_ARRAY[] = {L'n', L'a', L'm', L'e'};
-static wchar_t* NAME_CYBOP_NAME = NAME_CYBOP_NAME_ARRAY;
-static int* NAME_CYBOP_NAME_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+/** The name cybol name. */
+static wchar_t NAME_CYBOL_NAME_ARRAY[] = {L'n', L'a', L'm', L'e'};
+static wchar_t* NAME_CYBOL_NAME = NAME_CYBOL_NAME_ARRAY;
+static int* NAME_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The channel cybop name. */
-static wchar_t CHANNEL_CYBOP_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
-static wchar_t* CHANNEL_CYBOP_NAME = CHANNEL_CYBOP_NAME_ARRAY;
-static int* CHANNEL_CYBOP_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+/** The channel cybol name. */
+static wchar_t CHANNEL_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
+static wchar_t* CHANNEL_CYBOL_NAME = CHANNEL_CYBOL_NAME_ARRAY;
+static int* CHANNEL_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The abstraction cybop name. */
-static wchar_t ABSTRACTION_CYBOP_NAME_ARRAY[] = {L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n'};
-static wchar_t* ABSTRACTION_CYBOP_NAME = ABSTRACTION_CYBOP_NAME_ARRAY;
-static int* ABSTRACTION_CYBOP_NAME_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
+/** The abstraction cybol name. */
+static wchar_t ABSTRACTION_CYBOL_NAME_ARRAY[] = {L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n'};
+static wchar_t* ABSTRACTION_CYBOL_NAME = ABSTRACTION_CYBOL_NAME_ARRAY;
+static int* ABSTRACTION_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The model cybop name. */
-static wchar_t MODEL_CYBOP_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};
-static wchar_t* MODEL_CYBOP_NAME = MODEL_CYBOP_NAME_ARRAY;
-static int* MODEL_CYBOP_NAME_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+/** The model cybol name. */
+static wchar_t MODEL_CYBOL_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};
+static wchar_t* MODEL_CYBOL_NAME = MODEL_CYBOL_NAME_ARRAY;
+static int* MODEL_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* CYBOP_NAME_SOURCE */
+/* CYBOL_NAME_CONSTANT_SOURCE */
 #endif

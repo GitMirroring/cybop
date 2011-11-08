@@ -23,12 +23,12 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CYBOI_CHANNEL_SOURCE
-#define CYBOI_CHANNEL_SOURCE
+#ifndef CYBOI_CHANNEL_CONSTANT_SOURCE
+#define CYBOI_CHANNEL_CONSTANT_SOURCE
 
 #include <stddef.h>
 
-#include "../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The file system cyboi channel. */
 static int* FILE_SYSTEM_CYBOI_CHANNEL = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
@@ -51,5 +51,5 @@ static int* WWW_CYBOI_CHANNEL = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
 /** The x window system cyboi channel. */
 static int* X_WINDOW_SYSTEM_CYBOI_CHANNEL = NUMBER_6_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* CYBOI_CHANNEL_SOURCE */
+/* CYBOI_CHANNEL_CONSTANT_SOURCE */
 #endif

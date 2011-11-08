@@ -23,11 +23,12 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef XML_NAME_SOURCE
-#define XML_NAME_SOURCE
+#ifndef XML_NAME_CONSTANT_SOURCE
+#define XML_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../constant/model/memory/integer_memory_model.c"
+
+#include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The declaration begin xml name. */
 static wchar_t DECLARATION_BEGIN_XML_NAME_ARRAY[] = {L'<', L'?', L'x', L'm', L'l'};
@@ -94,5 +95,5 @@ static wchar_t ATTRIBUTE_VALUE_END_XML_NAME_ARRAY[] = {L'"'};
 static wchar_t* ATTRIBUTE_VALUE_END_XML_NAME = ATTRIBUTE_VALUE_END_XML_NAME_ARRAY;
 static int* ATTRIBUTE_VALUE_END_XML_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* XML_NAME_SOURCE */
+/* XML_NAME_CONSTANT_SOURCE */
 #endif

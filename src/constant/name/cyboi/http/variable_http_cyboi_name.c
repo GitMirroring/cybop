@@ -23,11 +23,12 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CYBOI_VARIABLE_HTTP_NAME_SOURCE
-#define CYBOI_VARIABLE_HTTP_NAME_SOURCE
+#ifndef VARIABLE_HTTP_CYBOI_NAME_CONSTANT_SOURCE
+#define VARIABLE_HTTP_CYBOI_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../constant/model/memory/integer_memory_model.c"
+
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
 //
 // The constants defined here are copies of the standard constants
@@ -45,10 +46,10 @@
 // - xDT fields are represented by numbers, but CYBOI uses speaking names (text) only
 //
 
-/** The cyboi charset variable http name. */
-static wchar_t CYBOI_CHARSET_VARIABLE_HTTP_NAME_ARRAY[] = {L'c', L'h', L'a', L'r', L's', L'e', L't'};
-static wchar_t* CYBOI_CHARSET_VARIABLE_HTTP_NAME = CYBOI_CHARSET_VARIABLE_HTTP_NAME_ARRAY;
-static int* CYBOI_CHARSET_VARIABLE_HTTP_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+/** The charset variable http cyboi name. */
+static wchar_t CHARSET_VARIABLE_HTTP_CYBOI_NAME_ARRAY[] = {L'c', L'h', L'a', L'r', L's', L'e', L't'};
+static wchar_t* CHARSET_VARIABLE_HTTP_CYBOI_NAME = CHARSET_VARIABLE_HTTP_CYBOI_NAME_ARRAY;
+static int* CHARSET_VARIABLE_HTTP_CYBOI_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* CYBOI_VARIABLE_HTTP_NAME_SOURCE */
+/* VARIABLE_HTTP_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

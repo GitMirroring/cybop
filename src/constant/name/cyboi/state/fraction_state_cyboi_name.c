@@ -19,26 +19,20 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: compound_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: fraction_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_MEMORY_NAME_SOURCE
-#define PART_MEMORY_NAME_SOURCE
+#ifndef FRACTION_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#define FRACTION_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
-/** The name part memory name. */
-static int* NAME_PART_MEMORY_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+/** The numerator fraction state cyboi name. */
+static int* NUMERATOR_FRACTION_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The abstraction part memory name. */
-static int* ABSTRACTION_PART_MEMORY_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+/** The denominator fraction state cyboi name. */
+static int* DENOMINATOR_FRACTION_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The model part memory name. */
-static int* MODEL_PART_MEMORY_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
-
-/** The details part memory name. */
-static int* DETAILS_PART_MEMORY_NAME = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
-
-/* PART_MEMORY_NAME_SOURCE */
+/* FRACTION_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

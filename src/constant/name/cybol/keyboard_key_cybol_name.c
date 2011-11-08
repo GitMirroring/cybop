@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef KEYBOARD_KEY_CYBOL_NAME_SOURCE
-#define KEYBOARD_KEY_CYBOL_NAME_SOURCE
+#ifndef KEYBOARD_KEY_CYBOL_NAME_CONSTANT_SOURCE
+#define KEYBOARD_KEY_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -59,5 +59,5 @@ static wchar_t ARROW_RIGHT_KEYBOARD_KEY_CYBOL_NAME_ARRAY[] = {L'a', L'r', L'r', 
 static wchar_t* ARROW_RIGHT_KEYBOARD_KEY_CYBOL_NAME = ARROW_RIGHT_KEYBOARD_KEY_CYBOL_NAME_ARRAY;
 static int* ARROW_RIGHT_KEYBOARD_KEY_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* KEYBOARD_KEY_CYBOL_NAME_SOURCE */
+/* KEYBOARD_KEY_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

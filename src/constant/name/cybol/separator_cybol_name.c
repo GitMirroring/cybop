@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SEPARATOR_CYBOL_NAME_SOURCE
-#define SEPARATOR_CYBOL_NAME_SOURCE
+#ifndef SEPARATOR_CYBOL_NAME_CONSTANT_SOURCE
+#define SEPARATOR_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The list separator (between base name and index) cybol name. */
@@ -44,10 +45,10 @@ static wchar_t META_SEPARATOR_CYBOL_NAME_ARRAY[] = {L'#'};
 static wchar_t* META_SEPARATOR_CYBOL_NAME = META_SEPARATOR_CYBOL_NAME_ARRAY;
 static int* META_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The operation parameter separator cybol name. */
-static wchar_t PARAMETER_SEPARATOR_CYBOL_NAME_ARRAY[] = {L','};
-static wchar_t* PARAMETER_SEPARATOR_CYBOL_NAME = PARAMETER_SEPARATOR_CYBOL_NAME_ARRAY;
-static int* PARAMETER_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+/** The operation parametre separator cybol name. */
+static wchar_t PARAMETRE_SEPARATOR_CYBOL_NAME_ARRAY[] = {L','};
+static wchar_t* PARAMETRE_SEPARATOR_CYBOL_NAME = PARAMETRE_SEPARATOR_CYBOL_NAME_ARRAY;
+static int* PARAMETRE_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* SEPARATOR_CYBOL_NAME_SOURCE */
+/* SEPARATOR_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

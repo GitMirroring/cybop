@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GENERAL_HEADER_HTTP_NAME_SOURCE
-#define GENERAL_HEADER_HTTP_NAME_SOURCE
+#ifndef GENERAL_HEADER_HTTP_NAME_CONSTANT_SOURCE
+#define GENERAL_HEADER_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -80,5 +80,5 @@ static char WARNING_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'W', 'a', 'r', 'n', 'i',
 static char* WARNING_GENERAL_HEADER_HTTP_NAME = WARNING_GENERAL_HEADER_HTTP_NAME_ARRAY;
 static int* WARNING_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* GENERAL_HEADER_HTTP_NAME_SOURCE */
+/* GENERAL_HEADER_HTTP_NAME_CONSTANT_SOURCE */
 #endif

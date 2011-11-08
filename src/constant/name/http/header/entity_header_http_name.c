@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ENTITY_HEADER_HTTP_NAME_SOURCE
-#define ENTITY_HEADER_HTTP_NAME_SOURCE
+#ifndef ENTITY_HEADER_HTTP_NAME_CONSTANT_SOURCE
+#define ENTITY_HEADER_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -85,5 +85,5 @@ static char LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME_ARRAY[] = {'L', 'a', 's', 't',
 static char* LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME = LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME_ARRAY;
 static int* LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME_COUNT = NUMBER_13_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* ENTITY_HEADER_HTTP_NAME_SOURCE */
+/* ENTITY_HEADER_HTTP_NAME_CONSTANT_SOURCE */
 #endif

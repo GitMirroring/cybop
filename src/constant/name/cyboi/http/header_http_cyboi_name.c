@@ -23,11 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CYBOI_AUTHORITY_NAME_SOURCE
-#define CYBOI_AUTHORITY_NAME_SOURCE
+#ifndef HEADER_HTTP_CYBOI_NAME_CONSTANT_SOURCE
+#define HEADER_HTTP_CYBOI_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
 //
 // The constants defined here are copies of the standard constants
@@ -42,29 +42,13 @@
 //
 // Examples:
 // - HTTP header names start with a capital letter, but CYBOI uses lower-case names only
-// - URI parts do not have a name at all, so that CYBOI has to invent some
 // - xDT fields are represented by numbers, but CYBOI uses speaking names (text) only
 //
 
-/** The cyboi username authority name. */
-static wchar_t CYBOI_USERNAME_AUTHORITY_NAME_ARRAY[] = {L'u', L's', L'e', L'r', L'n', L'a', L'm', L'e'};
-static wchar_t* CYBOI_USERNAME_AUTHORITY_NAME = CYBOI_USERNAME_AUTHORITY_NAME_ARRAY;
-static int* CYBOI_USERNAME_AUTHORITY_NAME_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
+/** The set cookie header http cyboi name. */
+static wchar_t SET_COOKIE_HEADER_HTTP_CYBOI_NAME_ARRAY[] = {L's', L'e', L't', L'-', L'c', L'o', L'o', L'k', L'i', L'e'};
+static wchar_t* SET_COOKIE_HEADER_HTTP_CYBOI_NAME = SET_COOKIE_HEADER_HTTP_CYBOI_NAME_ARRAY;
+static int* SET_COOKIE_HEADER_HTTP_CYBOI_NAME_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The cyboi password authority name. */
-static wchar_t CYBOI_PASSWORD_AUTHORITY_NAME_ARRAY[] = {L'p', L'a', L's', L's', L'w', L'o', L'r', L'd'};
-static wchar_t* CYBOI_PASSWORD_AUTHORITY_NAME = CYBOI_PASSWORD_AUTHORITY_NAME_ARRAY;
-static int* CYBOI_PASSWORD_AUTHORITY_NAME_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
-
-/** The cyboi hostname authority name. */
-static wchar_t CYBOI_HOSTNAME_AUTHORITY_NAME_ARRAY[] = {L'h', L'o', L's', L't', L'n', L'a', L'm', L'e'};
-static wchar_t* CYBOI_HOSTNAME_AUTHORITY_NAME = CYBOI_HOSTNAME_AUTHORITY_NAME_ARRAY;
-static int* CYBOI_HOSTNAME_AUTHORITY_NAME_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
-
-/** The cyboi port authority name. */
-static wchar_t CYBOI_PORT_AUTHORITY_NAME_ARRAY[] = {L'p', L'o', L'r', L't'};
-static wchar_t* CYBOI_PORT_AUTHORITY_NAME = CYBOI_PORT_AUTHORITY_NAME_ARRAY;
-static int* CYBOI_PORT_AUTHORITY_NAME_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
-
-/* CYBOI_AUTHORITY_NAME_SOURCE */
+/* HEADER_HTTP_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

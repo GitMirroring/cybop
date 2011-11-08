@@ -23,28 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATETIME_MEMORY_NAME_SOURCE
-#define DATETIME_MEMORY_NAME_SOURCE
+#ifndef DATETIME_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#define DATETIME_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
-/** The year (y) datetime memory name. */
-static int* YEAR_DATETIME_MEMORY_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+/** The year (y) datetime state cyboi name. */
+static int* YEAR_DATETIME_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The month (m) datetime memory name. */
-static int* MONTH_DATETIME_MEMORY_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+/** The month (m) datetime state cyboi name. */
+static int* MONTH_DATETIME_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The day (d) datetime memory name. */
-static int* DAY_DATETIME_MEMORY_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+/** The day (d) datetime state cyboi name. */
+static int* DAY_DATETIME_STATE_CYBOI_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The hour (h) datetime memory name. */
-static int* HOUR_DATETIME_MEMORY_NAME = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+/** The hour (h) datetime state cyboi name. */
+static int* HOUR_DATETIME_STATE_CYBOI_NAME = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The minute (m) datetime memory name. */
-static int* MINUTE_DATETIME_MEMORY_NAME = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+/** The minute (m) datetime state cyboi name. */
+static int* MINUTE_DATETIME_STATE_CYBOI_NAME = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The second (s) datetime memory name. */
-static int* SECOND_DATETIME_MEMORY_NAME = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+/** The second (s) datetime state cyboi name. */
+static int* SECOND_DATETIME_STATE_CYBOI_NAME = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* DATETIME_MEMORY_NAME_SOURCE */
+/* DATETIME_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

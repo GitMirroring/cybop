@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SEPARATOR_AUTHORITY_NAME_SOURCE
-#define SEPARATOR_AUTHORITY_NAME_SOURCE
+#ifndef SEPARATOR_AUTHORITY_NAME_CONSTANT_SOURCE
+#define SEPARATOR_AUTHORITY_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The password begin (solidus, solidus) separator authority name. */
@@ -41,5 +42,5 @@ static int* USERINFO_END_SEPARATOR_AUTHORITY_NAME_COUNT = NUMBER_1_INTEGER_MEMOR
 static wchar_t* PORT_BEGIN_SEPARATOR_AUTHORITY_NAME = COLON_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 static int* PORT_BEGIN_SEPARATOR_AUTHORITY_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* SEPARATOR_AUTHORITY_NAME_SOURCE */
+/* SEPARATOR_AUTHORITY_NAME_CONSTANT_SOURCE */
 #endif

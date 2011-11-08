@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VARIABLE_HTTP_NAME_SOURCE
-#define VARIABLE_HTTP_NAME_SOURCE
+#ifndef VARIABLE_HTTP_NAME_CONSTANT_SOURCE
+#define VARIABLE_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -34,5 +34,5 @@ static char CHARSET_VARIABLE_HTTP_NAME_ARRAY[] = {'C', 'h', 'a', 'r', 's', 'e', 
 static char* CHARSET_VARIABLE_HTTP_NAME = CHARSET_VARIABLE_HTTP_NAME_ARRAY;
 static int* CHARSET_VARIABLE_HTTP_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* VARIABLE_HTTP_NAME_SOURCE */
+/* VARIABLE_HTTP_NAME_CONSTANT_SOURCE */
 #endif

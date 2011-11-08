@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SEPARATOR_HTTP_NAME_SOURCE
-#define SEPARATOR_HTTP_NAME_SOURCE
+#ifndef SEPARATOR_HTTP_NAME_CONSTANT_SOURCE
+#define SEPARATOR_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
@@ -85,5 +85,5 @@ static char BODY_BEGIN_SEPARATOR_HTTP_NAME_ARRAY[] = {0x0D, 0x0A, 0x0D, 0x0A};
 static char* BODY_BEGIN_SEPARATOR_HTTP_NAME = BODY_BEGIN_SEPARATOR_HTTP_NAME_ARRAY;
 static int* BODY_BEGIN_SEPARATOR_HTTP_NAME_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* SEPARATOR_HTTP_NAME_SOURCE */
+/* SEPARATOR_HTTP_NAME_CONSTANT_SOURCE */
 #endif

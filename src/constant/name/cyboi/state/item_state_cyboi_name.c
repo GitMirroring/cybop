@@ -19,20 +19,23 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: fraction_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: compound_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FRACTION_MEMORY_NAME_SOURCE
-#define FRACTION_MEMORY_NAME_SOURCE
+#ifndef ITEM_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#define ITEM_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
-/** The numerator fraction memory name. */
-static int* NUMERATOR_FRACTION_MEMORY_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+/** The data item state cyboi name. */
+static int* DATA_ITEM_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The denominator fraction memory name. */
-static int* DENOMINATOR_FRACTION_MEMORY_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+/** The count item state cyboi name. */
+static int* COUNT_ITEM_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* FRACTION_MEMORY_NAME_SOURCE */
+/** The size item state cyboi name. */
+static int* SIZE_ITEM_STATE_CYBOI_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+
+/* ITEM_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

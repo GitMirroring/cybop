@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef XML_CYBOL_NAME_SOURCE
-#define XML_CYBOL_NAME_SOURCE
+#ifndef XML_CYBOL_NAME_CONSTANT_SOURCE
+#define XML_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The node xml cybol name. */
@@ -104,5 +105,5 @@ static wchar_t NODE_NAME_XML_CYBOL_NAME_ARRAY[] = {};
 static wchar_t* NODE_NAME_XML_CYBOL_NAME = NODE_NAME_XML_CYBOL_NAME_ARRAY;
 static int* NODE_NAME_XML_CYBOL_NAME_COUNT = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* XML_CYBOL_NAME_SOURCE */
+/* XML_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

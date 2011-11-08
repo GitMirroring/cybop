@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef HTTP_REQUEST_URI_NAME_SOURCE
-#define HTTP_REQUEST_URI_NAME_SOURCE
+#ifndef HTTP_REQUEST_URI_NAME_CONSTANT_SOURCE
+#define HTTP_REQUEST_URI_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The no resource (asterisk) http request uri name. */
@@ -58,5 +59,5 @@ static int* AUTHORITY_FORM_HTTP_REQUEST_URI_NAME_COUNT = NUMBER_1_INTEGER_MEMORY
 static wchar_t* ABSOLUTE_PATH_HTTP_REQUEST_URI_NAME = SOLIDUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 static int* ABSOLUTE_PATH_HTTP_REQUEST_URI_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* HTTP_REQUEST_URI_NAME_SOURCE */
+/* HTTP_REQUEST_URI_NAME_CONSTANT_SOURCE */
 #endif

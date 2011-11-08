@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RECORD_XDT_NAME_SOURCE
-#define RECORD_XDT_NAME_SOURCE
+#ifndef RECORD_XDT_NAME_CONSTANT_SOURCE
+#define RECORD_XDT_NAME_CONSTANT_SOURCE
 
 #include "../../../constant/model/memory/integer_memory_model.c"
 
@@ -92,5 +92,5 @@ static int* EXAMINATION_DATA_TRANSFER_RECORD_XDT_NAME = NUMBER_6310_INTEGER_MEMO
 /** The examination data display record xdt name. */
 static int* EXAMINATION_DATA_DISPLAY_RECORD_XDT_NAME = NUMBER_6311_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* RECORD_XDT_NAME_SOURCE */
+/* RECORD_XDT_NAME_CONSTANT_SOURCE */
 #endif

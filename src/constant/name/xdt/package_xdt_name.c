@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PACKAGE_XDT_NAME_SOURCE
-#define PACKAGE_XDT_NAME_SOURCE
+#ifndef PACKAGE_XDT_NAME_CONSTANT_SOURCE
+#define PACKAGE_XDT_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -34,5 +34,5 @@ static wchar_t STANDARD_PACKAGE_XDT_NAME_ARRAY[] = {L's', L't', L'a', L'n', L'd'
 static wchar_t* STANDARD_PACKAGE_XDT_NAME = STANDARD_PACKAGE_XDT_NAME_ARRAY;
 static int* STANDARD_PACKAGE_XDT_NAME_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* PACKAGE_XDT_NAME_SOURCE */
+/* PACKAGE_XDT_NAME_CONSTANT_SOURCE */
 #endif

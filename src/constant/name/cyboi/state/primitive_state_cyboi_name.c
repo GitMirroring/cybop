@@ -19,23 +19,17 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: vector_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: primitive_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VECTOR_MEMORY_NAME_SOURCE
-#define VECTOR_MEMORY_NAME_SOURCE
+#ifndef PRIMITIVE_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#define PRIMITIVE_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
-/** The dimension 0 vector memory name. In a (spatial) vector, this is the x coordinate. */
-static int* DIMENSION_0_VECTOR_MEMORY_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+/** The value primitive state cyboi name. */
+static int* VALUE_PRIMITIVE_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The dimension 1 vector memory name. In a (spatial) vector, this is the y coordinate. */
-static int* DIMENSION_1_VECTOR_MEMORY_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
-
-/** The dimension 2 vector memory name. In a (spatial) vector, this is the z coordinate. */
-static int* DIMENSION_2_VECTOR_MEMORY_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
-
-/* VECTOR_MEMORY_NAME_SOURCE */
+/* PRIMITIVE_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

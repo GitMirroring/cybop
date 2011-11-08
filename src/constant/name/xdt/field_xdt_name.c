@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FIELD_XDT_NAME_SOURCE
-#define FIELD_XDT_NAME_SOURCE
+#ifndef FIELD_XDT_NAME_CONSTANT_SOURCE
+#define FIELD_XDT_NAME_CONSTANT_SOURCE
 
 #include "../../../constant/model/memory/integer_memory_model.c"
 
@@ -4540,5 +4540,5 @@ static int* DATA_PACKAGE_TRANSFER_BEGIN_FIELD_XDT_NAME = NUMBER_9602_INTEGER_MEM
  */
 static int* SYSTEM_INTERNAL_PARAMETER_FIELD_XDT_NAME = NUMBER_9901_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* FIELD_XDT_NAME_SOURCE */
+/* FIELD_XDT_NAME_CONSTANT_SOURCE */
 #endif

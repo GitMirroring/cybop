@@ -12,7 +12,6 @@
 #
 
         * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"
-        * Update name constants for memory / cyboi / cybol
         * Delete operation constants from "constant/model/memory/" and "constant/model/cybol/operation/"
         * Add primitive integer constants as counterpart to ALL cybol model constants,
             for faster processing inside cyboi; think through categories first

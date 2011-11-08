@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef REQUEST_HEADER_HTTP_NAME_SOURCE
-#define REQUEST_HEADER_HTTP_NAME_SOURCE
+#ifndef REQUEST_HEADER_HTTP_NAME_CONSTANT_SOURCE
+#define REQUEST_HEADER_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -135,5 +135,5 @@ static char VARY_REQUEST_HEADER_HTTP_NAME_ARRAY[] = {'V', 'a', 'r', 'y'};
 static char* VARY_REQUEST_HEADER_HTTP_NAME = VARY_REQUEST_HEADER_HTTP_NAME_ARRAY;
 static int* VARY_REQUEST_HEADER_HTTP_NAME_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* REQUEST_HEADER_HTTP_NAME_SOURCE */
+/* REQUEST_HEADER_HTTP_NAME_CONSTANT_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SUPER_CYBOL_NAME_SOURCE
-#define SUPER_CYBOL_NAME_SOURCE
+#ifndef SUPER_CYBOL_NAME_CONSTANT_SOURCE
+#define SUPER_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -34,5 +34,5 @@ static wchar_t SUPER_CYBOL_NAME_ARRAY[] = {L's', L'u', L'p', L'e', L'r'};
 static wchar_t* SUPER_CYBOL_NAME = SUPER_CYBOL_NAME_ARRAY;
 static int* SUPER_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* SUPER_CYBOL_NAME_SOURCE */
+/* SUPER_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

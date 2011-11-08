@@ -23,13 +23,13 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ALL_COMMAND_OPTION_NAME_SOURCE
-#define ALL_COMMAND_OPTION_NAME_SOURCE
+#ifndef ALL_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#define ALL_COMMAND_OPTION_NAME_CONSTANT_SOURCE
 
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The all command option name. */
 static int* ALL_COMMAND_OPTION_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* ALL_COMMAND_OPTION_NAME_SOURCE */
+/* ALL_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif

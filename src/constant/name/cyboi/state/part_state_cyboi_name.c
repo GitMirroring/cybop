@@ -19,20 +19,26 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: complex_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: compound_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COMPLEX_MEMORY_NAME_SOURCE
-#define COMPLEX_MEMORY_NAME_SOURCE
+#ifndef PART_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#define PART_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
-/** The real complex memory name. */
-static int* REAL_COMPLEX_MEMORY_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+/** The name part state cyboi name. */
+static int* NAME_PART_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The imaginary complex memory name. */
-static int* IMAGINARY_COMPLEX_MEMORY_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+/** The abstraction part state cyboi name. */
+static int* ABSTRACTION_PART_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* COMPLEX_MEMORY_NAME_SOURCE */
+/** The model part state cyboi name. */
+static int* MODEL_PART_STATE_CYBOI_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+
+/** The details part state cyboi name. */
+static int* DETAILS_PART_STATE_CYBOI_NAME = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+
+/* PART_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

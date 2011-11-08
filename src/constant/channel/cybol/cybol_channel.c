@@ -23,11 +23,12 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CYBOL_CHANNEL_SOURCE
-#define CYBOL_CHANNEL_SOURCE
+#ifndef CYBOL_CHANNEL_CONSTANT_SOURCE
+#define CYBOL_CHANNEL_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../constant/model/memory/integer_memory_model.c"
+
+#include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The cyboi cybol channel. */
 /*??
@@ -94,5 +95,5 @@ static wchar_t X_WINDOW_SYSTEM_CYBOL_CHANNEL_ARRAY[] = {L'x', L'-', L'w', L'i', 
 static wchar_t* X_WINDOW_SYSTEM_CYBOL_CHANNEL = X_WINDOW_SYSTEM_CYBOL_CHANNEL_ARRAY;
 static int* X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* CYBOL_CHANNEL_SOURCE */
+/* CYBOL_CHANNEL_CONSTANT_SOURCE */
 #endif

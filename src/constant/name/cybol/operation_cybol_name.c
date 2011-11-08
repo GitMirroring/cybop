@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef OPERATION_CYBOL_NAME_SOURCE
-#define OPERATION_CYBOL_NAME_SOURCE
+#ifndef OPERATION_CYBOL_NAME_CONSTANT_SOURCE
+#define OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -34,5 +34,5 @@ static wchar_t TYPE_OPERATION_CYBOL_NAME_ARRAY[] = {L't', L'y', L'p', L'e'};
 static wchar_t* TYPE_OPERATION_CYBOL_NAME = TYPE_OPERATION_CYBOL_NAME_ARRAY;
 static int* TYPE_OPERATION_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* OPERATION_CYBOL_NAME_SOURCE */
+/* OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

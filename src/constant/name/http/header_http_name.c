@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef HEADER_HTTP_NAME_SOURCE
-#define HEADER_HTTP_NAME_SOURCE
+#ifndef HEADER_HTTP_NAME_CONSTANT_SOURCE
+#define HEADER_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -38,5 +38,5 @@ static char SET_COOKIE_HEADER_HTTP_NAME_ARRAY[] = {'S', 'e', 't', '-', 'C', 'o',
 static char* SET_COOKIE_HEADER_HTTP_NAME = SET_COOKIE_HEADER_HTTP_NAME_ARRAY;
 static int* SET_COOKIE_HEADER_HTTP_NAME_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* HEADER_HTTP_NAME_SOURCE */
+/* HEADER_HTTP_NAME_CONSTANT_SOURCE */
 #endif

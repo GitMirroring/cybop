@@ -19,23 +19,20 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: compound_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: complex_memory_name.c,v $ $Revision: 1.3 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ITEM_MEMORY_NAME_SOURCE
-#define ITEM_MEMORY_NAME_SOURCE
+#ifndef COMPLEX_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#define COMPLEX_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
-/** The data item memory name. */
-static int* DATA_ITEM_MEMORY_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+/** The real complex state cyboi name. */
+static int* REAL_COMPLEX_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The count item memory name. */
-static int* COUNT_ITEM_MEMORY_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+/** The imaginary complex state cyboi name. */
+static int* IMAGINARY_COMPLEX_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The size item memory name. */
-static int* SIZE_ITEM_MEMORY_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
-
-/* ITEM_MEMORY_NAME_SOURCE */
+/* COMPLEX_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif
