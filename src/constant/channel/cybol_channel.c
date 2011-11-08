@@ -46,11 +46,6 @@ static wchar_t FTP_CYBOL_CHANNEL_ARRAY[] = {L'f', L't', L'p'};
 static wchar_t* FTP_CYBOL_CHANNEL = FTP_CYBOL_CHANNEL_ARRAY;
 static int* FTP_CYBOL_CHANNEL_COUNT = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The terminal cybol channel. */
-static wchar_t TERMINAL_CYBOL_CHANNEL_ARRAY[] = {L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l'};
-static wchar_t* TERMINAL_CYBOL_CHANNEL = TERMINAL_CYBOL_CHANNEL_ARRAY;
-static int* TERMINAL_CYBOL_CHANNEL_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
-
 /** The hypertext transfer protocol (http) location. */
 /*??
 static wchar_t HTTP_CYBOL_CHANNEL_ARRAY[] = {L'h', L't', L't', L'p'};
@@ -83,6 +78,11 @@ static int* SHELL_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
 static wchar_t SOCKET_CYBOL_CHANNEL_ARRAY[] = {L's', L'o', L'c', L'k', L'e', L't'};
 static wchar_t* SOCKET_CYBOL_CHANNEL = SOCKET_CYBOL_CHANNEL_ARRAY;
 static int* SOCKET_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_MEMORY_MODEL_ARRAY;
+
+/** The terminal cybol channel. */
+static wchar_t TERMINAL_CYBOL_CHANNEL_ARRAY[] = {L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l'};
+static wchar_t* TERMINAL_CYBOL_CHANNEL = TERMINAL_CYBOL_CHANNEL_ARRAY;
+static int* TERMINAL_CYBOL_CHANNEL_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The world wide web (www) cybol channel. */
 static wchar_t WWW_CYBOL_CHANNEL_ARRAY[] = {L'w', L'w', L'w'};

@@ -12,14 +12,12 @@
 #
 
         * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"
-        * Create new operation mime types, e.g. comparison/greater-or-equal etc.,
-            once for cybol and once more for cyboi
-        * Merge "primitive_operation_abstraction.c" into "operation_abstraction.c"
-        * Delete operation integer constants from "constant/model/memory/" and "constant/model/cybol/operation/"
+        * Update name constants for memory / cyboi / cybol
+        * Delete operation constants from "constant/model/memory/" and "constant/model/cybol/operation/"
         * Add primitive integer constants as counterpart to ALL cybol model constants,
             for faster processing inside cyboi; think through categories first
         * Convert cybol operand abstraction given as parametre (model) into integer,
-            by creating a special mime type, for faster processing within cyboi
+            by creating a special mime type (e.g. text/abstraction), for faster processing within cyboi
         * Adapt function "startup_socket_get_host_address", variable "terminated address model"
             in file "socket_starter.c" to new model constants
         * Adapt file "http_request_selector.c" or delete if not needed anymore

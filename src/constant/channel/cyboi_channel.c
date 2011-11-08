@@ -33,17 +33,17 @@
 /** The file system cyboi channel. */
 static int* FILE_SYSTEM_CYBOI_CHANNEL = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The terminal cyboi channel. */
-static int* TERMINAL_CYBOI_CHANNEL = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
-
 /** The inline cyboi channel. */
-static int* INLINE_CYBOI_CHANNEL = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+static int* INLINE_CYBOI_CHANNEL = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The shell cyboi channel. */
-static int* SHELL_CYBOI_CHANNEL = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SHELL_CYBOI_CHANNEL = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The socket cyboi channel. */
-static int* SOCKET_CYBOI_CHANNEL = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SOCKET_CYBOI_CHANNEL = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+
+/** The terminal cyboi channel. */
+static int* TERMINAL_CYBOI_CHANNEL = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The world wide web (www) cyboi channel. */
 static int* WWW_CYBOI_CHANNEL = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
