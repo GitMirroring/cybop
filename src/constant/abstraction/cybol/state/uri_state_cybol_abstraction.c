@@ -27,7 +27,7 @@
 #define URI_MIME_TYPE_CONSTANTS_SOURCE
 
 #include <stddef.h>
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
 //
 // This MIME type was taken from/ inspired by the KDE desktop.

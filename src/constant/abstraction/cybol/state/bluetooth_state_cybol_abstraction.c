@@ -27,7 +27,7 @@
 #define BLUETOOTH_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
 //
 // This MIME type was taken from/ inspired by the KDE desktop.

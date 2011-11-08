@@ -19,6 +19,8 @@
 2011-11-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Restructure directory "constant/abstraction/cybol/" into "state" and "logic"
+        * Move "constant/abstraction/memory/" into "constant/abstraction/cyboi/state_cyboi_abstraction.c"
+        * Move "constant/abstraction/operation/" into "constant/abstraction/cyboi/logic_cyboi_abstraction.c"
 
 2011-11-07  Christian Heller  <christian.heller@tuxtax.de>
 

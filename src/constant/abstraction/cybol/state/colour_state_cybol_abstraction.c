@@ -27,7 +27,7 @@
 #define COLOUR_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/memory/integer_memory_model.c"
 
 //
 // The CYBOL abstraction constants' names and values have been adapted to follow
