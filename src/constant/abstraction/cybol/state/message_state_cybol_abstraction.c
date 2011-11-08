@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MESSAGE_CYBOL_ABSTRACTION_SOURCE
-#define MESSAGE_CYBOL_ABSTRACTION_SOURCE
+#ifndef MESSAGE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define MESSAGE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -56,9 +56,9 @@
  *
  * An HTTP header message.
  */
-static wchar_t HTTP_MESSAGE_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p'};
-static wchar_t* HTTP_MESSAGE_CYBOL_ABSTRACTION = HTTP_MESSAGE_CYBOL_ABSTRACTION_ARRAY;
-static int* HTTP_MESSAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t HTTP_MESSAGE_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p'};
+static wchar_t* HTTP_MESSAGE_STATE_CYBOL_ABSTRACTION = HTTP_MESSAGE_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* HTTP_MESSAGE_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
  * The message/http-request cybol abstraction.
@@ -66,9 +66,9 @@ static int* HTTP_MESSAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODE
  * An HTTP request message.
  * This is a CYBOL extension.
  */
-static wchar_t HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p', L'-', L'r', L'e', L'q', L'u', L'e', L's', L't'};
-static wchar_t* HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION = HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION_ARRAY;
-static int* HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_20_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t HTTP_REQUEST_MESSAGE_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p', L'-', L'r', L'e', L'q', L'u', L'e', L's', L't'};
+static wchar_t* HTTP_REQUEST_MESSAGE_STATE_CYBOL_ABSTRACTION = HTTP_REQUEST_MESSAGE_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* HTTP_REQUEST_MESSAGE_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_20_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
  * The message/http-response cybol abstraction.
@@ -76,16 +76,16 @@ static int* HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_20_INTEGER_MEM
  * An HTTP response message.
  * This is a CYBOL extension.
  */
-static wchar_t HTTP_RESPONSE_MESSAGE_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p', L'-', L'r', L'e', L's', L'p', L'o', L'n', L's', L'e'};
-static wchar_t* HTTP_RESPONSE_MESSAGE_CYBOL_ABSTRACTION = HTTP_RESPONSE_MESSAGE_CYBOL_ABSTRACTION_ARRAY;
-static int* HTTP_RESPONSE_MESSAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_21_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t HTTP_RESPONSE_MESSAGE_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p', L'-', L'r', L'e', L's', L'p', L'o', L'n', L's', L'e'};
+static wchar_t* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_ABSTRACTION = HTTP_RESPONSE_MESSAGE_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_21_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
  * The message/news cybol abstraction.
  */
-static wchar_t NEWS_MESSAGE_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'n', L'e', L'w', L's'};
-static wchar_t* NEWS_MESSAGE_CYBOL_ABSTRACTION = NEWS_MESSAGE_CYBOL_ABSTRACTION_ARRAY;
-static int* NEWS_MESSAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t NEWS_MESSAGE_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'n', L'e', L'w', L's'};
+static wchar_t* NEWS_MESSAGE_STATE_CYBOL_ABSTRACTION = NEWS_MESSAGE_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* NEWS_MESSAGE_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* MESSAGE_CYBOL_ABSTRACTION_SOURCE */
+/* MESSAGE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

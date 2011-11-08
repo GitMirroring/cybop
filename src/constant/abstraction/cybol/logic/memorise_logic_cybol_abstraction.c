@@ -19,14 +19,15 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: image_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: operation_cybol_abstraction.c,v $ $Revision: 1.5 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef IMAGE_CYBOL_ABSTRACTION_SOURCE
-#define IMAGE_CYBOL_ABSTRACTION_SOURCE
+#ifndef MEMORISE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define MEMORISE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 //
@@ -46,60 +47,34 @@
 //
 
 //
-// Image.
+// Memorise (some operation to be processed over time).
 //
-// IANA media type: image
+// IANA media type: not defined
+// Self-defined media type: memorise
+// This media type is a CYBOL extension.
 //
 
 /**
- * The image/gif cybol abstraction.
+ * The memorise/create cybol abstraction.
  *
- * GIF image.
- * Defined in RFC 2045 and RFC 2046.
- * Suffixes: gif
+ * Create / allocate / reserve memory for data of the given type.
+ *
+ * This is a CYBOL extension.
  */
-static wchar_t GIF_IMAGE_CYBOL_ABSTRACTION_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'g', L'i', L'f'};
-static wchar_t* GIF_IMAGE_CYBOL_ABSTRACTION = GIF_IMAGE_CYBOL_ABSTRACTION_ARRAY;
-static int* GIF_IMAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t CREATE_MEMORISE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'c', L'r', L'e', L'a', L't', L'e'};
+static wchar_t* CREATE_MEMORISE_LOGIC_CYBOL_ABSTRACTION = CREATE_MEMORISE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* CREATE_MEMORISE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
- * The image/jpeg cybol abstraction.
+ * The memorise/destroy cybol abstraction.
  *
- * JPEG JFIF image.
- * Defined in RFC 2045 and RFC 2046.
- * Suffixes: jpeg, jpg, jpe
- */
-static wchar_t JPEG_IMAGE_CYBOL_ABSTRACTION_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'j', L'p', L'e', L'g'};
-static wchar_t* JPEG_IMAGE_CYBOL_ABSTRACTION = JPEG_IMAGE_CYBOL_ABSTRACTION_ARRAY;
-static int* JPEG_IMAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
-
-/**
- * The image/png cybol abstraction.
+ * Destroy / deallocate / free memory of the given data.
  *
- * Portable Network Graphics.
- * Registered.
- * Suffixes: png
+ * This is a CYBOL extension.
  */
-static wchar_t PNG_IMAGE_CYBOL_ABSTRACTION_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'p', L'n', L'g'};
-static wchar_t* PNG_IMAGE_CYBOL_ABSTRACTION = PNG_IMAGE_CYBOL_ABSTRACTION_ARRAY;
-static int* PNG_IMAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t DESTROY_MEMORISE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'd', L'e', L's', L't', L'r', L'o', L'y'};
+static wchar_t* DESTROY_MEMORISE_LOGIC_CYBOL_ABSTRACTION = DESTROY_MEMORISE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* DESTROY_MEMORISE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_16_INTEGER_MEMORY_MODEL_ARRAY;
 
-/**
- * The image/tiff cybol abstraction.
- *
- * Tag Image File Format.
- * Defined in RFC 3302.
- * Suffixes: tiff, tif
- */
-static wchar_t TIFF_IMAGE_CYBOL_ABSTRACTION_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L't', L'i', L'f', L'f'};
-static wchar_t* TIFF_IMAGE_CYBOL_ABSTRACTION = TIFF_IMAGE_CYBOL_ABSTRACTION_ARRAY;
-static int* TIFF_IMAGE_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
-
-/*??
-The image/vnd.microsoft.icon language.
-ICO image.
-Registered.
-*/
-
-/* IMAGE_CYBOL_ABSTRACTION_SOURCE */
+/* MEMORISE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

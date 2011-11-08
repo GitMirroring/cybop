@@ -19,12 +19,12 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: inode_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: print_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INODE_CYBOL_ABSTRACTION_SOURCE
-#define INODE_CYBOL_ABSTRACTION_SOURCE
+#ifndef PRINT_MIME_TYPE_CONSTANTS_SOURCE
+#define PRINT_MIME_TYPE_CONSTANTS_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -35,11 +35,11 @@
 //
 
 /**
- * The inode/socket cybol abstraction.
+ * The print/jobs cybol abstraction.
  */
-static wchar_t SOCKET_INODE_CYBOL_ABSTRACTION_ARRAY[] = {L'i', L'n', L'o', L'd', L'e', L'/', L's', L'o', L'c', L'k', L'e', L't'};
-static wchar_t* SOCKET_INODE_CYBOL_ABSTRACTION = SOCKET_INODE_CYBOL_ABSTRACTION_ARRAY;
-static int* SOCKET_INODE_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t JOBS_PRINT_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'p', L'r', L'i', L'n', L't', L'/', L'j', L'o', L'b', L's'};
+static wchar_t* JOBS_PRINT_STATE_CYBOL_ABSTRACTION = JOBS_PRINT_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* JOBS_PRINT_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* INODE_CYBOL_ABSTRACTION_SOURCE */
+/* PRINT_MIME_TYPE_CONSTANTS_SOURCE */
 #endif

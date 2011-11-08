@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ROUTE_CYBOL_ABSTRACTION_CONSTANTS_SOURCE
-#define ROUTE_CYBOL_ABSTRACTION_CONSTANTS_SOURCE
+#ifndef CONVERT_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define CONVERT_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 //
@@ -46,45 +47,34 @@
 //
 
 //
-// Route (some operation to be processed over time).
+// Convert (some operation to be processed over time).
 //
 // IANA media type: not defined
-// Self-defined media type: route
+// Self-defined media type: convert
 // This media type is a CYBOL extension.
 //
 
 /**
- * The route/branch cybol abstraction.
+ * The convert/decode cybol abstraction.
  *
- * Routing (control flow) operation to be processed by the Central Processing Unit (CPU).
+ * Decode data from a special format into cyboi.
  *
  * This is a CYBOL extension.
  */
-static wchar_t BRANCH_ROUTE_CYBOL_ABSTRACTION_ARRAY[] = {L'r', L'o', L'u', L't', L'e', L'/', L'b', L'r', L'a', L'n', L'c', L'h'};
-static wchar_t* BRANCH_ROUTE_CYBOL_ABSTRACTION = BRANCH_ROUTE_CYBOL_ABSTRACTION_ARRAY;
-static int* BRANCH_ROUTE_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t DECODE_CONVERT_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'n', L'v', L'e', L'r', L't', L'/', L'd', L'e', L'c', L'o', L'd', L'e'};
+static wchar_t* DECODE_CONVERT_LOGIC_CYBOL_ABSTRACTION = DECODE_CONVERT_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* DECODE_CONVERT_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
- * The route/loop cybol abstraction.
+ * The convert/encode cybol abstraction.
  *
- * Routing (control flow) operation to be processed by the Central Processing Unit (CPU).
- *
- * This is a CYBOL extension.
- */
-static wchar_t LOOP_ROUTE_CYBOL_ABSTRACTION_ARRAY[] = {L'r', L'o', L'u', L't', L'e', L'/', L'l', L'o', L'o', L'p'};
-static wchar_t* LOOP_ROUTE_CYBOL_ABSTRACTION = LOOP_ROUTE_CYBOL_ABSTRACTION_ARRAY;
-static int* LOOP_ROUTE_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
-
-/**
- * The route/sequence cybol abstraction.
- *
- * Routing (control flow) operation to be processed by the Central Processing Unit (CPU).
+ * Encode data from cyboi into a special format.
  *
  * This is a CYBOL extension.
  */
-static wchar_t SEQUENCE_ROUTE_CYBOL_ABSTRACTION_ARRAY[] = {L'r', L'o', L'u', L't', L'e', L'/', L's', L'e', L'q', L'u', L'e', L'n', L'c', L'e'};
-static wchar_t* SEQUENCE_ROUTE_CYBOL_ABSTRACTION = SEQUENCE_ROUTE_CYBOL_ABSTRACTION_ARRAY;
-static int* SEQUENCE_ROUTE_CYBOL_ABSTRACTION_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t ENCODE_CONVERT_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'n', L'v', L'e', L'r', L't', L'/', L'e', L'n', L'c', L'o', L'd', L'e'};
+static wchar_t* ENCODE_CONVERT_LOGIC_CYBOL_ABSTRACTION = ENCODE_CONVERT_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* ENCODE_CONVERT_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* ROUTE_CYBOL_ABSTRACTION_CONSTANTS_SOURCE */
+/* CONVERT_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

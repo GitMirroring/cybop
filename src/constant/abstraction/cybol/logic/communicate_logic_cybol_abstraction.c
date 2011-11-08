@@ -19,14 +19,15 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: application_vnd_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:29 $ $Author: christian $
+ * @version $RCSfile: operation_cybol_abstraction.c,v $ $Revision: 1.5 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef APPLICATION_VND_CYBOL_ABSTRACTION_SOURCE
-#define APPLICATION_VND_CYBOL_ABSTRACTION_SOURCE
+#ifndef COMMUNICATE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define COMMUNICATE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 //
@@ -46,26 +47,34 @@
 //
 
 //
-// Application (vendor-specific).
+// Communicate (some operation to be processed over time).
 //
-// IANA media type: application/vnd.
+// IANA media type: not defined
+// Self-defined media type: communicate
+// This media type is a CYBOL extension.
 //
 
 /**
- * The application/vnd.ms-excel cybol abstraction.
+ * The communicate/receive cybol abstraction.
  *
- * Microsoft Excel files.
- * Suffixes: xls, xla
+ * Receive data via a communication channel.
+ *
+ * This is a CYBOL extension.
  */
-static wchar_t MS_EXCEL_APPLICATION_VND_CYBOL_ABSTRACTION_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'v', L'n', L'd', L'.', L'm', L's', L'-', L'e', L'x', L'c', L'e', L'l'};
-static wchar_t* MS_EXCEL_APPLICATION_VND_CYBOL_ABSTRACTION = MS_EXCEL_APPLICATION_VND_CYBOL_ABSTRACTION_ARRAY;
-static int* MS_EXCEL_APPLICATION_VND_CYBOL_ABSTRACTION_COUNT = NUMBER_24_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t RECEIVE_COMMUNICATE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'm', L'u', L'n', L'i', L'c', L'a', L't', L'e', L'/', L'r', L'e', L'c', L'e', L'i', L'v', L'e'};
+static wchar_t* RECEIVE_COMMUNICATE_LOGIC_CYBOL_ABSTRACTION = RECEIVE_COMMUNICATE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_19_INTEGER_MEMORY_MODEL_ARRAY;
 
-/*??
-application/vnd.ms-powerpoint: Microsoft Powerpoint files
-application/msword: Microsoft Word files
-application/vnd.mozilla.xul+xml: Mozilla XUL files
-*/
+/**
+ * The communicate/send cybol abstraction.
+ *
+ * Send data via a communication channel.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t SEND_COMMUNICATE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'o', L'm', L'm', L'u', L'n', L'i', L'c', L'a', L't', L'e', L'/', L's', L'e', L'n', L'd'};
+static wchar_t* SEND_COMMUNICATE_LOGIC_CYBOL_ABSTRACTION = SEND_COMMUNICATE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* SEND_COMMUNICATE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_16_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* APPLICATION_VND_CYBOL_ABSTRACTION_SOURCE */
+/* COMMUNICATE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

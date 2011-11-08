@@ -19,12 +19,12 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: fonts_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: bluetooth_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:29 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FONTS_CYBOL_ABSTRACTION_SOURCE
-#define FONTS_CYBOL_ABSTRACTION_SOURCE
+#ifndef BLUETOOTH_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define BLUETOOTH_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -35,11 +35,11 @@
 //
 
 /**
- * The fonts/package cybol abstraction.
+ * The bluetooth/synchronisation-profile cybol abstraction.
  */
-static wchar_t PACKAGE_FONTS_CYBOL_ABSTRACTION_ARRAY[] = {L'f', L'o', L'n', L't', L's', L'/', L'p', L'a', L'c', L'k', L'a', L'g', L'e'};
-static wchar_t* PACKAGE_FONTS_CYBOL_ABSTRACTION = PACKAGE_FONTS_CYBOL_ABSTRACTION_ARRAY;
-static int* PACKAGE_FONTS_CYBOL_ABSTRACTION_COUNT = NUMBER_13_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'b', L'l', L'u', L'e', L't', L'o', L'o', L't', L'h', L'/', L's', L'y', L'n', L'c', L'h', L'r', L'o', L'n', L'i', L'z', L'a', L't', L'i', L'o', L'n', L'-', L'p', L'r', L'o', L'f', L'i', L'l', L'e'};
+static wchar_t* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOL_ABSTRACTION = SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_33_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* FONTS_CYBOL_ABSTRACTION_SOURCE */
+/* BLUETOOTH_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

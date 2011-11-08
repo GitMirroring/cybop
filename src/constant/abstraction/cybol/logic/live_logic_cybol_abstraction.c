@@ -19,14 +19,15 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: audio_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:29 $ $Author: christian $
+ * @version $RCSfile: operation_cybol_abstraction.c,v $ $Revision: 1.5 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef AUDIO_CYBOL_ABSTRACTION_SOURCE
-#define AUDIO_CYBOL_ABSTRACTION_SOURCE
+#ifndef LIVE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define LIVE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 //
@@ -46,34 +47,34 @@
 //
 
 //
-// Audio.
+// Live (some operation to be processed over time).
 //
-// IANA media type: audio
+// IANA media type: not defined
+// Self-defined media type: live
+// This media type is a CYBOL extension.
 //
 
 /**
- * The audio/mpeg cybol abstraction.
+ * The live/interrupt cybol abstraction.
  *
- * MP3 or other MPEG audio.
- * Defined in RFC 3003.
- * Suffixes: mpeg
+ * Interrupt a sensing operation.
+ *
+ * This is a CYBOL extension.
  */
-static wchar_t MPEG_AUDIO_CYBOL_ABSTRACTION_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'm', L'p', L'e', L'g'};
-static wchar_t* MPEG_AUDIO_CYBOL_ABSTRACTION = MPEG_AUDIO_CYBOL_ABSTRACTION_ARRAY;
-static int* MPEG_AUDIO_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
-
-/*??
-audio/x-ms-wma: Windows Media Audio; Documented in Microsoft KB 288102
-audio/vnd.rn-realaudio: RealAudio; Documented in RealPlayer Customer Support Answer 2559
-audio/x-wav: WAV audio
-*/
+static wchar_t INTERRUPT_LIVE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L'i', L'n', L't', L'e', L'r', L'r', L'u', L'p', L't'};
+static wchar_t* INTERRUPT_LIVE_LOGIC_CYBOL_ABSTRACTION = INTERRUPT_LIVE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* INTERRUPT_LIVE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
- * The audio/vorbis cybol abstraction.
+ * The live/sense cybol abstraction.
+ *
+ * Wait for and sense input signals.
+ *
+ * This is a CYBOL extension.
  */
-static wchar_t VORBIS_AUDIO_CYBOL_ABSTRACTION_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'v', L'o', L'r', L'b', L'i', L's'};
-static wchar_t* VORBIS_AUDIO_CYBOL_ABSTRACTION = VORBIS_AUDIO_CYBOL_ABSTRACTION_ARRAY;
-static int* VORBIS_AUDIO_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t SENSE_LIVE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L's', L'e', L'n', L's', L'e'};
+static wchar_t* SENSE_LIVE_LOGIC_CYBOL_ABSTRACTION = SENSE_LIVE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* SENSE_LIVE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* AUDIO_CYBOL_ABSTRACTION_SOURCE */
+/* LIVE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

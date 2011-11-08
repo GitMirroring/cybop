@@ -19,14 +19,15 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: example_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:29 $ $Author: christian $
+ * @version $RCSfile: audio_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:29 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EXAMPLE_CYBOL_ABSTRACTION_SOURCE
-#define EXAMPLE_CYBOL_ABSTRACTION_SOURCE
+#ifndef AUDIO_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define AUDIO_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 //
@@ -46,19 +47,34 @@
 //
 
 //
-// Example.
+// Audio.
 //
-// IANA media type: example
+// IANA media type: audio
 //
 
 /**
- * The example cybol abstraction.
+ * The audio/mpeg cybol abstraction.
  *
- * This is just offered by IANA for testing reasons.
+ * MP3 or other MPEG audio.
+ * Defined in RFC 3003.
+ * Suffixes: mpeg
  */
-static wchar_t EXAMPLE_CYBOL_ABSTRACTION_ARRAY[] = {L'e', L'x', L'a', L'm', L'p', L'l', L'e'};
-static wchar_t* EXAMPLE_CYBOL_ABSTRACTION = EXAMPLE_CYBOL_ABSTRACTION_ARRAY;
-static int* EXAMPLE_CYBOL_ABSTRACTION_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t MPEG_AUDIO_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'm', L'p', L'e', L'g'};
+static wchar_t* MPEG_AUDIO_STATE_CYBOL_ABSTRACTION = MPEG_AUDIO_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* MPEG_AUDIO_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* EXAMPLE_CYBOL_ABSTRACTION_SOURCE */
+/*??
+audio/x-ms-wma: Windows Media Audio; Documented in Microsoft KB 288102
+audio/vnd.rn-realaudio: RealAudio; Documented in RealPlayer Customer Support Answer 2559
+audio/x-wav: WAV audio
+*/
+
+/**
+ * The audio/vorbis cybol abstraction.
+ */
+static wchar_t VORBIS_AUDIO_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'v', L'o', L'r', L'b', L'i', L's'};
+static wchar_t* VORBIS_AUDIO_STATE_CYBOL_ABSTRACTION = VORBIS_AUDIO_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* VORBIS_AUDIO_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+
+/* AUDIO_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

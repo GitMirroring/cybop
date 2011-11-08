@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MEDIA_CYBOL_ABSTRACTION_SOURCE
-#define MEDIA_CYBOL_ABSTRACTION_SOURCE
+#ifndef MEDIA_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define MEDIA_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -37,9 +37,9 @@
 /**
  * The media/vcd cybol abstraction.
  */
-static wchar_t VCD_MEDIA_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L'd', L'i', L'a', L'/', L'v', L'c', L'd'};
-static wchar_t* VCD_MEDIA_CYBOL_ABSTRACTION = VCD_MEDIA_CYBOL_ABSTRACTION_ARRAY;
-static int* VCD_MEDIA_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t VCD_MEDIA_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'e', L'd', L'i', L'a', L'/', L'v', L'c', L'd'};
+static wchar_t* VCD_MEDIA_STATE_CYBOL_ABSTRACTION = VCD_MEDIA_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* VCD_MEDIA_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* MEDIA_CYBOL_ABSTRACTION_SOURCE */
+/* MEDIA_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

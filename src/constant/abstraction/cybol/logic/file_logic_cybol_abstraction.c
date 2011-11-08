@@ -19,14 +19,15 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: path_cybol_abstraction.c,v $ $Revision: 1.5 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: operation_cybol_abstraction.c,v $ $Revision: 1.5 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CYBOL_PATH_LANGUAGE_CONSTANTS_SOURCE
-#define CYBOL_PATH_LANGUAGE_CONSTANTS_SOURCE
+#ifndef FILE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define FILE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 //
@@ -46,48 +47,45 @@
 //
 
 //
-// Path (parts in a knowledge tree accessed at runtime).
+// File (some operation to be processed over time).
 //
 // IANA media type: not defined
-// Self-defined media type: path
+// Self-defined media type: file
 // This media type is a CYBOL extension.
 //
 
 /**
- * The path/knowledge cybol abstraction.
+ * The file/archive cybol abstraction.
  *
- * A knowledge path pointing to an item of a knowledge tree, whereby:
- * - "part" tree node names are dot (.) separated
- * - "meta" tree node names are number sign (#) separated
+ * Archive the given files into a packed format.
  *
- * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
- *
- * Example:
- * .application.gui.menu_bar.file_menu#background_colour
- * points to the meta property "background colour" of the
- * knowledge tree item ".application.gui.menu_bar.file_menu"
+ * This is a CYBOL extension.
  */
-static wchar_t KNOWLEDGE_PATH_CYBOL_ABSTRACTION_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'k', L'n', L'o', L'w', L'l', L'e', L'd', L'g', L'e'};
-static wchar_t* KNOWLEDGE_PATH_CYBOL_ABSTRACTION = KNOWLEDGE_PATH_CYBOL_ABSTRACTION_ARRAY;
-static int* KNOWLEDGE_PATH_CYBOL_ABSTRACTION_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t ARCHIVE_FILE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'a', L'r', L'c', L'h', L'i', L'v', L'e'};
+static wchar_t* ARCHIVE_FILE_LOGIC_CYBOL_ABSTRACTION = ARCHIVE_FILE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* ARCHIVE_FILE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
- * The path/encapsulated cybol abstraction.
+ * The file/copy cybol abstraction.
  *
- * A knowledge path pointing to an item of a knowledge tree,
- * that contains a knowledge path.
- * In other words, the item pointed to just "wraps" or "encapsulates"
- * a knowledge path which in turn points to the actual item.
+ * Copy the given file into another.
  *
- * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
- *
- * The same rules as for the "path/knowledge" language apply here.
+ * This is a CYBOL extension.
  */
-static wchar_t ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_ABSTRACTION_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd'};
-static wchar_t* ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_ABSTRACTION = ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_ABSTRACTION_ARRAY;
-static int* ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_ABSTRACTION_COUNT = NUMBER_17_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t COPY_FILE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'c', L'o', L'p', L'y'};
+static wchar_t* COPY_FILE_LOGIC_CYBOL_ABSTRACTION = COPY_FILE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* COPY_FILE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* CYBOL_PATH_LANGUAGE_CONSTANTS_SOURCE */
+/**
+ * The file/list-directory-contents cybol abstraction.
+ *
+ * List contents of the given directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'l', L'i', L's', L't', L'-', L'd', L'i', L'r', L'e', L'c', L't', L'o', L'r', L'y', L'-', L'c', L'o', L'n', L't', L'e', L'n', L't', L's'};
+static wchar_t* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_ABSTRACTION = LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_28_INTEGER_MEMORY_MODEL_ARRAY;
+
+/* FILE_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

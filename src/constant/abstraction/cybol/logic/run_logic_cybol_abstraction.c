@@ -19,14 +19,15 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: logicvalue_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: operation_cybol_abstraction.c,v $ $Revision: 1.5 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LOGICVALUE_CYBOL_ABSTRACTION_SOURCE
-#define LOGICVALUE_CYBOL_ABSTRACTION_SOURCE
+#ifndef RUN_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define RUN_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 //
@@ -46,28 +47,23 @@
 //
 
 //
-// Logic value.
+// Run (some operation to be processed over time).
 //
 // IANA media type: not defined
-// Self-defined media type: logicvalue
+// Self-defined media type: run
 // This media type is a CYBOL extension.
 //
 
 /**
- * The logicvalue/boolean cybol abstraction.
+ * The run/run cybol abstraction.
  *
- * Classical logic with the only possible truth values "true" and "false".
+ * Run the given programme.
  *
  * This is a CYBOL extension.
  */
-static wchar_t BOOLEAN_LOGICVALUE_CYBOL_ABSTRACTION_ARRAY[] = {L'l', L'o', L'g', L'i', L'c', L'v', L'a', L'l', L'u', L'e', L'/', L'b', L'o', L'o', L'l', L'e', L'a', L'n'};
-static wchar_t* BOOLEAN_LOGICVALUE_CYBOL_ABSTRACTION = BOOLEAN_LOGICVALUE_CYBOL_ABSTRACTION_ARRAY;
-static int* BOOLEAN_LOGICVALUE_CYBOL_ABSTRACTION_COUNT = NUMBER_18_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t RUN_RUN_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'r', L'u', L'n', L'/', L'r', L'u', L'n'};
+static wchar_t* RUN_RUN_LOGIC_CYBOL_ABSTRACTION = RUN_RUN_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* RUN_RUN_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
 
-/*??
-three-valued logic
-fuzzy logic
-*/
-
-/* LOGICVALUE_CYBOL_ABSTRACTION_SOURCE */
+/* RUN_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

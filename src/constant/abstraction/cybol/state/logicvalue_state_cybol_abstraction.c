@@ -19,12 +19,12 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: multipart_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: logicvalue_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MULTIPART_CYBOL_ABSTRACTION_SOURCE
-#define MULTIPART_CYBOL_ABSTRACTION_SOURCE
+#ifndef LOGICVALUE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define LOGICVALUE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -46,25 +46,28 @@
 //
 
 //
-// Multipart (archives and other objects made of more than one part).
+// Logic value.
 //
-// IANA media type: multipart
+// IANA media type: not defined
+// Self-defined media type: logicvalue
+// This media type is a CYBOL extension.
 //
 
 /**
- * The multipart/mixed cybol abstraction.
+ * The logicvalue/boolean cybol abstraction.
  *
- * multipart/mixed: MIME E-mail; Defined in RFC 2045 and RFC 2046
+ * Classical logic with the only possible truth values "true" and "false".
+ *
+ * This is a CYBOL extension.
  */
-static wchar_t MIXED_MULTIPART_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'u', L'l', L't', L'i', L'p', L'a', L'r', L't', L'/', L'm', L'i', L'x', L'e', L'd'};
-static wchar_t* MIXED_MULTIPART_CYBOL_ABSTRACTION = MIXED_MULTIPART_CYBOL_ABSTRACTION_ARRAY;
-static int* MIXED_MULTIPART_CYBOL_ABSTRACTION_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t BOOLEAN_LOGICVALUE_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'l', L'o', L'g', L'i', L'c', L'v', L'a', L'l', L'u', L'e', L'/', L'b', L'o', L'o', L'l', L'e', L'a', L'n'};
+static wchar_t* BOOLEAN_LOGICVALUE_STATE_CYBOL_ABSTRACTION = BOOLEAN_LOGICVALUE_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* BOOLEAN_LOGICVALUE_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_18_INTEGER_MEMORY_MODEL_ARRAY;
 
 /*??
-multipart/alternative: MIME E-mail; Defined in RFC 2045 and RFC 2046
-multipart/related: MIME E-mail; Defined in RFC 2387 and used by MHTML (HTML mail)
-multipart/form-data: MIME Webform; Defined in RFC 2388
+three-valued logic
+fuzzy logic
 */
 
-/* MULTIPART_CYBOL_ABSTRACTION_SOURCE */
+/* LOGICVALUE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

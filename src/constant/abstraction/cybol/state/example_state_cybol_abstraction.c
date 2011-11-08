@@ -19,12 +19,12 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: model_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: example_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:29 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MODEL_CYBOL_ABSTRACTION_SOURCE
-#define MODEL_CYBOL_ABSTRACTION_SOURCE
+#ifndef EXAMPLE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define EXAMPLE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -46,17 +46,19 @@
 //
 
 //
-// Model.
+// Example.
 //
-// IANA media type: model
+// IANA media type: example
 //
 
 /**
- * The model/vrml cybol abstraction.
+ * The example cybol abstraction.
+ *
+ * This is just offered by IANA for testing reasons.
  */
-static wchar_t VRML_MODEL_CYBOL_ABSTRACTION_ARRAY[] = {L'm', L'o', L'd', L'e', L'l', L'/', L'v', L'r', L'm', L'l'};
-static wchar_t* VRML_MODEL_CYBOL_ABSTRACTION = VRML_MODEL_CYBOL_ABSTRACTION_ARRAY;
-static int* VRML_MODEL_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t EXAMPLE_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'e', L'x', L'a', L'm', L'p', L'l', L'e'};
+static wchar_t* EXAMPLE_STATE_CYBOL_ABSTRACTION = EXAMPLE_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* EXAMPLE_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* MODEL_CYBOL_ABSTRACTION_SOURCE */
+/* EXAMPLE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

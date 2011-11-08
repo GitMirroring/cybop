@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INTERFACE_CYBOL_ABSTRACTION_SOURCE
-#define INTERFACE_CYBOL_ABSTRACTION_SOURCE
+#ifndef INTERFACE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define INTERFACE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -37,9 +37,9 @@
 /**
  * The interface/x-winamp-skin cybol abstraction.
  */
-static wchar_t X_WINAMP_INTERFACE_CYBOL_ABSTRACTION_ARRAY[] = {L'i', L'n', L't', L'e', L'r', L'f', L'a', L'c', L'e', L'/', L'x', L'-', L'w', L'i', L'n', L'a', L'm', L'p', L'-', L's', L'k', L'i', L'n'};
-static wchar_t* X_WINAMP_INTERFACE_CYBOL_ABSTRACTION = X_WINAMP_INTERFACE_CYBOL_ABSTRACTION_ARRAY;
-static int* X_WINAMP_INTERFACE_CYBOL_ABSTRACTION_COUNT = NUMBER_23_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t X_WINAMP_INTERFACE_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'i', L'n', L't', L'e', L'r', L'f', L'a', L'c', L'e', L'/', L'x', L'-', L'w', L'i', L'n', L'a', L'm', L'p', L'-', L's', L'k', L'i', L'n'};
+static wchar_t* X_WINAMP_INTERFACE_STATE_CYBOL_ABSTRACTION = X_WINAMP_INTERFACE_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* X_WINAMP_INTERFACE_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_23_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* INTERFACE_CYBOL_ABSTRACTION_SOURCE */
+/* INTERFACE_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

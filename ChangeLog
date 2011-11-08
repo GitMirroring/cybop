@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Restructure directory "constant/abstraction/cybol/" into "state" and "logic"
+
 2011-11-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt files in directory "executor/converter/encoder/cybol/"

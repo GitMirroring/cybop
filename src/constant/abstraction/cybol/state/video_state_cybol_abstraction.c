@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VIDEO_CYBOL_ABSTRACTION_SOURCE
-#define VIDEO_CYBOL_ABSTRACTION_SOURCE
+#ifndef VIDEO_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define VIDEO_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -54,9 +54,9 @@
 /**
  * The video/avi cybol abstraction.
  */
-static wchar_t AVI_VIDEO_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'a', L'v', L'i'};
-static wchar_t* AVI_VIDEO_CYBOL_ABSTRACTION = AVI_VIDEO_CYBOL_ABSTRACTION_ARRAY;
-static int* AVI_VIDEO_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t AVI_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'a', L'v', L'i'};
+static wchar_t* AVI_VIDEO_STATE_CYBOL_ABSTRACTION = AVI_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* AVI_VIDEO_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
  * The video/mp4 cybol abstraction.
@@ -65,9 +65,9 @@ static int* AVI_VIDEO_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_AR
  * Defined in RFC 4337.
  * Suffixes: mp4
  */
-static wchar_t MP4_VIDEO_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'm', L'p', L'4'};
-static wchar_t* MP4_VIDEO_CYBOL_ABSTRACTION = MP4_VIDEO_CYBOL_ABSTRACTION_ARRAY;
-static int* MP4_VIDEO_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t MP4_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'm', L'p', L'4'};
+static wchar_t* MP4_VIDEO_STATE_CYBOL_ABSTRACTION = MP4_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* MP4_VIDEO_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
  * The video/mpeg cybol abstraction.
@@ -76,9 +76,9 @@ static int* MP4_VIDEO_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_AR
  * Defined in RFC 2045 and RFC 2046.
  * Suffixes: mpeg, mpg, mpe
  */
-static wchar_t MPEG_VIDEO_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'm', L'p', L'e', L'g'};
-static wchar_t* MPEG_VIDEO_CYBOL_ABSTRACTION = MPEG_VIDEO_CYBOL_ABSTRACTION_ARRAY;
-static int* MPEG_VIDEO_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t MPEG_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'm', L'p', L'e', L'g'};
+static wchar_t* MPEG_VIDEO_STATE_CYBOL_ABSTRACTION = MPEG_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* MPEG_VIDEO_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
  * The video/quicktime cybol abstraction.
@@ -87,9 +87,9 @@ static int* MPEG_VIDEO_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_
  * Registered.
  * Suffixes: qt, mov
  */
-static wchar_t QUICKTIME_VIDEO_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'q', L'u', L'i', L'c', L'k', L't', L'i', L'm', L'e'};
-static wchar_t* QUICKTIME_VIDEO_CYBOL_ABSTRACTION = QUICKTIME_VIDEO_CYBOL_ABSTRACTION_ARRAY;
-static int* QUICKTIME_VIDEO_CYBOL_ABSTRACTION_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t QUICKTIME_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'q', L'u', L'i', L'c', L'k', L't', L'i', L'm', L'e'};
+static wchar_t* QUICKTIME_VIDEO_STATE_CYBOL_ABSTRACTION = QUICKTIME_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* QUICKTIME_VIDEO_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
  * The video/x-ms-wmv cybol abstraction.
@@ -98,9 +98,9 @@ static int* QUICKTIME_VIDEO_CYBOL_ABSTRACTION_COUNT = NUMBER_15_INTEGER_MEMORY_M
  * Documented in Microsoft KB 288102.
  * Suffixes: wmv
  */
-static wchar_t X_MS_WMV_VIDEO_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'x', L'-', L'm', L's', L'-', L'w', L'm', L'v'};
-static wchar_t* X_MS_WMV_VIDEO_CYBOL_ABSTRACTION = X_MS_WMV_VIDEO_CYBOL_ABSTRACTION_ARRAY;
-static int* X_MS_WMV_VIDEO_CYBOL_ABSTRACTION_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t X_MS_WMV_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'x', L'-', L'm', L's', L'-', L'w', L'm', L'v'};
+static wchar_t* X_MS_WMV_VIDEO_STATE_CYBOL_ABSTRACTION = X_MS_WMV_VIDEO_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* X_MS_WMV_VIDEO_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* VIDEO_CYBOL_ABSTRACTION_SOURCE */
+/* VIDEO_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

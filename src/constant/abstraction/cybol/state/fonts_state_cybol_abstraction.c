@@ -19,12 +19,12 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: uri_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: fonts_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef URI_MIME_TYPE_CONSTANTS_SOURCE
-#define URI_MIME_TYPE_CONSTANTS_SOURCE
+#ifndef FONTS_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define FONTS_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -35,11 +35,11 @@
 //
 
 /**
- * The uri/mms cybol abstraction.
+ * The fonts/package cybol abstraction.
  */
-static wchar_t MMS_URI_CYBOL_ABSTRACTION_ARRAY[] = {L'u', L'r', L'i', L'/', L'm', L'm', L's'};
-static wchar_t* MMS_URI_CYBOL_ABSTRACTION = MMS_URI_CYBOL_ABSTRACTION_ARRAY;
-static int* MMS_URI_CYBOL_ABSTRACTION_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t PACKAGE_FONTS_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'f', L'o', L'n', L't', L's', L'/', L'p', L'a', L'c', L'k', L'a', L'g', L'e'};
+static wchar_t* PACKAGE_FONTS_STATE_CYBOL_ABSTRACTION = PACKAGE_FONTS_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* PACKAGE_FONTS_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_13_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* URI_MIME_TYPE_CONSTANTS_SOURCE */
+/* FONTS_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

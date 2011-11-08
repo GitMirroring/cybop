@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CYBOL_OPERATION_LANGUAGE_CONSTANTS_SOURCE
-#define CYBOL_OPERATION_LANGUAGE_CONSTANTS_SOURCE
+#ifndef FLOW_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define FLOW_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 //
@@ -46,23 +47,45 @@
 //
 
 //
-// Operation (some logic to be processed over time).
+// Flow (some operation to be processed over time).
 //
 // IANA media type: not defined
-// Self-defined media type: operation
+// Self-defined media type: flow
 // This media type is a CYBOL extension.
 //
 
 /**
- * The operation/plain cybol abstraction.
+ * The flow/branch cybol abstraction.
  *
- * Operation to be processed by the Central Processing Unit (CPU).
+ * Branch control flow according to a given criterion.
  *
  * This is a CYBOL extension.
  */
-static wchar_t PLAIN_OPERATION_CYBOL_ABSTRACTION_ARRAY[] = {L'o', L'p', L'e', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'p', L'l', L'a', L'i', L'n'};
-static wchar_t* PLAIN_OPERATION_CYBOL_ABSTRACTION = PLAIN_OPERATION_CYBOL_ABSTRACTION_ARRAY;
-static int* PLAIN_OPERATION_CYBOL_ABSTRACTION_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t BRANCH_FLOW_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'b', L'r', L'a', L'n', L'c', L'h'};
+static wchar_t* BRANCH_FLOW_LOGIC_CYBOL_ABSTRACTION = BRANCH_FLOW_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* BRANCH_FLOW_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* CYBOL_OPERATION_LANGUAGE_CONSTANTS_SOURCE */
+/**
+ * The flow/loop cybol abstraction.
+ *
+ * Loop control flow until break flag is set.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t LOOP_FLOW_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'l', L'o', L'o', L'p'};
+static wchar_t* LOOP_FLOW_LOGIC_CYBOL_ABSTRACTION = LOOP_FLOW_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* LOOP_FLOW_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+
+/**
+ * The flow/sequence cybol abstraction.
+ *
+ * Process commands as sequence.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t SEQUENCE_FLOW_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L's', L'e', L'q', L'u', L'e', L'n', L'c', L'e'};
+static wchar_t* SEQUENCE_FLOW_LOGIC_CYBOL_ABSTRACTION = SEQUENCE_FLOW_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* SEQUENCE_FLOW_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_13_INTEGER_MEMORY_MODEL_ARRAY;
+
+/* FLOW_LOGIC_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif

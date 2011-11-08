@@ -19,12 +19,12 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: print_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
+ * @version $RCSfile: uri_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:30 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PRINT_MIME_TYPE_CONSTANTS_SOURCE
-#define PRINT_MIME_TYPE_CONSTANTS_SOURCE
+#ifndef URI_MIME_TYPE_CONSTANTS_SOURCE
+#define URI_MIME_TYPE_CONSTANTS_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -35,11 +35,11 @@
 //
 
 /**
- * The print/jobs cybol abstraction.
+ * The uri/mms cybol abstraction.
  */
-static wchar_t JOBS_PRINT_CYBOL_ABSTRACTION_ARRAY[] = {L'p', L'r', L'i', L'n', L't', L'/', L'j', L'o', L'b', L's'};
-static wchar_t* JOBS_PRINT_CYBOL_ABSTRACTION = JOBS_PRINT_CYBOL_ABSTRACTION_ARRAY;
-static int* JOBS_PRINT_CYBOL_ABSTRACTION_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t MMS_URI_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'u', L'r', L'i', L'/', L'm', L'm', L's'};
+static wchar_t* MMS_URI_STATE_CYBOL_ABSTRACTION = MMS_URI_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* MMS_URI_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* PRINT_MIME_TYPE_CONSTANTS_SOURCE */
+/* URI_MIME_TYPE_CONSTANTS_SOURCE */
 #endif

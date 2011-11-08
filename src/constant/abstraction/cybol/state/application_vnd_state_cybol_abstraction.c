@@ -19,12 +19,12 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: application_x_cybol_abstraction.c,v $ $Revision: 1.5 $ $Date: 2009-01-31 16:06:29 $ $Author: christian $
+ * @version $RCSfile: application_vnd_cybol_abstraction.c,v $ $Revision: 1.4 $ $Date: 2009-01-31 16:06:29 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef APPLICATION_X_CYBOL_ABSTRACTION_SOURCE
-#define APPLICATION_X_CYBOL_ABSTRACTION_SOURCE
+#ifndef APPLICATION_VND_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
+#define APPLICATION_VND_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -46,42 +46,26 @@
 //
 
 //
-// Application (non-standard).
+// Application (vendor-specific).
 //
-// IANA media type: application/x-
+// IANA media type: application/vnd.
 //
-
-/*??
-application/x-dvi: Digital Videfiles in DVI format
-application/x-httpd-php: PHP files
-application/x-httpd-php-source: PHP source files
-*/
 
 /**
- * The application/x-latex cybol abstraction.
+ * The application/vnd.ms-excel cybol abstraction.
  *
- * LaTeX files.
- * Suffixes: tex
+ * Microsoft Excel files.
+ * Suffixes: xls, xla
  */
-static wchar_t LATEX_APPLICATION_X_CYBOL_ABSTRACTION_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'l', L'a', L't', L'e', L'x'};
-static wchar_t* LATEX_APPLICATION_X_CYBOL_ABSTRACTION = LATEX_APPLICATION_X_CYBOL_ABSTRACTION_ARRAY;
-static int* LATEX_APPLICATION_X_CYBOL_ABSTRACTION_COUNT = NUMBER_19_INTEGER_MEMORY_MODEL_ARRAY;
+static wchar_t MS_EXCEL_APPLICATION_VND_STATE_CYBOL_ABSTRACTION_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'v', L'n', L'd', L'.', L'm', L's', L'-', L'e', L'x', L'c', L'e', L'l'};
+static wchar_t* MS_EXCEL_APPLICATION_VND_STATE_CYBOL_ABSTRACTION = MS_EXCEL_APPLICATION_VND_STATE_CYBOL_ABSTRACTION_ARRAY;
+static int* MS_EXCEL_APPLICATION_VND_STATE_CYBOL_ABSTRACTION_COUNT = NUMBER_24_INTEGER_MEMORY_MODEL_ARRAY;
 
 /*??
-application/x-shockwave-flash: Adobe Flash files; Documented in Adobe TechNote tn_4151 and Adobe TechNote tn_16509
-application/x-stuffit: StuffIt archive files
-application/x-rar-compressed: RAR archive files
+application/vnd.ms-powerpoint: Microsoft Powerpoint files
+application/msword: Microsoft Word files
+application/vnd.mozilla.xul+xml: Mozilla XUL files
 */
 
-/**
- * The application/x-tar cybol abstraction.
- *
- * Tarball files.
- * Suffixes: tar
- */
-static wchar_t TAR_APPLICATION_X_CYBOL_ABSTRACTION_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'a', L'r'};
-static wchar_t* TAR_APPLICATION_X_CYBOL_ABSTRACTION = TAR_APPLICATION_X_CYBOL_ABSTRACTION_ARRAY;
-static int* TAR_APPLICATION_X_CYBOL_ABSTRACTION_COUNT = NUMBER_17_INTEGER_MEMORY_MODEL_ARRAY;
-
-/* APPLICATION_X_CYBOL_ABSTRACTION_SOURCE */
+/* APPLICATION_VND_STATE_CYBOL_ABSTRACTION_CONSTANT_SOURCE */
 #endif
