@@ -1,19 +1,19 @@
 <model>
-    <part name="title_page" channel="file" abstraction="cybol" model="document_generator/document/title_page.cybol">
-        <property name="type" channel="inline" abstraction="string" model="title_page"/>
-        <property name="position" channel="inline" abstraction="integer" model="1"/>
+    <part name="title_page" channel="file" type="cybol" model="document_generator/document/title_page.cybol">
+        <property name="type" channel="inline" type="string" model="title_page"/>
+        <property name="position" channel="inline" type="integer" model="1"/>
     </part>
-    <part name="introduction" channel="file" abstraction="cybol" model="document_generator/document/introduction.cybol">
-        <property name="type" channel="inline" abstraction="string" model="chapter"/>
-        <property name="position" channel="inline" abstraction="integer" model="2"/>
+    <part name="introduction" channel="file" type="cybol" model="document_generator/document/introduction.cybol">
+        <property name="type" channel="inline" type="string" model="chapter"/>
+        <property name="position" channel="inline" type="integer" model="2"/>
     </part>
-    <part name="basics" channel="file" abstraction="cybol" model="document_generator/document/basics.cybol">
-        <property name="type" channel="inline" abstraction="string" model="chapter"/>
-        <property name="position" channel="inline" abstraction="integer" model="3"/>
+    <part name="basics" channel="file" type="cybol" model="document_generator/document/basics.cybol">
+        <property name="type" channel="inline" type="string" model="chapter"/>
+        <property name="position" channel="inline" type="integer" model="3"/>
     </part>
-    <part name="appendices" channel="file" abstraction="cybol" model="document_generator/document/appendices.cybol">
-        <property name="type" channel="inline" abstraction="string" model="chapter"/>
-        <property name="position" channel="inline" abstraction="integer" model="4"/>
+    <part name="appendices" channel="file" type="cybol" model="document_generator/document/appendices.cybol">
+        <property name="type" channel="inline" type="string" model="chapter"/>
+        <property name="position" channel="inline" type="integer" model="4"/>
     </part>
 </model>
 

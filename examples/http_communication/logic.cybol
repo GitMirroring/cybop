@@ -1,7 +1,7 @@
 <model>
-    <part name="handler" channel="file" abstraction="text/cybol" model="http_communication/logic/handler.cybol"/>
-    <part name="send_wui_index" channel="file" abstraction="text/cybol" model="http_communication/logic/send_wui_index.cybol"/>
-    <part name="exit_programme" channel="file" abstraction="text/cybol" model="http_communication/logic/shutdown.cybol"/>
+    <part name="handler" channel="file" type="text/cybol" model="http_communication/logic/handler.cybol"/>
+    <part name="send_wui_index" channel="file" type="text/cybol" model="http_communication/logic/send_wui_index.cybol"/>
+    <part name="exit_programme" channel="file" type="text/cybol" model="http_communication/logic/shutdown.cybol"/>
 </model>
 
 <!--

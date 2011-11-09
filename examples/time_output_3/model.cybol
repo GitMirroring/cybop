@@ -1,20 +1,20 @@
 <model>
-    <part name="compare_count" channel="inline" abstraction="operation/plain" model="greater_or_equal">
-        <property name="left" channel="inline" abstraction="path/knowledge" model=".counter.count"/>
-        <property name="right" channel="inline" abstraction="path/knowledge" model=".counter.maximum"/>
-        <property name="result" channel="inline" abstraction="path/knowledge" model=".counter.break"/>
+    <part name="compare_count" channel="inline" type="operation/plain" model="greater_or_equal">
+        <property name="left" channel="inline" type="path/knowledge" model=".counter.count"/>
+        <property name="right" channel="inline" type="path/knowledge" model=".counter.maximum"/>
+        <property name="result" channel="inline" type="path/knowledge" model=".counter.break"/>
     </part>
-    <part name="increment_loop_count" channel="inline" abstraction="operation/plain" model="add">
-        <property name="abstraction" channel="inline" abstraction="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" abstraction="path/knowledge" model=".counter.count"/>
-        <property name="summand_2" channel="inline" abstraction="number/integer" model="1"/>
-        <property name="sum" channel="inline" abstraction="path/knowledge" model=".counter.count"/>
+    <part name="increment_loop_count" channel="inline" type="operation/plain" model="add">
+        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
+        <property name="summand_1" channel="inline" type="path/knowledge" model=".counter.count"/>
+        <property name="summand_2" channel="inline" type="number/integer" model="1"/>
+        <property name="sum" channel="inline" type="path/knowledge" model=".counter.count"/>
     </part>
-    <part name="execute_shell_script" channel="inline" abstraction="operation/plain" model="run">
-        <property name="program" channel="file" abstraction="text/plain" model="time_output_3/sleep_timer.sh"/>
+    <part name="execute_shell_script" channel="inline" type="operation/plain" model="run">
+        <property name="program" channel="file" type="text/plain" model="time_output_3/sleep_timer.sh"/>
     </part>
-    <part name="print_time" channel="inline" abstraction="operation/plain" model="run">
-        <property name="program" channel="inline" abstraction="text/plain" model="date +%X"/>
+    <part name="print_time" channel="inline" type="operation/plain" model="run">
+        <property name="program" channel="inline" type="text/plain" model="date +%X"/>
     </part>
 </model>
 

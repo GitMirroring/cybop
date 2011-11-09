@@ -1,15 +1,15 @@
 <model>
-    <part name="arrow_down" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.user_interface.select_next_part"/>
-    <part name="arrow_up" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.user_interface.select_previous_part"/>
-    <part name="arrow_right" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.user_interface.select_next_part"/>
-    <part name="arrow_left" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.user_interface.select_previous_part"/>
-    <part name="enter" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.user_interface.enter"/>
-    <part name="escape" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.lifecycle.exit_program"/>
-    <part name="m" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.functionality.start_mc"/>
-    <part name="d" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.functionality.start_dosemu"/>
-    <part name="x" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.functionality.show_x_window"/>
-    <part name="a" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.user_interface.show_about_information"/>
-    <part name="e" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.lifecycle.exit_program"/>
+    <part name="arrow_down" channel="inline" type="path/knowledge" model=".ui_control.logic.user_interface.select_next_part"/>
+    <part name="arrow_up" channel="inline" type="path/knowledge" model=".ui_control.logic.user_interface.select_previous_part"/>
+    <part name="arrow_right" channel="inline" type="path/knowledge" model=".ui_control.logic.user_interface.select_next_part"/>
+    <part name="arrow_left" channel="inline" type="path/knowledge" model=".ui_control.logic.user_interface.select_previous_part"/>
+    <part name="enter" channel="inline" type="path/knowledge" model=".ui_control.logic.user_interface.enter"/>
+    <part name="escape" channel="inline" type="path/knowledge" model=".ui_control.logic.lifecycle.exit_program"/>
+    <part name="m" channel="inline" type="path/knowledge" model=".ui_control.logic.functionality.start_mc"/>
+    <part name="d" channel="inline" type="path/knowledge" model=".ui_control.logic.functionality.start_dosemu"/>
+    <part name="x" channel="inline" type="path/knowledge" model=".ui_control.logic.functionality.show_x_window"/>
+    <part name="a" channel="inline" type="path/knowledge" model=".ui_control.logic.user_interface.show_about_information"/>
+    <part name="e" channel="inline" type="path/knowledge" model=".ui_control.logic.lifecycle.exit_program"/>
 </model>
 
 <!--

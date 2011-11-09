@@ -1,13 +1,13 @@
 <model>
-    <part name="main_window" channel="file" abstraction="text/cybol" model="ui_control/tui/main_window/window.cybol">
-        <property name="super" channel="inline" abstraction="path/knowledge" model=".ui_control.settings.tui.window"/>
-        <property name="position" channel="inline" abstraction="number/integer" model="0,0,0"/>
-        <property name="size" channel="inline" abstraction="number/integer" model="80,24,1"/>
+    <part name="main_window" channel="file" type="text/cybol" model="ui_control/tui/main_window/window.cybol">
+        <property name="super" channel="inline" type="path/knowledge" model=".ui_control.settings.tui.window"/>
+        <property name="position" channel="inline" type="number/integer" model="0,0,0"/>
+        <property name="size" channel="inline" type="number/integer" model="80,24,1"/>
     </part>
-    <part name="about_dialogue" channel="file" abstraction="text/cybol" model="ui_control/tui/about_dialogue/window.cybol">
-        <property name="super" channel="inline" abstraction="path/knowledge" model=".ui_control.settings.tui.window"/>
-        <property name="position" channel="inline" abstraction="number/integer" model="0,0,0"/>
-        <property name="size" channel="inline" abstraction="number/integer" model="80,24,1"/>
+    <part name="about_dialogue" channel="file" type="text/cybol" model="ui_control/tui/about_dialogue/window.cybol">
+        <property name="super" channel="inline" type="path/knowledge" model=".ui_control.settings.tui.window"/>
+        <property name="position" channel="inline" type="number/integer" model="0,0,0"/>
+        <property name="size" channel="inline" type="number/integer" model="80,24,1"/>
     </part>
 </model>
 

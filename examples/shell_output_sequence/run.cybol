@@ -1,8 +1,8 @@
 <model>
-    <part name="startup" channel="inline" abstraction="operation/plain" model="sequence">
-        <property name="model" channel="file" abstraction="text/cybol" model="shell_output_sequence/model.cybol"/>
+    <part name="startup" channel="inline" type="operation/plain" model="sequence">
+        <property name="model" channel="file" type="text/cybol" model="shell_output_sequence/model.cybol"/>
     </part>
-    <part name="shutdown" channel="inline" abstraction="operation/plain" model="exit"/>
+    <part name="shutdown" channel="inline" type="operation/plain" model="exit"/>
 </model>
 
 <!--

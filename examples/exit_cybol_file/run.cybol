@@ -1,7 +1,7 @@
 <model>
-    <part name="startup" channel="inline" abstraction="operation/plain" model="send">
-        <property name="channel" channel="inline" abstraction="text/plain" model="signal"/>
-        <property name="message" channel="file" abstraction="text/cybol" model="exit_cybol_file/exit.cybol"/>
+    <part name="startup" channel="inline" type="operation/plain" model="send">
+        <property name="channel" channel="inline" type="text/plain" model="signal"/>
+        <property name="message" channel="file" type="text/cybol" model="exit_cybol_file/exit.cybol"/>
     </part>
 </model>
 

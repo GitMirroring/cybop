@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <model>
-    <part name="body" channel="file" abstraction="cybol" model="document/body.cybol">
-        <property name="font_size" channel="file" abstraction="cybol" model="document/meta/font_size.cybol"/>
-        <property name="paper_size" channel="inline" abstraction="string" model="dina4"/>
-        <property name="page_style" channel="inline" abstraction="string" model="twoside"/>
-        <property name="type" channel="inline" abstraction="string" model="book"/>
+    <part name="body" channel="file" type="cybol" model="document/body.cybol">
+        <property name="font_size" channel="file" type="cybol" model="document/meta/font_size.cybol"/>
+        <property name="paper_size" channel="inline" type="string" model="dina4"/>
+        <property name="page_style" channel="inline" type="string" model="twoside"/>
+        <property name="type" channel="inline" type="string" model="book"/>
     </part>
 </model>
 

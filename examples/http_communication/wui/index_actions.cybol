@@ -1,6 +1,6 @@
 <model>
-    <part name="index" channel="inline" abstraction="path/knowledge" model=".http_communication.logic.send_wui_index"/>
-    <part name="shutdown" channel="inline" abstraction="path/knowledge" model=".http_communication.logic.exit_programme"/>
+    <part name="index" channel="inline" type="path/knowledge" model=".http_communication.logic.send_wui_index"/>
+    <part name="shutdown" channel="inline" type="path/knowledge" model=".http_communication.logic.exit_programme"/>
 </model>
 
 <!--

@@ -1,6 +1,6 @@
 <model>
-    <part name="handle_www_service" channel="file" abstraction="text/cybol" model="http_communication/logic/handler/handle_www_service.cybol"/>
-    <part name="www_index_input_model" channel="inline" abstraction="text/plain" model=""/>
+    <part name="handle_www_service" channel="file" type="text/cybol" model="http_communication/logic/handler/handle_www_service.cybol"/>
+    <part name="www_index_input_model" channel="inline" type="text/plain" model=""/>
 </model>
 
 <!--

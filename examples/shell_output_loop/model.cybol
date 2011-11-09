@@ -1,20 +1,20 @@
 <model>
-    <part name="compare_count" channel="inline" abstraction="operation/plain" model="greater_or_equal">
-        <property name="left" channel="inline" abstraction="path/knowledge" model=".shell_output_loop.count"/>
-        <property name="right" channel="inline" abstraction="number/integer" model="4"/>
-        <property name="result" channel="inline" abstraction="path/knowledge" model=".shell_output_loop.break"/>
+    <part name="compare_count" channel="inline" type="operation/plain" model="greater_or_equal">
+        <property name="left" channel="inline" type="path/knowledge" model=".shell_output_loop.count"/>
+        <property name="right" channel="inline" type="number/integer" model="4"/>
+        <property name="result" channel="inline" type="path/knowledge" model=".shell_output_loop.break"/>
     </part>
-    <part name="output" channel="inline" abstraction="operation/plain" model="send">
-        <property name="channel" channel="inline" abstraction="text/plain" model="shell"/>
-        <property name="language" channel="inline" abstraction="text/plain" model="text/plain"/>
-        <property name="message" channel="inline" abstraction="text/plain" model="Hello, World!"/>
-        <property name="new_line" channel="inline" abstraction="logicvalue/boolean" model="true"/>
+    <part name="output" channel="inline" type="operation/plain" model="send">
+        <property name="channel" channel="inline" type="text/plain" model="shell"/>
+        <property name="language" channel="inline" type="text/plain" model="text/plain"/>
+        <property name="message" channel="inline" type="text/plain" model="Hello, World!"/>
+        <property name="new_line" channel="inline" type="logicvalue/boolean" model="true"/>
     </part>
-    <part name="increment_loop_count" channel="inline" abstraction="operation/plain" model="add">
-        <property name="abstraction" channel="inline" abstraction="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" abstraction="path/knowledge" model=".shell_output_loop.count"/>
-        <property name="summand_2" channel="inline" abstraction="number/integer" model="1"/>
-        <property name="sum" channel="inline" abstraction="path/knowledge" model=".shell_output_loop.count"/>
+    <part name="increment_loop_count" channel="inline" type="operation/plain" model="add">
+        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
+        <property name="summand_1" channel="inline" type="path/knowledge" model=".shell_output_loop.count"/>
+        <property name="summand_2" channel="inline" type="number/integer" model="1"/>
+        <property name="sum" channel="inline" type="path/knowledge" model=".shell_output_loop.count"/>
     </part>
 </model>
 

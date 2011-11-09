@@ -1,9 +1,9 @@
 <model>
-    <part name="test" channel="inline" abstraction="operation/plain" model="list_directory_contents">
-        <property name="all" channel="inline" abstraction="logicvalue/boolean" model="false"/>
-        <property name="long_listing" channel="inline" abstraction="logicvalue/boolean" model="true"/>
+    <part name="test" channel="inline" type="operation/plain" model="list_directory_contents">
+        <property name="all" channel="inline" type="logicvalue/boolean" model="false"/>
+        <property name="long_listing" channel="inline" type="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit" channel="inline" abstraction="operation/plain" model="exit"/>
+    <part name="exit" channel="inline" type="operation/plain" model="exit"/>
 </model>
 
 <!--

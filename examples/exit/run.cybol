@@ -1,5 +1,5 @@
 <model>
-    <part name="message" channel="inline" abstraction="operation/plain" model="exit"/>
+    <part name="message" channel="inline" type="operation/plain" model="exit"/>
 </model>
 
 <!--

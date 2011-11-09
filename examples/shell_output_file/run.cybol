@@ -1,11 +1,11 @@
 <model>
-    <part name="print_text" channel="inline" abstraction="operation/plain" model="send">
-        <property name="channel" channel="inline" abstraction="text/plain" model="shell"/>
-        <property name="language" channel="inline" abstraction="text/plain" model="text/plain"/>
-        <property name="message" channel="file" abstraction="text/plain" model="shell_output_file/text.txt"/>
-        <property name="new_line" channel="inline" abstraction="logicvalue/boolean" model="true"/>
+    <part name="print_text" channel="inline" type="operation/plain" model="send">
+        <property name="channel" channel="inline" type="text/plain" model="shell"/>
+        <property name="language" channel="inline" type="text/plain" model="text/plain"/>
+        <property name="message" channel="file" type="text/plain" model="shell_output_file/text.txt"/>
+        <property name="new_line" channel="inline" type="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" abstraction="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" type="operation/plain" model="exit"/>
 </model>
 
 <!--

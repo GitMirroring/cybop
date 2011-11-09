@@ -1,9 +1,9 @@
 <model>
-    <part name="user_interface" channel="inline" abstraction="text/plain" model="gnu-linux-console"/>
-    <part name="tui" channel="file" abstraction="text/cybol" model="ui_control/settings/tui.cybol"/>
+    <part name="user_interface" channel="inline" type="text/plain" model="gnu-linux-console"/>
+    <part name="tui" channel="file" type="text/cybol" model="ui_control/settings/tui.cybol"/>
 <!--
-    <part name="user_interface" channel="inline" abstraction="text/plain" model="x-window-system"/>
-    <part name="gui" channel="file" abstraction="text/cybol" model="ui_control/settings/gui.cybol"/>
+    <part name="user_interface" channel="inline" type="text/plain" model="x-window-system"/>
+    <part name="gui" channel="file" type="text/cybol" model="ui_control/settings/gui.cybol"/>
 -->
 </model>
 

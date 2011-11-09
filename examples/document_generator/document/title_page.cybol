@@ -1,15 +1,15 @@
 <model>
-    <part name="title" channel="inline" abstraction="string" model="CYBOP Document Generation">
-        <property name="type" channel="inline" abstraction="knowledge" model="document_generator.styles.title"/>
+    <part name="title" channel="inline" type="string" model="CYBOP Document Generation">
+        <property name="type" channel="inline" type="knowledge" model="document_generator.styles.title"/>
     </part>
-    <part name="sub_title" channel="inline" abstraction="string" model="An Example Document">
-        <property name="type" channel="inline" abstraction="knowledge" model="document_generator.styles.sub_title"/>
+    <part name="sub_title" channel="inline" type="string" model="An Example Document">
+        <property name="type" channel="inline" type="knowledge" model="document_generator.styles.sub_title"/>
     </part>
-    <part name="author" channel="inline" abstraction="string" model="Christian Heller">
-        <property name="type" channel="inline" abstraction="knowledge" model="document_generator.styles.author"/>
+    <part name="author" channel="inline" type="string" model="Christian Heller">
+        <property name="type" channel="inline" type="knowledge" model="document_generator.styles.author"/>
     </part>
-    <part name="date" channel="inline" abstraction="string" model="2005-11-19">
-        <property name="type" channel="inline" abstraction="knowledge" model="document_generator.styles.date"/>
+    <part name="date" channel="inline" type="string" model="2005-11-19">
+        <property name="type" channel="inline" type="knowledge" model="document_generator.styles.date"/>
     </part>
 </model>
 

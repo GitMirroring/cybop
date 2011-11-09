@@ -1,26 +1,26 @@
 <model>
-    <part name="create_domain" channel="inline" abstraction="operation/plain" model="create">
-        <property name="name" channel="inline" abstraction="text/plain" model="domain"/>
-        <property name="abstraction" channel="inline" abstraction="text/plain" model="compound"/>
-        <property name="element" channel="inline" abstraction="text/plain" model="part"/>
+    <part name="create_domain" channel="inline" type="operation/plain" model="create">
+        <property name="name" channel="inline" type="text/plain" model="domain"/>
+        <property name="abstraction" channel="inline" type="text/plain" model="compound"/>
+        <property name="element" channel="inline" type="text/plain" model="part"/>
     </part>
-    <part name="create_flag" channel="inline" abstraction="operation/plain" model="create">
-        <property name="name" channel="inline" abstraction="text/plain" model="flag"/>
-        <property name="abstraction" channel="inline" abstraction="text/plain" model="boolean"/>
-        <property name="element" channel="inline" abstraction="text/plain" model="part"/>
-        <property name="whole" channel="inline" abstraction="path/knowledge" model=".domain"/>
+    <part name="create_flag" channel="inline" type="operation/plain" model="create">
+        <property name="name" channel="inline" type="text/plain" model="flag"/>
+        <property name="abstraction" channel="inline" type="text/plain" model="boolean"/>
+        <property name="element" channel="inline" type="text/plain" model="part"/>
+        <property name="whole" channel="inline" type="path/knowledge" model=".domain"/>
     </part>
-   <part name="initialise_flag" channel="inline" abstraction="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" abstraction="text/plain" model="integer"/>
-        <property name="source" channel="inline" abstraction="logicvalue/boolean" model="false"/>
-        <property name="destination" channel="inline" abstraction="path/knowledge" model=".domain.flag"/>
+   <part name="initialise_flag" channel="inline" type="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
+        <property name="source" channel="inline" type="logicvalue/boolean" model="false"/>
+        <property name="destination" channel="inline" type="path/knowledge" model=".domain.flag"/>
     </part>
-    <part name="if-then-else" channel="inline" abstraction="operation/plain" model="branch">
-        <property name="criterion" channel="inline" abstraction="path/knowledge" model=".domain.flag"/>
-        <property name="true" channel="file" abstraction="text/cybol" model="if-else/true.cybol"/>
-        <property name="false" channel="file" abstraction="text/cybol" model="if-else/false.cybol"/>
+    <part name="if-then-else" channel="inline" type="operation/plain" model="branch">
+        <property name="criterion" channel="inline" type="path/knowledge" model=".domain.flag"/>
+        <property name="true" channel="file" type="text/cybol" model="if-else/true.cybol"/>
+        <property name="false" channel="file" type="text/cybol" model="if-else/false.cybol"/>
     </part>
-    <part name="exit_application" channel="inline" abstraction="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" type="operation/plain" model="exit"/>
 </model>
 
 <!--

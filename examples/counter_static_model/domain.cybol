@@ -1,8 +1,8 @@
 <model>
-    <part name="break" channel="inline" abstraction="number/integer" model="0"/>
-    <part name="count" channel="inline" abstraction="number/integer" model="1"/>
-    <part name="maximum" channel="inline" abstraction="number/integer" model="10"/>
-    <part name="model" channel="file" abstraction="text/cybol" model="counter_static_model/model.cybol"/>
+    <part name="break" channel="inline" type="number/integer" model="0"/>
+    <part name="count" channel="inline" type="number/integer" model="1"/>
+    <part name="maximum" channel="inline" type="number/integer" model="10"/>
+    <part name="model" channel="file" type="text/cybol" model="counter_static_model/model.cybol"/>
 </model>
 
 <!--

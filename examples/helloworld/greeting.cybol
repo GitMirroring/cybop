@@ -1,12 +1,12 @@
 <model>
-    <part name="string" channel="inline" abstraction="text/plain" model="Hello, World!">
-        <property name="position" channel="inline" abstraction="number/integer" model="5,2,0"/>
-        <property name="size" channel="inline" abstraction="number/integer" model="60,4,1"/>
-        <property name="shape" channel="inline" abstraction="text/plain" model="rectangle"/>
-        <property name="layout" channel="inline" abstraction="text/plain" model="coordinates"/>
-        <property name="foreground" channel="inline" abstraction="text/plain" model="green"/>
-        <property name="background" channel="inline" abstraction="text/plain" model="blue"/>
-        <property name="underline" channel="inline" abstraction="logicvalue/boolean" model="true"/>
+    <part name="string" channel="inline" type="text/plain" model="Hello, World!">
+        <property name="position" channel="inline" type="number/integer" model="5,2,0"/>
+        <property name="size" channel="inline" type="number/integer" model="60,4,1"/>
+        <property name="shape" channel="inline" type="text/plain" model="rectangle"/>
+        <property name="layout" channel="inline" type="text/plain" model="coordinates"/>
+        <property name="foreground" channel="inline" type="text/plain" model="green"/>
+        <property name="background" channel="inline" type="text/plain" model="blue"/>
+        <property name="underline" channel="inline" type="logicvalue/boolean" model="true"/>
     </part>
 </model>
 

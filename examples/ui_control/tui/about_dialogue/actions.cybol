@@ -1,7 +1,7 @@
 <model>
-    <part name="enter" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.user_interface.hide_about_information"/>
-    <part name="escape" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.user_interface.hide_about_information"/>
-    <part name="o" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.user_interface.hide_about_information"/>
+    <part name="enter" channel="inline" type="path/knowledge" model=".ui_control.logic.user_interface.hide_about_information"/>
+    <part name="escape" channel="inline" type="path/knowledge" model=".ui_control.logic.user_interface.hide_about_information"/>
+    <part name="o" channel="inline" type="path/knowledge" model=".ui_control.logic.user_interface.hide_about_information"/>
 </model>
 
 <!--

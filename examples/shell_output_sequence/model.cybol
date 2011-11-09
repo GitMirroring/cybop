@@ -1,8 +1,8 @@
 <model>
-    <part name="output" channel="inline" abstraction="operation/plain" model="send">
-        <property name="channel" channel="inline" abstraction="text/plain" model="shell"/>
-        <property name="language" channel="inline" abstraction="text/plain" model="text/plain"/>
-        <property name="message" channel="inline" abstraction="text/plain" model="Hello, World!"/>
+    <part name="output" channel="inline" type="operation/plain" model="send">
+        <property name="channel" channel="inline" type="text/plain" model="shell"/>
+        <property name="language" channel="inline" type="text/plain" model="text/plain"/>
+        <property name="message" channel="inline" type="text/plain" model="Hello, World!"/>
     </part>
 </model>
 

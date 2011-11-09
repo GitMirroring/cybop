@@ -1,24 +1,24 @@
 <model>
-    <part name="module_menu" channel="inline" abstraction="text/plain" model="Module">
-        <property name="layout" channel="inline" abstraction="text/plain" model="compass"/>
-        <property name="cell" channel="inline" abstraction="text/plain" model="west"/>
-        <property name="position" channel="inline" abstraction="number/integer" model="0,0,0"/>
-        <property name="size" channel="inline" abstraction="number/integer" model="100,20,1"/>
-        <property name="left_release" channel="inline" abstraction="path/knowledge" model=".ui_control.logic.exit_program"/>
+    <part name="module_menu" channel="inline" type="text/plain" model="Module">
+        <property name="layout" channel="inline" type="text/plain" model="compass"/>
+        <property name="cell" channel="inline" type="text/plain" model="west"/>
+        <property name="position" channel="inline" type="number/integer" model="0,0,0"/>
+        <property name="size" channel="inline" type="number/integer" model="100,20,1"/>
+        <property name="left_release" channel="inline" type="path/knowledge" model=".ui_control.logic.exit_program"/>
     </part>
 <!--
-    <part name="view_menu" channel="inline" abstraction="text/plain" model="View">
-        <property name="layout" channel="inline" abstraction="text/plain" model="compass"/>
-        <property name="cell" channel="inline" abstraction="text/plain" model="east"/>
-        <property name="position" channel="inline" abstraction="number/integer" model="0,0,0"/>
-        <property name="size" channel="inline" abstraction="number/integer" model="0,0,0"/>
+    <part name="view_menu" channel="inline" type="text/plain" model="View">
+        <property name="layout" channel="inline" type="text/plain" model="compass"/>
+        <property name="cell" channel="inline" type="text/plain" model="east"/>
+        <property name="position" channel="inline" type="number/integer" model="0,0,0"/>
+        <property name="size" channel="inline" type="number/integer" model="0,0,0"/>
     </part>
 -->
-    <part name="help_menu" channel="inline" abstraction="text/plain" model="Help">
-        <property name="layout" channel="inline" abstraction="text/plain" model="compass"/>
-        <property name="cell" channel="inline" abstraction="text/plain" model="east"/>
-        <property name="position" channel="inline" abstraction="number/integer" model="200,0,0"/>
-        <property name="size" channel="inline" abstraction="number/integer" model="100,20,1"/>
+    <part name="help_menu" channel="inline" type="text/plain" model="Help">
+        <property name="layout" channel="inline" type="text/plain" model="compass"/>
+        <property name="cell" channel="inline" type="text/plain" model="east"/>
+        <property name="position" channel="inline" type="number/integer" model="200,0,0"/>
+        <property name="size" channel="inline" type="number/integer" model="100,20,1"/>
     </part>
 </model>
 

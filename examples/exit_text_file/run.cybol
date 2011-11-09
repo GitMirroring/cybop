@@ -1,7 +1,7 @@
 <model>
-    <part name="startup" channel="inline" abstraction="operation/plain" model="send">
-        <property name="channel" channel="inline" abstraction="text/plain" model="signal"/>
-        <property name="message" channel="file" abstraction="operation/plain" model="exit_text_file/exit.txt"/>
+    <part name="startup" channel="inline" type="operation/plain" model="send">
+        <property name="channel" channel="inline" type="text/plain" model="signal"/>
+        <property name="message" channel="file" type="operation/plain" model="exit_text_file/exit.txt"/>
     </part>
 </model>
 

@@ -1,14 +1,14 @@
 <model>
-    <part name="main_window" channel="file" abstraction="text/cybol" model="ui_control/gui/main_window/window.cybol">
-        <property name="shape" channel="inline" abstraction="text/plain" model="rectangle"/>
-        <property name="layout" channel="inline" abstraction="text/plain" model="root"/>
-        <property name="cell" channel="inline" abstraction="text/plain" model=""/>
-        <property name="position" channel="inline" abstraction="number/integer" model="100,100,0"/>
-        <property name="size" channel="inline" abstraction="number/integer" model="800,600,1"/>
-        <property name="background" channel="inline" abstraction="text/plain" model="white"/>
-        <property name="foreground" channel="inline" abstraction="text/plain" model="white"/>
-        <property name="title" channel="inline" abstraction="text/plain" model="Res Medicinae"/>
-        <property name="icon" channel="file" abstraction="image/png" model="ui_control/gui/main_window/icon.png"/>
+    <part name="main_window" channel="file" type="text/cybol" model="ui_control/gui/main_window/window.cybol">
+        <property name="shape" channel="inline" type="text/plain" model="rectangle"/>
+        <property name="layout" channel="inline" type="text/plain" model="root"/>
+        <property name="cell" channel="inline" type="text/plain" model=""/>
+        <property name="position" channel="inline" type="number/integer" model="100,100,0"/>
+        <property name="size" channel="inline" type="number/integer" model="800,600,1"/>
+        <property name="background" channel="inline" type="text/plain" model="white"/>
+        <property name="foreground" channel="inline" type="text/plain" model="white"/>
+        <property name="title" channel="inline" type="text/plain" model="Res Medicinae"/>
+        <property name="icon" channel="file" type="image/png" model="ui_control/gui/main_window/icon.png"/>
     </part>
 </model>
 

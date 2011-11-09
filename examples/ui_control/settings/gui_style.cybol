@@ -1,6 +1,6 @@
 <model>
-    <part name="menu_bar" channel="file" abstraction="text/cybol" model="gui_style/menu_bar.cybol"/>
-    <part name="menu" channel="file" abstraction="text/cybol" model="gui_style/menu.cybol"/>
+    <part name="menu_bar" channel="file" type="text/cybol" model="gui_style/menu_bar.cybol"/>
+    <part name="menu" channel="file" type="text/cybol" model="gui_style/menu.cybol"/>
 </model>
 
 <!--

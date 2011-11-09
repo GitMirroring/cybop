@@ -1,15 +1,15 @@
 <model>
-    <part name="simulate_first_case" channel="inline" abstraction="operation/plain" model="branch">
-        <property name="criterion" channel="inline" abstraction="logicvalue/boolean" model="true"/>
-        <property name="true" channel="file" abstraction="text/cybol" model="shell_output_branch/model_a.cybol"/>
-        <property name="false" channel="file" abstraction="text/cybol" model="shell_output_branch/model_b.cybol"/>
+    <part name="simulate_first_case" channel="inline" type="operation/plain" model="branch">
+        <property name="criterion" channel="inline" type="logicvalue/boolean" model="true"/>
+        <property name="true" channel="file" type="text/cybol" model="shell_output_branch/model_a.cybol"/>
+        <property name="false" channel="file" type="text/cybol" model="shell_output_branch/model_b.cybol"/>
     </part>
-    <part name="simulate_second_case" channel="inline" abstraction="operation/plain" model="branch">
-        <property name="criterion" channel="inline" abstraction="logicvalue/boolean" model="false"/>
-        <property name="true" channel="file" abstraction="text/cybol" model="shell_output_branch/model_a.cybol"/>
-        <property name="false" channel="file" abstraction="text/cybol" model="shell_output_branch/model_b.cybol"/>
+    <part name="simulate_second_case" channel="inline" type="operation/plain" model="branch">
+        <property name="criterion" channel="inline" type="logicvalue/boolean" model="false"/>
+        <property name="true" channel="file" type="text/cybol" model="shell_output_branch/model_a.cybol"/>
+        <property name="false" channel="file" type="text/cybol" model="shell_output_branch/model_b.cybol"/>
     </part>
-    <part name="shutdown" channel="inline" abstraction="operation/plain" model="exit"/>
+    <part name="shutdown" channel="inline" type="operation/plain" model="exit"/>
 </model>
 
 <!--
