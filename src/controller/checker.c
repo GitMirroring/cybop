@@ -26,7 +26,7 @@
 #ifndef CHECKER_SOURCE
 #define CHECKER_SOURCE
 
-#include "../constant/abstraction/memory/memory_abstraction.c"
+#include "../constant/type/memory/memory_type.c"
 #include "../constant/model/log/level_log_model.c"
 #include "../constant/model/log/message_log_model.c"
 #include "../constant/model/memory/boolean_memory_model.c"
@@ -66,11 +66,11 @@ void check(void* p0) {
     void* st = *NULL_POINTER_MEMORY_MODEL;
 
     // Get knowledge memory part.
-    copy_array_forward((void*) &k, p0, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &k, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_MEMORY_NAME);
     // Get signal memory item.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &s, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_MEMORY_NAME);
     // Get signal memory sleep time.
-    copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_SLEEP_TIME_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_SLEEP_TIME_INTERNAL_MEMORY_MEMORY_NAME);
 
     // The shutdown flag.
     int f = *NUMBER_0_INTEGER_MEMORY_MODEL;

@@ -26,7 +26,7 @@
 #ifndef VALUE_CALCULATOR_SOURCE
 #define VALUE_CALCULATOR_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -39,7 +39,7 @@
 #include "../../../logger/logger.c"
 
 //
-// Models of abstraction "complex" or "fraction" are not
+// Models of type "complex" or "fraction" are not
 // considered as container, since the comparison of their
 // elements follows special rules.
 //
@@ -64,8 +64,8 @@
  *
  * @param p0 the result, which is the operand BEFORE the operation
  * @param p1 the operand
- * @param p2 the operation abstraction
- * @param p3 the operand abstraction
+ * @param p2 the operation type
+ * @param p3 the operand type
  */
 void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
@@ -76,7 +76,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DOUBLE_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) DOUBLE_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -86,7 +86,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) FRACTION_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) FRACTION_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -96,7 +96,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) INTEGER_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) INTEGER_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -106,7 +106,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) ITEM_PRIMITIVE_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) ITEM_PRIMITIVE_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -116,7 +116,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) PART_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) PART_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -126,7 +126,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) POINTER_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) POINTER_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -136,7 +136,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) UNSIGNED_LONG_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) UNSIGNED_LONG_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -146,7 +146,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not calculate value. The operand abstraction is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not calculate value. The operand type is unknown.");
     }
 }
 
@@ -156,8 +156,8 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
  *
  * @param p0 the result, which is the operand BEFORE the operation
  * @param p1 the operand
- * @param p2 the operation abstraction
- * @param p3 the operand abstraction
+ * @param p2 the operation type
+ * @param p3 the operand type
  * @param p4 the index
  */
 void calculate_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {

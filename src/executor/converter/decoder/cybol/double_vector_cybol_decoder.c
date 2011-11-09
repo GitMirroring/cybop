@@ -26,8 +26,8 @@
 #ifndef DOUBLE_VECTOR_DECODER_SOURCE
 #define DOUBLE_VECTOR_DECODER_SOURCE
 
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"

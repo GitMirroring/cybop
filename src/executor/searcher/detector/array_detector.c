@@ -26,8 +26,8 @@
 #ifndef ARRAY_DETECTOR_SOURCE
 #define ARRAY_DETECTOR_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -46,16 +46,16 @@
  * - the current position and remaining count are moved automatically
  *
  * Example calls of this function for ascii characters:
- * detect_element(p0, p1, p2, p3, (void*) CHARACTER_MEMORY_ABSTRACTION, p4, p7);
+ * detect_element(p0, p1, p2, p3, (void*) CHARACTER_MEMORY_TYPE, p4, p7);
  *
  * Example calls of this function for wide characters:
- * detect_array((void*) &r, p7, p8, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+ * detect_array((void*) &r, p7, p8, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
  *
  * @param p0 the comparison result
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  * @param p3 the array
- * @param p4 the abstraction
+ * @param p4 the type
  * @param p5 the count
  * @param p6 the move flag
  */
@@ -82,7 +82,7 @@ void detect_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
                 // CAUTION! The remaining count may NOT be handed over as position count,
                 // since it might be greater than the array count and would thus differ.
-                compare_all_array(p0, *((void**) p1), p3, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, p4, p5, p5);
+                compare_all_array(p0, *((void**) p1), p3, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, p4, p5, p5);
 
                 if (*r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

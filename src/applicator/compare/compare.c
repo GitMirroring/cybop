@@ -30,10 +30,10 @@
 #include "../../applicator/comparator/equality/part_equality_comparator.c"
 #include "../../applicator/comparator/equality/prefix_equality_comparator.c"
 #include "../../applicator/comparator/equality/suffix_equality_comparator.c"
-#include "../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../constant/type/cybol/text_cybol_type.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/operation/primitive_operation_type.c"
 #include "../../constant/model/cybol/comparison_selection_cybol_model.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
@@ -48,15 +48,15 @@
  * Compares left and right parametre.
  *
  * Expected parametres:
- * - result (required): the knowledge model, in which the result is stored (of abstraction boolean)
+ * - result (required): the knowledge model, in which the result is stored (of type boolean)
  * - left (required): the left operand
  * - right (required): the right operand
  * - operation (required): the kind of comparison (equal, greater, greater_or_equal, smaller, smaller_or_equal, unequal)
- * - abstraction (required): the operand abstraction (left- and right parametre have to have the same abstraction)
+ * - type (required): the operand type (left- and right parametre have to have the same type)
  * - selection (required): the part of two text strings to be compared (all, prefix, suffix, subsequence)
  *
  * The "selection" parametre is actually only needed
- * for comparing models of abstraction "character".
+ * for comparing models of type "character".
  * However, this function relies on it, also if numbers are
  * to be compared, for finding the right comparison function to call.
  * Therefore, that parametre IS REQUIRED.
@@ -77,7 +77,7 @@ void apply_compare(void* p0, void* p1, void* p2) {
     void* ro = *NULL_POINTER_MEMORY_MODEL;
     // The operation part.
     void* o = *NULL_POINTER_MEMORY_MODEL;
-    // The operand abstraction part.
+    // The operand type part.
     void* a = *NULL_POINTER_MEMORY_MODEL;
     // The selection part.
     void* s = *NULL_POINTER_MEMORY_MODEL;
@@ -86,7 +86,7 @@ void apply_compare(void* p0, void* p1, void* p2) {
     void* resm = *NULL_POINTER_MEMORY_MODEL;
     // The operation part model.
     void* om = *NULL_POINTER_MEMORY_MODEL;
-    // The operand abstraction part model.
+    // The operand type part model.
     void* am = *NULL_POINTER_MEMORY_MODEL;
     // The selection part model.
     void* sm = *NULL_POINTER_MEMORY_MODEL;
@@ -95,7 +95,7 @@ void apply_compare(void* p0, void* p1, void* p2) {
     void* resmd = *NULL_POINTER_MEMORY_MODEL;
     // The operation part model data, count.
     void* omd = *NULL_POINTER_MEMORY_MODEL;
-    // The operand abstraction part model data, count.
+    // The operand type part model data, count.
     void* amd = *NULL_POINTER_MEMORY_MODEL;
     // The selection part model data, count.
     void* smd = *NULL_POINTER_MEMORY_MODEL;
@@ -108,28 +108,28 @@ void apply_compare(void* p0, void* p1, void* p2) {
     get_name_array((void*) &ro, p0, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get operation part.
     get_name_array((void*) &o, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
-    // Get operand abstraction part.
-    get_name_array((void*) &a, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) ABSTRACTION_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
+    // Get operand type part.
+    get_name_array((void*) &a, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) TYPE_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get selection part.
     get_name_array((void*) &s, p0, (void*) SELECTION_COMPARE_OPERATION_CYBOL_NAME, (void*) SELECTION_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get result part model.
-    copy_array_forward((void*) &resm, res, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &resm, res, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get operation part model.
-    copy_array_forward((void*) &om, o, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    // Get operand abstraction part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &om, o, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    // Get operand type part model.
+    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get selection part model.
-    copy_array_forward((void*) &sm, s, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sm, s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get result part model data, count.
-    copy_array_forward((void*) &resmd, resm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &resmd, resm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get operation part model data, count.
-    copy_array_forward((void*) &omd, om, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    // Get operand abstraction part model data, count.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &omd, om, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    // Get operand type part model data, count.
+    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get selection part model data, count.
-    copy_array_forward((void*) &smd, sm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_MEMORY_MODEL;

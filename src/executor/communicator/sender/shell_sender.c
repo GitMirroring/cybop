@@ -26,7 +26,7 @@
 #ifndef SHELL_SEND_SOURCE
 #define SHELL_SEND_SOURCE
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../constant/type/cybol/text_cybol_type.c"
 #include "../../../constant/channel/cybol_channel.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
@@ -45,8 +45,8 @@
  * Sends a knowledge model to the operating system shell's standard output.
  *
  * @param p0 the internal memory
- * @param p1 the source abstraction
- * @param p2 the source abstraction count
+ * @param p1 the source type
+ * @param p2 the source type count
  * @param p3 the source model
  * @param p4 the source model count
  * @param p5 the source details
@@ -70,7 +70,7 @@ void apply_send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     int ss = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate serialised wide character array.
-    allocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    allocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Serialise source knowledge model into serialised wide character array.
     encode((void*) &s, (void*) &sc, (void*) &ss,
@@ -84,7 +84,7 @@ void apply_send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (*nl != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            overwrite_array((void*) &s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &sc, (void*) &ss);
+            overwrite_array((void*) &s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &sc, (void*) &ss);
         }
     }
 
@@ -94,19 +94,19 @@ void apply_send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     int es = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate encoded character array.
-    allocate((void*) &e, (void*) &es, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    allocate((void*) &e, (void*) &es, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     // Encode serialised wide character array into encoded character array.
     encode_utf_8_unicode_character_vector((void*) &e, (void*) &ec, (void*) &es, s, (void*) &sc);
 
     // Deallocate serialised wide character array.
-    deallocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    deallocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Write encoded array as message to shell standard output.
     send_data((void*) &STANDARD_OUTPUT_STREAM_MODEL, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT, *NULL_POINTER_MEMORY_MODEL, e, (void*) &ec, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
 
     // Deallocate encoded character array.
-    deallocate((void*) &e, (void*) &es, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    deallocate((void*) &e, (void*) &es, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 }
 
 /* SHELL_SEND_SOURCE */

@@ -29,9 +29,9 @@
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../logger/logger.c"
 /*??
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
 #include "../../../../constant/model/memory/pointer_memory_model.c"
 #include "../../../../executor/memoriser/reallocator/array_reallocator.c"
@@ -129,11 +129,11 @@ void encode_percent_encoding(void* p0, void* p1, void* p2, void* p3, void* p4) {
         *ds = (*dc * *ARRAY_REALLOCATION_FACTOR) + *sc;
 
         // Reallocate destination character vector.
-        reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_ABSTRACTION);
+        reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_TYPE);
     }
 
     // Set source into destination character vector.
-    overwrite_array(*d, p3, p4, p1, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    overwrite_array(*d, p3, p4, p1, (void*) CHARACTER_MEMORY_TYPE);
 
     // Increment destination count.
     *dc = *dc + *sc;

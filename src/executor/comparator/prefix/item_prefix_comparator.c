@@ -26,7 +26,7 @@
 #ifndef ITEM_PREFIX_COMPARATOR_SOURCE
 #define ITEM_PREFIX_COMPARATOR_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -43,8 +43,8 @@
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left item
  * @param p2 the right array
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  * @param p5 the right array count
  * @param p6 the left item element index
  */
@@ -56,7 +56,7 @@ void compare_prefix_item_element(void* p0, void* p1, void* p2, void* p3, void* p
     void* e = *NULL_POINTER_MEMORY_MODEL;
 
     // Get left item element.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_MEMORY_MODEL;
@@ -72,7 +72,7 @@ void compare_prefix_item_element(void* p0, void* p1, void* p2, void* p3, void* p
         void* c = *NULL_POINTER_MEMORY_MODEL;
 
         // Get left item count.
-        copy_array_forward((void*) &c, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+        copy_array_forward((void*) &c, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
         // Compare if the right array is a prefix of the left item data array.
         compare_prefix_array(p0, e, p2, p3, p4, c, p5);
@@ -92,8 +92,8 @@ void compare_prefix_item_element(void* p0, void* p1, void* p2, void* p3, void* p
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left item
  * @param p2 the right item
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  */
 void compare_prefix_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -107,11 +107,11 @@ void compare_prefix_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* rc = *NULL_POINTER_MEMORY_MODEL;
 
     // Get left data, count.
-    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &lc, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &lc, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get right data, count.
-    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &rc, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &rc, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // Compare if the right- is a prefix of the left item data array.
     compare_prefix_array(p0, ld, rd, p3, p4, lc, rc);

@@ -26,10 +26,10 @@
 #ifndef HANDLER_SOURCE
 #define HANDLER_SOURCE
 
-#include "../constant/abstraction/cybol/operation_cybol_abstraction.c"
-#include "../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../constant/abstraction/memory/memory_abstraction.c"
-#include "../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../constant/type/cybol/operation_cybol_type.c"
+#include "../constant/type/cybol/text_cybol_type.c"
+#include "../constant/type/memory/memory_type.c"
+#include "../constant/type/operation/primitive_operation_type.c"
 #include "../constant/model/log/message_log_model.c"
 #include "../constant/model/memory/integer_memory_model.c"
 #include "../constant/model/memory/pointer_memory_model.c"
@@ -43,7 +43,7 @@
 /**
  * Handles the signal.
  *
- * This function identifies the signal abstraction and then calls either:
+ * This function identifies the signal type and then calls either:
  * - part (compound) signal handler
  * - operation signal handler
  *
@@ -60,7 +60,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Handle signal.");
 
-    // The signal part abstraction, model, details.
+    // The signal part type, model, details.
     void* a = *NULL_POINTER_MEMORY_MODEL;
     void* m = *NULL_POINTER_MEMORY_MODEL;
     void* d = *NULL_POINTER_MEMORY_MODEL;
@@ -80,27 +80,27 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     void* emd = *NULL_POINTER_MEMORY_MODEL;
     void* emc = *NULL_POINTER_MEMORY_MODEL;
 
-    // Get signal part abstraction, model, details.
-    copy_array_forward((void*) &a, p0, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-    copy_array_forward((void*) &m, p0, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &d, p0, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    // Get signal part type, model, details.
+    copy_array_forward((void*) &a, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &d, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
     // Get signal part elements data, count.
-    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &dd, d, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dd, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dc, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // CAUTION! Do NOT remove this section with "PART_MEMORY_ABSTRACTION"!
+        // CAUTION! Do NOT remove this section with "PART_MEMORY_TYPE"!
         // It is needed for at least initial startup logic residing in CYBOL
         // files only, before any logic is created and contained as runtime
         // knowledge models in the knowledge memory.
-        compare_integer_equal((void*) &r, ad, (void*) PART_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, ad, (void*) PART_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -111,7 +111,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, ad, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, ad, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -120,10 +120,10 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             get_part_branch((void*) &ep, p3, (void*) &md, mc);
 
             // Get encapsulated signal part model item.
-            copy_array_forward((void*) &em, ep, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+            copy_array_forward((void*) &em, ep, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
             // Get encapsulated signal part model data, count array.
-            copy_array_forward((void*) &emd, em, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-            copy_array_forward((void*) &emc, em, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+            copy_array_forward((void*) &emd, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+            copy_array_forward((void*) &emc, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
             // Get double-encapsulated signal part.
             // CAUTION! Hand over name as reference!
@@ -136,7 +136,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, ad, (void*) KNOWLEDGE_PATH_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, ad, (void*) KNOWLEDGE_PATH_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

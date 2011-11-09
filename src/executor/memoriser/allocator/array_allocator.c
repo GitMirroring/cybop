@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -41,7 +41,7 @@
  *
  * @param p0 the array (Hand over as reference!)
  * @param p1 the size
- * @param p2 the abstraction
+ * @param p2 the type
  */
 void allocate_array(void* p0, void* p1, void* p2) {
 
@@ -54,11 +54,11 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // The memory area.
         int ma = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-        // Determine abstraction (type) size.
+        // Determine type (type) size.
         determine_size((void*) &ma, p2);
 
         // Calculate memory area.
-        multiply_with_integer((void*) &ma, p1, (void*) INTEGER_MEMORY_ABSTRACTION);
+        multiply_with_integer((void*) &ma, p1, (void*) INTEGER_MEMORY_TYPE);
 
         // A minimal space in memory is always allocated,
         // even if the requested size is zero.

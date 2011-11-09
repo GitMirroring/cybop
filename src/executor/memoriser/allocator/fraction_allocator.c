@@ -26,9 +26,9 @@
 #ifndef FRACTION_ALLOCATOR_SOURCE
 #define FRACTION_ALLOCATOR_SOURCE
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/name/memory/fraction_memory_name.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
@@ -50,24 +50,24 @@ void allocate_fraction(void* p0, void* p1) {
         log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Allocate fraction.");
 
         // Allocate fraction.
-        allocate_array(p0, (void*) FRACTION_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_ABSTRACTION);
+        allocate_array(p0, (void*) FRACTION_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
 
         // The numerator and denominator.
         void* n = *NULL_POINTER_MEMORY_MODEL;
         void* d = *NULL_POINTER_MEMORY_MODEL;
 
         // Allocate numerator and denominator.
-        allocate_array((void*) &n, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_ABSTRACTION);
-        allocate_array((void*) &d, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_ABSTRACTION);
+        allocate_array((void*) &n, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate_array((void*) &d, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
 
 /*?? TODO!
         // Initialise numerator and denominator.
-        overwrite_array(n, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) INTEGER_MEMORY_ABSTRACTION_COUNT);
-        overwrite_array(d, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) INTEGER_MEMORY_ABSTRACTION_COUNT);
+        overwrite_array(n, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+        overwrite_array(d, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
 
         // Replace numerator and denominator.
-        overwrite_array(*f, n, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMERATOR_FRACTION_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-        overwrite_array(*f, d, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) DENOMINATOR_FRACTION_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+        overwrite_array(*f, n, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMERATOR_FRACTION_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+        overwrite_array(*f, d, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) DENOMINATOR_FRACTION_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 */
 
     } else {

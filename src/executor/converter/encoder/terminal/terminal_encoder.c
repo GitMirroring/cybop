@@ -34,10 +34,10 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -66,8 +66,8 @@
  * Encodes a compound model into terminal control sequences.
  *
  * @param p0 the destination escape control sequence item
- * @param p3 the source part abstraction
- * @param p4 the source part abstraction count
+ * @param p3 the source part type
+ * @param p4 the source part type count
  * @param p5 the source part model
  * @param p6 the source part model count
  * @param p7 the source part details
@@ -81,39 +81,39 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode gnu/linux console.");
 
-    // The source part name, abstraction, model, details.
+    // The source part name, type, model, details.
     void** n = *NULL_POINTER_MEMORY_MODEL;
-    // The source part super properties name, abstraction, model, details.
+    // The source part super properties name, type, model, details.
     void** supern = *NULL_POINTER_MEMORY_MODEL;
-    // The source part shape name, abstraction, model, details.
+    // The source part shape name, type, model, details.
     void** shn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part layout name, abstraction, model, details.
+    // The source part layout name, type, model, details.
     void** ln = *NULL_POINTER_MEMORY_MODEL;
-    // The source part cell name, abstraction, model, details.
+    // The source part cell name, type, model, details.
     void** cn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part position name, abstraction, model, details.
+    // The source part position name, type, model, details.
     void** pn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part size name, abstraction, model, details.
+    // The source part size name, type, model, details.
     void** sn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part background colour name, abstraction, model, details.
+    // The source part background colour name, type, model, details.
     void** bgn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part foreground colour name, abstraction, model, details.
+    // The source part foreground colour name, type, model, details.
     void** fgn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part border name, abstraction, model, details.
+    // The source part border name, type, model, details.
     void** bon = *NULL_POINTER_MEMORY_MODEL;
-    // The source part hidden property name, abstraction, model, details.
+    // The source part hidden property name, type, model, details.
     void** hn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part inverse property name, abstraction, model, details.
+    // The source part inverse property name, type, model, details.
     void** in = *NULL_POINTER_MEMORY_MODEL;
-    // The source part blink property name, abstraction, model, details.
+    // The source part blink property name, type, model, details.
     void** bln = *NULL_POINTER_MEMORY_MODEL;
-    // The source part underline property name, abstraction, model, details.
+    // The source part underline property name, type, model, details.
     void** un = *NULL_POINTER_MEMORY_MODEL;
-    // The source part bold property name, abstraction, model, details.
+    // The source part bold property name, type, model, details.
     void** bn = *NULL_POINTER_MEMORY_MODEL;
-    // The source whole position name, abstraction, model, details.
+    // The source whole position name, type, model, details.
     void** wpn = *NULL_POINTER_MEMORY_MODEL;
-    // The source whole size name, abstraction, model, details.
+    // The source whole size name, type, model, details.
     void** wsn = *NULL_POINTER_MEMORY_MODEL;
 
     // The element name.
@@ -131,7 +131,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
     // The name comparison result.
     int nr = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    // The abstraction comparison result.
+    // The type comparison result.
     int ar = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Get compound element (area to be repainted) name and remaining name,
@@ -474,7 +474,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
 
-        compare_all_array((void*) &ar, p3, (void*) PART_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p4, (void*) PART_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &ar, p3, (void*) PART_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) PART_MEMORY_TYPE_COUNT);
 
         if (ar != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -527,7 +527,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                         (void*) &d, (void*) &dc, (void*) &ds);
 
                     // Compare expected name with that of the current compound part element.
-                    compare_all_array((void*) &nr, *n, en, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, *nc, (void*) &enc);
+                    compare_all_array((void*) &nr, *n, en, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *nc, (void*) &enc);
 
                     if ((p11 == *NULL_POINTER_MEMORY_MODEL) || (*((int*) p12) == *NUMBER_0_INTEGER_MEMORY_MODEL) || (nr != *NUMBER_0_INTEGER_MEMORY_MODEL)) {
 
@@ -543,7 +543,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                         encode_terminal(p0, p1, p2, *a, *ac, *m, *mc, *d, *dc, p7, p8, rn, (void*) &rnc, p13, p14);
                     }
 
-                    // Reset source part name, abstraction, model, details
+                    // Reset source part name, type, model, details
                     // (parameters of the current compound part element).
                     n = NULL_POINTER_MEMORY_MODEL;
                     nc = NULL_POINTER_MEMORY_MODEL;

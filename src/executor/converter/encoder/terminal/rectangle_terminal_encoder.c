@@ -34,10 +34,10 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -186,7 +186,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                                                 if (ci < *cc) {
 
                                                     // Get character value at position x.
-                                                    get((void*) &c, p3, (void*) &ci, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+                                                    get((void*) &c, p3, (void*) &ci, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
                                                 }
 
                                                 // Encode character using escape codes.
@@ -260,7 +260,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                                                         if (ci < *cc) {
 
                                                             // Get character value at position x.
-                                                            get(p3, (void*) &ci, (void*) &c, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+                                                            get(p3, (void*) &ci, (void*) &c, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
                                                         }
 
                                                     } else {

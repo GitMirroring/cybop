@@ -26,9 +26,9 @@
 #ifndef BOOLEAN_DECODER_SOURCE
 #define BOOLEAN_DECODER_SOURCE
 
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../../constant/model/cybol/boolean_cybol_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
@@ -55,7 +55,7 @@ void decode_boolean(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) TRUE_BOOLEAN_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p4, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p3, (void*) TRUE_BOOLEAN_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -66,7 +66,7 @@ void decode_boolean(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) FALSE_BOOLEAN_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p4, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p3, (void*) FALSE_BOOLEAN_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

@@ -35,9 +35,9 @@
 #include <sys/socket.h>
 
 #include "../../../applicator/maintainer/starting/socket_starting_maintainer.c"
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../constant/model/cybol/communication_mode_cybol_model.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../constant/model/log/message_log_model.c"
@@ -73,7 +73,7 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
 
         // Get communication partner socket.
         i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
-        get(p0, p1, (void*) &i, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+        get(p0, p1, (void*) &i, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
 /*??
         ONLY necessary when writing or deleting a socket from internal memory.
@@ -84,7 +84,7 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
 
         // Get socket mutex.
         i = *base + *SOCKET_MUTEX_INTERNAL_MEMORY_MEMORY_NAME;
-        get((void*) &mt, p1, (void*) &i, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+        get((void*) &mt, p1, (void*) &i, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 */
 
     } else {
@@ -205,7 +205,7 @@ void apply_send_socket_get_socket(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -215,7 +215,7 @@ void apply_send_socket_get_socket(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -467,8 +467,8 @@ void apply_send_socket_initialise_socket_address(void* p0, void* p1, void* p2, v
  * @param p8 the style model count
  * @param p9 the communication mode
  * @param p10 the communication mode count
- * @param p11 the message abstraction
- * @param p12 the message abstraction count
+ * @param p11 the message type
+ * @param p12 the message type count
  * @param p13 the message model
  * @param p14 the message model count
  * @param p15 the message details

@@ -26,8 +26,8 @@
 #ifndef X_WINDOW_SYSTEM_ALLOCATOR_SOURCE
 #define X_WINDOW_SYSTEM_ALLOCATOR_SOURCE
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../constant/type/memory/memory_type.c"
 
 /**
  * Allocates an x window system window.

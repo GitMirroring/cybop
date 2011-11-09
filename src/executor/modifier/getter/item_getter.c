@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -53,11 +53,11 @@
  * Example:
  *
  * void* item_reference = *NULL_POINTER_MEMORY_MODEL;
- * get_item_element((void*) &item_reference, whole_item, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &j, (void*) DATA_ITEM_MEMORY_NAME);
+ * get_item_element((void*) &item_reference, whole_item, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &j, (void*) DATA_ITEM_MEMORY_NAME);
  *
  * @param p0 the destination array (if source index is inside of source count boundary; unchanged otherwise)
  * @param p1 the source item
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  * @param p4 the destination array index
  * @param p5 the source item index
@@ -68,8 +68,8 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Get item element.");
 
     // CAUTION! Do NOT simplify the lines below to one line like:
-    // copy_array_forward(p0, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
-    // If doing this, the parametres abstraction, count, index etc.
+    // copy_array_forward(p0, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    // If doing this, the parametres type, count, index etc.
     // will not be considered.
 
     // The source item element.
@@ -82,12 +82,12 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // with a fixed size of one which does not have to be changed.
     // Only a simple reference (pointer) of size one is copied here.
     // Using the "copy_array_forward" function is more efficient.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    compare_integer((void*) &r, p6, (void*) DATA_ITEM_MEMORY_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
+    compare_integer((void*) &r, p6, (void*) DATA_ITEM_MEMORY_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE);
 
     if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -97,7 +97,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         void* c = *NULL_POINTER_MEMORY_MODEL;
 
         // Get destination item element count.
-        copy_array_forward((void*) &c, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+        copy_array_forward((void*) &c, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
         // Reset comparison result.
         copy_integer((void*) &r, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
@@ -106,7 +106,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // than the given source index. Otherwise, array boundaries
         // might get crossed and false pointer values returned.
         // Therefore, this is checked here.
-        compare_integer((void*) &r, c, p5, (void*) GREATER_PRIMITIVE_OPERATION_ABSTRACTION);
+        compare_integer((void*) &r, c, p5, (void*) GREATER_PRIMITIVE_OPERATION_TYPE);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

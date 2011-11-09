@@ -50,7 +50,7 @@
  * @param p6 the signal memory item
  * @param p7 the signal memory interrupt request flag
  * @param p8 the signal memory mutex
- * @param p9 the operation abstraction
+ * @param p9 the operation type
  */
 void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 

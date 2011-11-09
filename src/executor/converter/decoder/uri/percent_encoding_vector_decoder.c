@@ -153,7 +153,7 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
             // Append any unreserved characters found up to here,
             // no matter whether an unreserved character follows
             // or no unreserved character at all was found.
-            overwrite_array(p0, u, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) &uc, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(p0, u, (void*) CHARACTER_MEMORY_TYPE, (void*) &uc, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
             if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -234,7 +234,7 @@ void decode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void
                             *ds = *dc + *sc;
 
                             // Reallocate destination character vector.
-                            reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_ABSTRACTION);
+                            reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_TYPE);
 
                             // CAUTION! Hand over p3 as reference.
                             decode_percent_encoding_vector_element(p0, p1, p2, (void*) &p3, p4);

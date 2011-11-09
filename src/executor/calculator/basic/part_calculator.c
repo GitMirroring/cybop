@@ -26,7 +26,7 @@
 #ifndef PART_CALCULATOR_SOURCE
 #define PART_CALCULATOR_SOURCE
 
-#include "../../../constant/abstraction/operation/operation_abstraction.c"
+#include "../../../constant/type/operation/operation_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -40,14 +40,14 @@
  * Calculates left- with right part.
  *
  * Calculates only the parts' models.
- * Does NOT consider both parts' name, abstraction, details.
+ * Does NOT consider both parts' name, type, details.
  *
  * This is DEEP CALCULATION, i.e. all child nodes will be calculated as well.
  *
  * @param p0 the result (left unchanged in case of an error)
  * @param p1 the left value
  * @param p2 the right value
- * @param p3 the operation abstraction
+ * @param p3 the operation type
  */
 void calculate_part(void* p0, void* p1, void* p2) {
 

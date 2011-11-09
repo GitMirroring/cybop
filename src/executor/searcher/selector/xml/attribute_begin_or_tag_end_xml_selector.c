@@ -26,7 +26,7 @@
 #ifndef ATTRIBUTE_BEGIN_OR_TAG_END_XML_SELECTOR_SOURCE
 #define ATTRIBUTE_BEGIN_OR_TAG_END_XML_SELECTOR_SOURCE
 
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
 #include "../../../../constant/model/memory/pointer_memory_model.c"
@@ -71,7 +71,7 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -83,7 +83,7 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) TAG_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) TAG_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -95,7 +95,7 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) ATTRIBUTE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) ATTRIBUTE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) ATTRIBUTE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ATTRIBUTE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

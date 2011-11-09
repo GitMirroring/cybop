@@ -26,8 +26,8 @@
 #ifndef ARRAY_REMOVER_SOURCE
 #define ARRAY_REMOVER_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../executor/calculator/integer_subtracter.c"
@@ -53,7 +53,7 @@
  * ==> result: "Hello, World!"
  *
  * @param p0 the array (Hand over as reference!)
- * @param p1 the abstraction
+ * @param p1 the type
  * @param p2 the count
  * @param p3 the index
  * @param p4 the array count
@@ -99,7 +99,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // The comparison result.
         int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-        compare_integer((void*) &r, (void*) &n, p5, (void*) SMALLER_PRIMITIVE_OPERATION_ABSTRACTION);
+        compare_integer((void*) &r, (void*) &n, p5, (void*) SMALLER_PRIMITIVE_OPERATION_TYPE);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -124,7 +124,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  * starting from the given index.
  *
  * @param p0 the array (Hand over as reference!)
- * @param p1 the abstraction
+ * @param p1 the type
  * @param p2 the count
  * @param p3 the index
  * @param p4 the array count
@@ -139,7 +139,7 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_integer((void*) &r, p3, p4, (void*) SMALLER_PRIMITIVE_OPERATION_ABSTRACTION);
+        compare_integer((void*) &r, p3, p4, (void*) SMALLER_PRIMITIVE_OPERATION_TYPE);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

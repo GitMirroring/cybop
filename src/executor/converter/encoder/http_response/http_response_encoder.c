@@ -40,14 +40,14 @@
  * @param p0 the destination character array (Hand over as reference!)
  * @param p1 the destination character array count
  * @param p2 the destination character array size
- * @param p3 the source message abstraction
- * @param p4 the source message abstraction count
+ * @param p3 the source message type
+ * @param p4 the source message type count
  * @param p5 the source message model
  * @param p6 the source message model count
  * @param p7 the source message details
  * @param p8 the source message details count
- * @param p9 the source metadata abstraction
- * @param p10 the source metadata abstraction count
+ * @param p9 the source metadata type
+ * @param p10 the source metadata type count
  * @param p11 the source metadata model
  * @param p12 the source metadata model count
  * @param p13 the source metadata details
@@ -68,16 +68,16 @@ void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void
     void* as = *NULL_POINTER_MEMORY_MODEL;
 
     // Allocate body character array.
-    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     // Encode body wide character array into body multibyte character array.
     encode_utf_8_unicode_character_vector((void*) &a, ac, as, p5, p6);
 
     encode_http_response_protocol(p0, p1, p2, p9, p10, p11, p12, p13, p14);
-    overwrite_array(p0, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
     encode_http_response_status_code(p0, p1, p2, p9, p10, p11, p12, p13, p14);
-    overwrite_array(p0, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
     encode_http_response_header(p0, p1, p2, p9, p10, p11, p12, p13, p14, ac);
 
@@ -91,7 +91,7 @@ void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME above.
     // Therefore, ONLY ONE MORE CR + LF is to be added here.
     //
-    overwrite_array(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
     // This function is commented out, since it is not needed for now.
     // Its content was moved directly into here (see above),
@@ -100,10 +100,10 @@ void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     // CAUTION! Append body ONLY here and NOT before,
     // since it has to stand at the end of the http message.
-    overwrite_array(p0, a, (void*) CHARACTER_MEMORY_ABSTRACTION, ac, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, a, (void*) CHARACTER_MEMORY_TYPE, ac, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
     // Deallocate body character array.
-    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 }
 
 /* HTTP_RESPONSE_ENCODER_SOURCE */

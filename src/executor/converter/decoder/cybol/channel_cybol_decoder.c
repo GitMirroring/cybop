@@ -19,23 +19,23 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: abstraction_converter.c,v $ $Revision: 1.17 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
+ * @version $RCSfile: type_converter.c,v $ $Revision: 1.17 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
 #ifndef CHANNEL_DECODER_SOURCE
 #define CHANNEL_DECODER_SOURCE
 
-#include "../../../../constant/abstraction/cybol/compare_cybol_abstraction.c"
-#include "../../../../constant/abstraction/cybol/datetime_cybol_abstraction.c"
-#include "../../../../constant/abstraction/cybol/logicvalue_cybol_abstraction.c"
+#include "../../../../constant/type/cybol/compare_cybol_type.c"
+#include "../../../../constant/type/cybol/datetime_cybol_type.c"
+#include "../../../../constant/type/cybol/logicvalue_cybol_type.c"
 //?? Delete this later. Superfluous since replaced with compare/equal etc.
-#include "../../../../constant/abstraction/cybol/operation_cybol_abstraction.c"
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/operation/operation_abstraction.c"
-#include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../../constant/type/cybol/operation_cybol_type.c"
+#include "../../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/operation/operation_type.c"
+#include "../../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
 #include "../../../../constant/model/memory/pointer_memory_model.c"
@@ -58,7 +58,7 @@ void decode_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -68,7 +68,7 @@ void decode_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -78,7 +78,7 @@ void decode_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) INLINE_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) INLINE_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) INLINE_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) INLINE_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -88,7 +88,7 @@ void decode_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SHELL_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) SHELL_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SHELL_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) SHELL_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -98,7 +98,7 @@ void decode_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SOCKET_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) SOCKET_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SOCKET_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) SOCKET_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -108,7 +108,7 @@ void decode_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) WWW_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) WWW_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) WWW_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) WWW_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -118,7 +118,7 @@ void decode_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

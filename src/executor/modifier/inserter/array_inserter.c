@@ -26,8 +26,8 @@
 #ifndef ARRAY_INSERTER_SOURCE
 #define ARRAY_INSERTER_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"
@@ -57,7 +57,7 @@
  *
  * @param p0 the destination array (Hand over as reference!)
  * @param p1 the source array
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  * @param p4 the destination index
  * @param p5 the source index
@@ -97,7 +97,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // The comparison result.
         int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-        compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_PRIMITIVE_OPERATION_ABSTRACTION);
+        compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_PRIMITIVE_OPERATION_TYPE);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -105,7 +105,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             // CAUTION! This multiplication has to be done AFTER the comparison
             // of new size and old size since otherwise, the new size is falsified,
             // which would lead to runtime errors.
-            // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_ABSTRACTION);
+            // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE);
 
             // Enlarge array using new count as size.
             reallocate_array(p0, p6, (void*) &n, p2);
@@ -139,7 +139,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  *
  * @param p0 the destination array (Hand over as reference!)
  * @param p1 the source array
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  * @param p4 the destination index
  * @param p5 the source index
@@ -155,7 +155,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
+        compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -168,7 +168,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) SMALLER_PRIMITIVE_OPERATION_ABSTRACTION);
+        compare_integer((void*) &r, p4, p6, (void*) SMALLER_PRIMITIVE_OPERATION_TYPE);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

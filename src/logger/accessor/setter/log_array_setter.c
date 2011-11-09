@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -45,7 +45,7 @@
  * @param p1 the source elements
  * @param p2 the source elements count
  * @param p3 the destination array index
- * @param p4 the abstraction
+ * @param p4 the type
  */
 void log_overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -61,11 +61,11 @@ void log_overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // The destination offset.
             int dos = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-            // Determine abstraction (type) size.
+            // Determine type (type) size.
             log_determine_size((void*) &dos, p4);
 
             // Calculate memory area (destination offset).
-            log_multiply_with_integer((void*) &dos, p3, (void*) INTEGER_MEMORY_ABSTRACTION);
+            log_multiply_with_integer((void*) &dos, p3, (void*) INTEGER_MEMORY_TYPE);
 
             // The destination.
             // CAUTION! It HAS TO BE initialised with p0,
@@ -73,7 +73,7 @@ void log_overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
             void* d = p0;
 
             // Add offset to destination.
-            log_add_integer((void*) &d, (void*) &dos, (void*) POINTER_MEMORY_ABSTRACTION);
+            log_add_integer((void*) &d, (void*) &dos, (void*) POINTER_MEMORY_TYPE);
 
             // The loop variable.
             int j = *NUMBER_0_INTEGER_MEMORY_MODEL;

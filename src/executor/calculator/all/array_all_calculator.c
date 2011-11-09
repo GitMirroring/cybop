@@ -38,8 +38,8 @@
  * @param p0 the result (left unchanged in case of an error)
  * @param p1 the left array
  * @param p2 the right array
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  * @param p5 the left array count
  * @param p6 the right array count
  */

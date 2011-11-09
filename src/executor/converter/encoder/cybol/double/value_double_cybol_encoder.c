@@ -35,8 +35,8 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/cybol/boolean_cybol_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
@@ -62,7 +62,7 @@ void encode_cybol_double_value(void* p0, void* p1, void* p2) {
     void* v = *NULL_POINTER_MEMORY_MODEL;
 
     // Get value from vector at index.
-    copy_array_forward((void*) &v, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
+    copy_array_forward((void*) &v, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
 
     //
     // The temporary array.
@@ -85,7 +85,7 @@ void encode_cybol_double_value(void* p0, void* p1, void* p2) {
     int ts = *NUMBER_8192_INTEGER_MEMORY_MODEL;
 
     // Allocate temporary array.
-    allocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Transform source value to destination string.
     // A null wide character is written to mark the end of the string.
@@ -105,7 +105,7 @@ void encode_cybol_double_value(void* p0, void* p1, void* p2) {
 
         // The value was converted successfully.
 
-        append_item_element(p0, td, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) &tc, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        append_item_element(p0, td, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &tc, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     } else {
 
@@ -123,7 +123,7 @@ void encode_cybol_double_value(void* p0, void* p1, void* p2) {
     }
 
     // Deallocate temporary array.
-    deallocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 }
 
 /* VALUE_DOUBLE_CYBOL_ENCODER_SOURCE */

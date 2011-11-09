@@ -26,7 +26,7 @@
 #ifndef ARRAY_COPIER_SOURCE
 #define ARRAY_COPIER_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -44,7 +44,7 @@
  *
  * @param p0 the destination array
  * @param p1 the source array
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  */
 void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
@@ -83,7 +83,7 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
  *
  * @param p0 the destination array
  * @param p1 the source array
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  */
 void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3) {
@@ -124,7 +124,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3) {
  *
  * @param p0 the destination array
  * @param p1 the source array
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  * @param p4 the destination index
  * @param p5 the source index
@@ -173,7 +173,7 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
  *
  * @param p0 the destination array
  * @param p1 the source array
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  * @param p4 the destination index
  * @param p5 the source index

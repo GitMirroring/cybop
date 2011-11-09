@@ -26,8 +26,8 @@
 #ifndef ACCESSOR_TESTER
 #define ACCESSOR_TESTER
 
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../executor/memoriser/size_determiner.c"
 #include "../../logger/logger.c"
@@ -39,26 +39,26 @@ void test_accessor_size_determiner() {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test accessor size determiner.");
 
-    // The character abstraction (type) size.
+    // The character type (type) size.
     int cs = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    // The double abstraction (type) size.
+    // The double type (type) size.
     int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    // The integer abstraction (type) size.
+    // The integer type (type) size.
     int is = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    // The pointer abstraction (type) size.
+    // The pointer type (type) size.
     int ps = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    // The unsigned long abstraction (type) size.
+    // The unsigned long type (type) size.
     int uls = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    // The wide character abstraction (type) size.
+    // The wide character type (type) size.
     int wcs = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Determine size.
-    determine_size((void*) &cs, (void*) CHARACTER_MEMORY_ABSTRACTION);
-    determine_size((void*) &ds, (void*) DOUBLE_MEMORY_ABSTRACTION);
-    determine_size((void*) &is, (void*) INTEGER_MEMORY_ABSTRACTION);
-    determine_size((void*) &ps, (void*) POINTER_MEMORY_ABSTRACTION);
-    determine_size((void*) &uls, (void*) UNSIGNED_LONG_MEMORY_ABSTRACTION);
-    determine_size((void*) &wcs, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    determine_size((void*) &cs, (void*) CHARACTER_MEMORY_TYPE);
+    determine_size((void*) &ds, (void*) DOUBLE_MEMORY_TYPE);
+    determine_size((void*) &is, (void*) INTEGER_MEMORY_TYPE);
+    determine_size((void*) &ps, (void*) POINTER_MEMORY_TYPE);
+    determine_size((void*) &uls, (void*) UNSIGNED_LONG_MEMORY_TYPE);
+    determine_size((void*) &wcs, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     fwprintf(stdout, L"Type size character: %i\n", cs);
     fwprintf(stdout, L"Type size double: %i\n", ds);
@@ -79,7 +79,7 @@ void test_accessor_assigner() {
     double v = 3.5;
 
     fwprintf(stdout, L"Double before assigner: %f\n", d);
-//??    assign((void*) &d, (void*) &v, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) DOUBLE_MEMORY_ABSTRACTION);
+//??    assign((void*) &d, (void*) &v, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) DOUBLE_MEMORY_TYPE);
     fwprintf(stdout, L"Double after assigner: %f\n", d);
 }
 
@@ -98,26 +98,26 @@ void test_accessor_array_setter() {
     int i2 = *NUMBER_13_INTEGER_MEMORY_MODEL;
 
     // Allocate destination array.
-    allocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     fwprintf(stdout, L"d string: %ls\n", (wchar_t*) d);
     fwprintf(stdout, L"s1: %ls\n", s1);
     fwprintf(stdout, L"s1c: %i\n", s1c);
     fwprintf(stdout, L"i1: %i\n", i1);
 
-//??    overwrite_array(d, (void*) s1, (void*) &s1c, (void*) &i1, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+//??    overwrite_array(d, (void*) s1, (void*) &s1c, (void*) &i1, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     fwprintf(stdout, L"d string 2: %ls\n", (wchar_t*) d);
     fwprintf(stdout, L"s2: %ls\n", s2);
     fwprintf(stdout, L"s2c: %i\n", s2c);
     fwprintf(stdout, L"i2: %i\n", i2);
 
-//??    overwrite_array(d, (void*) s2, (void*) &s2c, (void*) &i2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+//??    overwrite_array(d, (void*) s2, (void*) &s2c, (void*) &i2, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     fwprintf(stdout, L"d string 3: %ls\n", (wchar_t*) d);
 
     // Deallocate destination array.
-    deallocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 }
 
 /**

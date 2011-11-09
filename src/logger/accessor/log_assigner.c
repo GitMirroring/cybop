@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
@@ -43,7 +43,7 @@
  * @param p0 the destination base
  * @param p1 the source value
  * @param p2 the offset
- * @param p3 the abstraction
+ * @param p3 the type
  */
 void log_assign(void* p0, void* p1, void* p2, void* p3) {
 
@@ -63,11 +63,11 @@ void log_assign(void* p0, void* p1, void* p2, void* p3) {
             // CAUTION! DO NOT use logging functionality here!
             // The logger cannot log itself.
 
-            if (*a == *INTEGER_MEMORY_ABSTRACTION) {
+            if (*a == *INTEGER_MEMORY_TYPE) {
 
                 log_copy_integer(de, se);
 
-            } else if (*a == *WIDE_CHARACTER_MEMORY_ABSTRACTION) {
+            } else if (*a == *WIDE_CHARACTER_MEMORY_TYPE) {
 
                 log_copy_wide_character(de, se);
 
@@ -75,7 +75,7 @@ void log_assign(void* p0, void* p1, void* p2, void* p3) {
 
                 // CAUTION! DO NOT use logging functionality here!
                 // The logger cannot log itself.
-                // "Could not assign value. The abstraction is unknown."
+                // "Could not assign value. The type is unknown."
             }
 
         } else {
@@ -89,7 +89,7 @@ void log_assign(void* p0, void* p1, void* p2, void* p3) {
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger cannot log itself.
-        // "Could not assign value. The abstraction is null."
+        // "Could not assign value. The type is null."
     }
 }
 
@@ -99,18 +99,18 @@ void log_assign(void* p0, void* p1, void* p2, void* p3) {
  * @param p0 the destination
  * @param p1 the source
  * @param p2 the index
- * @param p3 the abstraction
+ * @param p3 the type
  */
 void log_assign_with_offset(void* p0, void* p1, void* p2, void* p3) {
 
     // The offset.
     int o = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    // Determine abstraction (type) size.
+    // Determine type (type) size.
     log_determine_size((void*) &o, p3);
 
     // Calculate memory area (destination offset).
-    log_multiply_with_integer((void*) &o, p2, (void*) INTEGER_MEMORY_ABSTRACTION);
+    log_multiply_with_integer((void*) &o, p2, (void*) INTEGER_MEMORY_TYPE);
 
     // Assign source- to destination memory area.
     log_assign(p0, p1, (void*) &o, p3);

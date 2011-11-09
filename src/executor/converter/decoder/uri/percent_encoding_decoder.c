@@ -89,13 +89,13 @@ void decode_percent_encoding(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int tmps = *NUMBER_3_INTEGER_MEMORY_MODEL;
 
         // Allocate temporary null-terminated string.
-        allocate_array((void*) &tmp, (void*) &tmps, (void*) CHARACTER_MEMORY_ABSTRACTION);
+        allocate_array((void*) &tmp, (void*) &tmps, (void*) CHARACTER_MEMORY_TYPE);
 
         // Copy original string to temporary null-terminated string.
-        overwrite_array((void*) &tmp, *pos, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, tmpc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        overwrite_array((void*) &tmp, *pos, (void*) CHARACTER_MEMORY_TYPE, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, tmpc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         // Add string termination to temporary null-terminated string.
         // The source count is used as index for the termination character.
-        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tmpc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tmpc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         // The tail variable is useless here and only needed for the string
         // transformation function. If the whole string array consists of
@@ -128,13 +128,13 @@ void decode_percent_encoding(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         // Deallocate temporary null-terminated string.
-        deallocate_array((void*) &tmp, (void*) &tmps, (void*) CHARACTER_MEMORY_ABSTRACTION);
+        deallocate_array((void*) &tmp, (void*) &tmps, (void*) CHARACTER_MEMORY_TYPE);
 
         //
         //?? --- The code above is temporary and should be moved into an own file!
         //
 
-        overwrite_array(p0, (void*) &v, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        overwrite_array(p0, (void*) &v, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         move_position(p3, p4, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 

@@ -26,7 +26,7 @@
 #ifndef PERCENT_ENCODING_VECTOR_ELEMENT_SELECTOR_SOURCE
 #define PERCENT_ENCODING_VECTOR_ELEMENT_SELECTOR_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -76,7 +76,7 @@ void select_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p2, p3, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p2, p3, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

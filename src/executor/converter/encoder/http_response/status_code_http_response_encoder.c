@@ -42,8 +42,8 @@
  * Encodes the http response status code.
  *
  * @param p0 the destination character item
- * @param p1 the source metadata abstraction
- * @param p2 the source metadata abstraction count
+ * @param p1 the source metadata type
+ * @param p2 the source metadata type count
  * @param p3 the source metadata model
  * @param p4 the source metadata model count
  * @param p5 the source metadata details
@@ -53,7 +53,7 @@ void encode_http_response_status_code(void* p0, void* p1, void* p2, void* p3, vo
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response status code.");
 
-    append_item_element(p0, (void*) OK_200_STATUS_CODE_HTTP_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) OK_200_STATUS_CODE_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, (void*) OK_200_STATUS_CODE_HTTP_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) OK_200_STATUS_CODE_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /* STATUS_CODE_HTTP_RESPONSE_ENCODER_SOURCE */

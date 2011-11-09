@@ -32,10 +32,10 @@
 #include "../../applicator/communicator/receiving/latex_receiving_communicator.c"
 #include "../../applicator/communicator/receiving/socket_receiving_communicator.c"
 #include "../../applicator/communicator/receiving/x_window_system_receiving_communicator.c"
-#include "../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../constant/type/cybol/text_cybol_type.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/operation/primitive_operation_type.c"
 #include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
@@ -62,7 +62,7 @@
  * @param p1 the destination details item (Hand over as item, since size may change!)
  * @param p2 the source data
  * @param p3 the source count
- * @param p4 the abstraction
+ * @param p4 the type
  * @param p5 the channel
  * @param p6 the internal memory array
  */
@@ -89,7 +89,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
             // Get communication partner-connected socket of this system.
             i = base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
-            get((void*) &ps, p0, (void*) &i, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+            get((void*) &ps, p0, (void*) &i, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
     fwprintf(stdout, L"TEST ps: %i \n", *((int*) *ps));
 
@@ -121,12 +121,12 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             // model, for example the html attributes of an html table when creating a wui.
             //
             // Example:
-            // <part name="receive_table_row" channel="inline" abstraction="operation" model="receive">
-            //     <property name="channel" channel="inline" abstraction="character" model="file"/>
-            //     <property name="language" channel="inline" abstraction="character" model="compound"/>
-            //     <property name="message" channel="inline" abstraction="character" model="residenz/wui/address_table_row.cybol"/>
-            //     <property name="meta" channel="inline" abstraction="character" model="residenz/wui/address_table_row_properties.cybol"/>
-            //     <property name="model" channel="inline" abstraction="encapsulated" model=".residenz.temporary.translation.translate_record_to_wui.wui_patient_row"/>
+            // <part name="receive_table_row" channel="inline" type="operation" model="receive">
+            //     <property name="channel" channel="inline" type="character" model="file"/>
+            //     <property name="language" channel="inline" type="character" model="compound"/>
+            //     <property name="message" channel="inline" type="character" model="residenz/wui/address_table_row.cybol"/>
+            //     <property name="meta" channel="inline" type="character" model="residenz/wui/address_table_row_properties.cybol"/>
+            //     <property name="model" channel="inline" type="encapsulated" model=".residenz.temporary.translation.translate_record_to_wui.wui_patient_row"/>
             // </part>
 //??            receive_file_system(p1, *NULL_POINTER_MEMORY_MODEL, mmd, mmc, lmd, lmc);
 
@@ -151,9 +151,9 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             void** is = NULL_POINTER_MEMORY_MODEL;
 
             // Get gnu/linux console mutex.
-            get((void*) &mt, p0, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+            get((void*) &mt, p0, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
             // Get gnu/linux console input stream.
-            get((void*) &is, p0, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+            get((void*) &is, p0, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
             receive_gnu_linux_console(p0, p1, *is, p12, p13, p1, p2, *mt);
 */

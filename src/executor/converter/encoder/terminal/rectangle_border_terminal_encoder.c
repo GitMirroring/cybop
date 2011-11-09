@@ -34,10 +34,10 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -108,7 +108,7 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                             if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                                compare_all_array((void*) &r, p6, (void*) ASCII_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p7, (void*) ASCII_LINE_BORDER_CYBOL_MODEL_COUNT);
+                                compare_all_array((void*) &r, p6, (void*) ASCII_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) ASCII_LINE_BORDER_CYBOL_MODEL_COUNT);
 
                                 if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -123,7 +123,7 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                             if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                                compare_all_array((void*) &r, p6, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p7, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL_COUNT);
+                                compare_all_array((void*) &r, p6, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL_COUNT);
 
                                 if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -138,7 +138,7 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                             if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                                compare_all_array((void*) &r, p6, (void*) ROUND_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p7, (void*) ROUND_LINE_BORDER_CYBOL_MODEL_COUNT);
+                                compare_all_array((void*) &r, p6, (void*) ROUND_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) ROUND_LINE_BORDER_CYBOL_MODEL_COUNT);
 
                                 if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -153,7 +153,7 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                             if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                                compare_all_array((void*) &r, p6, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p7, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL_COUNT);
+                                compare_all_array((void*) &r, p6, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL_COUNT);
 
                                 if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

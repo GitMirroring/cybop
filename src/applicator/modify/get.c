@@ -26,11 +26,11 @@
 #ifndef GETTING_MEMORISER_SOURCE
 #define GETTING_MEMORISER_SOURCE
 
-#include "../../applicator/memoriser/getting/abstraction_getting_memoriser.c"
+#include "../../applicator/memoriser/getting/type_getting_memoriser.c"
 #include "../../applicator/memoriser/getting/name_getting_memoriser.c"
-#include "../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../constant/type/cybol/text_cybol_type.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/operation/primitive_operation_type.c"
 #include "../../constant/model/cybol/get_description_cybol_model.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
@@ -46,7 +46,7 @@
  * Expected parametres:
  * - compound (required): the compound whose element is to be retrieved
  * - index (required): the index of the element to be retrieved, within the compound
- * - description (required): the kind of data (name, abstraction) to retrieve from the compound's part
+ * - description (required): the kind of data (name, type) to retrieve from the compound's part
  * - result (required): the result knowledge model in which to store the retrieved element
  *
  * CAUTION! Do NOT rename this procedure to "get",
@@ -62,7 +62,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Get standard meta information.");
 
-    // The compound name, abstraction, model, details.
+    // The compound name, type, model, details.
     void** cn = NULL_POINTER_MEMORY_MODEL;
     void** cnc = NULL_POINTER_MEMORY_MODEL;
     void** cns = NULL_POINTER_MEMORY_MODEL;
@@ -75,7 +75,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
     void** cd = NULL_POINTER_MEMORY_MODEL;
     void** cdc = NULL_POINTER_MEMORY_MODEL;
     void** cds = NULL_POINTER_MEMORY_MODEL;
-    // The index name, abstraction, model, details.
+    // The index name, type, model, details.
     void** in = NULL_POINTER_MEMORY_MODEL;
     void** inc = NULL_POINTER_MEMORY_MODEL;
     void** ins = NULL_POINTER_MEMORY_MODEL;
@@ -88,7 +88,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
     void** id = NULL_POINTER_MEMORY_MODEL;
     void** idc = NULL_POINTER_MEMORY_MODEL;
     void** ids = NULL_POINTER_MEMORY_MODEL;
-    // The description name, abstraction, model, details.
+    // The description name, type, model, details.
     void** dn = NULL_POINTER_MEMORY_MODEL;
     void** dnc = NULL_POINTER_MEMORY_MODEL;
     void** dns = NULL_POINTER_MEMORY_MODEL;
@@ -101,7 +101,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
     void** dd = NULL_POINTER_MEMORY_MODEL;
     void** ddc = NULL_POINTER_MEMORY_MODEL;
     void** dds = NULL_POINTER_MEMORY_MODEL;
-    // The result name, abstraction, model, details.
+    // The result name, type, model, details.
     void** rn = NULL_POINTER_MEMORY_MODEL;
     void** rnc = NULL_POINTER_MEMORY_MODEL;
     void** rns = NULL_POINTER_MEMORY_MODEL;
@@ -157,7 +157,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, *dm, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, *dmc, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, *dm, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *dmc, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -168,12 +168,12 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, *dm, (void*) ABSTRACTION_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, *dmc, (void*) ABSTRACTION_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, *dm, (void*) TYPE_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *dmc, (void*) TYPE_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
             // CAUTION! Use references not only for the model, but also for count and size!
-            memorise_getting_abstraction((void*) rm, *rmc, *rms, *cm, *cmc, *im, *imc);
+            memorise_getting_type((void*) rm, *rmc, *rms, *cm, *cmc, *im, *imc);
         }
     }
 

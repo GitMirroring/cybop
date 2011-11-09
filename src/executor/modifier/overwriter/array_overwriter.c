@@ -26,7 +26,7 @@
 #ifndef ARRAY_OVERWRITER_SOURCE
 #define ARRAY_OVERWRITER_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -70,7 +70,7 @@
  *
  * @param p0 the destination array (Hand over as reference!)
  * @param p1 the source array
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  * @param p4 the destination index
  * @param p5 the source index
@@ -113,7 +113,7 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // CAUTION! This multiplication has to be done AFTER the comparison
             // of new size and old size since otherwise, the new size is falsified,
             // which would lead to runtime errors.
-            multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_ABSTRACTION);
+            multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE);
 
             // Enlarge array using new count as size.
             reallocate_array(p0, p6, (void*) &n, p2);
@@ -147,7 +147,7 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             //
             // - destination array: "Today is a rainy day."
             // - source array: "sunny"
-            // - abstraction: (wide_character given as special integer constant)
+            // - type: (wide_character given as special integer constant)
             // - count: 5
             // - destination index: 11
             // - source index: 0
@@ -166,7 +166,7 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             //
             // - destination array: "green"
             // - source array: "red"
-            // - abstraction: (wide_character given as special integer constant)
+            // - type: (wide_character given as special integer constant)
             // - count: 3
             // - destination index: 0
             // - source index: 0

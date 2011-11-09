@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -60,16 +60,16 @@ void append_item_allocate_part_decode_character(void* p0, void* p1, void* p2, vo
     int s = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate wide character data.
-    allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Decode multibyte character array into wide character data.
     decode_utf_8_unicode_character_vector((void*) &d, (void*) &c, (void*) &s, p3, p4);
 
     // Allocate part with wide character data as model and append it to destination item.
-    append_item_allocate_part(p0, p1, p2, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, d, (void*) &c, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+    append_item_allocate_part(p0, p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, d, (void*) &c, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
 
     // Deallocate wide character data.
-    deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 }
 
 /* CHARACTER_DECODER_PART_ALLOCATOR_ITEM_APPENDER_SOURCE */

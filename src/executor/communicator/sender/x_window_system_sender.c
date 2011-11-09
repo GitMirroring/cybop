@@ -30,7 +30,7 @@
 #include <X11/Xutil.h>
 #include <pthread.h>
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../constant/type/cybol/text_cybol_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -60,7 +60,7 @@ void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int** w = (int**) NULL_POINTER_MEMORY_MODEL;
 
         // Get x window system internals.
-        get((void*) &w, p3, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+        get((void*) &w, p3, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
         // CAUTION! This test is necessary to avoid a "Segmentation fault"!
         if (*d != *NULL_POINTER_MEMORY_MODEL) {
@@ -114,7 +114,7 @@ void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4
     pthread_mutex_t** xmt = (pthread_mutex_t**) NULL_POINTER_MEMORY_MODEL;
 
     // Get x window system mutex.
-    get((void*) &xmt, p0, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &xmt, p0, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
     pthread_mutex_lock(*xmt);
 
@@ -128,7 +128,7 @@ void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4
     void** d = NULL_POINTER_MEMORY_MODEL;
 
     // Get display.
-    get_array_elements((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE);
 
 //??    fwprintf(stdout, L"TEST send x 1: %i\n", p0);
 

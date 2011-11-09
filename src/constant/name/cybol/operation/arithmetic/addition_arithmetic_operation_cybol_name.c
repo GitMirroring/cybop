@@ -29,10 +29,10 @@
 #include <stddef.h>
 #include "../../../../../constant/model/memory/integer_memory_model.c"
 
-/** The abstraction addition arithmetic operation cybol name. */
-static wchar_t ABSTRACTION_ADDITION_ARITHMETIC_OPERATION_CYBOL_NAME_ARRAY[] = {L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n'};
-static wchar_t* ABSTRACTION_ADDITION_ARITHMETIC_OPERATION_CYBOL_NAME = ABSTRACTION_ADDITION_ARITHMETIC_OPERATION_CYBOL_NAME_ARRAY;
-static int* ABSTRACTION_ADDITION_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
+/** The type addition arithmetic operation cybol name. */
+static wchar_t TYPE_ADDITION_ARITHMETIC_OPERATION_CYBOL_NAME_ARRAY[] = {L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n'};
+static wchar_t* TYPE_ADDITION_ARITHMETIC_OPERATION_CYBOL_NAME = TYPE_ADDITION_ARITHMETIC_OPERATION_CYBOL_NAME_ARRAY;
+static int* TYPE_ADDITION_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The summand 1 addition arithmetic operation cybol name. */
 static wchar_t SUMMAND_1_ADDITION_ARITHMETIC_OPERATION_CYBOL_NAME_ARRAY[] = {L's', L'u', L'm', L'm', L'a', L'n', L'd', L'_', L'1'};

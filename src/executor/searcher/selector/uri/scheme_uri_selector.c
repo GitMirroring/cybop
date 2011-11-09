@@ -26,7 +26,7 @@
 #ifndef SCHEME_URI_SELECTOR_SOURCE
 #define SCHEME_URI_SELECTOR_SOURCE
 
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
 #include "../../../../constant/model/memory/pointer_memory_model.c"
@@ -65,7 +65,7 @@ void select_uri_scheme(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -81,7 +81,7 @@ void select_uri_scheme(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) SCHEME_END_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) SCHEME_END_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) SCHEME_END_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) SCHEME_END_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

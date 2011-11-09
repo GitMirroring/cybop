@@ -91,15 +91,15 @@ void decode_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, void*
                         void* p = *NULL_POINTER_MEMORY_MODEL;
 
                         // Allocate part.
-                        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+                        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
                         // Fill part.
-                        overwrite_part_element(p, (void*) NODE_NAME_XML_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) NODE_NAME_XML_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-                        overwrite_part_element(p, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-                        overwrite_part_element(p, tn, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) &tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+                        overwrite_part_element(p, (void*) NODE_NAME_XML_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NODE_NAME_XML_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+                        overwrite_part_element(p, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+                        overwrite_part_element(p, tn, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
                         // Append part to destination model.
-                        append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+                        append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
                         break;
 

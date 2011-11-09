@@ -26,8 +26,8 @@
 #ifndef DOUBLE_VECTOR_DECODER_SOURCE
 #define DOUBLE_VECTOR_DECODER_SOURCE
 
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
@@ -67,19 +67,19 @@ void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int s = *sc + *NUMBER_1_INTEGER_MEMORY_MODEL;
 
             // Create temporary null-terminated string.
-            allocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+            allocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
             // The index.
             int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
             // Copy original string to temporary null-terminated string.
-            overwrite_array(tmp, p3, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p4, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(tmp, p3, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
             // This is used as index to set the termination character.
             i = *sc;
 
             // Add string termination to temporary null-terminated string.
-            overwrite_array(tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
             // The tail variable is useless here and only needed for the string
             // transformation function. If the whole string array consists of
@@ -106,10 +106,10 @@ void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //?? to be able to take the double value?
 
             // Set double value.
-            overwrite_array(p0, (void*) &v, (void*) DOUBLE_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(p0, (void*) &v, (void*) DOUBLE_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
             // Destroy temporary null-terminated string.
-            deallocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+            deallocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
         } else {
 

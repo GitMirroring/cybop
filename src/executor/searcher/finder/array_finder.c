@@ -26,7 +26,7 @@
 #ifndef ARRAY_FINDER_SOURCE
 #define ARRAY_FINDER_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -45,7 +45,7 @@
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the investigated array
  * @param p2 the searched array
- * @param p3 the abstraction
+ * @param p3 the type
  * @param p4 the investigated array count
  * @param p5 the searched array count
  */
@@ -86,7 +86,7 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // CAUTION! Hand over SEARCHED (right) array count as count,
         // since it is shorter or equal to that of the left array.
         // CAUTION! Use loop variable as INVESTIGATED (left) array index.
-        compare_array((void*) &r, p1, p2, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        compare_array((void*) &r, p1, p2, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -109,7 +109,7 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the investigated array
  * @param p2 the searched array
- * @param p3 the abstraction
+ * @param p3 the type
  * @param p4 the investigated array count
  * @param p5 the searched array count
  */
@@ -120,7 +120,7 @@ void find_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // The comparison result.
     int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    compare_integer((void*) &r, p4, p5, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
+    compare_integer((void*) &r, p4, p5, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE);
 
     if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

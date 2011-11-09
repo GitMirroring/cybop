@@ -26,7 +26,7 @@
 #ifndef ITEM_DEALLOCATOR_SOURCE
 #define ITEM_DEALLOCATOR_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/name/memory/item_memory_name.c"
 #include "../../../constant/name/memory/primitive_memory_name.c"
@@ -38,7 +38,7 @@
  *
  * @param p0 the item (Hand over as reference!)
  * @param p1 the size
- * @param p2 the abstraction
+ * @param p2 the type
  */
 void deallocate_item(void* p0, void* p1, void* p2) {
 
@@ -54,17 +54,17 @@ void deallocate_item(void* p0, void* p1, void* p2) {
         void* s = *NULL_POINTER_MEMORY_MODEL;
 
         // Get data, count, size.
-        copy_array_forward((void*) &d, *i, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-        copy_array_forward((void*) &c, *i, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-        copy_array_forward((void*) &s, *i, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIZE_ITEM_MEMORY_NAME);
+        copy_array_forward((void*) &d, *i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+        copy_array_forward((void*) &c, *i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+        copy_array_forward((void*) &s, *i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIZE_ITEM_MEMORY_NAME);
 
         // Deallocate data, count, size.
         deallocate_array((void*) &d, p1, p2);
-        deallocate_array((void*) &c, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_ABSTRACTION);
-        deallocate_array((void*) &s, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_ABSTRACTION);
+        deallocate_array((void*) &c, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        deallocate_array((void*) &s, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
 
         // Deallocate item.
-        deallocate_array(p0, (void*) ITEM_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_ABSTRACTION);
+        deallocate_array(p0, (void*) ITEM_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
 
     } else {
 

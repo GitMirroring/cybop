@@ -26,8 +26,8 @@
 #ifndef SEQUENCE_SOURCE
 #define SEQUENCE_SOURCE
 
-#include "../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/cybol/text_cybol_type.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
@@ -50,8 +50,8 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p1 the signal memory
  * @param p2 the signal memory count
  * @param p3 the signal memory size
- * @param p4 the message abstraction (Hand over as reference!)
- * @param p5 the message abstraction count (Hand over as reference!)
+ * @param p4 the message type (Hand over as reference!)
+ * @param p5 the message type count (Hand over as reference!)
  * @param p6 the message model (Hand over as reference!)
  * @param p7 the message model count (Hand over as reference!)
  * @param p8 the message details (Hand over as reference!)
@@ -70,9 +70,9 @@ void apply_send_cyboi_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
     sig_atomic_t** irq = (sig_atomic_t**) NULL_POINTER_MEMORY_MODEL;
 
     // Get signal memory mutex.
-    get((void*) &mt, p0, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &mt, p0, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
     // Get interrupt request internal.
-    get((void*) &irq, p0, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &irq, p0, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
     // Lock signal memory mutex.
     pthread_mutex_lock(*mt);

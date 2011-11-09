@@ -60,20 +60,20 @@ void apply_execute(void* p0, void* p1) {
     int cls = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate shell command line.
-    allocate_array((void*) &cl, (void*) &cls, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &cl, (void*) &cls, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Append shell command.
-    overwrite_array((void*) &cl, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
     // Append shell command.
-    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
     // Append user command.
-    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, p0, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p1, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, p0, (void*) WIDE_CHARACTER_MEMORY_TYPE, p1, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
     // Append null character as string termination.
-    overwrite_array((void*) &cl, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
 
 /*??
     fwprintf(stdout, L"TEST dir: %ls\n", (wchar_t*) cl);
@@ -86,13 +86,13 @@ void apply_execute(void* p0, void* p1) {
     int ecls = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate encoded shell command line.
-    allocate((void*) &ecl, (void*) &ecls, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    allocate((void*) &ecl, (void*) &ecls, (void*) CHARACTER_MEMORY_TYPE);
 
     // Encode encoded shell command line.
     encode_utf_8_unicode_character_vector((void*) &ecl, (void*) &eclc, (void*) &ecls, cl, (void*) &clc);
 
     // Deallocate shell command line.
-    deallocate_array((void*) &cl, (void*) &cls, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &cl, (void*) &cls, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Initialise error number.
     // It is a global variable/ function and other operations
@@ -142,7 +142,7 @@ void apply_execute(void* p0, void* p1) {
     }
 
     // Deallocate encoded shell command line.
-    deallocate((void*) &ecl, (void*) &ecls, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    deallocate((void*) &ecl, (void*) &ecls, (void*) CHARACTER_MEMORY_TYPE);
 
 /*??
     //?? The following block implements the same three primitive functions

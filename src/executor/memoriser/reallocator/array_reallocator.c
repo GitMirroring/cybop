@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -42,7 +42,7 @@
  * @param p0 the array (Hand over as reference!)
  * @param p1 the count
  * @param p2 the size
- * @param p3 the abstraction
+ * @param p3 the type
  */
 void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
 
@@ -63,11 +63,11 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 // The memory area.
                 int ma = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-                // Determine abstraction (type) size.
+                // Determine type (type) size.
                 determine_size((void*) &ma, p3);
 
                 // Calculate memory area.
-                multiply_with_integer((void*) &ma, p2, (void*) INTEGER_MEMORY_ABSTRACTION);
+                multiply_with_integer((void*) &ma, p2, (void*) INTEGER_MEMORY_TYPE);
 
                 if (ma > *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -109,11 +109,11 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         // reduced by the existing element count.
                         int es = *s - *c;
 
-                        // Determine abstraction (type) size.
+                        // Determine type (type) size.
                         determine_size((void*) &nma, p3);
 
                         // Calculate new memory area.
-                        multiply_with_integer((void*) &nma, (void*) &es, (void*) INTEGER_MEMORY_ABSTRACTION);
+                        multiply_with_integer((void*) &nma, (void*) &es, (void*) INTEGER_MEMORY_TYPE);
 
                         // The new array elements.
                         void* na = *a + (ma - nma);

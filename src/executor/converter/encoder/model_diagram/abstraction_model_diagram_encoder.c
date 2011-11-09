@@ -19,185 +19,185 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version $RCSfile: abstraction_converter.c,v $ $Revision: 1.17 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
+ * @version $RCSfile: type_converter.c,v $ $Revision: 1.17 $ $Date: 2009-10-06 21:25:27 $ $Author: christian $
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ABSTRACTION_MODEL_DIAGRAM_ENCODER_SOURCE
-#define ABSTRACTION_MODEL_DIAGRAM_ENCODER_SOURCE
+#ifndef TYPE_MODEL_DIAGRAM_ENCODER_SOURCE
+#define TYPE_MODEL_DIAGRAM_ENCODER_SOURCE
 
-#include "../../../../constant/abstraction/model_diagram/model_diagram_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/operation/operation_abstraction.c"
+#include "../../../../constant/type/model_diagram/model_diagram_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/operation/operation_type.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
 #include "../../../../constant/model/memory/pointer_memory_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes the cyboi abstraction into a model diagram abstraction.
+ * Encodes the cyboi type into a model diagram type.
  *
  * @param p0 the destination model diagram item
- * @param p1 the source abstraction
+ * @param p1 the source type
  */
-void encode_model_diagram_abstraction(void* p0, void* p1) {
+void encode_model_diagram_type(void* p0, void* p1) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode model diagram abstraction.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode model diagram type.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) BOOLEAN_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) BOOLEAN_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) BOOLEAN_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) BOOLEAN_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) BOOLEAN_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) BOOLEAN_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) CHARACTER_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) CHARACTER_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) ENCAPSULATED_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) ENCAPSULATED_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) INTEGER_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) INTEGER_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) INTEGER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) INTEGER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) INTEGER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) INTEGER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) KNOWLEDGE_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) KNOWLEDGE_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) KNOWLEDGE_PATH_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) KNOWLEDGE_PATH_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) PART_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) PART_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) PART_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PART_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) PART_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PART_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) WIDE_CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) WIDE_CHARACTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
 /*??
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) EQUAL_COMPARE_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) EQUAL_COMPARE_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) GREATER_COMPARE_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) GREATER_COMPARE_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) GREATER_OR_EQUAL_COMPARE_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) GREATER_OR_EQUAL_COMPARE_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) PREFIX_EQUAL_COMPARE_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) PREFIX_EQUAL_COMPARE_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            overwrite_array(p0, p1, p2, (void*) PREFIX_EQUAL_OPERATION_ABSTRACTION, (void*) PREFIX_EQUAL_OPERATION_ABSTRACTION_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            overwrite_array(p0, p1, p2, (void*) PREFIX_EQUAL_OPERATION_TYPE, (void*) PREFIX_EQUAL_OPERATION_TYPE_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SMALLER_COMPARE_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) SMALLER_COMPARE_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            overwrite_array(p0, p1, p2, (void*) SMALLER_OPERATION_ABSTRACTION, (void*) SMALLER_OPERATION_ABSTRACTION_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            overwrite_array(p0, p1, p2, (void*) SMALLER_OPERATION_TYPE, (void*) SMALLER_OPERATION_TYPE_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SMALLER_OR_EQUAL_COMPARE_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) SMALLER_OR_EQUAL_COMPARE_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            overwrite_array(p0, p1, p2, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION, (void*) SMALLER_OR_EQUAL_OPERATION_ABSTRACTION_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            overwrite_array(p0, p1, p2, (void*) SMALLER_OR_EQUAL_OPERATION_TYPE, (void*) SMALLER_OR_EQUAL_OPERATION_TYPE_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SUFFIX_EQUAL_COMPARE_ABSTRACTION);
+        compare_integer_equal((void*) &r, p1, (void*) SUFFIX_EQUAL_COMPARE_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MODEL_DIAGRAM_ABSTRACTION_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            overwrite_array(p0, p1, p2, (void*) SUFFIX_EQUAL_OPERATION_ABSTRACTION, (void*) SUFFIX_EQUAL_OPERATION_ABSTRACTION_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+            append_item_element(p0, (void*) CHARACTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            overwrite_array(p0, p1, p2, (void*) SUFFIX_EQUAL_OPERATION_TYPE, (void*) SUFFIX_EQUAL_OPERATION_TYPE_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
         }
     }
 */
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not encode abstraction. The abstraction is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not encode type. The type is unknown.");
     }
 }
 
-/* ABSTRACTION_MODEL_DIAGRAM_ENCODER_SOURCE */
+/* TYPE_MODEL_DIAGRAM_ENCODER_SOURCE */
 #endif

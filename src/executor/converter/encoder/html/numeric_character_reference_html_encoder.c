@@ -26,9 +26,9 @@
 #ifndef NUMERIC_CHARACTER_REFERENCE_ENCODER_SOURCE
 #define NUMERIC_CHARACTER_REFERENCE_ENCODER_SOURCE
 
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/character/character_constants.c"
 #include "../../../../constant/character/numeric_character_reference_constants.c"
 #include "../../../../constant/model/log/message_log_model.c"
@@ -70,7 +70,7 @@ void encode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, 
 /*??
                 if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                    compare_all_array((void*) &r, p3, p4, (void*) SPACE_WIDE_CHARACTER, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+                    compare_all_array((void*) &r, p3, p4, (void*) SPACE_WIDE_CHARACTER, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
                     if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -88,7 +88,7 @@ void encode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, 
                 if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
                     // Add temporary value to destination.
-                    overwrite_array(p0, (void*) t, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) &tc, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                    overwrite_array(p0, (void*) t, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &tc, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                 }
 
             } else {

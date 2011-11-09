@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
@@ -42,7 +42,7 @@
  * Adds an offset to the given pointer.
  *
  * @param p0 the pointer (Hand over as reference!)
- * @param p1 the abstraction
+ * @param p1 the type
  * @param p2 the index
  */
 void add_offset(void* p0, void* p1, void* p2) {
@@ -52,16 +52,16 @@ void add_offset(void* p0, void* p1, void* p2) {
     // The offset (memory area).
     int o = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    // Determine abstraction (type) size.
+    // Determine type (type) size.
     determine_size((void*) &o, p1);
 
     // Calculate offset.
-    // CAUTION! The POINTER_MEMORY_ABSTRACTION is NOT needed here,
+    // CAUTION! The POINTER_MEMORY_TYPE is NOT needed here,
     // since this is only the offset integer value and not a pointer.
     calculate_integer_multiply((void*) &o, p2);
 
     // Add offset to pointer.
-    // CAUTION! The POINTER_MEMORY_ABSTRACTION IS needed here,
+    // CAUTION! The POINTER_MEMORY_TYPE IS needed here,
     // since p0 is a pointer to which the offset is added.
     calculate_pointer_add(p0, (void*) &o);
 }

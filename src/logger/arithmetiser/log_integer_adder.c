@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
@@ -36,11 +36,11 @@
 #include "../../logger/arithmetiser/integer_adder/log_pointer_integer_adder.c"
 
 /**
- * Adds the source integer to the destination of the given abstraction.
+ * Adds the source integer to the destination of the given type.
  *
  * @param p0 the destination (If of type "pointer", then hand over as reference!)
  * @param p1 the source integer
- * @param p2 the abstraction
+ * @param p2 the type
  */
 void log_add_integer(void* p0, void* p1, void* p2) {
 
@@ -51,11 +51,11 @@ void log_add_integer(void* p0, void* p1, void* p2) {
         // CAUTION! DO NOT use logging functionality here!
         // The logger cannot log itself.
 
-        if (*a == *INTEGER_MEMORY_ABSTRACTION) {
+        if (*a == *INTEGER_MEMORY_TYPE) {
 
             log_calculate_integer_add(p0, p1);
 
-        } else if (*a == *POINTER_MEMORY_ABSTRACTION) {
+        } else if (*a == *POINTER_MEMORY_TYPE) {
 
             log_add_integer_to_pointer(p0, p1);
 
@@ -63,14 +63,14 @@ void log_add_integer(void* p0, void* p1, void* p2) {
 
             // CAUTION! DO NOT use logging functionality here!
             // The logger cannot log itself.
-            // "Could not add integer. The abstraction is unknown."
+            // "Could not add integer. The type is unknown."
         }
 
     } else {
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger cannot log itself.
-        // "Could not add integer. The abstraction is null."
+        // "Could not add integer. The type is null."
     }
 }
 

@@ -26,7 +26,7 @@
 #ifndef ARRAY_COMPARATOR_SOURCE
 #define ARRAY_COMPARATOR_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -40,8 +40,8 @@
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left array
  * @param p2 the right array
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  * @param p5 the count
  */
 void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
@@ -104,8 +104,8 @@ void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, vo
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left array
  * @param p2 the right array
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  * @param p5 the count
  * @param p6 the left index
  * @param p7 the right index

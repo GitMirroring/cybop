@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -40,7 +40,7 @@
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
- * @param p3 the operation abstraction
+ * @param p3 the operation type
  */
 void compare_character(void* p0, void* p1, void* p2, void* p3) {
 
@@ -69,7 +69,7 @@ void compare_character(void* p0, void* p1, void* p2, void* p3) {
 
                     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                        if (*a == *EQUAL_PRIMITIVE_OPERATION_ABSTRACTION) {
+                        if (*a == *EQUAL_PRIMITIVE_OPERATION_TYPE) {
 
                             r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -82,7 +82,7 @@ void compare_character(void* p0, void* p1, void* p2, void* p3) {
 
                     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                        if (*a == *SMALLER_PRIMITIVE_OPERATION_ABSTRACTION) {
+                        if (*a == *SMALLER_PRIMITIVE_OPERATION_TYPE) {
 
                             r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -95,7 +95,7 @@ void compare_character(void* p0, void* p1, void* p2, void* p3) {
 
                     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                        if (*a == *GREATER_PRIMITIVE_OPERATION_ABSTRACTION) {
+                        if (*a == *GREATER_PRIMITIVE_OPERATION_TYPE) {
 
                             r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -108,7 +108,7 @@ void compare_character(void* p0, void* p1, void* p2, void* p3) {
 
                     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                        if (*a == *SMALLER_OR_EQUAL_PRIMITIVE_OPERATION_ABSTRACTION) {
+                        if (*a == *SMALLER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE) {
 
                             r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -121,7 +121,7 @@ void compare_character(void* p0, void* p1, void* p2, void* p3) {
 
                     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                        if (*a == *GREATER_OR_EQUAL_PRIMITIVE_OPERATION_ABSTRACTION) {
+                        if (*a == *GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE) {
 
                             r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -134,7 +134,7 @@ void compare_character(void* p0, void* p1, void* p2, void* p3) {
 
                     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not compare character. The operation abstraction is unknown.");
+                        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not compare character. The operation type is unknown.");
                     }
 
                 } else {
@@ -154,7 +154,7 @@ void compare_character(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare character. The operation abstraction is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare character. The operation type is null.");
     }
 }
 

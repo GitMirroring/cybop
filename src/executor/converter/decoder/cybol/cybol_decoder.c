@@ -26,7 +26,7 @@
 #ifndef CYBOL_DECODER_SOURCE
 #define CYBOL_DECODER_SOURCE
 
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
+#include "../../../../constant/type/cybol/text_cybol_type.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -75,15 +75,15 @@ void decode_cybol_model_elements(void* p0, void* p1, void* p2, void* p3) {
     void* mdc = *NULL_POINTER_MEMORY_MODEL;
 
     // Get source meta part with given index from source part model.
-    get_part_element((void*) &m, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2, (void*) MODEL_PART_MEMORY_NAME);
+    get_part_element((void*) &m, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2, (void*) MODEL_PART_MEMORY_NAME);
     // Get source meta part model, details.
-    copy_array_forward((void*) &mm, m, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    copy_array_forward((void*) &mm, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
     // Get source meta part model, details data, count.
-    copy_array_forward((void*) &mmd, mm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mmc, mm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mdd, md, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mdc, md, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mmd, mm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mmc, mm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mdd, md, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mdc, md, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     decode_cybol_element(p0, mmd, mmc, mdd, mdc, p3);
 }
@@ -144,17 +144,17 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // Identify source part details parametres.
     //
 
-    // The source name, channel, abstraction, model part.
+    // The source name, channel, type, model part.
     void* sn = *NULL_POINTER_MEMORY_MODEL;
     void* sc = *NULL_POINTER_MEMORY_MODEL;
     void* sa = *NULL_POINTER_MEMORY_MODEL;
     void* sm = *NULL_POINTER_MEMORY_MODEL;
-    // The source name, channel, abstraction, model part model.
+    // The source name, channel, type, model part model.
     void* snm = *NULL_POINTER_MEMORY_MODEL;
     void* scm = *NULL_POINTER_MEMORY_MODEL;
     void* sam = *NULL_POINTER_MEMORY_MODEL;
     void* smm = *NULL_POINTER_MEMORY_MODEL;
-    // The source name, channel, abstraction, model part model data, count.
+    // The source name, channel, type, model part model data, count.
     void* snmd = *NULL_POINTER_MEMORY_MODEL;
     void* snmc = *NULL_POINTER_MEMORY_MODEL;
     void* scmd = *NULL_POINTER_MEMORY_MODEL;
@@ -164,37 +164,37 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     void* smmd = *NULL_POINTER_MEMORY_MODEL;
     void* smmc = *NULL_POINTER_MEMORY_MODEL;
 
-    // Get source name, channel, abstraction, model part.
+    // Get source name, channel, type, model part.
     get_name_array((void*) &sn, p3, (void*) NAME_CYBOP_NAME, (void*) NAME_CYBOP_NAME_COUNT, p4);
     get_name_array((void*) &sc, p3, (void*) CHANNEL_CYBOP_NAME, (void*) CHANNEL_CYBOP_NAME_COUNT, p4);
-    get_name_array((void*) &sa, p3, (void*) ABSTRACTION_CYBOP_NAME, (void*) ABSTRACTION_CYBOP_NAME_COUNT, p4);
+    get_name_array((void*) &sa, p3, (void*) TYPE_CYBOP_NAME, (void*) TYPE_CYBOP_NAME_COUNT, p4);
     get_name_array((void*) &sm, p3, (void*) MODEL_CYBOP_NAME, (void*) MODEL_CYBOP_NAME_COUNT, p4);
-    // Get source name, channel, abstraction, model part model.
+    // Get source name, channel, type, model part model.
     // CAUTION! Do NOT use NAME_PART_MEMORY_NAME, CHANNEL_PART_MEMORY_NAME,
-    // ABSTRACTION_PART_MEMORY_NAME, MODEL_PART_MEMORY_NAME here!
+    // TYPE_PART_MEMORY_NAME, MODEL_PART_MEMORY_NAME here!
     // The corresponding parts were already retrieved above.
     // What is wanted here, is just their models containing the actual data.
-    copy_array_forward((void*) &snm, sn, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &scm, sc, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &sam, sa, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &smm, sm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    // Get source name, channel, abstraction, model part model data, count.
-    copy_array_forward((void*) &snmd, snm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &snmc, snm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &scmd, scm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &scmc, scm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &samd, sam, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &samc, sam, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &smmd, smm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &smmc, smm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &snm, sn, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &scm, sc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sam, sa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &smm, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    // Get source name, channel, type, model part model data, count.
+    copy_array_forward((void*) &snmd, snm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &snmc, snm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &scmd, scm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &scmc, scm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &samd, sam, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &samc, sam, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &smmd, smm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &smmc, smm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // The runtime channel.
     int rc = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
-    // The runtime abstraction.
-    // CAUTION! It is needed to retrieve the abstraction of the part to be created.
+    // The runtime type.
+    // CAUTION! It is needed to retrieve the type of the part to be created.
     // Otherwise, it would not be known which part model to create.
-    // The source abstraction cannot be converted directly into the part's abstraction,
-    // because the part model has not been allocated yet when reading the abstraction
+    // The source type cannot be converted directly into the part's type,
+    // because the part model has not been allocated yet when reading the type
     // for the first time.
     int ra = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
     // The runtime model.
@@ -203,30 +203,30 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     int rm = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
 
     //
-    // Decode cybol source abstraction into cyboi runtime abstraction constant.
+    // Decode cybol source type into cyboi runtime type constant.
     //
     decode_channel((void*) &rc, scmd, scmc);
     //
-    // Decode cybol source abstraction into cyboi runtime abstraction constant.
+    // Decode cybol source type into cyboi runtime type constant.
     //
-    // (1) A cybol abstraction is of type "wchar_t";
-    //     a cyboi-internal abstraction of type "int".
+    // (1) A cybol type is of type "wchar_t";
+    //     a cyboi-internal type of type "int".
     // (2) Both are not always equal in their meaning.
     //     For example, an "xdt" file is converted into a "part".
-    //     Therefore, the abstraction has to be converted here.
+    //     Therefore, the type has to be converted here.
     //
-    decode_abstraction((void*) &ra, samd, samc);
+    decode_type((void*) &ra, samd, samc);
 
     //
     // Create new part.
     //
     // CAUTION! This may only be done AFTER having retrieved the source
-    // abstraction, since that is needed for allocating the new part.
+    // type, since that is needed for allocating the new part.
     //
 
     // The part.
     void* p = *NULL_POINTER_MEMORY_MODEL;
-    // The part name, abstraction, model, details.
+    // The part name, type, model, details.
     void* pn = *NULL_POINTER_MEMORY_MODEL;
     void* pa = *NULL_POINTER_MEMORY_MODEL;
     void* pm = *NULL_POINTER_MEMORY_MODEL;
@@ -234,11 +234,11 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
 
     // Allocate part.
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) &ra);
-    // Get part name, abstraction, model, details.
-    copy_array_forward((void*) &pn, p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    copy_array_forward((void*) &pa, p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-    copy_array_forward((void*) &pm, p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &pd, p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    // Get part name, type, model, details.
+    copy_array_forward((void*) &pn, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pa, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pm, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pd, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
 
     //
     // Process source part details.
@@ -248,23 +248,23 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     //
 
     // Fill part name.
-    overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, snmc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
-    // Fill part abstraction.
-    // CAUTION! Use the cyboi RUNTIME abstraction constant as source here!
-    overwrite_item_element(pa, (void*) &ra, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+    overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_MEMORY_TYPE, snmc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+    // Fill part type.
+    // CAUTION! Use the cyboi RUNTIME type constant as source here!
+    overwrite_item_element(pa, (void*) &ra, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
 
     //
-    // Sometimes, a cybol model represents an abstraction, e.g. when creating a part.
-    // This is indicated by an abstraction with value "text/abstraction".
+    // Sometimes, a cybol model represents an type, e.g. when creating a part.
+    // This is indicated by an type with value "text/type".
     // In such cases, the cybol model's character string value has to be converted into
-    // an integer value, since cyboi processes abstractions in this form internally.
+    // an integer value, since cyboi processes types in this form internally.
     //
-    // Example (see the "abstraction" property's "model" attribute):
+    // Example (see the "type" property's "model" attribute):
     //
-    // <part name="create_counter" channel="inline" abstraction="operation/plain" model="create">
-    //     <property name="name" channel="inline" abstraction="text/plain" model="counter"/>
-    //     <property name="abstraction" channel="inline" abstraction="text/abstraction" model="memory/compound"/>
-    //     <property name="element" channel="inline" abstraction="text/plain" model="part"/>
+    // <part name="create_counter" channel="inline" type="operation/plain" model="create">
+    //     <property name="name" channel="inline" type="text/plain" model="counter"/>
+    //     <property name="type" channel="inline" type="text/type" model="memory/compound"/>
+    //     <property name="element" channel="inline" type="text/plain" model="part"/>
     // </part>
     //
 
@@ -272,17 +272,17 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // the given model is a cyboi-internal constant.
     int f = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-    compare_integer_equal((void*) &f, (void*) &ra, (void*) ABSTRACTION_PRIMITIVE_MEMORY_ABSTRACTION);
+    compare_integer_equal((void*) &f, (void*) &ra, (void*) TYPE_PRIMITIVE_MEMORY_TYPE);
 
     if (f != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // Decode cybol source model (representing an abstraction)
-        // into cyboi runtime abstraction constant.
-        decode_abstraction((void*) &rm, smmd, smmc);
+        // Decode cybol source model (representing an type)
+        // into cyboi runtime type constant.
+        decode_type((void*) &rm, smmd, smmc);
 
         // Fill part model.
         // CAUTION! Use the cyboi RUNTIME model constant as source here!
-        overwrite_item_element(pm, (void*) &rm, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+        overwrite_item_element(pm, (void*) &rm, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
 
     } else {
 
@@ -307,7 +307,7 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // Add part to destination.
     //
 
-    append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /**
@@ -374,7 +374,7 @@ void decode_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void
  * Decodes the cybol knowledge model.
  *
  * The source details handed over contain one node each for
- * name, channel, abstraction, model.
+ * name, channel, type, model.
  *
  * Example:
  *
@@ -385,24 +385,24 @@ void decode_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void
  * | | | #- | wide_character | property [This is the xml tag name.]
  * | | | #-name | wide_character | left
  * | | | #-channel | wide_character | inline
- * | | | #-abstraction | wide_character | path/knowledge
+ * | | | #-type | wide_character | path/knowledge
  * | | | #-model | wide_character | .counter.count
  * | | +-node_$1 | compound
  * | | | #- | wide_character | property [This is the xml tag name.]
  * | | | #-name | wide_character | right
  * | | | #-channel | wide_character | inline
- * | | | #-abstraction | wide_character | path/knowledge
+ * | | | #-type | wide_character | path/knowledge
  * | | | #-model | wide_character | .counter.maximum
  * | | +-node_$2 | compound
  * | | | #- | wide_character | property [This is the xml tag name.]
  * | | | #-name | wide_character | result
  * | | | #-channel | wide_character | inline
- * | | | #-abstraction | wide_character | path/knowledge
+ * | | | #-type | wide_character | path/knowledge
  * | | | #-model | wide_character | .counter.break
  * | | #- | wide_character | part [This is the xml tag name.]
  * | | #-name | wide_character | compare_count
  * | | #-channel | wide_character | inline
- * | | #-abstraction | wide_character | operation/plain
+ * | | #-type | wide_character | operation/plain
  * | | #-model | wide_character | greater_or_equal
  * | +-node_$1 | compound
  * ...

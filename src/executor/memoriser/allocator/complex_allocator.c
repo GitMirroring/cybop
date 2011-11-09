@@ -26,9 +26,9 @@
 #ifndef COMPLEX_ALLOCATOR_SOURCE
 #define COMPLEX_ALLOCATOR_SOURCE
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../logger/logger.c"
@@ -44,7 +44,7 @@ void allocate_complex(void* p0, void* p1) {
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Allocate complex.");
 
     // Create complex.
-    allocate_array(p0, p1, (void*) DOUBLE_MEMORY_ABSTRACTION);
+    allocate_array(p0, p1, (void*) DOUBLE_MEMORY_TYPE);
 }
 
 /* COMPLEX_ALLOCATOR_SOURCE */

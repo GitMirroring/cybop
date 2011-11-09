@@ -33,7 +33,7 @@
 // Since http is a stateless protocol, it does not provide a possibility to
 // find out whether or not several consequent http requests belong together.
 //
-// Therefore, the application on the next higher level of abstraction has to
+// Therefore, the application on the next higher level of type has to
 // care about that, by opening a "session" for each request from an unknown user.
 // Every such session gets a unique identifier called "session id".
 //

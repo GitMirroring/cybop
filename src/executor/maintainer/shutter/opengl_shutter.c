@@ -26,7 +26,7 @@
 #ifndef OPENGL_SHUTTER_SOURCE
 #define OPENGL_SHUTTER_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/memoriser/allocator.c"

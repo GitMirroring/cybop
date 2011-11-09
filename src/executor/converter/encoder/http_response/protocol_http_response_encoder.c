@@ -41,8 +41,8 @@
  * Encodes the http response protocol.
  *
  * @param p0 the destination character item
- * @param p1 the source metadata abstraction
- * @param p2 the source metadata abstraction count
+ * @param p1 the source metadata type
+ * @param p2 the source metadata type count
  * @param p3 the source metadata model
  * @param p4 the source metadata model count
  * @param p5 the source metadata details
@@ -52,7 +52,7 @@ void encode_http_response_protocol(void* p0, void* p1, void* p2, void* p3, void*
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response protocol.");
 
-    append_item_element(p0, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /* PROTOCOL_HTTP_RESPONSE_ENCODER_SOURCE */

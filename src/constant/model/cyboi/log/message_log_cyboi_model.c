@@ -906,10 +906,10 @@ static wchar_t CHECK_FOR_SIGNALS_MESSAGE_LOG_CYBOI_MODEL_ARRAY[] = {L'C', L'h', 
 static wchar_t* CHECK_FOR_SIGNALS_MESSAGE_LOG_CYBOI_MODEL = CHECK_FOR_SIGNALS_MESSAGE_LOG_CYBOI_MODEL_ARRAY;
 static int* CHECK_FOR_SIGNALS_MESSAGE_LOG_CYBOI_MODEL_COUNT = NUMBER_17_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The "Could not handle signal. The signal abstraction is unknown." message log cyboi model. */
-static wchar_t COULD_NOT_HANDLE_SIGNAL_THE_SIGNAL_ABSTRACTION_IS_UNKNOWN_MESSAGE_LOG_CYBOI_MODEL_ARRAY[] = {L'C', L'o', L'u', L'l', L'd', L' ', L'n', L'o', L't', L' ', L'h', L'a', L'n', L'd', L'l', L'e', L' ', L's', L'i', L'g', L'n', L'a', L'l', L'.', L' ', L'T', L'h', L'e', L' ', L's', L'i', L'g', L'n', L'a', L'l', L' ', L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n', L' ', L'i', L's', L' ', L'u', L'n', L'k', L'n', L'o', L'w', L'n', L'.'};
-static wchar_t* COULD_NOT_HANDLE_SIGNAL_THE_SIGNAL_ABSTRACTION_IS_UNKNOWN_MESSAGE_LOG_CYBOI_MODEL = COULD_NOT_HANDLE_SIGNAL_THE_SIGNAL_ABSTRACTION_IS_UNKNOWN_MESSAGE_LOG_CYBOI_MODEL_ARRAY;
-static int* COULD_NOT_HANDLE_SIGNAL_THE_SIGNAL_ABSTRACTION_IS_UNKNOWN_MESSAGE_LOG_CYBOI_MODEL_COUNT = NUMBER_59_INTEGER_MEMORY_MODEL_ARRAY;
+/** The "Could not handle signal. The signal type is unknown." message log cyboi model. */
+static wchar_t COULD_NOT_HANDLE_SIGNAL_THE_SIGNAL_TYPE_IS_UNKNOWN_MESSAGE_LOG_CYBOI_MODEL_ARRAY[] = {L'C', L'o', L'u', L'l', L'd', L' ', L'n', L'o', L't', L' ', L'h', L'a', L'n', L'd', L'l', L'e', L' ', L's', L'i', L'g', L'n', L'a', L'l', L'.', L' ', L'T', L'h', L'e', L' ', L's', L'i', L'g', L'n', L'a', L'l', L' ', L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n', L' ', L'i', L's', L' ', L'u', L'n', L'k', L'n', L'o', L'w', L'n', L'.'};
+static wchar_t* COULD_NOT_HANDLE_SIGNAL_THE_SIGNAL_TYPE_IS_UNKNOWN_MESSAGE_LOG_CYBOI_MODEL = COULD_NOT_HANDLE_SIGNAL_THE_SIGNAL_TYPE_IS_UNKNOWN_MESSAGE_LOG_CYBOI_MODEL_ARRAY;
+static int* COULD_NOT_HANDLE_SIGNAL_THE_SIGNAL_TYPE_IS_UNKNOWN_MESSAGE_LOG_CYBOI_MODEL_COUNT = NUMBER_59_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The "Could not check for signals. The internal is null." message log cyboi model. */
 static wchar_t COULD_NOT_CHECK_FOR_SIGNALS_THE_INTERNAL_IS_NULL_MESSAGE_LOG_CYBOI_MODEL_ARRAY[] = {L'C', L'o', L'u', L'l', L'd', L' ', L'n', L'o', L't', L' ', L'c', L'h', L'e', L'c', L'k', L' ', L'f', L'o', L'r', L' ', L's', L'i', L'g', L'n', L'a', L'l', L's', L'.', L' ', L'T', L'h', L'e', L' ', L'i', L'n', L't', L'e', L'r', L'n', L'a', L'l', L' ', L'i', L's', L' ', L'n', L'u', L'l', L'l', L'.'};

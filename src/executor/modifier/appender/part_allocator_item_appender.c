@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -48,8 +48,8 @@
  * @param p0 the destination item
  * @param p1 the source name
  * @param p2 the source name count
- * @param p3 the source abstraction
- * @param p4 the source abstraction count
+ * @param p3 the source type
+ * @param p4 the source type count
  * @param p5 the source model
  * @param p6 the source model count
  * @param p7 the source details
@@ -64,13 +64,13 @@ void append_item_allocate_part(void* p0, void* p1, void* p2, void* p3, void* p4,
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p3);
 
     // Fill part.
-    overwrite_part_element(p, p1, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    overwrite_part_element(p, p3, (void*) INTEGER_MEMORY_ABSTRACTION, p4, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
+    overwrite_part_element(p, p1, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(p, p3, (void*) INTEGER_MEMORY_TYPE, p4, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     overwrite_part_element(p, p5, p3, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    overwrite_part_element(p, p7, (void*) PART_MEMORY_ABSTRACTION, p8, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    overwrite_part_element(p, p7, (void*) PART_MEMORY_TYPE, p8, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
 
     // Append part to destination.
-    append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /* PART_ALLOCATOR_ITEM_APPENDER_SOURCE */

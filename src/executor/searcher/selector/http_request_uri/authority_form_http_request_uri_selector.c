@@ -26,7 +26,7 @@
 #ifndef AUTHORITY_FORM_HTTP_REQUEST_URI_SELECTOR_SOURCE
 #define AUTHORITY_FORM_HTTP_REQUEST_URI_SELECTOR_SOURCE
 
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
 #include "../../../../constant/model/memory/pointer_memory_model.c"
@@ -110,7 +110,7 @@ void select_authority_form_http_request_uri(void* p0, void* p1, void* p2, void* 
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 

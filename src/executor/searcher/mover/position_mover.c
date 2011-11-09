@@ -26,8 +26,8 @@
 #ifndef POSITION_MOVER_SOURCE
 #define POSITION_MOVER_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -43,7 +43,7 @@
  *
  * @param p0 the data position (pointer reference)
  * @param p1 the count remaining
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  */
 void move_position(void* p0, void* p1, void* p2, void* p3) {
@@ -53,7 +53,7 @@ void move_position(void* p0, void* p1, void* p2, void* p3) {
     // The memory area.
     int m = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    // Determine abstraction (type) size.
+    // Determine type (type) size.
     determine_size((void*) &m, p2);
     // Calculate memory area.
     calculate_integer_multiply((void*) &m, p3);

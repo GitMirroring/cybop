@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -57,16 +57,16 @@ void append_item_encode_character(void* p0, void* p1, void* p2) {
     int s = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate character data.
-    allocate_array((void*) &d, (void*) &s, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &d, (void*) &s, (void*) CHARACTER_MEMORY_TYPE);
 
     // Encode wide character array into multibyte character data.
     encode_utf_8_unicode_character_vector((void*) &d, (void*) &c, (void*) &s, p1, p2);
 
     // Append character data to destination.
-    append_item_element(p0, d, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) &c, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, d, (void*) CHARACTER_MEMORY_TYPE, (void*) &c, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     // Deallocate character data.
-    deallocate_array((void*) &d, (void*) &s, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &d, (void*) &s, (void*) CHARACTER_MEMORY_TYPE);
 }
 
 /* CHARACTER_ENCODER_ITEM_APPENDER_SOURCE */

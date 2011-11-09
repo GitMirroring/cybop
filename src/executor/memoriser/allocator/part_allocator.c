@@ -37,7 +37,7 @@
  *
  * @param p0 the part (Hand over as reference!)
  * @param p1 the size
- * @param p2 the abstraction
+ * @param p2 the type
  */
 void allocate_part(void* p0, void* p1, void* p2) {
 
@@ -48,25 +48,25 @@ void allocate_part(void* p0, void* p1, void* p2) {
         log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Allocate part.");
 
         // Allocate part.
-        allocate_array(p0, (void*) PART_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_ABSTRACTION);
+        allocate_array(p0, (void*) PART_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
 
-        // The name, abstraction, model, details.
+        // The name, type, model, details.
         void* n = *NULL_POINTER_MEMORY_MODEL;
         void* a = *NULL_POINTER_MEMORY_MODEL;
         void* m = *NULL_POINTER_MEMORY_MODEL;
         void* d = *NULL_POINTER_MEMORY_MODEL;
 
-        // Allocate name, abstraction, model, details.
-        allocate_item((void*) &n, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
-        allocate_item((void*) &a, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_ABSTRACTION);
+        // Allocate name, type, model, details.
+        allocate_item((void*) &n, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+        allocate_item((void*) &a, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE);
         allocate_item((void*) &m, p1, p2);
-        allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_ABSTRACTION);
+        allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE);
 
-        // Set name, abstraction, model, details.
-        copy_array_forward(*p, (void*) &n, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NAME_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-        copy_array_forward(*p, (void*) &a, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) ABSTRACTION_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-        copy_array_forward(*p, (void*) &m, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) MODEL_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-        copy_array_forward(*p, (void*) &d, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) DETAILS_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        // Set name, type, model, details.
+        copy_array_forward(*p, (void*) &n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NAME_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(*p, (void*) &a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) TYPE_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(*p, (void*) &m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) MODEL_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(*p, (void*) &d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) DETAILS_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     } else {
 

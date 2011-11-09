@@ -26,8 +26,8 @@
 #ifndef ARITHMETISER_TESTER
 #define ARITHMETISER_TESTER
 
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../executor/memoriser/size_determiner.c"
 #include "../../logger/logger.c"

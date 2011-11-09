@@ -26,7 +26,7 @@
 #ifndef PART_REMOVER_SOURCE
 #define PART_REMOVER_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
 #include "../../../constant/model/memory_model.c"
@@ -38,13 +38,13 @@
 /**
  * Removes count elements from the part.
  *
- * The name, abstraction and details of the part remain unchanged.
+ * The name, type and details of the part remain unchanged.
  * Only the model gets touched by removing the given number of elements.
  *
  * The count and size are adjusted automatically.
  *
  * @param p0 the part
- * @param p1 the abstraction
+ * @param p1 the type
  * @param p2 the count
  * @param p3 the index
  */
@@ -56,7 +56,7 @@ void remove_part(void* p0, void* p1, void* p2, void* p3) {
     void* m = *NULL_POINTER_MEMORY_MODEL;
 
     // Get part model.
-    copy_array_forward((void*) &m, p0, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Remove elements from part model.
     remove_item(m, p1, p2, p3);

@@ -30,9 +30,9 @@
 
 #include <stdio.h>
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
@@ -72,7 +72,7 @@ void receive_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
             // Set character into destination data.
             // The destination count serves as array index for setting the character.
-            overwrite_array(p0, (void*) &c, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(p0, (void*) &c, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
             // Read next character.
             c = fgetc(p3);
@@ -104,7 +104,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p4, (void*) STANDARD_INPUT_STREAM_MODEL_COUNT);
+        compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) STANDARD_INPUT_STREAM_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -125,13 +125,13 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int tns = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
         // Allocate terminated file name.
-        allocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_MEMORY_ABSTRACTION);
+        allocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_MEMORY_TYPE);
 
         // Encode wide character name into multibyte character array.
         encode_utf_8_unicode_character_vector((void*) &tnd, (void*) &tnc, (void*) &tns, p3, p4);
 
         // Add null termination character to terminated file name.
-        overwrite_array((void*) &tnd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tnc, (void*) &tns, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        overwrite_array((void*) &tnd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tnc, (void*) &tns, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         // Open file.
         // CAUTION! The file name cannot be handed over as is.
@@ -155,7 +155,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         // Deallocate terminated file name.
-        deallocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_MEMORY_ABSTRACTION);
+        deallocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_MEMORY_TYPE);
     }
 }
 
@@ -166,7 +166,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p1 the destination details item (Hand over as item, since size may change!)
  * @param p2 the source data (file name)
  * @param p3 the source count
- * @param p4 the abstraction
+ * @param p4 the type
  */
 void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -178,7 +178,7 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int es = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate encoded data.
-    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_MEMORY_TYPE);
 
     // Write file into encoded data.
     receive_file((void*) &ed, (void*) &ec, (void*) &es, p2, p3);
@@ -191,7 +191,7 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate decoded data.
-    allocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Decode encoded data into decoded data.
     decode_utf_8_unicode_character_vector((void*) &dd, (void*) &dc, (void*) &ds, ed, (void*) &ec);
@@ -199,13 +199,13 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 //??    fwprintf(stdout, L"TEST w_char: %ls\n", (wchar_t*) dd);
 
     // Deallocate encoded data.
-    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_MEMORY_TYPE);
 
     // Deserialise decoded data into destination model and details.
     decode(p0, p1, dd, (void*) &dc, p4);
 
     // Deallocate decoded data.
-    deallocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

@@ -26,7 +26,7 @@
 #ifndef ARRAY_CALCULATOR_SOURCE
 #define ARRAY_CALCULATOR_SOURCE
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -39,8 +39,8 @@
  *
  * @param p0 the result array, which contains the operands BEFORE the operation
  * @param p1 the operand array
- * @param p2 the operation abstraction
- * @param p3 the operand abstraction
+ * @param p2 the operation type
+ * @param p3 the operand type
  * @param p4 the count
  */
 void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -78,8 +78,8 @@ void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) 
  *
  * @param p0 the result array, which contains the operands BEFORE the operation
  * @param p1 the operand array
- * @param p2 the operation abstraction
- * @param p3 the operand abstraction
+ * @param p2 the operation type
+ * @param p3 the operand type
  * @param p4 the count
  * @param p5 the result index
  * @param p6 the operand index

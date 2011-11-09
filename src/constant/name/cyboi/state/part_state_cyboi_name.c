@@ -31,8 +31,8 @@
 /** The name part state cyboi name. */
 static int* NAME_PART_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The abstraction part state cyboi name. */
-static int* ABSTRACTION_PART_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+/** The type part state cyboi name. */
+static int* TYPE_PART_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The model part state cyboi name. */
 static int* MODEL_PART_STATE_CYBOI_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;

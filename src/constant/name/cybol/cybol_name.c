@@ -40,10 +40,10 @@ static wchar_t CHANNEL_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e',
 static wchar_t* CHANNEL_CYBOL_NAME = CHANNEL_CYBOL_NAME_ARRAY;
 static int* CHANNEL_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The abstraction cybol name. */
-static wchar_t ABSTRACTION_CYBOL_NAME_ARRAY[] = {L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n'};
-static wchar_t* ABSTRACTION_CYBOL_NAME = ABSTRACTION_CYBOL_NAME_ARRAY;
-static int* ABSTRACTION_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
+/** The type cybol name. */
+static wchar_t TYPE_CYBOL_NAME_ARRAY[] = {L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n'};
+static wchar_t* TYPE_CYBOL_NAME = TYPE_CYBOL_NAME_ARRAY;
+static int* TYPE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
 
 /** The model cybol name. */
 static wchar_t MODEL_CYBOL_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};

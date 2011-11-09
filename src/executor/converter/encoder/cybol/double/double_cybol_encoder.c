@@ -26,8 +26,8 @@
 #ifndef DOUBLE_CYBOL_ENCODER_SOURCE
 #define DOUBLE_CYBOL_ENCODER_SOURCE
 
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/cybol/boolean_cybol_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"

@@ -26,10 +26,10 @@
 #ifndef NODE_MODEL_DIAGRAM_ENCODER_SOURCE
 #define NODE_MODEL_DIAGRAM_ENCODER_SOURCE
 
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -49,8 +49,8 @@
  * @param p0 the destination model diagram item
  * @param p1 the source name data
  * @param p2 the source name count
- * @param p3 the source abstraction data
- * @param p4 the source abstraction count
+ * @param p3 the source type data
+ * @param p4 the source type count
  * @param p5 the source model data
  * @param p6 the source model count
  * @param p7 the source details data
@@ -66,13 +66,13 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
     encode_model_diagram_indentation(p0, p9, p10);
 
     // Append part name.
-    append_item_element(p0, p1, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, p1, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     // Append line.
     encode_model_diagram_line(p0);
 
-    // Append part abstraction.
-    encode_abstraction(p0, p3);
+    // Append part type.
+    encode_type(p0, p3);
 
     //
     // Append part model.
@@ -83,7 +83,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) PART_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) PART_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -93,18 +93,18 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             encode_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) FRACTION_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) FRACTION_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -115,7 +115,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) INTEGER_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) INTEGER_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -126,34 +126,34 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) KNOWLEDGE_PATH_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) KNOWLEDGE_PATH_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             encode_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) OPERATION_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) OPERATION_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             encode_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+        compare_integer_equal((void*) &r, p3, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
             encode_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, p5, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 

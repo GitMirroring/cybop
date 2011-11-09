@@ -40,8 +40,8 @@
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left array
  * @param p2 the right array
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  * @param p5 the left array count
  * @param p6 the right array count
  */
@@ -52,7 +52,7 @@ void compare_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     // The comparison result.
     int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    compare_integer((void*) &r, p5, p6, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
+    compare_integer((void*) &r, p5, p6, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE);
 
     if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

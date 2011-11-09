@@ -40,7 +40,7 @@
 #include <unistd.h>
 */
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/level_log_model.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../executor/communicator/receiver/stream_socket_receiver.c"
@@ -80,8 +80,8 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     void* es = *NULL_POINTER_MEMORY_MODEL;
 
     // Allocate encoded character array.
-//??    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+//??    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     // Receive message from stream.
     receive_stream_socket((void*) &e, ec, es, p6);
@@ -91,8 +91,8 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     decode(p0, p1, p2, p3, p4, p5, e, ec, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p9, p10);
 
     // Deallocate encoded character array.
-//??    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+//??    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     //?? TODO: The destination compound model content needs to be RESET every time since
     //?? otherwise, new commands are just added to the "action" part entry, for example.
@@ -104,7 +104,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 */
 
 /*??
-    // The action name, abstraction, model, details.
+    // The action name, type, model, details.
     void** an = NULL_POINTER_MEMORY_MODEL;
     void** anc = NULL_POINTER_MEMORY_MODEL;
     void** ans = NULL_POINTER_MEMORY_MODEL;
@@ -160,7 +160,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     static wchar_t* INDEX_PARAMETER = INDEX_PARAMETER_ARRAY;
     static int* INDEX_PARAMETER_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
 
-    // The command name, abstraction, model, details.
+    // The command name, type, model, details.
     void** n = NULL_POINTER_MEMORY_MODEL;
     void** nc = NULL_POINTER_MEMORY_MODEL;
     void** ns = NULL_POINTER_MEMORY_MODEL;
@@ -237,7 +237,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     wchar_t* url_basename = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
     int url_basename_count = *NUMBER_0_INTEGER_MEMORY_MODEL;
     // Create url basename.
-    allocate_array((void*) &url_basename, (void*) &url_basename_count, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &url_basename, (void*) &url_basename_count, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     // Get url base name.
     receive_socket_url(msg, &msg_count, &url_basename, &url_basename_count);
 
@@ -245,7 +245,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     wchar_t* param = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
     int param_count = *NUMBER_0_INTEGER_MEMORY_MODEL;
     // Create paramater.
-    allocate_array((void*) &param, (void*) &param_count, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &param, (void*) &param_count, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     // Get parameters.
     receive_socket_parameter(msg, &msg_count, &param, &param_count);
 

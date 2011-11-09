@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -44,7 +44,7 @@
 #include "../../../logger/logger.c"
 
 //
-// Models of abstraction "complex" or "fraction" are not
+// Models of type "complex" or "fraction" are not
 // considered as container, since the comparison of their
 // elements follows special rules.
 //
@@ -70,8 +70,8 @@
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  */
 void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -88,7 +88,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *CHARACTER_MEMORY_ABSTRACTION) {
+            if (*a == *CHARACTER_MEMORY_TYPE) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -98,7 +98,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *DOUBLE_MEMORY_ABSTRACTION) {
+            if (*a == *DOUBLE_MEMORY_TYPE) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -108,7 +108,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *FRACTION_MEMORY_ABSTRACTION) {
+            if (*a == *FRACTION_MEMORY_TYPE) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -118,7 +118,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *INTEGER_MEMORY_ABSTRACTION) {
+            if (*a == *INTEGER_MEMORY_TYPE) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -128,7 +128,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *ITEM_PRIMITIVE_MEMORY_ABSTRACTION) {
+            if (*a == *ITEM_PRIMITIVE_MEMORY_TYPE) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -138,7 +138,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *PART_MEMORY_ABSTRACTION) {
+            if (*a == *PART_MEMORY_TYPE) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -148,7 +148,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *POINTER_MEMORY_ABSTRACTION) {
+            if (*a == *POINTER_MEMORY_TYPE) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -158,7 +158,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *UNSIGNED_LONG_MEMORY_ABSTRACTION) {
+            if (*a == *UNSIGNED_LONG_MEMORY_TYPE) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -168,7 +168,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            if (*a == *WIDE_CHARACTER_MEMORY_ABSTRACTION) {
+            if (*a == *WIDE_CHARACTER_MEMORY_TYPE) {
 
                 r = *NUMBER_1_INTEGER_MEMORY_MODEL;
 
@@ -178,12 +178,12 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not compare value. The operand abstraction is unknown.");
+            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not compare value. The operand type is unknown.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare value. The operand abstraction is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare value. The operand type is null.");
     }
 }
 
@@ -194,8 +194,8 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  * @param p5 the index
  */
 void compare_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {

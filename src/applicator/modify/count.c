@@ -29,9 +29,9 @@
 #include "../../applicator/memoriser/counting/all_counting_memoriser.c"
 #include "../../applicator/memoriser/counting/prefix_counting_memoriser.c"
 #include "../../applicator/memoriser/counting/suffix_counting_memoriser.c"
-#include "../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../constant/type/cybol/text_cybol_type.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/operation/primitive_operation_type.c"
 #include "../../constant/model/cybol/count_selection_cybol_model.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
@@ -64,7 +64,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Count compound parts.");
 
-    // The compound name, abstraction, model, details.
+    // The compound name, type, model, details.
     void** cn = NULL_POINTER_MEMORY_MODEL;
     void** cnc = NULL_POINTER_MEMORY_MODEL;
     void** cns = NULL_POINTER_MEMORY_MODEL;
@@ -77,7 +77,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** cd = NULL_POINTER_MEMORY_MODEL;
     void** cdc = NULL_POINTER_MEMORY_MODEL;
     void** cds = NULL_POINTER_MEMORY_MODEL;
-    // The selection name, abstraction, model, details.
+    // The selection name, type, model, details.
     void** sn = NULL_POINTER_MEMORY_MODEL;
     void** snc = NULL_POINTER_MEMORY_MODEL;
     void** sns = NULL_POINTER_MEMORY_MODEL;
@@ -90,7 +90,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** sd = NULL_POINTER_MEMORY_MODEL;
     void** sdc = NULL_POINTER_MEMORY_MODEL;
     void** sds = NULL_POINTER_MEMORY_MODEL;
-    // The filter name, abstraction, model, details.
+    // The filter name, type, model, details.
     void** fn = NULL_POINTER_MEMORY_MODEL;
     void** fnc = NULL_POINTER_MEMORY_MODEL;
     void** fns = NULL_POINTER_MEMORY_MODEL;
@@ -103,7 +103,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** fd = NULL_POINTER_MEMORY_MODEL;
     void** fdc = NULL_POINTER_MEMORY_MODEL;
     void** fds = NULL_POINTER_MEMORY_MODEL;
-    // The result name, abstraction, model, details.
+    // The result name, type, model, details.
     void** rn = NULL_POINTER_MEMORY_MODEL;
     void** rnc = NULL_POINTER_MEMORY_MODEL;
     void** rns = NULL_POINTER_MEMORY_MODEL;
@@ -159,7 +159,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, (void*) *sm, (void*) ALL_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) *smc, (void*) ALL_COUNT_SELECTION_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, (void*) *sm, (void*) ALL_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) *smc, (void*) ALL_COUNT_SELECTION_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -169,7 +169,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, (void*) *sm, (void*) PREFIX_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) *smc, (void*) PREFIX_COUNT_SELECTION_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, (void*) *sm, (void*) PREFIX_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) *smc, (void*) PREFIX_COUNT_SELECTION_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -179,7 +179,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, (void*) *sm, (void*) SUFFIX_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) *smc, (void*) SUFFIX_COUNT_SELECTION_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, (void*) *sm, (void*) SUFFIX_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) *smc, (void*) SUFFIX_COUNT_SELECTION_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 

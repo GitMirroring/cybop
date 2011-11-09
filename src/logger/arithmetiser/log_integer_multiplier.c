@@ -28,18 +28,18 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
 #include "../../logger/arithmetiser/integer_multiplier/log_integer_integer_multiplier.c"
 
 /**
- * Multiplies the destination of the given abstraction with the source integer.
+ * Multiplies the destination of the given type with the source integer.
  *
  * @param p0 the destination (If of type "pointer", then hand over as reference!)
  * @param p1 the source integer
- * @param p2 the abstraction
+ * @param p2 the type
  */
 void log_multiply_with_integer(void* p0, void* p1, void* p2) {
 
@@ -50,7 +50,7 @@ void log_multiply_with_integer(void* p0, void* p1, void* p2) {
         // CAUTION! DO NOT use logging functionality here!
         // The logger cannot log itself.
 
-        if (*a == *INTEGER_MEMORY_ABSTRACTION) {
+        if (*a == *INTEGER_MEMORY_TYPE) {
 
             log_calculate_integer_multiply(p0, p1);
 
@@ -58,14 +58,14 @@ void log_multiply_with_integer(void* p0, void* p1, void* p2) {
 
             // CAUTION! DO NOT use logging functionality here!
             // The logger cannot log itself.
-            // "Could not multiply with integer. The abstraction is unknown."
+            // "Could not multiply with integer. The type is unknown."
         }
 
     } else {
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger cannot log itself.
-        // "Could not multiply with integer. The abstraction is null."
+        // "Could not multiply with integer. The type is null."
     }
 }
 

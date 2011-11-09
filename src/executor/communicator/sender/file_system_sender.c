@@ -28,9 +28,9 @@
 
 #include <stdio.h>
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
@@ -59,7 +59,7 @@ void send_file_character(void* p0, void* p1, void* p2, void* p3) {
     char* c = (char*) *NULL_POINTER_MEMORY_MODEL;
 
     // Read character from source array.
-    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_MEMORY_TYPE);
 
     // Write character to file.
     char e = fputc(*c, (FILE*) p0);
@@ -86,7 +86,7 @@ void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
     char* c = (char*) *NULL_POINTER_MEMORY_MODEL;
 
     // Read character from source array.
-    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_MEMORY_TYPE);
 
     // Write character to file.
     //
@@ -207,7 +207,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION, p1, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p1, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -231,7 +231,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -264,13 +264,13 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 void* tns = *NULL_POINTER_MEMORY_MODEL;
 
                 // Allocate terminated file name.
-                allocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+                allocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
                 // Encode wide character option into multibyte character array.
                 encode_utf_8_unicode_character_vector((void*) &tn, tnc, tns, *d, p1);
 
                 // Add null termination character to terminated file name.
-                overwrite_array((void*) &tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tnc, tns);
+                overwrite_array((void*) &tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tnc, tns);
 
                 // Open file.
                 // CAUTION! The file name cannot be handed over as is.
@@ -304,7 +304,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 }
 
                 // Deallocate terminated file name.
-                deallocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+                deallocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             }
 
         } else {
@@ -324,8 +324,8 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p0 the internal memory
  * @param p1 the source name
  * @param p2 the source name count
- * @param p3 the source abstraction
- * @param p4 the source abstraction count
+ * @param p3 the source type
+ * @param p4 the source type count
  * @param p5 the source model
  * @param p6 the source model count
  * @param p7 the source details
@@ -350,7 +350,7 @@ void apply_send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     void* ss = *NULL_POINTER_MEMORY_MODEL;
 
     // Allocate serialised wide character array.
-    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Serialise source knowledge model into serialised wide character array.
     encode((void*) &s, sc, ss,
@@ -364,19 +364,19 @@ void apply_send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     void* es = *NULL_POINTER_MEMORY_MODEL;
 
     // Allocate encoded character array.
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     // Encode serialised wide character array into encoded character array.
     encode_utf_8_unicode_character_vector((void*) &e, ec, es, s, sc);
 
     // Deallocate serialised wide character array.
-    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Write encoded array into file.
     send_data((void*) &p15, p16, *NULL_POINTER_MEMORY_MODEL, e, ec, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
 
     // Deallocate encoded character array.
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_ABSTRACTION, (void*) CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 }
 
 /* FILE_SYSTEM_SENDER_SOURCE */

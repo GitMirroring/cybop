@@ -29,11 +29,11 @@
 #include "../../applicator/memoriser/copying/boolean_copying_memoriser.c"
 #include "../../applicator/memoriser/copying/character_vector_copying_memoriser.c"
 #include "../../applicator/memoriser/copying/integer_vector_copying_memoriser.c"
-#include "../../constant/abstraction/cybol/logicvalue_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/number_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../constant/type/cybol/logicvalue_cybol_type.c"
+#include "../../constant/type/cybol/number_cybol_type.c"
+#include "../../constant/type/cybol/text_cybol_type.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/operation/primitive_operation_type.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
@@ -48,7 +48,7 @@
  * Expected parametres:
  * - destination (required): the destination part
  * - source (required): the source part
- * - abstraction (required): the type of data
+ * - type (required): the type of data
  * - count (optional; if null, the source part model count will be used instead):
  *   the number of elements to be overwritten
  * - destination_index (optional; if null, an index of zero will be used instead):
@@ -74,7 +74,7 @@ void apply_overwrite(void* p0, int* p1, void* p2) {
     void* d = *NULL_POINTER_MEMORY_MODEL;
     // The source part.
     void* s = *NULL_POINTER_MEMORY_MODEL;
-    // The abstraction part.
+    // The type part.
     void* a = *NULL_POINTER_MEMORY_MODEL;
     // The count part.
     void* c = *NULL_POINTER_MEMORY_MODEL;
@@ -87,7 +87,7 @@ void apply_overwrite(void* p0, int* p1, void* p2) {
 
     // The source part model.
     void* sm = *NULL_POINTER_MEMORY_MODEL;
-    // The abstraction part model.
+    // The type part model.
     void* am = *NULL_POINTER_MEMORY_MODEL;
     // The count part model.
     void* cm = *NULL_POINTER_MEMORY_MODEL;
@@ -100,7 +100,7 @@ void apply_overwrite(void* p0, int* p1, void* p2) {
 
     // The source part model count.
     void* smc = *NULL_POINTER_MEMORY_MODEL;
-    // The abstraction part model data.
+    // The type part model data.
     void* amd = *NULL_POINTER_MEMORY_MODEL;
     // The count part model data.
     void* cmd = *NULL_POINTER_MEMORY_MODEL;
@@ -115,8 +115,8 @@ void apply_overwrite(void* p0, int* p1, void* p2) {
     get_name_array((void*) &d, p0, (void*) DESTINATION_OVERWRITE_OPERATION_CYBOL_NAME, (void*) DESTINATION_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get source part.
     get_name_array((void*) &s, p0, (void*) SOURCE_OVERWRITE_OPERATION_CYBOL_NAME, (void*) SOURCE_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
-    // Get abstraction part.
-    get_name_array((void*) &a, p0, (void*) ABSTRACTION_OVERWRITE_OPERATION_CYBOL_NAME, (void*) ABSTRACTION_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
+    // Get type part.
+    get_name_array((void*) &a, p0, (void*) TYPE_OVERWRITE_OPERATION_CYBOL_NAME, (void*) TYPE_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get count part.
     get_name_array((void*) &c, p0, (void*) COUNT_OVERWRITE_OPERATION_CYBOL_NAME, (void*) COUNT_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get destination index part.
@@ -127,30 +127,30 @@ void apply_overwrite(void* p0, int* p1, void* p2) {
     get_name_array((void*) &ad, p0, (void*) ADJUST_OVERWRITE_OPERATION_CYBOL_NAME, (void*) ADJUST_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get source part model.
-    copy_array_forward((void*) &sm, s, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    // Get abstraction part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sm, s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    // Get type part model.
+    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get count part model.
-    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get destination index part model.
-    copy_array_forward((void*) &dim, di, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &dim, di, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get source index part model.
-    copy_array_forward((void*) &sim, si, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sim, si, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get adjust part model.
-    copy_array_forward((void*) &adm, ad, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &adm, ad, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get source part model count.
-    copy_array_forward((void*) &smc, sm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    // Get abstraction part model data.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &smc, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    // Get type part model data.
+    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get count part model data.
-    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get destination index part model data.
-    copy_array_forward((void*) &dimd, dim, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dimd, dim, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get source index part model data.
-    copy_array_forward((void*) &simd, sim, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &simd, sim, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get adjust part model data.
-    copy_array_forward((void*) &admd, adm, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &admd, adm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The default values.
     int count = *NUMBER_0_INTEGER_MEMORY_MODEL;

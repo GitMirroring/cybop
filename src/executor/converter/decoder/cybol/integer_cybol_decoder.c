@@ -35,9 +35,9 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/integer_memory_model.c"
@@ -76,13 +76,13 @@ void decode_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int tmps = *NUMBER_2_INTEGER_MEMORY_MODEL;
 
         // Allocate temporary null-terminated string.
-        allocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+        allocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
         // Copy original string to temporary null-terminated string.
-        overwrite_array((void*) &tmp, p3, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p4, tmpc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        overwrite_array((void*) &tmp, p3, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, tmpc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
         // Add string termination to temporary null-terminated string.
         // The source count is used as index for the termination character.
-        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tmpc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tmpc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
 
         // The tail variable is useless here and only needed for the string
         // transformation function. If the whole string array consists of
@@ -112,7 +112,7 @@ void decode_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         // Deallocate temporary null-terminated string.
-        deallocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+        deallocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     } else {
 

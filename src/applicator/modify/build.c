@@ -26,8 +26,8 @@
 #ifndef BUILDING_MEMORISER_SOURCE
 #define BUILDING_MEMORISER_SOURCE
 
-#include "../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/cybol/text_cybol_type.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
@@ -55,7 +55,7 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Build list name.");
 
-    // The basisname name, abstraction, model, details.
+    // The basisname name, type, model, details.
     void** bnn = NULL_POINTER_MEMORY_MODEL;
     void** bnnc = NULL_POINTER_MEMORY_MODEL;
     void** bnns = NULL_POINTER_MEMORY_MODEL;
@@ -68,7 +68,7 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** bnd = NULL_POINTER_MEMORY_MODEL;
     void** bndc = NULL_POINTER_MEMORY_MODEL;
     void** bnds = NULL_POINTER_MEMORY_MODEL;
-    // The index name, abstraction, model, details.
+    // The index name, type, model, details.
     void** idxn = NULL_POINTER_MEMORY_MODEL;
     void** idxnc = NULL_POINTER_MEMORY_MODEL;
     void** idxns = NULL_POINTER_MEMORY_MODEL;
@@ -81,7 +81,7 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** idxd = NULL_POINTER_MEMORY_MODEL;
     void** idxdc = NULL_POINTER_MEMORY_MODEL;
     void** idxds = NULL_POINTER_MEMORY_MODEL;
-    // The result name, abstraction, model, details.
+    // The result name, type, model, details.
     void** resn = NULL_POINTER_MEMORY_MODEL;
     void** resnc = NULL_POINTER_MEMORY_MODEL;
     void** resns = NULL_POINTER_MEMORY_MODEL;
@@ -125,7 +125,7 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
         (void*) COMPOSITION_BUILD_FLOW_OPERATION_CYBOL_NAME, (void*) COMPOSITION_BUILD_FLOW_OPERATION_CYBOL_NAME_COUNT,
         p2, p3);
 
-    //check the abstraction for the operation element
+    //check the type for the operation element
     int comp_res1 = *NUMBER_0_INTEGER_MEMORY_MODEL;
     int comp_res2 = *NUMBER_0_INTEGER_MEMORY_MODEL;
     int comp_res3 = *NUMBER_0_INTEGER_MEMORY_MODEL;
@@ -136,7 +136,7 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int int_string_count = *NUMBER_0_INTEGER_MEMORY_MODEL;
     int int_string_size = *NUMBER_10_INTEGER_MEMORY_MODEL;
 
-    allocate_array((void*) &int_string, (void*) &int_string_size, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    allocate_array((void*) &int_string, (void*) &int_string_size, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     int_string_count = swprintf(int_string, int_string_size, L"%i", *((int*) *idxm));
 
@@ -145,18 +145,18 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
     *(int*)*resmc = *((int*) *bnmc) + *LIST_SEPARATOR_CYBOL_NAME_COUNT + int_string_count;
 
     // Reallocate result array.
-    reallocate_array(resm, *resms, *resms, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    reallocate_array(resm, *resms, *resms, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Set result array.
-    overwrite_array(*resm, *bnm, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, *bnmc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, *resmc, *resms);
-    overwrite_array(*resm, (void*) LIST_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) LIST_SEPARATOR_CYBOL_NAME_COUNT, *bnmc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, *resmc, *resms);
+    overwrite_array(*resm, *bnm, (void*) WIDE_CHARACTER_MEMORY_TYPE, *bnmc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, *resmc, *resms);
+    overwrite_array(*resm, (void*) LIST_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LIST_SEPARATOR_CYBOL_NAME_COUNT, *bnmc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, *resmc, *resms);
 
     int temp_index = *((int*) *bnmc) + *LIST_SEPARATOR_CYBOL_NAME_COUNT;
 
-    overwrite_array(*resm, int_string, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, &int_string_count, &temp_index, (void*) VALUE_PRIMITIVE_MEMORY_NAME, *resmc, *resms);
+    overwrite_array(*resm, int_string, (void*) WIDE_CHARACTER_MEMORY_TYPE, &int_string_count, &temp_index, (void*) VALUE_PRIMITIVE_MEMORY_NAME, *resmc, *resms);
 
     // Destroy int_string array.
-    deallocate_array((void*) &int_string, (void*) &int_string_size, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION);
+    deallocate_array((void*) &int_string, (void*) &int_string_size, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 }
 
 /* BUILDING_MEMORISER_SOURCE */

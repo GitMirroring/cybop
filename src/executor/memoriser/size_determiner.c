@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
@@ -40,10 +40,10 @@
 #include "../../variable/type_size/real_type_size.c"
 
 /**
- * Determines the size of the given abstraction.
+ * Determines the size of the given type.
  *
  * @param p0 the size
- * @param p1 the abstraction
+ * @param p1 the type
  */
 void determine_size(void* p0, void* p1) {
 
@@ -53,54 +53,54 @@ void determine_size(void* p0, void* p1) {
 
         log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Determine size.");
 
-        if (*a == *CHARACTER_MEMORY_ABSTRACTION) {
+        if (*a == *CHARACTER_MEMORY_TYPE) {
 
             copy_integer(p0, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *DOUBLE_MEMORY_ABSTRACTION) {
+        } else if (*a == *DOUBLE_MEMORY_TYPE) {
 
             copy_integer(p0, (void*) DOUBLE_REAL_TYPE_SIZE);
 
-        } else if (*a == *FRACTION_MEMORY_ABSTRACTION) {
+        } else if (*a == *FRACTION_MEMORY_TYPE) {
 
-            // CAUTION! This "fraction" abstraction IS NEEDED,
+            // CAUTION! This "fraction" type IS NEEDED,
             // e.g. when DEEP copying a part. Do NOT delete!
             // It is actually a pointer array, of which each
             // pointer references a fraction structure.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *INTEGER_MEMORY_ABSTRACTION) {
+        } else if (*a == *INTEGER_MEMORY_TYPE) {
 
             copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *PART_MEMORY_ABSTRACTION) {
+        } else if (*a == *PART_MEMORY_TYPE) {
 
-            // CAUTION! This "part" abstraction IS NEEDED,
+            // CAUTION! This "part" type IS NEEDED,
             // e.g. when DEEP copying a part. Do NOT delete!
             // It is actually a pointer array, of which each
             // pointer references a part structure.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *POINTER_MEMORY_ABSTRACTION) {
+        } else if (*a == *POINTER_MEMORY_TYPE) {
 
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *UNSIGNED_LONG_MEMORY_ABSTRACTION) {
+        } else if (*a == *UNSIGNED_LONG_MEMORY_TYPE) {
 
             copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *WIDE_CHARACTER_MEMORY_ABSTRACTION) {
+        } else if (*a == *WIDE_CHARACTER_MEMORY_TYPE) {
 
             copy_integer(p0, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 
         } else {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not determine size. The abstraction is unknown.");
+            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not determine size. The type is unknown.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not determine size. The abstraction is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not determine size. The type is null.");
     }
 }
 

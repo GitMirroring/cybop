@@ -33,9 +33,9 @@
 #include <pthread.h>
 #include <signal.h>
 
-#include "../../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/operation/primitive_operation_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
@@ -55,9 +55,9 @@
  * @param p0 the command name (Hand over as reference!)
  * @param p1 the command name count (Hand over as reference!)
  * @param p2 the command name size (Hand over as reference!)
- * @param p3 the command abstraction (Hand over as reference!)
- * @param p4 the command abstraction count (Hand over as reference!)
- * @param p5 the command abstraction size (Hand over as reference!)
+ * @param p3 the command type (Hand over as reference!)
+ * @param p4 the command type count (Hand over as reference!)
+ * @param p5 the command type size (Hand over as reference!)
  * @param p6 the command model (Hand over as reference!)
  * @param p7 the command model count (Hand over as reference!)
  * @param p8 the command model size (Hand over as reference!)
@@ -130,9 +130,9 @@ void sense_x_window_system_mouse_command(void* p0, void* p1, void* p2, void* p3,
  * @param p0 the command name (Hand over as reference!)
  * @param p1 the command name count (Hand over as reference!)
  * @param p2 the command name size (Hand over as reference!)
- * @param p3 the command abstraction (Hand over as reference!)
- * @param p4 the command abstraction count (Hand over as reference!)
- * @param p5 the command abstraction size (Hand over as reference!)
+ * @param p3 the command type (Hand over as reference!)
+ * @param p4 the command type count (Hand over as reference!)
+ * @param p5 the command type size (Hand over as reference!)
  * @param p6 the command model (Hand over as reference!)
  * @param p7 the command model count (Hand over as reference!)
  * @param p8 the command model size (Hand over as reference!)
@@ -188,9 +188,9 @@ void sense_x_window_system_command(void* p0, void* p1, void* p2, void* p3, void*
  * @param p0 the command name (Hand over as reference!)
  * @param p1 the command name count (Hand over as reference!)
  * @param p2 the command name size (Hand over as reference!)
- * @param p3 the command abstraction (Hand over as reference!)
- * @param p4 the command abstraction count (Hand over as reference!)
- * @param p5 the command abstraction size (Hand over as reference!)
+ * @param p3 the command type (Hand over as reference!)
+ * @param p4 the command type count (Hand over as reference!)
+ * @param p5 the command type size (Hand over as reference!)
  * @param p6 the command model (Hand over as reference!)
  * @param p7 the command model count (Hand over as reference!)
  * @param p8 the command model size (Hand over as reference!)
@@ -228,7 +228,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
                     int* wmc = (int*) p13;
 
-                    // The graphical part name, abstraction, model, details.
+                    // The graphical part name, type, model, details.
                     void** n = NULL_POINTER_MEMORY_MODEL;
                     void** nc = NULL_POINTER_MEMORY_MODEL;
                     void** ns = NULL_POINTER_MEMORY_MODEL;
@@ -241,7 +241,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                     void** d = NULL_POINTER_MEMORY_MODEL;
                     void** dc = NULL_POINTER_MEMORY_MODEL;
                     void** ds = NULL_POINTER_MEMORY_MODEL;
-                    // The graphical part position name, abstraction, model, details.
+                    // The graphical part position name, type, model, details.
                     void** pn = NULL_POINTER_MEMORY_MODEL;
                     void** pnc = NULL_POINTER_MEMORY_MODEL;
                     void** pns = NULL_POINTER_MEMORY_MODEL;
@@ -254,7 +254,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                     void** pd = NULL_POINTER_MEMORY_MODEL;
                     void** pdc = NULL_POINTER_MEMORY_MODEL;
                     void** pds = NULL_POINTER_MEMORY_MODEL;
-                    // The graphical part size name, abstraction, model, details.
+                    // The graphical part size name, type, model, details.
                     void** sn = NULL_POINTER_MEMORY_MODEL;
                     void** snc = NULL_POINTER_MEMORY_MODEL;
                     void** sns = NULL_POINTER_MEMORY_MODEL;
@@ -321,13 +321,13 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             p19, p20);
 
                         // Determine graphical part position coordinates.
-                        get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-                        get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-                        get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+                        get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
                         // Determine source part size coordinates.
-                        get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-                        get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-                        get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+                        get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
                         if ((*mx >= **pmx) && (*my >= **pmy) && (*mz >= **pmz)
                             && (*mx < (**pmx + **smx)) && (*my < (**pmy + **smy)) && (*mz < (**pmz + **smz))) {
@@ -337,7 +337,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             // Sense the graphical part's command.
                             sense_x_window_system_command(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, *d, *dc, p17, p18, p19, p20);
 
-                            compare_all_array((void*) &r, *a, (void*) PART_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, *ac, (void*) PART_MEMORY_ABSTRACTION_COUNT);
+                            compare_all_array((void*) &r, *a, (void*) PART_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *ac, (void*) PART_MEMORY_TYPE_COUNT);
 
                             if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -353,7 +353,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             }
                         }
 
-                        // Reset graphical part name, abstraction, model, details.
+                        // Reset graphical part name, type, model, details.
                         n = NULL_POINTER_MEMORY_MODEL;
                         nc = NULL_POINTER_MEMORY_MODEL;
                         ns = NULL_POINTER_MEMORY_MODEL;
@@ -366,7 +366,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                         d = NULL_POINTER_MEMORY_MODEL;
                         dc = NULL_POINTER_MEMORY_MODEL;
                         ds = NULL_POINTER_MEMORY_MODEL;
-                        // Reset graphical part position name, abstraction, model, details.
+                        // Reset graphical part position name, type, model, details.
                         pn = NULL_POINTER_MEMORY_MODEL;
                         pnc = NULL_POINTER_MEMORY_MODEL;
                         pns = NULL_POINTER_MEMORY_MODEL;
@@ -379,7 +379,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                         pd = NULL_POINTER_MEMORY_MODEL;
                         pdc = NULL_POINTER_MEMORY_MODEL;
                         pds = NULL_POINTER_MEMORY_MODEL;
-                        // Reset graphical part size name, abstraction, model, details.
+                        // Reset graphical part size name, type, model, details.
                         sn = NULL_POINTER_MEMORY_MODEL;
                         snc = NULL_POINTER_MEMORY_MODEL;
                         sns = NULL_POINTER_MEMORY_MODEL;
@@ -475,32 +475,32 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int** w = (int**) NULL_POINTER_MEMORY_MODEL;
 
     // Get knowledge memory internal.
-    get((void*) &k, p0, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-    get((void*) &kc, p0, (void*) KNOWLEDGE_MEMORY_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-    get((void*) &ks, p0, (void*) KNOWLEDGE_MEMORY_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &k, p0, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &kc, p0, (void*) KNOWLEDGE_MEMORY_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &ks, p0, (void*) KNOWLEDGE_MEMORY_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
     // Get signal memory internal.
-    get((void*) &s, p0, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-    get((void*) &sc, p0, (void*) SIGNAL_MEMORY_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-    get((void*) &ss, p0, (void*) SIGNAL_MEMORY_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &s, p0, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &sc, p0, (void*) SIGNAL_MEMORY_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &ss, p0, (void*) SIGNAL_MEMORY_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
     // Get signal memory mutex.
-    get((void*) &smt, p0, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &smt, p0, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
     // Get x window system mutex.
-    get((void*) &xmt, p0, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &xmt, p0, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
     // Get interrupt request internal.
-    get((void*) &sirq, p0, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &sirq, p0, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
     // Get user interface root internal.
-    get((void*) &r, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-    get((void*) &rc, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-    get((void*) &rs, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &r, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &rc, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &rs, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
     // Get user interface commands internal.
-    get((void*) &c, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-    get((void*) &cc, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-    get((void*) &cs, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &c, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &cc, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &cs, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
     // Get x window system internals.
-    get((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
-    get((void*) &w, p0, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_ABSTRACTION, (void*) POINTER_MEMORY_ABSTRACTION_COUNT);
+    get((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &w, p0, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
-    // The command name, abstraction, model, details.
+    // The command name, type, model, details.
     void** cn = NULL_POINTER_MEMORY_MODEL;
     void** cnc = NULL_POINTER_MEMORY_MODEL;
     void** cns = NULL_POINTER_MEMORY_MODEL;
@@ -514,7 +514,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** cdc = NULL_POINTER_MEMORY_MODEL;
     void** cds = NULL_POINTER_MEMORY_MODEL;
 
-    //?? TODO: The temporary graphical part name, abstraction, model, details.
+    //?? TODO: The temporary graphical part name, type, model, details.
     void** tmpn = NULL_POINTER_MEMORY_MODEL;
     void** tmpnc = NULL_POINTER_MEMORY_MODEL;
     void** tmpns = NULL_POINTER_MEMORY_MODEL;
@@ -703,7 +703,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
             (void*) &tmpd, (void*) &tmpdc, (void*) &tmpds);
 
         // Determine command, depending on mouse button and event type.
-        // CAUTION! Hand over command abstraction, model, details as reference!
+        // CAUTION! Hand over command type, model, details as reference!
         sense_x_window_system_part(&cn, &cnc, &cns, &ca, &cac, &cas, &cm, &cmc, &cms, &cd, &cdc, &cds,
             *tmpm, *tmpmc, &(e.xbutton.x), &(e.xbutton.y), (void*) NUMBER_0_INTEGER_MEMORY_MODEL,
             &t, &(e.xbutton.button), *k, *kc);

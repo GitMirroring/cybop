@@ -28,7 +28,7 @@
 
 #include <stdio.h>
 
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
 #include "../../../executor/accessor/getter.c"
@@ -49,7 +49,7 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Send inline.");
 
-    overwrite_array(p0, p3, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p4, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, p3, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 }
 
 /**
@@ -58,14 +58,14 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p0 the destination receiving wide character array (Hand over as reference!)
  * @param p1 the destination receiving wide character array count
  * @param p2 the destination receiving wide character array size
- * @param p3 the source message abstraction
- * @param p4 the source message abstraction count
+ * @param p3 the source message type
+ * @param p4 the source message type count
  * @param p5 the source message model
  * @param p6 the source message model count
  * @param p7 the source message details
  * @param p8 the source message details count
- * @param p9 the source metadata abstraction
- * @param p10 the source metadata abstraction count
+ * @param p9 the source metadata type
+ * @param p10 the source metadata type count
  * @param p11 the source metadata model
  * @param p12 the source metadata model count
  * @param p13 the source metadata details
@@ -84,7 +84,7 @@ void apply_send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     void* as = *NULL_POINTER_MEMORY_MODEL;
 
     // Allocate array.
-    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Encode source knowledge model into array.
     encode((void*) &a, ac, as,
@@ -106,7 +106,7 @@ void apply_send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 */
 
     // Deallocate array.
-    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION_COUNT);
+    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 }
 
 /* INLINE_SENDER_SOURCE */

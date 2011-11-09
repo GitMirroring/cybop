@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -45,7 +45,7 @@
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the investigated item
  * @param p2 the searched array
- * @param p3 the abstraction
+ * @param p3 the type
  * @param p4 the searched array count
  * @param p5 the investigated item element index
  */
@@ -57,12 +57,12 @@ void find_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     void* e = *NULL_POINTER_MEMORY_MODEL;
 
     // Get investigated item element.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p5);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p5);
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
-    compare_integer((void*) &r, p5, (void*) DATA_ITEM_MEMORY_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
+    compare_integer((void*) &r, p5, (void*) DATA_ITEM_MEMORY_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE);
 
     if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
@@ -73,7 +73,7 @@ void find_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         void* c = *NULL_POINTER_MEMORY_MODEL;
 
         // Get investigated item count.
-        copy_array_forward((void*) &c, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+        copy_array_forward((void*) &c, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
         // Find the searched array in the investigated item data array.
         find_array(p0, e, p2, p3, c, p4);
@@ -93,7 +93,7 @@ void find_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the investigated item
  * @param p2 the searched item
- * @param p3 the abstraction
+ * @param p3 the type
  */
 void find_item(void* p0, void* p1, void* p2, void* p3) {
 
@@ -107,11 +107,11 @@ void find_item(void* p0, void* p1, void* p2, void* p3) {
     void* sc = *NULL_POINTER_MEMORY_MODEL;
 
     // Get investigated data, count.
-    copy_array_forward((void*) &id, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &ic, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &id, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ic, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get searched data, count.
-    copy_array_forward((void*) &sd, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &sc, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &sd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &sc, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // Find the searched item data array in the investigated item data array.
     find_array(p0, id, sd, p3, ic, sc);

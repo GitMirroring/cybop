@@ -26,8 +26,8 @@
 #ifndef VALUE_BOOLEAN_CYBOL_ENCODER_SOURCE
 #define VALUE_BOOLEAN_CYBOL_ENCODER_SOURCE
 
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/memory/memory_type.c"
 #include "../../../../constant/model/cybol/boolean_cybol_model.c"
 #include "../../../../constant/model/log/message_log_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
@@ -55,7 +55,7 @@ void encode_cybol_boolean_value(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
     // Get value from vector at index.
-    copy_array_forward((void*) &v, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
+    copy_array_forward((void*) &v, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -63,7 +63,7 @@ void encode_cybol_boolean_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) FALSE_BOOLEAN_CYBOL_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) FALSE_BOOLEAN_CYBOL_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 
@@ -73,7 +73,7 @@ void encode_cybol_boolean_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            append_item_element(p0, (void*) TRUE_BOOLEAN_CYBOL_MODEL, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            append_item_element(p0, (void*) TRUE_BOOLEAN_CYBOL_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
     }
 

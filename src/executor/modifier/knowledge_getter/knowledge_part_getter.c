@@ -68,10 +68,10 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The part.
     void* p = *NULL_POINTER_MEMORY_MODEL;
-    // The part abstraction, model.
+    // The part type, model.
     void* a = *NULL_POINTER_MEMORY_MODEL;
     void* m = *NULL_POINTER_MEMORY_MODEL;
-    // The part abstraction, model data, count.
+    // The part type, model data, count.
     void* ad = *NULL_POINTER_MEMORY_MODEL;
     void* ac = *NULL_POINTER_MEMORY_MODEL;
     void* md = *NULL_POINTER_MEMORY_MODEL;
@@ -86,21 +86,21 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get part.
     //
-    // CAUTION! It is necessary to find out about the abstraction and model.
-    // The abstraction may be "encapsulated", "knowledge", or some other.
+    // CAUTION! It is necessary to find out about the type and model.
+    // The type may be "encapsulated", "knowledge", or some other.
     // The model may contain a knowledge path or encapsulated knowledge path.
     //
     // CAUTION! Hand over name as reference!
     get_part_branch((void*) &p, p1, (void*) &p2, p3);
 
-    // Get part abstraction, model item.
-    copy_array_forward((void*) &a, p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) ABSTRACTION_PART_MEMORY_NAME);
-    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    // Get part abstraction, model data, count array.
-    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &ac, a, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    // Get part type, model item.
+    copy_array_forward((void*) &a, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    // Get part type, model data, count array.
+    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ac, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
@@ -114,14 +114,14 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_integer((void*) &r, ad, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
+        compare_integer((void*) &r, ad, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
             //
             // Get part as double-encapsulated knowledge.
             //
-            // CAUTION! The "abstraction" of an encapsulated name must always be "character"
+            // CAUTION! The "type" of an encapsulated name must always be "character"
             // (which is processed as wide character wchar_t inside of cyboi, of course).
             // The "details" are uninteresting, since an encapsulated name cannot have
             // constraints. That is, only the model is of interest. It contains the
@@ -135,10 +135,10 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
             get_part_branch((void*) &ep, p4, (void*) &md, mc);
 
             // Get encapsulated part model item.
-            copy_array_forward((void*) &em, ep, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+            copy_array_forward((void*) &em, ep, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
             // Get encapsulated part model data, count array.
-            copy_array_forward((void*) &emd, em, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-            copy_array_forward((void*) &emc, em, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+            copy_array_forward((void*) &emd, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+            copy_array_forward((void*) &emc, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
             // CAUTION! Hand over name as reference!
             get_part_branch(p0, p4, (void*) &emd, emc);
@@ -147,14 +147,14 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
-        compare_integer((void*) &r, ad, (void*) KNOWLEDGE_PATH_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION);
+        compare_integer((void*) &r, ad, (void*) KNOWLEDGE_PATH_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE);
 
         if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
 
             //
             // Get part as encapsulated model.
             //
-            // CAUTION! The "abstraction" of an encapsulated name must always be "character"
+            // CAUTION! The "type" of an encapsulated name must always be "character"
             // (which is processed as wide character wchar_t inside of cyboi, of course).
             // The "details" are uninteresting, since an encapsulated name cannot have
             // constraints. That is, only the model is of interest. It contains the

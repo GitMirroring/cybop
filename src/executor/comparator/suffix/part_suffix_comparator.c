@@ -26,10 +26,10 @@
 #ifndef PART_SUFFIX_COMPARATOR_SOURCE
 #define PART_SUFFIX_COMPARATOR_SOURCE
 
-#include "../../../constant/abstraction/cybol/number_cybol_abstraction.c"
-#include "../../../constant/abstraction/cybol/path_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/cybol/number_cybol_type.c"
+#include "../../../constant/type/cybol/path_cybol_type.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -45,8 +45,8 @@
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left part
  * @param p2 the right array
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  * @param p5 the right array count
  * @param p6 the left part element index
  */
@@ -58,7 +58,7 @@ void compare_suffix_part_element(void* p0, void* p1, void* p2, void* p3, void* p
     void* e = *NULL_POINTER_MEMORY_MODEL;
 
     // Get left part element.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
 
     // Compare if the right array is a suffix of the left part model item.
     compare_suffix_item_element(p0, e, p2, p3, p4, p5, (void*) DATA_ITEM_MEMORY_NAME);
@@ -70,8 +70,8 @@ void compare_suffix_part_element(void* p0, void* p1, void* p2, void* p3, void* p
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left part
  * @param p2 the right part
- * @param p3 the operation abstraction
- * @param p4 the operand abstraction
+ * @param p3 the operation type
+ * @param p4 the operand type
  */
 void compare_suffix_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -83,9 +83,9 @@ void compare_suffix_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* rm = *NULL_POINTER_MEMORY_MODEL;
 
     // Get left model.
-    copy_array_forward((void*) &lm, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &lm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get right model.
-    copy_array_forward((void*) &rm, p2, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &rm, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Compare if the right- is a suffix of the left part model item.
     compare_suffix_item(p0, lm, rm, p3, p4);

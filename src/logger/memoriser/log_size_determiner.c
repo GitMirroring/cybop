@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../constant/type/memory/memory_type.c"
 #include "../../constant/model/log/message_log_model.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
@@ -38,10 +38,10 @@
 #include "../../variable/type_size/real_type_size.c"
 
 /**
- * Determines the size of the given abstraction.
+ * Determines the size of the given type.
  *
  * @param p0 the size
- * @param p1 the abstraction
+ * @param p1 the type
  */
 void log_determine_size(void* p0, void* p1) {
 
@@ -51,29 +51,29 @@ void log_determine_size(void* p0, void* p1) {
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger cannot log itself.
-        // "Could not determine size. The abstraction is null."
+        // "Could not determine size. The type is null."
 
-        if (*a == *CHARACTER_MEMORY_ABSTRACTION) {
+        if (*a == *CHARACTER_MEMORY_TYPE) {
 
             log_copy_integer(p0, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *DOUBLE_MEMORY_ABSTRACTION) {
+        } else if (*a == *DOUBLE_MEMORY_TYPE) {
 
             log_copy_integer(p0, (void*) DOUBLE_REAL_TYPE_SIZE);
 
-        } else if (*a == *INTEGER_MEMORY_ABSTRACTION) {
+        } else if (*a == *INTEGER_MEMORY_TYPE) {
 
             log_copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *POINTER_MEMORY_ABSTRACTION) {
+        } else if (*a == *POINTER_MEMORY_TYPE) {
 
             log_copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *UNSIGNED_LONG_MEMORY_ABSTRACTION) {
+        } else if (*a == *UNSIGNED_LONG_MEMORY_TYPE) {
 
             log_copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *WIDE_CHARACTER_MEMORY_ABSTRACTION) {
+        } else if (*a == *WIDE_CHARACTER_MEMORY_TYPE) {
 
             log_copy_integer(p0, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 
@@ -81,14 +81,14 @@ void log_determine_size(void* p0, void* p1) {
 
             // CAUTION! DO NOT use logging functionality here!
             // The logger cannot log itself.
-            // "Could not determine size. The abstraction is unknown."
+            // "Could not determine size. The type is unknown."
         }
 
     } else {
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger cannot log itself.
-        // "Could not determine size. The abstraction is null."
+        // "Could not determine size. The type is null."
     }
 }
 

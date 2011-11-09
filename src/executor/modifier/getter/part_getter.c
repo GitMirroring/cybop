@@ -26,10 +26,10 @@
 #ifndef PART_GETTER_SOURCE
 #define PART_GETTER_SOURCE
 
-#include "../../../constant/abstraction/cybol/number_cybol_abstraction.c"
-#include "../../../constant/abstraction/cybol/path_cybol_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../../constant/abstraction/memory/memory_abstraction.c"
+#include "../../../constant/type/cybol/number_cybol_type.c"
+#include "../../../constant/type/cybol/path_cybol_type.c"
+#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/memory/memory_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -53,11 +53,11 @@
  * Example:
  *
  * void* part_reference = *NULL_POINTER_MEMORY_MODEL;
- * get_part_element((void*) &part_reference, whole_part, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &j, (void*) MODEL_PART_MEMORY_NAME);
+ * get_part_element((void*) &part_reference, whole_part, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &j, (void*) MODEL_PART_MEMORY_NAME);
  *
  * @param p0 the destination array
  * @param p1 the source part
- * @param p2 the abstraction
+ * @param p2 the type
  * @param p3 the count
  * @param p4 the destination array index
  * @param p5 the source part index
@@ -77,7 +77,7 @@ void get_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // with a fixed size of one which does not have to be changed.
     // Only a simple reference (pointer) of size one is copied here.
     // Using the "copy_array_forward" function is more efficient.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_ABSTRACTION, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
 
     // Get destination array from source part element item.
     get_item_element(p0, e, p2, p3, p4, p5, (void*) DATA_ITEM_MEMORY_NAME);

@@ -41,8 +41,8 @@
  * Encodes the http response body.
  *
  * @param p0 the destination character item
- * @param p1 the source abstraction
- * @param p2 the source abstraction count
+ * @param p1 the source type
+ * @param p2 the source type count
  * @param p3 the source model
  * @param p4 the source model count
  * @param p5 the source details
@@ -58,15 +58,15 @@ void encode_http_response_body(void* p0, void* p1, void* p2, void* p3, void* p4,
     int ms = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
     // Allocate character array.
-    allocate_model((void*) &md, (void*) &ms, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    allocate_model((void*) &md, (void*) &ms, (void*) CHARACTER_MEMORY_TYPE);
 
     // Encode wide character array into multibyte character array.
     encode_utf_8_unicode_character_vector((void*) &md, (void*) &mc, (void*) &ms, p3, p4);
 
-    append_item_element(p0, md, (void*) CHARACTER_MEMORY_ABSTRACTION, mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, md, (void*) CHARACTER_MEMORY_TYPE, mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     // Deallocate character model.
-    deallocate_model((void*) &md, (void*) &ms, (void*) CHARACTER_MEMORY_ABSTRACTION);
+    deallocate_model((void*) &md, (void*) &ms, (void*) CHARACTER_MEMORY_TYPE);
 }
 
 /* BODY_HTTP_RESPONSE_ENCODER_SOURCE */

@@ -26,7 +26,7 @@
 #ifndef FRACTION_CALCULATOR_SOURCE
 #define FRACTION_CALCULATOR_SOURCE
 
-#include "../../../constant/abstraction/operation/operation_abstraction.c"
+#include "../../../constant/type/operation/operation_type.c"
 #include "../../../constant/model/log/message_log_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 #include "../../../constant/model/memory/pointer_memory_model.c"
@@ -41,7 +41,7 @@
  *
  * @param p0 the result
  * @param p1 the operand
- * @param p2 the operation abstraction
+ * @param p2 the operation type
  */
 void calculate_fraction(void* p0, void* p1, void* p2) {
 
@@ -53,7 +53,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 /*??
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ABSOLUTE_OPERATION_ABSTRACTION);
+        compare_integer_equal((void*) &r, p2, (void*) ABSOLUTE_OPERATION_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -64,7 +64,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ADD_OPERATION_ABSTRACTION);
+        compare_integer_equal((void*) &r, p2, (void*) ADD_OPERATION_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -74,7 +74,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) DIVIDE_OPERATION_ABSTRACTION);
+        compare_integer_equal((void*) &r, p2, (void*) DIVIDE_OPERATION_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -84,7 +84,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) MULTIPLY_OPERATION_ABSTRACTION);
+        compare_integer_equal((void*) &r, p2, (void*) MULTIPLY_OPERATION_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -95,7 +95,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 /*??
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) NEGATE_OPERATION_ABSTRACTION);
+        compare_integer_equal((void*) &r, p2, (void*) NEGATE_OPERATION_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -106,7 +106,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) REDUCE_OPERATION_ABSTRACTION);
+        compare_integer_equal((void*) &r, p2, (void*) REDUCE_OPERATION_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -116,7 +116,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SUBTRACT_OPERATION_ABSTRACTION);
+        compare_integer_equal((void*) &r, p2, (void*) SUBTRACT_OPERATION_TYPE);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -126,7 +126,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not calculate fraction. The operation abstraction is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not calculate fraction. The operation type is unknown.");
     }
 }
 

@@ -26,18 +26,18 @@
 #ifndef ENCODER_SOURCE
 #define ENCODER_SOURCE
 
-#include "../../constant/abstraction/cybol/application_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/application_x_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/colour_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/datetime_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/interface_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/logicvalue_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/message_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/number_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/operation_cybol_abstraction.c"
-#include "../../constant/abstraction/cybol/text_cybol_abstraction.c"
-#include "../../constant/abstraction/memory/memory_abstraction.c"
-#include "../../constant/abstraction/operation/primitive_operation_abstraction.c"
+#include "../../constant/type/cybol/application_cybol_type.c"
+#include "../../constant/type/cybol/application_x_cybol_type.c"
+#include "../../constant/type/cybol/colour_cybol_type.c"
+#include "../../constant/type/cybol/datetime_cybol_type.c"
+#include "../../constant/type/cybol/interface_cybol_type.c"
+#include "../../constant/type/cybol/logicvalue_cybol_type.c"
+#include "../../constant/type/cybol/message_cybol_type.c"
+#include "../../constant/type/cybol/number_cybol_type.c"
+#include "../../constant/type/cybol/operation_cybol_type.c"
+#include "../../constant/type/cybol/text_cybol_type.c"
+#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/operation/primitive_operation_type.c"
 #include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/memory/integer_memory_model.c"
 #include "../../constant/model/memory/pointer_memory_model.c"
@@ -66,21 +66,21 @@
 #include "../../executor/converter/encoder/x_window_system_encoder.c"
 
 /**
- * Encodes the source into the destination, according to the given abstraction.
+ * Encodes the source into the destination, according to the given type.
  *
  * @param p0 the destination item
  * @param p3 the source message name
  * @param p4 the source message name count
- * @param p5 the source message abstraction
- * @param p6 the source message abstraction count
+ * @param p5 the source message type
+ * @param p6 the source message type count
  * @param p7 the source message model
  * @param p8 the source message model count
  * @param p9 the source message details
  * @param p10 the source message details count
  * @param p11 the source metadata name
  * @param p12 the source metadata name count
- * @param p13 the source metadata abstraction
- * @param p14 the source metadata abstraction count
+ * @param p13 the source metadata type
+ * @param p14 the source metadata type count
  * @param p15 the source metadata model
  * @param p16 the source metadata model count
  * @param p17 the source metadata details
@@ -100,7 +100,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) BOOLEAN_LOGICVALUE_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) BOOLEAN_LOGICVALUE_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) BOOLEAN_LOGICVALUE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) BOOLEAN_LOGICVALUE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -110,7 +110,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -120,7 +120,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) CYBOL_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) CYBOL_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) CYBOL_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) CYBOL_TEXT_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -130,7 +130,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -140,17 +140,17 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p8, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_MEMORY_TYPE, p8, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p21, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -160,7 +160,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) HH_MM_SS_DATETIME_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) HH_MM_SS_DATETIME_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) HH_MM_SS_DATETIME_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) HH_MM_SS_DATETIME_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -170,7 +170,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) HTML_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) HTML_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) HTML_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) HTML_TEXT_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -180,7 +180,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) HTTP_REQUEST_MESSAGE_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) HTTP_REQUEST_MESSAGE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) HTTP_REQUEST_MESSAGE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -190,7 +190,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) HTTP_RESPONSE_MESSAGE_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) HTTP_RESPONSE_MESSAGE_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) HTTP_RESPONSE_MESSAGE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) HTTP_RESPONSE_MESSAGE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -200,7 +200,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) INTEGER_MEMORY_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) INTEGER_MEMORY_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) INTEGER_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) INTEGER_MEMORY_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -210,17 +210,17 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) KNOWLEDGE_PATH_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) KNOWLEDGE_PATH_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) KNOWLEDGE_PATH_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) KNOWLEDGE_PATH_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p8, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_MEMORY_TYPE, p8, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) LATEX_APPLICATION_X_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) LATEX_APPLICATION_X_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) LATEX_APPLICATION_X_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) LATEX_APPLICATION_X_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -230,7 +230,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) MODEL_DIAGRAM_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) MODEL_DIAGRAM_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) MODEL_DIAGRAM_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) MODEL_DIAGRAM_TEXT_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -240,27 +240,27 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) PLAIN_OPERATION_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) PLAIN_OPERATION_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) PLAIN_OPERATION_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) PLAIN_OPERATION_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p8, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_MEMORY_TYPE, p8, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) PLAIN_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p8, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
+            overwrite_array(p0, p7, (void*) WIDE_CHARACTER_MEMORY_TYPE, p8, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) TERMINAL_BACKGROUND_COLOUR_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) TERMINAL_BACKGROUND_COLOUR_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) TERMINAL_BACKGROUND_COLOUR_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) TERMINAL_BACKGROUND_COLOUR_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -270,7 +270,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) TERMINAL_FOREGROUND_COLOUR_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) TERMINAL_FOREGROUND_COLOUR_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) TERMINAL_FOREGROUND_COLOUR_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) TERMINAL_FOREGROUND_COLOUR_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -280,7 +280,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) VULGAR_FRACTION_NUMBER_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) VULGAR_FRACTION_NUMBER_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) VULGAR_FRACTION_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) VULGAR_FRACTION_NUMBER_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -290,7 +290,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p21, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -300,7 +300,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) XDT_TEXT_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) XDT_TEXT_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) XDT_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) XDT_TEXT_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -310,7 +310,7 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) YYYY_MM_DD_DATETIME_CYBOL_ABSTRACTION, (void*) EQUAL_PRIMITIVE_OPERATION_ABSTRACTION, (void*) WIDE_CHARACTER_MEMORY_ABSTRACTION, p22, (void*) YYYY_MM_DD_DATETIME_CYBOL_ABSTRACTION_COUNT);
+        compare_all_array((void*) &r, p21, (void*) YYYY_MM_DD_DATETIME_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p22, (void*) YYYY_MM_DD_DATETIME_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
