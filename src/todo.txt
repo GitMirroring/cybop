@@ -11,9 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Change year from 2011 to 2012 in comment block of all source code files, in order to prepare next release
-        * Delete CVS tags in comment block at beginning of all source code files,
-            since "$" tags are specific to CVS but SVN is used now and does not fill them
+        [Use cyboi.c as template]
+        * Change year to 2012 in comment block of all source code files, to prepare next release
+        * Delete CVS "$" tags in comment block at beginning of all source code files,
+            since they are specific to CVS but SVN is used now, which does not fill them
         * Use new line "@version CYBOI 0.11.0" (and update it with each new release from now on)
 
         * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"
