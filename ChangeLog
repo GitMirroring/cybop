@@ -16,6 +16,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Restructure directory "constant/model/"
+        * Create new directory "constant/encoding/"
+        * Update directory "constant/channel/"
+        * Add several more logic cybol abstraction constants
+        * Rename "executor/logicifier/" into "executor/logifier/"
+        * Rename "executor/bitmator/" into "executor/manipulator/"
+
 2011-11-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Restructure directory "constant/abstraction/cybol/" into "state" and "logic"

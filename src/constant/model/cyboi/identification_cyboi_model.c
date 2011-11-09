@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef IDENTIFICATION_CYBOI_MODEL_SOURCE
-#define IDENTIFICATION_CYBOI_MODEL_SOURCE
+#ifndef IDENTIFICATION_CYBOI_MODEL_CONSTANT_SOURCE
+#define IDENTIFICATION_CYBOI_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The name identification cyboi model. */
@@ -76,5 +77,5 @@ static wchar_t HELP_IDENTIFICATION_CYBOI_MODEL_ARRAY[] = {
 static wchar_t* HELP_IDENTIFICATION_CYBOI_MODEL = HELP_IDENTIFICATION_CYBOI_MODEL_ARRAY;
 static int* HELP_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_715_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* IDENTIFICATION_CYBOI_MODEL_SOURCE */
+/* IDENTIFICATION_CYBOI_MODEL_CONSTANT_SOURCE */
 #endif

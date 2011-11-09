@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LCID_LANGUAGE_MODEL_SOURCE
-#define LCID_LANGUAGE_MODEL_SOURCE
+#ifndef LCID_LANGUAGE_MODEL_CONSTANT_SOURCE
+#define LCID_LANGUAGE_MODEL_CONSTANT_SOURCE
 
 #include "../../../constant/model/memory/integer_memory_model.c"
 
@@ -319,5 +319,5 @@ GERMAN_SWITZERLAND_COUNTRY_STRING = 'German - Switzerland';
 GERMAN_SWITZERLAND_COUNTRY_IDENTIFICATION = 2055;
 */
 
-/* LCID_LANGUAGE_MODEL_SOURCE */
+/* LCID_LANGUAGE_MODEL_CONSTANT_SOURCE */
 #endif

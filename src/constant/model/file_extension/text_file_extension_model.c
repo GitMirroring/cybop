@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TEXT_FILE_EXTENSION_MODEL_SOURCE
-#define TEXT_FILE_EXTENSION_MODEL_SOURCE
+#ifndef TEXT_FILE_EXTENSION_MODEL_CONSTANT_SOURCE
+#define TEXT_FILE_EXTENSION_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The html text file extension model. */
@@ -44,5 +45,5 @@ static wchar_t SHTML_TEXT_FILE_EXTENSION_MODEL_ARRAY[] = {L's', L'h', L't', L'm'
 static wchar_t* SHTML_TEXT_FILE_EXTENSION_MODEL = SHTML_TEXT_FILE_EXTENSION_MODEL_ARRAY;
 static int* SHTML_TEXT_FILE_EXTENSION_MODEL_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* TEXT_FILE_EXTENSION_MODEL_SOURCE */
+/* TEXT_FILE_EXTENSION_MODEL_CONSTANT_SOURCE */
 #endif

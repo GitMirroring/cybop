@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef 1_ISO_8859_CHARACTER_CODE_MODEL_SOURCE
-#define 1_ISO_8859_CHARACTER_CODE_MODEL_SOURCE
+#ifndef 1_ISO_8859_CHARACTER_CODE_MODEL_CONSTANT_SOURCE
+#define 1_ISO_8859_CHARACTER_CODE_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -40,5 +40,5 @@
 //?? TODO: Add iso-8859-1 character codes here!
 //?? Add further files for other character codes in this directory!
 
-/* 1_ISO_8859_CHARACTER_CODE_MODEL_SOURCE */
+/* 1_ISO_8859_CHARACTER_CODE_MODEL_CONSTANT_SOURCE */
 #endif

@@ -133,6 +133,19 @@ static wchar_t* REDUCE_CALCULATE_LOGIC_CYBOL_ABSTRACTION = REDUCE_CALCULATE_LOGI
 static int* REDUCE_CALCULATE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_16_INTEGER_MEMORY_MODEL_ARRAY;
 
 /**
+ * The calculate/remainder cybol abstraction.
+ *
+ * Calculate the remainder of the division of two numbers.
+ *
+ * result = dividend mod divisor
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t REMAINDER_CALCULATE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L'm', L'a', L'i', L'n', L'd', L'e', L'r'};
+static wchar_t* REMAINDER_CALCULATE_LOGIC_CYBOL_ABSTRACTION = REMAINDER_CALCULATE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* REMAINDER_CALCULATE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_19_INTEGER_MEMORY_MODEL_ARRAY;
+
+/**
  * The calculate/subtract cybol abstraction.
  *
  * Subtract a number from another.

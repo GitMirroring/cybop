@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ESCAPE_CODE_URI_MODEL_SOURCE
-#define ESCAPE_CODE_URI_MODEL_SOURCE
+#ifndef ESCAPE_CODE_URI_MODEL_CONSTANT_SOURCE
+#define ESCAPE_CODE_URI_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The space   url escape code uri model. */
@@ -139,5 +140,5 @@ static wchar_t TILDE_ESCAPE_CODE_URI_MODEL_ARRAY[] = {L'%', L'7', L'E'};
 static wchar_t* TILDE_ESCAPE_CODE_URI_MODEL = TILDE_ESCAPE_CODE_URI_MODEL_ARRAY;
 static int* TILDE_ESCAPE_CODE_URI_MODEL_COUNT = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* ESCAPE_CODE_URI_MODEL_SOURCE */
+/* ESCAPE_CODE_URI_MODEL_CONSTANT_SOURCE */
 #endif

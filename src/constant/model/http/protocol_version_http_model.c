@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PROTOCOL_VERSION_HTTP_MODEL_SOURCE
-#define PROTOCOL_VERSION_HTTP_MODEL_SOURCE
+#ifndef PROTOCOL_VERSION_HTTP_MODEL_CONSTANT_SOURCE
+#define PROTOCOL_VERSION_HTTP_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The 1.0 protocol version http model. */
@@ -39,5 +40,5 @@ static char NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_ARRAY[] = {'H', 'T', 'T', 'P'
 static char* NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL = NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_ARRAY;
 static int* NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* PROTOCOL_VERSION_HTTP_MODEL_SOURCE */
+/* PROTOCOL_VERSION_HTTP_MODEL_CONSTANT_SOURCE */
 #endif

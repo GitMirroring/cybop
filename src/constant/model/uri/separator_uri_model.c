@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SEPARATOR_URI_MODEL_SOURCE
-#define SEPARATOR_URI_MODEL_SOURCE
+#ifndef SEPARATOR_URI_MODEL_CONSTANT_SOURCE
+#define SEPARATOR_URI_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/memory/integer_memory_model.c"
 
@@ -105,5 +106,5 @@ static int* HOST_SEPARATOR_URI_MODEL_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY
 static wchar_t* PORT_SEPARATOR_URI_MODEL = COLON_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 static int* PORT_SEPARATOR_URI_MODEL_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* SEPARATOR_URI_MODEL_SOURCE */
+/* SEPARATOR_URI_MODEL_CONSTANT_SOURCE */
 #endif

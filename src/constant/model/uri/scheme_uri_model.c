@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SCHEME_URI_MODEL_SOURCE
-#define SCHEME_URI_MODEL_SOURCE
+#ifndef SCHEME_URI_MODEL_CONSTANT_SOURCE
+#define SCHEME_URI_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The ftp scheme uri model. */
@@ -69,5 +70,5 @@ static wchar_t URN_SCHEME_URI_MODEL_ARRAY[] = {L'u', L'r', L'n'};
 static wchar_t* URN_SCHEME_URI_MODEL = URN_SCHEME_URI_MODEL_ARRAY;
 static int* URN_SCHEME_URI_MODEL_COUNT = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* SCHEME_URI_MODEL_SOURCE */
+/* SCHEME_URI_MODEL_CONSTANT_SOURCE */
 #endif

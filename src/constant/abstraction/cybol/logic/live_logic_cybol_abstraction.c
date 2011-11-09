@@ -55,6 +55,17 @@
 //
 
 /**
+ * The live/exit cybol abstraction.
+ *
+ * Exit the cyboi system.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t EXIT_LIVE_LOGIC_CYBOL_ABSTRACTION_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L'e', L'x', L'i', L't'};
+static wchar_t* EXIT_LIVE_LOGIC_CYBOL_ABSTRACTION = EXIT_LIVE_LOGIC_CYBOL_ABSTRACTION_ARRAY;
+static int* EXIT_LIVE_LOGIC_CYBOL_ABSTRACTION_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+
+/**
  * The live/interrupt cybol abstraction.
  *
  * Interrupt a sensing operation.

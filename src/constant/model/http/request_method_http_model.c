@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef REQUEST_METHOD_HTTP_MODEL_SOURCE
-#define REQUEST_METHOD_HTTP_MODEL_SOURCE
+#ifndef REQUEST_METHOD_HTTP_MODEL_CONSTANT_SOURCE
+#define REQUEST_METHOD_HTTP_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The connect request method http model. Connects via ssl tunnel on proxy server. */
@@ -69,5 +70,5 @@ static wchar_t TRACE_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'T', L'R', L'A', L'C'
 static wchar_t* TRACE_REQUEST_METHOD_HTTP_MODEL = TRACE_REQUEST_METHOD_HTTP_MODEL_ARRAY;
 static int* TRACE_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* REQUEST_METHOD_HTTP_MODEL_SOURCE */
+/* REQUEST_METHOD_HTTP_MODEL_CONSTANT_SOURCE */
 #endif

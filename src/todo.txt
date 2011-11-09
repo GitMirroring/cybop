@@ -11,10 +11,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Rename "abstraction" into "type" in cybol and cyboi
+        * Rename "details" into "properties" in cyboi (as in cybol)
+            ("meta" is unfavourable because it starts with "m" just like "model")
+        * Rename several things in CYBOL files and CYBOI:
+            --> rename "abstraction" attribute to "language" for all CYBOL tags?!
+            --> rename "model" attribute to "message" for all CYBOL tags?!
+
         * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"
-        * Delete operation constants from "constant/model/memory/" and "constant/model/cybol/operation/"
-        * Add primitive integer constants as counterpart to ALL cybol model constants,
-            for faster processing inside cyboi; think through categories first
+        * Add primitive integer constants as counterpart to ALL cybol model constants
         * Convert cybol operand abstraction given as parametre (model) into integer,
             by creating a special mime type (e.g. text/abstraction), for faster processing within cyboi
         * Adapt function "startup_socket_get_host_address", variable "terminated address model"
@@ -104,14 +109,6 @@
 
         * Adapt all places in source code where reallocation is used to new
             reallocation factor handling and also shrink memory structures appropriately
-
-        * Rename "abstraction" into "type" in cybol and cyboi
-        * Rename "details" into "properties" in cybol and cyboi
-            ("meta" is unfavourable because it starts with "m" just like "model")
-        * Separate files of directory "constant/abstraction/cybol/" into "state" and "logic"
-        * Rename several things in CYBOL files and CYBOI:
-            --> rename "abstraction" attribute to "language" for all CYBOL tags?!
-            --> rename "model" attribute to "message" for all CYBOL tags?!
 
         * TUI: Check why the escape code sequence (e.g. ESC[B for arrow left) is added to the
             knowledge tree TEST_SHUTDOWN, instead of the decoded string "arrow_left"

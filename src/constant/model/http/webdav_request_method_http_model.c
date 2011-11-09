@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef WEBDAV_REQUEST_METHOD_HTTP_MODEL_SOURCE
-#define WEBDAV_REQUEST_METHOD_HTTP_MODEL_SOURCE
+#ifndef WEBDAV_REQUEST_METHOD_HTTP_MODEL_CONSTANT_SOURCE
+#define WEBDAV_REQUEST_METHOD_HTTP_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The copy webdav request method http model. Copies a resource from one uri to another. */
@@ -64,5 +65,5 @@ static wchar_t UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'U', L'N', L'
 static wchar_t* UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL = UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY;
 static int* UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_6_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* WEBDAV_REQUEST_METHOD_HTTP_MODEL_SOURCE */
+/* WEBDAV_REQUEST_METHOD_HTTP_MODEL_CONSTANT_SOURCE */
 #endif

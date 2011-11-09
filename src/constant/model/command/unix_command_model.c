@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef UNIX_COMMAND_MODEL_SOURCE
-#define UNIX_COMMAND_MODEL_SOURCE
+#ifndef UNIX_COMMAND_MODEL_CONSTANT_SOURCE
+#define UNIX_COMMAND_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The shell unix command model. */
@@ -49,5 +50,5 @@ static wchar_t LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_ARRAY[] = {L'l', L's'}
 static wchar_t* LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL = LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_ARRAY;
 static int* LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* UNIX_COMMAND_MODEL_SOURCE */
+/* UNIX_COMMAND_MODEL_CONSTANT_SOURCE */
 #endif

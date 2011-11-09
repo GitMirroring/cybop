@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_ENTITY_XML_MODEL_SOURCE
-#define CHARACTER_ENTITY_XML_MODEL_SOURCE
+#ifndef CHARACTER_ENTITY_XML_MODEL_CONSTANT_SOURCE
+#define CHARACTER_ENTITY_XML_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 /** The quotation mark character entity xml model. */
@@ -694,5 +695,5 @@ static int* DOWNWARD_LEFT_CORNER_CHARACTER_ENTITY_XML_MODEL_COUNT = NUMBER_6_INT
 
 /* End Thiele, Thomas and Simon, Friedemann */
 
-/* CHARACTER_ENTITY_XML_MODEL_SOURCE */
+/* CHARACTER_ENTITY_XML_MODEL_CONSTANT_SOURCE */
 #endif

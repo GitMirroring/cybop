@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef OPERATION_MODE_CYBOI_MODEL_SOURCE
-#define OPERATION_MODE_CYBOI_MODEL_SOURCE
+#ifndef OPERATION_MODE_CYBOI_MODEL_CONSTANT_SOURCE
+#define OPERATION_MODE_CYBOI_MODEL_CONSTANT_SOURCE
 
 #include "../../../constant/model/memory/integer_memory_model.c"
 
@@ -40,5 +40,5 @@ static int* TEST_OPERATION_MODE_CYBOI_MODEL = NUMBER_2_INTEGER_MEMORY_MODEL_ARRA
 /** The knowledge operation mode cyboi model. */
 static int* KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
 
-/* OPERATION_MODE_CYBOI_MODEL_SOURCE */
+/* OPERATION_MODE_CYBOI_MODEL_CONSTANT_SOURCE */
 #endif

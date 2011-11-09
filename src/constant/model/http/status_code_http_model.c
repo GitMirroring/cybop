@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STATUS_CODE_HTTP_MODEL_SOURCE
-#define STATUS_CODE_HTTP_MODEL_SOURCE
+#ifndef STATUS_CODE_HTTP_MODEL_CONSTANT_SOURCE
+#define STATUS_CODE_HTTP_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/memory/integer_memory_model.c"
 
 //
@@ -397,5 +398,5 @@ static char* BANDWIDTH_LIMIT_EXCEEDED_509_STATUS_CODE_HTTP_MODEL = BANDWIDTH_LIM
 static int* BANDWIDTH_LIMIT_EXCEEDED_509_STATUS_CODE_HTTP_MODEL_COUNT = NUMBER_28_INTEGER_MEMORY_MODEL_ARRAY;
 */
 
-/* STATUS_CODE_HTTP_MODEL_SOURCE */
+/* STATUS_CODE_HTTP_MODEL_CONSTANT_SOURCE */
 #endif
