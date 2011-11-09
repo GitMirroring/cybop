@@ -11,7 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Rename "abstraction" into "type" in cybol and cyboi
         * Rename "details" into "properties" in cyboi (as in cybol)
             ("meta" is unfavourable because it starts with "m" just like "model")
         * Rename several things in CYBOL files and CYBOI:
