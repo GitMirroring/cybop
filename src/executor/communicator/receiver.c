@@ -55,11 +55,11 @@
  * as that name is already used for glibc library's input.
  *
  * CAUTION! Some file formats (like the German xDT format for medical data exchange)
- * contain both, the model AND the details, in one file. To cover these cases,
- * the model AND details are received TOGETHER, in just one operation.
+ * contain both, the model AND the properties, in one file. To cover these cases,
+ * the model AND properties are received TOGETHER, in just one operation.
  *
  * @param p0 the destination model item (Hand over as item, since size may change!)
- * @param p1 the destination details item (Hand over as item, since size may change!)
+ * @param p1 the destination properties item (Hand over as item, since size may change!)
  * @param p2 the source data
  * @param p3 the source count
  * @param p4 the type
@@ -95,7 +95,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
             // Receive model by reading http request or response.
             //
-            // CAUTION! The details are handed over as well,
+            // CAUTION! The properties are handed over as well,
             // since they will store http headers as meta data.
             receive_socket(p0, p1, *ps, p20, p21, p18, p19, p1, p2);
         }
@@ -110,14 +110,14 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
             // Receive model by reading message data.
             //
-            // CAUTION! The details are handed over as well, since sometimes,
+            // CAUTION! The properties are handed over as well, since sometimes,
             // they are read from the message together with the model, for
             // example when converting from a file in xdt format.
             receive_file_system(p0, p1, p2, p3, p4);
 
-            // Receive details by reading meta message data.
+            // Receive properties by reading meta message data.
             //
-            // CAUTION! Sometimes, the details are read from a different source than the
+            // CAUTION! Sometimes, the properties are read from a different source than the
             // model, for example the html attributes of an html table when creating a wui.
             //
             // Example:
@@ -168,7 +168,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
             // Receive model by reading message data.
             //
-            // CAUTION! The details are handed over as well, since sometimes,
+            // CAUTION! The properties are handed over as well, since sometimes,
             // they are read from the message together with the model, for
             // example when converting from a file in xdt format.
             receive_inline(p0, p1, p2, p3, p4);
@@ -195,7 +195,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
             // Receive model by reading http request or response.
             //
-            // CAUTION! The details are handed over as well,
+            // CAUTION! The properties are handed over as well,
             // since they will store http headers as meta data.
 //??            receive_socket(p0, p1, (void*) WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME, (void*) WWW_SERVICE_THREAD, (void*) &receive_socket_www, p1, p2, p3, p4, p5, p6, p10, p11, p17, p18, p19, p20);
         }

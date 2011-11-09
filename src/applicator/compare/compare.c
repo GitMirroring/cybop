@@ -61,7 +61,7 @@
  * to be compared, for finding the right comparison function to call.
  * Therefore, that parametre IS REQUIRED.
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  */

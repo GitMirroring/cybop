@@ -127,8 +127,8 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p2 the source root type count
  * @param p3 the source root model (root window compound model)
  * @param p4 the source root model count
- * @param p5 the source root details (meta properties of root window compound model)
- * @param p6 the source root details count
+ * @param p5 the source root properties (meta properties of root window compound model)
+ * @param p6 the source root properties count
  * @param p7 the source area to be repainted part name
  * @param p8 the source area to be repainted part name count
  * @param p9 the source clean flag

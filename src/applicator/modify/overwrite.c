@@ -62,7 +62,7 @@
  *   if the number of elements exceeds the destination count, in order to avoid
  *   memory errors caused by crossing array boundaries
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  */

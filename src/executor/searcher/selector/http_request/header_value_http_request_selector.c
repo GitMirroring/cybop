@@ -72,7 +72,7 @@ void decode_http_request_header_argument(void* p0, void* p1, void* p2, void* p3,
  * Selects the http request header value.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the break flag
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining

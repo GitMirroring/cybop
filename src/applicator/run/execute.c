@@ -104,7 +104,7 @@ void apply_execute(void* p0, void* p1) {
     // The "system" function provides a simple, portable mechanism for running
     // another program; it does all three steps (fork/execv/wait) automatically.
     // The function does all the work of running a subprogram, but it doesn't
-    // give much control over the details. One has to wait until the subprogram
+    // give much control over the properties. One has to wait until the subprogram
     // terminates before being able to do anything else.
     // In the GNU C library, it always uses the default shell "sh" to run the command.
     // In particular, it searches the directories in "PATH" to find programs to execute.
@@ -159,7 +159,7 @@ void apply_execute(void* p0, void* p1) {
     // In the GNU C library, pid_t corresponds to the int type.
     // Fork clones a copy of the current (future parent) process,
     // including all data, code, environment variables, and open files.
-    // The child process is a duplicate of the parent (except for a few details).
+    // The child process is a duplicate of the parent (except for a few properties).
     pid_t pid = fork();
 
     fwprintf(stdout, L"TEST post-fork pid: %i\n", pid);

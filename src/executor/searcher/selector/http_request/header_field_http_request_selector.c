@@ -68,7 +68,7 @@
 /**
  * Selects the http request header field.
  *
- * @param p0 the destination details item
+ * @param p0 the destination properties item
  * @param p1 the header argument
  * @param p2 the header argument count
  * @param p3 the header value

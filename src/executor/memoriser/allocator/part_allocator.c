@@ -50,23 +50,23 @@ void allocate_part(void* p0, void* p1, void* p2) {
         // Allocate part.
         allocate_array(p0, (void*) PART_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
 
-        // The name, type, model, details.
+        // The name, type, model, properties.
         void* n = *NULL_POINTER_MEMORY_MODEL;
         void* a = *NULL_POINTER_MEMORY_MODEL;
         void* m = *NULL_POINTER_MEMORY_MODEL;
         void* d = *NULL_POINTER_MEMORY_MODEL;
 
-        // Allocate name, type, model, details.
+        // Allocate name, type, model, properties.
         allocate_item((void*) &n, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
         allocate_item((void*) &a, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE);
         allocate_item((void*) &m, p1, p2);
         allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE);
 
-        // Set name, type, model, details.
+        // Set name, type, model, properties.
         copy_array_forward(*p, (void*) &n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NAME_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         copy_array_forward(*p, (void*) &a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) TYPE_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         copy_array_forward(*p, (void*) &m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) MODEL_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-        copy_array_forward(*p, (void*) &d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) DETAILS_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(*p, (void*) &d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) PROPERTIES_PART_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     } else {
 

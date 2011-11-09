@@ -64,24 +64,24 @@ void initialise(void* p0, void* p1, void* p2) {
 
     // The startup signal part.
     void* s = *NULL_POINTER_MEMORY_MODEL;
-    // The startup signal part model, details.
+    // The startup signal part model, properties.
     void* sm = *NULL_POINTER_MEMORY_MODEL;
     void* sd = *NULL_POINTER_MEMORY_MODEL;
 
     // Allocate startup signal part.
     allocate_part((void*) &s, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE);
 
-    // Get startup signal part model, details.
+    // Get startup signal part model, properties.
     copy_array_forward((void*) &sm, s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &sd, s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sd, s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
     // Copy startup signal part type.
     // CAUTION! A name is not necessary, since only
-    // the actual model and details are of interest.
-    // CAUTION! The model and details are received below.
+    // the actual model and properties are of interest.
+    // CAUTION! The model and properties are received below.
     overwrite_part_element(s, (void*) PART_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
 
-    // Receive startup signal model, details.
+    // Receive startup signal model, properties.
     receive_file_system(sm, sd, md, mc, (void*) CYBOL_TEXT_CYBOL_TYPE);
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"\n\n");

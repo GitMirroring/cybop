@@ -114,9 +114,9 @@
  * @param p0 the destination model (Hand over as reference!)
  * @param p1 the destination model count
  * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
+ * @param p3 the destination properties (Hand over as reference!)
+ * @param p4 the destination properties count
+ * @param p5 the destination properties size
  * @param p6 the source
  * @param p7 the source count
  * @param p8 the knowledge memory
@@ -800,9 +800,9 @@ void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
  * @param p6 the destination model (Hand over as reference!)
  * @param p7 the destination model count (Hand over as reference!)
  * @param p8 the destination model size (Hand over as reference!)
- * @param p9 the destination details (Hand over as reference!)
- * @param p10 the destination details count (Hand over as reference!)
- * @param p11 the destination details size (Hand over as reference!)
+ * @param p9 the destination properties (Hand over as reference!)
+ * @param p10 the destination properties count (Hand over as reference!)
+ * @param p11 the destination properties size (Hand over as reference!)
  * @param p12 the source model
  * @param p13 the source model count
  * @param p14 the source type
@@ -889,12 +889,12 @@ void decode_xdt_decode_model(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The details count is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The properties count is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The details size is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The properties size is null.");
     }
 }
 
@@ -933,7 +933,7 @@ void decode_xdt_select_field(void* p0, void* p1, void* p2, void* p3, void* p4, v
         void* m = *NULL_POINTER_MEMORY_MODEL;
         void* mc = *NULL_POINTER_MEMORY_MODEL;
         void* ms = *NULL_POINTER_MEMORY_MODEL;
-        // The knowledge model details.
+        // The knowledge model properties.
         void* d = *NULL_POINTER_MEMORY_MODEL;
         void* dc = *NULL_POINTER_MEMORY_MODEL;
         void* ds = *NULL_POINTER_MEMORY_MODEL;
@@ -4221,7 +4221,7 @@ void decode_xdt_select_field(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // CAUTION! If this was not done here, they would never be deallocated!
             // CAUTION! Use DESCENDING order, as opposed to array allocation!
 
-            // Deallocate knowledge model details.
+            // Deallocate knowledge model properties.
             deallocate((void*) &d, ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
             deallocate((void*) &dc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
             deallocate((void*) &ds, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
@@ -4383,7 +4383,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
         void* m = *NULL_POINTER_MEMORY_MODEL;
         void* mc = *NULL_POINTER_MEMORY_MODEL;
         void* ms = *NULL_POINTER_MEMORY_MODEL;
-        // The knowledge model details.
+        // The knowledge model properties.
         void* d = *NULL_POINTER_MEMORY_MODEL;
         void* dc = *NULL_POINTER_MEMORY_MODEL;
         void* ds = *NULL_POINTER_MEMORY_MODEL;
@@ -4622,7 +4622,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // CAUTION! If this was not done here, they would never be deallocated!
             // CAUTION! Use DESCENDING order, as opposed to array allocation!
 
-            // Deallocate knowledge model details.
+            // Deallocate knowledge model properties.
             deallocate((void*) &d, ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
             deallocate((void*) &dc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
             deallocate((void*) &ds, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
@@ -4736,9 +4736,9 @@ void decode_xdt_process_package(void* p0, void* p1, void* p2, void* p3, void* p4
  * @param p0 the destination model
  * @param p1 the destination model count
  * @param p2 the destination model size
- * @param p3 the destination details
- * @param p4 the destination details count
- * @param p5 the destination details size
+ * @param p3 the destination properties
+ * @param p4 the destination properties count
+ * @param p5 the destination properties size
  * @param p6 the package content
  * @param p7 the package content count
  * @param p8 the package header
@@ -4763,7 +4763,7 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* m = *NULL_POINTER_MEMORY_MODEL;
     void* mc = *NULL_POINTER_MEMORY_MODEL;
     void* ms = *NULL_POINTER_MEMORY_MODEL;
-    // The knowledge model details.
+    // The knowledge model properties.
     void* d = *NULL_POINTER_MEMORY_MODEL;
     void* dc = *NULL_POINTER_MEMORY_MODEL;
     void* ds = *NULL_POINTER_MEMORY_MODEL;
@@ -4802,7 +4802,7 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
         // CAUTION! If this was not done here, they would never be deallocated!
         // CAUTION! Use DESCENDING order, as opposed to array allocation!
 
-        // Deallocate knowledge model details.
+        // Deallocate knowledge model properties.
         deallocate((void*) &d, ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
         deallocate((void*) &dc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
         deallocate((void*) &ds, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
@@ -4832,9 +4832,9 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
  * @param p0 the destination compound model (Hand over as reference!)
  * @param p1 the destination compound model count
  * @param p2 the destination compound model size
- * @param p3 the destination compound details (Hand over as reference!)
- * @param p4 the destination compound details count
- * @param p5 the destination compound details size
+ * @param p3 the destination compound properties (Hand over as reference!)
+ * @param p4 the destination compound properties count
+ * @param p5 the destination compound properties size
  * @param p6 the source xdt byte array
  * @param p7 the source xdt byte array count
  */
@@ -4944,7 +4944,7 @@ void decode_xdt(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt. The destination compound details is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt. The destination compound properties is null.");
             }
 
         } else {

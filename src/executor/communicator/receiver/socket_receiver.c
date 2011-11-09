@@ -52,9 +52,9 @@
  * @param p0 the destination model (Hand over as reference!)
  * @param p1 the destination model count
  * @param p2 the destination model size
- * @param p3 the destination details (Hand over as reference!)
- * @param p4 the destination details count
- * @param p5 the destination details size
+ * @param p3 the destination properties (Hand over as reference!)
+ * @param p4 the destination properties count
+ * @param p5 the destination properties size
  * @param p6 the source communication partner-connected socket of this system
  * @param p7 the socket communication style model
  * @param p8 the socket communication style model count
@@ -104,7 +104,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 */
 
 /*??
-    // The action name, type, model, details.
+    // The action name, type, model, properties.
     void** an = NULL_POINTER_MEMORY_MODEL;
     void** anc = NULL_POINTER_MEMORY_MODEL;
     void** ans = NULL_POINTER_MEMORY_MODEL;
@@ -160,7 +160,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     static wchar_t* INDEX_PARAMETER = INDEX_PARAMETER_ARRAY;
     static int* INDEX_PARAMETER_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
 
-    // The command name, type, model, details.
+    // The command name, type, model, properties.
     void** n = NULL_POINTER_MEMORY_MODEL;
     void** nc = NULL_POINTER_MEMORY_MODEL;
     void** ns = NULL_POINTER_MEMORY_MODEL;

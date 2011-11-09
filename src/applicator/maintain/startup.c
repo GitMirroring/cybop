@@ -52,7 +52,7 @@
  * - style (optional, only if service is www, cyboi or similar): the namespace of the socket
  * - style (optional, only if service is www, cyboi or similar): the address of hosts communicating with this system via socket
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  * @param p3 the internal memory array

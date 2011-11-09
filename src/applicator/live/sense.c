@@ -132,7 +132,7 @@ void apply_sense_message(void* p0, void* p1, void* p2) {
  * - channel (required): the channel via which to receive the message (gnu_linux_console, www, x_window_system etc.)
  * - handler (optional): the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  * @param p3 the internal memory array
@@ -188,7 +188,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     fwprintf(stdout, L"TEST sense cyboi service hac: %i\n", *hac);
     fwprintf(stdout, L"TEST sense cyboi service ha: %i\n", *ha);
 
-            // Set handler type, model, details.
+            // Set handler type, model, properties.
             i = *CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_TYPE_INTERNAL_MEMORY_MEMORY_NAME;
             copy_array_forward(p2, (void*) ha, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             i = *CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
@@ -197,9 +197,9 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
             copy_array_forward(p2, (void*) hm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             i = *CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
             copy_array_forward(p2, (void*) hmc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            i = *CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_DETAILS_INTERNAL_MEMORY_MEMORY_NAME;
+            i = *CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_PROPERTIES_INTERNAL_MEMORY_MEMORY_NAME;
             copy_array_forward(p2, (void*) hd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            i = *CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_DETAILS_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
+            i = *CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
             copy_array_forward(p2, (void*) hdc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
             // Sense incoming message (http request or response).
@@ -213,13 +213,13 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // Set handler type, model, details.
+            // Set handler type, model, properties.
             copy_array_forward(p2, (void*) ha, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_TYPE_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             copy_array_forward(p2, (void*) hac, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             copy_array_forward(p2, (void*) hm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_MODEL_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             copy_array_forward(p2, (void*) hmc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            copy_array_forward(p2, (void*) hd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_DETAILS_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            copy_array_forward(p2, (void*) hdc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_DETAILS_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p2, (void*) hd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_PROPERTIES_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p2, (void*) hdc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
             // Sense incoming message.
             apply_sense_message(p2, (void*) GNU_LINUX_CONSOLE_THREAD, (void*) &sense_gnu_linux_console);
@@ -232,7 +232,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // Set handler type, model, details.
+            // Set handler type, model, properties.
             i = *WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_TYPE_INTERNAL_MEMORY_MEMORY_NAME;
             copy_array_forward(p2, (void*) ha, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             i = *WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
@@ -241,9 +241,9 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
             copy_array_forward(p2, (void*) hm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             i = *WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
             copy_array_forward(p2, (void*) hmc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            i = *WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_DETAILS_INTERNAL_MEMORY_MEMORY_NAME;
+            i = *WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_PROPERTIES_INTERNAL_MEMORY_MEMORY_NAME;
             copy_array_forward(p2, (void*) hd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            i = *WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_DETAILS_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
+            i = *WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME + *SOCKET_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
             copy_array_forward(p2, (void*) hdc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
             // Sense incoming message (http request or response).
@@ -257,13 +257,13 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // Set handler type, model, details.
+            // Set handler type, model, properties.
             copy_array_forward(p2, (void*) ha, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_TYPE_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             copy_array_forward(p2, (void*) hac, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             copy_array_forward(p2, (void*) hm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_MODEL_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             copy_array_forward(p2, (void*) hmc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            copy_array_forward(p2, (void*) hd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_DETAILS_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            copy_array_forward(p2, (void*) hdc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_DETAILS_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p2, (void*) hd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_PROPERTIES_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p2, (void*) hdc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
             // Sense incoming message.
             apply_sense_message(p2, (void*) X_WINDOW_SYSTEM_THREAD, (void*) &sense_x_window_system);

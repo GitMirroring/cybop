@@ -37,10 +37,10 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the xml wide character data into a model and details.
+ * Decodes the xml wide character data into a model and properties.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
  */

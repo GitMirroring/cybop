@@ -37,7 +37,7 @@
  * Decodes the http request body.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
  */
@@ -54,7 +54,7 @@ void decode_http_request_body(void* p0, void* p1, void* p2, void* p3) {
     //
     // The body represents the actual http message content.
     // Its data are thus added to the destination MODEL (p0, p1, p2),
-    // whilst the destination DETAILS contain meta data, i.e. the http headers.
+    // whilst the destination PROPERTIES contain meta data, i.e. the http headers.
     //
     // CAUTION! The body data may be encoded.
     // Therefore, use the CHARACTER_MEMORY_TYPE type here

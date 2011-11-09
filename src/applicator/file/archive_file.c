@@ -48,7 +48,7 @@
  * - update (optional): the option for updating an archive
  * - bzip2 (optional): the option for using the bzip2 compression algorithm
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  */
 void apply_archive_file(void* p0, void* p1) {

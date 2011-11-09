@@ -72,7 +72,7 @@ void get_part_branch(void* p0, void* p1, void* p2, void* p3) {
                 //
                 // CAUTION! The child part's element index is necessary
                 // to distinguish between structural part (retrieved from model)
-                // and meta property (retrieved from details).
+                // and meta property (retrieved from properties).
                 get_part_hierarchical(p0, p1, p2, p3, (void*) &i);
 
                 break;

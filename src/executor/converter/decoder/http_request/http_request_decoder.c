@@ -121,7 +121,7 @@
 //
 
 /**
- * Decodes the http request character data into a model and details.
+ * Decodes the http request character data into a model and properties.
  *
  * An http message is expected to consist of a sequence of octets.
  * An octet labels eight Bits forming one Byte, e.g.: 01001100
@@ -148,7 +148,7 @@
  * standard octets, which then get UTF-8-decoded into wide characters.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
  */

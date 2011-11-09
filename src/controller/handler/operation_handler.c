@@ -41,8 +41,8 @@
 /**
  * Handles the operation.
  *
- * @param p0 the details parametres data
- * @param p1 the details parametres count
+ * @param p0 the properties parametres data
+ * @param p1 the properties parametres count
  * @param p2 the direct execution flag
  * @param p3 the shutdown flag
  * @param p4 the knowledge memory part

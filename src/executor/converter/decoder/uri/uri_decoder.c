@@ -148,7 +148,7 @@
 //
 
 /**
- * Decodes the wide character uri into a model and details.
+ * Decodes the wide character uri into a model and properties.
  *
  * CAUTION! The source character array MUST NOT be given
  * as percent-encoded octets. In other words, it has to
@@ -158,7 +158,7 @@
  * as sequence of wide characters.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
  */

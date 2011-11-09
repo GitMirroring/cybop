@@ -40,7 +40,7 @@
 /**
  * Decodes the http uri authority content.
  *
- * The authority is added twice to the destination details:
+ * The authority is added twice to the destination properties:
  * - as full text representation
  * - as hierarchy consisting of parts
  *
@@ -64,16 +64,16 @@ void decode_http_uri_authority_content(void* p0, void* p1, void* p2) {
 
     // The hierarchy part.
     void* h = *NULL_POINTER_MEMORY_MODEL;
-    // The hierarchy part model, details.
+    // The hierarchy part model, properties.
     void* hm = *NULL_POINTER_MEMORY_MODEL;
     void* hd = *NULL_POINTER_MEMORY_MODEL;
 
     // Allocate hierarchy part.
     allocate_part((void*) &h, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE);
 
-    // Get hierarchy part model, details.
+    // Get hierarchy part model, properties.
     copy_array_forward((void*) &hm, h, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &hd, h, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    copy_array_forward((void*) &hd, h, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
     // Fill hierarchy part.
     overwrite_part_element(h, (void*) CYBOI_AUTHORITY_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CYBOI_AUTHORITY_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
@@ -88,7 +88,7 @@ void decode_http_uri_authority_content(void* p0, void* p1, void* p2) {
  * Decodes the http uri authority.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
  */

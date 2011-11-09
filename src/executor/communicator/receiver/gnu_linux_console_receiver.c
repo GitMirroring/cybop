@@ -263,9 +263,9 @@ void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4)
  * @param p6 the command model (Hand over as reference!)
  * @param p7 the command model count (Hand over as reference!)
  * @param p8 the command model size (Hand over as reference!)
- * @param p9 the command details (Hand over as reference!)
- * @param p10 the command details count (Hand over as reference!)
- * @param p11 the command details size (Hand over as reference!)
+ * @param p9 the command properties (Hand over as reference!)
+ * @param p10 the command properties count (Hand over as reference!)
+ * @param p11 the command properties size (Hand over as reference!)
  * @param p12 the gnu/linux console input stream
  * @param p13 the commands
  * @param p14 the commands count

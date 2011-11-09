@@ -96,9 +96,9 @@ void compare_all_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /**
  * Compares all elements of the left- with those of the right part.
  *
- * This function compares ALL meta elements: name, type, model, details.
+ * This function compares ALL meta elements: name, type, model, properties.
  *
- * The name, type, details are ALWAYS compared for EQUALITY!
+ * The name, type, properties are ALWAYS compared for EQUALITY!
  * Anything else would not make sense and be pointless.
  * ONLY the actual model is compared using the given operation type.
  *
@@ -114,34 +114,34 @@ void compare_all_part_all(void* p0, void* p1, void* p2, void* p3) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Compare all part all.");
 
-    // The left part name, type, model, details.
+    // The left part name, type, model, properties.
     void* ln = *NULL_POINTER_MEMORY_MODEL;
     void* la = *NULL_POINTER_MEMORY_MODEL;
     void* lm = *NULL_POINTER_MEMORY_MODEL;
     void* ld = *NULL_POINTER_MEMORY_MODEL;
-    // The right part name, type, model, details.
+    // The right part name, type, model, properties.
     void* rn = *NULL_POINTER_MEMORY_MODEL;
     void* ra = *NULL_POINTER_MEMORY_MODEL;
     void* rm = *NULL_POINTER_MEMORY_MODEL;
     void* rd = *NULL_POINTER_MEMORY_MODEL;
     // The right part elements data, count.
     void* rad = *NULL_POINTER_MEMORY_MODEL;
-    // The name, type, model, details comparison results.
+    // The name, type, model, properties comparison results.
     int nr = *FALSE_BOOLEAN_MEMORY_MODEL;
     int ar = *FALSE_BOOLEAN_MEMORY_MODEL;
     int mr = *FALSE_BOOLEAN_MEMORY_MODEL;
     int dr = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-    // Get left name, type, model, details.
+    // Get left name, type, model, properties.
     copy_array_forward((void*) &ln, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     copy_array_forward((void*) &la, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     copy_array_forward((void*) &lm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
-    // Get right part name, type, model, details.
+    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    // Get right part name, type, model, properties.
     copy_array_forward((void*) &rn, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     copy_array_forward((void*) &ra, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     copy_array_forward((void*) &rm, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
     // Get right part item data, count.
     copy_array_forward((void*) &rad, ra, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
@@ -159,7 +159,7 @@ void compare_all_part_all(void* p0, void* p1, void* p2, void* p3) {
         && (dr == *FALSE_BOOLEAN_MEMORY_MODEL)) {
 
         // Set result to TRUE only if all comparisons of
-        // name, type, model, details delivered true.
+        // name, type, model, properties delivered true.
         copy_integer(p0, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
     }
 }

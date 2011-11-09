@@ -61,16 +61,16 @@ void decode_http_uri_query_content(void* p0, void* p1, void* p2) {
 
     // The part.
     void* p = *NULL_POINTER_MEMORY_MODEL;
-    // The part model, details.
+    // The part model, properties.
     void* pm = *NULL_POINTER_MEMORY_MODEL;
     void* pd = *NULL_POINTER_MEMORY_MODEL;
 
     // Allocate part.
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
-    // Get part model, details.
+    // Get part model, properties.
     copy_array_forward((void*) &pm, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &pd, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pd, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
     // Fill part.
     overwrite_part_element(p, (void*) CYBOI_QUERY_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CYBOI_QUERY_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
@@ -91,7 +91,7 @@ void decode_http_uri_query_content(void* p0, void* p1, void* p2) {
  * Decodes the http uri query.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
  */

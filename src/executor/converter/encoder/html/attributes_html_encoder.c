@@ -44,8 +44,8 @@
  * Encodes the html attribute into html format.
  *
  * @param p0 the destination item
- * @param p1 the source details data
- * @param p2 the source details index
+ * @param p1 the source properties data
+ * @param p2 the source properties index
  */
 void encode_html_attribute(void* p0, void* p1, void* p2) {
 
@@ -80,7 +80,7 @@ void encode_html_attribute(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-        // Only add attribute, if the details part name is NOT "tag"!
+        // Only add attribute, if the properties part name is NOT "tag"!
 
         // Append space character.
         append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
@@ -101,8 +101,8 @@ void encode_html_attribute(void* p0, void* p1, void* p2) {
  * Encodes the html attributes into html format.
  *
  * @param p0 the destination item
- * @param p1 the source details data
- * @param p2 the source details count
+ * @param p1 the source properties data
+ * @param p2 the source properties count
  */
 void encode_html_attributes(void* p0, void* p1, void* p2) {
 
@@ -113,7 +113,7 @@ void encode_html_attributes(void* p0, void* p1, void* p2) {
     // The break flag.
     int b = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-    // Iterate through details parts.
+    // Iterate through properties parts.
     while (*TRUE_BOOLEAN_MEMORY_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);

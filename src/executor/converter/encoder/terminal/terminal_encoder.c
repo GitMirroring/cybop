@@ -70,10 +70,10 @@
  * @param p4 the source part type count
  * @param p5 the source part model
  * @param p6 the source part model count
- * @param p7 the source part details
- * @param p8 the source part details count
- * @param p9 the source whole details (the compound containing the source part)
- * @param p10 the source whole details count
+ * @param p7 the source part properties
+ * @param p8 the source part properties count
+ * @param p9 the source whole properties (the compound containing the source part)
+ * @param p10 the source whole properties count
  * @param p11 the source part name (area to be repainted)
  * @param p12 the source part name count
  */
@@ -81,39 +81,39 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode gnu/linux console.");
 
-    // The source part name, type, model, details.
+    // The source part name, type, model, properties.
     void** n = *NULL_POINTER_MEMORY_MODEL;
-    // The source part super properties name, type, model, details.
+    // The source part super properties name, type, model, properties.
     void** supern = *NULL_POINTER_MEMORY_MODEL;
-    // The source part shape name, type, model, details.
+    // The source part shape name, type, model, properties.
     void** shn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part layout name, type, model, details.
+    // The source part layout name, type, model, properties.
     void** ln = *NULL_POINTER_MEMORY_MODEL;
-    // The source part cell name, type, model, details.
+    // The source part cell name, type, model, properties.
     void** cn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part position name, type, model, details.
+    // The source part position name, type, model, properties.
     void** pn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part size name, type, model, details.
+    // The source part size name, type, model, properties.
     void** sn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part background colour name, type, model, details.
+    // The source part background colour name, type, model, properties.
     void** bgn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part foreground colour name, type, model, details.
+    // The source part foreground colour name, type, model, properties.
     void** fgn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part border name, type, model, details.
+    // The source part border name, type, model, properties.
     void** bon = *NULL_POINTER_MEMORY_MODEL;
-    // The source part hidden property name, type, model, details.
+    // The source part hidden property name, type, model, properties.
     void** hn = *NULL_POINTER_MEMORY_MODEL;
-    // The source part inverse property name, type, model, details.
+    // The source part inverse property name, type, model, properties.
     void** in = *NULL_POINTER_MEMORY_MODEL;
-    // The source part blink property name, type, model, details.
+    // The source part blink property name, type, model, properties.
     void** bln = *NULL_POINTER_MEMORY_MODEL;
-    // The source part underline property name, type, model, details.
+    // The source part underline property name, type, model, properties.
     void** un = *NULL_POINTER_MEMORY_MODEL;
-    // The source part bold property name, type, model, details.
+    // The source part bold property name, type, model, properties.
     void** bn = *NULL_POINTER_MEMORY_MODEL;
-    // The source whole position name, type, model, details.
+    // The source whole position name, type, model, properties.
     void** wpn = *NULL_POINTER_MEMORY_MODEL;
-    // The source whole size name, type, model, details.
+    // The source whole size name, type, model, properties.
     void** wsn = *NULL_POINTER_MEMORY_MODEL;
 
     // The element name.
@@ -149,7 +149,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // by the hierarchical name is a "part" element (f == 0), not a "meta" element,
         // which is correct, so that the element can be processed/ repainted.
 
-        // Get part super properties from details.
+        // Get part super properties from properties.
         get_universal_compound_element_by_name(
             (void*) &supern, (void*) &supernc, (void*) &superns,
             (void*) &supera, (void*) &superac, (void*) &superas,
@@ -158,7 +158,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part shape from details.
+        // Get part shape from properties.
         get_universal_compound_element_by_name(
             (void*) &shn, (void*) &shnc, (void*) &shns,
             (void*) &sha, (void*) &shac, (void*) &shas,
@@ -167,7 +167,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) SHAPE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) SHAPE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get source part layout from details.
+        // Get source part layout from properties.
         get_universal_compound_element_by_name(
             (void*) &ln, (void*) &lnc, (void*) &lns,
             (void*) &la, (void*) &lac, (void*) &las,
@@ -176,7 +176,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) LAYOUT_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) LAYOUT_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get source part cell from details.
+        // Get source part cell from properties.
         get_universal_compound_element_by_name(
             (void*) &cn, (void*) &cnc, (void*) &cns,
             (void*) &ca, (void*) &cac, (void*) &cas,
@@ -185,7 +185,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) CELL_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) CELL_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part position from details.
+        // Get part position from properties.
         get_universal_compound_element_by_name(
             (void*) &pn, (void*) &pnc, (void*) &pns,
             (void*) &pa, (void*) &pac, (void*) &pas,
@@ -194,7 +194,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part size from details.
+        // Get part size from properties.
         get_universal_compound_element_by_name(
             (void*) &sn, (void*) &snc, (void*) &sns,
             (void*) &sa, (void*) &sac, (void*) &sas,
@@ -203,7 +203,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part background colour from details.
+        // Get part background colour from properties.
         get_universal_compound_element_by_name(
             (void*) &bgn, (void*) &bgnc, (void*) &bgns,
             (void*) &bga, (void*) &bgac, (void*) &bgas,
@@ -212,7 +212,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) BACKGROUND_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) BACKGROUND_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part foreground colour from details.
+        // Get part foreground colour from properties.
         get_universal_compound_element_by_name(
             (void*) &fgn, (void*) &fgnc, (void*) &fgns,
             (void*) &fga, (void*) &fgac, (void*) &fgas,
@@ -221,7 +221,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) FOREGROUND_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) FOREGROUND_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part border from details.
+        // Get part border from properties.
         get_universal_compound_element_by_name(
             (void*) &bon, (void*) &bonc, (void*) &bons,
             (void*) &boa, (void*) &boac, (void*) &boas,
@@ -230,7 +230,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) BORDER_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) BORDER_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part hidden property from details.
+        // Get part hidden property from properties.
         get_universal_compound_element_by_name(
             (void*) &hn, (void*) &hnc, (void*) &hns,
             (void*) &ha, (void*) &hac, (void*) &has,
@@ -239,7 +239,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) HIDDEN_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) HIDDEN_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part inverse property from details.
+        // Get part inverse property from properties.
         get_universal_compound_element_by_name(
             (void*) &in, (void*) &inc, (void*) &ins,
             (void*) &ia, (void*) &iac, (void*) &ias,
@@ -248,7 +248,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) INVERSE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) INVERSE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part blink property from details.
+        // Get part blink property from properties.
         get_universal_compound_element_by_name(
             (void*) &bln, (void*) &blnc, (void*) &blns,
             (void*) &bla, (void*) &blac, (void*) &blas,
@@ -257,7 +257,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) BLINK_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) BLINK_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part underline property from details.
+        // Get part underline property from properties.
         get_universal_compound_element_by_name(
             (void*) &un, (void*) &unc, (void*) &uns,
             (void*) &ua, (void*) &uac, (void*) &uas,
@@ -266,7 +266,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             p7, p8,
             (void*) UNDERLINE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) UNDERLINE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
-        // Get part bold property from details.
+        // Get part bold property from properties.
         get_universal_compound_element_by_name(
             (void*) &bn, (void*) &bnc, (void*) &bns,
             (void*) &ba, (void*) &bac, (void*) &bas,
@@ -300,7 +300,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (*lm == *NULL_POINTER_MEMORY_MODEL) {
 
-            // Get source part layout from details.
+            // Get source part layout from properties.
             get_universal_compound_element_by_name(
                 (void*) &ln, (void*) &lnc, (void*) &lns,
                 (void*) &la, (void*) &lac, (void*) &las,
@@ -313,7 +313,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (*cm == *NULL_POINTER_MEMORY_MODEL) {
 
-            // Get source part cell from details.
+            // Get source part cell from properties.
             get_universal_compound_element_by_name(
                 (void*) &cn, (void*) &cnc, (void*) &cns,
                 (void*) &ca, (void*) &cac, (void*) &cas,
@@ -454,7 +454,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                 p13, p14);
         }
 
-        // Get source whole position from details.
+        // Get source whole position from properties.
         get_universal_compound_element_by_name(
             (void*) &wpn, (void*) &wpnc, (void*) &wpns,
             (void*) &wpa, (void*) &wpac, (void*) &wpas,
@@ -464,7 +464,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
 
-        // Get source whole size from details.
+        // Get source whole size from properties.
         get_universal_compound_element_by_name(
             (void*) &wsn, (void*) &wsnc, (void*) &wsns,
             (void*) &wsa, (void*) &wsac, (void*) &wsas,
@@ -543,7 +543,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                         encode_terminal(p0, p1, p2, *a, *ac, *m, *mc, *d, *dc, p7, p8, rn, (void*) &rnc, p13, p14);
                     }
 
-                    // Reset source part name, type, model, details
+                    // Reset source part name, type, model, properties
                     // (parameters of the current compound part element).
                     n = NULL_POINTER_MEMORY_MODEL;
                     nc = NULL_POINTER_MEMORY_MODEL;

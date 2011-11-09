@@ -40,7 +40,7 @@
  * given by the destination part element index.
  *
  * The destination part element may be either of:
- * name, type, model, details.
+ * name, type, model, properties.
  *
  * A destination index is not expected as parametre,
  * since the source is appended at the end.
@@ -69,7 +69,7 @@ void append_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 /**
  * Appends the source- to the destination part.
  *
- * The name, type, details of the destination part
+ * The name, type, properties of the destination part
  * remain unchanged. Only the model gets appended.
  *
  * A destination index is not expected as parametre,

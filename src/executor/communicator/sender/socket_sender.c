@@ -471,8 +471,8 @@ void apply_send_socket_initialise_socket_address(void* p0, void* p1, void* p2, v
  * @param p12 the message type count
  * @param p13 the message model
  * @param p14 the message model count
- * @param p15 the message details
- * @param p16 the message details count
+ * @param p15 the message properties
+ * @param p16 the message properties count
  * @param p17 the knowledge memory
  * @param p18 the knowledge memory count
  * @param p19 the language

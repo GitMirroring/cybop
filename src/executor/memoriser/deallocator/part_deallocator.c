@@ -46,19 +46,19 @@ void deallocate_part(void* p0, void* p1, void* p2) {
 
         log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Deallocate part.");
 
-        // The name, type, model, details.
+        // The name, type, model, properties.
         void* n = *NULL_POINTER_MEMORY_MODEL;
         void* a = *NULL_POINTER_MEMORY_MODEL;
         void* m = *NULL_POINTER_MEMORY_MODEL;
         void* d = *NULL_POINTER_MEMORY_MODEL;
 
-        // Get name, type, model, details.
+        // Get name, type, model, properties.
         copy_array_forward((void*) &n, *p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
         copy_array_forward((void*) &a, *p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
         copy_array_forward((void*) &m, *p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-        copy_array_forward((void*) &d, *p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+        copy_array_forward((void*) &d, *p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
-        // Deallocate name, type, model, details.
+        // Deallocate name, type, model, properties.
         deallocate_item((void*) &n, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
         deallocate_item((void*) &a, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
         deallocate_item((void*) &m, p1, p2);

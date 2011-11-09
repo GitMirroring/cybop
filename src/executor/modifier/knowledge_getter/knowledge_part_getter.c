@@ -123,7 +123,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
             // CAUTION! The "type" of an encapsulated name must always be "character"
             // (which is processed as wide character wchar_t inside of cyboi, of course).
-            // The "details" are uninteresting, since an encapsulated name cannot have
+            // The "properties" are uninteresting, since an encapsulated name cannot have
             // constraints. That is, only the model is of interest. It contains the
             // hierarchical name of the knowledge part to be retrieved.
             //
@@ -156,7 +156,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
             // CAUTION! The "type" of an encapsulated name must always be "character"
             // (which is processed as wide character wchar_t inside of cyboi, of course).
-            // The "details" are uninteresting, since an encapsulated name cannot have
+            // The "properties" are uninteresting, since an encapsulated name cannot have
             // constraints. That is, only the model is of interest. It contains the
             // hierarchical name of the knowledge part to be retrieved.
             //

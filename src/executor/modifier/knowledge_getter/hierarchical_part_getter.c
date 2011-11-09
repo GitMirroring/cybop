@@ -49,7 +49,7 @@ void get_part_branch(void* p0, void* p1, void* p2, void* p3);
  * @param p3 the hierarchical part name remaining count
  * @param p4 the source whole part element index (one of:
  *           - MODEL_PART_MEMORY_NAME for structural parts
- *           - DETAILS_PART_MEMORY_NAME for meta properties)
+ *           - PROPERTIES_PART_MEMORY_NAME for meta properties)
  */
 void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -90,7 +90,7 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // at the beginning, or the name does not exist,
                         // then the following functions will just return null.
 
-                        // Find part by name in whole model or details
+                        // Find part by name in whole model or properties
                         // (depending on part element index p4).
                         get_name_part_element(p0, p1, e, (void*) &ec, p4);
 
@@ -119,7 +119,7 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // then the element count ec would always be ONE TOO SMALL,
                         // since the last loop would be omitted and ec not incremented (below).
 
-                        // Find part by name in whole model or details
+                        // Find part by name in whole model or properties
                         // (depending on part element index p4).
                         get_name_part_element(p0, p1, e, (void*) &ec, p4);
 

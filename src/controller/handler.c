@@ -60,7 +60,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Handle signal.");
 
-    // The signal part type, model, details.
+    // The signal part type, model, properties.
     void* a = *NULL_POINTER_MEMORY_MODEL;
     void* m = *NULL_POINTER_MEMORY_MODEL;
     void* d = *NULL_POINTER_MEMORY_MODEL;
@@ -80,10 +80,10 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     void* emd = *NULL_POINTER_MEMORY_MODEL;
     void* emc = *NULL_POINTER_MEMORY_MODEL;
 
-    // Get signal part type, model, details.
+    // Get signal part type, model, properties.
     copy_array_forward((void*) &a, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     copy_array_forward((void*) &m, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &d, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    copy_array_forward((void*) &d, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
     // Get signal part elements data, count.
     copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);

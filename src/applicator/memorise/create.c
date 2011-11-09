@@ -45,7 +45,7 @@
 /**
  * Creates an empty part consisting of name and type only.
  *
- * The model and details may get filled with data using a "decode" operation,
+ * The model and properties may get filled with data using a "decode" operation,
  * which is called when a "receive" logic operation is found in cybol.
  *
  * The new knowledge model gets added to either of:
@@ -56,15 +56,15 @@
  * Expected parametres:
  * - name (required): the name of the part to be created
  * - type (required): the type (type) of the part to be created
- * - element (optional; if null, the new part will be added to the whole- or knowledge memory MODEL and NOT details):
+ * - element (optional; if null, the new part will be added to the whole- or knowledge memory MODEL and NOT properties):
  *   the kind of element (knowledge model) to be created (part, meta);
  *   a part element will be added to the whole model's part hierarchy;
- *   a meta element to the whole model's details hierarchy;
+ *   a meta element to the whole model's properties hierarchy;
  *   this parametre is optional, but recommended for faster processing
  * - whole (optional; if null, the new part will be added to the knowledge memory root):
  *   the compound to which to add to the new part
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  */
@@ -181,17 +181,17 @@ void apply_create(void* p0, void* p1, void* p2) {
 
                 // A whole part exists.
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to whole details.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to whole properties.");
 
-                // Append part (handed over as array reference) to whole details (being a part itself).
+                // Append part (handed over as array reference) to whole properties (being a part itself).
                 // CAUTION! Do NOT use PART_MEMORY_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+                append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
             } else {
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to knowledge memory root details.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to knowledge memory root properties.");
 
                 // The whole part is null.
                 //
@@ -200,11 +200,11 @@ void apply_create(void* p0, void* p1, void* p2) {
                 // system shutdown and is not lost somewhere in Random Access Memory (RAM).
                 // Therefore, if the whole part is null, the knowledge memory is used instead.
 
-                // Append part (handed over as array reference) to knowledge memory root details (being a part itself).
+                // Append part (handed over as array reference) to knowledge memory root properties (being a part itself).
                 // CAUTION! Do NOT use PART_MEMORY_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+                append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
             }
         }
     }

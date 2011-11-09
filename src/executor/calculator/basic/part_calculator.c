@@ -40,7 +40,7 @@
  * Calculates left- with right part.
  *
  * Calculates only the parts' models.
- * Does NOT consider both parts' name, type, details.
+ * Does NOT consider both parts' name, type, properties.
  *
  * This is DEEP CALCULATION, i.e. all child nodes will be calculated as well.
  *

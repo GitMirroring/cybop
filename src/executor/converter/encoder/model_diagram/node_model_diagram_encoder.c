@@ -53,9 +53,9 @@
  * @param p4 the source type count
  * @param p5 the source model data
  * @param p6 the source model count
- * @param p7 the source details data
- * @param p8 the source details count
- * @param p9 the details flag
+ * @param p7 the source properties data
+ * @param p8 the source properties count
+ * @param p9 the properties flag
  * @param p10 the tree level
  */
 void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
@@ -157,7 +157,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
         }
     }
 
-    // Append part details.
+    // Append part properties.
     encode_model_diagram_part(p0, p7, p8, (void*) TRUE_BOOLEAN_MEMORY_MODEL, p10);
 }
 

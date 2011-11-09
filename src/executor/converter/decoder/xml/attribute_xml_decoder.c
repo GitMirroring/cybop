@@ -42,7 +42,7 @@
 /**
  * Decodes the xml attribute.
  *
- * @param p0 the destination details item
+ * @param p0 the destination properties item
  * @param p1 the has content flag
  * @param p2 the is empty flag
  * @param p3 the source data position (pointer reference)

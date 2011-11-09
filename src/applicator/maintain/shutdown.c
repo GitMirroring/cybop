@@ -48,7 +48,7 @@
  * Expected parametres:
  * - service (required): the service to be shut down (gnu_linux_console, www, x_window_system, ...)
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  * @param p3 the internal memory array

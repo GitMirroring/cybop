@@ -75,16 +75,16 @@
  * @param p6 the source message type count
  * @param p7 the source message model
  * @param p8 the source message model count
- * @param p9 the source message details
- * @param p10 the source message details count
+ * @param p9 the source message properties
+ * @param p10 the source message properties count
  * @param p11 the source metadata name
  * @param p12 the source metadata name count
  * @param p13 the source metadata type
  * @param p14 the source metadata type count
  * @param p15 the source metadata model
  * @param p16 the source metadata model count
- * @param p17 the source metadata details
- * @param p18 the source metadata details count
+ * @param p17 the source metadata properties
+ * @param p18 the source metadata properties count
  * @param p19 the knowledge memory
  * @param p20 the knowledge memory count
  * @param p21 the language

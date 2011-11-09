@@ -65,7 +65,7 @@ void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 // The comparison of all element pairs delivered "true".
                 //
                 // CAUTION! The arrays are expected to be EQUAL, even if
-                // the count is zero. This is important, because the DETAILS
+                // the count is zero. This is important, because the PROPERTIES
                 // (meta properties) of many otherwise equal models are empty.
                 copy_integer(p0, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
 

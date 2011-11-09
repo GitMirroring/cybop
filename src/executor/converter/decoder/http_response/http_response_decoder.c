@@ -45,10 +45,10 @@
 //
 
 /**
- * Decodes the http response into a model and details.
+ * Decodes the http response into a model and properties.
  *
  * @param p0 the destination model item (Hand over as reference!)
- * @param p1 the destination details item (Hand over as reference!)
+ * @param p1 the destination properties item (Hand over as reference!)
  * @param p2 the source wide character array
  * @param p3 the source wide character array count
  */

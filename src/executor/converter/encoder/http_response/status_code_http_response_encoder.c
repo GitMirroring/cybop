@@ -46,8 +46,8 @@
  * @param p2 the source metadata type count
  * @param p3 the source metadata model
  * @param p4 the source metadata model count
- * @param p5 the source metadata details
- * @param p6 the source metadata details count
+ * @param p5 the source metadata properties
+ * @param p6 the source metadata properties count
  */
 void encode_http_response_status_code(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 

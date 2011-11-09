@@ -37,8 +37,8 @@ static int* TYPE_PART_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
 /** The model part state cyboi name. */
 static int* MODEL_PART_STATE_CYBOI_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
 
-/** The details part state cyboi name. */
-static int* DETAILS_PART_STATE_CYBOI_NAME = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+/** The properties part state cyboi name. */
+static int* PROPERTIES_PART_STATE_CYBOI_NAME = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
 
 /* PART_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

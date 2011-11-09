@@ -48,7 +48,7 @@ void decode_http_uri_query_parameter(void* p0, void* p1, void* p2, void* p3, voi
  * Selects the http uri query parameter.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the break flag
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining

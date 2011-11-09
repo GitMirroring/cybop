@@ -47,7 +47,7 @@
  * - all (optional): the list all option (showing hidden, current . and super .. directory)
  * - long (optional): the long listing option (showing user rights etc.)
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  */
 void apply_list_directory_contents(void* p0, void* p1) {

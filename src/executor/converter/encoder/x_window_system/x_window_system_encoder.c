@@ -52,8 +52,8 @@
  * @param p2 the destination size
  * @param p3 the source compound model
  * @param p4 the source compound model count
- * @param p5 the source compound details
- * @param p6 the source compound details count
+ * @param p5 the source compound properties
+ * @param p6 the source compound properties count
  * @param p7 the knowledge memory
  * @param p8 the knowledge memory count
  */
@@ -122,7 +122,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         if (p5 != *NULL_POINTER_MEMORY_MODEL) {
 
-            // Get source whole size from details.
+            // Get source whole size from properties.
             get_universal_compound_element_by_name(
                 (void*) &wsn, (void*) &wsnc, (void*) &wsns,
                 (void*) &wsa, (void*) &wsac, (void*) &wsas,
@@ -156,7 +156,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
             fasz = oasz;
         }
 
-        // The source part name, type, model, details.
+        // The source part name, type, model, properties.
         void** n = NULL_POINTER_MEMORY_MODEL;
         void** nc = NULL_POINTER_MEMORY_MODEL;
         void** ns = NULL_POINTER_MEMORY_MODEL;
@@ -169,7 +169,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         void** d = NULL_POINTER_MEMORY_MODEL;
         void** dc = NULL_POINTER_MEMORY_MODEL;
         void** ds = NULL_POINTER_MEMORY_MODEL;
-        // The source part layout name, type, model, details.
+        // The source part layout name, type, model, properties.
         void** ln = NULL_POINTER_MEMORY_MODEL;
         void** lnc = NULL_POINTER_MEMORY_MODEL;
         void** lns = NULL_POINTER_MEMORY_MODEL;
@@ -182,7 +182,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         void** ld = NULL_POINTER_MEMORY_MODEL;
         void** ldc = NULL_POINTER_MEMORY_MODEL;
         void** lds = NULL_POINTER_MEMORY_MODEL;
-        // The source part cell name, type, model, details.
+        // The source part cell name, type, model, properties.
         void** cn = NULL_POINTER_MEMORY_MODEL;
         void** cnc = NULL_POINTER_MEMORY_MODEL;
         void** cns = NULL_POINTER_MEMORY_MODEL;
@@ -195,7 +195,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         void** cd = NULL_POINTER_MEMORY_MODEL;
         void** cdc = NULL_POINTER_MEMORY_MODEL;
         void** cds = NULL_POINTER_MEMORY_MODEL;
-        // The source part position name, type, model, details.
+        // The source part position name, type, model, properties.
         void** pn = NULL_POINTER_MEMORY_MODEL;
         void** pnc = NULL_POINTER_MEMORY_MODEL;
         void** pns = NULL_POINTER_MEMORY_MODEL;
@@ -208,7 +208,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         void** pd = NULL_POINTER_MEMORY_MODEL;
         void** pdc = NULL_POINTER_MEMORY_MODEL;
         void** pds = NULL_POINTER_MEMORY_MODEL;
-        // The source part shape name, type, model, details.
+        // The source part shape name, type, model, properties.
         void** shn = NULL_POINTER_MEMORY_MODEL;
         void** shnc = NULL_POINTER_MEMORY_MODEL;
         void** shns = NULL_POINTER_MEMORY_MODEL;
@@ -221,7 +221,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         void** shd = NULL_POINTER_MEMORY_MODEL;
         void** shdc = NULL_POINTER_MEMORY_MODEL;
         void** shds = NULL_POINTER_MEMORY_MODEL;
-        // The source part size name, type, model, details.
+        // The source part size name, type, model, properties.
         void** sn = NULL_POINTER_MEMORY_MODEL;
         void** snc = NULL_POINTER_MEMORY_MODEL;
         void** sns = NULL_POINTER_MEMORY_MODEL;
@@ -234,7 +234,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         void** sd = NULL_POINTER_MEMORY_MODEL;
         void** sdc = NULL_POINTER_MEMORY_MODEL;
         void** sds = NULL_POINTER_MEMORY_MODEL;
-        // The source part title name, type, model, details.
+        // The source part title name, type, model, properties.
         void** tn = NULL_POINTER_MEMORY_MODEL;
         void** tnc = NULL_POINTER_MEMORY_MODEL;
         void** tns = NULL_POINTER_MEMORY_MODEL;
@@ -247,7 +247,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         void** td = NULL_POINTER_MEMORY_MODEL;
         void** tdc = NULL_POINTER_MEMORY_MODEL;
         void** tds = NULL_POINTER_MEMORY_MODEL;
-        // The source part icon name, type, model, details.
+        // The source part icon name, type, model, properties.
         void** in = NULL_POINTER_MEMORY_MODEL;
         void** inc = NULL_POINTER_MEMORY_MODEL;
         void** ins = NULL_POINTER_MEMORY_MODEL;
@@ -299,7 +299,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 (void*) &m, (void*) &mc, (void*) &ms,
                 (void*) &d, (void*) &dc, (void*) &ds);
 
-            // Get source part layout from details.
+            // Get source part layout from properties.
             get_universal_compound_element_by_name(
                 (void*) &ln, (void*) &lnc, (void*) &lns,
                 (void*) &la, (void*) &lac, (void*) &las,
@@ -308,7 +308,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 *d, *dc,
                 (void*) LAYOUT_GRAPHICAL_USER_INTERFACE_CYBOL_NAME, (void*) LAYOUT_GRAPHICAL_USER_INTERFACE_CYBOL_NAME_COUNT,
                 p7, p8);
-            // Get source part cell from details.
+            // Get source part cell from properties.
             get_universal_compound_element_by_name(
                 (void*) &cn, (void*) &cnc, (void*) &cns,
                 (void*) &ca, (void*) &cac, (void*) &cas,
@@ -317,7 +317,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 *d, *dc,
                 (void*) CELL_GRAPHICAL_USER_INTERFACE_CYBOL_NAME, (void*) CELL_GRAPHICAL_USER_INTERFACE_CYBOL_NAME_COUNT,
                 p7, p8);
-            // Get source part position from details.
+            // Get source part position from properties.
             get_universal_compound_element_by_name(
                 (void*) &pn, (void*) &pnc, (void*) &pns,
                 (void*) &pa, (void*) &pac, (void*) &pas,
@@ -326,7 +326,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 *d, *dc,
                 (void*) POSITION_GRAPHICAL_USER_INTERFACE_CYBOL_NAME, (void*) POSITION_GRAPHICAL_USER_INTERFACE_CYBOL_NAME_COUNT,
                 p7, p8);
-            // Get source part size from details.
+            // Get source part size from properties.
             get_universal_compound_element_by_name(
                 (void*) &sn, (void*) &snc, (void*) &sns,
                 (void*) &sa, (void*) &sac, (void*) &sas,
@@ -541,7 +541,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 // Resize window to new size coordinates for part.
                 XResizeWindow(*di, **w, *smx, *smy);
 
-                // Get source part title from details.
+                // Get source part title from properties.
                 get_universal_compound_element_by_name(
                     (void*) &tn, (void*) &tnc, (void*) &tns,
                     (void*) &ta, (void*) &tac, (void*) &tas,
@@ -550,7 +550,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                     *d, *dc,
                     (void*) TITLE_GRAPHICAL_USER_INTERFACE_CYBOL_NAME, (void*) TITLE_GRAPHICAL_USER_INTERFACE_CYBOL_NAME_COUNT,
                     p7, p8);
-                // Get source part icon from details.
+                // Get source part icon from properties.
                 get_universal_compound_element_by_name(
                     (void*) &in, (void*) &inc, (void*) &ins,
                     (void*) &ia, (void*) &iac, (void*) &ias,
@@ -630,7 +630,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 encode_x_window_system(p0, p1, p2, *m, *mc, *d, *dc, p7, p8);
             }
 
-            // Reset source part name, type, model, details.
+            // Reset source part name, type, model, properties.
             n = NULL_POINTER_MEMORY_MODEL;
             nc = NULL_POINTER_MEMORY_MODEL;
             ns = NULL_POINTER_MEMORY_MODEL;

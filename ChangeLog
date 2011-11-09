@@ -25,6 +25,8 @@
         * Rename "executor/logicifier/" into "executor/logifier/"
         * Rename "executor/bitmator/" into "executor/manipulator/"
         * Rename "constant/abstraction/" into "constant/type/"
+        * Rename "details" into "properties" in cyboi in order to be consistent with cybol
+            ("meta" is unfavourable because it starts with "m" just like "model")
 
 2011-11-08  Christian Heller  <christian.heller@tuxtax.de>
 

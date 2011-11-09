@@ -64,7 +64,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Count compound parts.");
 
-    // The compound name, type, model, details.
+    // The compound name, type, model, properties.
     void** cn = NULL_POINTER_MEMORY_MODEL;
     void** cnc = NULL_POINTER_MEMORY_MODEL;
     void** cns = NULL_POINTER_MEMORY_MODEL;
@@ -77,7 +77,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** cd = NULL_POINTER_MEMORY_MODEL;
     void** cdc = NULL_POINTER_MEMORY_MODEL;
     void** cds = NULL_POINTER_MEMORY_MODEL;
-    // The selection name, type, model, details.
+    // The selection name, type, model, properties.
     void** sn = NULL_POINTER_MEMORY_MODEL;
     void** snc = NULL_POINTER_MEMORY_MODEL;
     void** sns = NULL_POINTER_MEMORY_MODEL;
@@ -90,7 +90,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** sd = NULL_POINTER_MEMORY_MODEL;
     void** sdc = NULL_POINTER_MEMORY_MODEL;
     void** sds = NULL_POINTER_MEMORY_MODEL;
-    // The filter name, type, model, details.
+    // The filter name, type, model, properties.
     void** fn = NULL_POINTER_MEMORY_MODEL;
     void** fnc = NULL_POINTER_MEMORY_MODEL;
     void** fns = NULL_POINTER_MEMORY_MODEL;
@@ -103,7 +103,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** fd = NULL_POINTER_MEMORY_MODEL;
     void** fdc = NULL_POINTER_MEMORY_MODEL;
     void** fds = NULL_POINTER_MEMORY_MODEL;
-    // The result name, type, model, details.
+    // The result name, type, model, properties.
     void** rn = NULL_POINTER_MEMORY_MODEL;
     void** rnc = NULL_POINTER_MEMORY_MODEL;
     void** rns = NULL_POINTER_MEMORY_MODEL;

@@ -55,20 +55,20 @@
  * as that name is already used for glibc library's input.
  *
  * CAUTION! Some file formats (like the German xDT format for medical data exchange)
- * contain both, the model AND the details, in one file. To cover these cases,
- * the model AND details are received TOGETHER, in just one operation.
+ * contain both, the model AND the properties, in one file. To cover these cases,
+ * the model AND properties are received TOGETHER, in just one operation.
  *
  * Expected parametres:
  * - channel (required): the channel via which to receive the message (gnu_linux_console, www, x_window_system etc.)
  * - language (required): the language (type, type, structure) of the data received (http_request, xdt, boolean, character etc.)
  * - message (required): the source (knowledge template) from where to receive data
- * - meta message (optional): the source (knowledge template) from where to receive meta data (details)
+ * - meta message (optional): the source (knowledge template) from where to receive meta data (properties)
  * - model (required): the compound model to be filled with the data received
- * - details (required): the compound details to be filled with the data received
+ * - properties (required): the compound properties to be filled with the data received
  * - root (required): the knowledge model that will serve as the root
  * - style (optional, only if channel is www, cyboi or similar): the style of socket communication
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  * @param p3 the internal memory array
@@ -100,7 +100,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     void* mm = *NULL_POINTER_MEMORY_MODEL;
     // The meta message part model.
     void* mem = *NULL_POINTER_MEMORY_MODEL;
-    // The model part model, details.
+    // The model part model, properties.
     void* mom = *NULL_POINTER_MEMORY_MODEL;
     void* mod = *NULL_POINTER_MEMORY_MODEL;
     // The root part model.
@@ -148,9 +148,9 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &mm, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get meta message part model.
     copy_array_forward((void*) &mem, me, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    // Get model part model, details.
+    // Get model part model, properties.
     copy_array_forward((void*) &mom, mo, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &mod, mo, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
+    copy_array_forward((void*) &mod, mo, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
     // Get root part model.
     copy_array_forward((void*) &rm, r, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get socket communication style part model.

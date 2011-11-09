@@ -72,7 +72,7 @@ void select_knowledge_branch(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_MEMORY_MODEL;
 
     // The "." indicates that the name specifies a part of a whole's model.
-    // The "#" indicates that the name specifies a meta property of a whole's details.
+    // The "#" indicates that the name specifies a meta property of a whole's properties.
 
     if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
 
@@ -95,8 +95,8 @@ void select_knowledge_branch(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // Set part element index to details.
-            copy_integer(p0, (void*) DETAILS_PART_MEMORY_NAME);
+            // Set part element index to properties.
+            copy_integer(p0, (void*) PROPERTIES_PART_MEMORY_NAME);
         }
     }
 

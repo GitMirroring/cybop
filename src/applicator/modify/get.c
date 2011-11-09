@@ -62,7 +62,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Get standard meta information.");
 
-    // The compound name, type, model, details.
+    // The compound name, type, model, properties.
     void** cn = NULL_POINTER_MEMORY_MODEL;
     void** cnc = NULL_POINTER_MEMORY_MODEL;
     void** cns = NULL_POINTER_MEMORY_MODEL;
@@ -75,7 +75,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
     void** cd = NULL_POINTER_MEMORY_MODEL;
     void** cdc = NULL_POINTER_MEMORY_MODEL;
     void** cds = NULL_POINTER_MEMORY_MODEL;
-    // The index name, type, model, details.
+    // The index name, type, model, properties.
     void** in = NULL_POINTER_MEMORY_MODEL;
     void** inc = NULL_POINTER_MEMORY_MODEL;
     void** ins = NULL_POINTER_MEMORY_MODEL;
@@ -88,7 +88,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
     void** id = NULL_POINTER_MEMORY_MODEL;
     void** idc = NULL_POINTER_MEMORY_MODEL;
     void** ids = NULL_POINTER_MEMORY_MODEL;
-    // The description name, type, model, details.
+    // The description name, type, model, properties.
     void** dn = NULL_POINTER_MEMORY_MODEL;
     void** dnc = NULL_POINTER_MEMORY_MODEL;
     void** dns = NULL_POINTER_MEMORY_MODEL;
@@ -101,7 +101,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
     void** dd = NULL_POINTER_MEMORY_MODEL;
     void** ddc = NULL_POINTER_MEMORY_MODEL;
     void** dds = NULL_POINTER_MEMORY_MODEL;
-    // The result name, type, model, details.
+    // The result name, type, model, properties.
     void** rn = NULL_POINTER_MEMORY_MODEL;
     void** rnc = NULL_POINTER_MEMORY_MODEL;
     void** rns = NULL_POINTER_MEMORY_MODEL;

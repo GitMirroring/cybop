@@ -44,14 +44,14 @@
  * @param p4 the source message type count
  * @param p5 the source message model
  * @param p6 the source message model count
- * @param p7 the source message details
- * @param p8 the source message details count
+ * @param p7 the source message properties
+ * @param p8 the source message properties count
  * @param p9 the source metadata type
  * @param p10 the source metadata type count
  * @param p11 the source metadata model
  * @param p12 the source metadata model count
- * @param p13 the source metadata details
- * @param p14 the source metadata details count
+ * @param p13 the source metadata properties
+ * @param p14 the source metadata properties count
  */
 void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 

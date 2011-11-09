@@ -92,7 +92,7 @@ void select_knowledge_name(void* p0, void* p1, void* p2) {
 
         // CAUTION! Do NOT move the position (last parametre) here,
         // since the "#" has to be DETECTED AGAIN later for
-        // determining the correct knowledge branch (details).
+        // determining the correct knowledge branch (properties).
         detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {

@@ -45,8 +45,8 @@
  * @param p2 the source type count
  * @param p3 the source model
  * @param p4 the source model count
- * @param p5 the source details
- * @param p6 the source details count
+ * @param p5 the source properties
+ * @param p6 the source properties count
  */
 void encode_http_response_body(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 

@@ -42,9 +42,9 @@
  * @param p0 the model (Hand over as reference!)
  * @param p1 the model count
  * @param p2 the model size
- * @param p3 the details (Hand over as reference!)
- * @param p4 the details count
- * @param p5 the details size
+ * @param p3 the properties (Hand over as reference!)
+ * @param p4 the properties count
+ * @param p5 the properties size
  * @param p6 the message
  * @param p7 the message count
  * @param p8 the language

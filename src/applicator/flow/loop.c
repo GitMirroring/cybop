@@ -50,7 +50,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * - model (required): the knowledge model to be executed repeatedly by the loop
  * - break (required): the break flag; once set, the loop will be left (exited)
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  * @param p3 the internal memory array

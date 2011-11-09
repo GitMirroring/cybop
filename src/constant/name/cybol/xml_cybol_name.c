@@ -40,7 +40,7 @@ static int* NODE_XML_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
  *
  * CAUTION! The node name is intentionally left empty.
  * The cyboi xml parser adds the xml tag name and xml attribute names
- * to a node's details, all on the same level.
+ * to a node's properties, all on the same level.
  * But because xml attributes may have arbitrary names,
  * an ambiguous situation could be caused when fixing a node's name.
  *

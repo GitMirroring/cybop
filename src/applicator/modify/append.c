@@ -54,7 +54,7 @@
  * - index (optional; if null, an index of zero will be used instead):
  *   the source index from which to start copying elements from
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  */

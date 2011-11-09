@@ -40,7 +40,7 @@
 /**
  * Decodes the xml declaration.
  *
- * @param p0 the destination details item
+ * @param p0 the destination properties item
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */

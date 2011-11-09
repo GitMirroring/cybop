@@ -49,7 +49,7 @@
  * - source (required): the source to be copied
  * - destination (required): the destination to copy to
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  */
 void apply_copy_file(void* p0, void* p1) {

@@ -54,8 +54,8 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p5 the message type count (Hand over as reference!)
  * @param p6 the message model (Hand over as reference!)
  * @param p7 the message model count (Hand over as reference!)
- * @param p8 the message details (Hand over as reference!)
- * @param p9 the message details count (Hand over as reference!)
+ * @param p8 the message properties (Hand over as reference!)
+ * @param p9 the message properties count (Hand over as reference!)
  * @param p10 the signal priority (Hand over as reference!)
  * @param p11 the signal identification (Hand over as reference!)
  */
@@ -94,7 +94,7 @@ void apply_send_cyboi_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
  * Expected parametres:
  * - model (required): the knowledge model to be executed as sequence
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  * @param p3 the internal memory array

@@ -61,11 +61,11 @@
  * @param p6 the command model (Hand over as reference!)
  * @param p7 the command model count (Hand over as reference!)
  * @param p8 the command model size (Hand over as reference!)
- * @param p9 the command details (Hand over as reference!)
- * @param p10 the command details count (Hand over as reference!)
- * @param p11 the command details size (Hand over as reference!)
- * @param p12 the whole details
- * @param p13 the whole details count
+ * @param p9 the command properties (Hand over as reference!)
+ * @param p10 the command properties count (Hand over as reference!)
+ * @param p11 the command properties size (Hand over as reference!)
+ * @param p12 the whole properties
+ * @param p13 the whole properties count
  * @param p14 the event type
  * @param p15 the mouse button
  * @param p16 the knowledge memory
@@ -136,11 +136,11 @@ void sense_x_window_system_mouse_command(void* p0, void* p1, void* p2, void* p3,
  * @param p6 the command model (Hand over as reference!)
  * @param p7 the command model count (Hand over as reference!)
  * @param p8 the command model size (Hand over as reference!)
- * @param p9 the command details (Hand over as reference!)
- * @param p10 the command details count (Hand over as reference!)
- * @param p11 the command details size (Hand over as reference!)
- * @param p12 the whole details
- * @param p13 the whole details count
+ * @param p9 the command properties (Hand over as reference!)
+ * @param p10 the command properties count (Hand over as reference!)
+ * @param p11 the command properties size (Hand over as reference!)
+ * @param p12 the whole properties
+ * @param p13 the whole properties count
  * @param p14 the event type
  * @param p15 the mouse button
  * @param p16 the knowledge memory
@@ -194,9 +194,9 @@ void sense_x_window_system_command(void* p0, void* p1, void* p2, void* p3, void*
  * @param p6 the command model (Hand over as reference!)
  * @param p7 the command model count (Hand over as reference!)
  * @param p8 the command model size (Hand over as reference!)
- * @param p9 the command details (Hand over as reference!)
- * @param p10 the command details count (Hand over as reference!)
- * @param p11 the command details size (Hand over as reference!)
+ * @param p9 the command properties (Hand over as reference!)
+ * @param p10 the command properties count (Hand over as reference!)
+ * @param p11 the command properties size (Hand over as reference!)
  * @param p12 the whole model
  * @param p13 the whole model count
  * @param p14 the mouse x coordinate within the graphical whole
@@ -228,7 +228,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
                     int* wmc = (int*) p13;
 
-                    // The graphical part name, type, model, details.
+                    // The graphical part name, type, model, properties.
                     void** n = NULL_POINTER_MEMORY_MODEL;
                     void** nc = NULL_POINTER_MEMORY_MODEL;
                     void** ns = NULL_POINTER_MEMORY_MODEL;
@@ -241,7 +241,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                     void** d = NULL_POINTER_MEMORY_MODEL;
                     void** dc = NULL_POINTER_MEMORY_MODEL;
                     void** ds = NULL_POINTER_MEMORY_MODEL;
-                    // The graphical part position name, type, model, details.
+                    // The graphical part position name, type, model, properties.
                     void** pn = NULL_POINTER_MEMORY_MODEL;
                     void** pnc = NULL_POINTER_MEMORY_MODEL;
                     void** pns = NULL_POINTER_MEMORY_MODEL;
@@ -254,7 +254,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                     void** pd = NULL_POINTER_MEMORY_MODEL;
                     void** pdc = NULL_POINTER_MEMORY_MODEL;
                     void** pds = NULL_POINTER_MEMORY_MODEL;
-                    // The graphical part size name, type, model, details.
+                    // The graphical part size name, type, model, properties.
                     void** sn = NULL_POINTER_MEMORY_MODEL;
                     void** snc = NULL_POINTER_MEMORY_MODEL;
                     void** sns = NULL_POINTER_MEMORY_MODEL;
@@ -301,7 +301,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             (void*) &m, (void*) &mc, (void*) &ms,
                             (void*) &d, (void*) &dc, (void*) &ds);
 
-                        // Get graphical part position from details.
+                        // Get graphical part position from properties.
                         get_universal_compound_element_by_name(
                             (void*) &pn, (void*) &pnc, (void*) &pns,
                             (void*) &pa, (void*) &pac, (void*) &pas,
@@ -310,7 +310,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             *d, *dc,
                             (void*) POSITION_GRAPHICAL_USER_INTERFACE_CYBOL_NAME, (void*) POSITION_GRAPHICAL_USER_INTERFACE_CYBOL_NAME_COUNT,
                             p19, p20);
-                        // Get graphical part size from details.
+                        // Get graphical part size from properties.
                         get_universal_compound_element_by_name(
                             (void*) &sn, (void*) &snc, (void*) &sns,
                             (void*) &sa, (void*) &sac, (void*) &sas,
@@ -353,7 +353,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             }
                         }
 
-                        // Reset graphical part name, type, model, details.
+                        // Reset graphical part name, type, model, properties.
                         n = NULL_POINTER_MEMORY_MODEL;
                         nc = NULL_POINTER_MEMORY_MODEL;
                         ns = NULL_POINTER_MEMORY_MODEL;
@@ -366,7 +366,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                         d = NULL_POINTER_MEMORY_MODEL;
                         dc = NULL_POINTER_MEMORY_MODEL;
                         ds = NULL_POINTER_MEMORY_MODEL;
-                        // Reset graphical part position name, type, model, details.
+                        // Reset graphical part position name, type, model, properties.
                         pn = NULL_POINTER_MEMORY_MODEL;
                         pnc = NULL_POINTER_MEMORY_MODEL;
                         pns = NULL_POINTER_MEMORY_MODEL;
@@ -379,7 +379,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                         pd = NULL_POINTER_MEMORY_MODEL;
                         pdc = NULL_POINTER_MEMORY_MODEL;
                         pds = NULL_POINTER_MEMORY_MODEL;
-                        // Reset graphical part size name, type, model, details.
+                        // Reset graphical part size name, type, model, properties.
                         sn = NULL_POINTER_MEMORY_MODEL;
                         snc = NULL_POINTER_MEMORY_MODEL;
                         sns = NULL_POINTER_MEMORY_MODEL;
@@ -500,7 +500,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
     get((void*) &w, p0, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
-    // The command name, type, model, details.
+    // The command name, type, model, properties.
     void** cn = NULL_POINTER_MEMORY_MODEL;
     void** cnc = NULL_POINTER_MEMORY_MODEL;
     void** cns = NULL_POINTER_MEMORY_MODEL;
@@ -514,7 +514,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** cdc = NULL_POINTER_MEMORY_MODEL;
     void** cds = NULL_POINTER_MEMORY_MODEL;
 
-    //?? TODO: The temporary graphical part name, type, model, details.
+    //?? TODO: The temporary graphical part name, type, model, properties.
     void** tmpn = NULL_POINTER_MEMORY_MODEL;
     void** tmpnc = NULL_POINTER_MEMORY_MODEL;
     void** tmpns = NULL_POINTER_MEMORY_MODEL;
@@ -703,7 +703,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
             (void*) &tmpd, (void*) &tmpdc, (void*) &tmpds);
 
         // Determine command, depending on mouse button and event type.
-        // CAUTION! Hand over command type, model, details as reference!
+        // CAUTION! Hand over command type, model, properties as reference!
         sense_x_window_system_part(&cn, &cnc, &cns, &ca, &cac, &cas, &cm, &cmc, &cms, &cd, &cdc, &cds,
             *tmpm, *tmpmc, &(e.xbutton.x), &(e.xbutton.y), (void*) NUMBER_0_INTEGER_MEMORY_MODEL,
             &t, &(e.xbutton.button), *k, *kc);

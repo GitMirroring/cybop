@@ -71,7 +71,7 @@
  * - clean (optional, only if language is tui): the flag indicating whether or not to clear the screen before painting a user interface
  * - new_line (optional, only if channel is standard_output/ shell): the flag indicating whether or not to add a new line after having printed the message on screen
  *
- * @param p0 the parametres array (signal/ operation part details with pointers referencing parts)
+ * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
  * @param p2 the knowledge memory part
  * @param p3 the internal memory array

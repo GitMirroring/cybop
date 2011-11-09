@@ -58,7 +58,7 @@ void decode_xml_end_tag(void* p0, void* p1);
  * Selects the xml element content.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the destination break flag
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining
@@ -120,7 +120,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // The data contained in an XML declaration are added to the destination details.
+            // The data contained in an XML declaration are added to the destination properties.
             decode_xml_declaration(p1, p3, p4);
         }
     }
@@ -142,7 +142,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
 
-            // The data contained in an XML definition are added to the destination details.
+            // The data contained in an XML definition are added to the destination properties.
             decode_xml_definition(p1, p3, p4);
         }
     }

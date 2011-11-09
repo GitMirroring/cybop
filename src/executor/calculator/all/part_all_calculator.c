@@ -97,7 +97,7 @@ void calculate_all_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * Calculates all elements of the left- with those of the right part.
  *
  * ONLY the actual model is calculated using the given operation type.
- * This function does NOT change the meta elements: name, type, details.
+ * This function does NOT change the meta elements: name, type, properties.
  *
  * This function is only called when calculating two parts
  * including their parts etc. (deep calculation).
@@ -119,11 +119,11 @@ void calculate_all_part_model(void* p0, void* p1, void* p2, void* p3) {
 
             log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Calculate all part model.");
 
-            // The left part name, type, model, details.
+            // The left part name, type, model, properties.
             void* ln = *NULL_POINTER_MEMORY_MODEL;
             void* la = *NULL_POINTER_MEMORY_MODEL;
             void* lm = *NULL_POINTER_MEMORY_MODEL;
-            // The right part name, type, model, details.
+            // The right part name, type, model, properties.
             void* rn = *NULL_POINTER_MEMORY_MODEL;
             void* ra = *NULL_POINTER_MEMORY_MODEL;
             void* rm = *NULL_POINTER_MEMORY_MODEL;
@@ -133,11 +133,11 @@ void calculate_all_part_model(void* p0, void* p1, void* p2, void* p3) {
             int nr = *FALSE_BOOLEAN_MEMORY_MODEL;
             int ar = *FALSE_BOOLEAN_MEMORY_MODEL;
 
-            // Get left name, type, model, details.
+            // Get left name, type, model, properties.
             copy_array_forward((void*) &ln, *lp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
             copy_array_forward((void*) &la, *lp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
             copy_array_forward((void*) &lm, *lp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-            // Get right part name, type, model, details.
+            // Get right part name, type, model, properties.
             copy_array_forward((void*) &rn, *rp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
             copy_array_forward((void*) &ra, *rp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
             copy_array_forward((void*) &rm, *rp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);

@@ -49,8 +49,8 @@
  * @param p2 the source type count
  * @param p3 the source model
  * @param p4 the source model count
- * @param p5 the source details
- * @param p6 the source details count
+ * @param p5 the source properties
+ * @param p6 the source properties count
  * @param p7 the knowledge memory
  * @param p8 the knowledge memory count
  * @param p9 the language model

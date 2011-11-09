@@ -11,8 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Rename "details" into "properties" in cyboi (as in cybol)
-            ("meta" is unfavourable because it starts with "m" just like "model")
         * Rename several things in CYBOL files and CYBOI:
             --> rename "abstraction" attribute to "language" for all CYBOL tags?!
             --> rename "model" attribute to "message" for all CYBOL tags?!

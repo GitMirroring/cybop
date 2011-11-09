@@ -40,7 +40,7 @@
 /**
  * Decodes the xml tag name.
  *
- * @param p0 the destination details item
+ * @param p0 the destination properties item
  * @param p1 the has attribute flag
  * @param p2 the has content flag
  * @param p3 the is empty flag

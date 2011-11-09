@@ -77,7 +77,7 @@
  * Decodes the source into the destination, according to the given type.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
  * @param p4 the type
@@ -140,14 +140,14 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             void* md = *NULL_POINTER_MEMORY_MODEL;
             int mc = *NUMBER_0_INTEGER_MEMORY_MODEL;
             int ms = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            // The temporary details data, count, size.
+            // The temporary properties data, count, size.
             void* dd = *NULL_POINTER_MEMORY_MODEL;
             int dc = *NUMBER_0_INTEGER_MEMORY_MODEL;
             int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
             // Allocate temporary model.
             allocate_array((void*) &md, (void*) &ms, (void*) PART_MEMORY_TYPE);
-            // Allocate temporary details.
+            // Allocate temporary properties.
             allocate_array((void*) &dd, (void*) &ds, (void*) PART_MEMORY_TYPE);
 
             // Decode source message (cybol file) into temporary model.
@@ -192,7 +192,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // Deallocate temporary model.
             deallocate_array((void*) &md, (void*) &ms, (void*) PART_MEMORY_TYPE);
-            // Deallocate temporary details.
+            // Deallocate temporary properties.
             deallocate_array((void*) &dd, (void*) &ds, (void*) PART_MEMORY_TYPE);
 
 //?? TEST BEGIN
@@ -336,14 +336,14 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             void* m = *NULL_POINTER_MEMORY_MODEL;
             int mc = *NUMBER_0_INTEGER_MEMORY_MODEL;
             int ms = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            // The temporary details.
+            // The temporary properties.
             void* d = *NULL_POINTER_MEMORY_MODEL;
             int dc = *NUMBER_0_INTEGER_MEMORY_MODEL;
             int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
 
             // Allocate temporary model.
             allocate((void*) &m, (void*) &ms, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
-            // Allocate temporary details.
+            // Allocate temporary properties.
             allocate((void*) &d, (void*) &ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
 
             // Decode source message into temporary compound memory model.
@@ -387,7 +387,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // Deallocate temporary model.
             deallocate((void*) &m, (void*) &ms, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
-            // Deallocate temporary details.
+            // Deallocate temporary properties.
             deallocate((void*) &d, (void*) &ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
 
 //?? TEST BEGIN

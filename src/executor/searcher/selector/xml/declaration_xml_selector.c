@@ -40,9 +40,9 @@
 /**
  * Selects the xml declaration.
  *
- * @param p0 the destination details (Hand over as reference!)
- * @param p1 the destination details count
- * @param p2 the destination details size
+ * @param p0 the destination properties (Hand over as reference!)
+ * @param p1 the destination properties count
+ * @param p2 the destination properties size
  * @param p3 the destination break flag
  * @param p4 the source data position (pointer reference)
  * @param p5 the source count remaining

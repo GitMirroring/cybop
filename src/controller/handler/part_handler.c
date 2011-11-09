@@ -41,8 +41,8 @@
  *
  * @param p0 the signal model array (operation)
  * @param p1 the signal model array (operation) count
- * @param p2 the signal details array (parametres)
- * @param p3 the signal details array (parametres) count
+ * @param p2 the signal properties array (parametres)
+ * @param p3 the signal properties array (parametres) count
  * @param p4 the direct execution flag
  * @param p5 the shutdown flag
  * @param p6 the knowledge memory part

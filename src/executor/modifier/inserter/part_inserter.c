@@ -40,7 +40,7 @@
  * given by the destination part element index.
  *
  * The destination part element may be either of:
- * name, type, model, details.
+ * name, type, model, properties.
  *
  * @param p0 the destination part
  * @param p1 the source array
@@ -67,7 +67,7 @@ void insert_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 /**
  * Inserts the source into the destination.
  *
- * The name, type and details of the destination
+ * The name, type and properties of the destination
  * remain unchanged. Only the model gets inserted.
  *
  * The count and size are adjusted automatically.

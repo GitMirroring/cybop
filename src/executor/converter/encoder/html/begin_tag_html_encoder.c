@@ -42,8 +42,8 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the source details data
- * @param p4 the source details count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
  * @param p5 the indentation level
  */
 void encode_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {

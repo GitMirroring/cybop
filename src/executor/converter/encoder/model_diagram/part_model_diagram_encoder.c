@@ -52,7 +52,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
  * @param p0 the destination model diagram item
  * @param p1 the source model data
  * @param p2 the source model index
- * @param p3 the details flag
+ * @param p3 the properties flag
  * @param p4 the tree level
  */
 void encode_model_diagram_part_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -61,12 +61,12 @@ void encode_model_diagram_part_part(void* p0, void* p1, void* p2, void* p3, void
 
     // The part.
     void* p = *NULL_POINTER_MEMORY_MODEL;
-    // The part name, type, model, details.
+    // The part name, type, model, properties.
     void* n = *NULL_POINTER_MEMORY_MODEL;
     void* a = *NULL_POINTER_MEMORY_MODEL;
     void* m = *NULL_POINTER_MEMORY_MODEL;
     void* d = *NULL_POINTER_MEMORY_MODEL;
-    // The part name, type, model, details data, count.
+    // The part name, type, model, properties data, count.
     void* nd = *NULL_POINTER_MEMORY_MODEL;
     void* nc = *NULL_POINTER_MEMORY_MODEL;
     void* ad = *NULL_POINTER_MEMORY_MODEL;
@@ -78,12 +78,12 @@ void encode_model_diagram_part_part(void* p0, void* p1, void* p2, void* p3, void
 
     // Get part from source whole at current index.
     copy_array_forward((void*) &p, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
-    // Get part name, type, model, details.
+    // Get part name, type, model, properties.
     copy_array_forward((void*) &n, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     copy_array_forward((void*) &a, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &d, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DETAILS_PART_MEMORY_NAME);
-    // Get part name, type, model, details data, count.
+    copy_array_forward((void*) &d, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    // Get part name, type, model, properties data, count.
     copy_array_forward((void*) &nd, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     copy_array_forward((void*) &nc, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
@@ -106,7 +106,7 @@ void encode_model_diagram_part_part(void* p0, void* p1, void* p2, void* p3, void
  * @param p0 the destination model diagram item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the details flag
+ * @param p3 the properties flag
  * @param p4 the tree level
  */
 void encode_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* p4) {

@@ -45,13 +45,13 @@
  * Encodes the model diagram indentation branch.
  *
  * @param p0 the destination model diagram item
- * @param p1 the details flag
+ * @param p1 the properties flag
  */
 void encode_model_diagram_indentation_branch(void* p0, void* p1) {
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode model diagram indentation branch.");
 
-    // The details flag.
+    // The properties flag.
     int d = *FALSE_BOOLEAN_MEMORY_MODEL;
 
     compare_integer_equal((void*) &d, p1, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
@@ -68,7 +68,7 @@ void encode_model_diagram_indentation_branch(void* p0, void* p1) {
 
     } else {
 
-        // This is the part DETAILS, so that a number sign- and minus character are used.
+        // This is the part PROPERTIES, so that a number sign- and minus character are used.
 
         // Append plus character.
         append_item_element(p0, (void*) NUMBER_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
@@ -82,7 +82,7 @@ void encode_model_diagram_indentation_branch(void* p0, void* p1) {
  * Encodes the model diagram indentation line.
  *
  * @param p0 the destination model diagram item
- * @param p1 the details flag
+ * @param p1 the properties flag
  * @param p2 the tree level
  * @param p3 the current level
  */
@@ -127,7 +127,7 @@ void encode_model_diagram_indentation_line(void* p0, void* p1, void* p2, void* p
  * Encodes the model diagram indentation.
  *
  * @param p0 the destination model diagram item
- * @param p1 the details flag
+ * @param p1 the properties flag
  * @param p2 the tree level
  */
 void encode_model_diagram_indentation(void* p0, void* p1, void* p2) {

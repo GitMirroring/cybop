@@ -37,7 +37,7 @@
  * Decodes the authority form http request uri.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the comparison result
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining

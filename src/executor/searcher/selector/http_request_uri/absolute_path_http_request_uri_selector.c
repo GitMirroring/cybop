@@ -91,7 +91,7 @@
  * in the original URI, it MUST be given as "/" (the server root).
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the break flag
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining

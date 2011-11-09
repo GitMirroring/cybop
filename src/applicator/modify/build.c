@@ -55,7 +55,7 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Build list name.");
 
-    // The basisname name, type, model, details.
+    // The basisname name, type, model, properties.
     void** bnn = NULL_POINTER_MEMORY_MODEL;
     void** bnnc = NULL_POINTER_MEMORY_MODEL;
     void** bnns = NULL_POINTER_MEMORY_MODEL;
@@ -68,7 +68,7 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** bnd = NULL_POINTER_MEMORY_MODEL;
     void** bndc = NULL_POINTER_MEMORY_MODEL;
     void** bnds = NULL_POINTER_MEMORY_MODEL;
-    // The index name, type, model, details.
+    // The index name, type, model, properties.
     void** idxn = NULL_POINTER_MEMORY_MODEL;
     void** idxnc = NULL_POINTER_MEMORY_MODEL;
     void** idxns = NULL_POINTER_MEMORY_MODEL;
@@ -81,7 +81,7 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** idxd = NULL_POINTER_MEMORY_MODEL;
     void** idxdc = NULL_POINTER_MEMORY_MODEL;
     void** idxds = NULL_POINTER_MEMORY_MODEL;
-    // The result name, type, model, details.
+    // The result name, type, model, properties.
     void** resn = NULL_POINTER_MEMORY_MODEL;
     void** resnc = NULL_POINTER_MEMORY_MODEL;
     void** resns = NULL_POINTER_MEMORY_MODEL;

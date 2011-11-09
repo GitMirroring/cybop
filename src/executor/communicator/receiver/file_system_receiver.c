@@ -163,7 +163,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * Receives data via file system.
  *
  * @param p0 the destination model item (Hand over as item, since size may change!)
- * @param p1 the destination details item (Hand over as item, since size may change!)
+ * @param p1 the destination properties item (Hand over as item, since size may change!)
  * @param p2 the source data (file name)
  * @param p3 the source count
  * @param p4 the type
@@ -201,7 +201,7 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Deallocate encoded data.
     deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_MEMORY_TYPE);
 
-    // Deserialise decoded data into destination model and details.
+    // Deserialise decoded data into destination model and properties.
     decode(p0, p1, dd, (void*) &dc, p4);
 
     // Deallocate decoded data.

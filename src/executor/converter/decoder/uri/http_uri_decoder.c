@@ -31,7 +31,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the http uri into a part model and -details.
+ * Decodes the http uri into a part model and -properties.
  *
  * CAUTION! The source character array MUST NOT be given
  * as percent-encoded octets. In other words, it has to
@@ -43,7 +43,7 @@
  * yet before being added to the destination.
  *
  * @param p0 the destination model item
- * @param p1 the destination details item
+ * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
  */
