@@ -26,7 +26,7 @@
 #ifndef ORIENTER_SOURCE
 #define ORIENTER_SOURCE
 
-#include "../constant/model/memory/pointer_memory_model.c"
+#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
 /**
  * Orients the given stream.
@@ -36,11 +36,11 @@
  */
 void orient(void* p0, void* p1) {
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* o = (int*) p1;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             FILE* s = (FILE*) p0;
 

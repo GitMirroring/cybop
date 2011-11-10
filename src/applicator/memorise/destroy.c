@@ -27,12 +27,12 @@
 #define DESTROY_SOURCE
 
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
-#include "../../constant/model/log/message_log_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/memory/destroy_memory_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/accessor/remover/compound_remover.c"
@@ -53,24 +53,24 @@
  */
 void apply_destroy(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply destroy.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply destroy.");
 
     // The part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type.
-    void* pa = *NULL_POINTER_MEMORY_MODEL;
+    void* pa = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type data.
-    void* pad = *NULL_POINTER_MEMORY_MODEL;
+    void* pad = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
     get_name_array((void*) &p, p0, (void*) PART_DESTROY_OPERATION_CYBOL_NAME, (void*) PART_DESTROY_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get part type.
-    copy_array_forward((void*) &pa, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pa, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     // Get part type data.
-    copy_array_forward((void*) &pad, pa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &pad, pa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // Deallocate part.
-    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, pad);
+    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, pad);
 }
 
 /* DESTROY_SOURCE */

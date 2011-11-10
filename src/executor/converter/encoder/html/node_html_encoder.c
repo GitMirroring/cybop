@@ -27,13 +27,13 @@
 #define NODE_HTML_ENCODER_SOURCE
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/channel/cybol_channel.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
 #include "../../../../executor/accessor/getter/compound_getter.c"
 #include "../../../../executor/accessor/getter.c"
@@ -57,47 +57,47 @@
  */
 void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode html node.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html node.");
 
     // The tag part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The tag part model.
-    void* m = *NULL_POINTER_MEMORY_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The tag part model data, count.
-    void* md = *NULL_POINTER_MEMORY_MODEL;
-    void* mc = *NULL_POINTER_MEMORY_MODEL;
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get tag part by name.
     get_name_array((void*) &p, p3, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT, p4);
     // Get tag part model.
-    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get tag part model data, count.
-    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     encode_html_begin_tag(p0, md, mc, p3, p4, p5);
 
     // The new indentation level, which is the old incremented by one.
-    calculate_integer_add(p5, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+    calculate_integer_add(p5, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, p6, (void*) PART_MEMORY_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             encode_html_structured_tag_content(p0, p1, p2, p5);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, p6, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             encode_html_tag_content(p0, p1, p2, p5);
         }

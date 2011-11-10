@@ -27,7 +27,7 @@
 #define THREAD_IDENTIFICATION_GLOBALISER_SOURCE
 
 #include <pthread.h>
-#include "../../constant/model/memory/integer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../variable/type_size/thread_type_size.c"
 #include "../../variable/thread_identification.c"
 
@@ -38,19 +38,19 @@ void globalise_thread_identification() {
 
     // Allocate cyboi service thread identification.
     CYBOI_SERVICE_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
-    *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+    *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise gnu/linux console thread identification.
     GNU_LINUX_CONSOLE_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
-    *GNU_LINUX_CONSOLE_THREAD = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+    *GNU_LINUX_CONSOLE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate www service thread identification.
     WWW_SERVICE_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
-    *WWW_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+    *WWW_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate x window system thread identification.
     X_WINDOW_SYSTEM_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
-    *X_WINDOW_SYSTEM_THREAD = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+    *X_WINDOW_SYSTEM_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 }
 
 /* THREAD_IDENTIFICATION_GLOBALISER_SOURCE */

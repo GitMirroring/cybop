@@ -26,12 +26,12 @@
 #ifndef STRUCTURED_TAG_CONTENT_HTML_ENCODER_SOURCE
 #define STRUCTURED_TAG_CONTENT_HTML_ENCODER_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/accessor/getter/compound_getter.c"
 #include "../../../../executor/accessor/getter.c"
 #include "../../../../logger/logger.c"
@@ -52,33 +52,33 @@ void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
  */
 void encode_html_structured_tag_content_part(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode html structured tag content part.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html structured tag content part.");
 
     // The part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type, model, properties.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
-    void* m = *NULL_POINTER_MEMORY_MODEL;
-    void* d = *NULL_POINTER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type, model, properties data, count.
-    void* ad = *NULL_POINTER_MEMORY_MODEL;
-    void* md = *NULL_POINTER_MEMORY_MODEL;
-    void* mc = *NULL_POINTER_MEMORY_MODEL;
-    void* dd = *NULL_POINTER_MEMORY_MODEL;
-    void* dc = *NULL_POINTER_MEMORY_MODEL;
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part at index.
-    copy_array_forward((void*) &p, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
+    copy_array_forward((void*) &p, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
     // Get part type, model, properties.
-    copy_array_forward((void*) &a, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &d, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    copy_array_forward((void*) &a, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &d, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
     // Get part type, model, properties data, count.
-    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &dd, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dd, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dc, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // Recursively call encode node function for the part's model and properties.
     encode_html_node(p0, md, mc, dd, dc, p3, ad);
@@ -94,19 +94,19 @@ void encode_html_structured_tag_content_part(void* p0, void* p1, void* p2, void*
  */
 void encode_html_structured_tag_content(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode html structured tag content.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html structured tag content.");
 
     // The loop variable.
-    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
-    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Iterate through compound parts.
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
-        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }

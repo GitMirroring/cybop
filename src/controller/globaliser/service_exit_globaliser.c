@@ -46,19 +46,19 @@ void globalise_service_exit() {
 
     // Allocate and initialise cyboi service thread exit flag.
     CYBOI_SERVICE_EXIT = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *CYBOI_SERVICE_EXIT = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    *CYBOI_SERVICE_EXIT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise gnu/linux console thread exit flag.
     GNU_LINUX_CONSOLE_EXIT = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *GNU_LINUX_CONSOLE_EXIT = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    *GNU_LINUX_CONSOLE_EXIT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise www service thread exit flag.
     WWW_SERVICE_EXIT = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *WWW_SERVICE_EXIT = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    *WWW_SERVICE_EXIT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise x window system thread exit flag.
     X_WINDOW_SYSTEM_EXIT = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *X_WINDOW_SYSTEM_EXIT = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    *X_WINDOW_SYSTEM_EXIT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
 
 /* SERVICE_EXIT_GLOBALISER_SOURCE */

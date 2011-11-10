@@ -30,10 +30,10 @@
 
 #include "../../applicator/runner/executing_runner.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/file/list_file_operation_cybol_name.c"
 #include "../../constant/name/command_option/unix/list_unix_command_option_name.c"
 #include "../../executor/memoriser/allocator.c"
@@ -52,22 +52,22 @@
  */
 void apply_list_directory_contents(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply list directory contents.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list directory contents.");
 
     // The all part.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The long listing part.
-    void* l = *NULL_POINTER_MEMORY_MODEL;
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The all part model.
-    void* am = *NULL_POINTER_MEMORY_MODEL;
+    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The long listing part model.
-    void* lm = *NULL_POINTER_MEMORY_MODEL;
+    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The all part model data.
-    void* amd = *NULL_POINTER_MEMORY_MODEL;
+    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The long listing part model data.
-    void* lmd = *NULL_POINTER_MEMORY_MODEL;
+    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get all part.
     get_name_array((void*) &a, p0, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -75,50 +75,50 @@ void apply_list_directory_contents(void* p0, void* p1) {
     get_name_array((void*) &l, p0, (void*) LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME, (void*) LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get all part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get long listing part model.
-    copy_array_forward((void*) &lm, l, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &lm, l, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get all part model data.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get long listing part model data.
-    copy_array_forward((void*) &lmd, lm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &lmd, lm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The arguments vector.
-    void* arg = *NULL_POINTER_MEMORY_MODEL;
-    int argc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int args = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int argc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int args = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate arguments vector.
     allocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Append command.
-    overwrite_array((void*) &arg, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+    overwrite_array((void*) &arg, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, (void*) *amd, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        compare_integer_unequal((void*) &r, (void*) *amd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append all option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
-            overwrite_array((void*) &arg, (void*) ALL_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ALL_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) ALL_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ALL_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, (void*) *lmd, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        compare_integer_unequal((void*) &r, (void*) *lmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append long listing option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
-            overwrite_array((void*) &arg, (void*) LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 

@@ -26,10 +26,10 @@
 #ifndef BRANCH_PART_GETTER_SOURCE
 #define BRANCH_PART_GETTER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/modifier/getter/hierarchical_part_getter.c"
 #include "../../../executor/searcher/selector/knowledge/branch_knowledge_selector.c"
 #include "../../../logger/logger.c"
@@ -46,27 +46,27 @@
  */
 void get_part_branch(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* rem = (int*) p3;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Get part branch.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part branch.");
 
         // The part element index indicating the knowledge branch.
-        int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (*rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get part branch. The remaining count is zero or smaller.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part branch. The remaining count is zero or smaller.");
 
                 break;
             }
 
             select_knowledge_branch((void*) &i, p2, p3);
 
-            if (i > *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL) {
+            if (i > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Process the actual part name.
                 //
@@ -81,7 +81,7 @@ void get_part_branch(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get part branch. The remaining count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part branch. The remaining count is null.");
     }
 }
 

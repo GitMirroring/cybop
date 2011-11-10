@@ -26,9 +26,9 @@
 #ifndef MULTIPLY_INTEGER_CALCULATOR_SOURCE
 #define MULTIPLY_INTEGER_CALCULATOR_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -39,26 +39,26 @@
  */
 void calculate_integer_multiply(void* p0, void* p1) {
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* f = (int*) p1;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* p = (int*) p0;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Calculate integer multiply.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer multiply.");
 
             *p = *p * *f;
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not calculate integer multiply. The product is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer multiply. The product is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not calculate integer multiply. The factor is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer multiply. The factor is null.");
     }
 }
 

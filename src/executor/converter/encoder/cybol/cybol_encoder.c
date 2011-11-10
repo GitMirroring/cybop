@@ -26,7 +26,7 @@
 #ifndef CYBOL_ENCODER_SOURCE
 #define CYBOL_ENCODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -38,7 +38,7 @@
  */
 void encode_cybol(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode cybol.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol.");
 }
 
 /* CYBOL_ENCODER_SOURCE */

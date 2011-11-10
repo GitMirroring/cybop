@@ -27,9 +27,9 @@
 #define DATE_TIME_DEALLOCATOR_SOURCE
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../logger/logger.c"
 
@@ -41,7 +41,7 @@
  */
 void deallocate_date_time(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Deallocate date time.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate date time.");
 
     deallocate_array(p0, p1, (void*) INTEGER_MEMORY_TYPE);
 }

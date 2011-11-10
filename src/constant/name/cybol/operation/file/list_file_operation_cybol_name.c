@@ -27,17 +27,17 @@
 #define LIST_FILE_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The all list directory contents file operation cybol name. */
 static wchar_t ALL_LIST_FILE_OPERATION_CYBOL_NAME_ARRAY[] = {L'a', L'l', L'l'};
 static wchar_t* ALL_LIST_FILE_OPERATION_CYBOL_NAME = ALL_LIST_FILE_OPERATION_CYBOL_NAME_ARRAY;
-static int* ALL_LIST_FILE_OPERATION_CYBOL_NAME_COUNT = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ALL_LIST_FILE_OPERATION_CYBOL_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The long listing list directory contents file operation cybol name. */
 static wchar_t LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME_ARRAY[] = {L'l', L'o', L'n', L'g', L'_', L'l', L'i', L's', L't', L'i', L'n', L'g'};
 static wchar_t* LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME = LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME_ARRAY;
-static int* LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static int* LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LIST_FILE_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

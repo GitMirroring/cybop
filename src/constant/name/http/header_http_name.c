@@ -27,7 +27,7 @@
 #define HEADER_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The following does not seem to be part of the HTTP 1.1 RFC 2616 specification.
@@ -36,7 +36,7 @@
 /** The Set-Cookie header http name. */
 static char SET_COOKIE_HEADER_HTTP_NAME_ARRAY[] = {'S', 'e', 't', '-', 'C', 'o', 'o', 'k', 'i', 'e'};
 static char* SET_COOKIE_HEADER_HTTP_NAME = SET_COOKIE_HEADER_HTTP_NAME_ARRAY;
-static int* SET_COOKIE_HEADER_HTTP_NAME_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SET_COOKIE_HEADER_HTTP_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* HEADER_HTTP_NAME_CONSTANT_SOURCE */
 #endif

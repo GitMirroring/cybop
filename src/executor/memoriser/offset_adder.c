@@ -29,10 +29,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/calculator/integer_adder/pointer_integer_adder.c"
 #include "../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../executor/memoriser/size_determiner.c"
@@ -47,10 +47,10 @@
  */
 void add_offset(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add offset.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add offset.");
 
     // The offset (memory area).
-    int o = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int o = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Determine type (type) size.
     determine_size((void*) &o, p1);

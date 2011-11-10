@@ -26,7 +26,7 @@
 #ifndef HTTP_URI_DECODER_SOURCE
 #define HTTP_URI_DECODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../executor/converter/decoder/uri/http/authority_http_uri_decoder.c"
 #include "../../../../logger/logger.c"
 
@@ -49,12 +49,12 @@
  */
 void decode_http_uri(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode http uri.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri.");
 
     // The source data position.
-    void* d = *NULL_POINTER_MEMORY_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source count remaining.
-    int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Copy source data position.
     copy_pointer((void*) &d, (void*) &p2);

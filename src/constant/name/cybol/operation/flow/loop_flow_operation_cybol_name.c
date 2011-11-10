@@ -27,17 +27,17 @@
 #define LOOP_FLOW_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The break loop flow operation cybol name. */
 static wchar_t BREAK_LOOP_FLOW_OPERATION_CYBOL_NAME_ARRAY[] = {L'b', L'r', L'e', L'a', L'k'};
 static wchar_t* BREAK_LOOP_FLOW_OPERATION_CYBOL_NAME = BREAK_LOOP_FLOW_OPERATION_CYBOL_NAME_ARRAY;
-static int* BREAK_LOOP_FLOW_OPERATION_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* BREAK_LOOP_FLOW_OPERATION_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The model loop flow operation cybol name. */
 static wchar_t MODEL_LOOP_FLOW_OPERATION_CYBOL_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};
 static wchar_t* MODEL_LOOP_FLOW_OPERATION_CYBOL_NAME = MODEL_LOOP_FLOW_OPERATION_CYBOL_NAME_ARRAY;
-static int* MODEL_LOOP_FLOW_OPERATION_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* MODEL_LOOP_FLOW_OPERATION_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LOOP_FLOW_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

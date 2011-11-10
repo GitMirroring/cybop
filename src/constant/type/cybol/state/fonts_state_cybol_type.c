@@ -27,7 +27,7 @@
 #define FONTS_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // This MIME type was taken from/ inspired by the KDE desktop.
@@ -39,7 +39,7 @@
  */
 static wchar_t PACKAGE_FONTS_STATE_CYBOL_TYPE_ARRAY[] = {L'f', L'o', L'n', L't', L's', L'/', L'p', L'a', L'c', L'k', L'a', L'g', L'e'};
 static wchar_t* PACKAGE_FONTS_STATE_CYBOL_TYPE = PACKAGE_FONTS_STATE_CYBOL_TYPE_ARRAY;
-static int* PACKAGE_FONTS_STATE_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_MEMORY_MODEL_ARRAY;
+static int* PACKAGE_FONTS_STATE_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* FONTS_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

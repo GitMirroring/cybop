@@ -28,11 +28,11 @@
 
 #include "../../../constant/type/cybol/number_cybol_type.c"
 #include "../../../constant/type/cybol/path_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/separator_cybol_name.c"
 #include "../../../constant/name/memory/part_memory_name.c"
 #include "../../../executor/modifier/overwriter/item_overwriter.c"
@@ -52,13 +52,13 @@
  */
 void compare_suffix_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Compare suffix part element.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare suffix part element.");
 
     // The left part element.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get left part element.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
 
     // Compare if the right array is a suffix of the left part model item.
     compare_suffix_item_element(p0, e, p2, p3, p4, p5, (void*) DATA_ITEM_MEMORY_NAME);
@@ -75,17 +75,17 @@ void compare_suffix_part_element(void* p0, void* p1, void* p2, void* p3, void* p
  */
 void compare_suffix_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Compare suffix part.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare suffix part.");
 
     // The left model.
-    void* lm = *NULL_POINTER_MEMORY_MODEL;
+    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right model.
-    void* rm = *NULL_POINTER_MEMORY_MODEL;
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get left model.
-    copy_array_forward((void*) &lm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &lm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get right model.
-    copy_array_forward((void*) &rm, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &rm, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Compare if the right- is a suffix of the left part model item.
     compare_suffix_item(p0, lm, rm, p3, p4);

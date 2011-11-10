@@ -47,15 +47,15 @@
 #include <string.h>
 #include <unistd.h>
 #include <wchar.h>
-#include "../constant/type/memory/memory_type.c"
-#include "../constant/type/memory/memory_type.c"
+
+#include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../constant/model/log/level_log_model.c"
-#include "../constant/model/log/level_name_log_model.c"
-#include "../constant/model/log/message_log_model.c"
-#include "../constant/model/memory/integer_memory_model.c"
-#include "../constant/model/memory/pointer_memory_model.c"
-#include "../constant/model/memory_model.c"
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../constant/model/cyboi/log/level_name_log_cyboi_model.c"
+#include "../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../logger/accessor/setter/log_array_setter.c"
 #include "../variable/log_setting.c"
 
@@ -106,11 +106,11 @@
  */
 void log_write_terminated_message(void* p0, void* p1) {
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         wchar_t* m = (wchar_t*) p1;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             FILE* s = (FILE*) p0;
 
@@ -140,34 +140,34 @@ void log_write_terminated_message(void* p0, void* p1) {
  */
 void log_get_level_name(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* l = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* lnc = (int*) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 void** ln = (void**) p0;
 
-                if (*l == *DEBUG_LEVEL_LOG_MODEL) {
+                if (*l == *DEBUG_LEVEL_LOG_CYBOI_MODEL) {
 
                     *ln = DEBUG_LEVEL_NAME_LOG_MODEL;
                     *lnc = *DEBUG_LEVEL_NAME_LOG_MODEL_COUNT;
 
-                } else if (*l == *INFORMATION_LEVEL_LOG_MODEL) {
+                } else if (*l == *INFORMATION_LEVEL_LOG_CYBOI_MODEL) {
 
                     *ln = INFORMATION_LEVEL_NAME_LOG_MODEL;
                     *lnc = *INFORMATION_LEVEL_NAME_LOG_MODEL_COUNT;
 
-                } else if (*l == *WARNING_LEVEL_LOG_MODEL) {
+                } else if (*l == *WARNING_LEVEL_LOG_CYBOI_MODEL) {
 
                     *ln = WARNING_LEVEL_NAME_LOG_MODEL;
                     *lnc = *WARNING_LEVEL_NAME_LOG_MODEL_COUNT;
 
-                } else if (*l == *ERROR_LEVEL_LOG_MODEL) {
+                } else if (*l == *ERROR_LEVEL_LOG_CYBOI_MODEL) {
 
                     *ln = ERROR_LEVEL_NAME_LOG_MODEL;
                     *lnc = *ERROR_LEVEL_NAME_LOG_MODEL_COUNT;
@@ -210,11 +210,11 @@ void log_get_level_name(void* p0, void* p1, void* p2) {
  */
 void log_message(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* mc = (int*) p2;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* l = (int*) p0;
 
@@ -222,13 +222,13 @@ void log_message(void* p0, void* p1, void* p2) {
             if (*l <= *LOG_LEVEL) {
 
                 // The log level name.
-                void* ln = *NULL_POINTER_MEMORY_MODEL;
-                int lnc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
+                int lnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Add name of the given log level to log entry.
                 log_get_level_name((void*) &ln, (void*) &lnc, p0);
 
-                if (LOG_OUTPUT != *NULL_POINTER_MEMORY_MODEL) {
+                if (LOG_OUTPUT != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     //
                     // CAUTION! Do NOT allocate/ reallocate/ deallocate an array here, because:
@@ -251,16 +251,28 @@ void log_message(void* p0, void* p1, void* p2) {
                     //
 
                     // The index.
-                    int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     // The maximum message count.
-                    int mmc = lnc + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT + *mc + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT;
+                    int mmc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                    if (mmc <= *LOG_MESSAGE_COUNT) {
+                    calculate_integer_add((void*) &mmc, (void*) &lnc);
+                    calculate_integer_add((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+                    calculate_integer_add((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+                    calculate_integer_add((void*) &mmc, p2);
+                    calculate_integer_add((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+                    calculate_integer_add((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+                    // The comparison result.
+                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                    compare_integer_smaller_or_equal((void*) &r, (void*) &mmc, (void*) LOG_MESSAGE_COUNT);
+
+                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         // RESET maximum message count to count of log message
                         // that was handed over as parameter, because that message
                         // is added as parameter below, that needs an own count.
-                        mmc = *mc;
+                        copy_integer((void*) &mmc, p2);
 
                     } else {
 
@@ -277,31 +289,36 @@ void log_message(void* p0, void* p1, void* p2) {
                         // CAUTION! The LOG_MESSAGE_COUNT constant has to have a size
                         // of at least (lnc + 4) which is normally not more than 20,
                         // depending on the log level name length (count).
-                        mmc = *LOG_MESSAGE_COUNT - (lnc + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT);
+                        copy_integer((void*) &mmc, (void*) LOG_MESSAGE_COUNT);
+                        calculate_integer_subtract((void*) &mmc, (void*) &lnc);
+                        calculate_integer_subtract((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+                        calculate_integer_subtract((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+                        calculate_integer_subtract((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+                        calculate_integer_subtract((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
                     }
 
                     // CAUTION! Further checks are not built in here!
                     //
                     // This logger source code assumes that the global variable LOG_MESSAGE_COUNT has
                     // at least a size of about 15, calculated as follows:
-                    // lnc + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT
+                    // lnc + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT
                     // The variable "lnc" may hereby be a value from 5 to 11.
                     // See module "log_level_name_constants.c"!
 
                     // Copy log level.
-                    log_overwrite_array((void*) LOG_MESSAGE, ln, (void*) &lnc, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &lnc, (void*) &i);
                     // Increment index.
                     i = i + lnc;
 
                     // Copy colon.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    log_overwrite_array((void*) LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
                     // Increment index.
-                    i = i + *PRIMITIVE_MEMORY_MODEL_COUNT;
+                    i = i + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
 
                     // Copy space.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    log_overwrite_array((void*) LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
                     // Increment index.
-                    i = i + *PRIMITIVE_MEMORY_MODEL_COUNT;
+                    i = i + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
 
                     // Copy log message.
                     log_overwrite_array((void*) LOG_MESSAGE, p1, (void*) &mmc, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -309,12 +326,12 @@ void log_message(void* p0, void* p1, void* p2) {
                     i = i + mmc;
 
                     // Copy line feed control wide character.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    log_overwrite_array((void*) LOG_MESSAGE, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
                     // Increment index.
-                    i = i + *PRIMITIVE_MEMORY_MODEL_COUNT;
+                    i = i + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
 
                     // Copy null termination wide character.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    log_overwrite_array((void*) LOG_MESSAGE, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
                     // Log message.
                     log_write_terminated_message((void*) LOG_OUTPUT, (void*) LOG_MESSAGE);

@@ -26,9 +26,9 @@
 #ifndef ARRAY_NAME_GETTER_SOURCE
 #define ARRAY_NAME_GETTER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/http/cyboi_http_name.c"
 #include "../../../executor/accessor/appender/part_appender.c"
 #include "../../../executor/comparator/all/part_all_comparator.c"
@@ -48,22 +48,22 @@
  */
 void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Get name array.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name array.");
 
     // The index of the searched part.
-    int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Determine index of searched part.
     find_name_array((void*) &i, p1, p2, p3, p4);
 
-    if (i > *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL) {
+    if (i > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
         // A part with the given name was found.
 
         // Get part at index from source whole part.
-        copy_array_forward(p0, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward(p0, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
     }
 }
 

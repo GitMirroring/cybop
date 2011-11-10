@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -63,7 +63,7 @@
  */
 static wchar_t SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L's', L'h', L'i', L'f', L't', L'-', L'l', L'e', L'f', L't'};
 static wchar_t* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE = SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_21_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The manipulate/shift-right cybol type.
@@ -74,7 +74,7 @@ static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_21_INTEGER_MEM
  */
 static wchar_t SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L's', L'h', L'i', L'f', L't', L'-', L'r', L'i', L'g', L'h', L't'};
 static wchar_t* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE = SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The manipulate/rotate-left cybol type.
@@ -85,7 +85,7 @@ static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_ME
  */
 static wchar_t ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'o', L't', L'a', L't', L'e', L'-', L'l', L'e', L'f', L't'};
 static wchar_t* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE = ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The manipulate/rotate-right cybol type.
@@ -96,7 +96,7 @@ static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_ME
  */
 static wchar_t ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'o', L't', L'a', L't', L'e', L'-', L'r', L'i', L'g', L'h', L't'};
 static wchar_t* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE = ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_23_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The manipulate/set-bit cybol type.
@@ -107,7 +107,7 @@ static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_23_INTEGER_M
  */
 static wchar_t SET_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L's', L'e', L't', L'-', L'b', L'i', L't'};
 static wchar_t* SET_MANIPULATE_LOGIC_CYBOL_TYPE = SET_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SET_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SET_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The manipulate/reset-bit cybol type.
@@ -118,7 +118,7 @@ static int* SET_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_MEMORY_MOD
  */
 static wchar_t RESET_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L's', L'e', L't', L'-', L'b', L'i', L't'};
 static wchar_t* RESET_MANIPULATE_LOGIC_CYBOL_TYPE = RESET_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* RESET_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_MEMORY_MODEL_ARRAY;
+static int* RESET_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The manipulate/get-bit cybol type.
@@ -129,7 +129,7 @@ static int* RESET_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_MEMORY_M
  */
 static wchar_t GET_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'g', L'e', L't', L'-', L'b', L'i', L't'};
 static wchar_t* GET_MANIPULATE_LOGIC_CYBOL_TYPE = GET_MANIPULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* GET_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_MEMORY_MODEL_ARRAY;
+static int* GET_MANIPULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MANIPULATE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

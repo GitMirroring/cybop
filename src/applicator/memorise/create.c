@@ -27,13 +27,13 @@
 #define CREATE_SOURCE
 
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cybol/compound_element_cybol_model.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/memory/create_memory_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/communicator/receiver.c"
@@ -70,31 +70,31 @@
  */
 void apply_create(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply create.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create.");
 
     // The name part.
-    void* n = *NULL_POINTER_MEMORY_MODEL;
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element part.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole part.
-    void* w = *NULL_POINTER_MEMORY_MODEL;
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The name part model.
-    void* nm = *NULL_POINTER_MEMORY_MODEL;
+    void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model.
-    void* am = *NULL_POINTER_MEMORY_MODEL;
+    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element part model.
-    void* em = *NULL_POINTER_MEMORY_MODEL;
+    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The name part model data, count.
-    void* nmd = *NULL_POINTER_MEMORY_MODEL;
-    void* nmc = *NULL_POINTER_MEMORY_MODEL;
+    void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* nmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model data, count.
-    void* amd = *NULL_POINTER_MEMORY_MODEL;
+    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element part model data, count.
-    void* emd = *NULL_POINTER_MEMORY_MODEL;
+    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get name part.
     get_name_array((void*) &n, p0, (void*) NAME_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) NAME_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -106,54 +106,54 @@ void apply_create(void* p0, void* p1, void* p2) {
     get_name_array((void*) &w, p0, (void*) WHOLE_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) WHOLE_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get name part model.
-    copy_array_forward((void*) &nm, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &nm, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get type part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get element part model.
-    copy_array_forward((void*) &em, e, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &em, e, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get name part model data, count.
-    copy_array_forward((void*) &nmd, nm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &nmc, nm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nmd, nm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nmc, nm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get type part model data, count.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get element part model data, count.
-    copy_array_forward((void*) &emd, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &emd, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, amd);
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, amd);
 
     // Fill part.
     overwrite_part_element(p, nmd, (void*) WIDE_CHARACTER_MEMORY_TYPE, nmc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    overwrite_part_element(p, amd, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    overwrite_part_element(p, amd, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, emd, (void*) PART_COMPOUND_ELEMENT_CYBOL_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (w != *NULL_POINTER_MEMORY_MODEL) {
+            if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // A whole part exists.
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to whole model.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
 
                 // Append part (handed over as array reference) to whole model (being a part itself).
                 // CAUTION! Do NOT use PART_MEMORY_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+                append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
             } else {
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to knowledge memory root.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root.");
 
                 // The whole part is null.
                 //
@@ -166,32 +166,32 @@ void apply_create(void* p0, void* p1, void* p2) {
                 // CAUTION! Do NOT use PART_MEMORY_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+                append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
             }
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, emd, (void*) META_COMPOUND_ELEMENT_CYBOL_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (w != *NULL_POINTER_MEMORY_MODEL) {
+            if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // A whole part exists.
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to whole properties.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole properties.");
 
                 // Append part (handed over as array reference) to whole properties (being a part itself).
                 // CAUTION! Do NOT use PART_MEMORY_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+                append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
             } else {
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to knowledge memory root properties.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root properties.");
 
                 // The whole part is null.
                 //
@@ -204,31 +204,31 @@ void apply_create(void* p0, void* p1, void* p2) {
                 // CAUTION! Do NOT use PART_MEMORY_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+                append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
             }
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The kind of element is null, i.e. it was NOT given as parametre.
         // Therefore, add part to whole- or knowledge memory MODEL, by default.
 
-        if (w != *NULL_POINTER_MEMORY_MODEL) {
+        if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // A whole part exists.
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to whole model.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
 
             // Append part (handed over as array reference) to whole model (being a part itself).
             // CAUTION! Do NOT use PART_MEMORY_TYPE here!
             // The reason is that deep copying would be used to assign the part inside,
             // instead of just assigning the part reference in a shallow copying manner.
-            append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+            append_part_element(w, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
         } else {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Add part to knowledge memory root.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root.");
 
             // The whole part is null.
             //
@@ -241,7 +241,7 @@ void apply_create(void* p0, void* p1, void* p2) {
             // CAUTION! Do NOT use PART_MEMORY_TYPE here!
             // The reason is that deep copying would be used to assign the part inside,
             // instead of just assigning the part reference in a shallow copying manner.
-            append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+            append_part_element(p2, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
         }
     }
 }

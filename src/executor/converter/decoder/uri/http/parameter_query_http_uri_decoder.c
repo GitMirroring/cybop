@@ -26,10 +26,10 @@
 #ifndef PARAMETER_QUERY_HTTP_URI_DECODER_SOURCE
 #define PARAMETER_QUERY_HTTP_URI_DECODER_SOURCE
 
-#include "../../../../../constant/model/log/message_log_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/uri/cyboi_uri_name.c"
 #include "../../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../../executor/converter/decoder/uri/http/name_parameter_query_http_uri_decoder.c"
@@ -48,29 +48,29 @@
  */
 void decode_http_uri_query_parameter(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri query parameter.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri query parameter.");
 
     // The element.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
-    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
-    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise element.
     copy_pointer((void*) &e, p2);
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
         select_http_uri_query_parameter(p0, p1, (void*) &b, p2, p3);
 
-        if (b == *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Increment element count.
             ec++;

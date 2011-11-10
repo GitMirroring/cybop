@@ -26,11 +26,11 @@
 #ifndef HTTP_REQUEST_SELECTOR_SOURCE
 #define HTTP_REQUEST_SELECTOR_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../constant/name/xml_name.c"
 #include "../../../logger/logger.c"
@@ -56,16 +56,16 @@
  */
 void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select http request.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http request.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) GET_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) GET_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2,
@@ -74,11 +74,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) POST_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) POST_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -92,11 +92,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) HEAD_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) HEAD_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -104,11 +104,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) PUT_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) PUT_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -116,11 +116,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) DELETE_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) DELETE_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -128,11 +128,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) TRACE_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) TRACE_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -140,11 +140,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) OPTIONS_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) OPTIONS_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -152,11 +152,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) CONNECT_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) CONNECT_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -164,11 +164,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) PROPFIND_WEBDAV_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) PROPFIND_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -176,11 +176,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) PROPPATCH_WEBDAV_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) PROPPATCH_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -188,11 +188,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) MKCOL_WEBDAV_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) MKCOL_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -200,11 +200,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) COPY_WEBDAV_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) COPY_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -212,11 +212,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) MOVE_WEBDAV_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) MOVE_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -224,11 +224,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) LOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) LOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -236,11 +236,11 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set request method as action parameter within the compound model.
             decode_http_request_set_parameter(p0, p1, p2, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) METHOD_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT,
@@ -248,9 +248,9 @@ void select_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not select http request. The source request method is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select http request. The source request method is unknown.");
     }
 }
 

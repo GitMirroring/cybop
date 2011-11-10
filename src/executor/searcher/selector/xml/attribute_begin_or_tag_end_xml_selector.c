@@ -26,10 +26,10 @@
 #ifndef ATTRIBUTE_BEGIN_OR_TAG_END_XML_SELECTOR_SOURCE
 #define ATTRIBUTE_BEGIN_OR_TAG_END_XML_SELECTOR_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../constant/name/xml_name.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
@@ -48,7 +48,7 @@
  */
 void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml attribute begin or tag end.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xml attribute begin or tag end.");
 
     //
     // CAUTION! The ORDER of the following function calls is IMPORTANT!
@@ -67,47 +67,47 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
     //
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The empty tag end was found.
             // Set is empty flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) TAG_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) TAG_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The tag end, indicating subsequent element content, was found.
             // Set has content flag.
-            copy_integer(p1, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) ATTRIBUTE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ATTRIBUTE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) ATTRIBUTE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ATTRIBUTE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The tag name end, indicating subsequent attributes, was found.
             // Set has attribute flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

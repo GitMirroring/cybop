@@ -26,13 +26,13 @@
 #ifndef COMPLEX_STATE_CYBOI_NAME_CONSTANT_SOURCE
 #define COMPLEX_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The real complex state cyboi name. */
-static int* REAL_COMPLEX_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+static int* REAL_COMPLEX_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The imaginary complex state cyboi name. */
-static int* IMAGINARY_COMPLEX_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* IMAGINARY_COMPLEX_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COMPLEX_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

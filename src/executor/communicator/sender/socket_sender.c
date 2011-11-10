@@ -36,13 +36,13 @@
 
 #include "../../../applicator/maintainer/starting/socket_starting_maintainer.c"
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/cybol/communication_mode_cybol_model.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/communicator/sender/datagram_socket_sender.c"
 #include "../../../executor/communicator/sender/raw_socket_sender.c"
 #include "../../../executor/communicator/sender/stream_socket_sender.c"
@@ -62,14 +62,14 @@
  */
 void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* base = (int*) p2;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Get socket for server mode.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get socket for server mode.");
 
         // The internal memory index.
-        int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Get communication partner socket.
         i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
@@ -80,7 +80,7 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
         This may become necessary if many sockets are held in a queue.
 
         // The socket mutex.
-        pthread_mutex_t** mt = (pthread_mutex_t**) NULL_POINTER_MEMORY_MODEL;
+        pthread_mutex_t** mt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get socket mutex.
         i = *base + *SOCKET_MUTEX_INTERNAL_MEMORY_MEMORY_NAME;
@@ -89,7 +89,7 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket get socket for server mode. The base internal is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket get socket for server mode. The base internal is null.");
     }
 }
 
@@ -105,19 +105,19 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
  */
 void apply_send_socket_get_socket_client_mode(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* st = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* sn = (int*) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int*** s = (int***) p0;
 
-                log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Get socket for client mode.");
+                log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get socket for client mode.");
 
                 // Initialise error number.
                 // It is a global variable/ function and other operations
@@ -125,7 +125,7 @@ void apply_send_socket_get_socket_client_mode(void* p0, void* p1, void* p2) {
                 //
                 // CAUTION! Initialise the error number BEFORE calling the function
                 // that might cause an error.
-                errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Initialise server socket.
                 //
@@ -136,49 +136,49 @@ void apply_send_socket_get_socket_client_mode(void* p0, void* p1, void* p2) {
                 // CAUTION! Use prefix "PF_" here and NOT "AF_"!
                 // The latter is to be used for address family assignment.
                 // See further below!
-                ***s = socket(*sn, *st, *NUMBER_0_INTEGER_MEMORY_MODEL);
+                ***s = socket(*sn, *st, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                if (***s < *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (***s < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     if (errno == EPROTONOSUPPORT) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send socket get socket client mode. The protocol or style is not supported by the namespace specified.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send socket get socket client mode. The protocol or style is not supported by the namespace specified.");
 
                     } else if (errno == EMFILE) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send socket get socket client mode. The process already has too many file descriptors open.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send socket get socket client mode. The process already has too many file descriptors open.");
 
                     } else if (errno == ENFILE) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send socket get socket client mode. The system already has too many file descriptors open.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send socket get socket client mode. The system already has too many file descriptors open.");
 
                     } else if (errno == EACCES) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send socket get socket client mode. The process does not have the privilege to create a socket of the specified style or protocol.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send socket get socket client mode. The process does not have the privilege to create a socket of the specified style or protocol.");
 
                     } else if (errno == ENOBUFS) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send socket get socket client mode. The system ran out of internal buffer space.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send socket get socket client mode. The system ran out of internal buffer space.");
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send socket get socket client mode. An unknown error occured while initialising the socket.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send socket get socket client mode. An unknown error occured while initialising the socket.");
                     }
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket get socket for server mode. The base internal is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket get socket for server mode. The base internal is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket get socket for server mode. The base internal is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket get socket for server mode. The base internal is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket get socket for server mode. The base internal is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket get socket for server mode. The base internal is null.");
     }
 }
 
@@ -198,26 +198,26 @@ void apply_send_socket_get_socket_client_mode(void* p0, void* p1, void* p2) {
  */
 void apply_send_socket_get_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Get socket.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get socket.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             apply_send_socket_get_socket_server_mode(p0, p1, p2);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             apply_send_socket_get_socket_client_mode(p0, p3, p4);
         }
@@ -231,11 +231,11 @@ void apply_send_socket_get_socket(void* p0, void* p1, void* p2, void* p3, void* 
  */
 void apply_send_socket_set_nonblocking_mode(void* p0) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* s = (int*) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Send socket set non-blocking mode.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket set non-blocking mode.");
 
         // Set non-blocking mode for the socket file descriptor.
         //
@@ -253,9 +253,9 @@ void apply_send_socket_set_nonblocking_mode(void* p0) {
         // clean solution here. See file "controller/checker/wait_checker.c"!
 
         // Get file status flags.
-        int fl = fcntl(*s, F_GETFL, NUMBER_0_INTEGER_MEMORY_MODEL);
+        int fl = fcntl(*s, F_GETFL, NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (fl != *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL) {
+        if (fl != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
             // Set non-blocking flag (bit).
             fl |= O_NONBLOCK;
@@ -265,12 +265,12 @@ void apply_send_socket_set_nonblocking_mode(void* p0) {
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send socket / set non-blocking mode. The socket file descriptor flags could not be read.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send socket / set non-blocking mode. The socket file descriptor flags could not be read.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send socket / set non-blocking mode. The base internal is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send socket / set non-blocking mode. The base internal is null.");
     }
 }
 
@@ -282,15 +282,15 @@ void apply_send_socket_set_nonblocking_mode(void* p0) {
  */
 void apply_send_socket_allocate_host_address(void* p0, void* p1) {
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* n = (int*) p1;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** a = (void**) p0;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Send socket allocate host address.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket allocate host address.");
 
             // Get host address constant.
             if (*n == AF_INET) {
@@ -306,12 +306,12 @@ void apply_send_socket_allocate_host_address(void* p0, void* p1) {
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket allocate host address. The host address is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket allocate host address. The host address is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket allocate host address. The address namespace is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket allocate host address. The address namespace is null.");
     }
 }
 
@@ -324,19 +324,19 @@ void apply_send_socket_allocate_host_address(void* p0, void* p1) {
  */
 void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* n = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* as = (int*) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 void** a = (void**) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Send socket allocate socket address.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket allocate socket address.");
 
                 if (*n == AF_LOCAL) {
 
@@ -358,7 +358,7 @@ void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
                     // With the known type "short int" of the "sun_family" field and
                     // a fixed size "108" of the "sun_path" field, the overall size of
                     // the "sockaddr_un" structure can be calculated as sum.
-                    *as = *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE + *NUMBER_108_INTEGER_MEMORY_MODEL;
+                    *as = *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE + *NUMBER_108_INTEGER_STATE_CYBOI_MODEL;
 
                     // Allocate socket address.
                     *a = malloc(*as);
@@ -382,17 +382,17 @@ void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket allocate socket address. The socket address is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket allocate socket address. The socket address is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket allocate socket address. The socket address size is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket allocate socket address. The socket address size is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket allocate socket address. The address namespace is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket allocate socket address. The address namespace is null.");
     }
 }
 
@@ -408,11 +408,11 @@ void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
  */
 void apply_send_socket_initialise_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* n = (int*) p5;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Send socket initialise socket address.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket initialise socket address.");
 
         if (*n == AF_LOCAL) {
 
@@ -449,7 +449,7 @@ void apply_send_socket_initialise_socket_address(void* p0, void* p1, void* p2, v
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send message via socket initialise socket address. The address namespace is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send message via socket initialise socket address. The address namespace is null.");
     }
 }
 
@@ -490,13 +490,13 @@ void apply_send_socket(void* p0, void* p1, void* p2, void* p3,
     // The log file.
     int f = open(n, status);
 
-    if (f >= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (f >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // The file owner.
-        int o = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int o = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // The file group.
-        int g = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int g = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Set file owner.
         chown(n, o, g);
@@ -520,21 +520,21 @@ void apply_send_socket(void* p0, void* p1, void* p2, void* p3,
     }
     //?? --- END TEST ---
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Send message via socket.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send message via socket.");
 
     // The communication style.
-    int st = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+    int st = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The socket namespace.
-    int sn = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+    int sn = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The address namespace.
-    int an = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+    int an = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The communication partner socket.
-    int** s = (int**) NULL_POINTER_MEMORY_MODEL;
+    int** s = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
     // The host address of the communication partner.
-    void* ha = *NULL_POINTER_MEMORY_MODEL;
+    void* ha = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket address of the communication partner.
-    void* sa = *NULL_POINTER_MEMORY_MODEL;
-    int sas = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* sa = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sas = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get socket- and address namespace.
     maintain_starting_socket_memorise_getting_namespace((void*) &sn, (void*) &an, p5, p6);

@@ -26,10 +26,10 @@
 #ifndef FRAGMENT_HTTP_URI_SELECTOR_SOURCE
 #define FRAGMENT_HTTP_URI_SELECTOR_SOURCE
 
-#include "../../../../../constant/type/memory/memory_type.c"
-#include "../../../../../constant/model/log/message_log_model.c"
-#include "../../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/uri/cyboi_uri_name.c"
 #include "../../../../../constant/name/uri/separator_uri_name.c"
 #include "../../../../../executor/searcher/detector/array_detector.c"
@@ -48,18 +48,18 @@
  */
 void select_http_uri_fragment(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select http uri fragment.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http uri fragment.");
 
     //
     // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
     //
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

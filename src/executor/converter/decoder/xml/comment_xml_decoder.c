@@ -26,10 +26,10 @@
 #ifndef COMMENT_XML_DECODER_SOURCE
 #define COMMENT_XML_DECODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/accessor/appender/compound_appender.c"
 #include "../../../../executor/accessor/appender/part_appender.c"
@@ -45,16 +45,16 @@
  */
 void decode_xml_comment(void* p0, void* p1) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml comment.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xml comment.");
 
     // The break flag.
-    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller_or_equal((void*) &b, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        compare_integer_smaller_or_equal((void*) &b, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }

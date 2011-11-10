@@ -28,7 +28,7 @@
 
 #include <wchar.h>
 
-#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/copier/part_copier.c"
 #include "../../executor/memoriser/allocator/part_allocator.c"
@@ -43,50 +43,50 @@
  */
 void test_modifier_part_compound() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test modifier part compound.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier part compound.");
     fwprintf(stdout, L"Output gets written into files with prefix: %ls\n", L"TEST");
 
     //
     // Declare parts.
     //
 
-    void* w1 = *NULL_POINTER_MEMORY_MODEL;
-    void* w2 = *NULL_POINTER_MEMORY_MODEL;
-    void* w3 = *NULL_POINTER_MEMORY_MODEL;
-    void* p1 = *NULL_POINTER_MEMORY_MODEL;
-    void* p2 = *NULL_POINTER_MEMORY_MODEL;
+    void* w1 = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* w2 = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* w3 = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* p1 = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* p2 = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Allocate parts.
     //
 
-    allocate_part((void*) &w1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
-    allocate_part((void*) &w2, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
-    allocate_part((void*) &w3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
-    allocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-    allocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_part((void*) &w1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
+    allocate_part((void*) &w2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
+    allocate_part((void*) &w3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
+    allocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     //
     // Initialise parts.
     //
 
     // Fill whole one.
-    overwrite_part_element(w1, (void*) L"source", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_6_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(w1, (void*) L"source", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     overwrite_part_element(w1, (void*) PART_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     // Fill whole two.
-    overwrite_part_element(w2, (void*) L"shallow", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_7_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(w2, (void*) L"shallow", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     overwrite_part_element(w2, (void*) PART_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     // Fill whole three.
-    overwrite_part_element(w3, (void*) L"deep", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(w3, (void*) L"deep", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     overwrite_part_element(w3, (void*) PART_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     // Fill part one.
-    overwrite_part_element(p1, (void*) L"blu", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(p1, (void*) L"blu", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     overwrite_part_element(p1, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    overwrite_part_element(p1, (void*) L"Hello, ", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_7_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    overwrite_part_element(p1, (void*) L"Hello, ", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Fill part two.
-    overwrite_part_element(p2, (void*) L"bla", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(p2, (void*) L"bla", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     overwrite_part_element(p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    overwrite_part_element(p2, (void*) L"World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_6_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    overwrite_part_element(p2, (void*) L"World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     //
     // Assign parts to whole one.
@@ -99,10 +99,10 @@ void test_modifier_part_compound() {
     //
 
     // Set part one at index 0.
-    overwrite_part_element(w1, (void*) &p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    overwrite_part_element(w1, (void*) &p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Insert part two BEFORE part one, at index 0.
     // The part one is moved to index 1 automatically by the "insert_part_element" function.
-    insert_part_element(w1, (void*) &p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    insert_part_element(w1, (void*) &p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     //
     // Add all pointer references of whole one to whole two.
@@ -118,7 +118,7 @@ void test_modifier_part_compound() {
 
     // Copy all parts of whole one into whole two.
     // CAUTION! Hand over the correct count of elements!
-    overwrite_part(w2, w1, (void*) POINTER_MEMORY_TYPE, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+    overwrite_part(w2, w1, (void*) POINTER_MEMORY_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Copy all parts of whole one into whole three.
@@ -134,24 +134,24 @@ void test_modifier_part_compound() {
 
     // Copy all parts of whole one into whole two.
     // CAUTION! Hand over the correct count of elements!
-    overwrite_part(w3, w1, (void*) PART_MEMORY_TYPE, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+    overwrite_part(w3, w1, (void*) PART_MEMORY_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Output whole one as model diagram.
     //
 
     // The model diagram.
-    void* mdi = *NULL_POINTER_MEMORY_MODEL;
-    int mdic = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int mdis = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int mdis = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The multibyte character stream.
-    void* mb = *NULL_POINTER_MEMORY_MODEL;
-    int mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The file name.
     void* fn = L"TEST_MODIFIER_TESTER_WHOLE_ONE.txt";
-    int fnc = *NUMBER_34_INTEGER_MEMORY_MODEL;
-    int fns = *NUMBER_35_INTEGER_MEMORY_MODEL;
+    int fnc = *NUMBER_34_INTEGER_STATE_CYBOI_MODEL;
+    int fns = *NUMBER_35_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate model diagram.
     allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -175,17 +175,17 @@ void test_modifier_part_compound() {
     //
 
     // The model diagram.
-    mdi = *NULL_POINTER_MEMORY_MODEL;
-    mdic = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    mdis = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
+    mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    mdis = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The multibyte character stream.
-    mb = *NULL_POINTER_MEMORY_MODEL;
-    mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+    mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The file name.
     fn = L"TEST_MODIFIER_TESTER_WHOLE_TWO.txt";
-    fnc = *NUMBER_34_INTEGER_MEMORY_MODEL;
-    fns = *NUMBER_35_INTEGER_MEMORY_MODEL;
+    fnc = *NUMBER_34_INTEGER_STATE_CYBOI_MODEL;
+    fns = *NUMBER_35_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate model diagram.
     allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -209,17 +209,17 @@ void test_modifier_part_compound() {
     //
 
     // The model diagram.
-    mdi = *NULL_POINTER_MEMORY_MODEL;
-    mdic = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    mdis = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
+    mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    mdis = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The multibyte character stream.
-    mb = *NULL_POINTER_MEMORY_MODEL;
-    mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+    mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The file name.
     fn = L"TEST_MODIFIER_TESTER_WHOLE_THREE.txt";
-    fnc = *NUMBER_36_INTEGER_MEMORY_MODEL;
-    fns = *NUMBER_37_INTEGER_MEMORY_MODEL;
+    fnc = *NUMBER_36_INTEGER_STATE_CYBOI_MODEL;
+    fns = *NUMBER_37_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate model diagram.
     allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -242,11 +242,11 @@ void test_modifier_part_compound() {
     // Deallocate parts.
     //
 
-    deallocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-    deallocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-    deallocate_part((void*) &w1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
-    deallocate_part((void*) &w2, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
-    deallocate_part((void*) &w3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
+    deallocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_part((void*) &w1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
+    deallocate_part((void*) &w2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
+    deallocate_part((void*) &w3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
 }
 
 /**
@@ -254,64 +254,64 @@ void test_modifier_part_compound() {
  */
 void test_modifier_part_wide_character() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test modifier part wide character.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier part wide character.");
 
     // The parts.
-    void* p1 = *NULL_POINTER_MEMORY_MODEL;
-    void* p2 = *NULL_POINTER_MEMORY_MODEL;
+    void* p1 = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* p2 = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate parts.
-    allocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-    allocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Fill part one.
-    overwrite_part_element(p1, (void*) L"blu", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(p1, (void*) L"blu", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     overwrite_part_element(p1, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    overwrite_part_element(p1, (void*) L"He, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_10_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    overwrite_part_element(p1, (void*) L"He, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Fill part two.
-    overwrite_part_element(p2, (void*) L"bla", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(p2, (void*) L"bla", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     overwrite_part_element(p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    overwrite_part_element(p2, (void*) L"ABClloXYZ", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_9_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    overwrite_part_element(p2, (void*) L"ABClloXYZ", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     //
     // Add (model content of) part two to part one.
     //
 
-    insert_part(p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) NUMBER_3_INTEGER_MEMORY_MODEL);
+    insert_part(p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Output test results.
     //
 
     // The part elements retrieved as reference.
-    void* n = *NULL_POINTER_MEMORY_MODEL;
-    void* a = *NULL_POINTER_MEMORY_MODEL;
-    void* m = *NULL_POINTER_MEMORY_MODEL;
-    void* d = *NULL_POINTER_MEMORY_MODEL;
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part elements data, count retrieved as reference.
-    void* nd = *NULL_POINTER_MEMORY_MODEL;
-    void* nc = *NULL_POINTER_MEMORY_MODEL;
-    void* ad = *NULL_POINTER_MEMORY_MODEL;
-    void* ac = *NULL_POINTER_MEMORY_MODEL;
-    void* md = *NULL_POINTER_MEMORY_MODEL;
-    void* mc = *NULL_POINTER_MEMORY_MODEL;
-    void* dd = *NULL_POINTER_MEMORY_MODEL;
-    void* dc = *NULL_POINTER_MEMORY_MODEL;
+    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part elements.
-    copy_array_forward((void*) &n, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    copy_array_forward((void*) &a, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    copy_array_forward((void*) &m, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &d, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    copy_array_forward((void*) &n, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &a, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &d, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
     // Get part elements data, count retrieved as reference.
-    copy_array_forward((void*) &nd, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &nc, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &ac, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &dd, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nd, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nc, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ac, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dd, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dc, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     fwprintf(stdout, L"TEST nd: %ls\n", (wchar_t*) nd);
     fwprintf(stdout, L"TEST nc: %i\n", *((int*) nc));
@@ -323,8 +323,8 @@ void test_modifier_part_wide_character() {
     fwprintf(stdout, L"TEST dc: %i\n", *((int*) dc));
 
     // Deallocate parts.
-    deallocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-    deallocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 }
 
 /**
@@ -332,35 +332,35 @@ void test_modifier_part_wide_character() {
  */
 void test_modifier_array() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test modifier array.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier array.");
 
     // The wide character array.
-    void* w = *NULL_POINTER_MEMORY_MODEL;
-    int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int s = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     allocate_array((void*) &w, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Append "Hello".
-    insert_array((void*) &w, (void*) L"ABCHelloXYZ", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_5_INTEGER_MEMORY_MODEL, (void*) &c, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) &c, (void*) &s);
+    insert_array((void*) &w, (void*) L"ABCHelloXYZ", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
     // Append "World!".
-    insert_array((void*) &w, (void*) L"World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_6_INTEGER_MEMORY_MODEL, (void*) NUMBER_5_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) &c, (void*) &s);
+    insert_array((void*) &w, (void*) L"World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
     // Remove "llo".
-    remove_array((void*) &w, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) &c, (void*) &s);
+    remove_array((void*) &w, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
     // Insert "ho, ".
-    insert_array((void*) &w, (void*) L"ho, ", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) &c, (void*) &s);
+    insert_array((void*) &w, (void*) L"ho, ", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
@@ -370,7 +370,7 @@ void test_modifier_array() {
     // since arrays are initialised with the null
     // termination character "\0" by default,
     // so that the "fwprintf" function stops output there.
-    insert_array((void*) &w, (void*) L"test", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) NUMBER_20_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) &c, (void*) &s);
+    insert_array((void*) &w, (void*) L"test", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_20_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
@@ -386,7 +386,7 @@ void test_modifier_array() {
  */
 void test_modifier() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test modifier.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier.");
 
 //    test_modifier_part_compound();
 //    test_modifier_part_wide_character();

@@ -35,9 +35,9 @@
 #include <wchar.h>
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -45,10 +45,10 @@
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
 #include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
@@ -106,16 +106,16 @@ void encode_terminal_shape(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23, void* p24, void* p25, void* p26,
     void* p27, void* p28, void* p29, void* p30, void* p31, void* p32, void* p33, void* p34, void* p35, void* p36) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal shape.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal shape.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p35, (void*) RECTANGLE_SHAPE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p36, (void*) RECTANGLE_SHAPE_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             encode_terminal_coordinates(p0, p1, p2,
                 p3, p4,
@@ -125,11 +125,11 @@ void encode_terminal_shape(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p35, (void*) CIRCLE_SHAPE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p36, (void*) CIRCLE_SHAPE_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 /*??
             encode_terminal_coordinates(p0, p1, p2, c, cc, &h, &i, &bl, &u, &b,
@@ -139,11 +139,11 @@ void encode_terminal_shape(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p35, (void*) POLYGON_SHAPE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p36, (void*) POLYGON_SHAPE_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 /*??
             encode_terminal_coordinates(p0, p1, p2, c, cc, &h, &i, &bl, &u, &b,

@@ -28,7 +28,7 @@
 
 #include <stdio.h>
 
-#include "../../constant/model/log/level_log_model.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../logger/logger.c"
 
 /**
@@ -52,9 +52,9 @@ void test_logger_message() {
     /** The log message as constant. */
     static wchar_t TEST_LOG_MESSAGE_ARRAY[] = {L'T', L'E', L'S', L'T', L' ', L'l', L'o', L'g', L' ', L'm', L'e', L's', L's', L'a', L'g', L'e', L'.'};
     static wchar_t* TEST_LOG_MESSAGE = TEST_LOG_MESSAGE_ARRAY;
-    static int* TEST_LOG_MESSAGE_COUNT = NUMBER_17_INTEGER_MEMORY_MODEL_ARRAY;
+    static int* TEST_LOG_MESSAGE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-    log_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) TEST_LOG_MESSAGE, (void*) TEST_LOG_MESSAGE_COUNT);
+    log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) TEST_LOG_MESSAGE, (void*) TEST_LOG_MESSAGE_COUNT);
 }
 
 /**
@@ -62,8 +62,8 @@ void test_logger_message() {
  */
 void test_logger_terminated_message() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test terminated log message.");
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"It works!");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test terminated log message.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"It works!");
 }
 
 /**

@@ -38,7 +38,7 @@ void test_type_sizes() {
 
     log_write_terminated_message((void*) stdout, L"Test type sizes:\n");
 
-    fwprintf(stdout, L"null pointer memory model: %i\n", *NULL_POINTER_MEMORY_MODEL);
+    fwprintf(stdout, L"null pointer memory model: %i\n", *NULL_POINTER_STATE_CYBOI_MODEL);
 
     fwprintf(stdout, L"pointer type size: %i\n", *POINTER_TYPE_SIZE);
 
@@ -66,7 +66,7 @@ void test_type_sizes() {
  */
 void test_variable() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test variable.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test variable.");
 
 //    test_type_sizes();
 }

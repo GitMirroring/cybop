@@ -28,10 +28,10 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/calculator/integer_multiplier.c"
 #include "../../../executor/memoriser/size_determiner.c"
 #include "../../../logger/logger.c"
@@ -45,14 +45,14 @@
  */
 void allocate_array(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** a = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Allocate array.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate array.");
 
         // The memory area.
-        int ma = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Determine type (type) size.
         determine_size((void*) &ma, p2);
@@ -66,11 +66,11 @@ void allocate_array(void* p0, void* p1, void* p2) {
         *a = (void*) malloc((size_t) ma);
 
         // Initialise array elements with null pointer.
-        memset(*a, *NUMBER_0_INTEGER_MEMORY_MODEL, ma);
+        memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, ma);
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not allocate array. The array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate array. The array is null.");
     }
 }
 

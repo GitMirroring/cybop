@@ -28,22 +28,22 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The html text file extension model. */
 static wchar_t HTML_TEXT_FILE_EXTENSION_MODEL_ARRAY[] = {L'h', L't', L'm', L'l'};
 static wchar_t* HTML_TEXT_FILE_EXTENSION_MODEL = HTML_TEXT_FILE_EXTENSION_MODEL_ARRAY;
-static int* HTML_TEXT_FILE_EXTENSION_MODEL_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+static int* HTML_TEXT_FILE_EXTENSION_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The htm text file extension model. */
 static wchar_t HTM_TEXT_FILE_EXTENSION_MODEL_ARRAY[] = {L'h', L't', L'm'};
 static wchar_t* HTM_TEXT_FILE_EXTENSION_MODEL = HTM_TEXT_FILE_EXTENSION_MODEL_ARRAY;
-static int* HTM_TEXT_FILE_EXTENSION_MODEL_COUNT = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+static int* HTM_TEXT_FILE_EXTENSION_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The shtml text file extension model. */
 static wchar_t SHTML_TEXT_FILE_EXTENSION_MODEL_ARRAY[] = {L's', L'h', L't', L'm', L'l'};
 static wchar_t* SHTML_TEXT_FILE_EXTENSION_MODEL = SHTML_TEXT_FILE_EXTENSION_MODEL_ARRAY;
-static int* SHTML_TEXT_FILE_EXTENSION_MODEL_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SHTML_TEXT_FILE_EXTENSION_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TEXT_FILE_EXTENSION_MODEL_CONSTANT_SOURCE */
 #endif

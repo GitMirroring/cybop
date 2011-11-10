@@ -26,10 +26,10 @@
 #ifndef PROTOCOL_HTTP_REQUEST_SELECTOR_SOURCE
 #define PROTOCOL_HTTP_REQUEST_SELECTOR_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http/separator_http_name.c"
 #include "../../../../executor/converter/decoder/http_request/body_http_request_decoder.c"
 #include "../../../../executor/converter/decoder/http_request/header_argument_http_request_decoder.c"
@@ -72,7 +72,7 @@
  */
 void select_http_request_protocol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select http request protocol.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http request protocol.");
 
     //
     // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
@@ -85,37 +85,37 @@ void select_http_request_protocol(void* p0, void* p1, void* p2, void* p3, void* 
     //
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_http_request_body(p0, p1, p3, p4);
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_http_request_header_argument(p0, p1, p3, p4);
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move_position(p3, p4, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        move_position(p3, p4, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

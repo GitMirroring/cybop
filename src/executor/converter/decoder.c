@@ -36,11 +36,11 @@
 #include "../../constant/type/cybol/number_cybol_type.c"
 #include "../../constant/type/cybol/operation_cybol_type.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/channel/cybol_channel.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
 #include "../../executor/converter/decoder/type_decoder.c"
 #include "../../executor/converter/decoder/authority_decoder.c"
@@ -84,66 +84,66 @@
  */
 void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) TYPE_TEXT_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_type(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) AUTHORITY_TEXT_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_authority(p0, p1, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) BOOLEAN_LOGICVALUE_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_boolean(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //?? TODO: Implement the following function!
             //?? decode_cartesian_complex(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) CYBOL_TEXT_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The temporary model data, count, size.
-            void* md = *NULL_POINTER_MEMORY_MODEL;
-            int mc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int ms = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int ms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The temporary properties data, count, size.
-            void* dd = *NULL_POINTER_MEMORY_MODEL;
-            int dc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Allocate temporary model.
             allocate_array((void*) &md, (void*) &ms, (void*) PART_MEMORY_TYPE);
@@ -155,29 +155,29 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
 //?? TEST BEGIN
             // The model diagram.
-            void* md = *NULL_POINTER_MEMORY_MODEL;
-            int mdc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int mds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 m, mc, d, dc);
 */
             // The multibyte character stream.
-            void* mb = *NULL_POINTER_MEMORY_MODEL;
-            int mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
             allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
             void* fn = L"TEST_DECODER_XML.txt";
-            int fnc = *NUMBER_20_INTEGER_MEMORY_MODEL;
-            int fns = *NUMBER_21_INTEGER_MEMORY_MODEL;
+            int fnc = *NUMBER_20_INTEGER_STATE_CYBOI_MODEL;
+            int fns = *NUMBER_21_INTEGER_STATE_CYBOI_MODEL;
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
@@ -197,29 +197,29 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
 //?? TEST BEGIN
             // Reset model diagram.
-            md = *NULL_POINTER_MEMORY_MODEL;
-            mdc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            mds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            md = *NULL_POINTER_STATE_CYBOI_MODEL;
+            mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
 */
             // Reset multibyte character stream.
-            mb = *NULL_POINTER_MEMORY_MODEL;
-            mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+            mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
             allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // Reset file name.
             fn = L"TEST_DECODER_CYBOL.txt";
-            fnc = *NUMBER_22_INTEGER_MEMORY_MODEL;
-            fns = *NUMBER_23_INTEGER_MEMORY_MODEL;
+            fnc = *NUMBER_22_INTEGER_STATE_CYBOI_MODEL;
+            fns = *NUMBER_23_INTEGER_STATE_CYBOI_MODEL;
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
@@ -230,11 +230,11 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //?? TEMPORARY solution!
             //?? TODO: Replace with something like "decode_decimal_fraction".
@@ -242,80 +242,80 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_gnu_linux_console(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) HH_MM_SS_DATETIME_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //?? TODO: Rename into "decode_hhmmss_date_time"!
             //?? decode_date_time(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) HTML_TEXT_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_html(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) HTTP_REQUEST_MESSAGE_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_http_request(p0, p1, p2, p3);
 
 //?? TEST BEGIN
             // The model diagram.
-            void* md = *NULL_POINTER_MEMORY_MODEL;
-            int mdc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int mds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
 */
             // The multibyte character stream.
-            void* mb = *NULL_POINTER_MEMORY_MODEL;
-            int mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
             allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
             void* fn = L"TEST_DECODER_HTTP_REQUEST.txt";
-            int fnc = *NUMBER_29_INTEGER_MEMORY_MODEL;
-            int fns = *NUMBER_30_INTEGER_MEMORY_MODEL;
+            int fnc = *NUMBER_29_INTEGER_STATE_CYBOI_MODEL;
+            int fns = *NUMBER_30_INTEGER_STATE_CYBOI_MODEL;
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
@@ -326,20 +326,20 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) HTTP_RESPONSE_MESSAGE_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The temporary model.
-            void* m = *NULL_POINTER_MEMORY_MODEL;
-            int mc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int ms = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int ms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The temporary properties.
-            void* d = *NULL_POINTER_MEMORY_MODEL;
-            int dc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Allocate temporary model.
             allocate((void*) &m, (void*) &ms, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
@@ -351,29 +351,29 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
 //?? TEST BEGIN
             // The model diagram.
-            void* md = *NULL_POINTER_MEMORY_MODEL;
-            int mdc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int mds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 m, (void*) &mc, d, (void*) &dc);
 */
             // The multibyte character stream.
-            void* mb = *NULL_POINTER_MEMORY_MODEL;
-            int mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
             allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
             void* fn = L"TEST_HTTP_RESPONSE_CYBOL.txt";
-            int fnc = *NUMBER_28_INTEGER_MEMORY_MODEL;
-            int fns = *NUMBER_29_INTEGER_MEMORY_MODEL;
+            int fnc = *NUMBER_28_INTEGER_STATE_CYBOI_MODEL;
+            int fns = *NUMBER_29_INTEGER_STATE_CYBOI_MODEL;
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
@@ -392,29 +392,29 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
 //?? TEST BEGIN
             // Reset model diagram.
-            md = *NULL_POINTER_MEMORY_MODEL;
-            mdc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            mds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            md = *NULL_POINTER_STATE_CYBOI_MODEL;
+            mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
 */
             // Reset multibyte character stream.
-            mb = *NULL_POINTER_MEMORY_MODEL;
-            mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+            mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
             allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // Reset file name.
             fn = L"TEST_HTTP_RESPONSE_COMPOUND.txt";
-            fnc = *NUMBER_31_INTEGER_MEMORY_MODEL;
-            fns = *NUMBER_32_INTEGER_MEMORY_MODEL;
+            fnc = *NUMBER_31_INTEGER_STATE_CYBOI_MODEL;
+            fns = *NUMBER_32_INTEGER_STATE_CYBOI_MODEL;
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
@@ -425,119 +425,119 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) INTEGER_NUMBER_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_integer_vector(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) KNOWLEDGE_PATH_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) LATEX_APPLICATION_X_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_latex(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) MODEL_DIAGRAM_TEXT_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_model_diagram(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) PLAIN_OPERATION_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) PLAIN_TEXT_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) TRUE_BOOLEAN_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) TERMINAL_BACKGROUND_COLOUR_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_terminal_background(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) TERMINAL_FOREGROUND_COLOUR_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_terminal_foreground(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) URI_TEXT_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_uri(p0, p1, p2, p3);
 
 //?? TEST BEGIN
             // The model diagram.
-            void* md = *NULL_POINTER_MEMORY_MODEL;
-            int mdc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int mds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 /*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
 */
             // The multibyte character stream.
-            void* mb = *NULL_POINTER_MEMORY_MODEL;
-            int mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            int mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
             allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
             void* fn = L"TEST_DECODER_URI.txt";
-            int fnc = *NUMBER_20_INTEGER_MEMORY_MODEL;
-            int fns = *NUMBER_21_INTEGER_MEMORY_MODEL;
+            int fnc = *NUMBER_20_INTEGER_STATE_CYBOI_MODEL;
+            int fns = *NUMBER_21_INTEGER_STATE_CYBOI_MODEL;
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
@@ -548,50 +548,50 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) VULGAR_FRACTION_NUMBER_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //?? TODO: Rename into "decode_vulgar_fraction"!
             //?? decode_fraction(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_x_window_system(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) XDT_TEXT_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_xdt(p0, p1, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) YYYY_MM_DD_DATETIME_CYBOL_TYPE);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_ddmmyyyy_date_time(p0, p2, p3);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not decode. The type is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode. The type is unknown.");
     }
 }
 

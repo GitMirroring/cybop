@@ -27,7 +27,7 @@
 #define APPLICATION_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -65,7 +65,7 @@ application/ogg: Ogg, a multimedia bitstream container format; Defined in RFC 35
  */
 static wchar_t PDF_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'p', L'd', L'f'};
 static wchar_t* PDF_APPLICATION_STATE_CYBOL_TYPE = PDF_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
-static int* PDF_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static int* PDF_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/zip cybol type.
@@ -76,7 +76,7 @@ static int* PDF_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_MEMORY_MO
  */
 static wchar_t ZIP_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'z', L'i', L'p'};
 static wchar_t* ZIP_APPLICATION_STATE_CYBOL_TYPE = ZIP_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
-static int* ZIP_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ZIP_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/xhtml+xml cybol type.
@@ -87,7 +87,7 @@ static int* ZIP_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_MEMORY_MO
  */
 static wchar_t XHTML_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'h', L't', L'm', L'l'};
 static wchar_t* XHTML_APPLICATION_STATE_CYBOL_TYPE = XHTML_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
-static int* XHTML_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XHTML_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 application/xml-dtd: DTD files; Defined by RFC 3023

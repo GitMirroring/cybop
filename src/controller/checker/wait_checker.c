@@ -26,12 +26,12 @@
 #ifndef WAIT_CHECKER_SOURCE
 #define WAIT_CHECKER_SOURCE
 
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/log/level_log_model.c"
-#include "../../constant/model/log/message_log_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/modifier/copier/array_copier.c"
@@ -46,34 +46,34 @@
  */
 void check_wait(void* p0, void* p1) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         double* sl = (double*) p0;
 
         // The internal memory index.
-        int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // The signal memory interrupt request.
-        void* sm = *NULL_POINTER_MEMORY_MODEL;
+        void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The gnu/linux console interrupt request.
-        void* lc = *NULL_POINTER_MEMORY_MODEL;
+        void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The x window system interrupt request.
-        void* xw = *NULL_POINTER_MEMORY_MODEL;
+        void* xw = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The www service interrupt request.
-        void* ww = *NULL_POINTER_MEMORY_MODEL;
+        void* ww = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The cyboi service interrupt request.
-        void* cy = *NULL_POINTER_MEMORY_MODEL;
+        void* cy = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get interrupt requests.
-        copy_array_forward((void*) &sm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
-        copy_array_forward((void*) &lc, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
-        copy_array_forward((void*) &xw, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+        copy_array_forward((void*) &sm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+        copy_array_forward((void*) &lc, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+        copy_array_forward((void*) &xw, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
         copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME);
         calculate_integer_add((void*) &i, (void*) SOCKET_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
-        copy_array_forward((void*) &ww, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &ww, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
         copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME);
         calculate_integer_add((void*) &i, (void*) SOCKET_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
-        copy_array_forward((void*) &cy, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &cy, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
 
         //
         // REMARK! The following variable checks and casts are not indented,
@@ -81,17 +81,17 @@ void check_wait(void* p0, void* p1) {
         // so that indentation would lead to unreadable source code here.
         //
 
-        if (cy != *NULL_POINTER_MEMORY_MODEL) {
+        if (cy != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (ww != *NULL_POINTER_MEMORY_MODEL) {
+        if (ww != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (xw != *NULL_POINTER_MEMORY_MODEL) {
+        if (xw != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (lc != *NULL_POINTER_MEMORY_MODEL) {
+        if (lc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (sm != *NULL_POINTER_MEMORY_MODEL) {
+        if (sm != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Wait for an interrupt request.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Wait for an interrupt request.");
 
             //
             // Sleep for some time.
@@ -175,11 +175,11 @@ void check_wait(void* p0, void* p1) {
             // Therefore, the decision fell on the usage of a simple SLEEP
             // procedure, which seems sufficient for the purposes of CYBOI.
             //
-            while ((*((int*) sm) == *FALSE_BOOLEAN_MEMORY_MODEL)
-                && (*((int*) lc) == *FALSE_BOOLEAN_MEMORY_MODEL)
-                && (*((int*) xw) == *FALSE_BOOLEAN_MEMORY_MODEL)
-                && (*((int*) ww) == *FALSE_BOOLEAN_MEMORY_MODEL)
-                && (*((int*) cy) == *FALSE_BOOLEAN_MEMORY_MODEL)) {
+            while ((*((int*) sm) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                && (*((int*) lc) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                && (*((int*) xw) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                && (*((int*) ww) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                && (*((int*) cy) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
                 sleep(*sl);
             }
@@ -197,36 +197,36 @@ void check_wait(void* p0, void* p1) {
             // This may happen if some user action is noted in one of the
             // receive threads, e.g. linux console, x window system, tcp socket.
             // In this case, a signal is placed in the signal memory and
-            // the corresponding interrupt variable is set to *NUMBER_1_INTEGER_MEMORY_MODEL.
+            // the corresponding interrupt variable is set to *NUMBER_1_INTEGER_STATE_CYBOI_MODEL.
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not wait for an interrupt request. The signal memory interrupt request is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The signal memory interrupt request is null.");
         }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not wait for an interrupt request. The gnu/linux console interrupt request is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The gnu/linux console interrupt request is null.");
         }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not wait for an interrupt request. The x window system interrupt request is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The x window system interrupt request is null.");
         }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not wait for an interrupt request. The www service interrupt request is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The www service interrupt request is null.");
         }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not wait for an interrupt request. The cyboi service interrupt request is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The cyboi service interrupt request is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not wait for an interrupt request. The sleep time is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The sleep time is null.");
     }
 }
 

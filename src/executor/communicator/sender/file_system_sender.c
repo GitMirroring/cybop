@@ -28,14 +28,14 @@
 
 #include <stdio.h>
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/stream_model.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
@@ -56,7 +56,7 @@
 void send_file_character(void* p0, void* p1, void* p2, void* p3) {
 
     // The character.
-    char* c = (char*) *NULL_POINTER_MEMORY_MODEL;
+    char* c = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Read character from source array.
     get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_MEMORY_TYPE);
@@ -68,7 +68,7 @@ void send_file_character(void* p0, void* p1, void* p2, void* p3) {
     if (e == EOF) {
 
         // Set break flag, so that the loop can be left in the next cycle.
-        copy_integer(p3, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        copy_integer(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
@@ -83,7 +83,7 @@ void send_file_character(void* p0, void* p1, void* p2, void* p3) {
 void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
     // The character.
-    char* c = (char*) *NULL_POINTER_MEMORY_MODEL;
+    char* c = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Read character from source array.
     get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_MEMORY_TYPE);
@@ -96,10 +96,10 @@ void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
     int e = fwprintf((FILE*) p0, L"%s", c);
 
     // Test error value.
-    if (e != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (e != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // Set break flag, so that the loop can be left in the next cycle.
-        copy_integer(p3, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        copy_integer(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
@@ -114,11 +114,11 @@ void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
  */
 void send_file_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* w = (int*) p4;
 
-        if (*w == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (*w == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             send_file_character(p0, p1, p2, p3);
 
@@ -129,7 +129,7 @@ void send_file_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send file element. The wide character flag is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file element. The wide character flag is null.");
     }
 }
 
@@ -143,22 +143,22 @@ void send_file_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p2;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Send file stream.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file stream.");
 
             // The loop variable.
-            int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The break flag.
-            int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+            while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                if ((j >= *sc) || (b != *NUMBER_0_INTEGER_MEMORY_MODEL)) {
+                if ((j >= *sc) || (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
 
                     break;
                 }
@@ -170,12 +170,12 @@ void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send file stream. The file is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file stream. The file is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send file stream. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file stream. The source count is null.");
     }
 }
 
@@ -190,31 +190,31 @@ void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
  */
 void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* dc = (int*) p1;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** d = (void**) p0;
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Send file.");
+            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file.");
 
             // The comparison result.
-            int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The file.
-            FILE* f = (FILE*) *NULL_POINTER_MEMORY_MODEL;
+            FILE* f = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p1, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT);
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // The given string is not a file name, but specifies the "standard_output".
                     f = stdout;
 
-                    send_file_stream((void*) f, p3, p4, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+                    send_file_stream((void*) f, p3, p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                     // Flush any buffered output on the stream to the file.
                     //
@@ -229,16 +229,16 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL_COUNT);
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // The given string is not a file name, but specifies the "standard_error_output".
                     f = stderr;
 
-                    send_file_stream((void*) f, p3, p4, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+                    send_file_stream((void*) f, p3, p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                     // Flush any buffered output on the stream to the file.
                     //
@@ -253,24 +253,24 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // If the given name does neither match the standard output
                 // nor the standard error output, then interpret it as file name.
 
                 // The terminated file name.
-                void* tn = *NULL_POINTER_MEMORY_MODEL;
-                void* tnc = *NULL_POINTER_MEMORY_MODEL;
-                void* tns = *NULL_POINTER_MEMORY_MODEL;
+                void* tn = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* tnc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* tns = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                 // Allocate terminated file name.
-                allocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                allocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
                 // Encode wide character option into multibyte character array.
                 encode_utf_8_unicode_character_vector((void*) &tn, tnc, tns, *d, p1);
 
                 // Add null termination character to terminated file name.
-                overwrite_array((void*) &tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tnc, tns);
+                overwrite_array((void*) &tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tnc, tns);
 
                 // Open file.
                 // CAUTION! The file name cannot be handed over as is.
@@ -279,9 +279,9 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // must be added to the string before that is used to open the file.
                 f = fopen((char*) tn, "w");
 
-                if (f != *NULL_POINTER_MEMORY_MODEL) {
+                if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    send_file_stream((void*) f, p3, p4, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+                    send_file_stream((void*) f, p3, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                     // Flush any buffered output on the stream to the file.
                     //
@@ -300,21 +300,21 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send file. The file is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file. The file is null.");
                 }
 
                 // Deallocate terminated file name.
-                deallocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                deallocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send file. The destination is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file. The destination is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send file. The destination count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file. The destination count is null.");
     }
 }
 
@@ -342,41 +342,41 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 void apply_send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8,
     void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply send file system.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send file system.");
 
     // The serialised wide character array.
-    void* s = *NULL_POINTER_MEMORY_MODEL;
-    void* sc = *NULL_POINTER_MEMORY_MODEL;
-    void* ss = *NULL_POINTER_MEMORY_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
-    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Serialise source knowledge model into serialised wide character array.
     encode((void*) &s, sc, ss,
         p1, p2, p3, p4, p5, p6, p7, p8,
-        *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
         p9, p10, p11, p12);
 
     // The encoded character array.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
-    void* ec = *NULL_POINTER_MEMORY_MODEL;
-    void* es = *NULL_POINTER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* es = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate encoded character array.
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     // Encode serialised wide character array into encoded character array.
     encode_utf_8_unicode_character_vector((void*) &e, ec, es, s, sc);
 
     // Deallocate serialised wide character array.
-    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Write encoded array into file.
-    send_data((void*) &p15, p16, *NULL_POINTER_MEMORY_MODEL, e, ec, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
+    send_data((void*) &p15, p16, *NULL_POINTER_STATE_CYBOI_MODEL, e, ec, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
 
     // Deallocate encoded character array.
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 }
 
 /* FILE_SYSTEM_SENDER_SOURCE */

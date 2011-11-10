@@ -26,10 +26,10 @@
 #ifndef ARRAY_INSERTER_SOURCE
 #define ARRAY_INSERTER_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../executor/comparator/basic/value_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
@@ -66,18 +66,18 @@
  */
 void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** d = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Insert array inside.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert array inside.");
 
         // The move destination index.
-        int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The move count.
-        int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The new size.
-        int n = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Add destination index.
         calculate_integer_add((void*) &i, p4);
@@ -95,17 +95,17 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         calculate_integer_add((void*) &n, p3);
 
         // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_PRIMITIVE_OPERATION_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Multiply new size with factor.
             // CAUTION! This multiplication has to be done AFTER the comparison
             // of new size and old size since otherwise, the new size is falsified,
             // which would lead to runtime errors.
-            // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE);
+            // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE);
 
             // Enlarge array using new count as size.
             reallocate_array(p0, p6, (void*) &n, p2);
@@ -129,7 +129,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not insert array inside. The destination array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The destination array is null.");
     }
 }
 
@@ -148,16 +148,16 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  */
 void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Insert array.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert array.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Inserting elements outside the current array
             // boundaries is equivalent to just overwriting
@@ -166,11 +166,11 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, p4, p6, (void*) SMALLER_PRIMITIVE_OPERATION_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             insert_array_inside(p0, p1, p2, p3, p4, p5, p6, p7);
         }

@@ -26,9 +26,9 @@
 #ifndef BODY_HTTP_RESPONSE_ENCODER_SOURCE
 #define BODY_HTTP_RESPONSE_ENCODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http/cyboi_http_name.c"
 #include "../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../executor/converter/selector/http_request/protocol_http_request_selector.c"
@@ -50,12 +50,12 @@
  */
 void encode_http_response_body(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response body.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode http response body.");
 
     // The character model.
-    void* md = *NULL_POINTER_MEMORY_MODEL;
-    int mc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int ms = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate character array.
     allocate_model((void*) &md, (void*) &ms, (void*) CHARACTER_MEMORY_TYPE);

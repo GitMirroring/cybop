@@ -26,11 +26,11 @@
 #ifndef ARRAY_CALCULATOR_SOURCE
 #define ARRAY_CALCULATOR_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/value_comparator.c"
 #include "../../../logger/logger.c"
 
@@ -45,16 +45,16 @@
  */
 void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* c = (int*) p4;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Calculate array elements.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array elements.");
 
         // The loop variable.
-        int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (j >= *c) {
 
@@ -68,7 +68,7 @@ void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) 
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not calculate array elements. The count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array elements. The count is null.");
     }
 }
 
@@ -91,11 +91,11 @@ void calculate_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     // All other calculate functions are based on this calculate function,
     // so that checking for null pointer right here suffices.
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Calculate array.");
+            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array.");
 
             // The result array, operand array.
             // CAUTION! They HAVE TO BE initialised with p0 and p1,
@@ -111,12 +111,12 @@ void calculate_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not calculate array. The result (operand before operation) array is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The result (operand before operation) array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not calculate array. The operand array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The operand array is null.");
     }
 }
 

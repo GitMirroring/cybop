@@ -26,25 +26,25 @@
 #ifndef DATETIME_STATE_CYBOI_NAME_CONSTANT_SOURCE
 #define DATETIME_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The year (y) datetime state cyboi name. */
-static int* YEAR_DATETIME_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+static int* YEAR_DATETIME_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The month (m) datetime state cyboi name. */
-static int* MONTH_DATETIME_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* MONTH_DATETIME_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The day (d) datetime state cyboi name. */
-static int* DAY_DATETIME_STATE_CYBOI_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DAY_DATETIME_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The hour (h) datetime state cyboi name. */
-static int* HOUR_DATETIME_STATE_CYBOI_NAME = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+static int* HOUR_DATETIME_STATE_CYBOI_NAME = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The minute (m) datetime state cyboi name. */
-static int* MINUTE_DATETIME_STATE_CYBOI_NAME = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+static int* MINUTE_DATETIME_STATE_CYBOI_NAME = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The second (s) datetime state cyboi name. */
-static int* SECOND_DATETIME_STATE_CYBOI_NAME = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SECOND_DATETIME_STATE_CYBOI_NAME = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DATETIME_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

@@ -26,10 +26,10 @@
 #ifndef ARRAY_OVERWRITER_SOURCE
 #define ARRAY_OVERWRITER_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/integer_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../../executor/memoriser/offset_adder.c"
@@ -80,14 +80,14 @@
  */
 void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** d = (void**) p0;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Overwrite array.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite array.");
 
         // The new size.
-        int n = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // CAUTION! The destination array count is NOT considered here,
         // because an element may be added far behind the end of the array.
@@ -101,11 +101,11 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         calculate_integer_add((void*) &n, p3);
 
         // The comparison result.
-        int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         compare_integer_greater((void*) &r, (void*) &n, p7);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The new destination size is greater than the old.
 
@@ -113,7 +113,7 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // CAUTION! This multiplication has to be done AFTER the comparison
             // of new size and old size since otherwise, the new size is falsified,
             // which would lead to runtime errors.
-            multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE);
+            multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE);
 
             // Enlarge array using new count as size.
             reallocate_array(p0, p6, (void*) &n, p2);
@@ -126,11 +126,11 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         copy_array_forward(*d, p1, p2, p3, p4, p5);
 
         // Reset comparison result.
-        r = *FALSE_BOOLEAN_MEMORY_MODEL;
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
             // Adjust destination array COUNT only if "adjust" flag was set.
@@ -192,7 +192,7 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not overwrite array. The destination array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array. The destination array is null.");
     }
 }
 

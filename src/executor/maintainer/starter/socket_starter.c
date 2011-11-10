@@ -38,16 +38,16 @@
 #include <unistd.h>
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cybol/address_cybol_model.c"
 #include "../../../constant/model/cybol/communication_style_cybol_model.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../constant/model/cybol/namespace_cybol_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
@@ -65,65 +65,65 @@
  */
 void startup_socket_get_namespace(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* an = (int*) p1;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* sn = (int*) p0;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Startup socket get namespace.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket get namespace.");
 
             // The comparison result.
-            int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 compare_integer_equal((void*) &r, p2, (void*) LOCAL_NAMESPACE_CYBOL_MODEL);
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     *sn = PF_LOCAL;
                     *an = AF_LOCAL;
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 compare_integer_equal((void*) &r, p2, (void*) INET_NAMESPACE_CYBOL_MODEL);
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     *sn = PF_INET;
                     *an = AF_INET;
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 compare_integer_equal((void*) &r, p2, (void*) INET6_NAMESPACE_CYBOL_MODEL);
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     *sn = PF_INET6;
                     *an = AF_INET6;
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not get startup socket namespace. The namespace model is not known.");
+                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket namespace. The namespace model is not known.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get startup socket namespace. The socket namespace is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket namespace. The socket namespace is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get startup socket namespace. The address namespace is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket namespace. The address namespace is null.");
     }
 }
 
@@ -136,53 +136,53 @@ void startup_socket_get_namespace(void* p0, void* p1, void* p2, void* p3) {
  */
 void startup_socket_get_style(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* s = (int*) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Startup socket get style.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket get style.");
 
         // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             compare_integer_equal((void*) &r, p1, (void*) STREAM_COMMUNICATION_STYLE_CYBOL_MODEL);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 *s = SOCK_STREAM;
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             compare_integer_equal((void*) &r, p1, (void*) DATAGRAM_COMMUNICATION_STYLE_CYBOL_MODEL);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 *s = SOCK_DGRAM;
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             compare_integer_equal((void*) &r, p1, (void*) RAW_COMMUNICATION_STYLE_CYBOL_MODEL);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 *s = SOCK_RAW;
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get startup socket style. The communication style model is not known.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket style. The communication style model is not known.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get startup socket style. The communication style is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket style. The communication style is null.");
     }
 }
 
@@ -196,14 +196,14 @@ void startup_socket_get_style(void* p0, void* p1, void* p2) {
  */
 void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* an = (int*) p3;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            struct in_addr* a4 = (struct in_addr*) *NULL_POINTER_MEMORY_MODEL;
-            struct in6_addr* a6 = (struct in6_addr*) *NULL_POINTER_MEMORY_MODEL;
+            struct in_addr* a4 = (struct in_addr*) *NULL_POINTER_STATE_CYBOI_MODEL;
+            struct in6_addr* a6 = (struct in6_addr*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
             if (*an == AF_INET) {
 
@@ -214,16 +214,16 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
                 a6 = (struct in6_addr*) p0;
             }
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Startup socket get host address.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket get host address.");
 
             // The comparison result.
-            int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 compare_integer_equal((void*) &r, p1, (void*) LOOPBACK_ADDRESS_CYBOL_MODEL);
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     if (*an == AF_INET) {
 
@@ -236,11 +236,11 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 compare_integer_equal((void*) &r, p1, (void*) ANY_ADDRESS_CYBOL_MODEL);
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     if (*an == AF_INET) {
 
@@ -253,18 +253,18 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // If none of the above address models was found, then the given
                 // address is supposed to be the host address directly.
 
                 // The terminated address model.
-                void* s = *NULL_POINTER_MEMORY_MODEL;
-                void* sc = *NULL_POINTER_MEMORY_MODEL;
-                void* ss = *NULL_POINTER_MEMORY_MODEL;
+                void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                 // Allocate terminated address model.
-                allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
                 // Encode wide character name into multibyte character array.
                 encode_utf_8_unicode_character_vector((void*) &s, sc, ss, p1, p2);
@@ -272,31 +272,31 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
                 if (*((int*) ss) <= *((int*) sc)) {
 
                     // Increase character array size to have place for the termination character.
-                    *((int*) ss) = *((int*) sc) + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                    *((int*) ss) = *((int*) sc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                     // Reallocate terminated file name as multibyte character array.
                     reallocate_array((void*) &s, sc, ss, (void*) CHARACTER_MEMORY_TYPE);
                 }
 
                 // Add null termination character to terminated file name.
-                overwrite_array((void*) &s, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, sc, ss);
+                overwrite_array((void*) &s, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, sc, ss);
 
                 // Convert uint16_t integer hostshort from host byte order
                 // to network byte order.
                 inet_pton(*an, (char*) s, p0);
 
                 // Deallocate terminated address model.
-                deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get startup socket host address. The host address is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket host address. The host address is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get startup socket host address. The address namespace is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket host address. The address namespace is null.");
     }
 }
 
@@ -309,22 +309,22 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
  */
 void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* fc = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             wchar_t* f = (wchar_t*) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // CAUTION! The compiler brings an error if the "struct sockaddr_un"
                 // type is used, because pointer calculation is done below!
                 // Therefore, a cast to void** is done here instead.
                 void** a = (void**) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Startup socket initialise local socket address.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket initialise local socket address.");
 
                 // Determine position of namespace
                 // ("sun_family" field within the "sockaddr_un" structure).
@@ -335,7 +335,7 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
                 // the unknown size of its "sun_path" field (a character array),
                 // is considered an incomplete type, so that the compiler
                 // brings an error.
-                short int* family = (short int*) (*a + *NUMBER_0_INTEGER_MEMORY_MODEL);
+                short int* family = (short int*) (*a + *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                 // Set namespace (address format/ family).
                 //
@@ -347,10 +347,10 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
                 // is limited to 108 ascii characters in the gnu c library!
                 // The documentation called it a "magic number" and does not
                 // know why this limit exists.
-                if (*fc < *NUMBER_108_INTEGER_MEMORY_MODEL) {
+                if (*fc < *NUMBER_108_INTEGER_STATE_CYBOI_MODEL) {
 
                     // CAUTION! Do NOT reallocate the file name array with:
-                    // int nc = *fc + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                    // int nc = *fc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                     // reallocate_array((void*) &((*a)->sun_path), p2, (void*) &nc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
                     //
                     // The reason is that the size of the "sun_path" field of
@@ -375,27 +375,27 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
 
                     // Set terminated file name by first copying the actual name
                     // and then adding the null termination character.
-                    copy_array_forward((void*) &path, p1, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-                    copy_array_forward((void*) &path, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+                    copy_array_forward((void*) &path, p1, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+                    copy_array_forward((void*) &path, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise local socket address. The socket file name is longer than the limit 108, as set by the gnu c library.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise local socket address. The socket file name is longer than the limit 108, as set by the gnu c library.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise local socket address. The socket address is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise local socket address. The socket address is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise local socket address. The file name is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise local socket address. The file name is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise local socket address. The file name count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise local socket address. The file name count is null.");
     }
 }
 
@@ -408,19 +408,19 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
  */
 void startup_socket_initialise_ipv4_socket_address(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* p = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* h = (int*) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 struct sockaddr_in** a = (struct sockaddr_in**) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Startup socket initialise ipv4 socket address.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket initialise ipv4 socket address.");
 
                 // Set namespace (address format/ family).
                 //
@@ -447,17 +447,17 @@ void startup_socket_initialise_ipv4_socket_address(void* p0, void* p1, void* p2)
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise ipv4 socket address. The socket address is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise ipv4 socket address. The socket address is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise ipv4 socket address. The host address is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise ipv4 socket address. The host address is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise ipv4 socket address. The socket port is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise ipv4 socket address. The socket port is null.");
     }
 }
 
@@ -470,19 +470,19 @@ void startup_socket_initialise_ipv4_socket_address(void* p0, void* p1, void* p2)
  */
 void startup_socket_initialise_ipv6_socket_address(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* p = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             struct in6_addr* h = (struct in6_addr*) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 struct sockaddr_in6** a = (struct sockaddr_in6**) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Startup socket initialise ipv6 socket address.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket initialise ipv6 socket address.");
 
                 // Set namespace (address format/ family).
                 //
@@ -515,17 +515,17 @@ void startup_socket_initialise_ipv6_socket_address(void* p0, void* p1, void* p2)
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise ipv6 socket address. The socket address is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise ipv6 socket address. The socket address is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise ipv6 socket address. The host address is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise ipv6 socket address. The host address is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not initialise ipv6 socket address. The socket port is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise ipv6 socket address. The socket port is null.");
     }
 }
 
@@ -544,18 +544,18 @@ void startup_socket_initialise_ipv6_socket_address(void* p0, void* p1, void* p2)
  */
 void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    if (p8 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* base = (int*) p8;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Startup socket.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
 
         // The socket namespace.
-        int sn = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int sn = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The address namespace.
-        int an = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int an = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The communication style.
-        int st = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int st = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The ipv4 host address of this system.
         struct in_addr ha4;
         // The ipv6 host address of this system.
@@ -566,33 +566,33 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         // socket addresses can be processed uniformly below!
         //
         // The local socket address of this system.
-        struct sockaddr_un* la = (struct sockaddr_un*) *NULL_POINTER_MEMORY_MODEL;
+        struct sockaddr_un* la = (struct sockaddr_un*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The ipv4 internet socket address of this system.
-        struct sockaddr_in* ia4 = (struct sockaddr_in*) *NULL_POINTER_MEMORY_MODEL;
+        struct sockaddr_in* ia4 = (struct sockaddr_in*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The ipv6 internet socket address of this system.
-        struct sockaddr_in6* ia6 = (struct sockaddr_in6*) *NULL_POINTER_MEMORY_MODEL;
+        struct sockaddr_in6* ia6 = (struct sockaddr_in6*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner local socket address.
-        struct sockaddr_un* pla = (struct sockaddr_un*) *NULL_POINTER_MEMORY_MODEL;
+        struct sockaddr_un* pla = (struct sockaddr_un*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner ipv4 internet socket address.
-        struct sockaddr_in* pia4 = (struct sockaddr_in*) *NULL_POINTER_MEMORY_MODEL;
+        struct sockaddr_in* pia4 = (struct sockaddr_in*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner ipv6 internet socket address.
-        struct sockaddr_in6* pia6 = (struct sockaddr_in6*) *NULL_POINTER_MEMORY_MODEL;
+        struct sockaddr_in6* pia6 = (struct sockaddr_in6*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The socket address size of this system.
-        int* as = (int*) *NULL_POINTER_MEMORY_MODEL;
+        int* as = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner socket address size.
-        int* pas = (int*) *NULL_POINTER_MEMORY_MODEL;
+        int* pas = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The socket of this system.
-        int* s = (int*) *NULL_POINTER_MEMORY_MODEL;
+        int* s = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner socket.
-        int* ps = (int*) *NULL_POINTER_MEMORY_MODEL;
+        int* ps = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The character buffer being used in the thread procedure receiving messages via socket.
-        void* b = *NULL_POINTER_MEMORY_MODEL;
-        int* bc = (int*) *NULL_POINTER_MEMORY_MODEL;
-        int* bs = (int*) *NULL_POINTER_MEMORY_MODEL;
+        void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* bc = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* bs = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The internal memory index.
-        int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The result.
-        int r = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int r = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Get socket- and address namespace.
         startup_socket_get_namespace((void*) &sn, (void*) &an, p1, p2);
@@ -610,18 +610,18 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         }
 
         // Allocate socket address size of this system.
-        allocate((void*) &as, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
         // Allocate communication partner socket address size.
-        allocate((void*) &pas, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
         // Allocate socket of this system.
-        allocate((void*) &s, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
         // Allocate communication partner socket.
-        allocate((void*) &ps, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &ps, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
 
         // Initialise socket address size of this system.
-        copy_integer(as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        copy_integer(as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         // Initialise communication partner socket address size.
-        copy_integer(pas, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        copy_integer(pas, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (an == AF_LOCAL) {
 
@@ -642,9 +642,9 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
             // a fixed size "108" of the "sun_path" field, the overall size of
             // the "sockaddr_un" structure can be calculated as sum.
             calculate_integer_add(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-            calculate_integer_add(as, (void*) NUMBER_108_INTEGER_MEMORY_MODEL);
+            calculate_integer_add(as, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
             calculate_integer_add(pas, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-            calculate_integer_add(pas, (void*) NUMBER_108_INTEGER_MEMORY_MODEL);
+            calculate_integer_add(pas, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
 
         } else if (an == AF_INET) {
 
@@ -692,15 +692,15 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         }
 
         // Allocate character buffer count and size.
-        allocate((void*) &bc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
-        allocate((void*) &bs, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
 
         // Initialise character buffer count, size.
         // A possible initial size is 2048, which should
         // suffice for transferring standard data over tcp/ip.
         // Another possible size could be 8192.
-        copy_integer(bc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
-        copy_integer(bs, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        copy_integer(bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        copy_integer(bs, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         // Allocate character buffer.
         //
@@ -713,44 +713,44 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         if (an == AF_LOCAL) {
 
             i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &la, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p0, (void*) &la, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &pla, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p0, (void*) &pla, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
         } else if (an == AF_INET) {
 
             i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &ia4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p0, (void*) &ia4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &pia4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p0, (void*) &pia4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
         } else if (an == AF_INET6) {
 
             i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &ia6, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p0, (void*) &ia6, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
             i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &pia6, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            copy_array_forward(p0, (void*) &pia6, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         }
 
         // Set socket address size of this system.
         i = *base + *SOCKET_ADDRESS_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &as, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(p0, (void*) &as, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         // Set communication partner socket address size.
         i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &pas, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(p0, (void*) &pas, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         // Set socket of this system.
         i = *base + *SOCKET_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(p0, (void*) &s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         // Set communication partner socket.
         i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &ps, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(p0, (void*) &ps, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         // Set character buffer.
         i = *base + *SOCKET_CHARACTER_BUFFER_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &b, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(p0, (void*) &b, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         i = *base + *SOCKET_CHARACTER_BUFFER_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &bc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(p0, (void*) &bc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         i = *base + *SOCKET_CHARACTER_BUFFER_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &bs, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        copy_array_forward(p0, (void*) &bs, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
         // Initialise error number.
         // It is a global variable/ function and other operations
@@ -758,7 +758,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         //
         // CAUTION! Initialise the error number BEFORE calling the procedure
         // that might cause an error.
-        errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Initialise server socket.
         //
@@ -769,9 +769,9 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         // CAUTION! Use prefix "PF_" here and NOT "AF_"!
         // The latter is to be used for address family assignment.
         // See further below!
-        *s = socket(sn, st, *NUMBER_0_INTEGER_MEMORY_MODEL);
+        *s = socket(sn, st, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (*s >= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (*s >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Set non-blocking mode for the socket file descriptor.
             //
@@ -792,7 +792,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
             // Get file status flags.
             int fl = fcntl(*s, F_GETFL, NUMBER_0_INTEGER);
 
-            if (fl != *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL) {
+            if (fl != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Set non-blocking flag (bit).
                 fl |= O_NONBLOCK;
@@ -802,7 +802,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket / set non-blocking mode. The socket file descriptor flags could not be read.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket / set non-blocking mode. The socket file descriptor flags could not be read.");
             }
 */
 
@@ -812,7 +812,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
             //
             // CAUTION! Initialise the error number BEFORE calling the procedure
             // that might cause an error.
-            errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Bind socket number to socket address.
             if (an == AF_LOCAL) {
@@ -831,12 +831,12 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
                 r = bind(*s, (struct sockaddr*) ia6, *((socklen_t*) as));
             }
 
-            if (r >= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 if (st == SOCK_STREAM) {
 
                     // Reset result.
-                    r = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+                    r = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
                     // Initialise error number.
                     // It is a global variable/ function and other operations
@@ -844,7 +844,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
                     //
                     // CAUTION! Initialise the error number BEFORE calling the procedure
                     // that might cause an error.
-                    errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                     // CAUTION! Datagram sockets do NOT have connections,
                     // which is why the "listen" procedure is only called
@@ -853,28 +853,28 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
                     // Enable socket to accept connections, thus making it a server socket.
                     // The second parameter determines the number of possible
                     // pending client connection requests.
-                    r = listen(*s, *NUMBER_1_INTEGER_MEMORY_MODEL);
+                    r = listen(*s, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     fwprintf(stdout, L"TEST: startup socket listen s: %i \n", *s);
     sleep(2);
 
-                    if (r < *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         if (errno == EBADF) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The argument socket is not a valid file descriptor.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The argument socket is not a valid file descriptor.");
 
                         } else if (errno == ENOTSOCK) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The argument socket is not a socket.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The argument socket is not a socket.");
 
                         } else if (errno == EOPNOTSUPP) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The socket does not support this operation.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The socket does not support this operation.");
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. An unknown error occured while listening at the socket.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. An unknown error occured while listening at the socket.");
                         }
                     }
                 }
@@ -883,31 +883,31 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
                 if (errno == EBADF) {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The socket argument is not a valid file descriptor.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The socket argument is not a valid file descriptor.");
 
                 } else if (errno == ENOTSOCK) {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The descriptor socket is not a socket.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The descriptor socket is not a socket.");
 
                 } else if (errno == EADDRNOTAVAIL) {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The specified address is not available on this machine.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The specified address is not available on this machine.");
 
                 } else if (errno == EADDRINUSE) {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The specified address is already used by some other socket.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The specified address is already used by some other socket.");
 
                 } else if (errno == EINVAL) {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The socket socket already has an address.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The socket socket already has an address.");
 
                 } else if (errno == EACCES) {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The permission to access the requested address is missing. (In the internet domain, only the super-user is allowed to specify a port number in the range 0 through IPPORT_RESERVED minus one; see the section called 'Internet Ports'.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The permission to access the requested address is missing. (In the internet domain, only the super-user is allowed to specify a port number in the range 0 through IPPORT_RESERVED minus one; see the section called 'Internet Ports'.");
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. An unknown error occured while binding the socket to the address.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. An unknown error occured while binding the socket to the address.");
                 }
             }
 
@@ -915,33 +915,33 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
             if (errno == EPROTONOSUPPORT) {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The protocol or style is not supported by the namespace specified.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The protocol or style is not supported by the namespace specified.");
 
             } else if (errno == EMFILE) {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The process already has too many file descriptors open.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The process already has too many file descriptors open.");
 
             } else if (errno == ENFILE) {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The system already has too many file descriptors open.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The system already has too many file descriptors open.");
 
             } else if (errno == EACCES) {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The process does not have the privilege to create a socket of the specified style or protocol.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The process does not have the privilege to create a socket of the specified style or protocol.");
 
             } else if (errno == ENOBUFS) {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The system ran out of internal buffer space.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The system ran out of internal buffer space.");
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. An unknown error occured while initialising the socket.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. An unknown error occured while initialising the socket.");
             }
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not start up socket. The base internal is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up socket. The base internal is null.");
     }
 }
 

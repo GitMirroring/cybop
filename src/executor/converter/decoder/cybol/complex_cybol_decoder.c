@@ -26,9 +26,9 @@
 #ifndef COMPLEX_DECODER_SOURCE
 #define COMPLEX_DECODER_SOURCE
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -46,27 +46,27 @@
  */
 void decode_complex(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void* s = (void*) p3;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 void* d = (void*) p0;
 
 /*??
-            //??    log_message((void*) &INFORMATION_LEVEL_LOG_MODEL, (void*) &"Initialise complex.");
+            //??    log_message((void*) &INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) &"Initialise complex.");
 
             //??    fscanf(p1, %d, (void*) &(t->real));
             //??    fscanf(p1, %d, (void*) &(t->imaginary));
 
                 // Initialise elements.
-                int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Set elements.
                 set_array_element(p0, (void*) &DOUBLE_ARRAY, (void*) &REAL_INDEX, (void*) &r);
@@ -74,17 +74,17 @@ void decode_complex(void* p0, void* p1, void* p2, void* p3, void* p4) {
 */
             } else {
 
-//??                log_message((void*) &ERROR_LEVEL_LOG_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE_COUNT);
+//??                log_message((void*) &ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE_COUNT);
             }
 
         } else {
 
-//??            log_message((void*) &ERROR_LEVEL_LOG_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_IS_NULL_MESSAGE_COUNT);
+//??            log_message((void*) &ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_IS_NULL_MESSAGE_COUNT);
         }
 
     } else {
 
-//??        log_message((void*) &ERROR_LEVEL_LOG_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_COUNT_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_COUNT_IS_NULL_MESSAGE_COUNT);
+//??        log_message((void*) &ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_COUNT_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_COUNT_IS_NULL_MESSAGE_COUNT);
     }
 }
 

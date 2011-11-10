@@ -33,12 +33,12 @@
 #include <wchar.h>
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/log/level_log_model.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
 #include "../../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../../executor/accessor/getter/compound_getter.c"
@@ -59,19 +59,19 @@
  */
 void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         FILE* is = (FILE*) p3;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             double* st = (double*) p2;
 
-            if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 pthread_mutex_t* mt = (pthread_mutex_t*) p1;
 
-                if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     int* irq = (int*) p0;
 
@@ -80,7 +80,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
                     // Also, this function runs in an endless loop and would produce huge log files.
-                    // log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Apply sense gnu/linux console message.");
+                    // log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense gnu/linux console message.");
 
                     // Lock gnu/linux console mutex.
                     //
@@ -153,13 +153,13 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                         // Set gnu/linux console interrupt request to indicate
                         // that a message has been received via gnu/linux console,
                         // which may now be processed in the main thread of this system.
-                        *irq = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                        *irq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                     }
 
                     // Unlock gnu/linux console mutex.
                     pthread_mutex_unlock(mt);
 
-                    while (*irq != *FALSE_BOOLEAN_MEMORY_MODEL) {
+                    while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         // Sleep as long as the gnu/linux console interrupt is not handled and reset yet.
                         //
@@ -178,7 +178,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                     // This function is executed within a thread, but the
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
-                    // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense gnu/linux console message. The interrupt is null.");
+                    // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The interrupt is null.");
                 }
 
             } else {
@@ -187,7 +187,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                 // This function is executed within a thread, but the
                 // logging is not guaranteed to be thread-safe and might
                 // cause unpredictable programme behaviour.
-                // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense gnu/linux console message. The mutex is null.");
+                // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The mutex is null.");
             }
 
         } else {
@@ -196,7 +196,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
             // This function is executed within a thread, but the
             // logging is not guaranteed to be thread-safe and might
             // cause unpredictable programme behaviour.
-            // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense gnu/linux console message. The sleep time is null.");
+            // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The sleep time is null.");
         }
 
     } else {
@@ -205,7 +205,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
-        // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense gnu/linux console message. The input stream is null.");
+        // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The input stream is null.");
     }
 }
 
@@ -220,27 +220,27 @@ void sense_gnu_linux_console(void* p0) {
     // This function is executed within a thread, but the
     // logging is not guaranteed to be thread-safe and might
     // cause unpredictable programme behaviour.
-    // log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply sense gnu/linux console.");
+    // log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense gnu/linux console.");
 
     // The interrupt.
-    void* irq = *NULL_POINTER_MEMORY_MODEL;
+    void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
-    void* mt = *NULL_POINTER_MEMORY_MODEL;
+    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sleep time.
-    void* st = *NULL_POINTER_MEMORY_MODEL;
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input stream.
-    void* is = *NULL_POINTER_MEMORY_MODEL;
+    void* is = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get interrupt.
-    copy_array_forward((void*) &irq, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &irq, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
     // Get mutex.
-    copy_array_forward((void*) &mt, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &mt, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
     // Get sleep time.
-    copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_SLEEP_TIME_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_SLEEP_TIME_INTERNAL_MEMORY_MEMORY_NAME);
     // Get input stream.
-    copy_array_forward((void*) &is, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &is, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_MEMORY_NAME);
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // A break condition does not exist here because the loop
         // is running neverendingly while sensing messages.

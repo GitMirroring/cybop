@@ -29,10 +29,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/memory/item_memory_name.c"
 #include "../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../logger/logger.c"
@@ -52,9 +52,9 @@
 void append_item_encode_character(void* p0, void* p1, void* p2) {
 
     // The character data, count, size.
-    void* d = *NULL_POINTER_MEMORY_MODEL;
-    int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int s = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate character data.
     allocate_array((void*) &d, (void*) &s, (void*) CHARACTER_MEMORY_TYPE);

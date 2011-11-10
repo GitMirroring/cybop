@@ -26,10 +26,10 @@
 #ifndef PART_REMOVER_SOURCE
 #define PART_REMOVER_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../constant/model/memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/memory/item_memory_name.c"
 #include "../../../constant/name/memory/primitive_memory_name.c"
 #include "../../../executor/modifier/remover/item_remover.c"
@@ -50,13 +50,13 @@
  */
 void remove_part(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Remove part.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove part.");
 
     // The part model.
-    void* m = *NULL_POINTER_MEMORY_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part model.
-    copy_array_forward((void*) &m, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Remove elements from part model.
     remove_item(m, p1, p2, p3);

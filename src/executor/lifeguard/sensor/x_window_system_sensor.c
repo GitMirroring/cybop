@@ -34,10 +34,10 @@
 #include <signal.h>
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/memoriser/allocator.c"
@@ -60,7 +60,7 @@
 int sense_x_window_system_check_events(pthread_mutex_t* mt, struct _XDisplay* d) {
 
     // The number of events.
-    int n = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     pthread_mutex_lock(mt);
 
@@ -107,19 +107,19 @@ int sense_x_window_system_check_events(pthread_mutex_t* mt, struct _XDisplay* d)
  */
 void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         struct _XDisplay* is = (struct _XDisplay*) p3;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             unsigned int* st = (unsigned int*) p2;
 
-            if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 pthread_mutex_t* mt = (pthread_mutex_t*) p1;
 
-                if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     int* irq = (int*) p0;
 
@@ -128,7 +128,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
                     // Also, this function runs in an endless loop and would produce huge log files.
-                    // log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Sense x window system message.");
+                    // log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense x window system message.");
 
                     // CAUTION! Do NOT use the following statement directly here:
                     // while (XEventsQueued(*d, QueuedAfterReading) == 0) { ...}
@@ -163,12 +163,12 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                     // Set x window system interrupt request to indicate
                     // that a message has been received via x window system,
                     // which may now be processed in the main thread of this system.
-                    *irq = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                    *irq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                     // Unlock x window system mutex.
                     pthread_mutex_unlock(mt);
 
-                    while (*irq != *FALSE_BOOLEAN_MEMORY_MODEL) {
+                    while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         // Sleep as long as the x window system interrupt is not handled and reset yet.
                         // This is to give the central processing unit (cpu) some
@@ -182,7 +182,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                     // This function is executed within a thread, but the
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
-                    // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system message. The interrupt is null.");
+                    // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system message. The interrupt is null.");
                 }
 
             } else {
@@ -191,7 +191,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                 // This function is executed within a thread, but the
                 // logging is not guaranteed to be thread-safe and might
                 // cause unpredictable programme behaviour.
-                // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system message. The mutex is null.");
+                // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system message. The mutex is null.");
             }
 
         } else {
@@ -200,7 +200,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
             // This function is executed within a thread, but the
             // logging is not guaranteed to be thread-safe and might
             // cause unpredictable programme behaviour.
-            // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system message. The sleep time is null.");
+            // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system message. The sleep time is null.");
         }
 
     } else {
@@ -209,7 +209,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
-        // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system message. The display is null.");
+        // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system message. The display is null.");
     }
 }
 
@@ -224,27 +224,27 @@ void sense_x_window_system(void* p0) {
     // This function is executed within a thread, but the
     // logging is not guaranteed to be thread-safe and might
     // cause unpredictable programme behaviour.
-    // log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply sense x window system.");
+    // log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense x window system.");
 
     // The interrupt.
-    void* irq = *NULL_POINTER_MEMORY_MODEL;
+    void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
-    void* mt = *NULL_POINTER_MEMORY_MODEL;
+    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sleep time.
-    void* st = *NULL_POINTER_MEMORY_MODEL;
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The display.
-    void* d = *NULL_POINTER_MEMORY_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get interrupt.
-    copy_array_forward((void*) &irq, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &irq, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
     // Get mutex.
-    copy_array_forward((void*) &mt, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &mt, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
     // Get sleep time.
-    copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_SLEEP_TIME_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_SLEEP_TIME_INTERNAL_MEMORY_MEMORY_NAME);
     // Get display.
-    copy_array_forward((void*) &d, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &d, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME);
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // A break condition does not exist here because the loop
         // is running neverendingly while sensing messages.

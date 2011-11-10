@@ -28,22 +28,22 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The rectangle shape cybol model. */
 static wchar_t RECTANGLE_SHAPE_CYBOL_MODEL_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'g', L'l', L'e'};
 static wchar_t* RECTANGLE_SHAPE_CYBOL_MODEL = RECTANGLE_SHAPE_CYBOL_MODEL_ARRAY;
-static int* RECTANGLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static int* RECTANGLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The circle shape cybol model. */
 static wchar_t CIRCLE_SHAPE_CYBOL_MODEL_ARRAY[] = {L'c', L'i', L'r', L'c', L'l', L'e'};
 static wchar_t* CIRCLE_SHAPE_CYBOL_MODEL = CIRCLE_SHAPE_CYBOL_MODEL_ARRAY;
-static int* CIRCLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_MEMORY_MODEL_ARRAY;
+static int* CIRCLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The polygon shape cybol model. */
 static wchar_t POLYGON_SHAPE_CYBOL_MODEL_ARRAY[] = {L'p', L'o', L'l', L'y', L'g', L'o', L'n'};
 static wchar_t* POLYGON_SHAPE_CYBOL_MODEL = POLYGON_SHAPE_CYBOL_MODEL_ARRAY;
-static int* POLYGON_SHAPE_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+static int* POLYGON_SHAPE_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SHAPE_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

@@ -26,14 +26,14 @@
 #ifndef BOOLEAN_DECODER_SOURCE
 #define BOOLEAN_DECODER_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/cybol/boolean_cybol_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/memory/primitive_memory_name.c"
 #include "../../../../executor/memoriser/allocator.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
@@ -48,36 +48,36 @@
  */
 void decode_boolean(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode boolean.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode boolean.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p3, (void*) TRUE_BOOLEAN_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set value to "true", i.e. the integer value to "one".
-            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p3, (void*) FALSE_BOOLEAN_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) TRUE_BOOLEAN_CYBOL_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set value to "false", i.e. the integer value to "zero".
-            copy_integer(p0, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not decode boolean. The value cannot be interpreted.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode boolean. The value cannot be interpreted.");
     }
 }
 

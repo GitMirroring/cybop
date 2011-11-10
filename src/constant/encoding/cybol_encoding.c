@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // A "Character Set" consists of three parts:
@@ -46,7 +46,7 @@
  */
 static wchar_t ASCII_CYBOL_ENCODING_ARRAY[] = {L'a', L's', L'c', L'i', L'i'};
 static wchar_t* ASCII_CYBOL_ENCODING = ASCII_CYBOL_ENCODING_ARRAY;
-static int* ASCII_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ASCII_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
  * The ebcdic cybol encoding.
@@ -55,7 +55,7 @@ static int* ASCII_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
  */
 static wchar_t EBCDIC_CYBOL_ENCODING_ARRAY[] = {L'e', L'b', L'c', L'd', L'i', L'c'};
 static wchar_t* EBCDIC_CYBOL_ENCODING = EBCDIC_CYBOL_ENCODING_ARRAY;
-static int* EBCDIC_CYBOL_ENCODING_COUNT = NUMBER_6_INTEGER_MEMORY_MODEL_ARRAY;
+static int* EBCDIC_CYBOL_ENCODING_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
  * The gb cybol encoding.
@@ -64,7 +64,7 @@ static int* EBCDIC_CYBOL_ENCODING_COUNT = NUMBER_6_INTEGER_MEMORY_MODEL_ARRAY;
  */
 static wchar_t GB_CYBOL_ENCODING_ARRAY[] = {L'g', L'b'};
 static wchar_t* GB_CYBOL_ENCODING = GB_CYBOL_ENCODING_ARRAY;
-static int* GB_CYBOL_ENCODING_COUNT = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+static int* GB_CYBOL_ENCODING_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
  * The big-5 cybol encoding.
@@ -73,7 +73,7 @@ static int* GB_CYBOL_ENCODING_COUNT = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
  */
 static wchar_t BIG_5_CYBOL_ENCODING_ARRAY[] = {L'b', L'i', L'g', L'-', L'5'};
 static wchar_t* BIG_5_CYBOL_ENCODING = BIG_5_CYBOL_ENCODING_ARRAY;
-static int* BIG_5_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* BIG_5_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
  * The shift-jis cybol encoding.
@@ -82,7 +82,7 @@ static int* BIG_5_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
  */
 static wchar_t SHIFT_JIS_CYBOL_ENCODING_ARRAY[] = {L's', L'h', L'i', L'f', L't', L'-', L'j', L'i', L's'};
 static wchar_t* SHIFT_JIS_CYBOL_ENCODING = SHIFT_JIS_CYBOL_ENCODING_ARRAY;
-static int* SHIFT_JIS_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SHIFT_JIS_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
  * The unicode universal cybol encoding.
@@ -98,13 +98,13 @@ static int* SHIFT_JIS_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY
  */
 static wchar_t UNIVERSAL_CYBOL_ENCODING_ARRAY[] = {L'u', L'n', L'i', L'v', L'e', L'r', L's', L'a', L'l'};
 static wchar_t* UNIVERSAL_CYBOL_ENCODING = UNIVERSAL_CYBOL_ENCODING_ARRAY;
-static int* UNIVERSAL_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static int* UNIVERSAL_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The html coded cybol encoding. */
 /*??
 static wchar_t HTML_CODED_CYBOL_ENCODING_ARRAY[] = {L'h', L't', L'm', L'l', L' ', L'c', L'o', L'd', L'e', L'd'};
 static wchar_t* HTML_CODED_CYBOL_ENCODING = HTML_CODED_CYBOL_ENCODING_ARRAY;
-static int* HTML_CODED_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* HTML_CODED_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 */
 
 /* CYBOL_ENCODING_CONSTANT_SOURCE */

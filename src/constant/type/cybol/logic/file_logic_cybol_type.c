@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -63,7 +63,7 @@
  */
 static wchar_t ARCHIVE_FILE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'a', L'r', L'c', L'h', L'i', L'v', L'e'};
 static wchar_t* ARCHIVE_FILE_LOGIC_CYBOL_TYPE = ARCHIVE_FILE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* ARCHIVE_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ARCHIVE_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The file/copy cybol type.
@@ -74,7 +74,7 @@ static int* ARCHIVE_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL
  */
 static wchar_t COPY_FILE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'c', L'o', L'p', L'y'};
 static wchar_t* COPY_FILE_LOGIC_CYBOL_TYPE = COPY_FILE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* COPY_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static int* COPY_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The file/list-directory-contents cybol type.
@@ -85,7 +85,7 @@ static int* COPY_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARR
  */
 static wchar_t LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'l', L'i', L's', L't', L'-', L'd', L'i', L'r', L'e', L'c', L't', L'o', L'r', L'y', L'-', L'c', L'o', L'n', L't', L'e', L'n', L't', L's'};
 static wchar_t* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_TYPE = LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_28_INTEGER_MEMORY_MODEL_ARRAY;
+static int* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_28_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* FILE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

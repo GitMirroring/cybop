@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /**
  * The cyboi type count.
@@ -36,7 +36,7 @@
  * This count is valid for ALL cyboi types (logic and state),
  * as they are just integer numbers.
  */
-static int* CYBOI_TYPE_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* CYBOI_TYPE_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COUNT_CYBOI_TYPE_CONSTANT_SOURCE */
 #endif

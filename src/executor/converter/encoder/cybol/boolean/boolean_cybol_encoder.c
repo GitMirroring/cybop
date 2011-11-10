@@ -26,13 +26,13 @@
 #ifndef BOOLEAN_CYBOL_ENCODER_SOURCE
 #define BOOLEAN_CYBOL_ENCODER_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/cybol/boolean_cybol_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/memory/primitive_memory_name.c"
 #include "../../../../logger/logger.c"
 #include "../../../../executor/memoriser/allocator.c"
@@ -47,18 +47,18 @@
  */
 void encode_cybol_boolean(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode cybol boolean.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol boolean.");
 
     // The loop variable.
-    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
-    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
-        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }

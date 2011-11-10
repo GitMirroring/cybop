@@ -67,7 +67,7 @@ void test_assembler_register() {
  */
 void test_assembler() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test assembler.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test assembler.");
 
 //    test_assembler_register();
 }

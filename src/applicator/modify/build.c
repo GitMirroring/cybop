@@ -27,10 +27,10 @@
 #define BUILDING_MEMORISER_SOURCE
 
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/memory/build_memory_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/communicator/receiver.c"
@@ -53,47 +53,47 @@
  */
 void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Build list name.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Build list name.");
 
     // The basisname name, type, model, properties.
-    void** bnn = NULL_POINTER_MEMORY_MODEL;
-    void** bnnc = NULL_POINTER_MEMORY_MODEL;
-    void** bnns = NULL_POINTER_MEMORY_MODEL;
-    void** bna = NULL_POINTER_MEMORY_MODEL;
-    void** bnac = NULL_POINTER_MEMORY_MODEL;
-    void** bnas = NULL_POINTER_MEMORY_MODEL;
-    void** bnm = NULL_POINTER_MEMORY_MODEL;
-    void** bnmc = NULL_POINTER_MEMORY_MODEL;
-    void** bnms = NULL_POINTER_MEMORY_MODEL;
-    void** bnd = NULL_POINTER_MEMORY_MODEL;
-    void** bndc = NULL_POINTER_MEMORY_MODEL;
-    void** bnds = NULL_POINTER_MEMORY_MODEL;
+    void** bnn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bnnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bnns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bna = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bnac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bnas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bnm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bnmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bnms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bnd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bndc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** bnds = NULL_POINTER_STATE_CYBOI_MODEL;
     // The index name, type, model, properties.
-    void** idxn = NULL_POINTER_MEMORY_MODEL;
-    void** idxnc = NULL_POINTER_MEMORY_MODEL;
-    void** idxns = NULL_POINTER_MEMORY_MODEL;
-    void** idxa = NULL_POINTER_MEMORY_MODEL;
-    void** idxac = NULL_POINTER_MEMORY_MODEL;
-    void** idxas = NULL_POINTER_MEMORY_MODEL;
-    void** idxm = NULL_POINTER_MEMORY_MODEL;
-    void** idxmc = NULL_POINTER_MEMORY_MODEL;
-    void** idxms = NULL_POINTER_MEMORY_MODEL;
-    void** idxd = NULL_POINTER_MEMORY_MODEL;
-    void** idxdc = NULL_POINTER_MEMORY_MODEL;
-    void** idxds = NULL_POINTER_MEMORY_MODEL;
+    void** idxn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxa = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idxds = NULL_POINTER_STATE_CYBOI_MODEL;
     // The result name, type, model, properties.
-    void** resn = NULL_POINTER_MEMORY_MODEL;
-    void** resnc = NULL_POINTER_MEMORY_MODEL;
-    void** resns = NULL_POINTER_MEMORY_MODEL;
-    void** resa = NULL_POINTER_MEMORY_MODEL;
-    void** resac = NULL_POINTER_MEMORY_MODEL;
-    void** resas = NULL_POINTER_MEMORY_MODEL;
-    void** resm = NULL_POINTER_MEMORY_MODEL;
-    void** resmc = NULL_POINTER_MEMORY_MODEL;
-    void** resms = NULL_POINTER_MEMORY_MODEL;
-    void** resd = NULL_POINTER_MEMORY_MODEL;
-    void** resdc = NULL_POINTER_MEMORY_MODEL;
-    void** resds = NULL_POINTER_MEMORY_MODEL;
+    void** resn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resa = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** resds = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // get the basisname
     get_universal_compound_element_by_name(
@@ -126,15 +126,15 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
         p2, p3);
 
     //check the type for the operation element
-    int comp_res1 = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int comp_res2 = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int comp_res3 = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int comp_res1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int comp_res2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int comp_res3 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Create compare string.
-    wchar_t* int_string = *NULL_POINTER_MEMORY_MODEL;
+    wchar_t* int_string = *NULL_POINTER_STATE_CYBOI_MODEL;
     // todo Konstante noch definieren
-    int int_string_count = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int int_string_size = *NUMBER_10_INTEGER_MEMORY_MODEL;
+    int int_string_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int int_string_size = *NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
 
     allocate_array((void*) &int_string, (void*) &int_string_size, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
@@ -148,7 +148,7 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
     reallocate_array(resm, *resms, *resms, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Set result array.
-    overwrite_array(*resm, *bnm, (void*) WIDE_CHARACTER_MEMORY_TYPE, *bnmc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, *resmc, *resms);
+    overwrite_array(*resm, *bnm, (void*) WIDE_CHARACTER_MEMORY_TYPE, *bnmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, *resmc, *resms);
     overwrite_array(*resm, (void*) LIST_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LIST_SEPARATOR_CYBOL_NAME_COUNT, *bnmc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, *resmc, *resms);
 
     int temp_index = *((int*) *bnmc) + *LIST_SEPARATOR_CYBOL_NAME_COUNT;

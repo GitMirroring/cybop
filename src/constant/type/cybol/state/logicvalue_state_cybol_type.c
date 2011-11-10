@@ -27,7 +27,7 @@
 #define LOGICVALUE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -62,7 +62,7 @@
  */
 static wchar_t BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'c', L'v', L'a', L'l', L'u', L'e', L'/', L'b', L'o', L'o', L'l', L'e', L'a', L'n'};
 static wchar_t* BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE = BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE_ARRAY;
-static int* BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_MEMORY_MODEL_ARRAY;
+static int* BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 three-valued logic

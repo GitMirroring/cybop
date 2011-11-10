@@ -27,11 +27,11 @@
 #define SEQUENCE_SOURCE
 
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/log/message_log_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/flow/sequence_flow_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
@@ -62,12 +62,12 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 /*??
 void apply_send_cyboi_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply send cyboi system.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send cyboi system.");
 
     // The signal memory mutex.
-    pthread_mutex_t** mt = (pthread_mutex_t**) NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t** mt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt request flag.
-    sig_atomic_t** irq = (sig_atomic_t**) NULL_POINTER_MEMORY_MODEL;
+    sig_atomic_t** irq = (sig_atomic_t**) NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get signal memory mutex.
     get((void*) &mt, p0, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
@@ -81,7 +81,7 @@ void apply_send_cyboi_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     // Set interrupt request flag, in order to notify the signal checker
     // that a new signal has been placed in the signal memory.
-    **irq = *NUMBER_1_INTEGER_MEMORY_MODEL;
+    **irq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Unlock signal memory mutex.
     pthread_mutex_unlock(*mt);
@@ -105,11 +105,11 @@ void apply_send_cyboi_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
  */
 void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"\n\n");
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply sequence.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sequence.");
 
     // The model part.
-    void* m = *NULL_POINTER_MEMORY_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get model part.
     get_name_array((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_OPERATION_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -124,7 +124,7 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     //
     // If a model is to be executed as signal, then the
     // cyboi signal sending operation may be used instead.
-    int x = *TRUE_BOOLEAN_MEMORY_MODEL;
+    int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Handle the model as new operation.
     handle(m, (void*) &x, p7, p2, p3, p4, p5, p6);

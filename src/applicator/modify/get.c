@@ -29,12 +29,12 @@
 #include "../../applicator/memoriser/getting/type_getting_memoriser.c"
 #include "../../applicator/memoriser/getting/name_getting_memoriser.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/model/cybol/get_description_cybol_model.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/memory/get_memory_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
@@ -60,60 +60,60 @@
  */
 void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Get standard meta information.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get standard meta information.");
 
     // The compound name, type, model, properties.
-    void** cn = NULL_POINTER_MEMORY_MODEL;
-    void** cnc = NULL_POINTER_MEMORY_MODEL;
-    void** cns = NULL_POINTER_MEMORY_MODEL;
-    void** ca = NULL_POINTER_MEMORY_MODEL;
-    void** cac = NULL_POINTER_MEMORY_MODEL;
-    void** cas = NULL_POINTER_MEMORY_MODEL;
-    void** cm = NULL_POINTER_MEMORY_MODEL;
-    void** cmc = NULL_POINTER_MEMORY_MODEL;
-    void** cms = NULL_POINTER_MEMORY_MODEL;
-    void** cd = NULL_POINTER_MEMORY_MODEL;
-    void** cdc = NULL_POINTER_MEMORY_MODEL;
-    void** cds = NULL_POINTER_MEMORY_MODEL;
+    void** cn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ca = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cds = NULL_POINTER_STATE_CYBOI_MODEL;
     // The index name, type, model, properties.
-    void** in = NULL_POINTER_MEMORY_MODEL;
-    void** inc = NULL_POINTER_MEMORY_MODEL;
-    void** ins = NULL_POINTER_MEMORY_MODEL;
-    void** ia = NULL_POINTER_MEMORY_MODEL;
-    void** iac = NULL_POINTER_MEMORY_MODEL;
-    void** ias = NULL_POINTER_MEMORY_MODEL;
-    void** im = NULL_POINTER_MEMORY_MODEL;
-    void** imc = NULL_POINTER_MEMORY_MODEL;
-    void** ims = NULL_POINTER_MEMORY_MODEL;
-    void** id = NULL_POINTER_MEMORY_MODEL;
-    void** idc = NULL_POINTER_MEMORY_MODEL;
-    void** ids = NULL_POINTER_MEMORY_MODEL;
+    void** in = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** inc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ins = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ia = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** iac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ias = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** im = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** imc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ims = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** id = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** idc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ids = NULL_POINTER_STATE_CYBOI_MODEL;
     // The description name, type, model, properties.
-    void** dn = NULL_POINTER_MEMORY_MODEL;
-    void** dnc = NULL_POINTER_MEMORY_MODEL;
-    void** dns = NULL_POINTER_MEMORY_MODEL;
-    void** da = NULL_POINTER_MEMORY_MODEL;
-    void** dac = NULL_POINTER_MEMORY_MODEL;
-    void** das = NULL_POINTER_MEMORY_MODEL;
-    void** dm = NULL_POINTER_MEMORY_MODEL;
-    void** dmc = NULL_POINTER_MEMORY_MODEL;
-    void** dms = NULL_POINTER_MEMORY_MODEL;
-    void** dd = NULL_POINTER_MEMORY_MODEL;
-    void** ddc = NULL_POINTER_MEMORY_MODEL;
-    void** dds = NULL_POINTER_MEMORY_MODEL;
+    void** dn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** dnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** dns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** da = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** dac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** das = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** dm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** dmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** dms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** dd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ddc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** dds = NULL_POINTER_STATE_CYBOI_MODEL;
     // The result name, type, model, properties.
-    void** rn = NULL_POINTER_MEMORY_MODEL;
-    void** rnc = NULL_POINTER_MEMORY_MODEL;
-    void** rns = NULL_POINTER_MEMORY_MODEL;
-    void** ra = NULL_POINTER_MEMORY_MODEL;
-    void** rac = NULL_POINTER_MEMORY_MODEL;
-    void** ras = NULL_POINTER_MEMORY_MODEL;
-    void** rm = NULL_POINTER_MEMORY_MODEL;
-    void** rmc = NULL_POINTER_MEMORY_MODEL;
-    void** rms = NULL_POINTER_MEMORY_MODEL;
-    void** rd = NULL_POINTER_MEMORY_MODEL;
-    void** rdc = NULL_POINTER_MEMORY_MODEL;
-    void** rds = NULL_POINTER_MEMORY_MODEL;
+    void** rn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ra = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ras = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rds = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get compound.
     get_universal_compound_element_by_name(
@@ -153,33 +153,33 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
         p2, p3);
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, *dm, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *dmc, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // CAUTION! Use references not only for the model, but also for count and size!
             memorise_getting_name((void*) rm, *rmc, *rms, *cm, *cmc, *im, *imc);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, *dm, (void*) TYPE_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *dmc, (void*) TYPE_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // CAUTION! Use references not only for the model, but also for count and size!
             memorise_getting_type((void*) rm, *rmc, *rms, *cm, *cmc, *im, *imc);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not get standard meta information. The description model is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get standard meta information. The description model is unknown.");
     }
 }
 

@@ -27,7 +27,7 @@
 #define MULTIPART_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -58,7 +58,7 @@
  */
 static wchar_t MIXED_MULTIPART_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'u', L'l', L't', L'i', L'p', L'a', L'r', L't', L'/', L'm', L'i', L'x', L'e', L'd'};
 static wchar_t* MIXED_MULTIPART_STATE_CYBOL_TYPE = MIXED_MULTIPART_STATE_CYBOL_TYPE_ARRAY;
-static int* MIXED_MULTIPART_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static int* MIXED_MULTIPART_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 multipart/alternative: MIME E-mail; Defined in RFC 2045 and RFC 2046

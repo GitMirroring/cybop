@@ -27,7 +27,7 @@
 #define CONVERTER_TESTER
 
 #include <stdio.h>
-#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/allocator/model_allocator.c"
 #include "../../executor/memoriser/deallocator/model_deallocator.c"
 #include "../../logger/logger.c"
@@ -40,10 +40,10 @@ void test_converter_integer_to_wide_character_conversion() {
     log_write_terminated_message((void*) stdout, L"Test integer-to-wide character conversion:\n");
 
     // The test wide character array.
-    void* t = *NULL_POINTER_MEMORY_MODEL;
-    int tc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // One byte for the wide character and another for the trailing null.
-    size_t ts = *NUMBER_2_INTEGER_MEMORY_MODEL;
+    size_t ts = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate test wide character array.
     allocate((void*) &t, (void*) &ts, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
@@ -55,10 +55,10 @@ void test_converter_integer_to_wide_character_conversion() {
     // If not all output fits into the provided buffer,
     // a negative value is returned.
 #ifdef CYGWIN_ENVIRONMENT
-    tc = wsprintfW((wchar_t*) t, L"%i", *NUMBER_5_INTEGER_MEMORY_MODEL);
+    tc = wsprintfW((wchar_t*) t, L"%i", *NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
 /* CYGWIN_ENVIRONMENT */
 #else
-    tc = swprintf((wchar_t*) t, ts, L"%i", *NUMBER_5_INTEGER_MEMORY_MODEL);
+    tc = swprintf((wchar_t*) t, ts, L"%i", *NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
 /* CYGWIN_ENVIRONMENT */
 #endif
 
@@ -78,26 +78,26 @@ void test_converter_encode_integer() {
     log_write_terminated_message((void*) stdout, L"Test encode integer:\n");
 
     // The destination character array.
-    void* d = *NULL_POINTER_MEMORY_MODEL;
-    void* dc = *NULL_POINTER_MEMORY_MODEL;
-    void* ds = *NULL_POINTER_MEMORY_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // An arbitrary source integer value.
-    int s = *NUMBER_18_INTEGER_MEMORY_MODEL;
+    int s = *NUMBER_18_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination character array.
-    allocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Use compound count as index to create the element name suffix,
     // because the element is added at the end of the compound container.
-    encode_integer((void*) &d, dc, ds, (void*) &s, (void*) PRIMITIVE_MEMORY_MODEL_COUNT);
+    encode_integer((void*) &d, dc, ds, (void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
     fwprintf(stdout, L"Test: Destination character array: %ls\n", (wchar_t*) d);
     fwprintf(stdout, L"Test: Destination character array count: %i\n", *((int*) dc));
     fwprintf(stdout, L"Test: Destination character array size: %i\n", *((int*) ds));
 
     // Deallocate destination character array.
-    deallocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 }
 
 /**
@@ -110,12 +110,12 @@ void test_converter_decode_integer_vector() {
     // The source character array.
     wchar_t sa[] = {L'1', L',', L'2', L',', L'3', L',', L'4', L',', L'5'};
     void* s = sa;
-    int sc = *NUMBER_5_INTEGER_MEMORY_MODEL;
+    int sc = *NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
 
     // The destination integer vector.
-    void* d = *NULL_POINTER_MEMORY_MODEL;
-    int dc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate integer vector.
     allocate((void*) &d, (void*) &ds, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
@@ -124,16 +124,16 @@ void test_converter_decode_integer_vector() {
     decode_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
 
     // The integer values.
-    int* i0 = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* i1 = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* i2 = (int*) *NULL_POINTER_MEMORY_MODEL;
+    int* i0 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* i1 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* i2 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get integer at index 0 from integer vector.
-    get((void*) &i0, d, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    get((void*) &i0, d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
     // Get integer at index 1 from integer vector.
-    get((void*) &i1, d, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    get((void*) &i1, d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
     // Get integer at index 2 from integer vector.
-    get((void*) &i2, d, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    get((void*) &i2, d, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
 
     fwprintf(stdout, L"Integer 0: %i\n", *i0);
     fwprintf(stdout, L"Integer 1: %i\n", *i1);
@@ -155,12 +155,12 @@ void test_converter_encode_integer_vector() {
     //?? int sa[] = {1, 2, 3};
     int sa[] = {'1', '2', '3'};
     void* s = sa;
-    int sc = *NUMBER_3_INTEGER_MEMORY_MODEL;
+    int sc = *NUMBER_3_INTEGER_STATE_CYBOI_MODEL;
 
     // The destination character array.
-    wchar_t* d = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
-    int dc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    wchar_t* d = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination character vector.
     allocate((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
@@ -188,24 +188,24 @@ void test_converter_decode_utf8() {
     int fc = 14;
 
     // The read model.
-    void* rm = *NULL_POINTER_MEMORY_MODEL;
-    int rmc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int rms = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int rmc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int rms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate read model.
     allocate((void*) &rm, (void*) &rms, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     // Read persistent byte stream over channel.
-    receive_data((void*) &rm, (void*) &rmc, (void*) &rms, (void*) f, (void*) &fc, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
+    receive_data((void*) &rm, (void*) &rmc, (void*) &rms, (void*) f, (void*) &fc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
 
     fwprintf(stdout, L"TEST rms: %i\n", rms);
     fwprintf(stdout, L"TEST rmc: %i\n", rmc);
     fwprintf(stdout, L"TEST rm: %s\n", (wchar_t*) rm);
 
     // The wide character model.
-    void* wm = *NULL_POINTER_MEMORY_MODEL;
-    int wmc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int wms = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* wm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int wmc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int wms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate wide character model.
     allocate((void*) &wm, (void*) &wms, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
@@ -232,7 +232,7 @@ void test_converter_decode_utf8() {
  */
 void test_converter() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test converter.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test converter.");
 
 //    test_converter_integer_to_wide_character_conversion();
 

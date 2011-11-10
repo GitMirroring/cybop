@@ -26,9 +26,9 @@
 #ifndef COMPLEX_ENCODER_SOURCE
 #define COMPLEX_ENCODER_SOURCE
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -41,19 +41,19 @@
 void encode_complex(void* p0, void* p1, void* p2) {
 
 /*??
-    //??    log_message((void*) &INFORMATION_LEVEL_LOG_MODEL, (void*) &"Finalise complex.");
+    //??    log_message((void*) &INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) &"Finalise complex.");
 
     // Initialise elements.
-    int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get elements.
     get_array_element(p0, (void*) &DOUBLE_ARRAY, (void*) &IMAGINARY_INDEX, (void*) &i);
     get_array_element(p0, (void*) &DOUBLE_ARRAY, (void*) &REAL_INDEX, (void*) &r);
 
     // Remove elements.
-    remove_array_element(p0, (void*) &DOUBLE_ARRAY, (void*) &COMPLEX_MEMORY_MODEL_COUNT, (void*) &IMAGINARY_INDEX);
-    remove_array_element(p0, (void*) &DOUBLE_ARRAY, (void*) &COMPLEX_MEMORY_MODEL_COUNT, (void*) &REAL_INDEX);
+    remove_array_element(p0, (void*) &DOUBLE_ARRAY, (void*) &COMPLEX_STATE_CYBOI_MODEL_COUNT, (void*) &IMAGINARY_INDEX);
+    remove_array_element(p0, (void*) &DOUBLE_ARRAY, (void*) &COMPLEX_STATE_CYBOI_MODEL_COUNT, (void*) &REAL_INDEX);
 
     //??    fwprintf(p1, %d, (void*) &(t->real));
     //??    fwprintf(p1, %d, (void*) &(t->imaginary));

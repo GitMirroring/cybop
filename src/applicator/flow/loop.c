@@ -27,11 +27,11 @@
 #define LOOP_SOURCE
 
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/log/message_log_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/flow/loop_flow_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
@@ -61,17 +61,17 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  */
 void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"\n\n");
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply loop.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop.");
 
     // The model part.
-    void* m = *NULL_POINTER_MEMORY_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break part.
-    void* b = *NULL_POINTER_MEMORY_MODEL;
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break part model.
-    void* bm = *NULL_POINTER_MEMORY_MODEL;
+    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break part model data.
-    void* bmd = *NULL_POINTER_MEMORY_MODEL;
+    void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get model part.
     get_name_array((void*) &m, p0, (void*) MODEL_LOOP_FLOW_OPERATION_CYBOL_NAME, (void*) MODEL_LOOP_FLOW_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -79,26 +79,26 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     get_name_array((void*) &b, p0, (void*) BREAK_LOOP_FLOW_OPERATION_CYBOL_NAME, (void*) BREAK_LOOP_FLOW_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get break part model.
-    copy_array_forward((void*) &bm, b, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &bm, b, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get break part model data.
-    copy_array_forward((void*) &bmd, bm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &bmd, bm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The break flag.
-    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The direct execution flag.
     // CAUTION! The flag has to be set to true, because otherwise,
     // each loop cycle places a new signal in signal memory so that
     // these would only be processed with a delay.
     // But this is not desirable, since follow-up signals of this
     // loop may rely on its full execution, including all cycles.
-    int x = *TRUE_BOOLEAN_MEMORY_MODEL;
+    int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Check if break flag is set to true.
-        compare_integer_unequal((void*) &b, bmd, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        compare_integer_unequal((void*) &b, bmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Leave the loop if the break flag is true.
             break;

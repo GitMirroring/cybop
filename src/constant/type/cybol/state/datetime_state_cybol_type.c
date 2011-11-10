@@ -27,7 +27,7 @@
 #define DATETIME_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -71,7 +71,7 @@
  */
 static wchar_t YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'y', L'y', L'y', L'y', L'-', L'm', L'm', L'-', L'd', L'd'};
 static wchar_t* YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE = YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_MEMORY_MODEL_ARRAY;
+static int* YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/hh-mm-ss cybol type.
@@ -93,7 +93,7 @@ static int* YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_MEMOR
  */
 static wchar_t HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'h', L'h', L'-', L'm', L'm', L'-', L's', L's'};
 static wchar_t* HH_MM_SS_DATETIME_STATE_CYBOL_TYPE = HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_MEMORY_MODEL_ARRAY;
+static int* HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/yyyymmddthhmmss cybol type.
@@ -111,7 +111,7 @@ static int* HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_MEMORY_
  */
 static wchar_t YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'y', L'y', L'y', L'y', L'm', L'm', L'd', L'd', L't', L'h', L'h', L'm', L'm', L's', L's'};
 static wchar_t* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE = YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_MEMORY_MODEL_ARRAY;
+static int* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/xdt-date-hhmm cybol type.
@@ -124,7 +124,7 @@ static int* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_
  */
 static wchar_t XDT_DATE_HHMM_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'x', L'd', L't', L'-', L'd', L'a', L't', L'e', L'-', L'h', L'h', L'm', L'm'};
 static wchar_t* XDT_DATE_HHMM_DATETIME_STATE_CYBOL_TYPE = XDT_DATE_HHMM_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* XDT_DATE_HHMM_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XDT_DATE_HHMM_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/xdt-date-hhmmhhmm cybol type.
@@ -137,7 +137,7 @@ static int* XDT_DATE_HHMM_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_ME
  */
 static wchar_t XDT_HHMMHHMM_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'x', L'd', L't', L'-', L'd', L'a', L't', L'e', L'-', L'h', L'h', L'm', L'm', L'h', L'h', L'm', L'm'};
 static wchar_t* XDT_HHMMHHMM_DATETIME_STATE_CYBOL_TYPE = XDT_HHMMHHMM_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* XDT_HHMMHHMM_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_26_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XDT_HHMMHHMM_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_26_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/xdt-date-yymmnnn cybol type.
@@ -150,7 +150,7 @@ static int* XDT_HHMMHHMM_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_26_INTEGER_MEM
  */
 static wchar_t XDT_YYMMNNN_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'x', L'd', L't', L'-', L'd', L'a', L't', L'e', L'-', L'y', L'y', L'm', L'm', L'n', L'n', L'n'};
 static wchar_t* XDT_YYMMNNN_DATETIME_STATE_CYBOL_TYPE = XDT_YYMMNNN_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* XDT_YYMMNNN_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_25_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XDT_YYMMNNN_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/xdt-date-ddmmyyyy cybol type.
@@ -163,7 +163,7 @@ static int* XDT_YYMMNNN_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_25_INTEGER_MEMO
  */
 static wchar_t XDT_DDMMYYYY_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'x', L'd', L't', L'-', L'd', L'a', L't', L'e', L'-', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y'};
 static wchar_t* XDT_DDMMYYYY_DATETIME_STATE_CYBOL_TYPE = XDT_DDMMYYYY_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* XDT_DDMMYYYY_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_26_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XDT_DDMMYYYY_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_26_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/xdt-date-mmyy cybol type.
@@ -176,7 +176,7 @@ static int* XDT_DDMMYYYY_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_26_INTEGER_MEM
  */
 static wchar_t XDT_MMYY_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'x', L'd', L't', L'-', L'd', L'a', L't', L'e', L'-', L'm', L'm', L'y', L'y'};
 static wchar_t* XDT_MMYY_DATETIME_STATE_CYBOL_TYPE = XDT_MMYY_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* XDT_MMYY_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XDT_MMYY_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/xdt-date-ddmmyyyyddmmyyyy cybol type.
@@ -189,7 +189,7 @@ static int* XDT_MMYY_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_MEMORY_
  */
 static wchar_t XDT_DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'x', L'd', L't', L'-', L'd', L'a', L't', L'e', L'-', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y'};
 static wchar_t* XDT_DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_TYPE = XDT_DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* XDT_DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_34_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XDT_DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_34_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/xdt-time-hhmmss cybol type.
@@ -202,7 +202,7 @@ static int* XDT_DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_34_INT
  */
 static wchar_t XDT_HHMMSS_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'x', L'd', L't', L'-', L't', L'i', L'm', L'e', L'-', L'h', L'h', L'm', L'm', L's', L's'};
 static wchar_t* XDT_HHMMSS_DATETIME_STATE_CYBOL_TYPE = XDT_HHMMSS_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* XDT_HHMMSS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XDT_HHMMSS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/xdt-time-hhmm cybol type.
@@ -215,7 +215,7 @@ static int* XDT_HHMMSS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_MEMOR
  */
 static wchar_t XDT_HHMM_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'x', L'd', L't', L'-', L't', L'i', L'm', L'e', L'-', L'h', L'h', L'm', L'm'};
 static wchar_t* XDT_HHMM_DATETIME_STATE_CYBOL_TYPE = XDT_HHMM_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* XDT_HHMM_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XDT_HHMM_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DATETIME_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

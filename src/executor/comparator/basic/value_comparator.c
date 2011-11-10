@@ -29,10 +29,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/character_comparator.c"
 #include "../../../executor/comparator/basic/double_comparator.c"
 #include "../../../executor/comparator/basic/fraction_comparator.c"
@@ -75,115 +75,115 @@
  */
 void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* a = (int*) p4;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Compare value.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare value.");
 
         // The comparison result.
         // CAUTION! It is used instead of if-else statements.
         // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *CHARACTER_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_character(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *DOUBLE_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_double(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *FRACTION_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_fraction(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *INTEGER_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_integer(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *ITEM_PRIMITIVE_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_item(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *PART_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_part(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *POINTER_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_pointer(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *UNSIGNED_LONG_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_unsigned_long(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *WIDE_CHARACTER_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_wide_character(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not compare value. The operand type is unknown.");
+            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare value. The operand type is unknown.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare value. The operand type is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare value. The operand type is null.");
     }
 }
 
@@ -200,7 +200,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void compare_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Compare value offset.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare value offset.");
 
     // The left value, right value.
     // CAUTION! They HAVE TO BE initialised with p1 and p2,

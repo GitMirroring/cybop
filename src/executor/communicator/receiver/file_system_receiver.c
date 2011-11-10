@@ -30,14 +30,14 @@
 
 #include <stdio.h>
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/stream_model.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../executor/converter/encoder/utf_8_unicode_character_encoder.c"
@@ -56,14 +56,14 @@
  */
 void receive_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Receive file stream.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive file stream.");
 
         // Read first character.
         char c = fgetc(p3);
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (c == EOF) {
 
@@ -72,7 +72,7 @@ void receive_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
             // Set character into destination data.
             // The destination count serves as array index for setting the character.
-            overwrite_array(p0, (void*) &c, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(p0, (void*) &c, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Read next character.
             c = fgetc(p3);
@@ -80,7 +80,7 @@ void receive_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive file stream. The file is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive file stream. The file is null.");
     }
 }
 
@@ -95,18 +95,18 @@ void receive_file_stream(void* p0, void* p1, void* p2, void* p3) {
  */
 void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Receive file.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive file.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The file.
-    FILE* f = (FILE*) *NULL_POINTER_MEMORY_MODEL;
+    FILE* f = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) STANDARD_INPUT_STREAM_MODEL_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The given string is not a file name, but specifies the "standard_input".
             f = stdin;
@@ -115,14 +115,14 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // If the given name does not match the standard input, then interpret it as file name.
 
         // The terminated file name.
-        void* tnd = *NULL_POINTER_MEMORY_MODEL;
-        int tnc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-        int tns = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        void* tnd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int tnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int tns = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Allocate terminated file name.
         allocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_MEMORY_TYPE);
@@ -131,7 +131,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
         encode_utf_8_unicode_character_vector((void*) &tnd, (void*) &tnc, (void*) &tns, p3, p4);
 
         // Add null termination character to terminated file name.
-        overwrite_array((void*) &tnd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tnc, (void*) &tns, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        overwrite_array((void*) &tnd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tnc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tnc, (void*) &tns, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Open file.
         // CAUTION! The file name cannot be handed over as is.
@@ -140,7 +140,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // must be added to the string before that is used to open the file.
         f = fopen((char*) tnd, "r");
 
-        if (f != *NULL_POINTER_MEMORY_MODEL) {
+        if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             receive_file_stream(p0, p1, p2, (void*) f);
 
@@ -151,7 +151,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive file. The file is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive file. The file is null.");
         }
 
         // Deallocate terminated file name.
@@ -170,12 +170,12 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Receive file system.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive file system.");
 
     // The encoded data, count, size.
-    void* ed = *NULL_POINTER_MEMORY_MODEL;
-    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int es = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int es = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate encoded data.
     allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_MEMORY_TYPE);
@@ -186,9 +186,9 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 //??    fwprintf(stdout, L"TEST char: %s\n", (char*) ed);
 
     // The decoded data, count, size.
-    void* dd = *NULL_POINTER_MEMORY_MODEL;
-    int dc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate decoded data.
     allocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE);

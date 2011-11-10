@@ -27,7 +27,7 @@
 #define INODE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // This MIME type was taken from/ inspired by the KDE desktop.
@@ -39,7 +39,7 @@
  */
 static wchar_t SOCKET_INODE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'n', L'o', L'd', L'e', L'/', L's', L'o', L'c', L'k', L'e', L't'};
 static wchar_t* SOCKET_INODE_STATE_CYBOL_TYPE = SOCKET_INODE_STATE_CYBOL_TYPE_ARRAY;
-static int* SOCKET_INODE_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SOCKET_INODE_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* INODE_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

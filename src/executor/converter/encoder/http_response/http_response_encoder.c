@@ -26,7 +26,7 @@
 #ifndef HTTP_RESPONSE_ENCODER_SOURCE
 #define HTTP_RESPONSE_ENCODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../executor/converter/encoder/http_response/body_http_response_encoder.c"
 #include "../../../../executor/converter/encoder/http_response/header_http_response_encoder.c"
 #include "../../../../executor/converter/encoder/http_response/protocol_http_response_encoder.c"
@@ -55,7 +55,7 @@
  */
 void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode http response.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode http response.");
 
     //
     // CAUTION! The body is encoded to UTF-8 first, so that its count
@@ -63,12 +63,12 @@ void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //
 
     // The body character array.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
-    void* ac = *NULL_POINTER_MEMORY_MODEL;
-    void* as = *NULL_POINTER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate body character array.
-    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     // Encode body wide character array into body multibyte character array.
     encode_utf_8_unicode_character_vector((void*) &a, ac, as, p5, p6);
@@ -103,7 +103,7 @@ void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void
     overwrite_array(p0, a, (void*) CHARACTER_MEMORY_TYPE, ac, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
     // Deallocate body character array.
-    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 }
 
 /* HTTP_RESPONSE_ENCODER_SOURCE */

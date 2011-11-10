@@ -27,12 +27,12 @@
 #define DESTROY_MEMORY_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The model destroy memory operation cybol name. */
 static wchar_t MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};
 static wchar_t* MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME = MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME_ARRAY;
-static int* MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DESTROY_MEMORY_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

@@ -49,7 +49,7 @@
 #include <termios.h>
 #include <wchar.h>
 
-#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
 #include "../../logger/logger.c"
 #include "../../variable/type_size/terminal_type_size.c"
@@ -124,7 +124,7 @@ void test_wide_character_wprintf() {
     // The second function argument has the following meaning:
     // - positive value: wide character mode
     // - negative value: (narrow) character mode
-    fwide(stdout, *NUMBER_1_INTEGER_MEMORY_MODEL);
+    fwide(stdout, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     log_write_terminated_message((void*) stdout, L"Test fputws.\n");
 //??    log_write_terminated_message((void*) stdout, (wchar_t*) TEST_WIDE_CHARACTER_STRING);
@@ -171,14 +171,14 @@ void test_wide_character_output() {
     char* loc = setlocale(LC_ALL, "");
 
     // The terminal (device name).
-    FILE* t = (FILE*) *NULL_POINTER_MEMORY_MODEL;
+    FILE* t = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The original termios interface.
-    struct termios* to = (struct termios*) *NULL_POINTER_MEMORY_MODEL;
+    struct termios* to = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The working termios interface.
-    struct termios* tw = (struct termios*) *NULL_POINTER_MEMORY_MODEL;
+    struct termios* tw = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Create gnu/linux console internals.
-//??        allocate((void*) &t, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+//??        allocate((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
     to = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
     tw = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
 
@@ -199,9 +199,9 @@ void test_wide_character_output() {
     tcsetattr(d, TCSANOW, (void*) tw);
 
     // The terminated control sequences string.
-    void* ts = *NULL_POINTER_MEMORY_MODEL;
-    int tsc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int tss = *NUMBER_1000_INTEGER_MEMORY_MODEL;
+    void* ts = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int tsc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int tss = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
 
     // Create terminated control sequences string.
     allocate_array((void*) &ts, (void*) &tss, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -209,39 +209,39 @@ void test_wide_character_output() {
     // Set terminated control sequences string by first copying the actual
     // control sequences and then adding the null termination character.
     // (Termination character does not seem to be necessary for wide character strings.)
-//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
-//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
 
     wprintf(L"\033[32mgreen colour\033[0mswitched off.");
 
     // \033
     wchar_t wc = 0x001B;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
     // [
     wc = 0x005B;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
     // 3
     wc = 0x0033;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
     // 2
     wc = 0x0032;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
     // m
     wc = 0x006d;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
 
-//??    overwrite_array(ts, (void*) LATIN_CAPITAL_LETTER_H_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) LATIN_CAPITAL_LETTER_H_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
-//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
-//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     tsc++;
 
     // Write to terminal.
@@ -302,17 +302,17 @@ void test_communicator_file_read() {
 
 /*??
     // The array.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The array size.
-    int as = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The array count.
-    int ac = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The file name array.
     char fna[] = {'/', 'h', 'o', 'm', 'e', '/', 'c', 'y', 'b', 'o', 'p', '/', 't', 'm', 'p', '/', 't', 'e', 's', 't', '.', 'c', 'y', 'b', 'o', 'l'};
     // The file name.
     char* fn = fna;
     // The file name count.
-    int fnc = *NUMBER_26_INTEGER_MEMORY_MODEL;
+    int fnc = *NUMBER_26_INTEGER_STATE_CYBOI_MODEL;
 
     allocate_array((void*) &a, (void*) &CHARACTER_ARRAY, (void*) &as);
 //??    receive_file((void*) &a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
@@ -323,11 +323,11 @@ void test_communicator_file_read() {
     fwprintf(stdout, L"fn: %i\n", fn);
     fwprintf(stdout, L"fnc: %i\n", fnc);
 
-    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    char* c = (char*) *NULL_POINTER_MEMORY_MODEL;
-    int* cc = *NUMBER_1_INTEGER_MEMORY_MODEL;
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    char* c = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* cc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         if (j >= ac) {
 
@@ -356,15 +356,15 @@ void test_communicator_file_write() {
     // The array.
     void* a = aa;
     // The array size.
-    int as = *NUMBER_14_INTEGER_MEMORY_MODEL;
+    int as = *NUMBER_14_INTEGER_STATE_CYBOI_MODEL;
     // The array count.
-    int ac = *NUMBER_14_INTEGER_MEMORY_MODEL;
+    int ac = *NUMBER_14_INTEGER_STATE_CYBOI_MODEL;
     // The file name array.
     char fna[] = {'/', 'h', 'o', 'm', 'e', '/', 'c', 'y', 'b', 'o', 'p', '/', 't', 'm', 'p', '/', 't', 'e', 's', 't', '.', 'c', 'y', 'b', 'o', 'l'};
     // The file name.
     char* fn = fna;
     // The file name count.
-    int fnc = *NUMBER_26_INTEGER_MEMORY_MODEL;
+    int fnc = *NUMBER_26_INTEGER_STATE_CYBOI_MODEL;
 
 //??    send_file((void*) &a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
 }
@@ -378,11 +378,11 @@ void test_communicator_console_input() {
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     // The terminal device name.
-    FILE* t = (FILE*) *NULL_POINTER_MEMORY_MODEL;
+    FILE* t = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The old termios settings.
-    struct termios* to = (struct termios*) *NULL_POINTER_MEMORY_MODEL;
+    struct termios* to = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The new termios settings.
-    struct termios* tn = (struct termios*) *NULL_POINTER_MEMORY_MODEL;
+    struct termios* tn = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate gnu/linux console internals.
     to = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
@@ -406,15 +406,15 @@ void test_communicator_console_input() {
     // Store old termios settings.
     int e = tcgetattr(d, (void*) to);
 
-    if (e != *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL) {
+    if (e != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
         // Initialise new termios settings.
         *tn = *to;
 
         // Manipulate termios attributes.
         // Set number of characters.
-        tn->c_cc[VMIN] = *NUMBER_1_INTEGER_MEMORY_MODEL;
-        tn->c_cc[VTIME] = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        tn->c_cc[VMIN] = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        tn->c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         tn->c_lflag &= ~ICANON;
         // Switch off echo.
         tn->c_lflag &= ~ECHO;
@@ -464,7 +464,7 @@ void test_communicator_console_output() {
     log_write_terminated_message((void*) stdout, L"Test communicator console output:\n");
 
 /*??
-    if (strcmp("linux", getenv("TERM")) == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (strcmp("linux", getenv("TERM")) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 */
 
         // This is a gnu/linux console.
@@ -551,8 +551,8 @@ int test_communicator_mesa_opengl_standard(int argc, char **argv) {
 
     glutInit(&argc, argv);
     glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize (*NUMBER_250_INTEGER_MEMORY_MODEL, *NUMBER_250_INTEGER);
-    glutInitWindowPosition (*NUMBER_100_INTEGER_MEMORY_MODEL, *NUMBER_100_INTEGER_MEMORY_MODEL);
+    glutInitWindowSize (*NUMBER_250_INTEGER_STATE_CYBOI_MODEL, *NUMBER_250_INTEGER);
+    glutInitWindowPosition (*NUMBER_100_INTEGER_STATE_CYBOI_MODEL, *NUMBER_100_INTEGER_STATE_CYBOI_MODEL);
     glutCreateWindow ("hello");
     init();
     glutDisplayFunc(display);
@@ -620,7 +620,7 @@ void test_communicator_mesa_opengl() {
  */
 void test_communicator() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test communicator.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test communicator.");
 
 //    test_stdout_stdout();
 //    test_wide_character_wprintf();
@@ -633,7 +633,7 @@ void test_communicator() {
 //    test_communicator_console_output();
 
 //    test_communicator_mesa_opengl_standard(int argc, char **argv);
-//    test_communicator_mesa_opengl(*NUMBER_0_INTEGER_MEMORY_MODEL, (char**) NULL_POINTER_MEMORY_MODEL);
+//    test_communicator_mesa_opengl(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (char**) NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* COMMUNICATOR_TESTER */

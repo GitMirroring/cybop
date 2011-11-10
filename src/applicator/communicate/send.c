@@ -35,13 +35,13 @@
 #include "../../applicator/communicator/sending/socket_sending_communicator.c"
 #include "../../applicator/communicator/sending/x_window_system_sending_communicator.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cybol/service_cybol_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/service_port_model.c"
 #include "../../constant/model/signal_priority_model.c"
 #include "../../constant/name/cybol/operation/communication/send_communication_operation_cybol_name.c"
@@ -78,36 +78,36 @@
  */
 void apply_send(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply send.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send.");
 
     // The channel part.
-    void* c = *NULL_POINTER_MEMORY_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part.
-    void* l = *NULL_POINTER_MEMORY_MODEL;
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The communication mode part.
-    void* mo = *NULL_POINTER_MEMORY_MODEL;
+    void* mo = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket namespace part.
-    void* n = *NULL_POINTER_MEMORY_MODEL;
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket communication style part.
-    void* st = *NULL_POINTER_MEMORY_MODEL;
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver part.
-    void* r = *NULL_POINTER_MEMORY_MODEL;
+    void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part.
-    void* m = *NULL_POINTER_MEMORY_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The metadata part.
-    void* me = *NULL_POINTER_MEMORY_MODEL;
+    void* me = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The area part.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The clean part.
-    void* cl = *NULL_POINTER_MEMORY_MODEL;
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The new line part.
-    void* nl = *NULL_POINTER_MEMORY_MODEL;
+    void* nl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model.
-    void* cm = *NULL_POINTER_MEMORY_MODEL;
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model data.
-    void* cmd = *NULL_POINTER_MEMORY_MODEL;
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_name_array((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -133,70 +133,70 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     get_name_array((void*) &nl, p0, (void*) NEW_LINE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) NEW_LINE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get channel part model.
-    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get channel part model data.
-    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, cmd, (void*) CYBOI_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             send_socket(p2, (void*) CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME, *rm, *rmc, (void*) TCP_CYBOI_SERVICE_PORT_MODEL, *nm, *nmc, *stm, *stmc, *mom, *momc, *ma, *mac, *mm, *mmc, *md, *mdc, p3, p4, *lm, *lmc);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, cmd, (void*) FILE_SYSTEM_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             send_file_system(p2, *mn, *mnc, *ma, *mac, *mm, *mmc, *md, *mdc, p3, p4, *lm, *lmc, *clm, *clmc, *rm, *rmc);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, cmd, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             send_gnu_linux_console(p2, *ma, *mac, *mm, *mmc, *md, *mdc, *am, *amc, *clm, *clmc, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, cmd, (void*) INLINE_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! Hand over first parameter as reference!
             send_inline(rm, *rmc, *rms, *ma, *mac, *mm, *mmc, *md, *mdc, *mda, *mdac, *mdm, *mdmc, *mdd, *mddc, *lm, *lmc);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, cmd, (void*) LATEX_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             send_latex(p2, *mm, *mmc, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, cmd, (void*) SHELL_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 /*??
     fwprintf(stdout, L"TEST sending mmc: %i\n", *mmc);
@@ -208,39 +208,39 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, cmd, (void*) SIGNAL_SERVICE_CYBOL_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             send_cyboi_system(p2, p6, p7, p8, ma, mac, mm, mmc, md, mdc, (void*) &NORMAL_SIGNAL_PRIORITY_MODEL, p9);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, cmd, (void*) WWW_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             send_socket(p2, (void*) WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME, *rm, *rmc, (void*) TCP_WWW_SERVICE_PORT_MODEL, *nm, *nmc, *stm, *stmc, *mom, *momc, *ma, *mac, *mm, *mmc, *md, *mdc, p3, p4, *lm, *lmc);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, cmd, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             send_x_window_system(p2, *mm, *mmc, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not apply send. The channel model is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply send. The channel model is unknown.");
     }
 }
 

@@ -89,7 +89,7 @@ http://localhost:1971/?action=index
 
 You may also want to have a look at the Res Medicinae project, where more CYBOL
 application modules for the healthcare domain will be provided over the coming years:
-http://www.resmedicinae.org
+http://www.resmedicinae.org/
 
 
 CYBOI Development
@@ -142,7 +142,7 @@ ___________
 
 Tagging and branching are very simple in SVN.
 The root node of the trunk/ directory is just copied.
-The graphical kdesvn applications does not provide this functionality.
+The graphical kdesvn application does not provide this functionality.
 Therefore, adapt and use the following command line:
 
 svn copy https://christian@svn.berlios.de/svnroot/repos/cybop/trunk https://christian@svn.berlios.de/svnroot/repos/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"

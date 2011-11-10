@@ -34,12 +34,12 @@
 #include <signal.h>
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
 #include "../../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../../executor/accessor/getter.c"
@@ -75,11 +75,11 @@ void sense_x_window_system_mouse_command(void* p0, void* p1, void* p2, void* p3,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
     void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
-    if (p15 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p15 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* b = (int*) p15;
 
-        if (p14 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p14 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* t = (int*) p14;
 
@@ -112,12 +112,12 @@ void sense_x_window_system_mouse_command(void* p0, void* p1, void* p2, void* p3,
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system mouse command. The event type is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system mouse command. The event type is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system mouse command. The mouse button is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system mouse command. The mouse button is null.");
     }
 }
 
@@ -150,7 +150,7 @@ void sense_x_window_system_command(void* p0, void* p1, void* p2, void* p3, void*
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
     void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
-    if (p14 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p14 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* t = (int*) p14;
 
@@ -167,7 +167,7 @@ void sense_x_window_system_command(void* p0, void* p1, void* p2, void* p3, void*
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system command. The event type is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system command. The event type is null.");
     }
 }
 
@@ -212,82 +212,82 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
     void* p12, void* p13, void* p14, void* p15, void* p16,
     void* p17, void* p18, void* p19, void* p20) {
 
-    if (p16 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p16 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* mz = (int*) p16;
 
-        if (p15 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p15 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* my = (int*) p15;
 
-            if (p14 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p14 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* mx = (int*) p14;
 
-                if (p13 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p13 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     int* wmc = (int*) p13;
 
                     // The graphical part name, type, model, properties.
-                    void** n = NULL_POINTER_MEMORY_MODEL;
-                    void** nc = NULL_POINTER_MEMORY_MODEL;
-                    void** ns = NULL_POINTER_MEMORY_MODEL;
-                    void** a = NULL_POINTER_MEMORY_MODEL;
-                    void** ac = NULL_POINTER_MEMORY_MODEL;
-                    void** as = NULL_POINTER_MEMORY_MODEL;
-                    void** m = NULL_POINTER_MEMORY_MODEL;
-                    void** mc = NULL_POINTER_MEMORY_MODEL;
-                    void** ms = NULL_POINTER_MEMORY_MODEL;
-                    void** d = NULL_POINTER_MEMORY_MODEL;
-                    void** dc = NULL_POINTER_MEMORY_MODEL;
-                    void** ds = NULL_POINTER_MEMORY_MODEL;
+                    void** n = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** nc = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** ns = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** a = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** ac = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** as = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** m = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** mc = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** ms = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** d = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** dc = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** ds = NULL_POINTER_STATE_CYBOI_MODEL;
                     // The graphical part position name, type, model, properties.
-                    void** pn = NULL_POINTER_MEMORY_MODEL;
-                    void** pnc = NULL_POINTER_MEMORY_MODEL;
-                    void** pns = NULL_POINTER_MEMORY_MODEL;
-                    void** pa = NULL_POINTER_MEMORY_MODEL;
-                    void** pac = NULL_POINTER_MEMORY_MODEL;
-                    void** pas = NULL_POINTER_MEMORY_MODEL;
-                    void** pm = NULL_POINTER_MEMORY_MODEL;
-                    void** pmc = NULL_POINTER_MEMORY_MODEL;
-                    void** pms = NULL_POINTER_MEMORY_MODEL;
-                    void** pd = NULL_POINTER_MEMORY_MODEL;
-                    void** pdc = NULL_POINTER_MEMORY_MODEL;
-                    void** pds = NULL_POINTER_MEMORY_MODEL;
+                    void** pn = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pnc = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pns = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pa = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pac = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pas = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pm = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pmc = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pms = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pd = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pdc = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** pds = NULL_POINTER_STATE_CYBOI_MODEL;
                     // The graphical part size name, type, model, properties.
-                    void** sn = NULL_POINTER_MEMORY_MODEL;
-                    void** snc = NULL_POINTER_MEMORY_MODEL;
-                    void** sns = NULL_POINTER_MEMORY_MODEL;
-                    void** sa = NULL_POINTER_MEMORY_MODEL;
-                    void** sac = NULL_POINTER_MEMORY_MODEL;
-                    void** sas = NULL_POINTER_MEMORY_MODEL;
-                    void** sm = NULL_POINTER_MEMORY_MODEL;
-                    void** smc = NULL_POINTER_MEMORY_MODEL;
-                    void** sms = NULL_POINTER_MEMORY_MODEL;
-                    void** sd = NULL_POINTER_MEMORY_MODEL;
-                    void** sdc = NULL_POINTER_MEMORY_MODEL;
-                    void** sds = NULL_POINTER_MEMORY_MODEL;
+                    void** sn = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** snc = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** sns = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** sa = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** sac = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** sas = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** sm = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** smc = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** sms = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** sd = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** sdc = NULL_POINTER_STATE_CYBOI_MODEL;
+                    void** sds = NULL_POINTER_STATE_CYBOI_MODEL;
 
                     // The graphical part position coordinates.
-                    int** pmx = (int**) NULL_POINTER_MEMORY_MODEL;
-                    int** pmy = (int**) NULL_POINTER_MEMORY_MODEL;
-                    int** pmz = (int**) NULL_POINTER_MEMORY_MODEL;
+                    int** pmx = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
+                    int** pmy = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
+                    int** pmz = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
                     // The graphical part size coordinates.
-                    int** smx = (int**) NULL_POINTER_MEMORY_MODEL;
-                    int** smy = (int**) NULL_POINTER_MEMORY_MODEL;
-                    int** smz = (int**) NULL_POINTER_MEMORY_MODEL;
+                    int** smx = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
+                    int** smy = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
+                    int** smz = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
 
                     // The new mouse coordinates.
-                    int nx = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                    int ny = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                    int nz = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    int nx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    int ny = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    int nz = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                     // The loop count.
-                    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     // The comparison result.
-                    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         if (j >= *wmc) {
 
@@ -321,13 +321,13 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             p19, p20);
 
                         // Determine graphical part position coordinates.
-                        get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-                        get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-                        get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
                         // Determine source part size coordinates.
-                        get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-                        get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-                        get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
                         if ((*mx >= **pmx) && (*my >= **pmy) && (*mz >= **pmz)
                             && (*mx < (**pmx + **smx)) && (*my < (**pmy + **smy)) && (*mz < (**pmz + **smz))) {
@@ -339,7 +339,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
                             compare_all_array((void*) &r, *a, (void*) PART_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *ac, (void*) PART_MEMORY_TYPE_COUNT);
 
-                            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                 // The graphical part model is a compound.
 
@@ -354,61 +354,61 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                         }
 
                         // Reset graphical part name, type, model, properties.
-                        n = NULL_POINTER_MEMORY_MODEL;
-                        nc = NULL_POINTER_MEMORY_MODEL;
-                        ns = NULL_POINTER_MEMORY_MODEL;
-                        a = NULL_POINTER_MEMORY_MODEL;
-                        ac = NULL_POINTER_MEMORY_MODEL;
-                        as = NULL_POINTER_MEMORY_MODEL;
-                        m = NULL_POINTER_MEMORY_MODEL;
-                        mc = NULL_POINTER_MEMORY_MODEL;
-                        ms = NULL_POINTER_MEMORY_MODEL;
-                        d = NULL_POINTER_MEMORY_MODEL;
-                        dc = NULL_POINTER_MEMORY_MODEL;
-                        ds = NULL_POINTER_MEMORY_MODEL;
+                        n = NULL_POINTER_STATE_CYBOI_MODEL;
+                        nc = NULL_POINTER_STATE_CYBOI_MODEL;
+                        ns = NULL_POINTER_STATE_CYBOI_MODEL;
+                        a = NULL_POINTER_STATE_CYBOI_MODEL;
+                        ac = NULL_POINTER_STATE_CYBOI_MODEL;
+                        as = NULL_POINTER_STATE_CYBOI_MODEL;
+                        m = NULL_POINTER_STATE_CYBOI_MODEL;
+                        mc = NULL_POINTER_STATE_CYBOI_MODEL;
+                        ms = NULL_POINTER_STATE_CYBOI_MODEL;
+                        d = NULL_POINTER_STATE_CYBOI_MODEL;
+                        dc = NULL_POINTER_STATE_CYBOI_MODEL;
+                        ds = NULL_POINTER_STATE_CYBOI_MODEL;
                         // Reset graphical part position name, type, model, properties.
-                        pn = NULL_POINTER_MEMORY_MODEL;
-                        pnc = NULL_POINTER_MEMORY_MODEL;
-                        pns = NULL_POINTER_MEMORY_MODEL;
-                        pa = NULL_POINTER_MEMORY_MODEL;
-                        pac = NULL_POINTER_MEMORY_MODEL;
-                        pas = NULL_POINTER_MEMORY_MODEL;
-                        pm = NULL_POINTER_MEMORY_MODEL;
-                        pmc = NULL_POINTER_MEMORY_MODEL;
-                        pms = NULL_POINTER_MEMORY_MODEL;
-                        pd = NULL_POINTER_MEMORY_MODEL;
-                        pdc = NULL_POINTER_MEMORY_MODEL;
-                        pds = NULL_POINTER_MEMORY_MODEL;
+                        pn = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pnc = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pns = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pa = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pac = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pas = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pm = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pmc = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pms = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pd = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pdc = NULL_POINTER_STATE_CYBOI_MODEL;
+                        pds = NULL_POINTER_STATE_CYBOI_MODEL;
                         // Reset graphical part size name, type, model, properties.
-                        sn = NULL_POINTER_MEMORY_MODEL;
-                        snc = NULL_POINTER_MEMORY_MODEL;
-                        sns = NULL_POINTER_MEMORY_MODEL;
-                        sa = NULL_POINTER_MEMORY_MODEL;
-                        sac = NULL_POINTER_MEMORY_MODEL;
-                        sas = NULL_POINTER_MEMORY_MODEL;
-                        sm = NULL_POINTER_MEMORY_MODEL;
-                        smc = NULL_POINTER_MEMORY_MODEL;
-                        sms = NULL_POINTER_MEMORY_MODEL;
-                        sd = NULL_POINTER_MEMORY_MODEL;
-                        sdc = NULL_POINTER_MEMORY_MODEL;
-                        sds = NULL_POINTER_MEMORY_MODEL;
+                        sn = NULL_POINTER_STATE_CYBOI_MODEL;
+                        snc = NULL_POINTER_STATE_CYBOI_MODEL;
+                        sns = NULL_POINTER_STATE_CYBOI_MODEL;
+                        sa = NULL_POINTER_STATE_CYBOI_MODEL;
+                        sac = NULL_POINTER_STATE_CYBOI_MODEL;
+                        sas = NULL_POINTER_STATE_CYBOI_MODEL;
+                        sm = NULL_POINTER_STATE_CYBOI_MODEL;
+                        smc = NULL_POINTER_STATE_CYBOI_MODEL;
+                        sms = NULL_POINTER_STATE_CYBOI_MODEL;
+                        sd = NULL_POINTER_STATE_CYBOI_MODEL;
+                        sdc = NULL_POINTER_STATE_CYBOI_MODEL;
+                        sds = NULL_POINTER_STATE_CYBOI_MODEL;
 
                         // Reset graphical part position coordinates.
-                        pmx = (int**) NULL_POINTER_MEMORY_MODEL;
-                        pmy = (int**) NULL_POINTER_MEMORY_MODEL;
-                        pmz = (int**) NULL_POINTER_MEMORY_MODEL;
+                        pmx = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
+                        pmy = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
+                        pmz = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
                         // Reset graphical part size coordinates.
-                        smx = (int**) NULL_POINTER_MEMORY_MODEL;
-                        smy = (int**) NULL_POINTER_MEMORY_MODEL;
-                        smz = (int**) NULL_POINTER_MEMORY_MODEL;
+                        smx = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
+                        smy = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
+                        smz = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
 
                         // Reset new mouse coordinates.
-                        nx = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                        ny = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                        nz = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        nx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                        ny = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                        nz = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                         // Reset comparison result.
-                        r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                         // Increment loop count.
                         j++;
@@ -416,22 +416,22 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system part. The whole model count is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system part. The whole model count is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system part. The mouse x coordinate is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system part. The mouse x coordinate is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system part. The mouse y coordinate is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system part. The mouse y coordinate is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense x window system part. The mouse z coordinate is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system part. The mouse z coordinate is null.");
     }
 }
 
@@ -447,32 +447,32 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The knowledge memory.
-    void** k = NULL_POINTER_MEMORY_MODEL;
-    void** kc = NULL_POINTER_MEMORY_MODEL;
-    void** ks = NULL_POINTER_MEMORY_MODEL;
+    void** k = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** kc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ks = NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory.
-    void** s = NULL_POINTER_MEMORY_MODEL;
-    void** sc = NULL_POINTER_MEMORY_MODEL;
-    void** ss = NULL_POINTER_MEMORY_MODEL;
+    void** s = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ss = NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory mutex.
-    pthread_mutex_t** smt = (pthread_mutex_t**) NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t** smt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;
     // The x window system mutex.
-    pthread_mutex_t** xmt = (pthread_mutex_t**) NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t** xmt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory interrupt request flag.
-    sig_atomic_t** sirq = (sig_atomic_t**) NULL_POINTER_MEMORY_MODEL;
+    sig_atomic_t** sirq = (sig_atomic_t**) NULL_POINTER_STATE_CYBOI_MODEL;
     // The user interface root.
-    void** r = NULL_POINTER_MEMORY_MODEL;
-    void** rc = NULL_POINTER_MEMORY_MODEL;
-    void** rs = NULL_POINTER_MEMORY_MODEL;
+    void** r = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rs = NULL_POINTER_STATE_CYBOI_MODEL;
     // The user interface commands.
-    void** c = NULL_POINTER_MEMORY_MODEL;
-    void** cc = NULL_POINTER_MEMORY_MODEL;
-    void** cs = NULL_POINTER_MEMORY_MODEL;
+    void** c = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cs = NULL_POINTER_STATE_CYBOI_MODEL;
     // The display, which is a subsumption of
     // xserver, screens, hardware (input devices etc.).
-    struct _XDisplay** d = (struct _XDisplay**) NULL_POINTER_MEMORY_MODEL;
+    struct _XDisplay** d = (struct _XDisplay**) NULL_POINTER_STATE_CYBOI_MODEL;
     // The window.
-    int** w = (int**) NULL_POINTER_MEMORY_MODEL;
+    int** w = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get knowledge memory internal.
     get((void*) &k, p0, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
@@ -501,39 +501,39 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get((void*) &w, p0, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
     // The command name, type, model, properties.
-    void** cn = NULL_POINTER_MEMORY_MODEL;
-    void** cnc = NULL_POINTER_MEMORY_MODEL;
-    void** cns = NULL_POINTER_MEMORY_MODEL;
-    void** ca = NULL_POINTER_MEMORY_MODEL;
-    void** cac = NULL_POINTER_MEMORY_MODEL;
-    void** cas = NULL_POINTER_MEMORY_MODEL;
-    void** cm = NULL_POINTER_MEMORY_MODEL;
-    void** cmc = NULL_POINTER_MEMORY_MODEL;
-    void** cms = NULL_POINTER_MEMORY_MODEL;
-    void** cd = NULL_POINTER_MEMORY_MODEL;
-    void** cdc = NULL_POINTER_MEMORY_MODEL;
-    void** cds = NULL_POINTER_MEMORY_MODEL;
+    void** cn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ca = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cds = NULL_POINTER_STATE_CYBOI_MODEL;
 
     //?? TODO: The temporary graphical part name, type, model, properties.
-    void** tmpn = NULL_POINTER_MEMORY_MODEL;
-    void** tmpnc = NULL_POINTER_MEMORY_MODEL;
-    void** tmpns = NULL_POINTER_MEMORY_MODEL;
-    void** tmpa = NULL_POINTER_MEMORY_MODEL;
-    void** tmpac = NULL_POINTER_MEMORY_MODEL;
-    void** tmpas = NULL_POINTER_MEMORY_MODEL;
-    void** tmpm = NULL_POINTER_MEMORY_MODEL;
-    void** tmpmc = NULL_POINTER_MEMORY_MODEL;
-    void** tmpms = NULL_POINTER_MEMORY_MODEL;
-    void** tmpd = NULL_POINTER_MEMORY_MODEL;
-    void** tmpdc = NULL_POINTER_MEMORY_MODEL;
-    void** tmpds = NULL_POINTER_MEMORY_MODEL;
+    void** tmpn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpa = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** tmpds = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The event.
     XEvent e;
     // The event type.
-    int t = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The signal identification.
-    void** id = NULL_POINTER_MEMORY_MODEL;
+    void** id = NULL_POINTER_STATE_CYBOI_MODEL;
 
     pthread_mutex_lock(*xmt);
 
@@ -555,7 +555,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // when being displayed after having been covered before.
 
         // Consider only the last in a row of multiple expose events.
-        if (e.xexpose.count == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (e.xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Get actual command belonging to the x window system expose event.
             get_universal_compound_element_by_name(
@@ -580,7 +580,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // Set interrupt request flag, in order to notify the signal checker
             // that a new signal has been placed in the signal memory.
-            **sirq = *NUMBER_1_INTEGER_MEMORY_MODEL;
+            **sirq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Unlock signal memory mutex.
             pthread_mutex_unlock(*smt);
@@ -696,7 +696,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //?? about the gui root node. Therefore, the actual window as its
         //?? only part element is determined here and handed over to
         //?? further procedures.
-        get_compound_element_by_index(*r, *rc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL,
+        get_compound_element_by_index(*r, *rc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL,
             (void*) &tmpn, (void*) &tmpnc, (void*) &tmpns,
             (void*) &tmpa, (void*) &tmpac, (void*) &tmpas,
             (void*) &tmpm, (void*) &tmpmc, (void*) &tmpms,
@@ -705,7 +705,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Determine command, depending on mouse button and event type.
         // CAUTION! Hand over command type, model, properties as reference!
         sense_x_window_system_part(&cn, &cnc, &cns, &ca, &cac, &cas, &cm, &cmc, &cms, &cd, &cdc, &cds,
-            *tmpm, *tmpmc, &(e.xbutton.x), &(e.xbutton.y), (void*) NUMBER_0_INTEGER_MEMORY_MODEL,
+            *tmpm, *tmpmc, &(e.xbutton.x), &(e.xbutton.y), (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL,
             &t, &(e.xbutton.button), *k, *kc);
 
         // Lock signal memory mutex.
@@ -719,7 +719,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // Set interrupt request flag, in order to notify the signal checker
         // that a new signal has been placed in the signal memory.
-        **sirq = *NUMBER_1_INTEGER_MEMORY_MODEL;
+        **sirq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Unlock signal memory mutex.
         pthread_mutex_unlock(*smt);

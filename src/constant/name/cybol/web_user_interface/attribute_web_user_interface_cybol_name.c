@@ -27,13 +27,13 @@
 #define ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The align attribute web user interface cybol name. */
 /*??
 static wchar_t ALIGN_ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_ARRAY[] = {L'a', L'l', L'i', L'g', L'n'};
 static wchar_t* ALIGN_ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME = ALIGN_ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_ARRAY;
-static int* ALIGN_ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ALIGN_ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 */
 
 /* ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_CONSTANT_SOURCE */

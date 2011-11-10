@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -63,7 +63,7 @@
  */
 static wchar_t RUN_RUN_LOGIC_CYBOL_TYPE_ARRAY[] = {L'r', L'u', L'n', L'/', L'r', L'u', L'n'};
 static wchar_t* RUN_RUN_LOGIC_CYBOL_TYPE = RUN_RUN_LOGIC_CYBOL_TYPE_ARRAY;
-static int* RUN_RUN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+static int* RUN_RUN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* RUN_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

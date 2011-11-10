@@ -27,9 +27,9 @@
 #define STATUS_CODE_HTTP_RESPONSE_ENCODER_SOURCE
 
 #include "../../../../constant/model/http/status_code_http_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http/cyboi_http_name.c"
 #include "../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../executor/converter/selector/http_request/protocol_http_request_selector.c"
@@ -51,7 +51,7 @@
  */
 void encode_http_response_status_code(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode http response status code.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode http response status code.");
 
     append_item_element(p0, (void*) OK_200_STATUS_CODE_HTTP_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) OK_200_STATUS_CODE_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }

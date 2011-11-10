@@ -26,16 +26,16 @@
 #ifndef VECTOR_STATE_CYBOI_NAME_CONSTANT_SOURCE
 #define VECTOR_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The dimension 0 vector memory name. In a (spatial) vector, this is the x coordinate. */
-static int* DIMENSION_0_VECTOR_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DIMENSION_0_VECTOR_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The dimension 1 vector memory name. In a (spatial) vector, this is the y coordinate. */
-static int* DIMENSION_1_VECTOR_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DIMENSION_1_VECTOR_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The dimension 2 vector memory name. In a (spatial) vector, this is the z coordinate. */
-static int* DIMENSION_2_VECTOR_STATE_CYBOI_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DIMENSION_2_VECTOR_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* VECTOR_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

@@ -26,12 +26,12 @@
 #ifndef XDT_DECODER_SOURCE
 #define XDT_DECODER_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/xdt/field_xdt_name.c"
 #include "../../../../constant/name/xdt/package_xdt_name.c"
 #include "../../../../constant/name/xdt/record_xdt_name.c"
@@ -139,31 +139,31 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  */
 void decode_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p6;
 
-        if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** s = (void**) p5;
 
-            if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* v = (int*) p4;
 
-                if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     int* fcc = (int*) p3;
 
-                    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+                    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         void** fc = (void**) p2;
 
-                        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                             int* fs = (int*) p0;
 
-                            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xdt field.");
+                            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xdt field.");
 
                             // The remaining bytes in the source byte array.
                             // They are used to check that the array border is not crossed.
@@ -172,7 +172,7 @@ void decode_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
                             if (rem >= (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
                                 // Decode xdt field size.
-                                decode_integer(p0, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *s, (void*) XDT_FIELD_SIZE_COUNT);
+                                decode_integer(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *s, (void*) XDT_FIELD_SIZE_COUNT);
 
                                 // Increment source xdt byte array index.
                                 *s = *s + (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
@@ -182,14 +182,14 @@ void decode_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
                             if (rem >= (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
                                 // Decode xdt field identification.
-                                decode_integer(p1, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *s, (void*) XDT_FIELD_IDENTIFICATION_COUNT);
+                                decode_integer(p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *s, (void*) XDT_FIELD_IDENTIFICATION_COUNT);
 
                                 // Increment source xdt byte array index.
                                 *s = *s + (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
                                 rem = rem - (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
                             }
 
-                            if (*fs >= ((*XDT_FIELD_SIZE_COUNT + *XDT_FIELD_IDENTIFICATION_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
+                            if (*fs >= ((*XDT_FIELD_SIZE_COUNT + *XDT_FIELD_IDENTIFICATION_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
                                 // Calculate xdt field content count.
                                 //
@@ -202,7 +202,7 @@ void decode_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
                                 //
                                 // It therefore has to be decremented here, so that
                                 // only the actual xdt field content count remains.
-                                *fcc = *fs - ((*XDT_FIELD_SIZE_COUNT + *XDT_FIELD_IDENTIFICATION_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+                                *fcc = *fs - ((*XDT_FIELD_SIZE_COUNT + *XDT_FIELD_IDENTIFICATION_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 
                                 if (rem >= *fcc) {
 
@@ -217,59 +217,59 @@ void decode_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
                             } else {
 
                                 // Store xdt field content, to be returned.
-                                *fc = *NULL_POINTER_MEMORY_MODEL;
-                                *fcc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                *fc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                                *fcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                             }
 
-                            if (rem >= ((*PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
+                            if (rem >= ((*PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
                                 // Verify if field end is reached (carriage return and line feed).
 
                                 if (*((wchar_t*) *s) == *CARRIAGE_RETURN_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
 
                                     // Increment source xdt byte array index.
-                                    *s = *s + (*PRIMITIVE_MEMORY_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+                                    *s = *s + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 
                                     if (*((wchar_t*) *s) == *LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
 
                                         // Increment source xdt byte array index.
-                                        *s = *s + (*PRIMITIVE_MEMORY_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+                                        *s = *s + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 
                                         // Set verification flag indicating that
                                         // the xdt field was decoded correctly.
-                                        *v = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                        *v = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                                     }
                                 }
                             }
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt field. The field size is null.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt field. The field size is null.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt field. The field content is null.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt field. The field content is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt field. The field content count is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt field. The field content count is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt field. The verification flag is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt field. The verification flag is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt field. The source byte array is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt field. The source byte array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt field. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt field. The source count is null.");
     }
 }
 
@@ -282,24 +282,24 @@ void decode_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
  */
 void decode_xdt_next_field(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* ac = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             wchar_t* a = (wchar_t*) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* nc = (int*) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode next xdt field.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode next xdt field.");
 
                 // The loop variable.
-                int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                     if (j >= *ac) {
 
@@ -312,15 +312,15 @@ void decode_xdt_next_field(void* p0, void* p1, void* p2) {
                         break;
                     }
 
-                    if ((j + (*PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT)) <= *ac) {
+                    if ((j + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT)) <= *ac) {
 
                         if (*(a + (j * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) == *CARRIAGE_RETURN_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
 
-                            if (*(a + (j * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE) + *PRIMITIVE_MEMORY_MODEL_COUNT) == *LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
+                            if (*(a + (j * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE) + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) == *LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
 
                                 // Set next field count to the first character following
                                 // the carriage return plus line feed characters.
-                                *nc = j + (*PRIMITIVE_MEMORY_MODEL_COUNT + *PRIMITIVE_MEMORY_MODEL_COUNT);
+                                *nc = j + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
                                 // Set loop variable to full array count ac, as the next
                                 // field has been found, so that the loop can be left.
@@ -335,17 +335,17 @@ void decode_xdt_next_field(void* p0, void* p1, void* p2) {
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode for next xdt field. The next field count is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode for next xdt field. The next field count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode for next xdt field. The byte array is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode for next xdt field. The byte array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode for next xdt field. The byte array count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode for next xdt field. The byte array count is null.");
     }
 }
 
@@ -361,53 +361,53 @@ void decode_xdt_next_field(void* p0, void* p1, void* p2) {
  */
 void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p5;
 
-        if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** s = (void**) p4;
 
-            if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* rcc = (int*) p3;
 
-                if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     void** rc = (void**) p2;
 
-                    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         int* rs = (int*) p0;
 
-                        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xdt record.");
+                        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xdt record.");
 
                         // Reset record size.
-                        *rs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        *rs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // The remaining bytes in the source byte array.
                         // They are used to check that the array border is not crossed.
                         int rem = (*sc * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
                         // The field size.
-                        int fs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        int fs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // The field identification.
-                        int fid = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        int fid = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // The field content.
-                        void* fc = *NULL_POINTER_MEMORY_MODEL;
-                        int fcc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        void* fc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                        int fcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // The verification flag.
-                        int v = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // The next field count.
-                        int nc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // The decode/ parse mode:
                         // 0 - looking for the begin of a record
                         // 1 - within a record, looking for the begin of the next
                         //     record, which demarcates the end of this record
-                        int m = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                            if (rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                            if (rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                 break;
                             }
@@ -422,7 +422,7 @@ void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                             fwprintf(stdout, L"Test: Decode xdt record. Field content count fcc: %i\n", fcc);
 */
 
-                            if (v == *NUMBER_1_INTEGER_MEMORY_MODEL) {
+                            if (v == *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
 
                                 // The verification flag is set, which means that
                                 // the xdt field was decoded correctly and the carriage
@@ -438,14 +438,14 @@ void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
                                 if (fid == *RECORD_IDENTIFICATION_FIELD_XDT_NAME) {
 
-                                    if (m == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                                    if (m == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                         // Set decode/parse mode to "1".
                                         // This is the begin of a record.
-                                        m = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                        m = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                         // Decode xdt record identification.
-                                        decode_integer(p1, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, fc, (void*) &fcc);
+                                        decode_integer(p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fc, (void*) &fcc);
 
                                     } else {
 
@@ -480,7 +480,7 @@ void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
                                         // Set remaining bytes to zero, as the next record
                                         // has been detected and the loop can be left now.
-                                        rem = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                        rem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                                     }
 
                                 } else if (fid == *RECORD_SIZE_FIELD_XDT_NAME) {
@@ -488,7 +488,7 @@ void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                                     // Decode xdt record size.
                                     //
                                     // CAUTION! Do NOT use the following line:
-                                    // decode_integer(p0, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, fc, (void*) &fcc);
+                                    // decode_integer(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fc, (void*) &fcc);
                                     //
                                     // This is because the record content size is
                                     // counted using the loop variable j.
@@ -507,7 +507,7 @@ void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
                                     // Reset record content count, in order to
                                     // count the xdt record content now following.
-                                    *rcc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                    *rcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                                 }
 
                             } else {
@@ -515,10 +515,10 @@ void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                                 // The verification flag is NOT set, which means
                                 // that the xdt field was NOT decoded correctly.
 
-                                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt record. An invalid field was detected. The parsing will now continue with the next valid field.");
+                                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt record. An invalid field was detected. The parsing will now continue with the next valid field.");
 
                                 // Reset next field count.
-                                nc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Count the number of bytes to the next carriage return-
                                 // plus line feed character.
@@ -530,36 +530,36 @@ void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                                 rem = rem - nc;
 
                                 // Increment record size.
-                                *rs = *rs + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                *rs = *rs + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Increment record content count.
-                                *rcc = *rcc + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                *rcc = *rcc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                             }
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt record. The record size is null.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt record. The record size is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt record. The record content is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt record. The record content is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt record. The record content count is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt record. The record content count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt record. The source byte array is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt record. The source byte array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt record. The source byte array count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt record. The source byte array count is null.");
     }
 }
 
@@ -578,60 +578,60 @@ void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
  */
 void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    if (p8 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p8;
 
-        if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** s = (void**) p7;
 
-            if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* pcc = (int*) p6;
 
-                if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     void** pc = (void**) p5;
 
-                    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+                    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         int* pfc = (int*) p4;
 
-                        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+                        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                             void** pf = (void**) p3;
 
-                            if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+                            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                                 int* phc = (int*) p2;
 
-                                if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+                                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                                     void** ph = (void**) p1;
 
-                                    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                                         int* ps = (int*) p0;
 
-                                        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xdt package.");
+                                        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xdt package.");
 
                                         // Reset package size.
-                                        *ps = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                        *ps = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                                         // The remaining bytes in the source byte array.
                                         // They are used to check that the array border
                                         // is not crossed, and to leave the loop.
                                         int rem = *sc;
                                         // The record size.
-                                        int rs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                        int rs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                                         // The record identification.
-                                        int rid = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                        int rid = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                                         // The loop variable.
-                                        int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                                        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                                        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                                            if (rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                                            if (rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                                 break;
                                             }
@@ -653,7 +653,7 @@ void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
                                             fwprintf(stdout, L"Test: Decode xdt package. Record content count pfc: %i\n\n", *pfc);
 */
 
-                                            if (rs > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                                            if (rs > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                                 // Decrement remaining bytes in the source byte array.
                                                 rem = rem - rs;
@@ -687,7 +687,7 @@ void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
                                                     *pc = *s;
 
                                                     // Reset loop variable.
-                                                    j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                                    j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                                                 } else if (rid == *DATA_PACKAGE_FOOTER_RECORD_XDT_NAME) {
 
@@ -722,7 +722,7 @@ void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
                                                     // Set remaining bytes to zero, as the package footer
                                                     // has been detected and the loop can be left now.
-                                                    rem = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                                    rem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                                                 }
 
                                             } else {
@@ -731,60 +731,60 @@ void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
                                                 // increment the source xdt byte array index by one,
                                                 // in order to ensure that this loop will finally
                                                 // find an end.
-                                                *s = *s + *NUMBER_1_INTEGER_MEMORY_MODEL;
-                                                rem = rem - *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                                *s = *s + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                                                rem = rem - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                                 // Increment package size.
-                                                *ps = *ps + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                                *ps = *ps + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                                 // Increment loop variable.
-                                                j = j + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                                j = j + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                                             }
                                         }
 
                                     } else {
 
-                                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt package. The package size is null.");
+                                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt package. The package size is null.");
                                     }
 
                                 } else {
 
-                                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt package. The package header is null.");
+                                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt package. The package header is null.");
                                 }
 
                             } else {
 
-                                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt package. The package header count is null.");
+                                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt package. The package header count is null.");
                             }
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt package. The package footer is null.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt package. The package footer is null.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt package. The package footer count is null.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt package. The package footer count is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt package. The package content is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt package. The package content is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt package. The package content count is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt package. The package content count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt package. The source byte array is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt package. The source byte array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt package. The source byte array count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt package. The source byte array count is null.");
     }
 }
 
@@ -814,87 +814,87 @@ void decode_xdt_decode_model(void* p0, void* p1, void* p2, void* p3, void* p4, v
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
     void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
-    if (p11 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int** ds = (int**) p11;
 
-        if (p10 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int** dc = (int**) p10;
 
-            if (p8 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int** ms = (int**) p8;
 
-                if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     int** mc = (int**) p7;
 
-                    if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+                    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         int** as = (int**) p5;
 
-                        if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+                        if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                             int** ac = (int**) p4;
 
-                            if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+                            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                                 int** ns = (int**) p2;
 
-                                if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+                                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                                     int** nc = (int**) p1;
 
-                                    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode model.");
+                                    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode model.");
 
-                                    allocate_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p14, p15);
+                                    allocate_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p14, p15);
 
                                     // Decode name.
-                                    overwrite_array(p0, p16, (void*) CHARACTER_MEMORY_TYPE, p17, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+                                    overwrite_array(p0, p16, (void*) CHARACTER_MEMORY_TYPE, p17, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                                     // Decode type.
-                                    overwrite_array(p3, p14, (void*) CHARACTER_MEMORY_TYPE, p15, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4, p5, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+                                    overwrite_array(p3, p14, (void*) CHARACTER_MEMORY_TYPE, p15, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                                     // Decode model.
-                                    decode(p6, (void*) *mc, (void*) *ms, p9, (void*) *dc, (void*) *ds, p12, p13, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p14, p15);
+                                    decode(p6, (void*) *mc, (void*) *ms, p9, (void*) *dc, (void*) *ds, p12, p13, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p14, p15);
 
                                 } else {
 
-                                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The name count is null.");
+                                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode model. The name count is null.");
                                 }
 
                             } else {
 
-                                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The name size is null.");
+                                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode model. The name size is null.");
                             }
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The type count is null.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode model. The type count is null.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The type size is null.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode model. The type size is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The model count is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode model. The model count is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The model size is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode model. The model size is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The properties count is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode model. The properties count is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode model. The properties size is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode model. The properties size is null.");
     }
 }
 
@@ -910,11 +910,11 @@ void decode_xdt_decode_model(void* p0, void* p1, void* p2, void* p3, void* p4, v
  */
 void decode_xdt_select_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* id = (int*) p5;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xdt field.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt field.");
 
 /*??
         // Test values.
@@ -922,21 +922,21 @@ void decode_xdt_select_field(void* p0, void* p1, void* p2, void* p3, void* p4, v
 */
 
         // The knowledge model name.
-        void* n = *NULL_POINTER_MEMORY_MODEL;
-        void* nc = *NULL_POINTER_MEMORY_MODEL;
-        void* ns = *NULL_POINTER_MEMORY_MODEL;
+        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ns = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The knowledge model type.
-        void* a = *NULL_POINTER_MEMORY_MODEL;
-        void* ac = *NULL_POINTER_MEMORY_MODEL;
-        void* as = *NULL_POINTER_MEMORY_MODEL;
+        void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The knowledge model model.
-        void* m = *NULL_POINTER_MEMORY_MODEL;
-        void* mc = *NULL_POINTER_MEMORY_MODEL;
-        void* ms = *NULL_POINTER_MEMORY_MODEL;
+        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ms = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The knowledge model properties.
-        void* d = *NULL_POINTER_MEMORY_MODEL;
-        void* dc = *NULL_POINTER_MEMORY_MODEL;
-        void* ds = *NULL_POINTER_MEMORY_MODEL;
+        void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         if (*id == *KBV_TEST_NUMBER_FIELD_XDT_NAME) {
 
@@ -4209,8 +4209,8 @@ void decode_xdt_select_field(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // Its content is therefore decoded directly.
 
         // CAUTION! This check for null pointers is necessary to avoid segmentation faults!
-        if ((n != *NULL_POINTER_MEMORY_MODEL) && (nc != *NULL_POINTER_MEMORY_MODEL) && (ns != *NULL_POINTER_MEMORY_MODEL)
-            && (a != *NULL_POINTER_MEMORY_MODEL) && (ac != *NULL_POINTER_MEMORY_MODEL) && (as != *NULL_POINTER_MEMORY_MODEL)) {
+        if ((n != *NULL_POINTER_STATE_CYBOI_MODEL) && (nc != *NULL_POINTER_STATE_CYBOI_MODEL) && (ns != *NULL_POINTER_STATE_CYBOI_MODEL)
+            && (a != *NULL_POINTER_STATE_CYBOI_MODEL) && (ac != *NULL_POINTER_STATE_CYBOI_MODEL) && (as != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
             // Add xdt field to xdt record.
             replace_compound_by_name(p0, p1, p2, n, nc, ns, a, ac, as, m, mc, ms, d, dc, ds);
@@ -4223,30 +4223,30 @@ void decode_xdt_select_field(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             // Deallocate knowledge model properties.
             deallocate((void*) &d, ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
-            deallocate((void*) &dc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ds, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &dc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &ds, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
             // Deallocate knowledge model model.
             deallocate((void*) &m, ms, a, ac);
-            deallocate((void*) &mc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ms, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &mc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &ms, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
             // Deallocate knowledge model type.
             deallocate((void*) &a, as, (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ac, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &as, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &ac, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
             // A knowledge model channel was not allocated.
 
             // Deallocate knowledge model name.
             deallocate((void*) &n, ns, (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT);
-            deallocate((void*) &nc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ns, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &nc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &ns, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xdt field. The field identification is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt field. The field identification is null.");
     }
 }
 
@@ -4261,33 +4261,33 @@ void decode_xdt_select_field(void* p0, void* p1, void* p2, void* p3, void* p4, v
  */
 void decode_xdt_process_record(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void* s = (void*) p3;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Process xdt record.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Process xdt record.");
 
             // The remaining bytes in the source byte array.
             int rem = *sc;
             // The field size.
-            int fs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int fs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The field identification.
-            int fid = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int fid = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The field content.
-            void* fc = *NULL_POINTER_MEMORY_MODEL;
-            int fcc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* fc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int fcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The verification flag.
-            int v = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The next field count.
-            int nc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+            while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                if (rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     break;
                 }
@@ -4302,7 +4302,7 @@ void decode_xdt_process_record(void* p0, void* p1, void* p2, void* p3, void* p4)
                 fwprintf(stdout, L"Test: Process xdt record. Field content count fcc: %i\n", fcc);
 */
 
-                if (v == *NUMBER_1_INTEGER_MEMORY_MODEL) {
+                if (v == *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
 
                     // The verification flag is set, which means that
                     // the xdt field was decoded correctly and the carriage
@@ -4321,10 +4321,10 @@ void decode_xdt_process_record(void* p0, void* p1, void* p2, void* p3, void* p4)
                     // The verification flag is NOT set, which means
                     // that the xdt field was NOT decoded correctly.
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not process xdt record. An invalid field was detected. The parsing will now continue with the next valid field.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not process xdt record. An invalid field was detected. The parsing will now continue with the next valid field.");
 
                     // Reset next field count.
-                    nc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                     // Count the number of bytes to the next carriage return-
                     // plus line feed character.
@@ -4339,12 +4339,12 @@ void decode_xdt_process_record(void* p0, void* p1, void* p2, void* p3, void* p4)
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not process xdt record. The source record is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not process xdt record. The source record is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not process xdt record. The source record count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not process xdt record. The source record count is null.");
     }
 }
 
@@ -4360,11 +4360,11 @@ void decode_xdt_process_record(void* p0, void* p1, void* p2, void* p3, void* p4)
  */
 void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* id = (int*) p5;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xdt record.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt record.");
 
 /*??
         // Test values.
@@ -4372,21 +4372,21 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
 */
 
         // The knowledge model name.
-        void* n = *NULL_POINTER_MEMORY_MODEL;
-        void* nc = *NULL_POINTER_MEMORY_MODEL;
-        void* ns = *NULL_POINTER_MEMORY_MODEL;
+        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ns = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The knowledge model type.
-        void* a = *NULL_POINTER_MEMORY_MODEL;
-        void* ac = *NULL_POINTER_MEMORY_MODEL;
-        void* as = *NULL_POINTER_MEMORY_MODEL;
+        void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The knowledge model model.
-        void* m = *NULL_POINTER_MEMORY_MODEL;
-        void* mc = *NULL_POINTER_MEMORY_MODEL;
-        void* ms = *NULL_POINTER_MEMORY_MODEL;
+        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ms = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The knowledge model properties.
-        void* d = *NULL_POINTER_MEMORY_MODEL;
-        void* dc = *NULL_POINTER_MEMORY_MODEL;
-        void* ds = *NULL_POINTER_MEMORY_MODEL;
+        void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         if (*id == *MEDICAL_PRACTICE_DATA_RECORD_XDT_NAME) {
 
@@ -4396,7 +4396,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) MEDICAL_PRACTICE_DATA_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_PRACTICE_DATA_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4417,7 +4417,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) PACKAGE_HEADER_RECORD_XDT_MODEL_NAME, (void*) PACKAGE_HEADER_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4430,7 +4430,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) PACKAGE_FOOTER_RECORD_XDT_MODEL_NAME, (void*) PACKAGE_FOOTER_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4442,7 +4442,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) MEDICAL_TREATMENT_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_TREATMENT_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4454,7 +4454,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) REFERRAL_CASE_RECORD_XDT_MODEL_NAME, (void*) REFERRAL_CASE_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4466,7 +4466,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4478,7 +4478,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4490,7 +4490,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) PRIVATE_BILLING_RECORD_XDT_MODEL_NAME, (void*) PRIVATE_BILLING_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4502,7 +4502,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_MODEL_NAME, (void*) EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4514,7 +4514,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) UNSTRUCTURED_CASES_RECORD_XDT_MODEL_NAME, (void*) UNSTRUCTURED_CASES_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4526,7 +4526,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) PATIENT_MASTER_DATA_RECORD_XDT_MODEL_NAME, (void*) PATIENT_MASTER_DATA_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4538,7 +4538,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) MEDICAL_TREATMENT_DATA_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_TREATMENT_DATA_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4550,7 +4550,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_MODEL_NAME, (void*) PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4562,7 +4562,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_MODEL_NAME, (void*) PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4574,7 +4574,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) EXAMINATION_REQUEST_RECORD_XDT_MODEL_NAME, (void*) EXAMINATION_REQUEST_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4586,7 +4586,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) EXAMINATION_DATA_TRANSFER_RECORD_XDT_MODEL_NAME, (void*) EXAMINATION_DATA_TRANSFER_RECORD_XDT_MODEL_NAME_COUNT);
 
@@ -4598,7 +4598,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
                 (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
                 (void*) EXAMINATION_DATA_DISPLAY_RECORD_XDT_MODEL_NAME, (void*) EXAMINATION_DATA_DISPLAY_RECORD_XDT_MODEL_NAME_COUNT);
         }
@@ -4607,8 +4607,8 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
         decode_xdt_process_record(m, mc, ms, p3, p4);
 
         // CAUTION! This check for null pointers is necessary to avoid segmentation faults!
-        if ((n != *NULL_POINTER_MEMORY_MODEL) && (nc != *NULL_POINTER_MEMORY_MODEL) && (ns != *NULL_POINTER_MEMORY_MODEL)
-            && (a != *NULL_POINTER_MEMORY_MODEL) && (ac != *NULL_POINTER_MEMORY_MODEL) && (as != *NULL_POINTER_MEMORY_MODEL)) {
+        if ((n != *NULL_POINTER_STATE_CYBOI_MODEL) && (nc != *NULL_POINTER_STATE_CYBOI_MODEL) && (ns != *NULL_POINTER_STATE_CYBOI_MODEL)
+            && (a != *NULL_POINTER_STATE_CYBOI_MODEL) && (ac != *NULL_POINTER_STATE_CYBOI_MODEL) && (as != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
             // Add xdt record to xdt package.
             //
@@ -4624,30 +4624,30 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
             // Deallocate knowledge model properties.
             deallocate((void*) &d, ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
-            deallocate((void*) &dc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ds, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &dc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &ds, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
             // Deallocate knowledge model model.
             deallocate((void*) &m, ms, a, ac);
-            deallocate((void*) &mc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ms, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &mc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &ms, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
             // Deallocate knowledge model type.
             deallocate((void*) &a, as, (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ac, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &as, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &ac, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
             // A knowledge model channel was not allocated.
 
             // Deallocate knowledge model name.
             deallocate((void*) &n, ns, (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT);
-            deallocate((void*) &nc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ns, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &nc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+            deallocate((void*) &ns, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not select xdt record. The record identification is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt record. The record identification is null.");
     }
 }
 
@@ -4662,29 +4662,29 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
  */
 void decode_xdt_process_package(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void* s = (void*) p3;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Process xdt package.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Process xdt package.");
 
             // The remaining bytes in the source byte array.
             int rem = *sc;
             // The record size.
-            int rs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int rs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The record identification.
-            int rid = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int rid = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The record content.
-            void* rc = *NULL_POINTER_MEMORY_MODEL;
-            int rcc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int rcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+            while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                if (rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     break;
                 }
@@ -4699,7 +4699,7 @@ void decode_xdt_process_package(void* p0, void* p1, void* p2, void* p3, void* p4
                 fwprintf(stdout, L"Test: Process xdt package. Record content count pfc: %i\n", rcc);
 */
 
-                if (rs > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (rs > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // Increment source xdt byte array index,
                     // so that following records may be found
@@ -4714,19 +4714,19 @@ void decode_xdt_process_package(void* p0, void* p1, void* p2, void* p3, void* p4
                     // If the xdt record size is zero or smaller, then
                     // increment the source xdt byte array index by one,
                     // in order to ensure that this loop will find an end.
-                    s = s + *NUMBER_1_INTEGER_MEMORY_MODEL;
-                    rem = rem - *NUMBER_1_INTEGER_MEMORY_MODEL;
+                    s = s + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                    rem = rem - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                 }
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not process xdt package. The source package is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not process xdt package. The source package is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not process xdt package. The source package count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not process xdt package. The source package count is null.");
     }
 }
 
@@ -4749,24 +4749,24 @@ void decode_xdt_process_package(void* p0, void* p1, void* p2, void* p3, void* p4
 void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xdt package.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt package.");
 
     // The knowledge model name.
-    void* n = *NULL_POINTER_MEMORY_MODEL;
-    void* nc = *NULL_POINTER_MEMORY_MODEL;
-    void* ns = *NULL_POINTER_MEMORY_MODEL;
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ns = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The knowledge model type.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
-    void* ac = *NULL_POINTER_MEMORY_MODEL;
-    void* as = *NULL_POINTER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The knowledge model model.
-    void* m = *NULL_POINTER_MEMORY_MODEL;
-    void* mc = *NULL_POINTER_MEMORY_MODEL;
-    void* ms = *NULL_POINTER_MEMORY_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ms = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The knowledge model properties.
-    void* d = *NULL_POINTER_MEMORY_MODEL;
-    void* dc = *NULL_POINTER_MEMORY_MODEL;
-    void* ds = *NULL_POINTER_MEMORY_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Decode package content.
     // CAUTION! Hand over a null pointer in place of the model and model count!
@@ -4775,7 +4775,7 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
     // but a byte stream which gets processed further below.
     decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
         (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-        *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
         (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
         (void*) STANDARD_PACKAGE_XDT_NAME, (void*) STANDARD_PACKAGE_XDT_NAME_COUNT);
 
@@ -4787,8 +4787,8 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
     decode_xdt_select_record(d, dc, ds, p10, p11, (void*) DATA_PACKAGE_FOOTER_RECORD_XDT_NAME);
 
     // CAUTION! This check for null pointers is necessary to avoid segmentation faults!
-    if ((n != *NULL_POINTER_MEMORY_MODEL) && (nc != *NULL_POINTER_MEMORY_MODEL) && (ns != *NULL_POINTER_MEMORY_MODEL)
-        && (a != *NULL_POINTER_MEMORY_MODEL) && (ac != *NULL_POINTER_MEMORY_MODEL) && (as != *NULL_POINTER_MEMORY_MODEL)) {
+    if ((n != *NULL_POINTER_STATE_CYBOI_MODEL) && (nc != *NULL_POINTER_STATE_CYBOI_MODEL) && (ns != *NULL_POINTER_STATE_CYBOI_MODEL)
+        && (a != *NULL_POINTER_STATE_CYBOI_MODEL) && (ac != *NULL_POINTER_STATE_CYBOI_MODEL) && (as != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
         // Add xdt package to given destination compound model.
         //
@@ -4804,25 +4804,25 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
 
         // Deallocate knowledge model properties.
         deallocate((void*) &d, ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
-        deallocate((void*) &dc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-        deallocate((void*) &ds, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+        deallocate((void*) &dc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+        deallocate((void*) &ds, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
         // Deallocate knowledge model model.
         deallocate((void*) &m, ms, a, ac);
-        deallocate((void*) &mc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-        deallocate((void*) &ms, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+        deallocate((void*) &mc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+        deallocate((void*) &ms, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
         // Deallocate knowledge model type.
         deallocate((void*) &a, as, (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT);
-        deallocate((void*) &ac, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-        deallocate((void*) &as, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+        deallocate((void*) &ac, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+        deallocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
         // A knowledge model channel was not allocated.
 
         // Deallocate knowledge model name.
         deallocate((void*) &n, ns, (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT);
-        deallocate((void*) &nc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-        deallocate((void*) &ns, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+        deallocate((void*) &nc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+        deallocate((void*) &ns, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
     }
 }
 
@@ -4840,46 +4840,46 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
  */
 void decode_xdt(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p7;
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void* s = (void*) p6;
 
-            if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 void** dd = (void**) p3;
 
-                if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     void** dm = (void**) p0;
 
-                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode xdt format into compound model.");
+                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xdt format into compound model.");
 
                     // The remaining bytes in the source byte array.
                     int rem = *sc;
                     // The xdt package size.
-                    int ps = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    int ps = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     // The xdt package content.
-                    void* pc = *NULL_POINTER_MEMORY_MODEL;
-                    int pcc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    int pcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     // The xdt package header.
-                    void* ph = *NULL_POINTER_MEMORY_MODEL;
-                    int phc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    void* ph = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    int phc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     // The xdt package footer.
-                    void* pf = *NULL_POINTER_MEMORY_MODEL;
-                    int pfc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    int pfc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
 /*??
                     // Test values.
                     fwprintf(stdout, L"TEST xdt file source count: %i\n\n", *sc);
 */
 
-                    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                        if (rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                        if (rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                             break;
                         }
@@ -4900,7 +4900,7 @@ void decode_xdt(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         fwprintf(stdout, L"TEST package content: %i\n", pcc);
 */
 
-                        if (ps > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                        if (ps > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                             // Decrement remaining bytes in the source byte array.
                             rem = rem - ps;
@@ -4920,41 +4920,41 @@ void decode_xdt(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                             // increment the source xdt byte array index by one,
                             // in order to ensure that this loop will finally
                             // find an end.
-                            s = s + *NUMBER_1_INTEGER_MEMORY_MODEL;
-                            rem = rem - *NUMBER_1_INTEGER_MEMORY_MODEL;
+                            s = s + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                            rem = rem - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                         }
 
                         // Reset xdt package size.
-                        ps = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        ps = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // Reset xdt package content.
-                        pc = *NULL_POINTER_MEMORY_MODEL;
-                        pcc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        pc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                        pcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // Reset xdt package header.
-                        ph = *NULL_POINTER_MEMORY_MODEL;
-                        phc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        ph = *NULL_POINTER_STATE_CYBOI_MODEL;
+                        phc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // Reset xdt package footer.
-                        pf = *NULL_POINTER_MEMORY_MODEL;
-                        pfc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        pf = *NULL_POINTER_STATE_CYBOI_MODEL;
+                        pfc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt. The destination compound model is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt. The destination compound model is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt. The destination compound properties is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt. The destination compound properties is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt. The source byte array is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt. The source byte array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode xdt. The source byte array count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt. The source byte array count is null.");
     }
 }
 

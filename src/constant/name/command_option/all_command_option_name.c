@@ -26,10 +26,10 @@
 #ifndef ALL_COMMAND_OPTION_NAME_CONSTANT_SOURCE
 #define ALL_COMMAND_OPTION_NAME_CONSTANT_SOURCE
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The all command option name. */
-static int* ALL_COMMAND_OPTION_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ALL_COMMAND_OPTION_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ALL_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif

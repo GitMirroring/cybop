@@ -31,9 +31,9 @@
 #include <pthread.h>
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
 #include "../../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../../executor/accessor/getter.c"
@@ -50,23 +50,23 @@
  */
 void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         struct _XDisplay** d = (struct _XDisplay**) p0;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Send to x window system display.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to x window system display.");
 
         // The window.
-        int** w = (int**) NULL_POINTER_MEMORY_MODEL;
+        int** w = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get x window system internals.
         get((void*) &w, p3, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
         // CAUTION! This test is necessary to avoid a "Segmentation fault"!
-        if (*d != *NULL_POINTER_MEMORY_MODEL) {
+        if (*d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // CAUTION! This test is necessary to avoid a "Segmentation fault"!
-            if (*w != *NULL_POINTER_MEMORY_MODEL) {
+            if (*w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // Request input events (signals) to be put into event queue.
                 XSelectInput(*d, **w, ExposureMask
@@ -83,17 +83,17 @@ void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to x window system display. The destination display is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to x window system display. The destination display is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to x window system display. The destination display is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to x window system display. The destination display is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to x window system display. The destination display argument is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to x window system display. The destination display argument is null.");
     }
 }
 
@@ -108,10 +108,10 @@ void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply send x window system.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send x window system.");
 
     // The x window system mutex.
-    pthread_mutex_t** xmt = (pthread_mutex_t**) NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t** xmt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get x window system mutex.
     get((void*) &xmt, p0, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
@@ -121,11 +121,11 @@ void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4
 //??    fwprintf(stdout, L"TEST send x 0: %i\n", p0);
 
     // Encode compound model into x window system window.
-    encode_x_window_system(p0, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p1, p2, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p3, p4);
+    encode_x_window_system(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4);
 
     // The display, which is a subsumption of
     // xserver, screens, hardware (input devices etc.).
-    void** d = NULL_POINTER_MEMORY_MODEL;
+    void** d = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get display.
     get_array_elements((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE);
@@ -133,7 +133,7 @@ void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4
 //??    fwprintf(stdout, L"TEST send x 1: %i\n", p0);
 
     // Show window on display.
-    send_x_window_system(d, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p0, *NULL_POINTER_MEMORY_MODEL);
+    send_x_window_system(d, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p0, *NULL_POINTER_STATE_CYBOI_MODEL);
 
 //??    fwprintf(stdout, L"TEST send x 2: %i\n", p0);
 

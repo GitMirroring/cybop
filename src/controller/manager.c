@@ -30,11 +30,11 @@
 #include <signal.h>
 
 #include "../constant/channel/cybol_channel.c"
-#include "../constant/model/log/message_log_model.c"
+#include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/memory/boolean_memory_model.c"
 #include "../constant/model/memory/double_memory_model.c"
-#include "../constant/model/memory/integer_memory_model.c"
-#include "../constant/model/memory/pointer_memory_model.c"
+#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../controller/manager/internal_memory_manager.c"
 #include "../controller/manager/system_signal_handler_manager.c"
 #include "../controller/checker.c"
@@ -70,19 +70,19 @@
  */
 void manage(void* p0) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"\n\n");
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Manage system.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage system.");
 
     //
     // Variable declaration.
     //
 
     // The internal memory array.
-    void* i = *NULL_POINTER_MEMORY_MODEL;
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The knowledge memory part.
-    void* k = *NULL_POINTER_MEMORY_MODEL;
+    void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory item.
-    void* s = *NULL_POINTER_MEMORY_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // The signal memory interrupt request flag.
@@ -151,37 +151,37 @@ void manage(void* p0) {
     // away, and the system will detect the change when it occurs.
     //
 
-    volatile sig_atomic_t* signal_memory_irq = (volatile sig_atomic_t*) *NULL_POINTER_MEMORY_MODEL;
+    volatile sig_atomic_t* signal_memory_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The gnu/linux console interrupt request flag.
-    volatile sig_atomic_t* gnu_linux_console_irq = (volatile sig_atomic_t*) *NULL_POINTER_MEMORY_MODEL;
+    volatile sig_atomic_t* gnu_linux_console_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The x window system interrupt request flag.
-    volatile sig_atomic_t* x_window_system_irq = (volatile sig_atomic_t*) *NULL_POINTER_MEMORY_MODEL;
+    volatile sig_atomic_t* x_window_system_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The www service interrupt request flag.
-    volatile sig_atomic_t* www_service_irq = (volatile sig_atomic_t*) *NULL_POINTER_MEMORY_MODEL;
+    volatile sig_atomic_t* www_service_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The cyboi service interrupt request flag.
-    volatile sig_atomic_t* cyboi_service_irq = (volatile sig_atomic_t*) *NULL_POINTER_MEMORY_MODEL;
+    volatile sig_atomic_t* cyboi_service_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The signal memory mutex.
-    pthread_mutex_t* signal_memory_mutex = (pthread_mutex_t*) *NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t* signal_memory_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The gnu/linux console mutex.
-    pthread_mutex_t* gnu_linux_console_mutex = (pthread_mutex_t*) *NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t* gnu_linux_console_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The x window system mutex.
-    pthread_mutex_t* x_window_system_mutex = (pthread_mutex_t*) *NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t* x_window_system_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The www service mutex.
-    pthread_mutex_t* www_service_mutex = (pthread_mutex_t*) *NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t* www_service_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The cyboi service mutex.
-    pthread_mutex_t* cyboi_service_mutex = (pthread_mutex_t*) *NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t* cyboi_service_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The signal memory sleep time.
-    double* signal_memory_sleep_time = (double*) *NULL_POINTER_MEMORY_MODEL;
+    double* signal_memory_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The gnu linux console sleep time.
-    double* gnu_linux_console_sleep_time = (double*) *NULL_POINTER_MEMORY_MODEL;
+    double* gnu_linux_console_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The x window system sleep time.
-    double* x_window_system_sleep_time = (double*) *NULL_POINTER_MEMORY_MODEL;
+    double* x_window_system_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The www service sleep time.
-    double* www_service_sleep_time = (double*) *NULL_POINTER_MEMORY_MODEL;
+    double* www_service_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The cyboi service sleep time.
-    double* cyboi_service_sleep_time = (double*) *NULL_POINTER_MEMORY_MODEL;
+    double* cyboi_service_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Variable allocation.
@@ -189,12 +189,12 @@ void manage(void* p0) {
 
     // Allocate internal memory array.
     // CAUTION! The internal memory has a pre-defined count/size,
-    // given by the constant INTERNAL_MEMORY_MEMORY_MODEL_COUNT.
-    allocate_array((void*) &i, (void*) INTERNAL_MEMORY_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
+    // given by the constant INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT.
+    allocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
     // Allocate knowledge memory part.
-    allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE);
+    allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE);
     // Allocate signal memory item.
-    allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
+    allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
 
     // Allocate signal memory interrupt request flag.
     signal_memory_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
@@ -234,15 +234,15 @@ void manage(void* p0) {
     //
 
     // Initialise signal memory interrupt request flag.
-    *signal_memory_irq = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    *signal_memory_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Initialise gnu/linux console interrupt request flag.
-    *gnu_linux_console_irq = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    *gnu_linux_console_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Initialise x window system interrupt request flag.
-    *x_window_system_irq = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    *x_window_system_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Initialise www service interrupt request flag.
-    *www_service_irq = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    *www_service_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Initialise cyboi service interrupt request flag.
-    *cyboi_service_irq = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    *cyboi_service_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // In the following mutex initialisation functions, the second parameter
@@ -251,26 +251,26 @@ void manage(void* p0) {
     //
 
     // Initialise signal memory mutex.
-    pthread_mutex_init(signal_memory_mutex, *NULL_POINTER_MEMORY_MODEL);
+    pthread_mutex_init(signal_memory_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise gnu/linux console mutex.
-    pthread_mutex_init(gnu_linux_console_mutex, *NULL_POINTER_MEMORY_MODEL);
+    pthread_mutex_init(gnu_linux_console_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise x window system mutex.
-    pthread_mutex_init(x_window_system_mutex, *NULL_POINTER_MEMORY_MODEL);
+    pthread_mutex_init(x_window_system_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise www service mutex.
-    pthread_mutex_init(www_service_mutex, *NULL_POINTER_MEMORY_MODEL);
+    pthread_mutex_init(www_service_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise cyboi service mutex.
-    pthread_mutex_init(cyboi_service_mutex, *NULL_POINTER_MEMORY_MODEL);
+    pthread_mutex_init(cyboi_service_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Initialise signal memory sleep time.
-    *signal_memory_sleep_time = *NUMBER_0_1_DOUBLE_MEMORY_MODEL;
+    *signal_memory_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
     // Initialise gnu linux console sleep time.
-    *gnu_linux_console_sleep_time = *NUMBER_0_1_DOUBLE_MEMORY_MODEL;
+    *gnu_linux_console_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
     // Initialise x window system sleep time.
-    *x_window_system_sleep_time = *NUMBER_0_1_DOUBLE_MEMORY_MODEL;
+    *x_window_system_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
     // Initialise www service sleep time.
-    *www_service_sleep_time = *NUMBER_0_1_DOUBLE_MEMORY_MODEL;
+    *www_service_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
     // Initialise cyboi service sleep time.
-    *cyboi_service_sleep_time = *NUMBER_0_1_DOUBLE_MEMORY_MODEL;
+    *cyboi_service_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
 
     //
     // System startup.
@@ -282,12 +282,12 @@ void manage(void* p0) {
     // determined by constants. The items HAVE TO be assigned an
     // initial value, since all source code relies on them.
     //
-    // Most values are compared against the *NULL_POINTER_MEMORY_MODEL constant
+    // Most values are compared against the *NULL_POINTER_STATE_CYBOI_MODEL constant
     // to find out whether they are set or not. If now initial values
     // would be arbitrary pointers, the program would follow a wrong path,
     // because it would guess that an instance was properly allocated,
     // while in reality the value was just an arbitrary initial one.
-    // Therefore, such values are initialised with the well-defined *NULL_POINTER_MEMORY_MODEL.
+    // Therefore, such values are initialised with the well-defined *NULL_POINTER_STATE_CYBOI_MODEL.
     //
     // CAUTION! ONLY ONE parameter can be handed over to threads!
     // For example, the tcp socket is running in an own thread.
@@ -388,11 +388,11 @@ void manage(void* p0) {
     free((void*) cyboi_service_sleep_time);
 
     // Deallocate signal memory item.
-    deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
+    deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
     // Deallocate knowledge memory part.
-    deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE);
+    deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE);
     // Deallocate internal memory array.
-    deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_MEMORY_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
+    deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
 }
 
 /* MANAGER_SOURCE */

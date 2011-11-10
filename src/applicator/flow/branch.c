@@ -27,13 +27,13 @@
 #define BRANCH_SOURCE
 
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
-#include "../../constant/model/log/message_log_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/flow/branch_flow_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
@@ -65,19 +65,19 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  */
 void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"\n\n");
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply branch.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply branch.");
 
     // The criterion part.
-    void* c = *NULL_POINTER_MEMORY_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The criterion part model.
-    void* cm = *NULL_POINTER_MEMORY_MODEL;
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The criterion part model data.
-    void* cmd = *NULL_POINTER_MEMORY_MODEL;
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The true part.
-    void* t = *NULL_POINTER_MEMORY_MODEL;
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The false part.
-    void* f = *NULL_POINTER_MEMORY_MODEL;
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get criterion part.
     get_name_array((void*) &c, p0, (void*) CRITERION_BRANCH_FLOW_OPERATION_CYBOL_NAME, (void*) CRITERION_BRANCH_FLOW_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -87,18 +87,18 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     get_name_array((void*) &f, p0, (void*) FALSE_BRANCH_FLOW_OPERATION_CYBOL_NAME, (void*) FALSE_BRANCH_FLOW_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get criterion part model.
-    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get criterion part model data.
-    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The direct execution flag.
-    int x = *TRUE_BOOLEAN_MEMORY_MODEL;
+    int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal(&r, cmd, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+    compare_integer_equal(&r, cmd, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // The criterion is true. Handle true model.
         handle(t, (void*) &x, p7, p2, p3, p4, p5, p6);

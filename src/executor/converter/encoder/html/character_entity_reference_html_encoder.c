@@ -27,11 +27,11 @@
 #define CHARACTER_ENTITY_REFERENCE_ENCODER_SOURCE
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/reallocation_factor.c"
 
@@ -47,31 +47,31 @@
 /*??
 void encode_character_entity_reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* ds = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* dc = (int*) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 void** d = (void**) p0;
 
                 // The temporary value.
-                void** t = NULL_POINTER_MEMORY_MODEL;
-                int tc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                int ts = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                void** t = NULL_POINTER_STATE_CYBOI_MODEL;
+                int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int ts = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                 // The comparison result.
-                int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
 /*??
-                if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    compare_all_array((void*) &r, p3, p4, (void*) SPACE_CHARACTER, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) CHARACTER_MEMORY_TYPE);
+                    compare_all_array((void*) &r, p3, p4, (void*) SPACE_CHARACTER, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHARACTER_MEMORY_TYPE);
 
-                    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         t = (void**) &SPACE_URL_ESCAPE_CODE;
                         tc = *SPACE_URL_ESCAPE_CODE_COUNT;
@@ -85,7 +85,7 @@ void encode_character_entity_reference(void* p0, void* p1, void* p2, void* p3, v
                 // Set actual destination, using the temporary value.
                 //
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     if ((*dc + tc) > *ds) {
 
@@ -105,17 +105,17 @@ void encode_character_entity_reference(void* p0, void* p1, void* p2, void* p3, v
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode character entity reference. The destination is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode character entity reference. The destination is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode character entity reference. The destination count is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode character entity reference. The destination count is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode character entity reference. The destination size is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode character entity reference. The destination size is null.");
     }
 }
 */

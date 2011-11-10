@@ -26,10 +26,10 @@
 #ifndef ITEM_ALL_COMPARATOR_SOURCE
 #define ITEM_ALL_COMPARATOR_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../logger/logger.c"
@@ -47,29 +47,29 @@
  */
 void compare_all_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Compare all item element.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare all item element.");
 
     // The left item element.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get left item element.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     compare_integer_equal((void*) &r, p6, (void*) DATA_ITEM_MEMORY_NAME);
 
-    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // This is a data item element.
 
         // The left item count.
         // CAUTION! It is only needed because this is a data item element.
-        void* c = *NULL_POINTER_MEMORY_MODEL;
+        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get left item count.
-        copy_array_forward((void*) &c, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+        copy_array_forward((void*) &c, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
         // Compare all elements of the right array with those of the left item data array.
         compare_all_array(p0, e, p2, p3, p4, c, p5);
@@ -79,7 +79,7 @@ void compare_all_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, 
         // This is a count or size item element.
 
         // Compare all elements of the right array with those of the left item data array.
-        compare_all_array(p0, e, p2, p3, p4, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p5);
+        compare_all_array(p0, e, p2, p3, p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5);
     }
 }
 
@@ -94,21 +94,21 @@ void compare_all_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, 
  */
 void compare_all_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Compare all item.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare all item.");
 
     // The left data, count.
-    void* ld = *NULL_POINTER_MEMORY_MODEL;
-    void* lc = *NULL_POINTER_MEMORY_MODEL;
+    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right data, count.
-    void* rd = *NULL_POINTER_MEMORY_MODEL;
-    void* rc = *NULL_POINTER_MEMORY_MODEL;
+    void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get left data, count.
-    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &lc, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &lc, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get right data, count.
-    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &rc, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &rc, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // Compare all elements of the right- with those of the left item data array.
     compare_all_array(p0, ld, rd, p3, p4, lc, rc);

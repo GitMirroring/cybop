@@ -27,7 +27,7 @@
 #define PRINT_MIME_TYPE_CONSTANTS_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // This MIME type was taken from/ inspired by the KDE desktop.
@@ -39,7 +39,7 @@
  */
 static wchar_t JOBS_PRINT_STATE_CYBOL_TYPE_ARRAY[] = {L'p', L'r', L'i', L'n', L't', L'/', L'j', L'o', L'b', L's'};
 static wchar_t* JOBS_PRINT_STATE_CYBOL_TYPE = JOBS_PRINT_STATE_CYBOL_TYPE_ARRAY;
-static int* JOBS_PRINT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* JOBS_PRINT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PRINT_MIME_TYPE_CONSTANTS_SOURCE */
 #endif

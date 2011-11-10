@@ -28,17 +28,17 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The false boolean state cybol model. */
 static wchar_t FALSE_BOOLEAN_STATE_CYBOL_MODEL_ARRAY[] = {L'f', L'a', L'l', L's', L'e'};
 static wchar_t* FALSE_BOOLEAN_STATE_CYBOL_MODEL = FALSE_BOOLEAN_STATE_CYBOL_MODEL_ARRAY;
-static int* FALSE_BOOLEAN_STATE_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* FALSE_BOOLEAN_STATE_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The true boolean state cybol model. */
 static wchar_t TRUE_BOOLEAN_STATE_CYBOL_MODEL_ARRAY[] = {L't', L'r', L'u', L'e'};
 static wchar_t* TRUE_BOOLEAN_STATE_CYBOL_MODEL = TRUE_BOOLEAN_STATE_CYBOL_MODEL_ARRAY;
-static int* TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+static int* TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* BOOLEAN_STATE_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

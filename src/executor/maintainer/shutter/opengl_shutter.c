@@ -26,8 +26,8 @@
 #ifndef OPENGL_SHUTTER_SOURCE
 #define OPENGL_SHUTTER_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/memoriser/allocator.c"
 
@@ -42,7 +42,7 @@
  */
 void shutdown_opengl(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Shutdown opengl.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown opengl.");
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 

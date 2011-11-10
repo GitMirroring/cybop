@@ -29,10 +29,10 @@
 #include <pthread.h>
 #include <signal.h>
 
-#include "../../constant/model/log/message_log_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../logger/logger.c"
 #include "../../variable/service_interrupt.c"
 #include "../../variable/thread_identification.c"
@@ -71,14 +71,14 @@ void interrupt_service_system_signal_handler(int p0) {
 
 //??    fwprintf(stdout, L"TEST signal handler gnu/linux console %i\n", p0);
 
-        if (*GNU_LINUX_CONSOLE_EXIT != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (*GNU_LINUX_CONSOLE_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 //??    fwprintf(stdout, L"TEST signal handler gnu/linux console irq %i\n", p0);
 
-            pthread_exit(*NULL_POINTER_MEMORY_MODEL);
+            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
             // CAUTION! The thread CANNOT be reset here with:
-            // *GNU_LINUX_CONSOLE_THREAD = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+            // *GNU_LINUX_CONSOLE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             // Therefore, do the reset in the corresponding
@@ -90,14 +90,14 @@ void interrupt_service_system_signal_handler(int p0) {
 
 //??    fwprintf(stdout, L"TEST signal handler x window system %i\n", p0);
 
-        if (*X_WINDOW_SYSTEM_EXIT != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (*X_WINDOW_SYSTEM_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 //??    fwprintf(stdout, L"TEST signal handler x window system irq %i\n", p0);
 
-            pthread_exit(*NULL_POINTER_MEMORY_MODEL);
+            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
             // CAUTION! The thread CANNOT be reset here with:
-            // *X_WINDOW_SYSTEM_THREAD = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+            // *X_WINDOW_SYSTEM_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             // Therefore, do the reset in the corresponding
@@ -109,14 +109,14 @@ void interrupt_service_system_signal_handler(int p0) {
 
 //??    fwprintf(stdout, L"TEST signal handler www service %i\n", p0);
 
-        if (*WWW_SERVICE_EXIT != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (*WWW_SERVICE_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 //??    fwprintf(stdout, L"TEST signal handler www service irq %i\n", p0);
 
-            pthread_exit(*NULL_POINTER_MEMORY_MODEL);
+            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
             // CAUTION! The thread CANNOT be reset here with:
-            // *WWW_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+            // *WWW_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             // Therefore, do the reset in the corresponding
@@ -128,14 +128,14 @@ void interrupt_service_system_signal_handler(int p0) {
 
 //??    fwprintf(stdout, L"TEST signal handler cyboi service %i\n", p0);
 
-        if (*CYBOI_SERVICE_EXIT != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (*CYBOI_SERVICE_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 //??    fwprintf(stdout, L"TEST signal handler cyboi service irq %i\n", p0);
 
-            pthread_exit(*NULL_POINTER_MEMORY_MODEL);
+            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
             // CAUTION! The thread CANNOT be reset here with:
-            // *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+            // *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             // Therefore, do the reset in the corresponding
@@ -155,7 +155,7 @@ void interrupt_service_system_signal_handler(int p0) {
  */
 void startup_system_signal_handler() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Startup system signal handler.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup system signal handler.");
 
     // The signal set (mask).
     sigset_t mask;
@@ -179,13 +179,13 @@ void startup_system_signal_handler() {
     // /controller/checker.c
     act.sa_handler = interrupt_service_system_signal_handler;
     act.sa_mask = mask;
-    act.sa_flags = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    act.sa_flags = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Establish old signal handler.
     oldact.sa_mask = oldmask;
 
     // Set up a new action for the SIGUSR1 signal.
-    sigaction(SIGUSR1, &act, *NULL_POINTER_MEMORY_MODEL);
+    sigaction(SIGUSR1, &act, *NULL_POINTER_STATE_CYBOI_MODEL);
 
 /*??
     // Examine or change the calling process's signal mask.
@@ -199,7 +199,7 @@ void startup_system_signal_handler() {
     // for example, job control signals. If the process is woken up
     // by a signal that doesn't set INTERRUPT_REQUEST, it just suspends
     // itself again until the "right" kind of signal eventually arrives.
-    while (*INTERRUPT_REQUEST == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    while (*INTERRUPT_REQUEST == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // This function replaces the process's signal set (mask) with
         // the old set and then suspends the process until a signal is
@@ -222,7 +222,7 @@ void startup_system_signal_handler() {
     // sigsuspend -- in this case, the SIGIO and SIGUSR1 signals are
     // once again blocked. This call to sigprocmask is necessary to
     // explicitly unblock this signal.
-    sigprocmask(SIG_UNBLOCK, &mask, *NULL_POINTER_MEMORY_MODEL);
+    sigprocmask(SIG_UNBLOCK, &mask, *NULL_POINTER_STATE_CYBOI_MODEL);
 */
 }
 

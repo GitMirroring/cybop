@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -61,7 +61,7 @@
  */
 static wchar_t MPEG_AUDIO_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'm', L'p', L'e', L'g'};
 static wchar_t* MPEG_AUDIO_STATE_CYBOL_TYPE = MPEG_AUDIO_STATE_CYBOL_TYPE_ARRAY;
-static int* MPEG_AUDIO_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* MPEG_AUDIO_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 audio/x-ms-wma: Windows Media Audio; Documented in Microsoft KB 288102
@@ -74,7 +74,7 @@ audio/x-wav: WAV audio
  */
 static wchar_t VORBIS_AUDIO_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'v', L'o', L'r', L'b', L'i', L's'};
 static wchar_t* VORBIS_AUDIO_STATE_CYBOL_TYPE = VORBIS_AUDIO_STATE_CYBOL_TYPE_ARRAY;
-static int* VORBIS_AUDIO_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static int* VORBIS_AUDIO_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* AUDIO_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

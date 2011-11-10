@@ -28,22 +28,22 @@
 
 #include <stddef.h>
 
-#include "../../constant/model/memory/integer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The standard input stream terminal model. */
 static wchar_t STANDARD_INPUT_STREAM_TERMINAL_MODEL_ARRAY[] = {L's', L't', L'a', L'n', L'd', L'a', L'r', L'd', L'_', L'i', L'n', L'p', L'u', L't'};
 static wchar_t* STANDARD_INPUT_STREAM_TERMINAL_MODEL = STANDARD_INPUT_STREAM_TERMINAL_MODEL_ARRAY;
-static int* STANDARD_INPUT_STREAM_TERMINAL_MODEL_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
+static int* STANDARD_INPUT_STREAM_TERMINAL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The standard output stream terminal model. */
 static wchar_t STANDARD_OUTPUT_STREAM_TERMINAL_MODEL_ARRAY[] = {L's', L't', L'a', L'n', L'd', L'a', L'r', L'd', L'_', L'o', L'u', L't', L'p', L'u', L't'};
 static wchar_t* STANDARD_OUTPUT_STREAM_TERMINAL_MODEL = STANDARD_OUTPUT_STREAM_TERMINAL_MODEL_ARRAY;
-static int* STANDARD_OUTPUT_STREAM_TERMINAL_MODEL_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static int* STANDARD_OUTPUT_STREAM_TERMINAL_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The standard error output stream terminal model. */
 static wchar_t STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL_ARRAY[] = {L's', L't', L'a', L'n', L'd', L'a', L'r', L'd', L'_', L'e', L'r', L'r', L'o', L'r', L'_', L'o', L'u', L't', L'p', L'u', L't'};
 static wchar_t* STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL = STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL_ARRAY;
-static int* STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL_COUNT = NUMBER_21_INTEGER_MEMORY_MODEL_ARRAY;
+static int* STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STREAM_TERMINAL_MODEL_CONSTANT_SOURCE */
 #endif

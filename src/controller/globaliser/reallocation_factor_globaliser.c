@@ -26,7 +26,7 @@
 #ifndef REALLOCATION_FACTOR_GLOBALISER_SOURCE
 #define REALLOCATION_FACTOR_GLOBALISER_SOURCE
 
-#include "../../constant/model/memory/integer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/reallocation_factor.c"
 
@@ -69,15 +69,15 @@ void globalise_reallocation_factor() {
 
     // Allocate and initialise array reallocation factor.
     ARRAY_REALLOCATION_FACTOR = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *ARRAY_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_MEMORY_MODEL;
+    *ARRAY_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise compound reallocation factor.
     COMPOUND_REALLOCATION_FACTOR = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *COMPOUND_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_MEMORY_MODEL;
+    *COMPOUND_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise cybol file reallocation factor.
     CYBOL_FILE_REALLOCATION_FACTOR = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *CYBOL_FILE_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_MEMORY_MODEL;
+    *CYBOL_FILE_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 }
 
 /* REALLOCATION_FACTOR_GLOBALISER_SOURCE */

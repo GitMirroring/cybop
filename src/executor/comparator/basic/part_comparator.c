@@ -26,11 +26,11 @@
 #ifndef PART_COMPARATOR_SOURCE
 #define PART_COMPARATOR_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
-#include "../../../constant/model/memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/memory/part_memory_name.c"
 #include "../../../constant/name/memory/primitive_memory_name.c"
 #include "../../../logger/logger.c"
@@ -55,7 +55,7 @@ void compare_all_part_all(void* p0, void* p1, void* p2, void* p3);
  */
 void compare_part(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Compare part.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare part.");
 
     //
     // Recursively call a comparison function, which in turn
@@ -73,53 +73,53 @@ void compare_part(void* p0, void* p1, void* p2, void* p3) {
     //?? since it was not quite complete yet.
     //??
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** rp = (void**) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** lp = (void**) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* r = (int*) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Compare part.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare part.");
 
                 // The source part name, type, model, properties.
-                void* sn = *NULL_POINTER_MEMORY_MODEL;
-                void* sa = *NULL_POINTER_MEMORY_MODEL;
-                void* sm = *NULL_POINTER_MEMORY_MODEL;
-                void* sd = *NULL_POINTER_MEMORY_MODEL;
+                void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* sa = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
                 // The source part elements data, count.
-                void* snd = *NULL_POINTER_MEMORY_MODEL;
-                void* snc = *NULL_POINTER_MEMORY_MODEL;
-                void* sad = *NULL_POINTER_MEMORY_MODEL;
-                void* sac = *NULL_POINTER_MEMORY_MODEL;
-                void* smd = *NULL_POINTER_MEMORY_MODEL;
-                void* smc = *NULL_POINTER_MEMORY_MODEL;
-                void* sdd = *NULL_POINTER_MEMORY_MODEL;
-                void* sdc = *NULL_POINTER_MEMORY_MODEL;
+                void* snd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* snc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* sad = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* sac = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* sdd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* sdc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                 // Get source part name, type, model, properties.
-                copy_array_forward((void*) &sn, *s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-                copy_array_forward((void*) &sa, *s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-                copy_array_forward((void*) &sm, *s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-                copy_array_forward((void*) &sd, *s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+                copy_array_forward((void*) &sn, *s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+                copy_array_forward((void*) &sa, *s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+                copy_array_forward((void*) &sm, *s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+                copy_array_forward((void*) &sd, *s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
                 // Get source item data, count.
-                copy_array_forward((void*) &snd, sn, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-                copy_array_forward((void*) &snc, sn, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-                copy_array_forward((void*) &sad, sa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-                copy_array_forward((void*) &sac, sa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-                copy_array_forward((void*) &smd, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-                copy_array_forward((void*) &smc, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-                copy_array_forward((void*) &sdd, sd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-                copy_array_forward((void*) &sdc, sd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+                copy_array_forward((void*) &snd, sn, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+                copy_array_forward((void*) &snc, sn, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+                copy_array_forward((void*) &sad, sa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+                copy_array_forward((void*) &sac, sa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+                copy_array_forward((void*) &smd, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+                copy_array_forward((void*) &smc, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+                copy_array_forward((void*) &sdd, sd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+                copy_array_forward((void*) &sdc, sd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
                 // Allocate destination part.
                 // CAUTION! Use source part type for allocation!
-                allocate_part(p0, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, sad);
+                allocate_part(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sad);
 
                 // Copy source part name, type, model, properties to destination.
                 // The name is always of type "wide_character".
@@ -133,17 +133,17 @@ void compare_part(void* p0, void* p1, void* p2, void* p3) {
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare part. The result is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare part. The result is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare part. The left part is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare part. The left part is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare part. The right part is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare part. The right part is null.");
     }
 */
 }

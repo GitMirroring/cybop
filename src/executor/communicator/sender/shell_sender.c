@@ -30,9 +30,9 @@
 #include "../../../constant/channel/cybol_channel.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/stream_model.c"
 #include "../../../executor/communicator/receiver.c"
 #include "../../../executor/converter/decoder.c"
@@ -62,36 +62,36 @@
  */
 void apply_send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply send shell message.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send shell message.");
 
     // The serialised wide character array.
-    void* s = *NULL_POINTER_MEMORY_MODEL;
-    int sc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int ss = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ss = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
     allocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Serialise source knowledge model into serialised wide character array.
     encode((void*) &s, (void*) &sc, (void*) &ss,
-        *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p1, p2, p3, p4, p5, p6,
-        *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL,
+        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6,
+        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
         p7, p8, p9, p10);
 
-    if (p13 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p13 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* nl = (int*) p13;
 
-        if (*nl != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (*nl != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            overwrite_array((void*) &s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &sc, (void*) &ss);
+            overwrite_array((void*) &s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &sc, (void*) &ss);
         }
     }
 
     // The encoded character array.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
-    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int es = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int es = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate encoded character array.
     allocate((void*) &e, (void*) &es, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
@@ -103,7 +103,7 @@ void apply_send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     deallocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // Write encoded array as message to shell standard output.
-    send_data((void*) &STANDARD_OUTPUT_STREAM_MODEL, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT, *NULL_POINTER_MEMORY_MODEL, e, (void*) &ec, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
+    send_data((void*) &STANDARD_OUTPUT_STREAM_MODEL, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, e, (void*) &ec, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
 
     // Deallocate encoded character array.
     deallocate((void*) &e, (void*) &es, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);

@@ -26,16 +26,16 @@
 #ifndef ITEM_STATE_CYBOI_NAME_CONSTANT_SOURCE
 #define ITEM_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The data item state cyboi name. */
-static int* DATA_ITEM_STATE_CYBOI_NAME = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DATA_ITEM_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The count item state cyboi name. */
-static int* COUNT_ITEM_STATE_CYBOI_NAME = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* COUNT_ITEM_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The size item state cyboi name. */
-static int* SIZE_ITEM_STATE_CYBOI_NAME = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SIZE_ITEM_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ITEM_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

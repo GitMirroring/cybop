@@ -26,7 +26,7 @@
 #ifndef XML_ENCODER_SOURCE
 #define XML_ENCODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 //?? #include "../../../../executor/converter/processor/xml_processor.c"
 #include "../../../../logger/logger.c"
 
@@ -43,7 +43,7 @@
  */
 void encode_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode xml.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode xml.");
 }
 
 /* XML_ENCODER_SOURCE */

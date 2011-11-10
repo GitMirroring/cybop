@@ -35,9 +35,9 @@
 #include <wchar.h>
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -45,10 +45,10 @@
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
 #include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
@@ -97,40 +97,40 @@ void encode_terminal_coordinates(void* p0, void* p1, void* p2, void* p3, void* p
     void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21,
     void* p22, void* p23, void* p24, void* p25, void* p26, void* p27) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal coordinates.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal coordinates.");
 
     // The source part position x, y, z.
-    int* px = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* py = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* pz = (int*) *NULL_POINTER_MEMORY_MODEL;
+    int* px = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* py = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* pz = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part size x, y, z.
-    int* sx = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* sy = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* sz = (int*) *NULL_POINTER_MEMORY_MODEL;
+    int* sx = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* sy = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* sz = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The current position x, y, z.
-    int cpx = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int cpy = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int cpz = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int cpx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int cpy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int cpz = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The current size x, y, z.
-    int csx = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int csy = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int csz = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int csx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int csy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int csz = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The source whole position coordinates.
-    int* wpmx = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* wpmy = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* wpmz = (int*) *NULL_POINTER_MEMORY_MODEL;
+    int* wpmx = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* wpmy = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* wpmz = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source whole size coordinates.
-    int* wsmx = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* wsmy = (int*) *NULL_POINTER_MEMORY_MODEL;
-    int* wsmz = (int*) *NULL_POINTER_MEMORY_MODEL;
+    int* wsmx = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* wsmy = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int* wsmz = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The original area position coordinates, set to the zero origo.
-    int oapx = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int oapy = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int oapz = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int oapx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int oapy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int oapz = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The original area size coordinates, initialised with whole coordinates.
-    int oasx = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int oasy = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int oasz = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int oasx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int oasy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int oasz = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The free area position coordinates, initialised with original area position coordinates.
     int fapx = oapx;
     int fapy = oapy;
@@ -158,7 +158,7 @@ void encode_terminal_coordinates(void* p0, void* p1, void* p2, void* p3, void* p
     csy = *sy;
     csz = *sz;
 
-    if (p20 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p20 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // Determine source whole position coordinates.
         get((void*) &wpmx, p18, (void*) DIMENSION_0_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);

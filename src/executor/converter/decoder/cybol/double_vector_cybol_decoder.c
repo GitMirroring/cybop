@@ -26,13 +26,13 @@
 #ifndef DOUBLE_VECTOR_DECODER_SOURCE
 #define DOUBLE_VECTOR_DECODER_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/memoriser/allocator/model_allocator.c"
 #include "../../../../executor/memoriser/deallocator/model_deallocator.c"
@@ -49,40 +49,40 @@
  */
 void decode_double_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** s = (void**) p3;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 void** d = (void**) p0;
 
-                log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode double vector.");
+                log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode double vector.");
 
 /*??
                 // The loop count.
-                int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                 // The comma index.
-                int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+                int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
                 // The double vector element count.
-                void* c = *NULL_POINTER_MEMORY_MODEL;
+                void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
                 // The double number.
-                int n = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                     if (j >= *sc) {
 
                         break;
                     }
 
-                    get_character_array_elements_index(p3, p4, (void*) COMMA_CHARACTER_CODE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i);
+                    get_character_array_elements_index(p3, p4, (void*) COMMA_CHARACTER_CODE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i);
 
-                    if (i > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (i > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         // Determine double vector element count.
                         c = *s + i;
@@ -100,7 +100,7 @@ void decode_double_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode double vector. The source string starts with a comma character.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode double vector. The source string starts with a comma character.");
                     }
 
                     j++;
@@ -112,9 +112,9 @@ void decode_double_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 //??    fscanf(p1, %d, &(m->z));
 
                 // Initialise elements.
-                int z = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                int y = *NUMBER_0_INTEGER_MEMORY_MODEL;
-                int x = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int z = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Set elements.
                 overwrite_array(p0, (void*) INTEGER_ARRAY, (void*) &X_INDEX, (void*) &x);
@@ -125,16 +125,16 @@ void decode_double_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /*??
                 int i1 = s.indexOf(",");
 
-                if (i1 != *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL) {
+                if (i1 != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-                    char[] x = s.substring(*NUMBER_0_INTEGER_MEMORY_MODEL, i1);
-                    char[] yz = s.substring(i1 + *NUMBER_1_INTEGER_MEMORY_MODEL);
+                    char[] x = s.substring(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL, i1);
+                    char[] yz = s.substring(i1 + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
                     int i2 = yz.indexOf(",");
 
-                    if (i2 != *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL) {
+                    if (i2 != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-                        char[] y = yz.substring(*NUMBER_0_INTEGER_MEMORY_MODEL, i2);
-                        char[] z = yz.substring(i2 + *NUMBER_1_INTEGER_MEMORY_MODEL);
+                        char[] y = yz.substring(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL, i2);
+                        char[] z = yz.substring(i2 + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                         p.x = java.lang.Integer.parseInt(x);
                         p.y = java.lang.Integer.parseInt(y);
@@ -142,28 +142,28 @@ void decode_double_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                     } else {
 
-            //??            log_message((void*) &ERROR_LEVEL_LOG_MODEL, (void*) &"Could not create double vector. The vector does not contain a z coordinate.");
+            //??            log_message((void*) &ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) &"Could not create double vector. The vector does not contain a z coordinate.");
                     }
 
                 } else {
 
-            //??        log_message((void*) &ERROR_LEVEL_LOG_MODEL, (void*) &"Could not create double vector. The vector does not contain an y coordinate.");
+            //??        log_message((void*) &ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) &"Could not create double vector. The vector does not contain an y coordinate.");
                 }
 */
 
             } else {
 
-//??                log_message((void*) &ERROR_LEVEL_LOG_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE_COUNT);
+//??                log_message((void*) &ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_DESTINATION_IS_NULL_MESSAGE_COUNT);
             }
 
         } else {
 
-//??            log_message((void*) &ERROR_LEVEL_LOG_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_IS_NULL_MESSAGE_COUNT);
+//??            log_message((void*) &ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_IS_NULL_MESSAGE_COUNT);
         }
 
     } else {
 
-//??        log_message((void*) &ERROR_LEVEL_LOG_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_COUNT_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_COUNT_IS_NULL_MESSAGE_COUNT);
+//??        log_message((void*) &ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_COUNT_IS_NULL_MESSAGE, (void*) &COULD_NOT_PARSE_INTEGER_THE_SOURCE_COUNT_IS_NULL_MESSAGE_COUNT);
     }
 }
 

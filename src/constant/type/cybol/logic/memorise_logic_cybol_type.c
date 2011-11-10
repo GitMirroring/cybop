@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -63,7 +63,7 @@
  */
 static wchar_t CREATE_MEMORISE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'c', L'r', L'e', L'a', L't', L'e'};
 static wchar_t* CREATE_MEMORISE_LOGIC_CYBOL_TYPE = CREATE_MEMORISE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* CREATE_MEMORISE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static int* CREATE_MEMORISE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The memorise/destroy cybol type.
@@ -74,7 +74,7 @@ static int* CREATE_MEMORISE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_MEMORY_MO
  */
 static wchar_t DESTROY_MEMORISE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'd', L'e', L's', L't', L'r', L'o', L'y'};
 static wchar_t* DESTROY_MEMORISE_LOGIC_CYBOL_TYPE = DESTROY_MEMORISE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* DESTROY_MEMORISE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DESTROY_MEMORISE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MEMORISE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

@@ -28,27 +28,27 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The list separator (between base name and index) cybol name. */
 static wchar_t LIST_SEPARATOR_CYBOL_NAME_ARRAY[] = {L'_', L'$'};
 static wchar_t* LIST_SEPARATOR_CYBOL_NAME = LIST_SEPARATOR_CYBOL_NAME_ARRAY;
-static int* LIST_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+static int* LIST_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The compound part separator cybol name. */
 static wchar_t PART_SEPARATOR_CYBOL_NAME_ARRAY[] = {L'.'};
 static wchar_t* PART_SEPARATOR_CYBOL_NAME = PART_SEPARATOR_CYBOL_NAME_ARRAY;
-static int* PART_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* PART_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The compound meta separator cybol name. */
 static wchar_t META_SEPARATOR_CYBOL_NAME_ARRAY[] = {L'#'};
 static wchar_t* META_SEPARATOR_CYBOL_NAME = META_SEPARATOR_CYBOL_NAME_ARRAY;
-static int* META_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* META_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The operation parametre separator cybol name. */
 static wchar_t PARAMETRE_SEPARATOR_CYBOL_NAME_ARRAY[] = {L','};
 static wchar_t* PARAMETRE_SEPARATOR_CYBOL_NAME = PARAMETRE_SEPARATOR_CYBOL_NAME_ARRAY;
-static int* PARAMETRE_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* PARAMETRE_SEPARATOR_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SEPARATOR_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

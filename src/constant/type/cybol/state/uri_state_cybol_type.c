@@ -27,7 +27,7 @@
 #define URI_MIME_TYPE_CONSTANTS_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // This MIME type was taken from/ inspired by the KDE desktop.
@@ -39,7 +39,7 @@
  */
 static wchar_t MMS_URI_STATE_CYBOL_TYPE_ARRAY[] = {L'u', L'r', L'i', L'/', L'm', L'm', L's'};
 static wchar_t* MMS_URI_STATE_CYBOL_TYPE = MMS_URI_STATE_CYBOL_TYPE_ARRAY;
-static int* MMS_URI_STATE_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+static int* MMS_URI_STATE_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* URI_MIME_TYPE_CONSTANTS_SOURCE */
 #endif

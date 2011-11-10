@@ -30,14 +30,14 @@
 #include <X11/Xutil.h>
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
 #include "../../../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../../../executor/accessor/getter.c"
@@ -59,19 +59,19 @@
  */
 void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode x window system.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode x window system.");
 
         // The display, which is a subsumption of
         // xserver, screens, hardware (input devices etc.).
-        struct _XDisplay** di = (struct _XDisplay**) NULL_POINTER_MEMORY_MODEL;
+        struct _XDisplay** di = (struct _XDisplay**) NULL_POINTER_STATE_CYBOI_MODEL;
         // The window.
-        int** w = (int**) NULL_POINTER_MEMORY_MODEL;
+        int** w = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
         // The graphic context.
-        struct _XGC** gc = (struct _XGC**) NULL_POINTER_MEMORY_MODEL;
+        struct _XGC** gc = (struct _XGC**) NULL_POINTER_STATE_CYBOI_MODEL;
         // The window attributes.
         XWindowAttributes wa;
 
@@ -84,32 +84,32 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         XGetWindowAttributes(*di, **w, &wa);
 
         // The source whole size.
-        void** wsn = NULL_POINTER_MEMORY_MODEL;
-        void** wsnc = NULL_POINTER_MEMORY_MODEL;
-        void** wsns = NULL_POINTER_MEMORY_MODEL;
-        void** wsa = NULL_POINTER_MEMORY_MODEL;
-        void** wsac = NULL_POINTER_MEMORY_MODEL;
-        void** wsas = NULL_POINTER_MEMORY_MODEL;
-        void** wsm = NULL_POINTER_MEMORY_MODEL;
-        void** wsmc = NULL_POINTER_MEMORY_MODEL;
-        void** wsms = NULL_POINTER_MEMORY_MODEL;
-        void** wsd = NULL_POINTER_MEMORY_MODEL;
-        void** wsdc = NULL_POINTER_MEMORY_MODEL;
-        void** wsds = NULL_POINTER_MEMORY_MODEL;
+        void** wsn = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsnc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsns = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsa = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsac = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsas = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsm = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsmc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsms = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsd = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsdc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** wsds = NULL_POINTER_STATE_CYBOI_MODEL;
 
         // The source whole size coordinates.
-        int* wsmx = (int*) *NULL_POINTER_MEMORY_MODEL;
-        int* wsmy = (int*) *NULL_POINTER_MEMORY_MODEL;
-        int* wsmz = (int*) *NULL_POINTER_MEMORY_MODEL;
+        int* wsmx = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* wsmy = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* wsmz = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // The original area position coordinates, set to the zero origo.
-        int oapx = *NUMBER_0_INTEGER_MEMORY_MODEL;
-        int oapy = *NUMBER_0_INTEGER_MEMORY_MODEL;
-        int oapz = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int oapx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int oapy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int oapz = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The original area size coordinates, initialised with whole coordinates.
-        int oasx = *NUMBER_0_INTEGER_MEMORY_MODEL;
-        int oasy = *NUMBER_0_INTEGER_MEMORY_MODEL;
-        int oasz = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int oasx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int oasy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int oasz = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // The free area position coordinates, initialised with original area position coordinates.
         int fapx = oapx;
@@ -120,7 +120,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         int fasy = oasy;
         int fasz = oasz;
 
-        if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Get source whole size from properties.
             get_universal_compound_element_by_name(
@@ -133,14 +133,14 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 p7, p8);
 
             // Determine source whole size coordinates.
-            get((void*) &wsmx, *wsm, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-            get((void*) &wsmy, *wsm, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-            get((void*) &wsmz, *wsm, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+            get((void*) &wsmx, *wsm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+            get((void*) &wsmy, *wsm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+            get((void*) &wsmz, *wsm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
 
             // Set original area position coordinates, set to the zero origo.
-            oapx = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            oapy = *NUMBER_0_INTEGER_MEMORY_MODEL;
-            oapz = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            oapx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            oapy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            oapz = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Set original area size coordinates, initialised with whole coordinates.
             oasx = *wsmx;
             oasy = *wsmy;
@@ -157,135 +157,135 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         }
 
         // The source part name, type, model, properties.
-        void** n = NULL_POINTER_MEMORY_MODEL;
-        void** nc = NULL_POINTER_MEMORY_MODEL;
-        void** ns = NULL_POINTER_MEMORY_MODEL;
-        void** a = NULL_POINTER_MEMORY_MODEL;
-        void** ac = NULL_POINTER_MEMORY_MODEL;
-        void** as = NULL_POINTER_MEMORY_MODEL;
-        void** m = NULL_POINTER_MEMORY_MODEL;
-        void** mc = NULL_POINTER_MEMORY_MODEL;
-        void** ms = NULL_POINTER_MEMORY_MODEL;
-        void** d = NULL_POINTER_MEMORY_MODEL;
-        void** dc = NULL_POINTER_MEMORY_MODEL;
-        void** ds = NULL_POINTER_MEMORY_MODEL;
+        void** n = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** nc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ns = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** a = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ac = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** as = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** m = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** mc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ms = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** d = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** dc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ds = NULL_POINTER_STATE_CYBOI_MODEL;
         // The source part layout name, type, model, properties.
-        void** ln = NULL_POINTER_MEMORY_MODEL;
-        void** lnc = NULL_POINTER_MEMORY_MODEL;
-        void** lns = NULL_POINTER_MEMORY_MODEL;
-        void** la = NULL_POINTER_MEMORY_MODEL;
-        void** lac = NULL_POINTER_MEMORY_MODEL;
-        void** las = NULL_POINTER_MEMORY_MODEL;
-        void** lm = NULL_POINTER_MEMORY_MODEL;
-        void** lmc = NULL_POINTER_MEMORY_MODEL;
-        void** lms = NULL_POINTER_MEMORY_MODEL;
-        void** ld = NULL_POINTER_MEMORY_MODEL;
-        void** ldc = NULL_POINTER_MEMORY_MODEL;
-        void** lds = NULL_POINTER_MEMORY_MODEL;
+        void** ln = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** lnc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** lns = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** la = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** lac = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** las = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** lm = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** lmc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** lms = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ld = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ldc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** lds = NULL_POINTER_STATE_CYBOI_MODEL;
         // The source part cell name, type, model, properties.
-        void** cn = NULL_POINTER_MEMORY_MODEL;
-        void** cnc = NULL_POINTER_MEMORY_MODEL;
-        void** cns = NULL_POINTER_MEMORY_MODEL;
-        void** ca = NULL_POINTER_MEMORY_MODEL;
-        void** cac = NULL_POINTER_MEMORY_MODEL;
-        void** cas = NULL_POINTER_MEMORY_MODEL;
-        void** cm = NULL_POINTER_MEMORY_MODEL;
-        void** cmc = NULL_POINTER_MEMORY_MODEL;
-        void** cms = NULL_POINTER_MEMORY_MODEL;
-        void** cd = NULL_POINTER_MEMORY_MODEL;
-        void** cdc = NULL_POINTER_MEMORY_MODEL;
-        void** cds = NULL_POINTER_MEMORY_MODEL;
+        void** cn = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cnc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cns = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ca = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cac = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cas = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cm = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cmc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cms = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cd = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cdc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** cds = NULL_POINTER_STATE_CYBOI_MODEL;
         // The source part position name, type, model, properties.
-        void** pn = NULL_POINTER_MEMORY_MODEL;
-        void** pnc = NULL_POINTER_MEMORY_MODEL;
-        void** pns = NULL_POINTER_MEMORY_MODEL;
-        void** pa = NULL_POINTER_MEMORY_MODEL;
-        void** pac = NULL_POINTER_MEMORY_MODEL;
-        void** pas = NULL_POINTER_MEMORY_MODEL;
-        void** pm = NULL_POINTER_MEMORY_MODEL;
-        void** pmc = NULL_POINTER_MEMORY_MODEL;
-        void** pms = NULL_POINTER_MEMORY_MODEL;
-        void** pd = NULL_POINTER_MEMORY_MODEL;
-        void** pdc = NULL_POINTER_MEMORY_MODEL;
-        void** pds = NULL_POINTER_MEMORY_MODEL;
+        void** pn = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pnc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pns = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pa = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pac = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pas = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pm = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pmc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pms = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pd = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pdc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** pds = NULL_POINTER_STATE_CYBOI_MODEL;
         // The source part shape name, type, model, properties.
-        void** shn = NULL_POINTER_MEMORY_MODEL;
-        void** shnc = NULL_POINTER_MEMORY_MODEL;
-        void** shns = NULL_POINTER_MEMORY_MODEL;
-        void** sha = NULL_POINTER_MEMORY_MODEL;
-        void** shac = NULL_POINTER_MEMORY_MODEL;
-        void** shas = NULL_POINTER_MEMORY_MODEL;
-        void** shm = NULL_POINTER_MEMORY_MODEL;
-        void** shmc = NULL_POINTER_MEMORY_MODEL;
-        void** shms = NULL_POINTER_MEMORY_MODEL;
-        void** shd = NULL_POINTER_MEMORY_MODEL;
-        void** shdc = NULL_POINTER_MEMORY_MODEL;
-        void** shds = NULL_POINTER_MEMORY_MODEL;
+        void** shn = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shnc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shns = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sha = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shac = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shas = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shm = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shmc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shms = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shd = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shdc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** shds = NULL_POINTER_STATE_CYBOI_MODEL;
         // The source part size name, type, model, properties.
-        void** sn = NULL_POINTER_MEMORY_MODEL;
-        void** snc = NULL_POINTER_MEMORY_MODEL;
-        void** sns = NULL_POINTER_MEMORY_MODEL;
-        void** sa = NULL_POINTER_MEMORY_MODEL;
-        void** sac = NULL_POINTER_MEMORY_MODEL;
-        void** sas = NULL_POINTER_MEMORY_MODEL;
-        void** sm = NULL_POINTER_MEMORY_MODEL;
-        void** smc = NULL_POINTER_MEMORY_MODEL;
-        void** sms = NULL_POINTER_MEMORY_MODEL;
-        void** sd = NULL_POINTER_MEMORY_MODEL;
-        void** sdc = NULL_POINTER_MEMORY_MODEL;
-        void** sds = NULL_POINTER_MEMORY_MODEL;
+        void** sn = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** snc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sns = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sa = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sac = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sas = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sm = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** smc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sms = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sd = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sdc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** sds = NULL_POINTER_STATE_CYBOI_MODEL;
         // The source part title name, type, model, properties.
-        void** tn = NULL_POINTER_MEMORY_MODEL;
-        void** tnc = NULL_POINTER_MEMORY_MODEL;
-        void** tns = NULL_POINTER_MEMORY_MODEL;
-        void** ta = NULL_POINTER_MEMORY_MODEL;
-        void** tac = NULL_POINTER_MEMORY_MODEL;
-        void** tas = NULL_POINTER_MEMORY_MODEL;
-        void** tm = NULL_POINTER_MEMORY_MODEL;
-        void** tmc = NULL_POINTER_MEMORY_MODEL;
-        void** tms = NULL_POINTER_MEMORY_MODEL;
-        void** td = NULL_POINTER_MEMORY_MODEL;
-        void** tdc = NULL_POINTER_MEMORY_MODEL;
-        void** tds = NULL_POINTER_MEMORY_MODEL;
+        void** tn = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** tnc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** tns = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ta = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** tac = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** tas = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** tm = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** tmc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** tms = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** td = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** tdc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** tds = NULL_POINTER_STATE_CYBOI_MODEL;
         // The source part icon name, type, model, properties.
-        void** in = NULL_POINTER_MEMORY_MODEL;
-        void** inc = NULL_POINTER_MEMORY_MODEL;
-        void** ins = NULL_POINTER_MEMORY_MODEL;
-        void** ia = NULL_POINTER_MEMORY_MODEL;
-        void** iac = NULL_POINTER_MEMORY_MODEL;
-        void** ias = NULL_POINTER_MEMORY_MODEL;
-        void** im = NULL_POINTER_MEMORY_MODEL;
-        void** imc = NULL_POINTER_MEMORY_MODEL;
-        void** ims = NULL_POINTER_MEMORY_MODEL;
-        void** id = NULL_POINTER_MEMORY_MODEL;
-        void** idc = NULL_POINTER_MEMORY_MODEL;
-        void** ids = NULL_POINTER_MEMORY_MODEL;
+        void** in = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** inc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ins = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ia = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** iac = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ias = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** im = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** imc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ims = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** id = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** idc = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** ids = NULL_POINTER_STATE_CYBOI_MODEL;
 
         // The terminated title.
-        void* tt = *NULL_POINTER_MEMORY_MODEL;
-        void* ttc = *NULL_POINTER_MEMORY_MODEL;
-        void* tts = *NULL_POINTER_MEMORY_MODEL;
+        void* tt = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ttc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* tts = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The terminated icon name.
-        void* ti = *NULL_POINTER_MEMORY_MODEL;
-        void* tic = *NULL_POINTER_MEMORY_MODEL;
-        void* tis = *NULL_POINTER_MEMORY_MODEL;
+        void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* tic = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* tis = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // The source part position coordinates.
-        int* pmx = (int*) *NULL_POINTER_MEMORY_MODEL;
-        int* pmy = (int*) *NULL_POINTER_MEMORY_MODEL;
-        int* pmz = (int*) *NULL_POINTER_MEMORY_MODEL;
+        int* pmx = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* pmy = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* pmz = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The source part size coordinates.
-        int* smx = (int*) *NULL_POINTER_MEMORY_MODEL;
-        int* smy = (int*) *NULL_POINTER_MEMORY_MODEL;
-        int* smz = (int*) *NULL_POINTER_MEMORY_MODEL;
+        int* smx = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* smy = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* smz = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // The loop count.
-        int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Iterate through compound parts.
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (j >= *sc) {
 
@@ -337,13 +337,13 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 p7, p8);
 
             // Get source part position coordinates.
-            get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-            get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-            get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+            get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+            get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+            get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
             // Get source part size coordinates.
-            get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-            get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-            get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+            get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+            get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+            get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
 
 /*??
     fwprintf(stdout, L"layout: %s\n", *lm);
@@ -352,10 +352,10 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
             compare_all_array((void*) &r, *lm, (void*) ROOT_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *lmc, (void*) ROOT_LAYOUT_CYBOL_MODEL_COUNT);
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // The source part is no root window.
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"This is not a root window.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"This is not a root window.");
 
                 // Calculate coordinates according to given layout.
 /*??
@@ -366,22 +366,22 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 */
 
                 // Draw graphical element using given coordinates.
-                XDrawRectangle(*di, **w, *gc, *pmx, *pmy, *smx - *NUMBER_1_INTEGER_MEMORY_MODEL, *smy - *NUMBER_1_INTEGER_MEMORY_MODEL);
+                XDrawRectangle(*di, **w, *gc, *pmx, *pmy, *smx - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, *smy - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                 // Reset comparison result.
-                r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 compare_all_array((void*) &r, *a, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *ac, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // The terminated text.
-                    void* text = *NULL_POINTER_MEMORY_MODEL;
-                    void* textc = *NULL_POINTER_MEMORY_MODEL;
-                    void* texts = *NULL_POINTER_MEMORY_MODEL;
+                    void* text = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    void* textc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    void* texts = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                     // Create terminated text.
-                    allocate_model((void*) &text, (void*) &textc, (void*) &texts, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                    allocate_model((void*) &text, (void*) &textc, (void*) &texts, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
                     // Encode wide character name into text, which is a multibyte character array.
                     encode_utf_8_unicode_character_vector((void*) &text, textc, texts, *m, *mc);
@@ -389,14 +389,14 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                     if (*((int*) texts) <= *((int*) textc)) {
 
                         // Increase character array size to have place for the termination character.
-                        *((int*) texts) = *((int*) textc) + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                        *((int*) texts) = *((int*) textc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                         // Reallocate terminated file name as multibyte character array.
                         reallocate_array((void*) &text, textc, texts, (void*) CHARACTER_MEMORY_TYPE);
                     }
 
                     // Add null termination character to text.
-                    overwrite_array((void*) &text, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, textc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, textc, texts);
+                    overwrite_array((void*) &text, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, textc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, textc, texts);
 
                     //?? TODO: Create "text" as 2byte character array,
                     //?? since the xlib C library expects it that way.
@@ -407,10 +407,10 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                     // CAUTION! The Xlib C Library offers a function "XDrawString16"
                     // to draw 2byte characters in a given drawable.
                     // However, standard utf-8 encoded characters are used here.
-                    XDrawString(*di, **w, *gc, *pmx, *pmy + *NUMBER_20_INTEGER_MEMORY_MODEL, text, *((int*) textc));
+                    XDrawString(*di, **w, *gc, *pmx, *pmy + *NUMBER_20_INTEGER_STATE_CYBOI_MODEL, text, *((int*) textc));
 
                     // Destroy terminated text.
-                    deallocate_model((void*) &text, (void*) &textc, (void*) &texts, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                    deallocate_model((void*) &text, (void*) &textc, (void*) &texts, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
                     /*
                     In the conventional 'XFontStruct' model, an X client opens
@@ -534,7 +534,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
             } else {
 
                 // The source part is a root window.
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"This is a root window.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"This is a root window.");
 
                 // Move window to new position coordinates for part.
                 XMoveWindow(*di, **w, *pmx, *pmy);
@@ -561,18 +561,18 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                     p7, p8);
 
                 // The terminated title.
-                tt = *NULL_POINTER_MEMORY_MODEL;
-                ttc = *NULL_POINTER_MEMORY_MODEL;
-                tts = *NULL_POINTER_MEMORY_MODEL;
+                tt = *NULL_POINTER_STATE_CYBOI_MODEL;
+                ttc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                tts = *NULL_POINTER_STATE_CYBOI_MODEL;
                 // The terminated icon name.
-                ti = *NULL_POINTER_MEMORY_MODEL;
-                tic = *NULL_POINTER_MEMORY_MODEL;
-                tis = *NULL_POINTER_MEMORY_MODEL;
+                ti = *NULL_POINTER_STATE_CYBOI_MODEL;
+                tic = *NULL_POINTER_STATE_CYBOI_MODEL;
+                tis = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                 // Create terminated title.
-                allocate_model((void*) &tt, (void*) &ttc, (void*) &tts, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                allocate_model((void*) &tt, (void*) &ttc, (void*) &tts, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
                 // Create terminated icon name.
-                allocate_model((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                allocate_model((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
                 // Encode wide character name into title, which is a multibyte character array.
                 encode_utf_8_unicode_character_vector((void*) &tt, ttc, tts, *tm, *tmc);
@@ -582,7 +582,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 if (*((int*) tts) <= *((int*) ttc)) {
 
                     // Increase character array size to have place for the termination character.
-                    *((int*) tts) = *((int*) ttc) + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                    *((int*) tts) = *((int*) ttc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                     // Reallocate title as multibyte character array.
                     reallocate_array((void*) &tt, ttc, tts, (void*) CHARACTER_MEMORY_TYPE);
@@ -591,16 +591,16 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 if (*((int*) tis) <= *((int*) tic)) {
 
                     // Increase character array size to have place for the termination character.
-                    *((int*) tis) = *((int*) tic) + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                    *((int*) tis) = *((int*) tic) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                     // Reallocate icon name as multibyte character array.
                     reallocate_array((void*) &ti, tic, tis, (void*) CHARACTER_MEMORY_TYPE);
                 }
 
                 // Add null termination character to title.
-                overwrite_array((void*) &tt, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, ttc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, ttc, tts);
+                overwrite_array((void*) &tt, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, ttc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, ttc, tts);
                 // Add null termination character to icon name.
-                overwrite_array((void*) &ti, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tic, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tic, tis);
+                overwrite_array((void*) &ti, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tic, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tic, tis);
 
                 // Set terminated window title.
                 //
@@ -611,102 +611,102 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 XSetIconName(*di, **w, (char*) ti);
 
                 // Destroy terminated title.
-                deallocate_model((void*) &tt, (void*) &ttc, (void*) &tts, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                deallocate_model((void*) &tt, (void*) &ttc, (void*) &tts, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
                 // Destroy terminated icon name.
-                deallocate_model((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                deallocate_model((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
             }
 
             // Reset comparison result.
-            r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             compare_all_array((void*) &r, *a, (void*) PART_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *ac, (void*) PART_MEMORY_TYPE_COUNT);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // The part model is a compound.
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"The part model is a compound.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"The part model is a compound.");
 
                 // Recursively call this procedure for compound part model.
                 encode_x_window_system(p0, p1, p2, *m, *mc, *d, *dc, p7, p8);
             }
 
             // Reset source part name, type, model, properties.
-            n = NULL_POINTER_MEMORY_MODEL;
-            nc = NULL_POINTER_MEMORY_MODEL;
-            ns = NULL_POINTER_MEMORY_MODEL;
-            a = NULL_POINTER_MEMORY_MODEL;
-            ac = NULL_POINTER_MEMORY_MODEL;
-            as = NULL_POINTER_MEMORY_MODEL;
-            m = NULL_POINTER_MEMORY_MODEL;
-            mc = NULL_POINTER_MEMORY_MODEL;
-            ms = NULL_POINTER_MEMORY_MODEL;
-            d = NULL_POINTER_MEMORY_MODEL;
-            dc = NULL_POINTER_MEMORY_MODEL;
-            ds = NULL_POINTER_MEMORY_MODEL;
+            n = NULL_POINTER_STATE_CYBOI_MODEL;
+            nc = NULL_POINTER_STATE_CYBOI_MODEL;
+            ns = NULL_POINTER_STATE_CYBOI_MODEL;
+            a = NULL_POINTER_STATE_CYBOI_MODEL;
+            ac = NULL_POINTER_STATE_CYBOI_MODEL;
+            as = NULL_POINTER_STATE_CYBOI_MODEL;
+            m = NULL_POINTER_STATE_CYBOI_MODEL;
+            mc = NULL_POINTER_STATE_CYBOI_MODEL;
+            ms = NULL_POINTER_STATE_CYBOI_MODEL;
+            d = NULL_POINTER_STATE_CYBOI_MODEL;
+            dc = NULL_POINTER_STATE_CYBOI_MODEL;
+            ds = NULL_POINTER_STATE_CYBOI_MODEL;
             // Reset source part layout.
-            la = NULL_POINTER_MEMORY_MODEL;
-            lac = NULL_POINTER_MEMORY_MODEL;
-            las = NULL_POINTER_MEMORY_MODEL;
-            lm = NULL_POINTER_MEMORY_MODEL;
-            lmc = NULL_POINTER_MEMORY_MODEL;
-            lms = NULL_POINTER_MEMORY_MODEL;
-            ld = NULL_POINTER_MEMORY_MODEL;
-            ldc = NULL_POINTER_MEMORY_MODEL;
-            lds = NULL_POINTER_MEMORY_MODEL;
+            la = NULL_POINTER_STATE_CYBOI_MODEL;
+            lac = NULL_POINTER_STATE_CYBOI_MODEL;
+            las = NULL_POINTER_STATE_CYBOI_MODEL;
+            lm = NULL_POINTER_STATE_CYBOI_MODEL;
+            lmc = NULL_POINTER_STATE_CYBOI_MODEL;
+            lms = NULL_POINTER_STATE_CYBOI_MODEL;
+            ld = NULL_POINTER_STATE_CYBOI_MODEL;
+            ldc = NULL_POINTER_STATE_CYBOI_MODEL;
+            lds = NULL_POINTER_STATE_CYBOI_MODEL;
             // Reset source part cell.
-            ca = NULL_POINTER_MEMORY_MODEL;
-            cac = NULL_POINTER_MEMORY_MODEL;
-            cas = NULL_POINTER_MEMORY_MODEL;
-            cm = NULL_POINTER_MEMORY_MODEL;
-            cmc = NULL_POINTER_MEMORY_MODEL;
-            cms = NULL_POINTER_MEMORY_MODEL;
-            cd = NULL_POINTER_MEMORY_MODEL;
-            cdc = NULL_POINTER_MEMORY_MODEL;
-            cds = NULL_POINTER_MEMORY_MODEL;
+            ca = NULL_POINTER_STATE_CYBOI_MODEL;
+            cac = NULL_POINTER_STATE_CYBOI_MODEL;
+            cas = NULL_POINTER_STATE_CYBOI_MODEL;
+            cm = NULL_POINTER_STATE_CYBOI_MODEL;
+            cmc = NULL_POINTER_STATE_CYBOI_MODEL;
+            cms = NULL_POINTER_STATE_CYBOI_MODEL;
+            cd = NULL_POINTER_STATE_CYBOI_MODEL;
+            cdc = NULL_POINTER_STATE_CYBOI_MODEL;
+            cds = NULL_POINTER_STATE_CYBOI_MODEL;
             // Reset source part position.
-            pa = NULL_POINTER_MEMORY_MODEL;
-            pac = NULL_POINTER_MEMORY_MODEL;
-            pas = NULL_POINTER_MEMORY_MODEL;
-            pm = NULL_POINTER_MEMORY_MODEL;
-            pmc = NULL_POINTER_MEMORY_MODEL;
-            pms = NULL_POINTER_MEMORY_MODEL;
-            pd = NULL_POINTER_MEMORY_MODEL;
-            pdc = NULL_POINTER_MEMORY_MODEL;
-            pds = NULL_POINTER_MEMORY_MODEL;
+            pa = NULL_POINTER_STATE_CYBOI_MODEL;
+            pac = NULL_POINTER_STATE_CYBOI_MODEL;
+            pas = NULL_POINTER_STATE_CYBOI_MODEL;
+            pm = NULL_POINTER_STATE_CYBOI_MODEL;
+            pmc = NULL_POINTER_STATE_CYBOI_MODEL;
+            pms = NULL_POINTER_STATE_CYBOI_MODEL;
+            pd = NULL_POINTER_STATE_CYBOI_MODEL;
+            pdc = NULL_POINTER_STATE_CYBOI_MODEL;
+            pds = NULL_POINTER_STATE_CYBOI_MODEL;
             // Reset source part size.
-            sa = NULL_POINTER_MEMORY_MODEL;
-            sac = NULL_POINTER_MEMORY_MODEL;
-            sas = NULL_POINTER_MEMORY_MODEL;
-            sm = NULL_POINTER_MEMORY_MODEL;
-            smc = NULL_POINTER_MEMORY_MODEL;
-            sms = NULL_POINTER_MEMORY_MODEL;
-            sd = NULL_POINTER_MEMORY_MODEL;
-            sdc = NULL_POINTER_MEMORY_MODEL;
-            sds = NULL_POINTER_MEMORY_MODEL;
+            sa = NULL_POINTER_STATE_CYBOI_MODEL;
+            sac = NULL_POINTER_STATE_CYBOI_MODEL;
+            sas = NULL_POINTER_STATE_CYBOI_MODEL;
+            sm = NULL_POINTER_STATE_CYBOI_MODEL;
+            smc = NULL_POINTER_STATE_CYBOI_MODEL;
+            sms = NULL_POINTER_STATE_CYBOI_MODEL;
+            sd = NULL_POINTER_STATE_CYBOI_MODEL;
+            sdc = NULL_POINTER_STATE_CYBOI_MODEL;
+            sds = NULL_POINTER_STATE_CYBOI_MODEL;
             // The source part title and icon are not reset,
             // since only one window may be the root of all graphical parts
             // and further windows must not occur as part.
 
             // Reset source part position coordinates.
-            pmx = (int*) *NULL_POINTER_MEMORY_MODEL;
-            pmy = (int*) *NULL_POINTER_MEMORY_MODEL;
-            pmz = (int*) *NULL_POINTER_MEMORY_MODEL;
+            pmx = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+            pmy = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+            pmz = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
             // Reset source part size coordinates.
-            smx = (int*) *NULL_POINTER_MEMORY_MODEL;
-            smy = (int*) *NULL_POINTER_MEMORY_MODEL;
-            smz = (int*) *NULL_POINTER_MEMORY_MODEL;
+            smx = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+            smy = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+            smz = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Reset terminated title.
-            tt = *NULL_POINTER_MEMORY_MODEL;
-//??            ttc = *NULL_POINTER_MEMORY_MODEL;
-            tts = *NULL_POINTER_MEMORY_MODEL;
+            tt = *NULL_POINTER_STATE_CYBOI_MODEL;
+//??            ttc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            tts = *NULL_POINTER_STATE_CYBOI_MODEL;
             // Reset terminated icon name.
-            ti = *NULL_POINTER_MEMORY_MODEL;
-//??            tic = *NULL_POINTER_MEMORY_MODEL;
-            tis = *NULL_POINTER_MEMORY_MODEL;
+            ti = *NULL_POINTER_STATE_CYBOI_MODEL;
+//??            tic = *NULL_POINTER_STATE_CYBOI_MODEL;
+            tis = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Reset comparison result.
-            r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Increment loop count.
             j++;
@@ -714,7 +714,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode x window system. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode x window system. The source count is null.");
     }
 }
 

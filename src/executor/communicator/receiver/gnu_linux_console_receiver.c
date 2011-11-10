@@ -32,14 +32,14 @@
 #include <wchar.h>
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/communicator/receiver/gnu_linux_console_receiver.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../executor/converter/decoder/utf_8_unicode_character_decoder.c"
@@ -62,27 +62,27 @@
  */
 void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         FILE* s = (FILE*) p7;
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* csi = (int*) p6;
 
-            if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* esc = (int*) p5;
 
-                if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     wint_t* c = (wint_t*) p4;
 
-                    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+                    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         int* b = (int*) p3;
 
-                        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Receive gnu/linux console character.");
+                        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive gnu/linux console character.");
 
                         // Initialise error number.
                         // It is a global variable/ function and other operations
@@ -90,7 +90,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                         //
                         // CAUTION! Initialise the error number BEFORE calling
                         // the function that might cause an error.
-                        errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                         // Lock gnu/linux console mutex.
                         pthread_mutex_lock(p8);
@@ -107,24 +107,24 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
 
                         if (errno != EILSEQ) {
 
-                            if (*csi == *NUMBER_1_INTEGER_MEMORY_MODEL) {
+                            if (*csi == *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
 
                                 // Reset escape control sequence flag.
-                                *csi = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                *csi = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                                 // Set loop break flag.
                                 // An escape character followed by a left square bracket character
                                 // were received before. So this is an escape control sequence.
                                 // Since all values have been received, the loop can be left now.
-                                *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-                            } else if (*esc == *NUMBER_1_INTEGER_MEMORY_MODEL) {
+                            } else if (*esc == *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
 
                                 // Reset escape character flag.
-                                *esc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                                *esc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                                 // An escape character was received before.
 
@@ -134,10 +134,10 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                     // which means that this is the start of an escape control sequence.
 
                                     // Set escape control sequence flag.
-                                    *csi = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                    *csi = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                     // Copy source character to destination character array.
-                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                                 } else {
 
@@ -155,16 +155,16 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                     pthread_mutex_unlock(p8);
 
                                     // Set loop break flag.
-                                    *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                    *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                                 }
 
                             } else if (*c == *((wint_t*) ESCAPE_CONTROL_UNICODE_CHARACTER_CODE_MODEL)) {
 
                                 // Set escape character flag.
-                                *esc = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                *esc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                             } else if (*c == WEOF) {
 
@@ -173,48 +173,48 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                 // However, to be on the safe side, they are filtered out here once more.
 
                                 // Set loop break flag.
-                                *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                             } else {
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 
                                 // Set loop break flag.
-                                *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                             }
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from gnu/linux console. The character reading failed.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from gnu/linux console. The character reading failed.");
 
                             // Set loop break flag.
-                            *b = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                            *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive gnu/linux console character. The loop break flag is null.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The loop break flag is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive gnu/linux console character. The input character is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The input character is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive gnu/linux console character. The escape character mode is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The escape character mode is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive gnu/linux console character. The escape control sequence is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The escape control sequence is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive gnu/linux console character. The source input stream is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The source input stream is null.");
     }
 }
 
@@ -229,20 +229,20 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
  */
 void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Receive gnu/linux console.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive gnu/linux console.");
 
     // The loop break flag.
-    int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input character.
     wint_t c = *((wint_t*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL);
     // The escape character mode.
-    int esc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int esc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The escape control sequence mode.
-    int csi = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int csi = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             break;
         }
@@ -277,12 +277,12 @@ void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
     void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply receive gnu/linux console.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive gnu/linux console.");
 
     // The character array read from the gnu/linux console.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
-    int ac = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int as = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate character array.
     allocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
@@ -294,7 +294,7 @@ void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Function calls to "decode_utf_8_unicode_character_vector" are therefore NOT necessary here!
 
     // Decode character array into command.
-    decode(p6, p7, p8, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, a, (void*) &ac, p15, p16, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
+    decode(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, a, (void*) &ac, p15, p16, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
 
     // Deallocate character array.
     deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);

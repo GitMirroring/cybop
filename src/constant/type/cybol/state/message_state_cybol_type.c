@@ -27,7 +27,7 @@
 #define MESSAGE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -58,7 +58,7 @@
  */
 static wchar_t HTTP_MESSAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p'};
 static wchar_t* HTTP_MESSAGE_STATE_CYBOL_TYPE = HTTP_MESSAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* HTTP_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static int* HTTP_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/http-request cybol type.
@@ -68,7 +68,7 @@ static int* HTTP_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL
  */
 static wchar_t HTTP_REQUEST_MESSAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p', L'-', L'r', L'e', L'q', L'u', L'e', L's', L't'};
 static wchar_t* HTTP_REQUEST_MESSAGE_STATE_CYBOL_TYPE = HTTP_REQUEST_MESSAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* HTTP_REQUEST_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_MEMORY_MODEL_ARRAY;
+static int* HTTP_REQUEST_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/http-response cybol type.
@@ -78,14 +78,14 @@ static int* HTTP_REQUEST_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_MEMO
  */
 static wchar_t HTTP_RESPONSE_MESSAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p', L'-', L'r', L'e', L's', L'p', L'o', L'n', L's', L'e'};
 static wchar_t* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_TYPE = HTTP_RESPONSE_MESSAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_21_INTEGER_MEMORY_MODEL_ARRAY;
+static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/news cybol type.
  */
 static wchar_t NEWS_MESSAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'n', L'e', L'w', L's'};
 static wchar_t* NEWS_MESSAGE_STATE_CYBOL_TYPE = NEWS_MESSAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* NEWS_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static int* NEWS_MESSAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MESSAGE_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

@@ -26,13 +26,13 @@
 #ifndef SEPARATOR_INTEGER_CYBOL_ENCODER_SOURCE
 #define SEPARATOR_INTEGER_CYBOL_ENCODER_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/cybol/boolean_cybol_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/memory/primitive_memory_name.c"
 #include "../../../../logger/logger.c"
 #include "../../../../executor/memoriser/allocator.c"
@@ -46,18 +46,18 @@
  */
 void encode_cybol_integer_separator(void* p0, void* p1) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode cybol integer separator.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol integer separator.");
 
     // The index flag.
-    int f = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Test if this is NOT the first value.
-    compare_integer_unequal((void*) &f, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+    compare_integer_unequal((void*) &f, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    if (f != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Append comma prefix if this is NOT the first value.
-        append_item_element(p0, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        append_item_element(p0, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     }
 }
 

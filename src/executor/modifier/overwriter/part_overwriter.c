@@ -28,11 +28,11 @@
 
 #include "../../../constant/type/cybol/number_cybol_type.c"
 #include "../../../constant/type/cybol/path_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/separator_cybol_name.c"
 #include "../../../constant/name/memory/item_memory_name.c"
 #include "../../../constant/name/memory/part_memory_name.c"
@@ -60,13 +60,13 @@
  */
 void overwrite_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Overwrite part element.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite part element.");
 
     // The destination part element.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part element.
-    copy_array_forward((void*) &e, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p7);
+    copy_array_forward((void*) &e, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p7);
 
     // Overwrite item as element of the part container.
     overwrite_item_element(e, p1, p2, p3, p4, p5, p6, (void*) DATA_ITEM_MEMORY_NAME);
@@ -88,17 +88,17 @@ void overwrite_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, vo
  */
 void overwrite_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Overwrite part.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite part.");
 
     // The destination model.
-    void* dm = *NULL_POINTER_MEMORY_MODEL;
+    void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source model.
-    void* sm = *NULL_POINTER_MEMORY_MODEL;
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination model.
-    copy_array_forward((void*) &dm, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &dm, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get source model.
-    copy_array_forward((void*) &sm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Overwrite destination- with source part model item.
     overwrite_item(dm, sm, p2, p3, p4, p5, p6);
@@ -121,48 +121,48 @@ void overwrite_part_all(void* p0, void* p1) {
     //?? Figure out how to solve the problem that destination child parts yet have to be allocated
     //?? and where to do this AND where to create the destination part itself!
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Overwrite part all.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite part all.");
 
     // The destination name, type, model, properties.
-    void* dn = *NULL_POINTER_MEMORY_MODEL;
-    void* da = *NULL_POINTER_MEMORY_MODEL;
-    void* dm = *NULL_POINTER_MEMORY_MODEL;
-    void* dd = *NULL_POINTER_MEMORY_MODEL;
+    void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* da = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source name, type, model, properties.
-    void* sn = *NULL_POINTER_MEMORY_MODEL;
-    void* sa = *NULL_POINTER_MEMORY_MODEL;
-    void* sm = *NULL_POINTER_MEMORY_MODEL;
-    void* sd = *NULL_POINTER_MEMORY_MODEL;
+    void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sa = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part elements data, count.
-    void* snc = *NULL_POINTER_MEMORY_MODEL;
-    void* sad = *NULL_POINTER_MEMORY_MODEL;
-    void* sac = *NULL_POINTER_MEMORY_MODEL;
-    void* smc = *NULL_POINTER_MEMORY_MODEL;
-    void* sdc = *NULL_POINTER_MEMORY_MODEL;
+    void* snc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sac = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sdc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source name, type, model, properties.
-    copy_array_forward((void*) &sn, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    copy_array_forward((void*) &sa, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    copy_array_forward((void*) &sm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &sd, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sn, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sa, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sd, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
     // Get source item data, count.
-    copy_array_forward((void*) &snc, sn, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &sad, sa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &sac, sa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &smc, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &sdc, sd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &snc, sn, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &sad, sa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &sac, sa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &smc, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &sdc, sd, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // Allocate destination part.
     // CAUTION! Use source part type for allocation!
-    allocate_part(p0, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, sad);
+    allocate_part(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sad);
 
     // Get destination name, type, model, properties.
     // CAUTION! These items can only be retrieved AFTER
     // having created the destination part above.
-    copy_array_forward((void*) &dn, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    copy_array_forward((void*) &da, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    copy_array_forward((void*) &dm, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &dd, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    copy_array_forward((void*) &dn, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &da, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &dm, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &dd, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
     // Overwrite destination- with source part model item.
     overwrite_item(dn, sn, (void*) WIDE_CHARACTER_MEMORY_TYPE, snc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);

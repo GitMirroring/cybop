@@ -26,7 +26,7 @@
 #ifndef HTTP_REQUEST_ENCODER_SOURCE
 #define HTTP_REQUEST_ENCODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -75,7 +75,7 @@
  */
 void encode_http_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode http request.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode http request.");
 }
 
 /* HTTP_REQUEST_ENCODER_SOURCE */

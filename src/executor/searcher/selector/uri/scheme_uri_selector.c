@@ -26,10 +26,10 @@
 #ifndef SCHEME_URI_SELECTOR_SOURCE
 #define SCHEME_URI_SELECTOR_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/uri/cyboi_uri_name.c"
 #include "../../../../constant/name/uri/separator_uri_name.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
@@ -48,14 +48,14 @@
  */
 void select_uri_scheme(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select uri scheme.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select uri scheme.");
 
     //
     // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
     //
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // This detection of (colon, solidus, solidus) is necessary,
     // in order to move the position pointer to the beginning of
@@ -63,14 +63,14 @@ void select_uri_scheme(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // All functions processing the authority afterwards do
     // expect it WITHOUT double slash at the beginning.
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -79,20 +79,20 @@ void select_uri_scheme(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The scheme "file", for example, may be given without authority,
     // but with path.
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) SCHEME_END_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) SCHEME_END_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) SCHEME_END_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) SCHEME_END_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

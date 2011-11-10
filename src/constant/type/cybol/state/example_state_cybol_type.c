@@ -27,7 +27,7 @@
 #define EXAMPLE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -58,7 +58,7 @@
  */
 static wchar_t EXAMPLE_STATE_CYBOL_TYPE_ARRAY[] = {L'e', L'x', L'a', L'm', L'p', L'l', L'e'};
 static wchar_t* EXAMPLE_STATE_CYBOL_TYPE = EXAMPLE_STATE_CYBOL_TYPE_ARRAY;
-static int* EXAMPLE_STATE_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+static int* EXAMPLE_STATE_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* EXAMPLE_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

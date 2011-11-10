@@ -38,19 +38,19 @@ void test_constant_float() {
 
     log_write_terminated_message((void*) stdout, L"Test float constants:\n");
 
-    fwprintf(stdout, L"Test base of natural logarithms: %f\n", *E_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test logarithm to base 2 of M_E: %f\n", *LOG_2_E_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test logarithm to base 10 of M_E: %f\n", *LOG_10_E_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test natural logarithm of 2: %f\n", *LN_2_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test natural logarithm of 10: %f\n", *LN_10_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test ratio of a circle's circumference to its diameter, called pi: %f\n", *PI_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test pi divided by 2: %f\n", *PI_DIVIDED_BY_2_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test pi divided by 4: %f\n", *PI_DIVIDED_BY_4_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test reciprocal of pi (1/pi): %f\n", *RECIPROCAL_OF_PI_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test two times the reciprocal of pi: %f\n", *TWO_TIMES_THE_RECIPROCAL_OF_PI_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test two times the reciprocal of the square root of pi: %f\n", *TWO_TIMES_THE_RECIPROCAL_OF_THE_SQUARE_ROOT_OF_PI_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test square root of 2: %f\n", *SQUARE_ROOT_OF_2_DOUBLE_MEMORY_MODEL);
-    fwprintf(stdout, L"Test reciprocal of the square root of 2: %f\n", *RECIPROCAL_OF_THE_SQUARE_ROOT_OF_2_DOUBLE_MEMORY_MODEL);
+    fwprintf(stdout, L"Test base of natural logarithms: %f\n", *E_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test logarithm to base 2 of M_E: %f\n", *LOG_2_E_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test logarithm to base 10 of M_E: %f\n", *LOG_10_E_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test natural logarithm of 2: %f\n", *LN_2_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test natural logarithm of 10: %f\n", *LN_10_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test ratio of a circle's circumference to its diameter, called pi: %f\n", *PI_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test pi divided by 2: %f\n", *PI_DIVIDED_BY_2_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test pi divided by 4: %f\n", *PI_DIVIDED_BY_4_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test reciprocal of pi (1/pi): %f\n", *RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test two times the reciprocal of pi: %f\n", *TWO_TIMES_THE_RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test two times the reciprocal of the square root of pi: %f\n", *TWO_TIMES_THE_RECIPROCAL_OF_THE_SQUARE_ROOT_OF_PI_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test square root of 2: %f\n", *SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test reciprocal of the square root of 2: %f\n", *RECIPROCAL_OF_THE_SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL);
 }
 
 /**
@@ -61,7 +61,7 @@ void test_constant_float() {
  */
 void test_constant() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test constant usage.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test constant usage.");
 
 //    test_constant_float();
 }

@@ -26,9 +26,9 @@
 #ifndef ACCESSOR_TESTER
 #define ACCESSOR_TESTER
 
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/memory/integer_memory_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../executor/memoriser/size_determiner.c"
 #include "../../logger/logger.c"
 
@@ -37,20 +37,20 @@
  */
 void test_accessor_size_determiner() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test accessor size determiner.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test accessor size determiner.");
 
     // The character type (type) size.
-    int cs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int cs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The double type (type) size.
-    int ds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The integer type (type) size.
-    int is = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int is = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The pointer type (type) size.
-    int ps = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int ps = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The unsigned long type (type) size.
-    int uls = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int uls = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The wide character type (type) size.
-    int wcs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int wcs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Determine size.
     determine_size((void*) &cs, (void*) CHARACTER_MEMORY_TYPE);
@@ -79,7 +79,7 @@ void test_accessor_assigner() {
     double v = 3.5;
 
     fwprintf(stdout, L"Double before assigner: %f\n", d);
-//??    assign((void*) &d, (void*) &v, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) DOUBLE_MEMORY_TYPE);
+//??    assign((void*) &d, (void*) &v, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_MEMORY_TYPE);
     fwprintf(stdout, L"Double after assigner: %f\n", d);
 }
 
@@ -88,14 +88,14 @@ void test_accessor_assigner() {
  */
 void test_accessor_array_setter() {
 
-    void* d = *NULL_POINTER_MEMORY_MODEL;
-    int ds = *NUMBER_100_INTEGER_MEMORY_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ds = *NUMBER_100_INTEGER_STATE_CYBOI_MODEL;
     wchar_t* s1 = L"Huhu scheene Welt, lass' mal sehen!";
-    int s1c = *NUMBER_35_INTEGER_MEMORY_MODEL;
-    int i1 = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int s1c = *NUMBER_35_INTEGER_STATE_CYBOI_MODEL;
+    int i1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     wchar_t* s2 = L"Erde";
-    int s2c = *NUMBER_4_INTEGER_MEMORY_MODEL;
-    int i2 = *NUMBER_13_INTEGER_MEMORY_MODEL;
+    int s2c = *NUMBER_4_INTEGER_STATE_CYBOI_MODEL;
+    int i2 = *NUMBER_13_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination array.
     allocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -125,7 +125,7 @@ void test_accessor_array_setter() {
  */
 void test_accessor() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test accessor.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test accessor.");
 
 //    test_accessor_size_determiner();
 //    test_accessor_assigner();

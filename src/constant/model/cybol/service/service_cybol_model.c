@@ -28,42 +28,42 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The cybernetics oriented interpreter (cyboi) service cybol model. */
 static wchar_t CYBOI_SERVICE_CYBOL_MODEL_ARRAY[] = {L'c', L'y', L'b', L'o', L'i'};
 static wchar_t* CYBOI_SERVICE_CYBOL_MODEL = CYBOI_SERVICE_CYBOL_MODEL_ARRAY;
-static int* CYBOI_SERVICE_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* CYBOI_SERVICE_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The shell service cybol model. */
 static wchar_t SHELL_SERVICE_CYBOL_MODEL_ARRAY[] = {L's', L'h', L'e', L'l', L'l'};
 static wchar_t* SHELL_SERVICE_CYBOL_MODEL = SHELL_SERVICE_CYBOL_MODEL_ARRAY;
-static int* SHELL_SERVICE_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SHELL_SERVICE_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The signal service cybol model. */
 static wchar_t SIGNAL_SERVICE_CYBOL_MODEL_ARRAY[] = {L's', L'i', L'g', L'n', L'a', L'l'};
 static wchar_t* SIGNAL_SERVICE_CYBOL_MODEL = SIGNAL_SERVICE_CYBOL_MODEL_ARRAY;
-static int* SIGNAL_SERVICE_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SIGNAL_SERVICE_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The standard output service cybol model. */
 static wchar_t STANDARD_OUTPUT_SERVICE_CYBOL_MODEL_ARRAY[] = {L's', L't', L'a', L'n', L'd', L'a', L'r', L'd', L'_', L'o', L'u', L't', L'p', L'u', L't'};
 static wchar_t* STANDARD_OUTPUT_SERVICE_CYBOL_MODEL = STANDARD_OUTPUT_SERVICE_CYBOL_MODEL_ARRAY;
-static int* STANDARD_OUTPUT_SERVICE_CYBOL_MODEL_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static int* STANDARD_OUTPUT_SERVICE_CYBOL_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The terminal service cybol model. */
 static wchar_t TERMINAL_SERVICE_CYBOL_MODEL_ARRAY[] = {L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l'};
 static wchar_t* TERMINAL_SERVICE_CYBOL_MODEL = TERMINAL_SERVICE_CYBOL_MODEL_ARRAY;
-static int* TERMINAL_SERVICE_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
+static int* TERMINAL_SERVICE_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The world wide web (www) service cybol model. */
 static wchar_t WWW_SERVICE_CYBOL_MODEL_ARRAY[] = {L'w', L'w', L'w'};
 static wchar_t* WWW_SERVICE_CYBOL_MODEL = WWW_SERVICE_CYBOL_MODEL_ARRAY;
-static int* WWW_SERVICE_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+static int* WWW_SERVICE_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The x window system service cybol model. */
 static wchar_t X_WINDOW_SYSTEM_SERVICE_CYBOL_MODEL_ARRAY[] = {L'x', L'_', L'w', L'i', L'n', L'd', L'o', L'w', L'_', L's', L'y', L's', L't', L'e', L'm'};
 static wchar_t* X_WINDOW_SYSTEM_SERVICE_CYBOL_MODEL = X_WINDOW_SYSTEM_SERVICE_CYBOL_MODEL_ARRAY;
-static int* X_WINDOW_SYSTEM_SERVICE_CYBOL_MODEL_COUNT = NUMBER_15_INTEGER_MEMORY_MODEL_ARRAY;
+static int* X_WINDOW_SYSTEM_SERVICE_CYBOL_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SERVICE_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

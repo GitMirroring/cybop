@@ -26,9 +26,9 @@
 #ifndef OPENGL_STARTER_SOURCE
 #define OPENGL_STARTER_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/memoriser/allocator.c"
 #include "../../../logger/logger.c"
@@ -40,7 +40,7 @@
  */
 void startup_opengl(void* p0) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Startup opengl.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup opengl.");
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 

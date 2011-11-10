@@ -26,9 +26,9 @@
 #ifndef LOG_GLOBALISER_SOURCE
 #define LOG_GLOBALISER_SOURCE
 
-#include "../../constant/model/log/level_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/log_setting.c"
 
@@ -39,11 +39,11 @@ void globalise_log() {
 
     // Allocate and initialise log level.
     LOG_LEVEL = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *LOG_LEVEL = *OFF_LEVEL_LOG_MODEL;
+    *LOG_LEVEL = *OFF_LEVEL_LOG_CYBOI_MODEL;
 
     // Allocate and initialise log message count.
     LOG_MESSAGE_COUNT = (signed short int*) malloc(*SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-    *LOG_MESSAGE_COUNT = *NUMBER_10000_INTEGER_MEMORY_MODEL;
+    *LOG_MESSAGE_COUNT = *NUMBER_10000_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate log message.
     LOG_MESSAGE = (wchar_t*) malloc(*LOG_MESSAGE_COUNT);
@@ -59,7 +59,7 @@ void globalise_log() {
     //
     // Hence, the following line would not make sense and is FORBIDDEN:
     // LOG_OUTPUT = (FILE*) malloc(sizeof(FILE));
-    LOG_OUTPUT = *NULL_POINTER_MEMORY_MODEL;
+    LOG_OUTPUT = *NULL_POINTER_STATE_CYBOI_MODEL;
 }
 
 /* LOG_GLOBALISER_SOURCE */

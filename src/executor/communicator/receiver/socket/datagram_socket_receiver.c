@@ -29,11 +29,11 @@
 #include <sys/socket.h>
 #include <errno.h>
 #include <stdio.h>
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 
@@ -49,23 +49,23 @@
  */
 void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* os = (int*) p5;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* bs = (int*) p2;
 
-            if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* bc = (int*) p1;
 
-                if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     void** b = (void**) p0;
 
-                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Receive from datagram socket.");
+                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive from datagram socket.");
 
                     // Initialise error number.
                     // It is a global variable/ function and other operations
@@ -73,7 +73,7 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
                     //
                     // CAUTION! Initialise the error number BEFORE calling the procedure
                     // that might cause an error.
-                    errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                     // Sense message from client.
                     // If the flags argument (fourth one) is zero, then one can
@@ -82,46 +82,46 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
                     // ?? Not so here, as the socket was set to "non-blocking" mode at startup. ??
                     //
                     // CAUTION! A message MUST NOT be longer than the given buffer size!
-                    *bc = recvfrom(*os, *b, *bs, *NUMBER_0_INTEGER_MEMORY_MODEL, (struct sockaddr*) p3, (socklen_t*) p4);
+                    *bc = recvfrom(*os, *b, *bs, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (struct sockaddr*) p3, (socklen_t*) p4);
 
-                    if (*bc > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (*bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Successfully received from datagram socket.");
+                        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received from datagram socket.");
 
                         fwprintf(stdout, L"TEST b: %s \n", (char*) *b);
                         fwprintf(stdout, L"TEST bc: %i \n", *bc);
                         fwprintf(stdout, L"TEST bs: %i \n", *bs);
 
-                    } else if (*bc == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    } else if (*bc == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. No data could be sensed.");
+                        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. No data could be sensed.");
 
                     } else {
 
                         if (errno == EBADF) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. The socket argument is not a valid file descriptor.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The socket argument is not a valid file descriptor.");
 
                         } else if (errno == ENOTSOCK) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. The descriptor socket is not a socket.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The descriptor socket is not a socket.");
 
                         } else if (errno == EWOULDBLOCK) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. The receive operation would block even though nonblocking mode has been set on the socket.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The receive operation would block even though nonblocking mode has been set on the socket.");
 
                         } else if (errno == EINTR) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. The operation was interrupted by a signal before any data was receive.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The operation was interrupted by a signal before any data was receive.");
 
                         } else if (errno == ENOTCONN) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. The socket was never connected.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The socket was never connected.");
 
                         } else {
 
                             // CAUTION! Do NOT log the following error:
-                            // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense stream socket message. An unknown error occured while receiving data.");
+                            // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense stream socket message. An unknown error occured while receiving data.");
                             //
                             // The reason is that the socket is non-blocking,
                             // so that the "accept" procedure returns always,
@@ -134,22 +134,22 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. The buffer is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The buffer is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. The buffer count is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The buffer count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. The buffer size is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The buffer size is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive from datagram socket. The original socket of this system is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The original socket of this system is null.");
     }
 }
 

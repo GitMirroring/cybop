@@ -26,22 +26,22 @@
 #ifndef LEVEL_LOG_CYBOI_MODEL_CONSTANT_SOURCE
 #define LEVEL_LOG_CYBOI_MODEL_CONSTANT_SOURCE
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The off level log cyboi model. */
-static int* OFF_LEVEL_LOG_CYBOI_MODEL = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+static int* OFF_LEVEL_LOG_CYBOI_MODEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The error level log cyboi model. */
-static int* ERROR_LEVEL_LOG_CYBOI_MODEL = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ERROR_LEVEL_LOG_CYBOI_MODEL = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The warning level log cyboi model. */
-static int* WARNING_LEVEL_LOG_CYBOI_MODEL = NUMBER_2_INTEGER_MEMORY_MODEL_ARRAY;
+static int* WARNING_LEVEL_LOG_CYBOI_MODEL = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The info level log cyboi model. */
-static int* INFORMATION_LEVEL_LOG_CYBOI_MODEL = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+static int* INFORMATION_LEVEL_LOG_CYBOI_MODEL = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The debug level log cyboi model. */
-static int* DEBUG_LEVEL_LOG_CYBOI_MODEL = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DEBUG_LEVEL_LOG_CYBOI_MODEL = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LEVEL_LOG_CYBOI_MODEL_CONSTANT_SOURCE */
 #endif

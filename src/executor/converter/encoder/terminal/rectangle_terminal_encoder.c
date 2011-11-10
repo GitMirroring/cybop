@@ -35,9 +35,9 @@
 #include <wchar.h>
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -45,10 +45,10 @@
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
 #include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
@@ -90,33 +90,33 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13,
     void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
 
-    if (p19 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p19 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sz = (int*) p19;
 
-        if (p18 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p18 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* sy = (int*) p18;
 
-            if (p17 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p17 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* sx = (int*) p17;
 
-                if (p16 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p16 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     int* pz = (int*) p16;
 
-                    if (p15 != *NULL_POINTER_MEMORY_MODEL) {
+                    if (p15 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         int* py = (int*) p15;
 
-                        if (p14 != *NULL_POINTER_MEMORY_MODEL) {
+                        if (p14 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                             int* px = (int*) p14;
 
                             int* cc = (int*) p4;
 
-                            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal rectangle.");
+                            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal rectangle.");
 
                             // The horizontal character.
                             wchar_t hc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
@@ -149,36 +149,36 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                             int xl = *px + *sx;
 
                             // The character index.
-                            int ci = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                            int ci = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                             // The character.
                             void* c = (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
-                            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                            while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                                 if (z >= zl) {
 
                                     break;
                                 }
 
-                                while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                                while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                                     if (y >= yl) {
 
                                         break;
                                     }
 
-                                    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                                    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                                         if (x >= xl) {
 
                                             break;
                                         }
 
-                                        if (p20 == *NULL_POINTER_MEMORY_MODEL) {
+                                        if (p20 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                                             // A border is NOT given.
 
-                                            if (cc != *NULL_POINTER_MEMORY_MODEL) {
+                                            if (cc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                                                 // Calculate character index.
                                                 ci = x - *px;
@@ -194,7 +194,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
 
                                             } else {
 
-                                                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
+                                                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
                                             }
 
                                         } else {
@@ -208,7 +208,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                                                     // Encode left top border character using escape codes.
                                                     encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &ltc);
 
-                                                } else if (x == (xl - *NUMBER_1_INTEGER_MEMORY_MODEL)) {
+                                                } else if (x == (xl - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL)) {
 
                                                     // Encode right top border character using escape codes.
                                                     encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rtc);
@@ -219,14 +219,14 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                                                     encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &hc);
                                                 }
 
-                                            } else if (y == (yl - *NUMBER_1_INTEGER_MEMORY_MODEL)) {
+                                            } else if (y == (yl - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL)) {
 
                                                 if (x == *px) {
 
                                                     // Encode left bottom border character using escape codes.
                                                     encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &lbc);
 
-                                                } else if (x == (xl - *NUMBER_1_INTEGER_MEMORY_MODEL)) {
+                                                } else if (x == (xl - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL)) {
 
                                                     // Encode right bottom border character using escape codes.
                                                     encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rbc);
@@ -244,18 +244,18 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                                                     // Encode left bottom border character using escape codes.
                                                     encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
 
-                                                } else if (x == (xl - *NUMBER_1_INTEGER_MEMORY_MODEL)) {
+                                                } else if (x == (xl - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL)) {
 
                                                     // Encode right bottom border character using escape codes.
                                                     encode_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
 
                                                 } else {
 
-                                                    if (cc != *NULL_POINTER_MEMORY_MODEL) {
+                                                    if (cc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                                                         // Calculate character index.
                                                         // CAUTION! Subtract one because of the left border.
-                                                        ci = x - *px - *NUMBER_1_INTEGER_MEMORY_MODEL;
+                                                        ci = x - *px - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                                         if (ci < *cc) {
 
@@ -265,7 +265,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
 
                                                     } else {
 
-                                                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
+                                                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
                                                     }
 
                                                     // Encode character using escape codes.
@@ -297,32 +297,32 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
     }
 }
 

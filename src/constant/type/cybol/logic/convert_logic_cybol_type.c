@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -63,7 +63,7 @@
  */
 static wchar_t DECODE_CONVERT_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'n', L'v', L'e', L'r', L't', L'/', L'd', L'e', L'c', L'o', L'd', L'e'};
 static wchar_t* DECODE_CONVERT_LOGIC_CYBOL_TYPE = DECODE_CONVERT_LOGIC_CYBOL_TYPE_ARRAY;
-static int* DECODE_CONVERT_LOGIC_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DECODE_CONVERT_LOGIC_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The convert/encode cybol type.
@@ -74,7 +74,7 @@ static int* DECODE_CONVERT_LOGIC_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_MEMORY_MOD
  */
 static wchar_t ENCODE_CONVERT_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'n', L'v', L'e', L'r', L't', L'/', L'e', L'n', L'c', L'o', L'd', L'e'};
 static wchar_t* ENCODE_CONVERT_LOGIC_CYBOL_TYPE = ENCODE_CONVERT_LOGIC_CYBOL_TYPE_ARRAY;
-static int* ENCODE_CONVERT_LOGIC_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ENCODE_CONVERT_LOGIC_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CONVERT_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

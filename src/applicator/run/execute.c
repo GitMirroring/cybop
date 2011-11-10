@@ -32,9 +32,9 @@
 #include <sys/wait.h>
 
 #include "../../constant/model/command/unix_command_model.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/command_option/unix/shell_unix_command_option_name.c"
 #include "../../executor/converter/decoder/utf_8_unicode_character_decoder.c"
 #include "../../logger/logger.c"
@@ -47,7 +47,7 @@
  */
 void apply_execute(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply execute.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply execute.");
 
     //?? TODO: Figure out if assembling a shell command line is necessary at all!
     //?? The "system" function call further below does search programmes internally
@@ -55,9 +55,9 @@ void apply_execute(void* p0, void* p1) {
     //?? Therefore, the prefix "sh" and the rest assembled below may be superfluous.
 
     // The shell command line.
-    void* cl = *NULL_POINTER_MEMORY_MODEL;
-    int clc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int cls = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int clc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int cls = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate shell command line.
     allocate_array((void*) &cl, (void*) &cls, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -65,15 +65,15 @@ void apply_execute(void* p0, void* p1) {
     // Append shell command.
     overwrite_array((void*) &cl, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
     // Append shell command.
-    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
     overwrite_array((void*) &cl, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
     // Append user command.
-    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
     overwrite_array((void*) &cl, p0, (void*) WIDE_CHARACTER_MEMORY_TYPE, p1, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
     // Append null character as string termination.
-    overwrite_array((void*) &cl, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &clc, (void*) &cls);
 
 /*??
     fwprintf(stdout, L"TEST dir: %ls\n", (wchar_t*) cl);
@@ -81,9 +81,9 @@ void apply_execute(void* p0, void* p1) {
 */
 
     // The encoded shell command line.
-    void* ecl = *NULL_POINTER_MEMORY_MODEL;
-    int eclc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int ecls = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* ecl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int eclc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ecls = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate encoded shell command line.
     allocate((void*) &ecl, (void*) &ecls, (void*) CHARACTER_MEMORY_TYPE);
@@ -97,7 +97,7 @@ void apply_execute(void* p0, void* p1) {
     // Initialise error number.
     // It is a global variable/ function and other operations
     // may have set some value that is not wanted here.
-    errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Run a command/ program as shell command in an own process.
     //
@@ -115,30 +115,30 @@ void apply_execute(void* p0, void* p1) {
     // This is just because the "system" function call expects an ASCII string.
     int r = system(ecl);
 
-    if (r == *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not execute command/ program as process. A negative value was returned.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command/ program as process. A negative value was returned.");
 
         if (errno == EINTR) {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"The function was interrupted by delivery of a signal to the calling process.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"The function was interrupted by delivery of a signal to the calling process.");
 
         } else if (errno == ECHILD) {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"There are no child processes to wait for, or the specified pid is not a child of the calling process.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"There are no child processes to wait for, or the specified pid is not a child of the calling process.");
 
         } else if (errno == EINVAL) {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"An invalid value was provided for the options argument.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"An invalid value was provided for the options argument.");
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"An unknown error occured.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"An unknown error occured.");
         }
 
     } else {
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Successfully executed command/ program as process. The child process was left; the parent process continues.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully executed command/ program as process. The child process was left; the parent process continues.");
     }
 
     // Deallocate encoded shell command line.
@@ -164,7 +164,7 @@ void apply_execute(void* p0, void* p1) {
 
     fwprintf(stdout, L"TEST post-fork pid: %i\n", pid);
 
-    if (pid == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (pid == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
     fwprintf(stdout, L"TEST pid == 0 pid: %i\n", pid);
 
@@ -217,7 +217,7 @@ void apply_execute(void* p0, void* p1) {
         fwprintf(stdout, L"TEST args 1: %s\n", *(args + 1));
         fwprintf(stdout, L"TEST args 2: %s\n", *(args + 2));
         fwprintf(stdout, L"TEST args 3: %s\n", *(args + 3));
-        if (*(args + 3) == *NULL_POINTER_MEMORY_MODEL) {
+        if (*(args + 3) == *NULL_POINTER_STATE_CYBOI_MODEL) {
             fwprintf(stdout, L"TEST args 3 IS null pointer: %i\n", *(args + 3));
         } else {
             fwprintf(stdout, L"TEST args 3 is NOT null pointer: %i\n", *(args + 3));
@@ -228,7 +228,7 @@ void apply_execute(void* p0, void* p1) {
         // Initialise error number.
         // It is a global variable/ function and other operations
         // may have set some value that is not wanted here.
-        errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Execute file (given as first parameter) as new process image.
         //
@@ -254,14 +254,14 @@ void apply_execute(void* p0, void* p1) {
         // A null pointer must be passed as the last such argument, to indicate the end!
         //
         // Example:
-        // execl(SHELL_SYSTEM_EXECUTABLE, SHELL_SYSTEM_EXECUTABLE, "-c", ARCHIVE_UNIX_SHELL_COMMAND, *NULL_POINTER_MEMORY_MODEL);
-        // execl(SHELL_SYSTEM_EXECUTABLE, SHELL_SYSTEM_EXECUTABLE, "-c", "xdosemu", *NULL_POINTER_MEMORY_MODEL);
+        // execl(SHELL_SYSTEM_EXECUTABLE, SHELL_SYSTEM_EXECUTABLE, "-c", ARCHIVE_UNIX_SHELL_COMMAND, *NULL_POINTER_STATE_CYBOI_MODEL);
+        // execl(SHELL_SYSTEM_EXECUTABLE, SHELL_SYSTEM_EXECUTABLE, "-c", "xdosemu", *NULL_POINTER_STATE_CYBOI_MODEL);
         int e = execv(SHELL_SYSTEM_EXECUTABLE, (wchar_t**) p0);
 
     fwprintf(stdout, L"TEST post-exec e: %i\n", e);
 
         // A value of -1 is returned in the event of a failure.
-        if (e == *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL) {
+        if (e == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
     fwprintf(stdout, L"TEST e == -1 errno: %i\n", errno);
 
@@ -380,12 +380,12 @@ void apply_execute(void* p0, void* p1) {
             // buffers and perform aditional clean-up before calling _exit() internally.
             //
             // Set return value to 1, indicating that an error occured in the child process.
-            _exit(*NUMBER_1_INTEGER_MEMORY_MODEL);
+            _exit(*NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         }
 
     fwprintf(stdout, L"TEST post-exit errno: %i\n", errno);
 
-    } else if (pid < *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    } else if (pid < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
     fwprintf(stdout, L"TEST pid < 0 pid: %i\n", pid);
 
@@ -393,7 +393,7 @@ void apply_execute(void* p0, void* p1) {
         // This is still the parent process.
         // A child process could not be created.
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not execute command as process. The process fork failed.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command as process. The process fork failed.");
 
     } else {
 
@@ -402,15 +402,15 @@ void apply_execute(void* p0, void* p1) {
         // The following code is only executed by the parent process.
         // A pid > 0 represents the child process's id.
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Executed command as process. The process fork succeeded. Now waiting for the child process to exit.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Executed command as process. The process fork succeeded. Now waiting for the child process to exit.");
 
     fwprintf(stdout, L"TEST pid > 0 pid: %i\n", pid);
 
         // Request status information from child process.
         // In the GNU C library, pid_t corresponds to the int type.
-        waitpid(pid, (int*) *NULL_POINTER_MEMORY_MODEL, *NUMBER_0_INTEGER_MEMORY_MODEL);
+        waitpid(pid, (int*) *NULL_POINTER_STATE_CYBOI_MODEL, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"The child process exited. Continue executing parent process.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"The child process exited. Continue executing parent process.");
 
     fwprintf(stdout, L"TEST post-waitpid pid: %i\n", pid);
     }

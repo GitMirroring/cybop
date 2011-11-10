@@ -26,10 +26,10 @@
 #ifndef PERCENT_ENCODING_VECTOR_ELEMENT_SELECTOR_SOURCE
 #define PERCENT_ENCODING_VECTOR_ELEMENT_SELECTOR_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/percent_encoding/separator_percent_encoding_name.c"
 #include "../../../executor/searcher/detector/array_detector.c"
 #include "../../../executor/searcher/mover/position_mover.c"
@@ -69,25 +69,25 @@
  */
 void select_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select percent-encoding vector element.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select percent-encoding vector element.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p2, p3, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p2, p3, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_MEMORY_TYPE, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p1, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move_position(p2, p3, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        move_position(p2, p3, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

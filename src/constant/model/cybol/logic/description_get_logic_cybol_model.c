@@ -28,17 +28,17 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The name description get logic cybol model. */
 static wchar_t NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_ARRAY[] = {L'n', L'a', L'm', L'e'};
 static wchar_t* NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL = NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_ARRAY;
-static int* NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+static int* NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The type description get logic cybol model. */
 static wchar_t TYPE_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_ARRAY[] = {L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n'};
 static wchar_t* TYPE_DESCRIPTION_GET_LOGIC_CYBOL_MODEL = TYPE_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_ARRAY;
-static int* TYPE_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
+static int* TYPE_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DESCRIPTION_GET_LOGIC_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

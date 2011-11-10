@@ -26,9 +26,9 @@
 #ifndef KNOWLEDGE_PART_GETTER_SOURCE
 #define KNOWLEDGE_PART_GETTER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/http/cyboi_http_name.c"
 #include "../../../executor/accessor/appender/part_appender.c"
 #include "../../../executor/comparator/all/part_all_comparator.c"
@@ -64,25 +64,25 @@
  */
 void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Get part knowledge.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part knowledge.");
 
     // The part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type, model.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
-    void* m = *NULL_POINTER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type, model data, count.
-    void* ad = *NULL_POINTER_MEMORY_MODEL;
-    void* ac = *NULL_POINTER_MEMORY_MODEL;
-    void* md = *NULL_POINTER_MEMORY_MODEL;
-    void* mc = *NULL_POINTER_MEMORY_MODEL;
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encapsulated part.
-    void* ep = *NULL_POINTER_MEMORY_MODEL;
+    void* ep = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encapsulated part model.
-    void* em = *NULL_POINTER_MEMORY_MODEL;
+    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encapsulated part model data, count.
-    void* emd = *NULL_POINTER_MEMORY_MODEL;
-    void* emc = *NULL_POINTER_MEMORY_MODEL;
+    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
     //
@@ -94,16 +94,16 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_branch((void*) &p, p1, (void*) &p2, p3);
 
     // Get part type, model item.
-    copy_array_forward((void*) &a, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &a, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get part type, model data, count array.
-    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &ac, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ac, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // The following comparisons do, in this order, get a part as:
@@ -112,11 +112,11 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // - direct model
     //
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, ad, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             //
             // Get part as double-encapsulated knowledge.
@@ -135,21 +135,21 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
             get_part_branch((void*) &ep, p4, (void*) &md, mc);
 
             // Get encapsulated part model item.
-            copy_array_forward((void*) &em, ep, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+            copy_array_forward((void*) &em, ep, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
             // Get encapsulated part model data, count array.
-            copy_array_forward((void*) &emd, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-            copy_array_forward((void*) &emc, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+            copy_array_forward((void*) &emd, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+            copy_array_forward((void*) &emc, em, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
             // CAUTION! Hand over name as reference!
             get_part_branch(p0, p4, (void*) &emd, emc);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, ad, (void*) KNOWLEDGE_PATH_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             //
             // Get part as encapsulated model.
@@ -169,7 +169,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         //
         // Get part as direct model (inline).

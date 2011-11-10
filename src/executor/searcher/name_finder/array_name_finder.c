@@ -29,11 +29,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/calculator/integer_adder.c"
 #include "../../../executor/calculator/integer_multiplier.c"
 #include "../../../executor/memoriser/offset_adder.c"
@@ -53,20 +53,20 @@
  */
 void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* c = (int*) p4;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Find name array.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array.");
 
         // The loop variable.
-        int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The part.
-        void* p = *NULL_POINTER_MEMORY_MODEL;
+        void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The comparison result.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (j >= *c) {
 
@@ -79,11 +79,11 @@ void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
             }
 
             // Get part j from investigated pointer array p1.
-            copy_array_forward((void*) &p, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &j);
+            copy_array_forward((void*) &p, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &j);
             // Compare part p name item with given name p2.
             compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p3, (void*) NAME_PART_MEMORY_NAME);
 
-            if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // The part with the searched name has been found.
 
@@ -99,7 +99,7 @@ void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not find name array. The array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not find name array. The array is null.");
     }
 }
 

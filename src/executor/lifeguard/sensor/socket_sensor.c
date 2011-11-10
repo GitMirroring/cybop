@@ -39,15 +39,15 @@
 #include <unistd.h>
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/channel/cybol_channel.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../constant/model/log/level_log_model.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
 #include "../../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../../executor/accessor/getter/array_getter.c"
@@ -103,23 +103,23 @@
  */
 void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* os = (int*) p6;
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* ps = (int*) p3;
 
-            if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 double* st = (double*) p2;
 
-                if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     pthread_mutex_t* mt = (pthread_mutex_t*) p1;
 
-                    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         int* irq = (int*) p0;
 
@@ -128,7 +128,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                         // logging is not guaranteed to be thread-safe and might
                         // cause unpredictable programme behaviour.
                         // Also, this function runs in an endless loop and would produce huge log files.
-                        // log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Apply sense socket.");
+                        // log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense socket.");
 
     fwprintf(stdout, L"TEST: sense (stream) socket server socket: %i \n", *os);
 
@@ -143,7 +143,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                         // All what is said above is true, but is this a THREAD
                         // and other threads might access the "errno" variable
                         // at the same time, which would lead to false programme behaviour.
-                        // errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        // errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                         // Accept client socket request and store client socket.
                         //
@@ -166,7 +166,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                         //
                         *ps = accept(*os, (struct sockaddr*) p4, (socklen_t*) p5);
 
-                        if (*ps >= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                        if (*ps >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
     fwprintf(stdout, L"TEST: sense (stream) socket client partner socket ps: %i \n", *ps);
 
@@ -181,14 +181,14 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                             // Set socket interrupt request to indicate
                             // that a message has been received via socket,
                             // which may now be processed in the main thread of this system.
-                            *irq = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                            *irq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                             // Unlock socket mutex.
                             pthread_mutex_unlock(mt);
 
     fwprintf(stdout, L"TEST: sense wait st: %g \n", *st);
 
-                            while (*irq != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                            while (*irq != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                 // Sleep as long as the socket interrupt is not handled and reset yet.
                                 // This is to give the central processing unit (cpu) some
@@ -204,7 +204,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                 // This function is executed within a thread, but the
                                 // logging is not guaranteed to be thread-safe and might
                                 // cause unpredictable programme behaviour.
-                                // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. The socket argument is not a valid file descriptor.");
+                                // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The socket argument is not a valid file descriptor.");
 
                             } else if (errno == ENOTSOCK) {
 
@@ -212,7 +212,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                 // This function is executed within a thread, but the
                                 // logging is not guaranteed to be thread-safe and might
                                 // cause unpredictable programme behaviour.
-                                // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. The descriptor socket argument is not a socket.");
+                                // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The descriptor socket argument is not a socket.");
 
                             } else if (errno == EOPNOTSUPP) {
 
@@ -220,7 +220,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                 // This function is executed within a thread, but the
                                 // logging is not guaranteed to be thread-safe and might
                                 // cause unpredictable programme behaviour.
-                                // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. The descriptor socket does not support this operation.");
+                                // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The descriptor socket does not support this operation.");
 
                             } else if (errno == EWOULDBLOCK) {
 
@@ -234,7 +234,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                 // so that the "accept" procedure returns always,
                                 // even if no connection was established,
                                 // which would unnecessarily fill up the log file.
-                                // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. The socket has nonblocking mode set, and there are no pending connections immediately available.");
+                                // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The socket has nonblocking mode set, and there are no pending connections immediately available.");
 
                             } else {
 
@@ -242,7 +242,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                 // This function is executed within a thread, but the
                                 // logging is not guaranteed to be thread-safe and might
                                 // cause unpredictable programme behaviour.
-                                // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. An unknown error occured while accepting a socket connection.");
+                                // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. An unknown error occured while accepting a socket connection.");
                             }
                         }
 
@@ -252,7 +252,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                         // This function is executed within a thread, but the
                         // logging is not guaranteed to be thread-safe and might
                         // cause unpredictable programme behaviour.
-                        // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. The interrupt is null.");
+                        // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The interrupt is null.");
                     }
 
                 } else {
@@ -261,7 +261,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // This function is executed within a thread, but the
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
-                    // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. The mutex is null.");
+                    // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The mutex is null.");
                 }
 
             } else {
@@ -270,7 +270,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                 // This function is executed within a thread, but the
                 // logging is not guaranteed to be thread-safe and might
                 // cause unpredictable programme behaviour.
-                // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. The sleep time is null.");
+                // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The sleep time is null.");
             }
 
         } else {
@@ -279,7 +279,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
             // This function is executed within a thread, but the
             // logging is not guaranteed to be thread-safe and might
             // cause unpredictable programme behaviour.
-            // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. The communication partner-connected socket is null.");
+            // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The communication partner-connected socket is null.");
         }
 
     } else {
@@ -288,7 +288,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
-        // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket message. The original socket of this system is null.");
+        // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The original socket of this system is null.");
     }
 }
 
@@ -300,7 +300,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
  */
 void sense_socket(void* p0, void* p1) {
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* base = (int*) p1;
 
@@ -308,48 +308,48 @@ void sense_socket(void* p0, void* p1) {
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
-        // log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Apply sense socket.");
+        // log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense socket.");
 
         // The internal memory index.
-        int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The interrupt.
-        void* irq = *NULL_POINTER_MEMORY_MODEL;
+        void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The mutex.
-        void* mt = *NULL_POINTER_MEMORY_MODEL;
+        void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The sleep time.
-        void* st = *NULL_POINTER_MEMORY_MODEL;
+        void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The display.
-        void* d = *NULL_POINTER_MEMORY_MODEL;
+        void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner-connected socket of this system.
-        void* ps = *NULL_POINTER_MEMORY_MODEL;
+        void* ps = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner-connected socket address of this system.
-        void* pa = *NULL_POINTER_MEMORY_MODEL;
-        void* pas = *NULL_POINTER_MEMORY_MODEL;
+        void* pa = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* pas = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The original socket of this system.
-        void* os = *NULL_POINTER_MEMORY_MODEL;
+        void* os = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get interrupt.
         i = *base + *SOCKET_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward((void*) &irq, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &irq, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
         // Get mutex.
         i = *base + *SOCKET_MUTEX_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward((void*) &mt, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &mt, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
         // Get sleep time.
         i = *base + *SOCKET_SLEEP_TIME_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
         // Get communication partner-connected socket of this system.
         i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward((void*) &ps, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &ps, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
         // Get communication partner socket address.
         i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward((void*) &pa, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &pa, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
         i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward((void*) &pas, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &pas, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
         // Get original socket of this system.
         i = *base + *SOCKET_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward((void*) &os, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &os, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // A break condition does not exist here because the loop
             // is running neverendingly while sensing messages.
@@ -373,7 +373,7 @@ void sense_socket(void* p0, void* p1) {
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
-        // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not sense socket. The base internal is null.");
+        // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket. The base internal is null.");
     }
 
     // An implicit call to pthread_exit() is made when this thread
@@ -395,7 +395,7 @@ void sense_www_socket(void* p0) {
     // This function is executed within a thread, but the
     // logging is not guaranteed to be thread-safe and might
     // cause unpredictable programme behaviour.
-    // log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply sense www socket.");
+    // log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense www socket.");
 
     sense_socket(p0, (void*) WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME);
 }
@@ -411,7 +411,7 @@ void sense_cyboi_socket(void* p0) {
     // This function is executed within a thread, but the
     // logging is not guaranteed to be thread-safe and might
     // cause unpredictable programme behaviour.
-    // log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply sense cyboi socket.");
+    // log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense cyboi socket.");
 
     sense_socket(p0, (void*) CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME);
 }

@@ -29,11 +29,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/modifier/copier/value_copier.c"
@@ -53,14 +53,14 @@
  */
 void compare_subsequence_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Compare subsequence array elements.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare subsequence array elements.");
 
     // The loop count.
-    int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The loop variable.
-    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Add left array count.
     calculate_integer_add((void*) &c, p5);
@@ -71,13 +71,13 @@ void compare_subsequence_array_elements(void* p0, void* p1, void* p2, void* p3, 
     // identical length will never be processed as the count is zero then.
     // Problems with the loop variable used as investigated array index
     // will NOT occur, since the loop is left before.
-    calculate_integer_add((void*) &c, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+    calculate_integer_add((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // The subsequence had been found in the previous loop cycle.
             // The result flag has been set to true.
@@ -99,7 +99,7 @@ void compare_subsequence_array_elements(void* p0, void* p1, void* p2, void* p3, 
         // CAUTION! Hand over RIGHT array count as count,
         // since it is shorter or equal to that of the left array.
         // CAUTION! Use loop variable as left array index.
-        compare_array(p0, p1, p2, p3, p4, p6, (void*) &j, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        compare_array(p0, p1, p2, p3, p4, p6, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         j++;
     }
@@ -118,20 +118,20 @@ void compare_subsequence_array_elements(void* p0, void* p1, void* p2, void* p3, 
  */
 void compare_subsequence_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Compare subsequence array.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare subsequence array.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     compare_integer((void*) &r, p5, p6, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE);
 
-    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_subsequence_array_elements(p0, p1, p2, p3, p4, p5, p6);
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare subsequence array. The left array count is smaller than the right array count.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare subsequence array. The left array count is smaller than the right array count.");
     }
 }
 

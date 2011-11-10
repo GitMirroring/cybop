@@ -29,12 +29,12 @@
 #include <sys/socket.h>
 #include <errno.h>
 #include <stdio.h>
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cybol/communication_mode_cybol_model.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 
@@ -50,23 +50,23 @@
  */
 void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* ps = (int*) p3;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* bs = (int*) p2;
 
-            if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* bc = (int*) p1;
 
-                if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     void** b = (void**) p0;
 
-                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Receive stream socket.");
+                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive stream socket.");
 
                     // Initialise error number.
                     // It is a global variable/ function and other operations
@@ -74,7 +74,7 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
                     //
                     // CAUTION! Initialise the error number BEFORE calling the procedure
                     // that might cause an error.
-                    errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                     // Receive message from client.
                     //
@@ -83,62 +83,62 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
                     // Normally, "recv" blocks until there is input available to be read.
                     //
                     // CAUTION! A message MUST NOT be longer than the given buffer size!
-                    *bc = recv(*ps, *b, *((size_t*) bs), *NUMBER_0_INTEGER_MEMORY_MODEL);
+                    *bc = recv(*ps, *b, *((size_t*) bs), *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                    if (*bc > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (*bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Successfully received stream socket.");
+                        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received stream socket.");
 
-                    } else if (*bc == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    } else if (*bc == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. No data could be sensed.");
+                        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. No data could be sensed.");
 
                     } else {
 
                         if (errno == EBADF) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. The socket argument is not a valid file descriptor.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The socket argument is not a valid file descriptor.");
 
                         } else if (errno == ENOTSOCK) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. The descriptor socket is not a socket.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The descriptor socket is not a socket.");
 
                         } else if (errno == EWOULDBLOCK) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. The read operation would block even though nonblocking mode has been set on the socket.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The read operation would block even though nonblocking mode has been set on the socket.");
 
                         } else if (errno == EINTR) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. The operation was interrupted by a signal before any data was received.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The operation was interrupted by a signal before any data was received.");
 
                         } else if (errno == ENOTCONN) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. The socket was never connected.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The socket was never connected.");
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. An unknown error occured while receiving data.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. An unknown error occured while receiving data.");
                         }
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. The buffer is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The buffer is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. The buffer count is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The buffer count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. The buffer size is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The buffer size is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not receive stream socket. The partner-connected socket of this system is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The partner-connected socket of this system is null.");
     }
 }
 

@@ -26,9 +26,9 @@
 #ifndef ELEMENT_XML_DECODER_SOURCE
 #define ELEMENT_XML_DECODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/accessor/appender/compound_appender.c"
 #include "../../../../executor/accessor/appender/part_appender.c"
@@ -52,48 +52,48 @@ void decode_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
  */
 void decode_xml_element(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode xml element.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xml element.");
 
     // The part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part model, properties.
-    void* pm = *NULL_POINTER_MEMORY_MODEL;
-    void* pd = *NULL_POINTER_MEMORY_MODEL;
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE);
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE);
 
     // Get part model, properties.
-    copy_array_forward((void*) &pm, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &pd, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pm, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pd, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
     // Fill part.
     // CAUTION! The pre-defined constant "part" is used as name here!
     overwrite_part_element(p, (void*) NODE_XML_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NODE_XML_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     // CAUTION! All xml elements are of the type "part".
     // If an xml element is empty, the part (compound) will just not contain any child parts.
-    overwrite_part_element(p, (void*) PART_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    overwrite_part_element(p, (void*) PART_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
 
     // The has attribute flag.
-    int ha = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The has content flag.
-    int hc = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int hc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The is empty flag.
-    int ie = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int ie = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Decode tag name.
     decode_xml_tag_name(pd, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
 
-    if (ha != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (ha != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Reset has attributes flag.
-        ha = *FALSE_BOOLEAN_MEMORY_MODEL;
+        ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Decode attribute.
         decode_xml_attribute(pd, (void*) &hc, (void*) &ie, p1, p2);
     }
 
-    if (hc != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (hc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Decode the element's content.
         decode_xml_element_content(pm, pd, p1, p2);
@@ -102,7 +102,7 @@ void decode_xml_element(void* p0, void* p1, void* p2) {
     // Append part to destination model.
     // Storing many parts with identical tag name is not a problem,
     // since the tag name of a part is added to its properties compound.
-    append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /* ELEMENT_XML_DECODER_SOURCE */

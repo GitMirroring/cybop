@@ -40,9 +40,9 @@
 #include <unistd.h>
 */
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/level_log_model.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../executor/communicator/receiver/stream_socket_receiver.c"
 #include "../../../logger/logger.c"
 
@@ -65,7 +65,7 @@
  */
 void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply receive socket.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive socket.");
 
 /*??
     fwprintf(stdout, L"TEST 1 l: %s \n", (wchar_t*) p9);
@@ -75,24 +75,24 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The encoded character array.
     // CAUTION! Its size has to be GREATER than zero, e.g. 1024!
     // Otherwise, there will be no place for the data to be received.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
-    void* ec = *NULL_POINTER_MEMORY_MODEL;
-    void* es = *NULL_POINTER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* es = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate encoded character array.
-//??    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+//??    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     // Receive message from stream.
     receive_stream_socket((void*) &e, ec, es, p6);
 
     // Deserialise serialised wide character array into destination knowledge model.
     // The http request's parameters are written into the destination compound model.
-    decode(p0, p1, p2, p3, p4, p5, e, ec, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p9, p10);
+    decode(p0, p1, p2, p3, p4, p5, e, ec, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p9, p10);
 
     // Deallocate encoded character array.
-//??    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+//??    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     //?? TODO: The destination compound model content needs to be RESET every time since
     //?? otherwise, new commands are just added to the "action" part entry, for example.
@@ -105,18 +105,18 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
 /*??
     // The action name, type, model, properties.
-    void** an = NULL_POINTER_MEMORY_MODEL;
-    void** anc = NULL_POINTER_MEMORY_MODEL;
-    void** ans = NULL_POINTER_MEMORY_MODEL;
-    void** aa = NULL_POINTER_MEMORY_MODEL;
-    void** aac = NULL_POINTER_MEMORY_MODEL;
-    void** aas = NULL_POINTER_MEMORY_MODEL;
-    void** am = NULL_POINTER_MEMORY_MODEL;
-    void** amc = NULL_POINTER_MEMORY_MODEL;
-    void** ams = NULL_POINTER_MEMORY_MODEL;
-    void** ad = NULL_POINTER_MEMORY_MODEL;
-    void** adc = NULL_POINTER_MEMORY_MODEL;
-    void** ads = NULL_POINTER_MEMORY_MODEL;
+    void** an = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** anc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ans = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** aa = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** aac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** aas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** am = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** amc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ams = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ad = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** adc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ads = NULL_POINTER_STATE_CYBOI_MODEL;
 */
 
 /*??
@@ -135,7 +135,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     fwprintf(stdout, L"TEST 3 bc: %i \n", *((int*) p29));
     fwprintf(stdout, L"TEST 3 bs: %i \n", *((int*) p30));
 
-    if (*am != *NULL_POINTER_MEMORY_MODEL) {
+    if (*am != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // The action parameter is NOT null, so it
         // will be used for generating a signal.
@@ -148,7 +148,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     } else {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not receive socket message. The action parameter is null.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive socket message. The action parameter is null.");
     }
 
     fwprintf(stdout, L"TEST 5 bc: %i \n", *((int*) p29));
@@ -158,24 +158,24 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     /** The index parameter. */
     static wchar_t INDEX_PARAMETER_ARRAY[] = {L'i', L'n', L'd', L'e', L'x'};
     static wchar_t* INDEX_PARAMETER = INDEX_PARAMETER_ARRAY;
-    static int* INDEX_PARAMETER_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+    static int* INDEX_PARAMETER_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
     // The command name, type, model, properties.
-    void** n = NULL_POINTER_MEMORY_MODEL;
-    void** nc = NULL_POINTER_MEMORY_MODEL;
-    void** ns = NULL_POINTER_MEMORY_MODEL;
-    void** a = NULL_POINTER_MEMORY_MODEL;
-    void** ac = NULL_POINTER_MEMORY_MODEL;
-    void** as = NULL_POINTER_MEMORY_MODEL;
-    void** m = NULL_POINTER_MEMORY_MODEL;
-    void** mc = NULL_POINTER_MEMORY_MODEL;
-    void** ms = NULL_POINTER_MEMORY_MODEL;
-    void** d = NULL_POINTER_MEMORY_MODEL;
-    void** dc = NULL_POINTER_MEMORY_MODEL;
-    void** ds = NULL_POINTER_MEMORY_MODEL;
+    void** n = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** nc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** a = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** as = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** m = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** mc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** d = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** dc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ds = NULL_POINTER_STATE_CYBOI_MODEL;
 
 /*??
-    if (p16 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p16 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // Get actual command belonging to the command name.
         // If the name is not known, the command parameter is left untouched.
@@ -217,7 +217,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The communication partner-connected socket of this system
     // (the client socket to accept, receive data from and attach as parameter to the
     // cyboi signal generated later, so that this server may reply to the correct client)
-    void** s = NULL_POINTER_MEMORY_MODEL;
+    void** s = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get integer number reference for client socket.
     //
@@ -234,16 +234,16 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
 /*??
     // The url basename.
-    wchar_t* url_basename = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
-    int url_basename_count = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    wchar_t* url_basename = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int url_basename_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Create url basename.
     allocate_array((void*) &url_basename, (void*) &url_basename_count, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     // Get url base name.
     receive_socket_url(msg, &msg_count, &url_basename, &url_basename_count);
 
     // The parameter.
-    wchar_t* param = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
-    int param_count = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    wchar_t* param = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    int param_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Create paramater.
     allocate_array((void*) &param, (void*) &param_count, (void*) WIDE_CHARACTER_MEMORY_TYPE);
     // Get parameters.
@@ -252,15 +252,15 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The firefox web browser makes a second request
     // to determine the favicon.
     char firefox_request[] = "favicon.ico";
-    wchar_t* p_firefox_request = &firefox_request[*NUMBER_0_INTEGER_MEMORY_MODEL];
-    int firefox_request_count = *NUMBER_11_INTEGER_MEMORY_MODEL;
+    wchar_t* p_firefox_request = &firefox_request[*NUMBER_0_INTEGER_STATE_CYBOI_MODEL];
+    int firefox_request_count = *NUMBER_11_INTEGER_STATE_CYBOI_MODEL;
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     compare_all_array((void*) &r, (void*) url_basename, (void*) &url_basename_count, (void*) p_firefox_request, (void*) &firefox_request_count);
 
-    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // Close partner socket, since the request was just intended to retrieve the icon.
         close(*ps);

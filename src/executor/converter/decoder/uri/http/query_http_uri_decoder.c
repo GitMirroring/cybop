@@ -26,10 +26,10 @@
 #ifndef QUERY_HTTP_URI_DECODER_SOURCE
 #define QUERY_HTTP_URI_DECODER_SOURCE
 
-#include "../../../../../constant/model/log/message_log_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/uri/cyboi_uri_name.c"
 #include "../../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../../executor/converter/decoder/uri/http/parameter_query_http_uri_decoder.c"
@@ -47,12 +47,12 @@
  */
 void decode_http_uri_query_content(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri query content.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri query content.");
 
     // The source data position.
-    void* sd = *NULL_POINTER_MEMORY_MODEL;
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source count remaining.
-    int sc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Copy source data position.
     copy_pointer((void*) &sd, (void*) &p1);
@@ -60,21 +60,21 @@ void decode_http_uri_query_content(void* p0, void* p1, void* p2) {
     copy_integer((void*) &sc, p2);
 
     // The part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part model, properties.
-    void* pm = *NULL_POINTER_MEMORY_MODEL;
-    void* pd = *NULL_POINTER_MEMORY_MODEL;
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Get part model, properties.
-    copy_array_forward((void*) &pm, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &pd, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pm, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pd, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
     // Fill part.
     overwrite_part_element(p, (void*) CYBOI_QUERY_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CYBOI_QUERY_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    overwrite_part_element(p, (void*) PART_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    overwrite_part_element(p, (void*) PART_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.
     // CAUTION! The source data position does NOT have to be copied,
@@ -84,7 +84,7 @@ void decode_http_uri_query_content(void* p0, void* p1, void* p2) {
     decode_http_uri_query_parameter(pm, pd, (void*) &sd, (void*) &sc);
 
     // Append part to destination model.
-    append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /**
@@ -97,29 +97,29 @@ void decode_http_uri_query_content(void* p0, void* p1, void* p2) {
  */
 void decode_http_uri_query(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http uri query.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri query.");
 
     // The element.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
-    int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
-    int b = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise element.
     copy_pointer((void*) &e, p2);
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
         select_http_uri_query(p0, p1, (void*) &b, p2, p3);
 
-        if (b == *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Increment element count.
             ec++;

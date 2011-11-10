@@ -30,11 +30,11 @@
 #include <locale.h>
 #include <wchar.h>
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/conversion_type_size.c"
 
@@ -176,23 +176,23 @@
  */
 void encode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* ds = (int*) p2;
 
-            if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* dc = (int*) p1;
 
-                if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     void** d = (void**) p0;
 
-                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode UTF-8 Unicode character vector.");
+                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode UTF-8 Unicode character vector.");
 
                     // The new destination wide character vector size.
                     //
@@ -205,7 +205,7 @@ void encode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p
                     // than the destination size that was set before.
                     // In this case, the destination size will be too big, but can be reduced
                     // to the actual destination count below, if so wanted.
-                    *ds = *dc + (*sc * *NUMBER_4_INTEGER_MEMORY_MODEL);
+                    *ds = *dc + (*sc * *NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
 
                     // Reallocate destination character vector.
                     reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_TYPE);
@@ -255,7 +255,7 @@ void encode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p
                     //
                     // CAUTION! Initialise the error number BEFORE calling the function
                     // that might cause an error.
-                    errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                     // Converts the wide character string into a multibyte character string.
                     //
@@ -263,34 +263,34 @@ void encode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p
                     // number of bytes in all the multibyte character sequences stored in *d.
                     int n = wcsnrtombs(*d, (void*) &p3, *sc, *ds, &st);
 
-                    if (n >= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         // Increment destination count by the number of multibyte characters converted.
                         *dc = *dc + n;
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The conversion failed, possibly because one of the wide characters in the input string has no valid multibyte character equivalent.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The conversion failed, possibly because one of the wide characters in the input string has no valid multibyte character equivalent.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The destination is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The destination is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The destination count is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The destination count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The destination size is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The destination size is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8 unicode character stream. The source count is null.");
     }
 }
 

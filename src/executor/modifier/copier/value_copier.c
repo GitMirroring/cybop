@@ -28,11 +28,11 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/modifier/copier/character_copier.c"
 #include "../../../executor/modifier/copier/double_copier.c"
@@ -53,105 +53,105 @@
  */
 void copy_value(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* a = (int*) p2;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Copy value.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value.");
 
         // The comparison result.
         // CAUTION! It is used instead of if-else statements.
         // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
-        int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *CHARACTER_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 copy_character(p0, p1);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *DOUBLE_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 copy_double(p0, p1);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *FRACTION_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 copy_fraction(p0, p1);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *INTEGER_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 copy_integer(p0, p1);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *PART_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 copy_part(p0, p1);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *POINTER_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 copy_pointer(p0, p1);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *UNSIGNED_LONG_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 copy_unsigned_long(p0, p1);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             if (*a == *WIDE_CHARACTER_MEMORY_TYPE) {
 
-                r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 copy_wide_character(p0, p1);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not copy value. The operand type is unknown.");
+            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy value. The operand type is unknown.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not copy value. The operand type is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy value. The operand type is null.");
     }
 }
 
@@ -166,7 +166,7 @@ void copy_value(void* p0, void* p1, void* p2) {
  */
 void copy_value_offset(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Copy value offset.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value offset.");
 
     // The destination value, source value.
     // CAUTION! They HAVE TO BE initialised with p0 and p1,

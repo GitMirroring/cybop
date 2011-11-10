@@ -26,7 +26,7 @@
 #ifndef LATEX_ENCODER_SOURCE
 #define LATEX_ENCODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**

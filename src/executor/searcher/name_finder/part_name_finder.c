@@ -28,11 +28,11 @@
 
 #include "../../../constant/type/cybol/number_cybol_type.c"
 #include "../../../constant/type/cybol/path_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/separator_cybol_name.c"
 #include "../../../constant/name/memory/part_memory_name.c"
 #include "../../../executor/modifier/overwriter/item_overwriter.c"
@@ -50,13 +50,13 @@
  */
 void find_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Find name part element.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name part element.");
 
     // The investigated part.
-    void* i = *NULL_POINTER_MEMORY_MODEL;
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get investigated part.
-    copy_array_forward((void*) &i, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4);
+    copy_array_forward((void*) &i, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4);
 
     // Find the searched item in the investigated item.
     find_name_item_element(p0, i, p2, p3);
@@ -71,17 +71,17 @@ void find_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void find_name_part(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Find name part.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name part.");
 
     // The investigated part.
-    void* i = *NULL_POINTER_MEMORY_MODEL;
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The searched name part name.
-    void* s = *NULL_POINTER_MEMORY_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get investigated part.
-    copy_array_forward((void*) &i, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &i, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get searched name part name.
-    copy_array_forward((void*) &s, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &s, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
 
     // Find the searched name item in the investigated item.
     find_name_item(p0, i, s);

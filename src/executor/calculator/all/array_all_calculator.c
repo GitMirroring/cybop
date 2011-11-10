@@ -26,8 +26,8 @@
 #ifndef ARRAY_ALL_CALCULATOR_SOURCE
 #define ARRAY_ALL_CALCULATOR_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/array_comparator.c"
 #include "../../../executor/comparator/basic/integer_comparator.c"
 #include "../../../logger/logger.c"
@@ -45,22 +45,22 @@
  */
 void calculate_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Calculate all array.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all array.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     compare_integer_equal((void*) &r, p5, p6);
 
-    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // CAUTION! Both, the left- or the right array count may be
         // handed over alternatively as count parametre, since they are equal.
-        calculate_array(p0, p1, p2, p3, p4, p6, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        calculate_array(p0, p1, p2, p3, p4, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not calculate all array. The left array count is not equal to the right array count.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate all array. The left array count is not equal to the right array count.");
     }
 }
 

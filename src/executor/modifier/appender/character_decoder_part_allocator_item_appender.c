@@ -29,10 +29,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/memory/item_memory_name.c"
 #include "../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../logger/logger.c"
@@ -55,9 +55,9 @@
 void append_item_allocate_part_decode_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The wide character data, count, size.
-    void* d = *NULL_POINTER_MEMORY_MODEL;
-    int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int s = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate wide character data.
     allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -66,7 +66,7 @@ void append_item_allocate_part_decode_character(void* p0, void* p1, void* p2, vo
     decode_utf_8_unicode_character_vector((void*) &d, (void*) &c, (void*) &s, p3, p4);
 
     // Allocate part with wide character data as model and append it to destination item.
-    append_item_allocate_part(p0, p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, d, (void*) &c, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+    append_item_allocate_part(p0, p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, d, (void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Deallocate wide character data.
     deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);

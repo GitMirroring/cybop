@@ -28,10 +28,10 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/calculator/integer_multiplier.c"
 #include "../../../executor/memoriser/size_determiner.c"
 #include "../../../logger/logger.c"
@@ -46,22 +46,22 @@
  */
 void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* s = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* c = (int*) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 void** a = (void**) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Reallocate array.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reallocate array.");
 
                 // The memory area.
-                int ma = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Determine type (type) size.
                 determine_size((void*) &ma, p3);
@@ -69,7 +69,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 // Calculate memory area.
                 multiply_with_integer((void*) &ma, p2, (void*) INTEGER_MEMORY_TYPE);
 
-                if (ma > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (ma > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     //
                     // CAUTION! The memory area (new array size)
@@ -103,7 +103,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         // pointer further below to cross the array's boundary!
 
                         // The NEW memory area to be initialised.
-                        int nma = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        int nma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                         // Calculate extra array size, which is the given array size
                         // reduced by the existing element count.
@@ -120,27 +120,27 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
 
                         // Initialise ONLY NEW array elements (new memory area)
                         // with null pointer. Leave existing elements untouched.
-                        memset(na, *NUMBER_0_INTEGER_MEMORY_MODEL, nma);
+                        memset(na, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, nma);
                     }
 
                 } else {
 
-                    log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not reallocate array. The memory area is not greater than zero.");
+                    log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The memory area is not greater than zero.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not reallocate array. The array is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The array is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not reallocate array. The count is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The count is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not reallocate array. The size is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The size is null.");
     }
 }
 

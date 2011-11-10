@@ -27,12 +27,12 @@
 #define PACKAGE_XDT_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The standard package xdt name. */
 static wchar_t STANDARD_PACKAGE_XDT_NAME_ARRAY[] = {L's', L't', L'a', L'n', L'd', L'a', L'r', L'd'};
 static wchar_t* STANDARD_PACKAGE_XDT_NAME = STANDARD_PACKAGE_XDT_NAME_ARRAY;
-static int* STANDARD_PACKAGE_XDT_NAME_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
+static int* STANDARD_PACKAGE_XDT_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PACKAGE_XDT_NAME_CONSTANT_SOURCE */
 #endif

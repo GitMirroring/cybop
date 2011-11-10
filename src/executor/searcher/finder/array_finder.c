@@ -26,11 +26,11 @@
 #ifndef ARRAY_FINDER_SOURCE
 #define ARRAY_FINDER_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/calculator/integer_adder.c"
 #include "../../../executor/calculator/integer_multiplier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
@@ -51,14 +51,14 @@
  */
 void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Find array elements.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find array elements.");
 
     // The loop count.
-    int c = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The loop variable.
-    int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Add investigated array count.
     calculate_integer_add((void*) &c, p4);
@@ -69,9 +69,9 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // identical length will never be processed as the count is zero then.
     // Problems with the loop variable used as investigated array index
     // will NOT occur, since the loop is left before.
-    calculate_integer_add((void*) &c, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+    calculate_integer_add((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         if (j >= c) {
 
@@ -86,9 +86,9 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // CAUTION! Hand over SEARCHED (right) array count as count,
         // since it is shorter or equal to that of the left array.
         // CAUTION! Use loop variable as INVESTIGATED (left) array index.
-        compare_array((void*) &r, p1, p2, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        compare_array((void*) &r, p1, p2, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // The searched array has been found.
 
@@ -115,20 +115,20 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  */
 void find_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Find array.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find array.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     compare_integer((void*) &r, p4, p5, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE);
 
-    if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         find_array_elements(p0, p1, p2, p3, p4, p5);
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not find array. The investigated array count is smaller than the searched array count.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not find array. The investigated array count is smaller than the searched array count.");
     }
 }
 

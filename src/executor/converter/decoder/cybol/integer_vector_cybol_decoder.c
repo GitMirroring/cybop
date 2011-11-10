@@ -36,12 +36,12 @@
 #include <wchar.h>
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/accessor/getter.c"
 #include "../../../../executor/converter/decoder/integer_decoder.c"
 #include "../../../../executor/memoriser/allocator.c"
@@ -64,40 +64,40 @@
  */
 void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* ds = (int*) p2;
 
-            if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* dc = (int*) p1;
 
-                if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     void** d = (void**) p0;
 
-                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode integer vector.");
+                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode integer vector.");
 
                     // CAUTION! This check is necessary since otherwise,
                     // the array border gets crossed and a comma might be found
                     // that actually does not belong to the array.
-                    if (*sc > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (*sc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         // The comma index.
-                        int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+                        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
                         // The first element count.
-                        int fec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        int fec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // The integer value.
-                        int v = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                         // Find comma character index.
-                        get_array_elements_index((void*) &i, p3, p4, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                        get_array_elements_index((void*) &i, p3, p4, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
-                        if (i > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                        if (i > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                             // Set first element count to comma index only if a comma
                             // was found at a position greater than the zero index.
@@ -124,11 +124,11 @@ void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // Index of first comma: 3
                         // Handed over as first element source count fec: index i
                         // (which is 3, as needed for the length)
-                        decode_integer((void*) &v, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p3, (void*) &fec);
+                        decode_integer((void*) &v, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, (void*) &fec);
 
-                        overwrite_array(p0, (void*) &v, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+                        overwrite_array(p0, (void*) &v, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-                        if (i > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                        if (i > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                             // If a comma (at a later than the first position) was found,
                             // then process the remaining integer vector elements.
@@ -144,8 +144,8 @@ void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
                             //
                             // CAUTION! Do ONLY multiply the summand for the element pointer with the type size,
                             // but NOT the subtrahend for the element count!
-                            void* e = p3 + ((i + *NUMBER_1_INTEGER_MEMORY_MODEL) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                            int ec = *sc - (i + *NUMBER_1_INTEGER_MEMORY_MODEL);
+                            void* e = p3 + ((i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+                            int ec = *sc - (i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                             // Recursively call this function.
                             decode_integer_vector(p0, p1, p2, e, (void*) &ec);
@@ -153,27 +153,27 @@ void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode integer vector. The source count is zero (or smaller).");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode integer vector. The source count is zero (or smaller).");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode integer vector. The destination is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode integer vector. The destination is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode integer vector. The destination count is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode integer vector. The destination count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode integer vector. The destination size is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode integer vector. The destination size is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode integer vector. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode integer vector. The source count is null.");
     }
 }
 

@@ -26,11 +26,11 @@
 #ifndef HEADER_FIELD_HTTP_REQUEST_SELECTOR_SOURCE
 #define HEADER_FIELD_HTTP_REQUEST_SELECTOR_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http/header/cyboi_entity_header_http_name.c"
 #include "../../../../constant/name/http/header/cyboi_general_header_http_name.c"
 #include "../../../../constant/name/http/header/cyboi_request_header_http_name.c"
@@ -76,110 +76,110 @@
  */
 void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select http request header field.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http request header field.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // The entity headers.
     //
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) ALLOW_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) ALLOW_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_ALLOW_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_ALLOW_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_CONTENT_ENCODING_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_CONTENT_ENCODING_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_CONTENT_LOCATION_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_CONTENT_LOCATION_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_CONTENT_MD5_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_CONTENT_MD5_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_CONTENT_RANGE_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_CONTENT_RANGE_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_CONTENT_TYPE_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_CONTENT_TYPE_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) EXPIRES_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) EXPIRES_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_EXPIRES_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_EXPIRES_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME, (void*) CYBOI_LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
@@ -189,201 +189,201 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
     // The request headers.
     //
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) ACCEPT_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) ACCEPT_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_ACCEPT_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_ACCEPT_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_ACCEPT_CHARSET_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_ACCEPT_CHARSET_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_ACCEPT_ENCODING_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_ACCEPT_ENCODING_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) EXPECT_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) EXPECT_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_EXPECT_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_EXPECT_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) FROM_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) FROM_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_FROM_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_FROM_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) HOST_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) HOST_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_HOST_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_HOST_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) IF_MATCH_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) IF_MATCH_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_IF_MATCH_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_IF_MATCH_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_IF_NONE_MATCH_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_IF_NONE_MATCH_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) IF_RANGE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) IF_RANGE_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_IF_RANGE_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_IF_RANGE_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_MAX_FORWARDS_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_MAX_FORWARDS_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) RANGE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) RANGE_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_RANGE_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_RANGE_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) REFERER_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) REFERER_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_REFERER_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_REFERER_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) TE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) TE_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_TE_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_TE_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) USER_AGENT_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) USER_AGENT_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_USER_AGENT_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_USER_AGENT_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) VARY_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) VARY_REQUEST_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_VARY_REQUEST_HEADER_HTTP_NAME, (void*) CYBOI_VARY_REQUEST_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
@@ -393,81 +393,81 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
     // The response headers.
     //
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_ACCEPT_RANGES_RESPONSE_HEADER_HTTP_NAME, (void*) CYBOI_ACCEPT_RANGES_RESPONSE_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) AGE_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) AGE_RESPONSE_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_AGE_RESPONSE_HEADER_HTTP_NAME, (void*) CYBOI_AGE_RESPONSE_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) ETAG_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) ETAG_RESPONSE_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_ETAG_RESPONSE_HEADER_HTTP_NAME, (void*) CYBOI_ETAG_RESPONSE_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) LOCATION_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) LOCATION_RESPONSE_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_LOCATION_RESPONSE_HEADER_HTTP_NAME, (void*) CYBOI_LOCATION_RESPONSE_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME, (void*) CYBOI_PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_RETRY_AFTER_RESPONSE_HEADER_HTTP_NAME, (void*) CYBOI_RETRY_AFTER_RESPONSE_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) SERVER_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) SERVER_RESPONSE_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_SERVER_RESPONSE_HEADER_HTTP_NAME, (void*) CYBOI_SERVER_RESPONSE_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME, (void*) CYBOI_WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
@@ -477,91 +477,91 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
     // The general headers.
     //
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME, (void*) CYBOI_CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CONNECTION_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) CONNECTION_GENERAL_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_CONNECTION_GENERAL_HEADER_HTTP_NAME, (void*) CYBOI_CONNECTION_GENERAL_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) DATE_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) DATE_GENERAL_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_DATE_GENERAL_HEADER_HTTP_NAME, (void*) CYBOI_DATE_GENERAL_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) PRAGMA_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) PRAGMA_GENERAL_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_PRAGMA_GENERAL_HEADER_HTTP_NAME, (void*) CYBOI_PRAGMA_GENERAL_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) TRAILER_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) TRAILER_GENERAL_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_TRAILER_GENERAL_HEADER_HTTP_NAME, (void*) CYBOI_TRAILER_GENERAL_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME, (void*) CYBOI_TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) UPGRADE_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) UPGRADE_GENERAL_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_UPGRADE_GENERAL_HEADER_HTTP_NAME, (void*) CYBOI_UPGRADE_GENERAL_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) VIA_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) VIA_GENERAL_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_VIA_GENERAL_HEADER_HTTP_NAME, (void*) CYBOI_VIA_GENERAL_HEADER_HTTP_NAME_COUNT, p3, p4);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) WARNING_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) CHARACTER_MEMORY_TYPE, p2, (void*) WARNING_GENERAL_HEADER_HTTP_NAME_COUNT);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_allocate_part_decode_character(p0, (void*) CYBOI_WARNING_GENERAL_HEADER_HTTP_NAME, (void*) CYBOI_WARNING_GENERAL_HEADER_HTTP_NAME_COUNT, p3, p4);
         }

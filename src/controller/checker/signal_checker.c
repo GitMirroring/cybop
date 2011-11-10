@@ -28,11 +28,11 @@
 
 #include <pthread.h>
 
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/log/level_log_model.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../controller/checker/interrupt_checker.c"
 #include "../../controller/checker/wait_checker.c"
@@ -79,45 +79,45 @@
  */
 void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"\n\n");
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Check for signal with highest priority and otherwise, for interrupts.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signal with highest priority and otherwise, for interrupts.");
 
     // The signal.
-    void* s = *NULL_POINTER_MEMORY_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt request.
     // CAUTION! It CANNOT be handed over as parametre, since it
     // is not always only the signal memory interrupt request.
     // Other input channels' interrupts may be assigned as well below.
-    void* irq = *NULL_POINTER_MEMORY_MODEL;
+    void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
     // CAUTION! It CANNOT be handed over as parametre,
     // just like the interrupt request.
-    void* mt = *NULL_POINTER_MEMORY_MODEL;
+    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The direct execution flag.
-    int x = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get next signal to be processed from position index zero.
     // CAUTION! The signal memory item's count is checked inside
     // this function. If it is smaller or equal to the given index
     // (here: zero), then the signal value s is NOT changed,
     // i.e. it remains NULL if initialised so before.
-    get_item_element((void*) &s, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+    get_item_element((void*) &s, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
 
-    if (s != *NULL_POINTER_MEMORY_MODEL) {
+    if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // A signal was found and has to be handled.
         // Handling a signal has higher priority than checking for new interrupt requests.
 
         // Get interrupt request.
-        copy_array_forward((void*) &irq, p4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+        copy_array_forward((void*) &irq, p4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
         // Get mutex.
-        copy_array_forward((void*) &mt, p4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
+        copy_array_forward((void*) &mt, p4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
 
         // Lock signal memory mutex.
         pthread_mutex_lock(mt);
 
         // Remove signal from signal memory.
-        remove_item(p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+        remove_item(p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         // Unlock signal memory mutex.
         pthread_mutex_unlock(mt);
@@ -138,7 +138,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // CAUTION! These conditions HAVE TO BE connected by a boolean AND operator,
         // because otherwise, the "else" branch below would not always be reached.
-        if ((irq != *NULL_POINTER_MEMORY_MODEL) && (*((int*) irq) != *NUMBER_0_INTEGER_MEMORY_MODEL)) {
+        if ((irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irq) != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
 
             // Lock mutex.
             pthread_mutex_lock(mt);
@@ -152,7 +152,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // This is done here, right after checking the interrupt flag
             // and yet BEFORE receiving data and handling the signal below,
             // so that the system may react faster to new interrupt requests.
-            copy_integer(irq, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+            copy_integer(irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             // Unlock mutex.
             pthread_mutex_unlock(mt);

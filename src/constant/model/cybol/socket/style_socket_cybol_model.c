@@ -28,22 +28,22 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The stream style socket cybol model. */
 static wchar_t STREAM_STYLE_SOCKET_CYBOL_MODEL_ARRAY[] = {L's', L't', L'r', L'e', L'a', L'm'};
 static wchar_t* STREAM_STYLE_SOCKET_CYBOL_MODEL = STREAM_STYLE_SOCKET_CYBOL_MODEL_ARRAY;
-static int* STREAM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_MEMORY_MODEL_ARRAY;
+static int* STREAM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The datagram style socket cybol model. */
 static wchar_t DATAGRAM_STYLE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'd', L'a', L't', L'a', L'g', L'r', L'a', L'm'};
 static wchar_t* DATAGRAM_STYLE_SOCKET_CYBOL_MODEL = DATAGRAM_STYLE_SOCKET_CYBOL_MODEL_ARRAY;
-static int* DATAGRAM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DATAGRAM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The raw style socket cybol model. */
 static wchar_t RAW_STYLE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'r', L'a', L'w'};
 static wchar_t* RAW_STYLE_SOCKET_CYBOL_MODEL = RAW_STYLE_SOCKET_CYBOL_MODEL_ARRAY;
-static int* RAW_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+static int* RAW_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STYLE_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

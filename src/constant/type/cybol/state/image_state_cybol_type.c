@@ -27,7 +27,7 @@
 #define IMAGE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -60,7 +60,7 @@
  */
 static wchar_t GIF_IMAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'g', L'i', L'f'};
 static wchar_t* GIF_IMAGE_STATE_CYBOL_TYPE = GIF_IMAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* GIF_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static int* GIF_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The image/jpeg cybol type.
@@ -71,7 +71,7 @@ static int* GIF_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARR
  */
 static wchar_t JPEG_IMAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'j', L'p', L'e', L'g'};
 static wchar_t* JPEG_IMAGE_STATE_CYBOL_TYPE = JPEG_IMAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* JPEG_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* JPEG_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The image/png cybol type.
@@ -82,7 +82,7 @@ static int* JPEG_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_A
  */
 static wchar_t PNG_IMAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'p', L'n', L'g'};
 static wchar_t* PNG_IMAGE_STATE_CYBOL_TYPE = PNG_IMAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* PNG_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static int* PNG_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The image/tiff cybol type.
@@ -93,7 +93,7 @@ static int* PNG_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARR
  */
 static wchar_t TIFF_IMAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L't', L'i', L'f', L'f'};
 static wchar_t* TIFF_IMAGE_STATE_CYBOL_TYPE = TIFF_IMAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* TIFF_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* TIFF_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 The image/vnd.microsoft.icon language.

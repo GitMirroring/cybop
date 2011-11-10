@@ -27,12 +27,12 @@
 #define OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The type operation cybol name. */
 static wchar_t TYPE_OPERATION_CYBOL_NAME_ARRAY[] = {L't', L'y', L'p', L'e'};
 static wchar_t* TYPE_OPERATION_CYBOL_NAME = TYPE_OPERATION_CYBOL_NAME_ARRAY;
-static int* TYPE_OPERATION_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+static int* TYPE_OPERATION_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

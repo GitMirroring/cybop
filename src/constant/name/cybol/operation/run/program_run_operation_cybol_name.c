@@ -27,12 +27,12 @@
 #define PROGRAM_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The program run operation cybol name. */
 static wchar_t PROGRAM_RUN_OPERATION_CYBOL_NAME_ARRAY[] = {L'p', L'r', L'o', L'g', L'r', L'a', L'm'};
 static wchar_t* PROGRAM_RUN_OPERATION_CYBOL_NAME = PROGRAM_RUN_OPERATION_CYBOL_NAME_ARRAY;
-static int* PROGRAM_RUN_OPERATION_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+static int* PROGRAM_RUN_OPERATION_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PROGRAM_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

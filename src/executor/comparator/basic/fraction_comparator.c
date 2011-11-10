@@ -28,10 +28,10 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/memory/fraction_memory_name.c"
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../executor/comparator/basic/integer_comparator.c"
@@ -48,29 +48,29 @@
  */
 void compare_fraction(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Compare fraction.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare fraction.");
 
     // The left numerator, denominator.
-    void* ln = *NULL_POINTER_MEMORY_MODEL;
-    void* ld = *NULL_POINTER_MEMORY_MODEL;
+    void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right numerator, denominator.
-    void* rn = *NULL_POINTER_MEMORY_MODEL;
-    void* rd = *NULL_POINTER_MEMORY_MODEL;
+    void* rn = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination numerator, denominator.
-    copy_array_forward((void*) &ln, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMERATOR_FRACTION_MEMORY_NAME);
-    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DENOMINATOR_FRACTION_MEMORY_NAME);
+    copy_array_forward((void*) &ln, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMERATOR_FRACTION_MEMORY_NAME);
+    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DENOMINATOR_FRACTION_MEMORY_NAME);
     // Get source numerator, denominator.
-    copy_array_forward((void*) &rn, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMERATOR_FRACTION_MEMORY_NAME);
-    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DENOMINATOR_FRACTION_MEMORY_NAME);
+    copy_array_forward((void*) &rn, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMERATOR_FRACTION_MEMORY_NAME);
+    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DENOMINATOR_FRACTION_MEMORY_NAME);
 
-    if (rd != *NULL_POINTER_MEMORY_MODEL) {
+    if (rd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (rn != *NULL_POINTER_MEMORY_MODEL) {
+        if (rn != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            if (ld != *NULL_POINTER_MEMORY_MODEL) {
+            if (ld != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                if (ln != *NULL_POINTER_MEMORY_MODEL) {
+                if (ln != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     // The expanded left numerator, right numerator.
                     // CAUTION! Initialise with ln and rn, respectively,
@@ -87,22 +87,22 @@ void compare_fraction(void* p0, void* p1, void* p2, void* p3) {
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare fraction. The left numerator is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left numerator is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare fraction. The left denominator is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left denominator is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare fraction. The right numerator is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right numerator is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare fraction. The right denominator is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right denominator is null.");
     }
 }
 

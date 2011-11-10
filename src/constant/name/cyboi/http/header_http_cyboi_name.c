@@ -27,7 +27,7 @@
 #define HEADER_HTTP_CYBOI_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The constants defined here are copies of the standard constants
@@ -48,7 +48,7 @@
 /** The set cookie header http cyboi name. */
 static wchar_t SET_COOKIE_HEADER_HTTP_CYBOI_NAME_ARRAY[] = {L's', L'e', L't', L'-', L'c', L'o', L'o', L'k', L'i', L'e'};
 static wchar_t* SET_COOKIE_HEADER_HTTP_CYBOI_NAME = SET_COOKIE_HEADER_HTTP_CYBOI_NAME_ARRAY;
-static int* SET_COOKIE_HEADER_HTTP_CYBOI_NAME_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SET_COOKIE_HEADER_HTTP_CYBOI_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* HEADER_HTTP_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

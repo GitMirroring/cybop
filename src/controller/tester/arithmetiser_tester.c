@@ -26,9 +26,9 @@
 #ifndef ARITHMETISER_TESTER
 #define ARITHMETISER_TESTER
 
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/memory/integer_memory_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../executor/memoriser/size_determiner.c"
 #include "../../logger/logger.c"
 
@@ -38,13 +38,13 @@
 void test_arithmetiser_integer_adder() {
 
     // The integer number.
-    int i = *NUMBER_4_INTEGER_MEMORY_MODEL;
+    int i = *NUMBER_4_INTEGER_STATE_CYBOI_MODEL;
     // Some test variable with no meaning, to create a pointer.
-    int test = *NUMBER_298_INTEGER_MEMORY_MODEL;
+    int test = *NUMBER_298_INTEGER_STATE_CYBOI_MODEL;
     // The pointer.
     void* p = (void*) &test;
     // The summand integer number.
-    int s = *NUMBER_3_INTEGER_MEMORY_MODEL;
+    int s = *NUMBER_3_INTEGER_STATE_CYBOI_MODEL;
 
     fwprintf(stdout, L"Pointer original: %i\n", p);
 
@@ -63,9 +63,9 @@ void test_arithmetiser_integer_adder() {
 void test_arithmetiser_multiplicator() {
 
     // The integer number.
-    int i = *NUMBER_3_INTEGER_MEMORY_MODEL;
+    int i = *NUMBER_3_INTEGER_STATE_CYBOI_MODEL;
     // The factor integer number.
-    int f = *NUMBER_4_INTEGER_MEMORY_MODEL;
+    int f = *NUMBER_4_INTEGER_STATE_CYBOI_MODEL;
 
     // Multiply integer with integer.
     calculate_integer_multiply((void*) &i, (void*) &f);
@@ -78,7 +78,7 @@ void test_arithmetiser_multiplicator() {
  */
 void test_arithmetiser() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test arithmetiser.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test arithmetiser.");
 
 //    test_arithmetiser_integer_adder();
 //    test_arithmetiser_multiplicator();

@@ -26,10 +26,10 @@
 #ifndef NAME_KNOWLEDGE_SELECTOR_SOURCE
 #define NAME_KNOWLEDGE_SELECTOR_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -66,46 +66,46 @@
  */
 void select_knowledge_name(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select knowledge name.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge name.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // The "." or "#" indicate that a new sub part or meta property begins.
     // They thus get detected as delimiter of the current part name.
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // CAUTION! Do NOT move the position (last parametre) here,
         // since the "." has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (model).
-        detect_array((void*) &r, p1, p2, (void*) PART_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PART_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) PART_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PART_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // CAUTION! Do NOT move the position (last parametre) here,
         // since the "#" has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (properties).
-        detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Move position by one if nothing was found.
-        move_position(p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        move_position(p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

@@ -26,11 +26,11 @@
 #ifndef XDT_ENCODER_SOURCE
 #define XDT_ENCODER_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/xdt/field_xdt_name.c"
 #include "../../../../constant/name/xdt/package_xdt_name.c"
 #include "../../../../constant/name/xdt/record_xdt_name.c"
@@ -112,7 +112,7 @@
  */
 void encode_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode compound model into xdt format.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode compound model into xdt format.");
 }
 
 /* XDT_ENCODER_SOURCE */

@@ -33,12 +33,12 @@
 #include "../../applicator/communicator/receiving/socket_receiving_communicator.c"
 #include "../../applicator/communicator/receiving/x_window_system_receiving_communicator.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/channel/cybol_channel.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
 #include "../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../executor/modifier/getter/knowledge_part_getter.c"
@@ -75,55 +75,55 @@
  */
 void apply_receive(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply receive.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive.");
 
     // The channel part.
-    void* c = *NULL_POINTER_MEMORY_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part.
-    void* l = *NULL_POINTER_MEMORY_MODEL;
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part.
-    void* m = *NULL_POINTER_MEMORY_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The meta message part.
-    void* me = *NULL_POINTER_MEMORY_MODEL;
+    void* me = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The model part.
-    void* mo = *NULL_POINTER_MEMORY_MODEL;
+    void* mo = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The root part.
-    void* r = *NULL_POINTER_MEMORY_MODEL;
+    void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket communication style part.
-    void* st = *NULL_POINTER_MEMORY_MODEL;
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model.
-    void* cm = *NULL_POINTER_MEMORY_MODEL;
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part model.
-    void* lm = *NULL_POINTER_MEMORY_MODEL;
+    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model.
-    void* mm = *NULL_POINTER_MEMORY_MODEL;
+    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The meta message part model.
-    void* mem = *NULL_POINTER_MEMORY_MODEL;
+    void* mem = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The model part model, properties.
-    void* mom = *NULL_POINTER_MEMORY_MODEL;
-    void* mod = *NULL_POINTER_MEMORY_MODEL;
+    void* mom = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mod = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The root part model.
-    void* rm = *NULL_POINTER_MEMORY_MODEL;
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket communication style part model.
-    void* stm = *NULL_POINTER_MEMORY_MODEL;
+    void* stm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model data.
-    void* cmd = *NULL_POINTER_MEMORY_MODEL;
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part model data, count.
-    void* lmd = *NULL_POINTER_MEMORY_MODEL;
+    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model data, count.
-    void* mmd = *NULL_POINTER_MEMORY_MODEL;
-    void* mmc = *NULL_POINTER_MEMORY_MODEL;
+    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The meta message part model data, count.
-    void* memd = *NULL_POINTER_MEMORY_MODEL;
-    void* memc = *NULL_POINTER_MEMORY_MODEL;
+    void* memd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* memc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The root part model data, count.
-    void* rmd = *NULL_POINTER_MEMORY_MODEL;
-    void* rmc = *NULL_POINTER_MEMORY_MODEL;
+    void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket communication style part model data, count.
-    void* stmd = *NULL_POINTER_MEMORY_MODEL;
-    void* stmc = *NULL_POINTER_MEMORY_MODEL;
+    void* stmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* stmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_name_array((void*) &c, p0, (void*) CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -141,64 +141,64 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     get_name_array((void*) &st, p0, (void*) STYLE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) STYLE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get channel part model.
-    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get language part model.
-    copy_array_forward((void*) &lm, l, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &lm, l, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get message part model.
-    copy_array_forward((void*) &mm, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &mm, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get meta message part model.
-    copy_array_forward((void*) &mem, me, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &mem, me, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get model part model, properties.
-    copy_array_forward((void*) &mom, mo, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &mod, mo, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    copy_array_forward((void*) &mom, mo, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &mod, mo, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
     // Get root part model.
-    copy_array_forward((void*) &rm, r, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &rm, r, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get socket communication style part model.
-    copy_array_forward((void*) &stm, st, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &stm, st, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get channel part model data, count.
-    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get language part model data, count.
-    copy_array_forward((void*) &lmd, lm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &lmd, lm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get message part model data, count.
-    copy_array_forward((void*) &mmd, mm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mmc, mm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mmd, mm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mmc, mm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get meta message part model data, count.
-    copy_array_forward((void*) &memd, mem, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &memc, mem, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &memd, mem, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &memc, mem, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get root part model data, count.
-    copy_array_forward((void*) &rmd, rm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &rmc, rm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &rmd, rm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &rmc, rm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get socket communication style part model data, count.
-    copy_array_forward((void*) &stmd, stm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &stmc, stm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &stmd, stm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &stmc, stm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     receive_data(mom, mod, mmd, mmc, lmd, cmd, p3);
 
 /*??
 //?? TEST BEGIN
     // The model diagram.
-    void* md = *NULL_POINTER_MEMORY_MODEL;
-    int mdc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int mds = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Allocate model diagram.
     allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
     // Encode model into model diagram.
     encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-        *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
-        p3, p4, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+        p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // The multibyte character stream.
-    void* mb = *NULL_POINTER_MEMORY_MODEL;
-    int mbc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int mbs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Allocate multibyte character stream.
     allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
     // Encode model diagram into multibyte character stream.
     encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
     // The file name.
     void* fn = L"TEST_RECEIVING_COMMUNICATOR.txt";
-    int fnc = *NUMBER_27_INTEGER_MEMORY_MODEL;
-    int fns = *NUMBER_28_INTEGER_MEMORY_MODEL;
+    int fnc = *NUMBER_27_INTEGER_STATE_CYBOI_MODEL;
+    int fns = *NUMBER_28_INTEGER_STATE_CYBOI_MODEL;
     // Write multibyte character stream as message to file system.
     send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
     // Deallocate model diagram.

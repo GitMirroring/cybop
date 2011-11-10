@@ -28,11 +28,11 @@
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/memory/datetime_memory_name.c"
 #include "../../../../executor/memoriser/allocator.c"
 #include "../../../../executor/memoriser/deallocator.c"
@@ -62,33 +62,33 @@
  */
 void decode_date_time(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void* s = (void*) p3;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 void** d = (void**) p0;
 
-                log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode date time.");
+                log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode date time.");
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode date time. The destination is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode date time. The destination is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode date time. The source is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode date time. The source is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode date time. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode date time. The source count is null.");
     }
 }
 
@@ -103,35 +103,35 @@ void decode_date_time(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* ds = (int*) p2;
 
-            if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* dc = (int*) p1;
 
-                if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     void** d = (void**) p0;
 
-                    if (*sc == *NUMBER_8_INTEGER_MEMORY_MODEL) {
+                    if (*sc == *NUMBER_8_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode ddmmyyyy date time.");
+                        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode ddmmyyyy date time.");
 
                         // The temporary null-terminated day string.
-                        wchar_t* tmpd = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
-                        int tmpds = *NUMBER_2_INTEGER_MEMORY_MODEL + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                        wchar_t* tmpd = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+                        int tmpds = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                         // The temporary null-terminated month string.
-                        wchar_t* tmpm = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
-                        int tmpms = *NUMBER_2_INTEGER_MEMORY_MODEL + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                        wchar_t* tmpm = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+                        int tmpms = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                         // The temporary null-terminated year string.
-                        wchar_t* tmpy = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
-                        int tmpys = *NUMBER_4_INTEGER_MEMORY_MODEL + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                        wchar_t* tmpy = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+                        int tmpys = *NUMBER_4_INTEGER_STATE_CYBOI_MODEL + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                         // Create temporary null-terminated day string.
                         allocate_array((void*) &tmpd, (void*) &tmpds, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -141,37 +141,37 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
                         allocate_array((void*) &tmpy, (void*) &tmpys, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
                         // The index.
-                        int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                        int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                         // The source day index.
-                        void* sdi = p3 + (*NUMBER_0_INTEGER_MEMORY_MODEL * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+                        void* sdi = p3 + (*NUMBER_0_INTEGER_STATE_CYBOI_MODEL * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
                         // The source month index.
-                        void* smi = p3 + (*NUMBER_2_INTEGER_MEMORY_MODEL * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+                        void* smi = p3 + (*NUMBER_2_INTEGER_STATE_CYBOI_MODEL * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
                         // The source year index.
-                        void* syi = p3 + (*NUMBER_4_INTEGER_MEMORY_MODEL * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+                        void* syi = p3 + (*NUMBER_4_INTEGER_STATE_CYBOI_MODEL * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 
 /*?? TODO!
                         // Copy original string to temporary null-terminated day string.
-                        overwrite_array((void*) &tmpd, sdi, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpd, sdi, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                         // Copy original string to temporary null-terminated month string.
-                        overwrite_array((void*) &tmpm, smi, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpm, smi, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                         // Copy original string to temporary null-terminated year string.
-                        overwrite_array((void*) &tmpy, syi, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpy, syi, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 */
 
                         // The day termination character index.
-                        int dti = *NUMBER_2_INTEGER_MEMORY_MODEL;
+                        int dti = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
                         // The month termination character index.
-                        int mti = *NUMBER_2_INTEGER_MEMORY_MODEL;
+                        int mti = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
                         // The year termination character index.
-                        int yti = *NUMBER_4_INTEGER_MEMORY_MODEL;
+                        int yti = *NUMBER_4_INTEGER_STATE_CYBOI_MODEL;
 
 /*?? TODO!
                         // Add string termination to temporary null-terminated day string.
-                        overwrite_array((void*) &tmpd, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &dti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpd, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &dti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                         // Add string termination to temporary null-terminated month string.
-                        overwrite_array((void*) &tmpm, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &mti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpm, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
                         // Add string termination to temporary null-terminated year string.
-                        overwrite_array((void*) &tmpy, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &yti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array((void*) &tmpy, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &yti, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 */
 
                         // The tail variable is useless here and only needed for the string
@@ -179,7 +179,7 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
                         // many sub strings, separated by space characters, then each sub
                         // string gets interpreted as integer number.
                         // The tail variable in this case points to the remaining sub string.
-                        wchar_t* tail = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
+                        wchar_t* tail = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
                         // Transform string to day integer value.
                         // The third parameter is the number base:
@@ -187,27 +187,27 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
                         // 8 - octal
                         // 10 - decimal
                         // 16 - hexadecimal
-                        int dv = wcstol(tmpd, &tail, *NUMBER_10_INTEGER_MEMORY_MODEL);
+                        int dv = wcstol(tmpd, &tail, *NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
                         // Transform string to month integer value.
                         // The third parameter is the number base:
                         // 0 - tries to automatically identify the correct number base
                         // 8 - octal
                         // 10 - decimal
                         // 16 - hexadecimal
-                        int mv = wcstol(tmpm, &tail, *NUMBER_10_INTEGER_MEMORY_MODEL);
+                        int mv = wcstol(tmpm, &tail, *NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
                         // Transform string to year integer value.
                         // The third parameter is the number base:
                         // 0 - tries to automatically identify the correct number base
                         // 8 - octal
                         // 10 - decimal
                         // 16 - hexadecimal
-                        int yv = wcstol(tmpy, &tail, *NUMBER_10_INTEGER_MEMORY_MODEL);
+                        int yv = wcstol(tmpy, &tail, *NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 
                         // Check date time size.
                         if (*dc >= *ds) {
 
                             // Calculate new date time size.
-                            *ds = *ds * *ARRAY_REALLOCATION_FACTOR + *NUMBER_1_INTEGER_MEMORY_MODEL;
+                            *ds = *ds * *ARRAY_REALLOCATION_FACTOR + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                             // Reallocate date time.
                             reallocate(p0, p1, p2, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
@@ -215,12 +215,12 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
 
 /*?? TODO!
                         // Set date time integer values.
-                        overwrite_array(p0, (void*) &yv, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) YEAR_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, (void*) &mv, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) MONTH_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, (void*) &dv, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) DAY_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, *NULL_POINTER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) HOUR_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, *NULL_POINTER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) MINUTE_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
-                        overwrite_array(p0, *NULL_POINTER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) SECOND_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, (void*) &yv, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) YEAR_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, (void*) &mv, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MONTH_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, (void*) &dv, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DAY_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HOUR_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MINUTE_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                        overwrite_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SECOND_DATETIME_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
 */
 
                         // Increase date time count by one, because of new element.
@@ -235,27 +235,27 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode ddmmyyyy date time. The source count is unequal eight characters.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode ddmmyyyy date time. The source count is unequal eight characters.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode ddmmyyyy date time. The destination is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode ddmmyyyy date time. The destination is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode ddmmyyyy date time. The destination count is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode ddmmyyyy date time. The destination count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode ddmmyyyy date time. The destination size is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode ddmmyyyy date time. The destination size is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode ddmmyyyy date time. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode ddmmyyyy date time. The source count is null.");
     }
 }
 

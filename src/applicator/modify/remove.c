@@ -32,11 +32,11 @@
 #include "../../constant/type/cybol/logicvalue_cybol_type.c"
 #include "../../constant/type/cybol/number_cybol_type.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/memory/copy_memory_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
@@ -58,30 +58,30 @@
  */
 void apply_remove(void* p0, int* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply remove.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply remove.");
 
     // The part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part.
-    void* c = *NULL_POINTER_MEMORY_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part.
-    void* i = *NULL_POINTER_MEMORY_MODEL;
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The part type, model.
-    void* pa = *NULL_POINTER_MEMORY_MODEL;
-    void* pm = *NULL_POINTER_MEMORY_MODEL;
+    void* pa = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model.
-    void* cm = *NULL_POINTER_MEMORY_MODEL;
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part model.
-    void* im = *NULL_POINTER_MEMORY_MODEL;
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The part type data, model count.
-    void* pad = *NULL_POINTER_MEMORY_MODEL;
-    void* pmc = *NULL_POINTER_MEMORY_MODEL;
+    void* pad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model data.
-    void* cmd = *NULL_POINTER_MEMORY_MODEL;
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part model data.
-    void* imd = *NULL_POINTER_MEMORY_MODEL;
+    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
     get_name_array((void*) &p, p0, (void*) PART_REMOVE_OPERATION_CYBOL_NAME, (void*) PART_REMOVE_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -91,24 +91,24 @@ void apply_remove(void* p0, int* p1, void* p2) {
     get_name_array((void*) &i, p0, (void*) INDEX_REMOVE_OPERATION_CYBOL_NAME, (void*) INDEX_REMOVE_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get part type, model.
-    copy_array_forward((void*) &pa, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    copy_array_forward((void*) &pm, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pa, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pm, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get count part model.
-    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get index part model.
-    copy_array_forward((void*) &im, i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &im, i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get part type data, model count.
-    copy_array_forward((void*) &pad, pa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &pmc, pm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &pad, pa, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &pmc, pm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get count part model data.
-    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get index part model data.
-    copy_array_forward((void*) &imd, im, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &imd, im, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The default values.
-    int count = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int index = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
@@ -121,7 +121,7 @@ void apply_remove(void* p0, int* p1, void* p2) {
     copy_integer((void*) &count, cmd);
     // Use the part model's last element index (count - 1), by default.
     copy_integer((void*) &index, pmc);
-    calculate_integer_subtract((void*) &index, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+    calculate_integer_subtract((void*) &index, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     // Use the explicit index that was given as parametre.
     copy_integer((void*) &index, imd);
 

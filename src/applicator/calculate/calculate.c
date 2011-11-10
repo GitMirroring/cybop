@@ -27,11 +27,11 @@
 #define CALCULATE_SOURCE
 
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/arithmetic/addition_arithmetic_operation_cybol_name.c"
 #include "../../executor/calculator/fraction/add_fraction_calculator.c"
 #include "../../executor/calculator/integer/add_integer_calculator.c"
@@ -98,32 +98,32 @@
  */
 void apply_calculate(void* p0, int* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply calculate.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
 
     // The result part.
-    void* res = *NULL_POINTER_MEMORY_MODEL;
+    void* res = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left operand part.
-    void* lo = *NULL_POINTER_MEMORY_MODEL;
+    void* lo = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right operand part.
-    void* ro = *NULL_POINTER_MEMORY_MODEL;
+    void* ro = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operation part.
-    void* o = *NULL_POINTER_MEMORY_MODEL;
+    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand type part.
-    void* a = *NULL_POINTER_MEMORY_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The result part model.
-    void* resm = *NULL_POINTER_MEMORY_MODEL;
+    void* resm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operation part model.
-    void* om = *NULL_POINTER_MEMORY_MODEL;
+    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand type part model.
-    void* am = *NULL_POINTER_MEMORY_MODEL;
+    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The result part model data, count.
-    void* resmd = *NULL_POINTER_MEMORY_MODEL;
+    void* resmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operation part model data, count.
-    void* omd = *NULL_POINTER_MEMORY_MODEL;
+    void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand type part model data, count.
-    void* amd = *NULL_POINTER_MEMORY_MODEL;
+    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
     get_name_array((void*) &res, p0, (void*) RESULT_COMPARE_OPERATION_CYBOL_NAME, (void*) RESULT_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -137,18 +137,18 @@ void apply_calculate(void* p0, int* p1, void* p2) {
     get_name_array((void*) &a, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) TYPE_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get result part model.
-    copy_array_forward((void*) &resm, res, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &resm, res, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get operation part model.
-    copy_array_forward((void*) &om, o, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &om, o, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get operand type part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &am, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get result part model data, count.
-    copy_array_forward((void*) &resmd, resm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &resmd, resm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get operation part model data, count.
-    copy_array_forward((void*) &omd, om, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &omd, om, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get operand type part model data, count.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &amd, am, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // Calculate result by applying operation to operands.
     calculate_all_part(resmd, lo, ro, omd, amd);

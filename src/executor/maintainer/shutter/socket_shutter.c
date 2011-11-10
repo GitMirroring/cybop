@@ -28,8 +28,8 @@
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
@@ -48,63 +48,63 @@
  */
 void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* base = (int*) p3;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Shutdown socket.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket.");
 
         // The internal memory index.
-        int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The socket of this system.
-        int* s = (int*) *NULL_POINTER_MEMORY_MODEL;
+        int* s = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get socket of this system.
         i = *base + *SOCKET_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward((void*) &s, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward((void*) &s, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
 
-        if (s != *NULL_POINTER_MEMORY_MODEL) {
+        if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Interrupt ALL socket service threads of this system.
             interrupt_thread(p1, p2);
 
             // The socket address (local, ipv4, ipv6) of this system.
-            void* a = *NULL_POINTER_MEMORY_MODEL;
+            void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The communication partner socket address (local, ipv4, ipv6).
-            void* pa = *NULL_POINTER_MEMORY_MODEL;
+            void* pa = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The socket address size of this system.
-            void* as = *NULL_POINTER_MEMORY_MODEL;
+            void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The communication partner socket address size.
-            void* pas = *NULL_POINTER_MEMORY_MODEL;
+            void* pas = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The communication partner socket.
-            int* ps = (int*) *NULL_POINTER_MEMORY_MODEL;
+            int* ps = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
             // The character buffer being used in the thread procedure receiving messages via socket.
-            void* b = *NULL_POINTER_MEMORY_MODEL;
-            void* bc = *NULL_POINTER_MEMORY_MODEL;
-            void* bs = *NULL_POINTER_MEMORY_MODEL;
+            void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get socket address of this system.
             i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward((void*) &a, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_array_forward((void*) &a, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
             // Get communication partner socket address.
             i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward((void*) &pa, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_array_forward((void*) &pa, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
             // Get socket address size of this system.
             i = *base + *SOCKET_ADDRESS_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward((void*) &as, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_array_forward((void*) &as, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
             // Get communication partner socket address size.
             i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward((void*) &pas, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_array_forward((void*) &pas, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
             // Get communication partner socket.
             i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward((void*) &ps, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_array_forward((void*) &ps, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
             // Get character buffer.
             i = *base + *SOCKET_CHARACTER_BUFFER_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward((void*) &b, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_array_forward((void*) &b, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
             i = *base + *SOCKET_CHARACTER_BUFFER_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward((void*) &bc, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_array_forward((void*) &bc, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
             i = *base + *SOCKET_CHARACTER_BUFFER_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward((void*) &bs, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_array_forward((void*) &bs, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
 
             // Close socket of this system.
             close(*s);
@@ -113,29 +113,29 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
 
             // Deallocate character buffer.
             deallocate((void*) &b, bs, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-            deallocate((void*) &bc, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
-            deallocate((void*) &bs, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+            deallocate((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+            deallocate((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
             // Deallocate socket of this system.
-            deallocate((void*) &s, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+            deallocate((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
             // Deallocate communication partner socket.
-            deallocate((void*) &ps, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+            deallocate((void*) &ps, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
             // Deallocate socket address of this system.
             free(a);
             // Deallocate communication partner socket address.
             free(pa);
             // Deallocate socket address size of this system.
-            deallocate((void*) &as, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+            deallocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
             // Deallocate communication partner socket address size.
-            deallocate((void*) &pas, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+            deallocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
 
         } else {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not shutdown socket. There is no socket of this system running.");
+            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket. There is no socket of this system running.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not shutdown socket. The base internal is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket. The base internal is null.");
     }
 }
 

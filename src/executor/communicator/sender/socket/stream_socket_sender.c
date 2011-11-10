@@ -30,14 +30,14 @@
 #include <errno.h>
 #include <stdio.h>
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/cybol/communication_mode_cybol_model.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../logger/logger.c"
 
@@ -51,19 +51,19 @@
  */
 void send_stream_socket_server_mode_single_transfer(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* n = (int*) p3;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* sc = (int*) p2;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* d = (int*) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Send to stream socket in server mode.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to stream socket in server mode.");
 
                 // Send message to destination socket.
                 //
@@ -77,34 +77,34 @@ void send_stream_socket_server_mode_single_transfer(void* p0, void* p1, void* p2
                 //
                 // The function returns the number of bytes transmitted
                 // or -1 on failure.
-                *n = send(*d, p1, *sc, *NUMBER_0_INTEGER_MEMORY_MODEL);
+                *n = send(*d, p1, *sc, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                if (*n < *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (*n < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     if (errno == EBADF) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. The socket argument is not a valid file descriptor.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. The socket argument is not a valid file descriptor.");
 
                     } else if (errno == EINTR) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. The operation was interrupted by a signal before any data was sent.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. The operation was interrupted by a signal before any data was sent.");
 
                     } else if (errno == ENOTSOCK) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. The descriptor socket is not a socket.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. The descriptor socket is not a socket.");
 
                     } else if (errno == EMSGSIZE) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. The socket type requires that the message be sent atomically, but the message is too large for this to be possible.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. The socket type requires that the message be sent atomically, but the message is too large for this to be possible.");
 
                     } else if (errno == EWOULDBLOCK) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. Nonblocking mode has been set on the socket, and the write operation would block.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. Nonblocking mode has been set on the socket, and the write operation would block.");
 
                         //?? TODO: DELETE the following comment block OR the log message above!
 
                         // CAUTION! Do NOT log the following error:
-                        // log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket. Nonblocking mode has been set on the socket, and the write operation would block.");
+                        // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket. Nonblocking mode has been set on the socket, and the write operation would block.");
                         //
                         // The reason is that the socket is non-blocking,
                         // so that the "accept" procedure returns always,
@@ -113,35 +113,35 @@ void send_stream_socket_server_mode_single_transfer(void* p0, void* p1, void* p2
 
                     } else if (errno == ENOBUFS) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. There is not enough internal buffer space available.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. There is not enough internal buffer space available.");
 
                     } else if (errno == ENOTCONN) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. You never connected this socket.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. You never connected this socket.");
 
                     } else if (errno == EPIPE) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. This socket was connected but the connection is now broken. In this case, send generates a SIGPIPE signal first; if that signal is ignored or blocked, or if its handler returns, then send fails with EPIPE.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. This socket was connected but the connection is now broken. In this case, send generates a SIGPIPE signal first; if that signal is ignored or blocked, or if its handler returns, then send fails with EPIPE.");
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. An unknown error occured.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. An unknown error occured.");
                     }
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. The socket of this system is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. The socket of this system is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. The source count is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. The source count is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. The number of transferred bytes is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. The number of transferred bytes is null.");
     }
 }
 
@@ -154,16 +154,16 @@ void send_stream_socket_server_mode_single_transfer(void* p0, void* p1, void* p2
  */
 void send_stream_socket_server_mode(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p2;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Send to stream socket in server mode.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to stream socket in server mode.");
 
         // The byte array index to start the transfer at.
         void* i = p1;
         // The number of bytes transferred.
-        int n = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Initialise error number.
         // It is a global variable/ function and other operations
@@ -171,7 +171,7 @@ void send_stream_socket_server_mode(void* p0, void* p1, void* p2) {
         //
         // CAUTION! Initialise the error number BEFORE calling the procedure
         // that might cause an error.
-        errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // CAUTION! The send operation does not necessarily
         // handle all the bytes handed over to it, because
@@ -183,9 +183,9 @@ void send_stream_socket_server_mode(void* p0, void* p1, void* p2) {
         // The "sent" operation therefore has to be
         // CALLED AGAIN AND AGAIN, in a loop, until
         // the complete message has been transmitted!
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*sc <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (*sc <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 break;
             }
@@ -200,7 +200,7 @@ void send_stream_socket_server_mode(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in server mode. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in server mode. The source count is null.");
     }
 }
 
@@ -215,19 +215,19 @@ void send_stream_socket_server_mode(void* p0, void* p1, void* p2) {
  */
 void send_stream_socket_client_mode(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         socklen_t* as = (socklen_t*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             struct sockaddr** a = (struct sockaddr**) p1;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* d = (int*) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Send to stream socket in client mode.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to stream socket in client mode.");
 
                 // Initialise error number.
                 // It is a global variable/ function and other operations
@@ -235,77 +235,77 @@ void send_stream_socket_client_mode(void* p0, void* p1, void* p2) {
                 //
                 // CAUTION! Initialise the error number BEFORE calling the procedure
                 // that might cause an error.
-                errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Connect this system whose socket is given
                 // to another system whose address is given.
                 int r = connect(*d, *a, *as);
 
-                if (r < *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     if (errno == EBADF) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The socket is not a valid file descriptor.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The socket is not a valid file descriptor.");
 
                     } else if (errno == ENOTSOCK) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. File descriptor socket is not a socket.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. File descriptor socket is not a socket.");
 
                     } else if (errno == EADDRNOTAVAIL) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The specified address is not available on the remote machine.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The specified address is not available on the remote machine.");
 
                     } else if (errno == EAFNOSUPPORT) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The namespace of the addr is not supported by this socket.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The namespace of the addr is not supported by this socket.");
 
                     } else if (errno == EISCONN) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The socket is already connected.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The socket is already connected.");
 
                     } else if (errno == ETIMEDOUT) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The attempt to establish the connection timed out.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The attempt to establish the connection timed out.");
 
                     } else if (errno == ECONNREFUSED) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The server has actively refused to establish the connection.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The server has actively refused to establish the connection.");
 
                     } else if (errno == ENETUNREACH) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The network of the given address is not reachable from this host.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The network of the given address is not reachable from this host.");
 
                     } else if (errno == EADDRINUSE) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The given socket address is already in use.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The given socket address is already in use.");
 
                     } else if (errno == EINPROGRESS) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The socket is non-blocking and the connection could not be established immediately.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The socket is non-blocking and the connection could not be established immediately.");
 
                     } else if (errno == EALREADY) {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The socket is non-blocking and already has a pending connection in progress.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The socket is non-blocking and already has a pending connection in progress.");
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. An unknown error occured.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. An unknown error occured.");
                     }
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The socket of this system is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The socket of this system is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The socket address is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The socket address is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket in client mode. The socket address size is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket in client mode. The socket address size is null.");
     }
 }
 
@@ -322,27 +322,27 @@ void send_stream_socket_client_mode(void* p0, void* p1, void* p2) {
  */
 void send_stream_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Send to stream socket.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to stream socket.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Send message to destination socket.
             send_stream_socket_server_mode(p0, p1, p2);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p5, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Connect this system whose socket is given to
             // another system whose address is given.
@@ -352,9 +352,9 @@ void send_stream_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not send to stream socket. The communication mode is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket. The communication mode is unknown.");
     }
 }
 

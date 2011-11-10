@@ -26,10 +26,10 @@
 #ifndef HIERARCHICAL_PART_GETTER_SOURCE
 #define HIERARCHICAL_PART_GETTER_SOURCE
 
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/modifier/getter/name_part_getter.c"
 #include "../../../executor/searcher/selector/knowledge/name_knowledge_selector.c"
 #include "../../../logger/logger.c"
@@ -53,29 +53,29 @@ void get_part_branch(void* p0, void* p1, void* p2, void* p3);
  */
 void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* rem = (int*) p3;
 
-        if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** pos = (void**) p2;
 
-            if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 void** d = (void**) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Get part hierarchical.");
+                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part hierarchical.");
 
                 // The element.
                 void* e = *pos;
-                int ec = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                 // The break flag.
-                int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+                while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (*rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         // CAUTION! The function "select_knowledge_name"
                         // may have decremented the remaining count,
@@ -109,11 +109,11 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                     select_knowledge_name((void*) &b, p2, p3);
 
-                    if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                    if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         // CAUTION! Do NOT relate this comparison with the
                         // remaining count comparison from above in the following way:
-                        // if ((b != *NUMBER_0_INTEGER_MEMORY_MODEL) || (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL)) {
+                        // if ((b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) || (*rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
                         //
                         // If they were related using the boolean OR operator,
                         // then the element count ec would always be ONE TOO SMALL,
@@ -144,17 +144,17 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get part hierarchical. The destination part is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part hierarchical. The destination part is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get part hierarchical. The current position is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part hierarchical. The current position is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not get part hierarchical. The remaining count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part hierarchical. The remaining count is null.");
     }
 }
 

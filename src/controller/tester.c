@@ -64,13 +64,13 @@
     // The log file.
     int f = open(n, status);
 
-    if (f >= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (f >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // The file owner.
-        int o = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int o = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // The file group.
-        int g = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+        int g = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Set file owner.
         chown(n, o, g);
@@ -103,13 +103,13 @@
  */
 void test() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test cyboi.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test cyboi.");
 
     // How to use printf to check parameter values.
     // The printf function uses stdout for output, but nothing appears on console.
     // Therefore, fprintf is used and stdout is given for output.
     // Example:
-    // int x = *NUMBER_2_INTEGER_MEMORY_MODEL;
+    // int x = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
     // fwprintf(stdout, L"The value of x is: %d\n", x);
 
     // Globals.

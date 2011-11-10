@@ -27,9 +27,9 @@
 #define PART_CALCULATOR_SOURCE
 
 #include "../../../constant/type/operation/operation_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/comparator/basic/integer/divide_integer_calculator.c"
 #include "../../../executor/comparator/basic/integer/multiply_integer_calculator.c"
@@ -51,7 +51,7 @@
  */
 void calculate_part(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Calculate part.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate part.");
 
     //
     // Recursively call a calculation function, which in turn

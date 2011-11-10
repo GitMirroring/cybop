@@ -30,12 +30,12 @@
 #include "../../applicator/memoriser/counting/prefix_counting_memoriser.c"
 #include "../../applicator/memoriser/counting/suffix_counting_memoriser.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/model/cybol/count_selection_cybol_model.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/memory/count_memory_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
@@ -62,60 +62,60 @@
  */
 void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Count compound parts.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Count compound parts.");
 
     // The compound name, type, model, properties.
-    void** cn = NULL_POINTER_MEMORY_MODEL;
-    void** cnc = NULL_POINTER_MEMORY_MODEL;
-    void** cns = NULL_POINTER_MEMORY_MODEL;
-    void** ca = NULL_POINTER_MEMORY_MODEL;
-    void** cac = NULL_POINTER_MEMORY_MODEL;
-    void** cas = NULL_POINTER_MEMORY_MODEL;
-    void** cm = NULL_POINTER_MEMORY_MODEL;
-    void** cmc = NULL_POINTER_MEMORY_MODEL;
-    void** cms = NULL_POINTER_MEMORY_MODEL;
-    void** cd = NULL_POINTER_MEMORY_MODEL;
-    void** cdc = NULL_POINTER_MEMORY_MODEL;
-    void** cds = NULL_POINTER_MEMORY_MODEL;
+    void** cn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ca = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** cds = NULL_POINTER_STATE_CYBOI_MODEL;
     // The selection name, type, model, properties.
-    void** sn = NULL_POINTER_MEMORY_MODEL;
-    void** snc = NULL_POINTER_MEMORY_MODEL;
-    void** sns = NULL_POINTER_MEMORY_MODEL;
-    void** sa = NULL_POINTER_MEMORY_MODEL;
-    void** sac = NULL_POINTER_MEMORY_MODEL;
-    void** sas = NULL_POINTER_MEMORY_MODEL;
-    void** sm = NULL_POINTER_MEMORY_MODEL;
-    void** smc = NULL_POINTER_MEMORY_MODEL;
-    void** sms = NULL_POINTER_MEMORY_MODEL;
-    void** sd = NULL_POINTER_MEMORY_MODEL;
-    void** sdc = NULL_POINTER_MEMORY_MODEL;
-    void** sds = NULL_POINTER_MEMORY_MODEL;
+    void** sn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** snc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sa = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** smc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** sds = NULL_POINTER_STATE_CYBOI_MODEL;
     // The filter name, type, model, properties.
-    void** fn = NULL_POINTER_MEMORY_MODEL;
-    void** fnc = NULL_POINTER_MEMORY_MODEL;
-    void** fns = NULL_POINTER_MEMORY_MODEL;
-    void** fa = NULL_POINTER_MEMORY_MODEL;
-    void** fac = NULL_POINTER_MEMORY_MODEL;
-    void** fas = NULL_POINTER_MEMORY_MODEL;
-    void** fm = NULL_POINTER_MEMORY_MODEL;
-    void** fmc = NULL_POINTER_MEMORY_MODEL;
-    void** fms = NULL_POINTER_MEMORY_MODEL;
-    void** fd = NULL_POINTER_MEMORY_MODEL;
-    void** fdc = NULL_POINTER_MEMORY_MODEL;
-    void** fds = NULL_POINTER_MEMORY_MODEL;
+    void** fn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fa = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fas = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** fds = NULL_POINTER_STATE_CYBOI_MODEL;
     // The result name, type, model, properties.
-    void** rn = NULL_POINTER_MEMORY_MODEL;
-    void** rnc = NULL_POINTER_MEMORY_MODEL;
-    void** rns = NULL_POINTER_MEMORY_MODEL;
-    void** ra = NULL_POINTER_MEMORY_MODEL;
-    void** rac = NULL_POINTER_MEMORY_MODEL;
-    void** ras = NULL_POINTER_MEMORY_MODEL;
-    void** rm = NULL_POINTER_MEMORY_MODEL;
-    void** rmc = NULL_POINTER_MEMORY_MODEL;
-    void** rms = NULL_POINTER_MEMORY_MODEL;
-    void** rd = NULL_POINTER_MEMORY_MODEL;
-    void** rdc = NULL_POINTER_MEMORY_MODEL;
-    void** rds = NULL_POINTER_MEMORY_MODEL;
+    void** rn = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rnc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rns = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ra = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rac = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** ras = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rm = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rmc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rms = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rd = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rdc = NULL_POINTER_STATE_CYBOI_MODEL;
+    void** rds = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get compound.
     get_universal_compound_element_by_name(
@@ -124,7 +124,7 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
         (void*) &cm, (void*) &cmc, (void*) &cms,
         (void*) &cd, (void*) &cdc, (void*) &cds,
         p0, p1,
-        (void*) COMPOUND_MEMORY_MODEL_COUNT_FLOW_OPERATION_CYBOL_NAME, (void*) COMPOUND_MEMORY_MODEL_COUNT_FLOW_OPERATION_CYBOL_NAME_COUNT,
+        (void*) COMPOUND_STATE_CYBOI_MODEL_COUNT_FLOW_OPERATION_CYBOL_NAME, (void*) COMPOUND_STATE_CYBOI_MODEL_COUNT_FLOW_OPERATION_CYBOL_NAME_COUNT,
         p2, p3);
     // Get selection.
     get_universal_compound_element_by_name(
@@ -155,41 +155,41 @@ void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
         p2, p3);
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, (void*) *sm, (void*) ALL_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) *smc, (void*) ALL_COUNT_SELECTION_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             memorise_counting_all(rm, *rmc, *rms, *cm, *cmc);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, (void*) *sm, (void*) PREFIX_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) *smc, (void*) PREFIX_COUNT_SELECTION_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             memorise_counting_prefix(rm, *rmc, *rms, *cm, *cmc, *fm, *fmc);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, (void*) *sm, (void*) SUFFIX_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) *smc, (void*) SUFFIX_COUNT_SELECTION_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             memorise_counting_suffix(rm, *rmc, *rms, *cm, *cmc, *fm, *fmc);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not count compound parts. The selection model is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not count compound parts. The selection model is unknown.");
     }
 }
 

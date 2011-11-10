@@ -28,27 +28,27 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The name cybol name. */
 static wchar_t NAME_CYBOL_NAME_ARRAY[] = {L'n', L'a', L'm', L'e'};
 static wchar_t* NAME_CYBOL_NAME = NAME_CYBOL_NAME_ARRAY;
-static int* NAME_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_MEMORY_MODEL_ARRAY;
+static int* NAME_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The channel cybol name. */
 static wchar_t CHANNEL_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
 static wchar_t* CHANNEL_CYBOL_NAME = CHANNEL_CYBOL_NAME_ARRAY;
-static int* CHANNEL_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+static int* CHANNEL_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The type cybol name. */
 static wchar_t TYPE_CYBOL_NAME_ARRAY[] = {L'a', L'b', L's', L't', L'r', L'a', L'c', L't', L'i', L'o', L'n'};
 static wchar_t* TYPE_CYBOL_NAME = TYPE_CYBOL_NAME_ARRAY;
-static int* TYPE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
+static int* TYPE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The model cybol name. */
 static wchar_t MODEL_CYBOL_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};
 static wchar_t* MODEL_CYBOL_NAME = MODEL_CYBOL_NAME_ARRAY;
-static int* MODEL_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_MEMORY_MODEL_ARRAY;
+static int* MODEL_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CYBOL_NAME_CONSTANT_SOURCE */
 #endif

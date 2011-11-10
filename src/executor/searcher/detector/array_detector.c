@@ -26,11 +26,11 @@
 #ifndef ARRAY_DETECTOR_SOURCE
 #define ARRAY_DETECTOR_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/operation/primitive_operation_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/converter/encoder/model_diagram_encoder.c"
 #include "../../../executor/searcher/mover/position_mover.c"
 #include "../../../logger/logger.c"
@@ -49,7 +49,7 @@
  * detect_element(p0, p1, p2, p3, (void*) CHARACTER_MEMORY_TYPE, p4, p7);
  *
  * Example calls of this function for wide characters:
- * detect_array((void*) &r, p7, p8, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+ * detect_array((void*) &r, p7, p8, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
  *
  * @param p0 the comparison result
  * @param p1 the source data position (pointer reference)
@@ -61,32 +61,32 @@
  */
 void detect_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* m = (int*) p6;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* r = (int*) p0;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Detect array.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detect array.");
 
             // The count flag.
-            int c = *FALSE_BOOLEAN_MEMORY_MODEL;
+            int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             // CAUTION! This comparison ensures that array boundaries are not crossed.
             // The count is used for both, the array AND source data.
             compare_integer_greater_or_equal((void*) &c, p2, p5);
 
-            if (c != *FALSE_BOOLEAN_MEMORY_MODEL) {
+            if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // CAUTION! The remaining count may NOT be handed over as position count,
                 // since it might be greater than the array count and would thus differ.
                 compare_all_array(p0, *((void**) p1), p3, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, p4, p5, p5);
 
-                if (*r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+                if (*r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    if (*m != *FALSE_BOOLEAN_MEMORY_MODEL) {
+                    if (*m != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         move_position(p1, p2, p4, p5);
                     }
@@ -94,17 +94,17 @@ void detect_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
             } else {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The remaining count is smaller than the array count.");
+                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect array. The remaining count is smaller than the array count.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The comparison result is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect array. The comparison result is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not detect array. The move flag is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect array. The move flag is null.");
     }
 }
 

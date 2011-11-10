@@ -36,12 +36,12 @@
 #include <wchar.h>
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/memoriser/allocator/model_allocator.c"
 #include "../../../../executor/memoriser/deallocator/model_deallocator.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
@@ -64,37 +64,37 @@
  */
 void decode_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode integer.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode integer.");
 
         // The temporary null-terminated string.
-        void* tmp = *NULL_POINTER_MEMORY_MODEL;
-        int tmpc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-        int tmps = *NUMBER_2_INTEGER_MEMORY_MODEL;
+        void* tmp = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int tmpc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int tmps = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
         // Allocate temporary null-terminated string.
         allocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
         // Copy original string to temporary null-terminated string.
-        overwrite_array((void*) &tmp, p3, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, tmpc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        overwrite_array((void*) &tmp, p3, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, tmpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Add string termination to temporary null-terminated string.
         // The source count is used as index for the termination character.
-        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tmpc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tmpc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // The tail variable is useless here and only needed for the string
         // transformation function. If the whole string array consists of
         // many sub strings, separated by space characters, then each sub
         // string gets interpreted as integer number.
         // The tail variable in this case points to the remaining sub string.
-        wchar_t* tail = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
+        wchar_t* tail = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Initialise error number.
         // It is a global variable/ function and other operations
         // may have set some value that is not wanted here.
-        errno = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Set integer value.
         //
@@ -104,11 +104,11 @@ void decode_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // 8 - octal, e.g. 083
         // 10 - decimal, e.g. 1234
         // 16 - hexadecimal, e.g. 3d4 or, optionally, 0x3d4
-        *d = wcstol((wchar_t*) tmp, &tail, *NUMBER_10_INTEGER_MEMORY_MODEL);
+        *d = wcstol((wchar_t*) tmp, &tail, *NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 
-        if (errno != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (errno != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode integer. An error (probably overflow) occured.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode integer. An error (probably overflow) occured.");
         }
 
         // Deallocate temporary null-terminated string.
@@ -116,7 +116,7 @@ void decode_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode integer. The destination is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode integer. The destination is null.");
     }
 }
 

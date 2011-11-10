@@ -26,11 +26,11 @@
 #ifndef ARRAY_COPIER_SOURCE
 #define ARRAY_COPIER_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/calculator/integer_adder.c"
 #include "../../../executor/calculator/integer_multiplier.c"
 #include "../../../executor/memoriser/offset_adder.c"
@@ -49,16 +49,16 @@
  */
 void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* c = (int*) p3;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Copy array elements forward.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements forward.");
 
         // The loop variable.
-        int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (j >= *c) {
 
@@ -72,7 +72,7 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not copy array elements forward. The count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array elements forward. The count is null.");
     }
 }
 
@@ -88,19 +88,19 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
  */
 void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* c = (int*) p3;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Copy array elements backward.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements backward.");
 
         // The loop variable.
         // CAUTION! Subtract one because this is an index.
-        int j = *c - *NUMBER_1_INTEGER_MEMORY_MODEL;
+        int j = *c - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (j < *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (j < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 break;
             }
@@ -112,7 +112,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not copy array elements backward. The count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array elements backward. The count is null.");
     }
 }
 
@@ -136,11 +136,11 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // All other modifier functions are based on this copier function,
     // so that checking for null pointer right here suffices.
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Copy array forward.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array forward.");
 
             // The destination array, source array.
             // CAUTION! They HAVE TO BE initialised with p0 and p1,
@@ -156,12 +156,12 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not copy array forward. The destination array is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array forward. The destination array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not copy array forward. The source array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array forward. The source array is null.");
     }
 }
 
@@ -185,11 +185,11 @@ void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // All other copying functions are based on this copier function,
     // so that checking for null pointer right here suffices.
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Copy array backward.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array backward.");
 
             // The destination array, source array.
             // CAUTION! They HAVE TO BE initialised with p0 and p1,
@@ -205,12 +205,12 @@ void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not copy array backward. The destination array is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array backward. The destination array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not copy array backward. The source array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array backward. The source array is null.");
     }
 }
 

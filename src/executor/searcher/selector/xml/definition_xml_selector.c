@@ -26,10 +26,10 @@
 #ifndef DEFINITION_XML_SELECTOR_SOURCE
 #define DEFINITION_XML_SELECTOR_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../constant/name/xml_name.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
@@ -46,28 +46,28 @@
  */
 void select_xml_definition(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Select xml definition.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xml definition.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) DEFINITION_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) DEFINITION_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) DEFINITION_END_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) DEFINITION_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // None of the comparisons above delivered a positive (r != 0) result.
         // Therefore, increment the current position by one (pointer size).
 
-        move_position(p1, p2, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        move_position(p1, p2, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

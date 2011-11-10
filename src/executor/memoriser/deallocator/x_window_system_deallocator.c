@@ -27,7 +27,7 @@
 #define X_WINDOW_SYSTEM_DEALLOCATOR_SOURCE
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 
 /**
  * Deallocates the x window system window.

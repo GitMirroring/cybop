@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -65,7 +65,7 @@
  */
 static wchar_t AND_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'a', L'n', L'd'};
 static wchar_t* AND_LOGIFY_LOGIC_CYBOL_TYPE = AND_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY;
-static int* AND_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* AND_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The logify/nand cybol type.
@@ -78,7 +78,7 @@ static int* AND_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_A
  */
 static wchar_t NAND_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'n', L'a', L'n', L'd'};
 static wchar_t* NAND_LOGIFY_LOGIC_CYBOL_TYPE = NAND_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY;
-static int* NAND_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
+static int* NAND_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The logify/neg cybol type.
@@ -92,7 +92,7 @@ static int* NAND_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_
  */
 static wchar_t NEG_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'n', L'e', L'g'};
 static wchar_t* NEG_LOGIFY_LOGIC_CYBOL_TYPE = NEG_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY;
-static int* NEG_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* NEG_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The logify/nor cybol type.
@@ -105,7 +105,7 @@ static int* NEG_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_A
  */
 static wchar_t NOR_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'n', L'o', L'r'};
 static wchar_t* NOR_LOGIFY_LOGIC_CYBOL_TYPE = NOR_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY;
-static int* NOR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* NOR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The logify/not cybol type.
@@ -119,7 +119,7 @@ static int* NOR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_A
  */
 static wchar_t NOT_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'n', L'o', L't'};
 static wchar_t* NOT_LOGIFY_LOGIC_CYBOL_TYPE = NOT_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY;
-static int* NOT_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* NOT_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The logify/or cybol type.
@@ -132,7 +132,7 @@ static int* NOT_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_A
  */
 static wchar_t OR_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'o', L'r'};
 static wchar_t* OR_LOGIFY_LOGIC_CYBOL_TYPE = OR_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY;
-static int* OR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static int* OR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The logify/xnor cybol type.
@@ -145,7 +145,7 @@ static int* OR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARR
  */
 static wchar_t XNOR_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'x', L'n', L'o', L'r'};
 static wchar_t* XNOR_LOGIFY_LOGIC_CYBOL_TYPE = XNOR_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY;
-static int* XNOR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XNOR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The logify/xor cybol type.
@@ -158,7 +158,7 @@ static int* XNOR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_
  */
 static wchar_t XOR_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'x', L'o', L'r'};
 static wchar_t* XOR_LOGIFY_LOGIC_CYBOL_TYPE = XOR_LOGIFY_LOGIC_CYBOL_TYPE_ARRAY;
-static int* XOR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* XOR_LOGIFY_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LOGIFY_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

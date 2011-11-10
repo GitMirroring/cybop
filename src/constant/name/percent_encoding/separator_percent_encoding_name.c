@@ -28,11 +28,11 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The (percent) separator percent-encoding name. */
 static char* SEPARATOR_PERCENT_ENCODING_NAME = PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_PERCENT_ENCODING_NAME_COUNT = NUMBER_1_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SEPARATOR_PERCENT_ENCODING_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SEPARATOR_PERCENT_ENCODING_NAME_CONSTANT_SOURCE */
 #endif

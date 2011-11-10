@@ -26,9 +26,9 @@
 #ifndef UNEQUAL_INTEGER_COMPARATOR_SOURCE
 #define UNEQUAL_INTEGER_COMPARATOR_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
@@ -41,29 +41,29 @@
  */
 void compare_integer_unequal(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* rv = (int*) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* lv = (int*) p1;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Compare integer unequal.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare integer unequal.");
 
             if (*lv != *rv) {
 
-                copy_integer(p0, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+                copy_integer(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare integer unequal. The left value is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer unequal. The left value is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare integer unequal. The right value is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer unequal. The right value is null.");
     }
 }
 

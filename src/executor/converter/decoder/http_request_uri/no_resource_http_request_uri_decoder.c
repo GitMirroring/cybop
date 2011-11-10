@@ -26,10 +26,10 @@
 #ifndef NO_RESOURCE_HTTP_REQUEST_URI_DECODER_SOURCE
 #define NO_RESOURCE_HTTP_REQUEST_URI_DECODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/converter/selector/http_request_uri/no_resource_http_request_uri_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -44,27 +44,27 @@
  */
 void decode_no_resource_http_request_uri(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* r = (int*) p2;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode no resource http request uri.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode no resource http request uri.");
 
         // The break flag.
-        int b = *FALSE_BOOLEAN_MEMORY_MODEL;
+        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_smaller_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+            compare_integer_smaller_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-            if (b != *FALSE_BOOLEAN_MEMORY_MODEL) {
+            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 break;
             }
 
             select_no_resource_http_request_uri(p0, p1, p2, p3, p4);
 
-            if (*r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+            if (*r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 break;
             }
@@ -72,7 +72,7 @@ void decode_no_resource_http_request_uri(void* p0, void* p1, void* p2, void* p3,
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode no resource http request uri. The comparison result is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode no resource http request uri. The comparison result is null.");
     }
 }
 

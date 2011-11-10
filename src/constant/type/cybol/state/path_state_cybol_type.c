@@ -27,7 +27,7 @@
 #define CYBOL_PATH_LANGUAGE_CONSTANTS_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -70,7 +70,7 @@
  */
 static wchar_t KNOWLEDGE_PATH_STATE_CYBOL_TYPE_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'k', L'n', L'o', L'w', L'l', L'e', L'd', L'g', L'e'};
 static wchar_t* KNOWLEDGE_PATH_STATE_CYBOL_TYPE = KNOWLEDGE_PATH_STATE_CYBOL_TYPE_ARRAY;
-static int* KNOWLEDGE_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
+static int* KNOWLEDGE_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The path/encapsulated cybol type.
@@ -87,7 +87,7 @@ static int* KNOWLEDGE_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_MEMORY_MOD
  */
 static wchar_t ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOL_TYPE_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd'};
 static wchar_t* ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOL_TYPE = ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOL_TYPE_ARRAY;
-static int* ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CYBOL_PATH_LANGUAGE_CONSTANTS_SOURCE */
 #endif

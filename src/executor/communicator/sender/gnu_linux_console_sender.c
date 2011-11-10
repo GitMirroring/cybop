@@ -32,13 +32,13 @@
 #include <wchar.h>
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../executor/converter/decoder/utf_8_unicode_character_decoder.c"
 #include "../../../executor/memoriser/allocator/model_allocator.c"
@@ -56,29 +56,29 @@
  */
 void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         FILE** d = (FILE**) p0;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Send to gnu/linux console.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to gnu/linux console.");
 
         // The terminated control sequences.
-        void* ts = *NULL_POINTER_MEMORY_MODEL;
-        void* tsc = *NULL_POINTER_MEMORY_MODEL;
-        void* tss = *NULL_POINTER_MEMORY_MODEL;
+        void* ts = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* tsc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* tss = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate terminated control sequences.
         //
         // CAUTION! Use a standard (non-wide) character vector here,
         // because the source is handed over as utf-8 encoded multibyte characters
         // and will be forwarded as such to the gnu linux console!
-        allocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+        allocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
         // Append control sequences and null termination character.
         overwrite_array((void*) &ts, p3, (void*) CHARACTER_MEMORY_TYPE, p4, tsc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tsc, tss);
-        overwrite_array((void*) &ts, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, tsc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tsc, tss);
+        overwrite_array((void*) &ts, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tsc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tsc, tss);
 
-        if (*d != *NULL_POINTER_MEMORY_MODEL) {
+        if (*d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Send to terminal.
 //??            fwprintf(*d, L"%s", (char*) ts);
@@ -107,15 +107,15 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file is null.");
         }
 
         // Deallocate terminated control sequences.
-        deallocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+        deallocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file parameter is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file parameter is null.");
     }
 }
 
@@ -139,59 +139,59 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 void apply_send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply send gnu/linux console.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send gnu/linux console.");
 
     // The serialised wide character array.
-    void* s = *NULL_POINTER_MEMORY_MODEL;
-    void* sc = *NULL_POINTER_MEMORY_MODEL;
-    void* ss = *NULL_POINTER_MEMORY_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
-    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
-    if (p9 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p9 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* f = (int*) p9;
 
-        if (*f != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (*f != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            overwrite_array((void*) &s, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, sc, ss);
-            overwrite_array((void*) &s, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, sc, ss);
+            overwrite_array((void*) &s, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sc, ss);
+            overwrite_array((void*) &s, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sc, ss);
         }
     }
 
     // Encode textual user interface (tui) into array.
-    encode_gnu_linux_console((void*) &s, sc, ss, p1, p2, p3, p4, p5, p6, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p7, p8, p11, p12);
+    encode_gnu_linux_console((void*) &s, sc, ss, p1, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7, p8, p11, p12);
 
     // The encoded character array.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
-    void* ec = *NULL_POINTER_MEMORY_MODEL;
-    void* es = *NULL_POINTER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* es = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate encoded character array.
     //
     // CAUTION! Use a standard (non-wide) character vector here,
     // because the source is handed over as utf-8 encoded multibyte characters
     // and will be forwarded as such to the gnu linux console!
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 
     // Encode serialised wide character array into encoded character array.
     encode_utf_8_unicode_character_vector((void*) &e, ec, es, s, sc);
 
     // Deallocate serialised wide character array.
-    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
     // The gnu/linux console output stream.
-    void** op = NULL_POINTER_MEMORY_MODEL;
+    void** op = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get gnu/linux console output stream.
     get_array_elements((void*) &op, p0, (void*) GNU_LINUX_CONSOLE_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE);
 
     // Send encoded array as message to shell standard output.
-    send_data((void*) op, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, e, ec, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
+    send_data((void*) op, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, e, ec, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
 
     // Deallocate encoded character array.
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
 }
 
 /* GNU_LINUX_CONSOLE_SENDER_SOURCE */

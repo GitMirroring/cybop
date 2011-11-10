@@ -26,7 +26,7 @@
 #ifndef URI_DECODER_SOURCE
 #define URI_DECODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../executor/converter/decoder/http_request_uri/absolute_path_http_request_uri_decoder.c"
 #include "../../../../executor/converter/decoder/http_request_uri/absolute_uri_http_request_uri_decoder.c"
 #include "../../../../executor/converter/decoder/http_request_uri/authority_form_http_request_uri_decoder.c"
@@ -164,15 +164,15 @@
  */
 void decode_uri(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p7 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int sc = *((int*) p7);
 
-        if (p6 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void* s = p6;
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode uri.");
+            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode uri.");
 
             //
             // Do comparisons below in parallel, because:
@@ -190,9 +190,9 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
 */
 
             // The comparison result.
-            int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Reset source.
                 s = p6;
@@ -205,14 +205,14 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"TEST decode uri 1 sc: %i\n", sc);
 */
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // Do nothing, since the http request uri is empty "*",
                     // which means that it points to nowhere, i.e. no resource is given.
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Reset source.
                 s = p6;
@@ -230,13 +230,13 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"TEST decode uri 2 sc: %i\n", sc);
 */
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     decode_uri_scheme(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Reset source.
                 s = p6;
@@ -249,7 +249,7 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"TEST decode uri 3 sc: %i\n", sc);
 */
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // Add scheme as full text string.
                     // The scheme is handed over as http request "protocol" header.
@@ -257,13 +257,13 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
                     append_part(p0, p1, p2,
                         (void*) CYBOI_SCHEME_URI_NAME, (void*) CYBOI_SCHEME_URI_NAME_COUNT,
                         (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT,
-                        (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+                        (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
                     decode_http_uri_authority_content(p0, p1, p2, (void*) &p6, p7);
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Reset source.
                 s = p6;
@@ -276,7 +276,7 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"TEST decode uri 4 sc: %i\n", sc);
 */
 
-                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // Add scheme as full text string.
                     // The scheme is handed over as http request "protocol" header.
@@ -284,25 +284,25 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
                     append_part(p0, p1, p2,
                         (void*) CYBOI_SCHEME_URI_NAME, (void*) CYBOI_SCHEME_URI_NAME_COUNT,
                         (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT,
-                        (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL);
+                        (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
                     decode_http_uri_path(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not decode uri. The uri is invalid.");
+                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The uri is invalid.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode uri. The source is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The source is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode uri. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The source count is null.");
     }
 }
 

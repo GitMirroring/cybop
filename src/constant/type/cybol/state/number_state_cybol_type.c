@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -74,7 +74,7 @@
  */
 static wchar_t CARTESIAN_COMPLEX_NUMBER_STATE_CYBOL_TYPE_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'c', L'o', L'm', L'p', L'l', L'e', L'x', L'-', L'c', L'a', L'r', L't', L'e', L's', L'i', L'a', L'n'};
 static wchar_t* CARTESIAN_COMPLEX_NUMBER_STATE_CYBOL_TYPE = CARTESIAN_COMPLEX_NUMBER_STATE_CYBOL_TYPE_ARRAY;
-static int* CARTESIAN_COMPLEX_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_MEMORY_MODEL_ARRAY;
+static int* CARTESIAN_COMPLEX_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The number/fraction-decimal cybol type.
@@ -88,7 +88,7 @@ static int* CARTESIAN_COMPLEX_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_
  */
 static wchar_t DECIMAL_FRACTION_NUMBER_STATE_CYBOL_TYPE_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'f', L'r', L'a', L'c', L't', L'i', L'o', L'n', L'-', L'd', L'e', L'c', L'i', L'm', L'a', L'l'};
 static wchar_t* DECIMAL_FRACTION_NUMBER_STATE_CYBOL_TYPE = DECIMAL_FRACTION_NUMBER_STATE_CYBOL_TYPE_ARRAY;
-static int* DECIMAL_FRACTION_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_23_INTEGER_MEMORY_MODEL_ARRAY;
+static int* DECIMAL_FRACTION_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The number/integer cybol type.
@@ -99,7 +99,7 @@ static int* DECIMAL_FRACTION_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_23_INTEGER_M
  */
 static wchar_t INTEGER_NUMBER_STATE_CYBOL_TYPE_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'i', L'n', L't', L'e', L'g', L'e', L'r'};
 static wchar_t* INTEGER_NUMBER_STATE_CYBOL_TYPE = INTEGER_NUMBER_STATE_CYBOL_TYPE_ARRAY;
-static int* INTEGER_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_MEMORY_MODEL_ARRAY;
+static int* INTEGER_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The number/complex-polar cybol type.
@@ -119,7 +119,7 @@ static int* INTEGER_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_MEMORY_MOD
  */
 static wchar_t POLAR_COMPLEX_NUMBER_STATE_CYBOL_TYPE_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'c', L'o', L'm', L'p', L'l', L'e', L'x', L'-', L'p', L'o', L'l', L'a', L'r'};
 static wchar_t* POLAR_COMPLEX_NUMBER_STATE_CYBOL_TYPE = POLAR_COMPLEX_NUMBER_STATE_CYBOL_TYPE_ARRAY;
-static int* POLAR_COMPLEX_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_MEMORY_MODEL_ARRAY;
+static int* POLAR_COMPLEX_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The number/fraction-vulgar cybol type.
@@ -136,7 +136,7 @@ static int* POLAR_COMPLEX_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_MEMO
  */
 static wchar_t VULGAR_FRACTION_NUMBER_STATE_CYBOL_TYPE_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'f', L'r', L'a', L'c', L't', L'i', L'o', L'n', L'-', L'v', L'u', L'l', L'g', L'a', L'r'};
 static wchar_t* VULGAR_FRACTION_NUMBER_STATE_CYBOL_TYPE = VULGAR_FRACTION_NUMBER_STATE_CYBOL_TYPE_ARRAY;
-static int* VULGAR_FRACTION_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_MEMORY_MODEL_ARRAY;
+static int* VULGAR_FRACTION_NUMBER_STATE_CYBOL_TYPE_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* NUMBER_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

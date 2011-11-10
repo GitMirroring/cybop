@@ -30,11 +30,11 @@
 
 #include "../../applicator/runner/executing_runner.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../constant/model/command/unix_command_model.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/file/archive_file_operation_cybol_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/memoriser/allocator.c"
@@ -53,28 +53,28 @@
  */
 void apply_archive_file(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply archive file.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply archive file.");
 
     // The create part.
-    void* c = *NULL_POINTER_MEMORY_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The update part.
-    void* u = *NULL_POINTER_MEMORY_MODEL;
+    void* u = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The bzip2 part.
-    void* b = *NULL_POINTER_MEMORY_MODEL;
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The create part model.
-    void* cm = *NULL_POINTER_MEMORY_MODEL;
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The update part model.
-    void* um = *NULL_POINTER_MEMORY_MODEL;
+    void* um = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The bzip2 part model.
-    void* bm = *NULL_POINTER_MEMORY_MODEL;
+    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The create part model data.
-    void* cmd = *NULL_POINTER_MEMORY_MODEL;
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The update part model data.
-    void* umd = *NULL_POINTER_MEMORY_MODEL;
+    void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The bzip2 part model data.
-    void* bmd = *NULL_POINTER_MEMORY_MODEL;
+    void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get create part.
     get_name_array((void*) &c, p0, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -84,66 +84,66 @@ void apply_archive_file(void* p0, void* p1) {
     get_name_array((void*) &b, p0, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get create part model.
-    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &cm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get update part model.
-    copy_array_forward((void*) &um, u, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &um, u, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get bzip2 part model.
-    copy_array_forward((void*) &bm, b, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &bm, b, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Get create part model data.
-    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get update part model data.
-    copy_array_forward((void*) &umd, um, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &umd, um, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
     // Get bzip2 part model data.
-    copy_array_forward((void*) &bmd, bm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &bmd, bm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The arguments vector.
-    void* arg = *NULL_POINTER_MEMORY_MODEL;
-    int argc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int args = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int argc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int args = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate arguments vector.
     allocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Append command.
-    overwrite_array((void*) &arg, (void*) ARCHIVE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ARCHIVE_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+    overwrite_array((void*) &arg, (void*) ARCHIVE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ARCHIVE_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, (void*) *cmd, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        compare_integer_unequal((void*) &r, (void*) *cmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append create option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
-            overwrite_array((void*) &arg, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, (void*) *umd, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        compare_integer_unequal((void*) &r, (void*) *umd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append update option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
-            overwrite_array((void*) &arg, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, (void*) *bmd, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+        compare_integer_unequal((void*) &r, (void*) *bmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append bzip2 option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
-            overwrite_array((void*) &arg, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 

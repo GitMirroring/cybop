@@ -27,17 +27,17 @@
 #define TAG_WEB_USER_INTERFACE_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The tag web user interface cybol name. */
 static wchar_t TAG_WEB_USER_INTERFACE_CYBOL_NAME_ARRAY[] = {L't', L'a', L'g'};
 static wchar_t* TAG_WEB_USER_INTERFACE_CYBOL_NAME = TAG_WEB_USER_INTERFACE_CYBOL_NAME_ARRAY;
-static int* TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT = NUMBER_3_INTEGER_MEMORY_MODEL_ARRAY;
+static int* TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The property web user interface cybol name. */
 static wchar_t PROPERTY_WEB_USER_INTERFACE_CYBOL_NAME_ARRAY[] = {L'p', L'r', L'o', L'p', L'e', L'r', L't', L'y'};
 static wchar_t* PROPERTY_WEB_USER_INTERFACE_CYBOL_NAME = PROPERTY_WEB_USER_INTERFACE_CYBOL_NAME_ARRAY;
-static int* PROPERTY_WEB_USER_INTERFACE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_MEMORY_MODEL_ARRAY;
+static int* PROPERTY_WEB_USER_INTERFACE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TAG_WEB_USER_INTERFACE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

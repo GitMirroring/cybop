@@ -26,9 +26,9 @@
 #ifndef REDUCE_FRACTION_CALCULATOR_SOURCE
 #define REDUCE_FRACTION_CALCULATOR_SOURCE
 
-#include "../../constant/model/log/message_log_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/memory/boolean_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../logger/logger.c"
 
 /**
@@ -38,25 +38,25 @@
  */
 void calculate_fraction_reduce(void* p0) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Calculate fraction reduce.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate fraction reduce.");
 
     // The numerator and denominator.
-    void* n = *NULL_POINTER_MEMORY_MODEL;
-    void* d = *NULL_POINTER_MEMORY_MODEL;
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get numerator and denominator.
-    copy_array_forward((void*) &n, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMERATOR_FRACTION_MEMORY_NAME);
-    copy_array_forward((void*) &d, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DENOMINATOR_FRACTION_MEMORY_NAME);
+    copy_array_forward((void*) &n, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMERATOR_FRACTION_MEMORY_NAME);
+    copy_array_forward((void*) &d, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DENOMINATOR_FRACTION_MEMORY_NAME);
 
     // The result numerator and denominator.
-    int rn = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int rd = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int rn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int rd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Determine absolute values.
     calculate_integer_absolute((void*) &rn, n);
     calculate_integer_absolute((void*) &rd, d);
 
-    if ((rn > *NUMBER_1_INTEGER_MEMORY_MODEL) && (rd > *NUMBER_1_INTEGER_MEMORY_MODEL)) {
+    if ((rn > *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) && (rd > *NUMBER_1_INTEGER_STATE_CYBOI_MODEL)) {
 
         // The loop variable.
         int i = rn;
@@ -67,15 +67,15 @@ void calculate_fraction_reduce(void* p0) {
         }
 
         // The remainder of the numerator and denominator.
-        int remn = *NUMBER_0_INTEGER_MEMORY_MODEL;
-        int remd = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int remn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int remd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Search numerator and denominator having a common factor
         // delivering an integral number as result (no remainder).
         // Start at the largest of both.
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (i <= *NUMBER_1_INTEGER_MEMORY_MODEL) {
+            if (i <= *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
 
                 break;
             }
@@ -83,7 +83,7 @@ void calculate_fraction_reduce(void* p0) {
             remn = rn % i;
             remd = rd % i;
 
-            if ((remn == *NUMBER_0_INTEGER_MEMORY_MODEL) && (remd == *NUMBER_0_INTEGER_MEMORY_MODEL)) {
+            if ((remn == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) && (remd == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
 
                 //
                 // If both, the numerator and the denominator have been
@@ -113,18 +113,18 @@ void calculate_fraction_reduce(void* p0) {
     //
 
     // The comparison results.
-    int r1 = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int r2 = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller((void*) &r1, n, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
-    compare_integer_smaller((void*) &r2, d, (void*) NUMBER_0_INTEGER_MEMORY_MODEL);
+    compare_integer_smaller((void*) &r1, n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_smaller((void*) &r2, d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    if (r1 != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r1 != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         calculate_integer_negate((void*) &rn, (void*) &rn);
     }
 
-    if (r2 != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r2 != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         calculate_integer_negate((void*) &rd, (void*) &rd);
     }

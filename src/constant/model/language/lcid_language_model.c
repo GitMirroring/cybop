@@ -26,7 +26,7 @@
 #ifndef LCID_LANGUAGE_MODEL_CONSTANT_SOURCE
 #define LCID_LANGUAGE_MODEL_CONSTANT_SOURCE
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // A locale is a set of parameters that defines the user's language, country
@@ -294,7 +294,7 @@ HID (Human Interface Device)            04ff            1279
 */
 
 /** The english united kingdom lcid language model. */
-static int* ENGLISH_UNITED_KINGDOM_LCID_LANGUAGE_MODEL = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+static int* ENGLISH_UNITED_KINGDOM_LCID_LANGUAGE_MODEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 ENGLISH_UNITED_KINGDOM_COUNTRY_STRING = 'English - United Kingdom';

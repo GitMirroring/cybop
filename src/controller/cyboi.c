@@ -29,9 +29,9 @@
 #include <string.h>
 
 #include "../constant/model/cyboi/operation_mode_cyboi_model.c"
-#include "../constant/model/log/message_log_model.c"
-#include "../constant/model/memory/integer_memory_model.c"
-#include "../constant/model/memory/pointer_memory_model.c"
+#include "../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../controller/globaliser.c"
 #include "../controller/helper.c"
 #include "../controller/informant.c"
@@ -76,9 +76,9 @@ int main(int p0, char** p1) {
     //?? Are they killed automatically when a process is shut down?
 
     // Return 1 to indicate an error, by default.
-    int r = *NUMBER_1_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // log_write_terminated_message(stdout, L"Information: Execute cyboi.\n");
 
@@ -136,9 +136,9 @@ int main(int p0, char** p1) {
         // because command line parameters will be expected to be multibyte characters,
         // read from the standard input stream in function "optionalise" further below.
         // They will also get converted into wide characters of type "wchar_t" there.
-        orient((void*) stdin, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-        orient((void*) stdout, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
-        orient((void*) stderr, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        orient((void*) stdin, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
         // The operation mode.
         //
@@ -148,10 +148,10 @@ int main(int p0, char** p1) {
         int m = *HELP_OPERATION_MODE_CYBOI_MODEL;
 
         // The cybol knowledge file path.
-        void* k = *NULL_POINTER_MEMORY_MODEL;
+        void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate cybol knowledge file path.
-        allocate_item((void*) &k, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+        allocate_item((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
         // Optionalise command line argument options.
         optionalise((void*) &m, k, (void*) LOG_LEVEL, (void*) &LOG_OUTPUT, (void*) p1, (void*) &p0);
@@ -160,11 +160,11 @@ int main(int p0, char** p1) {
         //
         // CAUTION! This can only be done AFTER having read the command line options,
         // since one of the options determines the log output file name.
-        orient((void*) LOG_OUTPUT, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+        orient((void*) LOG_OUTPUT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Run cyboi.");
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Globalised global variables already.");
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Optionalised log file already.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Run cyboi.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Globalised global variables already.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Optionalised log file already.");
 
         if (m == *VERSION_OPERATION_MODE_CYBOI_MODEL) {
 
@@ -185,9 +185,9 @@ int main(int p0, char** p1) {
             manage(k);
         }
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Deoptionalise log file yet.");
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Unglobalise global variables yet.");
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Exit cyboi normally afterwards.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deoptionalise log file yet.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Unglobalise global variables yet.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Exit cyboi normally afterwards.");
 
         // Deoptionalise command line argument options.
         // CAUTION! Hand over the LOG_OUTPUT variable AS REFERENCE!
@@ -198,7 +198,7 @@ int main(int p0, char** p1) {
         deoptionalise((void*) &LOG_OUTPUT);
 
         // Deallocate cybol knowledge file path.
-        deallocate_item((void*) &k, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+        deallocate_item((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
         // Shutdown global variables.
         unglobalise();
@@ -206,7 +206,7 @@ int main(int p0, char** p1) {
         log_write_terminated_message(stdout, L"\nInformation: Exit cyboi normally.\n");
 
         // Set return value to 0, to indicate proper shutdown.
-        r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     } else {
 

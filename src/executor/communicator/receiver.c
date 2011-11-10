@@ -33,12 +33,12 @@
 #include "../../applicator/communicator/receiving/socket_receiving_communicator.c"
 #include "../../applicator/communicator/receiving/x_window_system_receiving_communicator.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/type/operation/primitive_operation_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/channel/cybol_channel.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
 #include "../../constant/name/memory/internal_memory_memory_name.c"
 #include "../../executor/modifier/getter/knowledge_part_getter.c"
@@ -68,24 +68,24 @@
  */
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Receive data.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
 /*??
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p5, (void*) CYBOI_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The base internal.
             int base = *CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME;
             // The internal memory index.
-            int i = *NUMBER_MINUS_1_INTEGER_MEMORY_MODEL;
+            int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // The communication partner-connected socket of this system.
-            void** ps = NULL_POINTER_MEMORY_MODEL;
+            void** ps = NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get communication partner-connected socket of this system.
             i = base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
@@ -102,11 +102,11 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     }
 */
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p5, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Receive model by reading message data.
             //
@@ -128,7 +128,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             //     <property name="meta" channel="inline" type="character" model="residenz/wui/address_table_row_properties.cybol"/>
             //     <property name="model" channel="inline" type="encapsulated" model=".residenz.temporary.translation.translate_record_to_wui.wui_patient_row"/>
             // </part>
-//??            receive_file_system(p1, *NULL_POINTER_MEMORY_MODEL, mmd, mmc, lmd, lmc);
+//??            receive_file_system(p1, *NULL_POINTER_STATE_CYBOI_MODEL, mmd, mmc, lmd, lmc);
 
             //?? CAUTION! The function call above was commented out ON PURPOSE, since it caused a runtime error!
             //?? TODO: Figure out what happens inside, before uncommenting it again!
@@ -138,17 +138,17 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p5, (void*) GNU_LINUX_CONSOLE_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 /*??
             // The gnu/linux console mutex.
-            void** mt = NULL_POINTER_MEMORY_MODEL;
+            void** mt = NULL_POINTER_STATE_CYBOI_MODEL;
             // The gnu/linux console input stream.
-            void** is = NULL_POINTER_MEMORY_MODEL;
+            void** is = NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get gnu/linux console mutex.
             get((void*) &mt, p0, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
@@ -160,11 +160,11 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p5, (void*) INLINE_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Receive model by reading message data.
             //
@@ -176,7 +176,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             //?? TODO: The following comment is outdated and may possibly be deleted.
             // CAUTION! Do NOT try to receive meta data here!
             // When calling the following function:
-            // communicate_receiving_inline(p6, p7, p8, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, *NULL_POINTER_MEMORY_MODEL, p16, p17, p18, p19);
+            // communicate_receiving_inline(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p16, p17, p18, p19);
             // for some unclear reason the destination array is replaced and returned as null,
             // if source data do not exist. The normal behaviour, however, would be that
             // the destination array is left untouched if the source data are empty.
@@ -187,11 +187,11 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p5, (void*) WWW_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Receive model by reading http request or response.
             //
@@ -201,19 +201,19 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p5, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //??            receive_x_window_system((void*) &p0, p7, p8, p9, p10, p11, p12);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not receive data. The channel is unknown.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive data. The channel is unknown.");
     }
 }
 

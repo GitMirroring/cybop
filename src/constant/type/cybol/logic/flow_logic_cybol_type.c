@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -63,7 +63,7 @@
  */
 static wchar_t BRANCH_FLOW_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'b', L'r', L'a', L'n', L'c', L'h'};
 static wchar_t* BRANCH_FLOW_LOGIC_CYBOL_TYPE = BRANCH_FLOW_LOGIC_CYBOL_TYPE_ARRAY;
-static int* BRANCH_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_ARRAY;
+static int* BRANCH_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The flow/loop cybol type.
@@ -74,7 +74,7 @@ static int* BRANCH_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_MEMORY_MODEL_
  */
 static wchar_t LOOP_FLOW_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'l', L'o', L'o', L'p'};
 static wchar_t* LOOP_FLOW_LOGIC_CYBOL_TYPE = LOOP_FLOW_LOGIC_CYBOL_TYPE_ARRAY;
-static int* LOOP_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static int* LOOP_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The flow/sequence cybol type.
@@ -85,7 +85,7 @@ static int* LOOP_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARR
  */
 static wchar_t SEQUENCE_FLOW_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L's', L'e', L'q', L'u', L'e', L'n', L'c', L'e'};
 static wchar_t* SEQUENCE_FLOW_LOGIC_CYBOL_TYPE = SEQUENCE_FLOW_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SEQUENCE_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SEQUENCE_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* FLOW_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

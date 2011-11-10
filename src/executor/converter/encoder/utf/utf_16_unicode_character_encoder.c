@@ -26,7 +26,7 @@
 #ifndef UTF_16_UNICODE_CHARACTER_ENCODER_SOURCE
 #define UTF_16_UNICODE_CHARACTER_ENCODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -84,7 +84,7 @@
  */
 void encode_utf_16_unicode_character_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Encode UTF-16 Unicode character stream.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode UTF-16 Unicode character stream.");
 }
 
 /* UTF_16_UNICODE_CHARACTER_ENCODER_SOURCE */

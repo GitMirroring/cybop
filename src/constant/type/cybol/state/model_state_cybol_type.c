@@ -27,7 +27,7 @@
 #define MODEL_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -56,7 +56,7 @@
  */
 static wchar_t VRML_MODEL_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'o', L'd', L'e', L'l', L'/', L'v', L'r', L'm', L'l'};
 static wchar_t* VRML_MODEL_STATE_CYBOL_TYPE = VRML_MODEL_STATE_CYBOL_TYPE_ARRAY;
-static int* VRML_MODEL_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_MEMORY_MODEL_ARRAY;
+static int* VRML_MODEL_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MODEL_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

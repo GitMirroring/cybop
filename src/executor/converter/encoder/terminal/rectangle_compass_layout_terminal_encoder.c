@@ -35,9 +35,9 @@
 #include <wchar.h>
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -45,10 +45,10 @@
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
 #include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
@@ -83,7 +83,7 @@
 void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal rectangle compass layout.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal rectangle compass layout.");
 
     int* cpx = (int*) p0;
     int* cpy = (int*) p1;
@@ -99,20 +99,20 @@ void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void
     int* fasz = (int*) p11;
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p12, (void*) NORTH_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p13, (void*) NORTH_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Set cell coordinates.
             *cpx = *fapx;
             *cpy = *fapy;
             *cpz = *fapz;
             *csx = *fasx;
-//??            *csy = *NUMBER_20_INTEGER_MEMORY_MODEL;
+//??            *csy = *NUMBER_20_INTEGER_STATE_CYBOI_MODEL;
             *csz = *fasz;
             // Set free area coordinates.
             *fapy = *fapy + *csy;
@@ -120,35 +120,35 @@ void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p12, (void*) SOUTH_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p13, (void*) SOUTH_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Set cell coordinates.
             *cpx = *fapx;
             *cpy = *fapy + (*fasy - *csy);
             *cpz = *fapz;
             *csx = *fasx;
-//??            *csy = *NUMBER_20_INTEGER_MEMORY_MODEL;
+//??            *csy = *NUMBER_20_INTEGER_STATE_CYBOI_MODEL;
             *csz = *fasz;
             // Set free area coordinates.
             *fasy = *fasy - *csy;
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p12, (void*) WEST_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p13, (void*) WEST_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Set cell coordinates.
             *cpx = *fapx;
             *cpy = *fapy;
             *cpz = *fapz;
-//??            *csx = *NUMBER_20_INTEGER_MEMORY_MODEL;
+//??            *csx = *NUMBER_20_INTEGER_STATE_CYBOI_MODEL;
             *csy = *fasy;
             *csz = *fasz;
             // Set free area coordinates.
@@ -157,17 +157,17 @@ void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p12, (void*) EAST_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p13, (void*) EAST_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Set cell coordinates.
             *cpx = *fapx + (*fasx - *csx);
             *cpy = *fapy;
             *cpz = *fapz;
-//??            *csx = *NUMBER_20_INTEGER_MEMORY_MODEL;
+//??            *csx = *NUMBER_20_INTEGER_STATE_CYBOI_MODEL;
             *csy = *fasy;
             *csz = *fasz;
             // Set free area coordinates.
@@ -175,11 +175,11 @@ void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p12, (void*) CENTRE_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p13, (void*) CENTRE_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Set cell coordinates.
             *cpx = *fapx;

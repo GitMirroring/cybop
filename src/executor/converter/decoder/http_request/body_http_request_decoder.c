@@ -26,8 +26,8 @@
 #ifndef BODY_HTTP_REQUEST_DECODER_SOURCE
 #define BODY_HTTP_REQUEST_DECODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http/cyboi_http_name.c"
 #include "../../../../executor/memoriser/allocator/model_allocator.c"
 #include "../../../../executor/memoriser/deallocator/model_deallocator.c"
@@ -43,7 +43,7 @@
  */
 void decode_http_request_body(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode http request body.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http request body.");
 
     //
     // CAUTION! There is NO NEED to detect the body end with a

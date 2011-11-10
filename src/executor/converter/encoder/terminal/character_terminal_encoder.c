@@ -35,9 +35,9 @@
 #include <wchar.h>
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -45,10 +45,10 @@
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
 #include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
@@ -81,21 +81,21 @@
  */
 void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal character.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal character.");
 
     // CAUTION! The top-left terminal corner is 1:1, but the given positions
     // start counting from 0, so that 1 has to be added to all positions!
     // Therefore, the coordinates handed over need to be corrected.
 
     // The corrected y, x.
-    int cy = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int cx = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int cy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int cx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Correct y, x.
     calculate_integer_add((void*) &cy, p2);
-    calculate_integer_add((void*) &cy, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+    calculate_integer_add((void*) &cy, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     calculate_integer_add((void*) &cx, p1);
-    calculate_integer_add((void*) &cx, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+    calculate_integer_add((void*) &cx, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Position cursor.
@@ -105,10 +105,10 @@ void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4,
     //
 
     append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-    encode_cybol_integer_value(p0, (void*) &cy, (void*) PRIMITIVE_MEMORY_MODEL_COUNT);
-    append_item_element(p0, (void*) SEMICOLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-    encode_cybol_integer_value(p0, (void*) &cx, (void*) PRIMITIVE_MEMORY_MODEL_COUNT);
-    append_item_element(p0, (void*) LATIN_CAPITAL_LETTER_H_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    encode_cybol_integer_value(p0, (void*) &cy, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    append_item_element(p0, (void*) SEMICOLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    encode_cybol_integer_value(p0, (void*) &cx, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    append_item_element(p0, (void*) LATIN_CAPITAL_LETTER_H_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     append_item_element(p0, (void*) ATTRIBUTE_OFF_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ATTRIBUTE_OFF_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
@@ -135,67 +135,67 @@ void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4,
     //
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Set hidden property.
-    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         append_item_element(p0, (void*) HIDDEN_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) HIDDEN_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     }
 
     // Reset comparison result.
-    r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Set inverse property.
-    compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+    compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         append_item_element(p0, (void*) INVERSE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) INVERSE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     }
 
     // Reset comparison result.
-    r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Set blink property.
-    compare_integer_unequal((void*) &r, p12, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+    compare_integer_unequal((void*) &r, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         append_item_element(p0, (void*) BLINK_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) BLINK_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     }
 
     // Reset comparison result.
-    r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Set underline property.
-    compare_integer_unequal((void*) &r, p13, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+    compare_integer_unequal((void*) &r, p13, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         append_item_element(p0, (void*) UNDERLINE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) UNDERLINE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     }
 
     // Reset comparison result.
-    r = *FALSE_BOOLEAN_MEMORY_MODEL;
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Set bold property.
-    compare_integer_unequal((void*) &r, p14, (void*) FALSE_BOOLEAN_MEMORY_MODEL);
+    compare_integer_unequal((void*) &r, p14, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_MEMORY_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
         append_item_element(p0, (void*) BOLD_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) BOLD_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     }
 
     // Set character.
-    append_item_element(p0, p15, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, p15, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 }
 
 /* CHARACTER_TERMINAL_ENCODER_SOURCE */

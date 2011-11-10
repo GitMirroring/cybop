@@ -28,9 +28,9 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -42,15 +42,15 @@
  */
 void deallocate_array(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** a = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Deallocate array.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate array.");
 
         // CAUTION! Check array for null value.
         // The "free" function would cause an error when handing over a null value.
-        if (*a != *NULL_POINTER_MEMORY_MODEL) {
+        if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // This function may cause an error if some wrong pointer
             // is forwarded to it as argument.
@@ -63,12 +63,12 @@ void deallocate_array(void* p0, void* p1, void* p2) {
 
         } else {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"Could not deallocate array. The dereferenced array is null.");
+            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate array. The dereferenced array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not deallocate array. The array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate array. The array is null.");
     }
 }
 

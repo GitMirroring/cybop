@@ -28,12 +28,12 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The empty state cybol model. */
 static wchar_t EMPTY_STATE_CYBOL_MODEL_ARRAY[] = {};
 static wchar_t* EMPTY_STATE_CYBOL_MODEL = EMPTY_STATE_CYBOL_MODEL_ARRAY;
-static int* EMPTY_STATE_CYBOL_MODEL_COUNT = NUMBER_0_INTEGER_MEMORY_MODEL_ARRAY;
+static int* EMPTY_STATE_CYBOL_MODEL_COUNT = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* EMPTY_STATE_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

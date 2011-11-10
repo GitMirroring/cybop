@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/memory/integer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // A "Character Set" consists of three parts:
@@ -46,7 +46,7 @@
  */
 static wchar_t WINDOWS_1250_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'0'};
 static wchar_t* WINDOWS_1250_CYBOL_ENCODING = WINDOWS_1250_CYBOL_ENCODING_ARRAY;
-static int* WINDOWS_1250_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_MEMORY_MODEL_ARRAY;
+static int* WINDOWS_1250_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* WINDOWS_CYBOL_ENCODING_CONSTANT_SOURCE */
 #endif

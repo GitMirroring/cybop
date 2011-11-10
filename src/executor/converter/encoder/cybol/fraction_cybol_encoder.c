@@ -26,9 +26,9 @@
 #ifndef FRACTION_ENCODER_SOURCE
 #define FRACTION_ENCODER_SOURCE
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -41,19 +41,19 @@
 void encode_fraction(void* p0, void* p1, void* p2) {
 
 /*??
-    //?? log_message((void*) &INFORMATION_LEVEL_LOG_MODEL, (void*) &"Finalise fraction.");
+    //?? log_message((void*) &INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) &"Finalise fraction.");
 
     // Initialise elements.
-    int d = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int n = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get elements.
     get_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &DENOMINATOR_INDEX, (void*) &d);
     get_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &NUMERATOR_INDEX, (void*) &n);
 
     // Remove elements.
-    remove_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &FRACTION_MEMORY_MODEL_COUNT, (void*) &DENOMINATOR_INDEX);
-    remove_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &FRACTION_MEMORY_MODEL_COUNT, (void*) &NUMERATOR_INDEX);
+    remove_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &FRACTION_STATE_CYBOI_MODEL_COUNT, (void*) &DENOMINATOR_INDEX);
+    remove_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &FRACTION_STATE_CYBOI_MODEL_COUNT, (void*) &NUMERATOR_INDEX);
 
 //??    sprintf(p1, %l, (void*) &(m->value));
 */

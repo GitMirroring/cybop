@@ -27,9 +27,9 @@
 #define FRACTION_DEALLOCATOR_SOURCE
 
 #include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../logger/logger.c"
 
@@ -41,32 +41,32 @@
  */
 void deallocate_fraction(void* p0, void* p1) {
 
-    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** f = (void**) p0;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Deallocate fraction.");
+        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate fraction.");
 
 /*??
         // The numerator and denominator.
-        void** n = NULL_POINTER_MEMORY_MODEL;
-        void** d = NULL_POINTER_MEMORY_MODEL;
+        void** n = NULL_POINTER_STATE_CYBOI_MODEL;
+        void** d = NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Retrieve numerator and denominator.
         retrieve((void*) &n, p0, (void*) NUMERATOR_FRACTION_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
         retrieve((void*) &d, p0, (void*) DENOMINATOR_FRACTION_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 
         // Deallocate numerator and denominator.
-        deallocate((void*) &n, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-        deallocate((void*) &d, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+        deallocate((void*) &n, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+        deallocate((void*) &d, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
 
         // Deallocate fraction.
-        deallocate(p0, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+        deallocate(p0, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
 */
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not deallocate fraction. The fraction is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate fraction. The fraction is null.");
     }
 }
 

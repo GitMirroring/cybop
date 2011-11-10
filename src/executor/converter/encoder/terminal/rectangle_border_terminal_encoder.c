@@ -35,9 +35,9 @@
 #include <wchar.h>
 
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/operation/primitive_operation_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -45,10 +45,10 @@
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
 #include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
@@ -77,40 +77,40 @@
 void encode_terminal_rectangle_border(void* p0, void* p1,
     void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         wchar_t* rbc = (wchar_t*) p5;
 
-        if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             wchar_t* lbc = (wchar_t*) p4;
 
-            if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 wchar_t* rtc = (wchar_t*) p3;
 
-                if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     wchar_t* ltc = (wchar_t*) p2;
 
-                    if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+                    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         wchar_t* vc = (wchar_t*) p1;
 
-                        if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                             wchar_t* hc = (wchar_t*) p0;
 
-                            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode terminal rectangle border.");
+                            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal rectangle border.");
 
                             // The comparison result.
-                            int r = *NUMBER_0_INTEGER_MEMORY_MODEL;
+                            int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                 compare_all_array((void*) &r, p6, (void*) ASCII_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) ASCII_LINE_BORDER_CYBOL_MODEL_COUNT);
 
-                                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                     *hc = *HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL;
                                     *vc = *VERTICAL_LINE_UNICODE_CHARACTER_CODE_MODEL;
@@ -121,11 +121,11 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
                                 }
                             }
 
-                            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                 compare_all_array((void*) &r, p6, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL_COUNT);
 
-                                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                     *hc = *BOX_DRAWINGS_DOUBLE_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL;
                                     *vc = *BOX_DRAWINGS_DOUBLE_VERTICAL_UNICODE_CHARACTER_CODE_MODEL;
@@ -136,11 +136,11 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
                                 }
                             }
 
-                            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                 compare_all_array((void*) &r, p6, (void*) ROUND_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) ROUND_LINE_BORDER_CYBOL_MODEL_COUNT);
 
-                                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                     *hc = *BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL;
                                     *vc = *BOX_DRAWINGS_LIGHT_VERTICAL_UNICODE_CHARACTER_CODE_MODEL;
@@ -151,11 +151,11 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
                                 }
                             }
 
-                            if (r == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                 compare_all_array((void*) &r, p6, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL_COUNT);
 
-                                if (r != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                                     *hc = *DIGIT_TWO_UNICODE_CHARACTER_CODE_MODEL;
                                     *vc = *BOX_DRAWINGS_LIGHT_VERTICAL_UNICODE_CHARACTER_CODE_MODEL;
@@ -168,32 +168,32 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The horizontal character is null.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The horizontal character is null.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The vertical character is null.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The vertical character is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The left top character is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The left top character is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The right top character is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The right top character is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The left bottom character is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The left bottom character is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode terminal rectangle border. The right bottom character is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The right bottom character is null.");
     }
 }
 

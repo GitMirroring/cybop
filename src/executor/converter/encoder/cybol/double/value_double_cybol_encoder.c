@@ -35,13 +35,13 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/cybol/boolean_cybol_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/memory/primitive_memory_name.c"
 #include "../../../../executor/memoriser/allocator.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
@@ -56,13 +56,13 @@
  */
 void encode_cybol_double_value(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Encode cybol double value.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol double value.");
 
     // The value.
-    void* v = *NULL_POINTER_MEMORY_MODEL;
+    void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get value from vector at index.
-    copy_array_forward((void*) &v, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
+    copy_array_forward((void*) &v, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p2);
 
     //
     // The temporary array.
@@ -80,9 +80,9 @@ void encode_cybol_double_value(void* p0, void* p1, void* p2) {
     // The range 1×10^4932 contains 4932 digits.
     // It therefore is sufficient to provide an array of size 8192.
     //
-    void* td = *NULL_POINTER_MEMORY_MODEL;
-    int tc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int ts = *NUMBER_8192_INTEGER_MEMORY_MODEL;
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ts = *NUMBER_8192_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate temporary array.
     allocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_MEMORY_TYPE);
@@ -101,7 +101,7 @@ void encode_cybol_double_value(void* p0, void* p1, void* p2) {
 /* CYGWIN_ENVIRONMENT */
 #endif
 
-    if (tc > *NUMBER_0_INTEGER_MEMORY_MODEL) {
+    if (tc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // The value was converted successfully.
 
@@ -112,7 +112,7 @@ void encode_cybol_double_value(void* p0, void* p1, void* p2) {
         // The value returned by the conversion function is negative,
         // which means that the value was NOT converted successfully.
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not encode cybol double value.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode cybol double value.");
 
         // CAUTION! A more flexible approach would be to stepwise enlarge
         // the destination array, until the provided source value matches.

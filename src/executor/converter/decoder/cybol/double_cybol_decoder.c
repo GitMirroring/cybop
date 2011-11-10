@@ -26,13 +26,13 @@
 #ifndef DOUBLE_VECTOR_DECODER_SOURCE
 #define DOUBLE_VECTOR_DECODER_SOURCE
 
-#include "../../../../constant/type/memory/memory_type.c"
-#include "../../../../constant/type/memory/memory_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../../constant/model/memory/integer_memory_model.c"
-#include "../../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/memoriser/allocator/model_allocator.c"
 #include "../../../../executor/memoriser/deallocator/model_deallocator.c"
@@ -49,44 +49,44 @@
  */
 void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p0 != *NULL_POINTER_MEMORY_MODEL ) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL ) {
 
             void** d = (void**) p0;
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode double.");
+            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode double.");
 
             // The temporary null-terminated string.
-            void* tmp = *NULL_POINTER_MEMORY_MODEL;
-            void* tmpc = *NULL_POINTER_MEMORY_MODEL;
-            void* tmps = *NULL_POINTER_MEMORY_MODEL;
+            void* tmp = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* tmpc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* tmps = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            int s = *sc + *NUMBER_1_INTEGER_MEMORY_MODEL;
+            int s = *sc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Create temporary null-terminated string.
             allocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
             // The index.
-            int i = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Copy original string to temporary null-terminated string.
-            overwrite_array(tmp, p3, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(tmp, p3, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // This is used as index to set the termination character.
             i = *sc;
 
             // Add string termination to temporary null-terminated string.
-            overwrite_array(tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tmpc, tmps, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // The tail variable is useless here and only needed for the string
             // transformation function. If the whole string array consists of
             // many sub strings, separated by space characters, then each sub
             // string gets interpreted as integer number.
             // The tail variable in this case points to the remaining sub string.
-            wchar_t* tail = (wchar_t*) *NULL_POINTER_MEMORY_MODEL;
+            wchar_t* tail = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Transform string to double value.
             // The strtod function recognizes four special input strings.
@@ -106,19 +106,19 @@ void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //?? to be able to take the double value?
 
             // Set double value.
-            overwrite_array(p0, (void*) &v, (void*) DOUBLE_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(p0, (void*) &v, (void*) DOUBLE_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Destroy temporary null-terminated string.
             deallocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode double. The destination is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode double. The destination is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode double. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode double. The source count is null.");
     }
 }
 

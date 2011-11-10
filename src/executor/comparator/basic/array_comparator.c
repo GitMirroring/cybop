@@ -26,11 +26,11 @@
 #ifndef ARRAY_COMPARATOR_SOURCE
 #define ARRAY_COMPARATOR_SOURCE
 
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/memory/boolean_memory_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/value_comparator.c"
 #include "../../../logger/logger.c"
 
@@ -46,18 +46,18 @@
  */
 void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* c = (int*) p5;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Compare array elements.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array elements.");
 
         // The loop variable.
-        int j = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The value comparison result.
-        int vr = *NUMBER_0_INTEGER_MEMORY_MODEL;
+        int vr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (j >= *c) {
 
@@ -67,19 +67,19 @@ void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 // CAUTION! The arrays are expected to be EQUAL, even if
                 // the count is zero. This is important, because the PROPERTIES
                 // (meta properties) of many otherwise equal models are empty.
-                copy_integer(p0, (void*) NUMBER_1_INTEGER_MEMORY_MODEL);
+                copy_integer(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                 break;
             }
 
             // Reset value comparison result.
-            vr = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            vr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // CAUTION! This function does not change the result flag, if unequal.
             // Therefore, the result flag ALWAYS has to be initialised with zero before!
             compare_value_offset((void*) &vr, p1, p2, p3, p4, (void*) &j);
 
-            if (vr == *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (vr == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Stop comparison if two elements do not match the
                 // criteria, i.e. the comparison delivered "false".
@@ -94,7 +94,7 @@ void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare array elements. The count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array elements. The count is null.");
     }
 }
 
@@ -117,11 +117,11 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // All other copying functions are based on this copier function,
     // so that checking for null pointer right here suffices.
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Compare array.");
+            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array.");
 
             // The left array, right array.
             // CAUTION! They HAVE TO BE initialised with p1 and p2,
@@ -137,12 +137,12 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare array. The left array is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array. The left array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not compare array. The right array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array. The right array is null.");
     }
 }
 

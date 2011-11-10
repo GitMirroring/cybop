@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The constants defined here are copies of the standard constants
@@ -49,7 +49,7 @@
 /** The charset variable http cyboi name. */
 static wchar_t CHARSET_VARIABLE_HTTP_CYBOI_NAME_ARRAY[] = {L'c', L'h', L'a', L'r', L's', L'e', L't'};
 static wchar_t* CHARSET_VARIABLE_HTTP_CYBOI_NAME = CHARSET_VARIABLE_HTTP_CYBOI_NAME_ARRAY;
-static int* CHARSET_VARIABLE_HTTP_CYBOI_NAME_COUNT = NUMBER_7_INTEGER_MEMORY_MODEL_ARRAY;
+static int* CHARSET_VARIABLE_HTTP_CYBOI_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* VARIABLE_HTTP_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

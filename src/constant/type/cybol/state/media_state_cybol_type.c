@@ -27,7 +27,7 @@
 #define MEDIA_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // This MIME type was taken from/ inspired by the KDE desktop.
@@ -39,7 +39,7 @@
  */
 static wchar_t VCD_MEDIA_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L'd', L'i', L'a', L'/', L'v', L'c', L'd'};
 static wchar_t* VCD_MEDIA_STATE_CYBOL_TYPE = VCD_MEDIA_STATE_CYBOL_TYPE_ARRAY;
-static int* VCD_MEDIA_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_MEMORY_MODEL_ARRAY;
+static int* VCD_MEDIA_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MEDIA_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

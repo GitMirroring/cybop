@@ -27,9 +27,9 @@
 #define ITEM_CALCULATOR_SOURCE
 
 #include "../../../constant/type/operation/operation_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/comparator/basic/integer/divide_integer_calculator.c"
 #include "../../../executor/comparator/basic/integer/multiply_integer_calculator.c"
@@ -50,7 +50,7 @@
  */
 void calculate_item(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Calculate item.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate item.");
 
     // CAUTION! The sizes do NOT have to be identical,
     // since they just represent allocated memory.
@@ -58,18 +58,18 @@ void calculate_item(void* p0, void* p1, void* p2) {
     // is of interest.
 
     // The left data, count.
-    void* ld = *NULL_POINTER_MEMORY_MODEL;
-    void* lc = *NULL_POINTER_MEMORY_MODEL;
+    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right data, count.
-    void* rd = *NULL_POINTER_MEMORY_MODEL;
-    void* rc = *NULL_POINTER_MEMORY_MODEL;
+    void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get left data, count.
-    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &lc, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ld, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &lc, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
     // Get right data, count.
-    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &rc, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &rd, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &rc, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     calculate_array(p0, ld, rd, p3, p4, lc, rc, p6, p7);
 }

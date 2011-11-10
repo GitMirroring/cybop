@@ -29,11 +29,11 @@
 #include <sys/socket.h>
 #include <errno.h>
 #include <stdio.h>
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 
@@ -52,8 +52,8 @@
 void send_raw_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     // Not implemented.
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Send to raw socket.");
-    log_terminated_message((void*) WARNING_LEVEL_LOG_MODEL, (void*) L"The raw socket functionality is NOT implemented yet!");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to raw socket.");
+    log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"The raw socket functionality is NOT implemented yet!");
 }
 
 /* RAW_SOCKET_SENDER_SOURCE */

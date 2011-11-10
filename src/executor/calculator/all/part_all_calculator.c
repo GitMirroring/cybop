@@ -28,11 +28,11 @@
 
 #include "../../../constant/type/cybol/number_cybol_type.c"
 #include "../../../constant/type/cybol/path_cybol_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/type/memory/memory_type.c"
-#include "../../../constant/model/log/message_log_model.c"
-#include "../../../constant/model/memory/integer_memory_model.c"
-#include "../../../constant/model/memory/pointer_memory_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/separator_cybol_name.c"
 #include "../../../constant/name/memory/part_memory_name.c"
 #include "../../../executor/comparator/all/item_all_comparator.c"
@@ -54,13 +54,13 @@
  */
 void calculate_all_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Calculate all part element.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part element.");
 
     // The left part element.
-    void* e = *NULL_POINTER_MEMORY_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get left part element.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
 
     // Calculate all elements of the right array with those of the left part model item.
     calculate_all_item_element(p0, e, p2, p3, p4, p5, (void*) DATA_ITEM_MEMORY_NAME);
@@ -77,17 +77,17 @@ void calculate_all_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
  */
 void calculate_all_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Calculate all part.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part.");
 
     // The left model.
-    void* lm = *NULL_POINTER_MEMORY_MODEL;
+    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right model.
-    void* rm = *NULL_POINTER_MEMORY_MODEL;
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get left model.
-    copy_array_forward((void*) &lm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &lm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get right model.
-    copy_array_forward((void*) &rm, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &rm, p2, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // Calculate all elements of the right- with those of the left part model item.
     calculate_all_item(p0, lm, rm, p3, p4);
@@ -109,40 +109,40 @@ void calculate_all_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void calculate_all_part_model(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** rp = (void**) p2;
 
-        if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** lp = (void**) p1;
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Calculate all part model.");
+            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part model.");
 
             // The left part name, type, model, properties.
-            void* ln = *NULL_POINTER_MEMORY_MODEL;
-            void* la = *NULL_POINTER_MEMORY_MODEL;
-            void* lm = *NULL_POINTER_MEMORY_MODEL;
+            void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* la = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The right part name, type, model, properties.
-            void* rn = *NULL_POINTER_MEMORY_MODEL;
-            void* ra = *NULL_POINTER_MEMORY_MODEL;
-            void* rm = *NULL_POINTER_MEMORY_MODEL;
+            void* rn = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* ra = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The right part type data.
-            void* rad = *NULL_POINTER_MEMORY_MODEL;
+            void* rad = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The name, type comparison results.
-            int nr = *FALSE_BOOLEAN_MEMORY_MODEL;
-            int ar = *FALSE_BOOLEAN_MEMORY_MODEL;
+            int nr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            int ar = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             // Get left name, type, model, properties.
-            copy_array_forward((void*) &ln, *lp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-            copy_array_forward((void*) &la, *lp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-            copy_array_forward((void*) &lm, *lp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+            copy_array_forward((void*) &ln, *lp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+            copy_array_forward((void*) &la, *lp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+            copy_array_forward((void*) &lm, *lp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
             // Get right part name, type, model, properties.
-            copy_array_forward((void*) &rn, *rp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-            copy_array_forward((void*) &ra, *rp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-            copy_array_forward((void*) &rm, *rp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+            copy_array_forward((void*) &rn, *rp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+            copy_array_forward((void*) &ra, *rp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+            copy_array_forward((void*) &rm, *rp, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
             // Get right part type data.
-            copy_array_forward((void*) &rad, ra, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+            copy_array_forward((void*) &rad, ra, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
             // Compare left- with right part model item.
             // CAUTION! Do NOT use the basic function "compare_item" here,
@@ -150,8 +150,8 @@ void calculate_all_part_model(void* p0, void* p1, void* p2, void* p3) {
             compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE);
             compare_all_item((void*) &ar, la, ra, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) INTEGER_MEMORY_TYPE);
 
-            if ((nr == *FALSE_BOOLEAN_MEMORY_MODEL)
-                && (ar == *FALSE_BOOLEAN_MEMORY_MODEL)) {
+            if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                && (ar == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
                 // Calculate result model only if comparisons of
                 // name and type delivered true.
@@ -160,12 +160,12 @@ void calculate_all_part_model(void* p0, void* p1, void* p2, void* p3) {
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not calculate all part all. The left part is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate all part all. The left part is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not calculate all part all. The right part is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate all part all. The right part is null.");
     }
 }
 

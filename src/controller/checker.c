@@ -26,12 +26,12 @@
 #ifndef CHECKER_SOURCE
 #define CHECKER_SOURCE
 
-#include "../constant/type/memory/memory_type.c"
-#include "../constant/model/log/level_log_model.c"
-#include "../constant/model/log/message_log_model.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/memory/boolean_memory_model.c"
-#include "../constant/model/memory/integer_memory_model.c"
-#include "../constant/model/memory/pointer_memory_model.c"
+#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../constant/name/memory/internal_memory_memory_name.c"
 #include "../controller/checker/signal_checker.c"
 #include "../executor/modifier/copier/array_copier.c"
@@ -44,8 +44,8 @@
  */
 void check(void* p0) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"\n\n");
-    log_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_MODEL_COUNT);
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
+    log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_MODEL_COUNT);
 
     // CAUTION! The parametres were not handed over as function arguments,
     // since it is more flexible to just hand over the internal memory as argument.
@@ -59,26 +59,26 @@ void check(void* p0) {
     // the loop further below would eat up precious cpu time.
 
     // The knowledge memory part.
-    void* k = *NULL_POINTER_MEMORY_MODEL;
+    void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory item.
-    void* s = *NULL_POINTER_MEMORY_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory sleep time.
-    void* st = *NULL_POINTER_MEMORY_MODEL;
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get knowledge memory part.
-    copy_array_forward((void*) &k, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &k, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_MEMORY_NAME);
     // Get signal memory item.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &s, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_MEMORY_NAME);
     // Get signal memory sleep time.
-    copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_SLEEP_TIME_INTERNAL_MEMORY_MEMORY_NAME);
+    copy_array_forward((void*) &st, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_SLEEP_TIME_INTERNAL_MEMORY_MEMORY_NAME);
 
     // The shutdown flag.
-    int f = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Run endless loop checking signal memory for signals.
-    while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (f != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+        if (f != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Leave loop if shutdown flag was set.
             break;

@@ -30,10 +30,10 @@
 
 #include "../../applicator/runner/executing_runner.c"
 #include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/memory/memory_type.c"
-#include "../../constant/model/log/message_log_model.c"
-#include "../../constant/model/memory/integer_memory_model.c"
-#include "../../constant/model/memory/pointer_memory_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/run/program_run_operation_cybol_name.c"
 #include "../../executor/memoriser/allocator.c"
 #include "../../logger/logger.c"
@@ -51,23 +51,23 @@
  */
 void apply_run(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Apply run.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply run.");
 
     // The programme part.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The programme part model.
-    void* pm = *NULL_POINTER_MEMORY_MODEL;
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The programme part model data, count.
-    void* pmd = *NULL_POINTER_MEMORY_MODEL;
-    void* pmc = *NULL_POINTER_MEMORY_MODEL;
+    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get programme part.
     get_name_array((void*) &p, p0, (void*) PROGRAMME_RUN_OPERATION_CYBOL_NAME, (void*) PROGRAMME_RUN_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get programme part model.
-    copy_array_forward((void*) &pm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &pm, c, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
     // Get programme part model data, count.
-    copy_array_forward((void*) &pmd, pm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &pmc, pm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &pmd, pm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &pmc, pm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     // Execute command line in shell.
     apply_execute(pmd, pmc);

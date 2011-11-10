@@ -26,7 +26,7 @@
 #ifndef PERCENT_ENCODING_VECTOR_DECODER_SOURCE
 #define PERCENT_ENCODING_VECTOR_DECODER_SOURCE
 
-#include "../../../../constant/model/log/message_log_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/memory/boolean_memory_model.c"
 #include "../../../../executor/converter/decoder/percent_encoding_decoder.c"
 #include "../../../../executor/converter/selector/percent_encoding_vector_element_selector.c"
@@ -113,33 +113,33 @@
  */
 void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* rem = (int*) p4;
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             void** pos = (void**) p3;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_MODEL, (void*) L"Decode percent-encoding vector element.");
+            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode percent-encoding vector element.");
 
             // The unreserved characters.
             void* u = *pos;
-            int uc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int uc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // The break flag.
-            int b = *NUMBER_0_INTEGER_MEMORY_MODEL;
+            int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            while (*TRUE_BOOLEAN_MEMORY_MODEL) {
+            while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                if (*rem <= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (*rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     break;
                 }
 
                 select_percent_encoding_vector_element(p0, p1, p2, (void*) &b, p3, p4);
 
-                if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     break;
 
@@ -153,9 +153,9 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
             // Append any unreserved characters found up to here,
             // no matter whether an unreserved character follows
             // or no unreserved character at all was found.
-            overwrite_array(p0, u, (void*) CHARACTER_MEMORY_TYPE, (void*) &uc, p1, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, p1, p2, (void*) TRUE_BOOLEAN_MEMORY_MODEL);
+            overwrite_array(p0, u, (void*) CHARACTER_MEMORY_TYPE, (void*) &uc, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            if (b != *NUMBER_0_INTEGER_MEMORY_MODEL) {
+            if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // A % sign was found that indicates a reserved character.
                 decode_percent_encoding(p0, p1, p2, p3, p4);
@@ -170,12 +170,12 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode percent-encoding vector element. The current position is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector element. The current position is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode percent-encoding vector element. The remaining count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector element. The remaining count is null.");
     }
 }
 
@@ -194,29 +194,29 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
  */
 void decode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_MEMORY_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        if (p3 != *NULL_POINTER_MEMORY_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             char* s = (char*) p3;
 
-            if (p2 != *NULL_POINTER_MEMORY_MODEL) {
+            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 int* ds = (int*) p2;
 
-                if (p1 != *NULL_POINTER_MEMORY_MODEL) {
+                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     int* dc = (int*) p1;
 
-                    if (p0 != *NULL_POINTER_MEMORY_MODEL) {
+                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         char** d = (char**) p0;
 
-                        if (*dc >= *NUMBER_0_INTEGER_MEMORY_MODEL) {
+                        if (*dc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                            log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Decode percent-encoding vector.");
+                            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode percent-encoding vector.");
 
                             //
                             // CAUTION! Do NOT operate with WIDE CHARACTERS here!
@@ -241,32 +241,32 @@ void decode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode percent-encoding vector. The destination count is negative.");
+                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination count is negative.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode percent-encoding vector. The destination is null.");
+                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode percent-encoding vector. The destination count is null.");
+                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination count is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode percent-encoding vector. The destination size is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination size is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode percent-encoding vector. The source is null.");
+            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The source is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_MODEL, (void*) L"Could not decode percent-encoding vector. The source count is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The source count is null.");
     }
 }
 

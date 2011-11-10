@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/memory/integer_memory_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The CYBOL type constants' names and values have been adapted to follow
@@ -63,7 +63,7 @@
  */
 static wchar_t SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'i', L'n', L't', L'a', L'i', L'n', L'/', L's', L'h', L'u', L't', L'd', L'o', L'w', L'n'};
 static wchar_t* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE = SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_MEMORY_MODEL_ARRAY;
+static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The maintain/startup cybol type.
@@ -74,7 +74,7 @@ static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_MEMORY_
  */
 static wchar_t STARTUP_MAINTAIN_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'i', L'n', L't', L'a', L'i', L'n', L'/', L's', L't', L'a', L'r', L't', L'u', L'p'};
 static wchar_t* STARTUP_MAINTAIN_LOGIC_CYBOL_TYPE = STARTUP_MAINTAIN_LOGIC_CYBOL_TYPE_ARRAY;
-static int* STARTUP_MAINTAIN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_MEMORY_MODEL_ARRAY;
+static int* STARTUP_MAINTAIN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MAINTAIN_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

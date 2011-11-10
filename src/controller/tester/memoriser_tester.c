@@ -28,7 +28,7 @@
 
 #include <wchar.h>
 
-#include "../../constant/type/memory/memory_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/copier/item_copier.c"
 #include "../../executor/modifier/copier/part_copier.c"
@@ -52,16 +52,16 @@ void test_memoriser_array_resizing() {
     // The text.
     wchar_t ta[] = {L't', L'e', L's', L't', L'\n', L'\0'};
     wchar_t* t = ta;
-    int* tc = NUMBER_6_INTEGER_MEMORY_MODEL_ARRAY;
+    int* tc = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
     // The original array.
-    void* o = *NULL_POINTER_MEMORY_MODEL;
-    int oc = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int os = *tc;
     // The copied array.
-    void* c = *NULL_POINTER_MEMORY_MODEL;
-    int cc = *NUMBER_0_INTEGER_MEMORY_MODEL;
-    int cs = *NUMBER_0_INTEGER_MEMORY_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int cs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate original array.
     allocate_array((void*) &o, (void*) &os, (void*) CHARACTER_MEMORY_TYPE);
@@ -75,7 +75,7 @@ void test_memoriser_array_resizing() {
     log_write_terminated_message((void*) stdout, t);
 
     // Reallocate copied array.
-    os = os + *NUMBER_10_INTEGER_MEMORY_MODEL;
+    os = os + *NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
     reallocate_array((void*) &o, (void*) &oc, (void*) &os, (void*) CHARACTER_MEMORY_TYPE);
 
     // Print original array content.
@@ -92,50 +92,50 @@ void test_memoriser_array_resizing() {
  */
 void test_memoriser_part() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test memoriser part.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser part.");
 
     // The part container.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part container.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Fill part container.
-    overwrite_part_element(p, (void*) L"test_$0", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_7_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    overwrite_part_element(p, (void*) L"test_$0", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
     overwrite_part_element(p, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    overwrite_part_element(p, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    overwrite_part_element(p, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
 
     // The part elements retrieved as reference.
-    void* n = *NULL_POINTER_MEMORY_MODEL;
-    void* a = *NULL_POINTER_MEMORY_MODEL;
-    void* m = *NULL_POINTER_MEMORY_MODEL;
-    void* d = *NULL_POINTER_MEMORY_MODEL;
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The part elements data, count retrieved as reference.
-    void* nd = *NULL_POINTER_MEMORY_MODEL;
-    void* nc = *NULL_POINTER_MEMORY_MODEL;
-    void* ad = *NULL_POINTER_MEMORY_MODEL;
-    void* ac = *NULL_POINTER_MEMORY_MODEL;
-    void* md = *NULL_POINTER_MEMORY_MODEL;
-    void* mc = *NULL_POINTER_MEMORY_MODEL;
-    void* dd = *NULL_POINTER_MEMORY_MODEL;
-    void* dc = *NULL_POINTER_MEMORY_MODEL;
+    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part elements.
-    copy_array_forward((void*) &n, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    copy_array_forward((void*) &a, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-    copy_array_forward((void*) &d, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
+    copy_array_forward((void*) &n, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
+    copy_array_forward((void*) &a, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
+    copy_array_forward((void*) &m, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &d, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) PROPERTIES_PART_MEMORY_NAME);
 
     // Get part elements data, count retrieved as reference.
-    copy_array_forward((void*) &nd, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &nc, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &ac, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &dd, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nd, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &nc, n, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ad, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &ac, a, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dd, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dc, d, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
 
     fwprintf(stdout, L"TEST nd: %ls\n", (wchar_t*) nd);
     fwprintf(stdout, L"TEST nc: %i\n", *((int*) nc));
@@ -147,7 +147,7 @@ void test_memoriser_part() {
     fwprintf(stdout, L"TEST dc: %i\n", *((int*) dc));
 
     // Deallocate part container.
-    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 }
 
 /**
@@ -155,33 +155,33 @@ void test_memoriser_part() {
  */
 void test_memoriser_item() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test memoriser item.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser item.");
 
     // The item container.
-    void* i = *NULL_POINTER_MEMORY_MODEL;
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate item container.
-    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Fill item container.
-    overwrite_item_element(i, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    overwrite_item_element(i, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
 
     // The item elements retrieved as reference.
-    void* d = *NULL_POINTER_MEMORY_MODEL;
-    void* c = *NULL_POINTER_MEMORY_MODEL;
-    void* s = *NULL_POINTER_MEMORY_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get item container elements.
-    copy_array_forward((void*) &d, i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &c, i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
-    copy_array_forward((void*) &s, i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIZE_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &d, i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &c, i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &s, i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIZE_ITEM_MEMORY_NAME);
 
     fwprintf(stdout, L"TEST item data: %ls\n", (wchar_t*) d);
     fwprintf(stdout, L"TEST item count: %i\n", *((int*) c));
     fwprintf(stdout, L"TEST item size: %i\n", *((int*) s));
 
     // Deallocate item container.
-    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 }
 
 /**
@@ -189,51 +189,51 @@ void test_memoriser_item() {
  */
 void test_memoriser_array() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test array.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test array.");
 
     // The pointer array.
-    void* p = *NULL_POINTER_MEMORY_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The wide character array.
-    void* w = *NULL_POINTER_MEMORY_MODEL;
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The integer array.
-    void* i = *NULL_POINTER_MEMORY_MODEL;
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    allocate_array((void*) &p, (void*) NUMBER_5_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
-    allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-    allocate_array((void*) &i, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE);
+    allocate_array((void*) &p, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
+    allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_array((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE);
 
-    copy_array_forward(w, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-    copy_array_forward(i, (void*) NUMBER_10000_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-    copy_array_forward(p, &w, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-    copy_array_forward(p, &i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) NUMBER_4_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    copy_array_forward(w, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    copy_array_forward(i, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    copy_array_forward(p, &w, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    copy_array_forward(p, &i, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
 
     fwprintf(stdout, L"TEST p: %i\n", p);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST i: %i\n", *((int*) i));
 
     // The wide character array retrieved as reference from the pointer array.
-    void* wr = *NULL_POINTER_MEMORY_MODEL;
+    void* wr = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The integer array retrieved as reference from the pointer array.
-    void* ir = *NULL_POINTER_MEMORY_MODEL;
+    void* ir = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"TEST NULL_POINTER_MEMORY_MODEL: %i\n", NULL_POINTER_MEMORY_MODEL);
-    fwprintf(stdout, L"TEST *NULL_POINTER_MEMORY_MODEL: %i\n", *NULL_POINTER_MEMORY_MODEL);
+    fwprintf(stdout, L"TEST NULL_POINTER_STATE_CYBOI_MODEL: %i\n", NULL_POINTER_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"TEST *NULL_POINTER_STATE_CYBOI_MODEL: %i\n", *NULL_POINTER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST wr: %i\n", wr);
     fwprintf(stdout, L"TEST ir: %i\n", ir);
 
-    copy_array_forward((void*) &wr, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_2_INTEGER_MEMORY_MODEL);
-    copy_array_forward((void*) &ir, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_MEMORY_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_4_INTEGER_MEMORY_MODEL);
+    copy_array_forward((void*) &wr, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
+    copy_array_forward((void*) &ir, p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"TEST NULL_POINTER_MEMORY_MODEL: %i\n", NULL_POINTER_MEMORY_MODEL);
-    fwprintf(stdout, L"TEST *NULL_POINTER_MEMORY_MODEL: %i\n", *NULL_POINTER_MEMORY_MODEL);
+    fwprintf(stdout, L"TEST NULL_POINTER_STATE_CYBOI_MODEL: %i\n", NULL_POINTER_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"TEST *NULL_POINTER_STATE_CYBOI_MODEL: %i\n", *NULL_POINTER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST wr: %i\n", wr);
     fwprintf(stdout, L"TEST ir: %i\n", ir);
     fwprintf(stdout, L"TEST *wr: %ls\n", (wchar_t*) wr);
     fwprintf(stdout, L"TEST *ir: %i\n", *((int*) ir));
 
-    deallocate_array((void*) &i, (void*) NUMBER_1_INTEGER_MEMORY_MODEL, (void*) INTEGER_MEMORY_TYPE);
-    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-    deallocate_array((void*) &p, (void*) NUMBER_5_INTEGER_MEMORY_MODEL, (void*) POINTER_MEMORY_TYPE);
+    deallocate_array((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE);
+    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_array((void*) &p, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
 }
 
 /**
@@ -241,32 +241,32 @@ void test_memoriser_array() {
  */
 void test_memoriser_array_wide_character() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test wide character array.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test wide character array.");
 
     // The wide character array.
-    void* w = *NULL_POINTER_MEMORY_MODEL;
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
     // Copy wide characters with zero indices.
     // This is identical to the following simplified function call:
-    // copy_array_forward(a, L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_MEMORY_MODEL);
-    copy_array_forward(w, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    // copy_array_forward(a, L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
+    copy_array_forward(w, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
 
     // Copy wide characters with different destination index.
-    copy_array_forward(w, (void*) L"again", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_5_INTEGER_MEMORY_MODEL, (void*) NUMBER_7_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    copy_array_forward(w, (void*) L"again", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
 
     // Copy wide characters with different source index.
-    copy_array_forward(w, (void*) L"blublablublaHehooblubla", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_5_INTEGER_MEMORY_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_12_INTEGER_MEMORY_MODEL);
+    copy_array_forward(w, (void*) L"blublablublaHehooblubla", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
 
     // Copy wide characters with different destination- and source index.
-    copy_array_forward(w, (void*) L"xxxxxxxxxxxlloxxxxxxx", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_MEMORY_MODEL, (void*) NUMBER_2_INTEGER_MEMORY_MODEL, (void*) NUMBER_11_INTEGER_MEMORY_MODEL);
+    copy_array_forward(w, (void*) L"xxxxxxxxxxxlloxxxxxxx", (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_11_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
 
-    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_MEMORY_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 }
 
 /**
@@ -277,7 +277,7 @@ void test_memoriser_array_wide_character() {
  */
 void test_memoriser() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Test memoriser.");
+    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser.");
 
 //    test_memoriser_array_resizing();
 
