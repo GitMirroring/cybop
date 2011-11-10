@@ -2,10 +2,10 @@
 # This file is the first place a user will look to get an overview for the
 # purpose of cybop, and perhaps special installation instructions.
 #
-# http://www.cybop.org/
-# - Cybernetics Oriented Programming -
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# Christian Heller <christian.heller@tuxtax.de>
 #
-# @version $RCSfile: README,v $ $Revision: 1.7 $ $Date: 2009-02-07 00:39:21 $ $Author: christian $
+# @version CYBOP 0.11.0 2012-01-01
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 

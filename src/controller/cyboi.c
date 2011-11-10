@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version CYBOI 0.11.0 2012-01-01
+ * @version CYBOP 0.11.0 2012-01-01
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 

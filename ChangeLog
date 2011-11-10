@@ -9,12 +9,18 @@
 # - an entry should not explain why a change was made, but rather what the change was
 #   (the explanation of why belongs in the source code itself)
 #
-# http://www.cybop.org/
-# - Cybernetics Oriented Programming -
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# Christian Heller <christian.heller@tuxtax.de>
 #
-# @version $RCSfile: ChangeLog,v $ $Revision: 1.147 $ $Date: 2009-10-06 21:25:26 $ $Author: christian $
+# @version CYBOP 0.11.0 2012-01-01
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
+
+2011-11-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Change year to 2012 in comment block of all source code files, to prepare next release
+        * Delete CVS "$" tags in source code since SVN is used now, which does not fill them
+        * Use new line "@version CYBOP 0.11.0" (and update it with each new release from now on)
 
 2011-11-09  Christian Heller  <christian.heller@tuxtax.de>
 

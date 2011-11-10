@@ -1,21 +1,13 @@
 #
-# $RCSfile: todo.txt,v $
-#
 # This file lists so-called "TODO" items, in other words open tasks
 # to be worked on in the future.
 #
-# http://www.cybop.org
-# - Cybernetics Oriented Programming -
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# Christian Heller <christian.heller@tuxtax.de>
 #
-# @version $Revision: 1.118 $ $Date: 2009-10-06 21:25:26 $ $Author: christian $
+# @version CYBOP 0.11.0 2012-01-01
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
-
-        [Use cyboi.c as template]
-        * Change year to 2012 in comment block of all source code files, to prepare next release
-        * Delete CVS "$" tags in comment block at beginning of all source code files,
-            since they are specific to CVS but SVN is used now, which does not fill them
-        * Use new line "@version CYBOI 0.11.0" (and update it with each new release from now on)
 
         * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"
         * Add primitive integer constants as counterpart to ALL cybol model constants

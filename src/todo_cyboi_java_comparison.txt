@@ -1,3 +1,13 @@
+#
+# This is a temporary helper file with information on
+# how to structure the new container framework of CYBOI.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# Christian Heller <christian.heller@tuxtax.de>
+#
+# @version CYBOP 0.11.0 2012-01-01
+# @author Christian Heller <christian.heller@tuxtax.de>
+#
 
 CYBOI-Java Comparison
 =====================
