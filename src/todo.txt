@@ -9,6 +9,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Implement rubbish (garbage) collector:
+            give part an additional field "references" of type "int*", counting the number of other parts referencing this part
+            if zero (= no more reference), then delete this part
+            it should suffice to decrement this "references" counter whenever "overwrite", "remove" or "copy" were called
+            perhaps "copy" suffices alone, if "overwrite" and "remove" use it internally -- check this out
+
+        * Make logger work using new container functions
+
         * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"
         * Add primitive integer constants as counterpart to ALL cybol model constants
         * Convert cybol operand abstraction given as parametre (model) into integer,
@@ -33,13 +41,6 @@
 
         * Try to increase performance by commenting out "memset" in array allocation
         * Optimise "replace_array" function by replacing offset with constantly growing variable (less addition in loop necessary)
-
-        * Implement garbage collector ONLY in function "allocate_item" (simple counter);
-            hold four fields: data, count, size, references;
-            if zero (= no more reference), then delete item;
-            CAUTION! It worsens programme performance and is difficult
-            to set the "references" field every time some pointer references the item;
-            possibly find another way to keep the memory clean without garbage collector
 
         * Remove model and details content of receiving compound for each new http request;
             otherwise, new commands are just added to the "action" part entry in "receive_socket.c";
