@@ -4530,15 +4530,15 @@ static int* DATA_PACKAGE_STORAGE_PERIOD_FIELD_XDT_NAME = NUMBER_9601_INTEGER_STA
 static int* DATA_PACKAGE_TRANSFER_BEGIN_FIELD_XDT_NAME = NUMBER_9602_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The system internal parameter field xdt name.
+ * The system internal parametre field xdt name.
  *
- * German: Systeminterner Parameter
+ * German: Systeminterner Parametre
  * Size: <= 70
  * Type: character array
  * Rule: 999
  * Example: -
  */
-static int* SYSTEM_INTERNAL_PARAMETER_FIELD_XDT_NAME = NUMBER_9901_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SYSTEM_INTERNAL_PARAMETRE_FIELD_XDT_NAME = NUMBER_9901_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* FIELD_XDT_NAME_CONSTANT_SOURCE */
 #endif

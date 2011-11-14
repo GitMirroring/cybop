@@ -69,7 +69,7 @@ void encode_character_entity_reference(void* p0, void* p1, void* p2, void* p3, v
 /*??
                 if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    compare_all_array((void*) &r, p3, p4, (void*) SPACE_CHARACTER, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHARACTER_MEMORY_TYPE);
+                    compare_all_array((void*) &r, p3, p4, (void*) SPACE_CHARACTER, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
                     if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -93,11 +93,11 @@ void encode_character_entity_reference(void* p0, void* p1, void* p2, void* p3, v
                         *ds = (*ARRAY_REALLOCATION_FACTOR * (*dc)) + tc;
 
                         // Reallocate destination.
-                        reallocate(p0, p1, p2, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                        reallocate(p0, p1, p2, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
                     }
 
                     // Add temporary value to destination.
-                    overwrite_array(*d, p1, (void*) t, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                    overwrite_array(*d, p1, (void*) t, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
                     // Increase destination count.
                     *dc = *dc + tc;

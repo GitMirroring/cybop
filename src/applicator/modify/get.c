@@ -52,8 +52,8 @@
  * CAUTION! Do NOT rename this procedure to "get",
  * as that name is already used by the corresponding executor operation.
  *
- * @param p0 the parameters
- * @param p1 the parameters count
+ * @param p0 the parametres
+ * @param p1 the parametres count
  * @param p2 the knowledge memory
  * @param p3 the knowledge memory count
  * @param p4 the knowledge memory size
@@ -157,7 +157,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, *dm, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *dmc, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, *dm, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *dmc, (void*) NAME_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -168,7 +168,7 @@ void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, *dm, (void*) TYPE_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *dmc, (void*) TYPE_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, *dm, (void*) TYPE_GET_DESCRIPTION_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *dmc, (void*) TYPE_GET_DESCRIPTION_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

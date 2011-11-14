@@ -71,7 +71,7 @@ void decode_authority_userinfo(void* p0, void* p1, void* p2, void* p3) {
             // The source represents a hostname only,
             // possibly followed by a port number.
             //
-            // CAUTION! The parameters p6 and p7 may NOT be used,
+            // CAUTION! The parametres p6 and p7 may NOT be used,
             // since their values were counted on and changed
             // inside the "select_authority_userinfo" function.
             // Instead, hand over e and ec. REFERENCES are expected!

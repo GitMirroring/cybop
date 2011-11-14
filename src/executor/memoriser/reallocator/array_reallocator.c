@@ -28,6 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -39,7 +40,7 @@
 /**
  * Reallocates the array.
  *
- * @param p0 the array (Hand over as reference!)
+ * @param p0 the array (pointer reference)
  * @param p1 the count
  * @param p2 the size
  * @param p3 the type
@@ -67,7 +68,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 determine_size((void*) &ma, p3);
 
                 // Calculate memory area.
-                multiply_with_integer((void*) &ma, p2, (void*) INTEGER_MEMORY_TYPE);
+                multiply_with_integer((void*) &ma, p2, (void*) INTEGER_STATE_CYBOI_TYPE);
 
                 if (ma > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -113,7 +114,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         determine_size((void*) &nma, p3);
 
                         // Calculate new memory area.
-                        multiply_with_integer((void*) &nma, (void*) &es, (void*) INTEGER_MEMORY_TYPE);
+                        multiply_with_integer((void*) &nma, (void*) &es, (void*) INTEGER_STATE_CYBOI_TYPE);
 
                         // The new array elements.
                         void* na = *a + (ma - nma);

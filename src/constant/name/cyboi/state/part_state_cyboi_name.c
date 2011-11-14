@@ -28,17 +28,20 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The references part state cyboi name. */
+static int* REFERENCES_PART_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The name part state cyboi name. */
-static int* NAME_PART_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* NAME_PART_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The type part state cyboi name. */
-static int* TYPE_PART_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* TYPE_PART_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The model part state cyboi name. */
-static int* MODEL_PART_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* MODEL_PART_STATE_CYBOI_NAME = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The properties part state cyboi name. */
-static int* PROPERTIES_PART_STATE_CYBOI_NAME = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* PROPERTIES_PART_STATE_CYBOI_NAME = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PART_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

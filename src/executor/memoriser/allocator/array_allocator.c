@@ -39,7 +39,7 @@
 /**
  * Allocates the array.
  *
- * @param p0 the array (Hand over as reference!)
+ * @param p0 the array (pointer reference)
  * @param p1 the size
  * @param p2 the type
  */
@@ -58,7 +58,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
         determine_size((void*) &ma, p2);
 
         // Calculate memory area.
-        multiply_with_integer((void*) &ma, p1, (void*) INTEGER_MEMORY_TYPE);
+        multiply_with_integer((void*) &ma, p1, (void*) INTEGER_STATE_CYBOI_TYPE);
 
         // A minimal space in memory is always allocated,
         // even if the requested size is zero.

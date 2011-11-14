@@ -38,7 +38,7 @@
 /**
  * Allocates the fraction.
  *
- * @param p0 the fraction (Hand over as reference!)
+ * @param p0 the fraction (pointer reference)
  * @param p1 the fraction size (This value is ignored.)
  */
 void allocate_fraction(void* p0, void* p1) {
@@ -50,24 +50,24 @@ void allocate_fraction(void* p0, void* p1) {
         log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate fraction.");
 
         // Allocate fraction.
-        allocate_array(p0, (void*) FRACTION_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
+        allocate_array(p0, (void*) FRACTION_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
         // The numerator and denominator.
         void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate numerator and denominator.
-        allocate_array((void*) &n, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
-        allocate_array((void*) &d, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate_array((void*) &n, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &d, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
 
 /*?? TODO!
         // Initialise numerator and denominator.
-        overwrite_array(n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-        overwrite_array(d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+        overwrite_array(n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+        overwrite_array(d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
 
         // Replace numerator and denominator.
-        overwrite_array(*f, n, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMERATOR_FRACTION_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-        overwrite_array(*f, d, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DENOMINATOR_FRACTION_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+        overwrite_array(*f, n, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+        overwrite_array(*f, d, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 */
 
     } else {

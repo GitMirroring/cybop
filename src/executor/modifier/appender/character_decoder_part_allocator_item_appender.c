@@ -60,16 +60,16 @@ void append_item_allocate_part_decode_character(void* p0, void* p1, void* p2, vo
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate wide character data.
-    allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Decode multibyte character array into wide character data.
     decode_utf_8_unicode_character_vector((void*) &d, (void*) &c, (void*) &s, p3, p4);
 
     // Allocate part with wide character data as model and append it to destination item.
-    append_item_allocate_part(p0, p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, d, (void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    append_item_allocate_part(p0, p1, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, d, (void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Deallocate wide character data.
-    deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* CHARACTER_DECODER_PART_ALLOCATOR_ITEM_APPENDER_SOURCE */

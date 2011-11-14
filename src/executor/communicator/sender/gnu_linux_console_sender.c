@@ -48,7 +48,7 @@
 /**
  * Sends the terminal control sequences into a gnu/linux console.
  *
- * @param p0 the destination gnu/linux console (Hand over as reference!)
+ * @param p0 the destination gnu/linux console (pointer reference)
  * @param p1 the destination gnu/linux console count
  * @param p2 the destination gnu/linux console size
  * @param p3 the source terminal control sequences as utf-8 encoded multibyte characters
@@ -72,11 +72,11 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // CAUTION! Use a standard (non-wide) character vector here,
         // because the source is handed over as utf-8 encoded multibyte characters
         // and will be forwarded as such to the gnu linux console!
-        allocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+        allocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
         // Append control sequences and null termination character.
-        overwrite_array((void*) &ts, p3, (void*) CHARACTER_MEMORY_TYPE, p4, tsc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tsc, tss);
-        overwrite_array((void*) &ts, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tsc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, tsc, tss);
+        overwrite_array((void*) &ts, p3, (void*) CHARACTER_STATE_CYBOI_TYPE, p4, tsc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, tsc, tss);
+        overwrite_array((void*) &ts, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tsc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, tsc, tss);
 
         if (*d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -111,11 +111,11 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         // Deallocate terminated control sequences.
-        deallocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+        deallocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file parameter is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file parametre is null.");
     }
 }
 
@@ -147,7 +147,7 @@ void apply_send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* 
     void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
-    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     if (p9 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -155,8 +155,8 @@ void apply_send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* 
 
         if (*f != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            overwrite_array((void*) &s, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sc, ss);
-            overwrite_array((void*) &s, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sc, ss);
+            overwrite_array((void*) &s, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sc, ss);
+            overwrite_array((void*) &s, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sc, ss);
         }
     }
 
@@ -173,25 +173,25 @@ void apply_send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* 
     // CAUTION! Use a standard (non-wide) character vector here,
     // because the source is handed over as utf-8 encoded multibyte characters
     // and will be forwarded as such to the gnu linux console!
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     // Encode serialised wide character array into encoded character array.
     encode_utf_8_unicode_character_vector((void*) &e, ec, es, s, sc);
 
     // Deallocate serialised wide character array.
-    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     // The gnu/linux console output stream.
     void** op = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get gnu/linux console output stream.
-    get_array_elements((void*) &op, p0, (void*) GNU_LINUX_CONSOLE_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE);
+    get_array_elements((void*) &op, p0, (void*) GNU_LINUX_CONSOLE_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE);
 
     // Send encoded array as message to shell standard output.
     send_data((void*) op, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, e, ec, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
 
     // Deallocate encoded character array.
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 }
 
 /* GNU_LINUX_CONSOLE_SENDER_SOURCE */

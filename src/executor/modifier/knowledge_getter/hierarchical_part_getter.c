@@ -43,13 +43,13 @@ void get_part_branch(void* p0, void* p1, void* p2, void* p3);
 /**
  * Gets the knowledge part by hierarchical name.
  *
- * @param p0 the destination part (Hand over as reference!)
+ * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
- * @param p2 the hierarchical part name current position (Hand over as reference!)
+ * @param p2 the hierarchical part name current position (pointer reference)
  * @param p3 the hierarchical part name remaining count
  * @param p4 the source whole part element index (one of:
- *           - MODEL_PART_MEMORY_NAME for structural parts
- *           - PROPERTIES_PART_MEMORY_NAME for meta properties)
+ *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
  */
 void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

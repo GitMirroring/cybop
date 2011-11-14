@@ -36,7 +36,7 @@
 /**
  * Deallocates the complex.
  *
- * @param p0 the model (Hand over as reference!)
+ * @param p0 the model (pointer reference)
  * @param p1 the model size
  */
 void deallocate_complex(void* p0, void* p1) {
@@ -44,7 +44,7 @@ void deallocate_complex(void* p0, void* p1) {
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate complex.");
 
     // Destroy complex.
-    deallocate_array(p0, p1, (void*) DOUBLE_MEMORY_TYPE);
+    deallocate_array(p0, p1, (void*) DOUBLE_STATE_CYBOI_TYPE);
 }
 
 /* COMPLEX_DEALLOCATOR_SOURCE */

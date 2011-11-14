@@ -57,16 +57,16 @@ void append_item_decode_character(void* p0, void* p1, void* p2) {
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate wide character data.
-    allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Decode multibyte character array into wide character data.
     decode_utf_8_unicode_character_vector((void*) &d, (void*) &c, (void*) &s, p1, p2);
 
     // Append wide character data to destination.
-    append_item_element(p0, d, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &c, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, d, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) &c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate wide character data.
-    deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* CHARACTER_DECODER_ITEM_APPENDER_SOURCE */

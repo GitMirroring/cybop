@@ -43,7 +43,7 @@
  * @param p0 the destination socket of this system
  * @param p1 the source byte array
  * @param p2 the source byte array count
- * @param p3 the socket address of the communication partner (Hand over as reference!)
+ * @param p3 the socket address of the communication partner (pointer reference)
  * @param p4 the socket address of the communication partner size
  * @param p5 the communication mode
  * @param p6 the communication mode count

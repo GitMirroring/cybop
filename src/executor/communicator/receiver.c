@@ -81,15 +81,15 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The base internal.
-            int base = *CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME;
+            int base = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME;
             // The internal memory index.
             int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // The communication partner-connected socket of this system.
             void** ps = NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get communication partner-connected socket of this system.
-            i = base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
-            get((void*) &ps, p0, (void*) &i, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+            i = base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            get((void*) &ps, p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
     fwprintf(stdout, L"TEST ps: %i \n", *((int*) *ps));
 
@@ -151,9 +151,9 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             void** is = NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get gnu/linux console mutex.
-            get((void*) &mt, p0, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+            get((void*) &mt, p0, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
             // Get gnu/linux console input stream.
-            get((void*) &is, p0, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+            get((void*) &is, p0, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
             receive_gnu_linux_console(p0, p1, *is, p12, p13, p1, p2, *mt);
 */
@@ -197,7 +197,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             //
             // CAUTION! The properties are handed over as well,
             // since they will store http headers as meta data.
-//??            receive_socket(p0, p1, (void*) WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME, (void*) WWW_SERVICE_THREAD, (void*) &receive_socket_www, p1, p2, p3, p4, p5, p6, p10, p11, p17, p18, p19, p20);
+//??            receive_socket(p0, p1, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) &receive_socket_www, p1, p2, p3, p4, p5, p6, p10, p11, p17, p18, p19, p20);
         }
     }
 

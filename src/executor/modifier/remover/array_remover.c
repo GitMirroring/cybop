@@ -40,8 +40,8 @@
  * All current elements existing behind the area to be removed
  * from the array are moved towards the beginning.
  *
- * This is done in a FORWARD order, starting from the first element
- * (behind the area to be removed) since otherwise,
+ * CAUTION! This is done in a FORWARD order, starting from the
+ * FIRST element (behind the area to be removed) since otherwise,
  * overlapping elements might get overwritten.
  *
  * Example:
@@ -52,7 +52,7 @@
  * array count: 16
  * ==> result: "Hello, World!"
  *
- * @param p0 the array (Hand over as reference!)
+ * @param p0 the array (pointer reference)
  * @param p1 the type
  * @param p2 the count
  * @param p3 the index
@@ -65,7 +65,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         void** d = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove array elements.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove array inside.");
 
         // The move source index.
         int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -89,19 +89,43 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // Subtract count of elements to be removed.
         calculate_integer_subtract((void*) &n, p2);
 
-        // Move current elements behind area to be removed towards the beginning of the array.
-        // CAUTION! Move array elements starting from the FIRST since otherwise,
-        // overlapping array elements might get overwritten!
-        // CAUTION! Call this function BEFORE resizing the array
-        // since elements might get lost while shrinking the array.
-        copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
-
         // The comparison result.
-        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer((void*) &r, (void*) &n, p5, (void*) SMALLER_PRIMITIVE_OPERATION_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) PART_STATE_CYBOI_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // This IS a part (pointer) array.
+
+            // Decrement reference count of removed parts for rubbish (garbage) collection.
+            decrement_array(p0, p2, p3);
+
+            // Move current elements behind area to be removed towards the beginning of the array.
+            // CAUTION! Move array elements starting from the FIRST since otherwise,
+            // overlapping array elements might get overwritten!
+            // CAUTION! Call this function BEFORE resizing the array
+            // since elements might get lost while shrinking the array.
+            copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
+
+        } else {
+
+            // This is NOT a part (pointer) array.
+
+            // Move current elements behind area to be removed towards the beginning of the array.
+            // CAUTION! Move array elements starting from the FIRST since otherwise,
+            // overlapping array elements might get overwritten!
+            // CAUTION! Call this function BEFORE resizing the array
+            // since elements might get lost while shrinking the array.
+            copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
+        }
+
+        // Reset comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_smaller((void*) &r, (void*) &n, p5);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Shrink array using new count as size.
             reallocate_array(p0, p4, (void*) &n, p1);
@@ -115,7 +139,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array elements. The array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The array is null.");
     }
 }
 
@@ -123,7 +147,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  * Removes the given number of elements from the array,
  * starting from the given index.
  *
- * @param p0 the array (Hand over as reference!)
+ * @param p0 the array (pointer reference)
  * @param p1 the type
  * @param p2 the count
  * @param p3 the index
@@ -135,21 +159,21 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove array.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, p3, p4, (void*) SMALLER_PRIMITIVE_OPERATION_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             remove_array_inside(p0, p1, p2, p3, p4, p5);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array. The destination index is outside the array boundaries.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array. The destination index is outside the array boundaries.");
     }
 }
 

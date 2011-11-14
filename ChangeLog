@@ -16,6 +16,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new part field "references" used for rubbish (garbage) collection
+        * Add "executor/recycler/" with "incrementer" and "decrementer" serving as rubbish collector
+        * Use British English version of the word "parametre" in all source code
+        * Fix constant names in all source code
+
 2011-11-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise minor things

@@ -29,7 +29,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// A locale is a set of parameters that defines the user's language, country
+// A locale is a set of parametres that defines the user's language, country
 // and any special variant preferences that the user wants to see in their user
 // interface. Usually a locale identifier consists of at least a language
 // identifier and a region identifier.

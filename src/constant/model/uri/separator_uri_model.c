@@ -68,22 +68,22 @@ static int* FRAGMENT_SEPARATOR_URI_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MO
 //
 
 /**
- * The parameter separator ("ampersand") uri model.
+ * The parametre separator ("ampersand") uri model.
  *
  * CAUTION! This separator is NOT defined by IETF's uri specification rfc3986,
  * but commonly used in the internet.
  */
-static wchar_t* PARAMETER_SEPARATOR_URI_MODEL = AMPERSAND_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* PARAMETER_SEPARATOR_URI_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* PARAMETRE_SEPARATOR_URI_MODEL = AMPERSAND_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* PARAMETRE_SEPARATOR_URI_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The parameter alternative separator ("semicolon") uri model.
+ * The parametre alternative separator ("semicolon") uri model.
  *
  * CAUTION! This separator is NOT defined by IETF's uri specification rfc3986,
  * but commonly used in the internet.
  */
-static wchar_t* PARAMETER_ALTERNATIVE_SEPARATOR_URI_MODEL = SEMICOLON_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* PARAMETER_ALTERNATIVE_SEPARATOR_URI_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* PARAMETRE_ALTERNATIVE_SEPARATOR_URI_MODEL = SEMICOLON_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* PARAMETRE_ALTERNATIVE_SEPARATOR_URI_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The value separator ("equals") uri model.

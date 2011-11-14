@@ -76,7 +76,7 @@
 /**
  * Decodes the UTF-16 Unicode character data into UTF-32 Unicode wide character data.
  *
- * @param p0 the destination data (Hand over as reference!)
+ * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source data

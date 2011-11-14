@@ -60,7 +60,7 @@
 // GET /wiki/Spezial:Search?search=Katzen&go=Artikel HTTP/1.1
 // host: de.wikipedia.org
 //
-// The value pairs (parameters) of the example are:
+// The value pairs (parametres) of the example are:
 //
 // -------------------------------------
 // Argument         Value
@@ -94,7 +94,7 @@
 // Taken from:
 // https://bugzilla.mozilla.org/show_bug.cgi?id=18643
 //
-// We cannot add a charset parameter to the Content-Type header for HTTP GET,
+// We cannot add a charset parametre to the Content-Type header for HTTP GET,
 // because there is no Content-Type header in the case of GET (since there is no
 // body following the headers). A *lot* of forms use GET.
 //

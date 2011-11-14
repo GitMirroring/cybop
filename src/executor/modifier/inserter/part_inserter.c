@@ -58,10 +58,10 @@ void insert_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part element.
-    copy_array_forward((void*) &e, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     // Insert item as element of the part container.
-    insert_item_element(e, p1, p2, p3, p4, p5, (void*) DATA_ITEM_MEMORY_NAME);
+    insert_item_element(e, p1, p2, p3, p4, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 }
 
 /**
@@ -89,9 +89,9 @@ void insert_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination model.
-    copy_array_forward((void*) &dm, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &dm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get source model.
-    copy_array_forward((void*) &sm, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Insert source- into destination part model item.
     insert_item(dm, sm, p2, p3, p4, p5);

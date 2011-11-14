@@ -53,15 +53,15 @@ void determine_size(void* p0, void* p1) {
 
         log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Determine size.");
 
-        if (*a == *CHARACTER_MEMORY_TYPE) {
+        if (*a == *CHARACTER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *DOUBLE_MEMORY_TYPE) {
+        } else if (*a == *DOUBLE_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) DOUBLE_REAL_TYPE_SIZE);
 
-        } else if (*a == *FRACTION_MEMORY_TYPE) {
+        } else if (*a == *FRACTION_STATE_CYBOI_TYPE) {
 
             // CAUTION! This "fraction" type IS NEEDED,
             // e.g. when DEEP copying a part. Do NOT delete!
@@ -69,11 +69,11 @@ void determine_size(void* p0, void* p1) {
             // pointer references a fraction structure.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *INTEGER_MEMORY_TYPE) {
+        } else if (*a == *INTEGER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *PART_MEMORY_TYPE) {
+        } else if (*a == *PART_STATE_CYBOI_TYPE) {
 
             // CAUTION! This "part" type IS NEEDED,
             // e.g. when DEEP copying a part. Do NOT delete!
@@ -81,15 +81,15 @@ void determine_size(void* p0, void* p1) {
             // pointer references a part structure.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *POINTER_MEMORY_TYPE) {
+        } else if (*a == *POINTER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *UNSIGNED_LONG_MEMORY_TYPE) {
+        } else if (*a == *UNSIGNED_LONG_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *WIDE_CHARACTER_MEMORY_TYPE) {
+        } else if (*a == *WIDE_CHARACTER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 

@@ -42,7 +42,7 @@
 /**
  * Sends the window onto the x window system display.
  *
- * @param p0 the destination display (Hand over as reference!)
+ * @param p0 the destination display (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the internal memory
@@ -60,7 +60,7 @@ void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int** w = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get x window system internals.
-        get((void*) &w, p3, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+        get((void*) &w, p3, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
         // CAUTION! This test is necessary to avoid a "Segmentation fault"!
         if (*d != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -114,7 +114,7 @@ void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4
     pthread_mutex_t** xmt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get x window system mutex.
-    get((void*) &xmt, p0, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &xmt, p0, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
     pthread_mutex_lock(*xmt);
 
@@ -128,7 +128,7 @@ void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4
     void** d = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get display.
-    get_array_elements((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE);
+    get_array_elements((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE);
 
 //??    fwprintf(stdout, L"TEST send x 1: %i\n", p0);
 

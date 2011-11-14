@@ -39,10 +39,10 @@
 /**
  * Receives an inline stream and writes it into an array.
  *
- * @param p0 the model (Hand over as reference!)
+ * @param p0 the model (pointer reference)
  * @param p1 the model count
  * @param p2 the model size
- * @param p3 the properties (Hand over as reference!)
+ * @param p3 the properties (pointer reference)
  * @param p4 the properties count
  * @param p5 the properties size
  * @param p6 the message
@@ -60,10 +60,10 @@ void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate data array.
-    allocate_array((void*) &a, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_array((void*) &a, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Receive data array, count, size.
-    overwrite_array((void*) &a, p6, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &c, (void*) &s);
+    overwrite_array((void*) &a, p6, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &c, (void*) &s);
 
     // CAUTION! Do NOT try to decode from UTF-8 or other formats here!
     // In other words, do NOT call a function such as this:
@@ -78,7 +78,7 @@ void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     decode(p0, p1, p2, p3, p4, p5, a, (void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p8, p9);
 
     // Deallocate data array.
-    deallocate_array((void*) &a, (void*) &s, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_array((void*) &a, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* INLINE_RECEIVER_SOURCE */

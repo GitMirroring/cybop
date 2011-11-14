@@ -41,7 +41,7 @@
 /**
  * Decodes the html into a model.
  *
- * @param p0 the destination item (Hand over as reference!)
+ * @param p0 the destination item (pointer reference)
  * @param p1 the source data
  * @param p2 the source count
  */

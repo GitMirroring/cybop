@@ -105,7 +105,7 @@
  * Decodes the percent-encoded character element into
  * a non-percent-encoded character element.
  *
- * @param p0 the destination data (Hand over as reference!)
+ * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source data position (pointer reference)
@@ -153,7 +153,7 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
             // Append any unreserved characters found up to here,
             // no matter whether an unreserved character follows
             // or no unreserved character at all was found.
-            overwrite_array(p0, u, (void*) CHARACTER_MEMORY_TYPE, (void*) &uc, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array(p0, u, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) &uc, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -186,7 +186,7 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
  * no matter whether or not they are reserved characters
  * according to the URI specification.
  *
- * @param p0 the destination character array (Hand over as reference!)
+ * @param p0 the destination character array (pointer reference)
  * @param p1 the destination character array count
  * @param p2 the destination character array size
  * @param p3 the percent-encoded source character array
@@ -234,7 +234,7 @@ void decode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void
                             *ds = *dc + *sc;
 
                             // Reallocate destination character vector.
-                            reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_TYPE);
+                            reallocate_array(p0, p1, p2, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
                             // CAUTION! Hand over p3 as reference.
                             decode_percent_encoding_vector_element(p0, p1, p2, (void*) &p3, p4);

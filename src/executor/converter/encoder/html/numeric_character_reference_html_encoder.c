@@ -40,7 +40,7 @@
 /**
  * Encodes a character into a numeric character reference (html escape code).
  *
- * @param p0 the destination numeric character reference (html escape code) (Hand over as reference!)
+ * @param p0 the destination numeric character reference (html escape code) (pointer reference)
  * @param p1 the destination numeric character reference (html escape code) count
  * @param p2 the destination numeric character reference (html escape code) size
  * @param p3 the source character
@@ -70,7 +70,7 @@ void encode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, 
 /*??
                 if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    compare_all_array((void*) &r, p3, p4, (void*) SPACE_WIDE_CHARACTER, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    compare_all_array((void*) &r, p3, p4, (void*) SPACE_WIDE_CHARACTER, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
                     if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -88,7 +88,7 @@ void encode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // Add temporary value to destination.
-                    overwrite_array(p0, (void*) t, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &tc, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                    overwrite_array(p0, (void*) t, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) &tc, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
                 }
 
             } else {

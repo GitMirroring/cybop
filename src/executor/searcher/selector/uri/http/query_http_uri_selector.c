@@ -60,7 +60,7 @@ void select_http_uri_query(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) FRAGMENT_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) FRAGMENT_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) FRAGMENT_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) FRAGMENT_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

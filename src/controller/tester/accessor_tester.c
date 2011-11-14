@@ -53,12 +53,12 @@ void test_accessor_size_determiner() {
     int wcs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Determine size.
-    determine_size((void*) &cs, (void*) CHARACTER_MEMORY_TYPE);
-    determine_size((void*) &ds, (void*) DOUBLE_MEMORY_TYPE);
-    determine_size((void*) &is, (void*) INTEGER_MEMORY_TYPE);
-    determine_size((void*) &ps, (void*) POINTER_MEMORY_TYPE);
-    determine_size((void*) &uls, (void*) UNSIGNED_LONG_MEMORY_TYPE);
-    determine_size((void*) &wcs, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    determine_size((void*) &cs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    determine_size((void*) &ds, (void*) DOUBLE_STATE_CYBOI_TYPE);
+    determine_size((void*) &is, (void*) INTEGER_STATE_CYBOI_TYPE);
+    determine_size((void*) &ps, (void*) POINTER_STATE_CYBOI_TYPE);
+    determine_size((void*) &uls, (void*) UNSIGNED_LONG_STATE_CYBOI_TYPE);
+    determine_size((void*) &wcs, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"Type size character: %i\n", cs);
     fwprintf(stdout, L"Type size double: %i\n", ds);
@@ -79,7 +79,7 @@ void test_accessor_assigner() {
     double v = 3.5;
 
     fwprintf(stdout, L"Double before assigner: %f\n", d);
-//??    assign((void*) &d, (void*) &v, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_MEMORY_TYPE);
+//??    assign((void*) &d, (void*) &v, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_STATE_CYBOI_TYPE);
     fwprintf(stdout, L"Double after assigner: %f\n", d);
 }
 
@@ -98,26 +98,26 @@ void test_accessor_array_setter() {
     int i2 = *NUMBER_13_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination array.
-    allocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"d string: %ls\n", (wchar_t*) d);
     fwprintf(stdout, L"s1: %ls\n", s1);
     fwprintf(stdout, L"s1c: %i\n", s1c);
     fwprintf(stdout, L"i1: %i\n", i1);
 
-//??    overwrite_array(d, (void*) s1, (void*) &s1c, (void*) &i1, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(d, (void*) s1, (void*) &s1c, (void*) &i1, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"d string 2: %ls\n", (wchar_t*) d);
     fwprintf(stdout, L"s2: %ls\n", s2);
     fwprintf(stdout, L"s2c: %i\n", s2c);
     fwprintf(stdout, L"i2: %i\n", i2);
 
-//??    overwrite_array(d, (void*) s2, (void*) &s2c, (void*) &i2, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+//??    overwrite_array(d, (void*) s2, (void*) &s2c, (void*) &i2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"d string 3: %ls\n", (wchar_t*) d);
 
     // Deallocate destination array.
-    deallocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /**

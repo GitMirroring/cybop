@@ -190,11 +190,11 @@ void manage(void* p0) {
     // Allocate internal memory array.
     // CAUTION! The internal memory has a pre-defined count/size,
     // given by the constant INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT.
-    allocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
+    allocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
     // Allocate knowledge memory part.
-    allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE);
+    allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE);
     // Allocate signal memory item.
-    allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
+    allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
     // Allocate signal memory interrupt request flag.
     signal_memory_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
@@ -245,9 +245,9 @@ void manage(void* p0) {
     *cyboi_service_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     //
-    // In the following mutex initialisation functions, the second parameter
+    // In the following mutex initialisation functions, the second parametre
     // specifies attributes that are to be used to initialise the mutex.
-    // If the parameter is null, the mutex is initialised with default attributes.
+    // If the parametre is null, the mutex is initialised with default attributes.
     //
 
     // Initialise signal memory mutex.
@@ -289,7 +289,7 @@ void manage(void* p0) {
     // while in reality the value was just an arbitrary initial one.
     // Therefore, such values are initialised with the well-defined *NULL_POINTER_STATE_CYBOI_MODEL.
     //
-    // CAUTION! ONLY ONE parameter can be handed over to threads!
+    // CAUTION! ONLY ONE parametre can be handed over to threads!
     // For example, the tcp socket is running in an own thread.
     // Therefore, the knowledge memory and signal memory NEED TO BE ADDED
     // to the internal memory, in order to be forwardable to threads.
@@ -325,9 +325,9 @@ void manage(void* p0) {
     // Shutdown x window system.
     maintain_shutting_x_window_system(i, (void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
     // Shutdown www service.
-    maintain_shutting_socket(i, (void*) WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
+    maintain_shutting_socket(i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
     // Shutdown cyboi service.
-    maintain_shutting_socket(i, (void*) CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME, (void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
+    maintain_shutting_socket(i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
 
     //
     // Variable finalisation.
@@ -388,11 +388,11 @@ void manage(void* p0) {
     free((void*) cyboi_service_sleep_time);
 
     // Deallocate signal memory item.
-    deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
+    deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     // Deallocate knowledge memory part.
-    deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_MEMORY_TYPE);
+    deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE);
     // Deallocate internal memory array.
-    deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_MEMORY_TYPE);
+    deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 
 /* MANAGER_SOURCE */

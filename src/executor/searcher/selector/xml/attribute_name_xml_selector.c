@@ -53,7 +53,7 @@ void select_xml_attribute_name(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) ATTRIBUTE_VALUE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) ATTRIBUTE_VALUE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) ATTRIBUTE_VALUE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_VALUE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

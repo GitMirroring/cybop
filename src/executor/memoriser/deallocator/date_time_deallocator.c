@@ -36,14 +36,14 @@
 /**
  * Deallocates the date time.
  *
- * @param p0 the model (Hand over as reference!)
+ * @param p0 the model (pointer reference)
  * @param p1 the model size
  */
 void deallocate_date_time(void* p0, void* p1) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate date time.");
 
-    deallocate_array(p0, p1, (void*) INTEGER_MEMORY_TYPE);
+    deallocate_array(p0, p1, (void*) INTEGER_STATE_CYBOI_TYPE);
 }
 
 /* DATE_TIME_DEALLOCATOR_SOURCE */

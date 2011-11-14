@@ -47,9 +47,9 @@
  * The "handler" is an operation encapsulated as part, which is
  * to be forwarded as signal to be processed normally in the system.
  *
- * @param p0 the interrupt request (Hand over as reference!)
- * @param p1 the mutex (Hand over as reference!)
- * @param p2 the handler (Hand over as reference!)
+ * @param p0 the interrupt request (pointer reference)
+ * @param p1 the mutex (pointer reference)
+ * @param p2 the handler (pointer reference)
  * @param p3 the internal memory array
  */
 void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
@@ -76,9 +76,9 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
             log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected signal memory interrupt.");
 
             // Get signal memory interrupt request.
-            copy_array_forward(p0, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+            copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             // Get signal memory mutex.
-            copy_array_forward(p1, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
+            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             // A handler is NOT set in the case of a signal memory interrupt.
 
 //??    fwprintf(stdout, L"TEST detected signal memory irq: %i\n", *((int*) *irq));
@@ -97,11 +97,11 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
             log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected gnu/linux console interrupt.");
 
             // Get gnu/linux console interrupt request.
-            copy_array_forward(p0, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+            copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             // Get gnu/linux console mutex.
-            copy_array_forward(p1, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
+            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             // Get gnu/linux console handler.
-            copy_array_forward(p2, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) GNU_LINUX_CONSOLE_HANDLER_INTERNAL_MEMORY_MEMORY_NAME);
+            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
 //??    fwprintf(stdout, L"TEST detected gnu/linux console irq: %i\n", *((int*) *irq));
         }
@@ -119,11 +119,11 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
             log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected x window system interrupt.");
 
             // Get x window system interrupt request.
-            copy_array_forward(p0, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
+            copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             // Get x window system mutex.
-            copy_array_forward(p1, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
+            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             // Get x window system handler.
-            copy_array_forward(p2, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) X_WINDOW_SYSTEM_HANDLER_INTERNAL_MEMORY_MEMORY_NAME);
+            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
 //??    fwprintf(stdout, L"TEST detected x window system irq: %i\n", *((int*) *irq));
         }
@@ -141,17 +141,17 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
             log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected www service interrupt.");
 
             // Get www service interrupt request.
-            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME);
-            calculate_integer_add((void*) &i, (void*) SOCKET_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
-            copy_array_forward(p0, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) SOCKET_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
             // Get www service mutex.
-            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME);
-            calculate_integer_add((void*) &i, (void*) SOCKET_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
-            copy_array_forward(p1, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) SOCKET_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
             // Get www service handler.
-            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_MEMORY_NAME);
-            calculate_integer_add((void*) &i, (void*) SOCKET_HANDLER_INTERNAL_MEMORY_MEMORY_NAME);
-            copy_array_forward(p2, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) SOCKET_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
 //??    fwprintf(stdout, L"TEST detected www service irq: %i\n", *((int*) *irq));
         }
@@ -169,17 +169,17 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
             log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected cyboi service interrupt.");
 
             // Get cyboi service interrupt request.
-            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME);
-            calculate_integer_add((void*) &i, (void*) SOCKET_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME);
-            copy_array_forward(p0, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) SOCKET_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
             // Get cyboi service mutex.
-            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME);
-            calculate_integer_add((void*) &i, (void*) SOCKET_MUTEX_INTERNAL_MEMORY_MEMORY_NAME);
-            copy_array_forward(p1, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) SOCKET_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
             // Get cyboi service handler.
-            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_MEMORY_NAME);
-            calculate_integer_add((void*) &i, (void*) SOCKET_HANDLER_INTERNAL_MEMORY_MEMORY_NAME);
-            copy_array_forward(p2, p3, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) SOCKET_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
 fwprintf(stdout, L"TEST detected cyboi service irq: %i\n", *((int*) *irq));
         }

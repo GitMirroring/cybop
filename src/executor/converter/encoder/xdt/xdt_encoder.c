@@ -104,7 +104,7 @@
 /**
  * Encodes a compound model into an xdt format byte array.
  *
- * @param p0 the destination xdt byte array (Hand over as reference!)
+ * @param p0 the destination xdt byte array (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source compound model

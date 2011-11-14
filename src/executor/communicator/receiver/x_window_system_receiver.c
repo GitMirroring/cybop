@@ -52,18 +52,18 @@
  * Afterwards, the event type is identified.
  * Finally, the corresponding mouse command is returned as result.
  *
- * @param p0 the command name (Hand over as reference!)
- * @param p1 the command name count (Hand over as reference!)
- * @param p2 the command name size (Hand over as reference!)
- * @param p3 the command type (Hand over as reference!)
- * @param p4 the command type count (Hand over as reference!)
- * @param p5 the command type size (Hand over as reference!)
- * @param p6 the command model (Hand over as reference!)
- * @param p7 the command model count (Hand over as reference!)
- * @param p8 the command model size (Hand over as reference!)
- * @param p9 the command properties (Hand over as reference!)
- * @param p10 the command properties count (Hand over as reference!)
- * @param p11 the command properties size (Hand over as reference!)
+ * @param p0 the command name (pointer reference)
+ * @param p1 the command name count (pointer reference)
+ * @param p2 the command name size (pointer reference)
+ * @param p3 the command type (pointer reference)
+ * @param p4 the command type count (pointer reference)
+ * @param p5 the command type size (pointer reference)
+ * @param p6 the command model (pointer reference)
+ * @param p7 the command model count (pointer reference)
+ * @param p8 the command model size (pointer reference)
+ * @param p9 the command properties (pointer reference)
+ * @param p10 the command properties count (pointer reference)
+ * @param p11 the command properties size (pointer reference)
  * @param p12 the whole properties
  * @param p13 the whole properties count
  * @param p14 the event type
@@ -127,18 +127,18 @@ void sense_x_window_system_mouse_command(void* p0, void* p1, void* p2, void* p3,
  * The event type gets identified, in order to call the corresponding procedure.
  * Mouse press or -release events have to be handled differently than drag'n'drop.
  *
- * @param p0 the command name (Hand over as reference!)
- * @param p1 the command name count (Hand over as reference!)
- * @param p2 the command name size (Hand over as reference!)
- * @param p3 the command type (Hand over as reference!)
- * @param p4 the command type count (Hand over as reference!)
- * @param p5 the command type size (Hand over as reference!)
- * @param p6 the command model (Hand over as reference!)
- * @param p7 the command model count (Hand over as reference!)
- * @param p8 the command model size (Hand over as reference!)
- * @param p9 the command properties (Hand over as reference!)
- * @param p10 the command properties count (Hand over as reference!)
- * @param p11 the command properties size (Hand over as reference!)
+ * @param p0 the command name (pointer reference)
+ * @param p1 the command name count (pointer reference)
+ * @param p2 the command name size (pointer reference)
+ * @param p3 the command type (pointer reference)
+ * @param p4 the command type count (pointer reference)
+ * @param p5 the command type size (pointer reference)
+ * @param p6 the command model (pointer reference)
+ * @param p7 the command model count (pointer reference)
+ * @param p8 the command model size (pointer reference)
+ * @param p9 the command properties (pointer reference)
+ * @param p10 the command properties count (pointer reference)
+ * @param p11 the command properties size (pointer reference)
  * @param p12 the whole properties
  * @param p13 the whole properties count
  * @param p14 the event type
@@ -185,18 +185,18 @@ void sense_x_window_system_command(void* p0, void* p1, void* p2, void* p3, void*
  * any previously stored commands of their wholes. Finally, the mouse command
  * is returned as result of this procedure.
  *
- * @param p0 the command name (Hand over as reference!)
- * @param p1 the command name count (Hand over as reference!)
- * @param p2 the command name size (Hand over as reference!)
- * @param p3 the command type (Hand over as reference!)
- * @param p4 the command type count (Hand over as reference!)
- * @param p5 the command type size (Hand over as reference!)
- * @param p6 the command model (Hand over as reference!)
- * @param p7 the command model count (Hand over as reference!)
- * @param p8 the command model size (Hand over as reference!)
- * @param p9 the command properties (Hand over as reference!)
- * @param p10 the command properties count (Hand over as reference!)
- * @param p11 the command properties size (Hand over as reference!)
+ * @param p0 the command name (pointer reference)
+ * @param p1 the command name count (pointer reference)
+ * @param p2 the command name size (pointer reference)
+ * @param p3 the command type (pointer reference)
+ * @param p4 the command type count (pointer reference)
+ * @param p5 the command type size (pointer reference)
+ * @param p6 the command model (pointer reference)
+ * @param p7 the command model count (pointer reference)
+ * @param p8 the command model size (pointer reference)
+ * @param p9 the command properties (pointer reference)
+ * @param p10 the command properties count (pointer reference)
+ * @param p11 the command properties size (pointer reference)
  * @param p12 the whole model
  * @param p13 the whole model count
  * @param p14 the mouse x coordinate within the graphical whole
@@ -321,13 +321,13 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             p19, p20);
 
                         // Determine graphical part position coordinates.
-                        get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-                        get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-                        get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+                        get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+                        get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
                         // Determine source part size coordinates.
-                        get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-                        get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-                        get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+                        get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+                        get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+                        get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
                         if ((*mx >= **pmx) && (*my >= **pmy) && (*mz >= **pmz)
                             && (*mx < (**pmx + **smx)) && (*my < (**pmy + **smy)) && (*mz < (**pmz + **smz))) {
@@ -337,7 +337,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             // Sense the graphical part's command.
                             sense_x_window_system_command(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, *d, *dc, p17, p18, p19, p20);
 
-                            compare_all_array((void*) &r, *a, (void*) PART_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *ac, (void*) PART_MEMORY_TYPE_COUNT);
+                            compare_all_array((void*) &r, *a, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) PART_STATE_CYBOI_TYPE_COUNT);
 
                             if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -438,7 +438,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 /**
  * Receives the x window system display into a window.
  *
- * @param p0 the destination window (Hand over as reference!)
+ * @param p0 the destination window (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source display
@@ -475,30 +475,30 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int** w = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get knowledge memory internal.
-    get((void*) &k, p0, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-    get((void*) &kc, p0, (void*) KNOWLEDGE_MEMORY_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-    get((void*) &ks, p0, (void*) KNOWLEDGE_MEMORY_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &k, p0, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &kc, p0, (void*) KNOWLEDGE_MEMORY_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &ks, p0, (void*) KNOWLEDGE_MEMORY_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
     // Get signal memory internal.
-    get((void*) &s, p0, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-    get((void*) &sc, p0, (void*) SIGNAL_MEMORY_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-    get((void*) &ss, p0, (void*) SIGNAL_MEMORY_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &s, p0, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &sc, p0, (void*) SIGNAL_MEMORY_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &ss, p0, (void*) SIGNAL_MEMORY_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
     // Get signal memory mutex.
-    get((void*) &smt, p0, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &smt, p0, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
     // Get x window system mutex.
-    get((void*) &xmt, p0, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &xmt, p0, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
     // Get interrupt request internal.
-    get((void*) &sirq, p0, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &sirq, p0, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
     // Get user interface root internal.
-    get((void*) &r, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-    get((void*) &rc, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-    get((void*) &rs, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &r, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &rc, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &rs, p0, (void*) X_WINDOW_SYSTEM_THREAD_ROOT_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
     // Get user interface commands internal.
-    get((void*) &c, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-    get((void*) &cc, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_COUNT_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-    get((void*) &cs, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_SIZE_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &c, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &cc, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &cs, p0, (void*) X_WINDOW_SYSTEM_THREAD_COMMANDS_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
     // Get x window system internals.
-    get((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
-    get((void*) &w, p0, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &d, p0, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &w, p0, (void*) X_WINDOW_SYSTEM_WINDOW_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
     // The command name, type, model, properties.
     void** cn = NULL_POINTER_STATE_CYBOI_MODEL;

@@ -32,7 +32,7 @@
 /**
  * Encodes the latex model and creates a byte stream from it.
  *
- * @param p0 the destination byte stream (Hand over as reference!)
+ * @param p0 the destination byte stream (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source latex model

@@ -49,10 +49,10 @@
 /**
  * Receives message via socket.
  *
- * @param p0 the destination model (Hand over as reference!)
+ * @param p0 the destination model (pointer reference)
  * @param p1 the destination model count
  * @param p2 the destination model size
- * @param p3 the destination properties (Hand over as reference!)
+ * @param p3 the destination properties (pointer reference)
  * @param p4 the destination properties count
  * @param p5 the destination properties size
  * @param p6 the source communication partner-connected socket of this system
@@ -80,19 +80,19 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     void* es = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate encoded character array.
-//??    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+//??    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     // Receive message from stream.
     receive_stream_socket((void*) &e, ec, es, p6);
 
     // Deserialise serialised wide character array into destination knowledge model.
-    // The http request's parameters are written into the destination compound model.
+    // The http request's parametres are written into the destination compound model.
     decode(p0, p1, p2, p3, p4, p5, e, ec, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p9, p10);
 
     // Deallocate encoded character array.
-//??    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+//??    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     //?? TODO: The destination compound model content needs to be RESET every time since
     //?? otherwise, new commands are just added to the "action" part entry, for example.
@@ -121,7 +121,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
 /*??
     // Get action.
-    // It is just one of many possibly parameters that were sensed as
+    // It is just one of many possibly parametres that were sensed as
     // http request and added to the compound model above.
     get_universal_compound_element_by_name(
         (void*) &an, (void*) &anc, (void*) &ans,
@@ -137,7 +137,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (*am != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // The action parameter is NOT null, so it
+        // The action parametre is NOT null, so it
         // will be used for generating a signal.
 
     fwprintf(stdout, L"TEST 4 am: %s \n", (wchar_t*) *am);
@@ -148,17 +148,17 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     } else {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive socket message. The action parameter is null.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive socket message. The action parametre is null.");
     }
 
     fwprintf(stdout, L"TEST 5 bc: %i \n", *((int*) p29));
     fwprintf(stdout, L"TEST 5 bs: %i \n", *((int*) p30));
 */
 
-    /** The index parameter. */
-    static wchar_t INDEX_PARAMETER_ARRAY[] = {L'i', L'n', L'd', L'e', L'x'};
-    static wchar_t* INDEX_PARAMETER = INDEX_PARAMETER_ARRAY;
-    static int* INDEX_PARAMETER_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+    /** The index parametre. */
+    static wchar_t INDEX_PARAMETRE_ARRAY[] = {L'i', L'n', L'd', L'e', L'x'};
+    static wchar_t* INDEX_PARAMETRE = INDEX_PARAMETRE_ARRAY;
+    static int* INDEX_PARAMETRE_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
     // The command name, type, model, properties.
     void** n = NULL_POINTER_STATE_CYBOI_MODEL;
@@ -178,7 +178,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     if (p16 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // Get actual command belonging to the command name.
-        // If the name is not known, the command parameter is left untouched.
+        // If the name is not known, the command parametre is left untouched.
         get_universal_compound_element_by_name(
             (void*) &n, (void*) &nc, (void*) &ns,
             (void*) &a, (void*) &ac, (void*) &as,
@@ -197,7 +197,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
             (void*) &m, (void*) &mc, (void*) &ms,
             (void*) &d, (void*) &dc, (void*) &ds,
             p14, p15,
-            INDEX_PARAMETER, INDEX_PARAMETER_COUNT,
+            INDEX_PARAMETRE, INDEX_PARAMETRE_COUNT,
             p0, p1);
     }
 */
@@ -215,7 +215,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
 /*??
     // The communication partner-connected socket of this system
-    // (the client socket to accept, receive data from and attach as parameter to the
+    // (the client socket to accept, receive data from and attach as parametre to the
     // cyboi signal generated later, so that this server may reply to the correct client)
     void** s = NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -237,17 +237,17 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     wchar_t* url_basename = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int url_basename_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Create url basename.
-    allocate_array((void*) &url_basename, (void*) &url_basename_count, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_array((void*) &url_basename, (void*) &url_basename_count, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
     // Get url base name.
     receive_socket_url(msg, &msg_count, &url_basename, &url_basename_count);
 
-    // The parameter.
+    // The parametre.
     wchar_t* param = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int param_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Create paramater.
-    allocate_array((void*) &param, (void*) &param_count, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-    // Get parameters.
-    receive_socket_parameter(msg, &msg_count, &param, &param_count);
+    allocate_array((void*) &param, (void*) &param_count, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    // Get parametres.
+    receive_socket_parametre(msg, &msg_count, &param, &param_count);
 
     // The firefox web browser makes a second request
     // to determine the favicon.
@@ -268,7 +268,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     } else {
 
         // query string handling
-        set_signals_for_all_parameters((void*) param, (void*) &param_count, p0);
+        set_signals_for_all_parametres((void*) param, (void*) &param_count, p0);
 
         //?? The OLD solution created a signal here from a cybol knowledge template.
         //?? This is NOW easier, since the commands already exist in the knowledge tree
@@ -277,7 +277,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 */
 
     //?? TODO: Also store the communication partner-connected socket of this system in internal memory!
-    //?? (It is the client socket to accept, receive data from and attach as parameter to the
+    //?? (It is the client socket to accept, receive data from and attach as parametre to the
     //?? cyboi signal generated later, so that this server may reply to the correct client.)
 }
 

@@ -474,7 +474,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
 
-        compare_all_array((void*) &ar, p3, (void*) PART_MEMORY_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p4, (void*) PART_MEMORY_TYPE_COUNT);
+        compare_all_array((void*) &ar, p3, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) PART_STATE_CYBOI_TYPE_COUNT);
 
         if (ar != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -527,7 +527,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                         (void*) &d, (void*) &dc, (void*) &ds);
 
                     // Compare expected name with that of the current compound part element.
-                    compare_all_array((void*) &nr, *n, en, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, *nc, (void*) &enc);
+                    compare_all_array((void*) &nr, *n, en, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *nc, (void*) &enc);
 
                     if ((p11 == *NULL_POINTER_STATE_CYBOI_MODEL) || (*((int*) p12) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) || (nr != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
 
@@ -544,7 +544,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                     }
 
                     // Reset source part name, type, model, properties
-                    // (parameters of the current compound part element).
+                    // (parametres of the current compound part element).
                     n = NULL_POINTER_STATE_CYBOI_MODEL;
                     nc = NULL_POINTER_STATE_CYBOI_MODEL;
                     ns = NULL_POINTER_STATE_CYBOI_MODEL;
@@ -567,7 +567,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode compound model into terminal control sequences. The source count parameter is null.");
+                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode compound model into terminal control sequences. The source count parametre is null.");
             }
 
         } else {

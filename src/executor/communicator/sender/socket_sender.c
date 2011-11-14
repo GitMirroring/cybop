@@ -56,7 +56,7 @@
  * Server mode means that this system was asked by a client system,
  * that it now needs to reply to.
  *
- * @param p0 the communication partner socket (Hand over as reference!)
+ * @param p0 the communication partner socket (pointer reference)
  * @param p1 the internal memory
  * @param p2 the base internal
  */
@@ -72,8 +72,8 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
         int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Get communication partner socket.
-        i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
-        get(p0, p1, (void*) &i, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+        i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        get(p0, p1, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
 /*??
         ONLY necessary when writing or deleting a socket from internal memory.
@@ -83,8 +83,8 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
         pthread_mutex_t** mt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get socket mutex.
-        i = *base + *SOCKET_MUTEX_INTERNAL_MEMORY_MEMORY_NAME;
-        get((void*) &mt, p1, (void*) &i, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+        i = *base + *SOCKET_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        get((void*) &mt, p1, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 */
 
     } else {
@@ -188,7 +188,7 @@ void apply_send_socket_get_socket_client_mode(void* p0, void* p1, void* p2) {
  * In server mode, an existing socket of this system is read from the internal memory.
  * In client mode, a completely new socket is created.
  *
- * @param p0 the communication partner socket (Hand over as reference!)
+ * @param p0 the communication partner socket (pointer reference)
  * @param p1 the internal memory
  * @param p2 the base internal
  * @param p3 the socket namespace
@@ -205,7 +205,7 @@ void apply_send_socket_get_socket(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p6, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -215,7 +215,7 @@ void apply_send_socket_get_socket(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p6, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p6, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -248,7 +248,7 @@ void apply_send_socket_set_nonblocking_mode(void* p0) {
         // CAUTION! The "select" procedure was NOT used to make this socket
         // non-blocking, because it has some overhead in that other sockets
         // need to be considered and their file descriptors handed over as
-        // parameter.
+        // parametre.
         // A simple "sleep" procedure is considered to be a more simple and
         // clean solution here. See file "controller/checker/wait_checker.c"!
 
@@ -277,7 +277,7 @@ void apply_send_socket_set_nonblocking_mode(void* p0) {
 /**
  * Allocates the host address.
  *
- * @param p0 the host address (Hand over as reference!)
+ * @param p0 the host address (pointer reference)
  * @param p1 the address namespace
  */
 void apply_send_socket_allocate_host_address(void* p0, void* p1) {
@@ -318,8 +318,8 @@ void apply_send_socket_allocate_host_address(void* p0, void* p1) {
 /**
  * Allocates the socket address.
  *
- * @param p0 the socket address (Hand over as reference!)
- * @param p1 the socket address size (Hand over as reference!)
+ * @param p0 the socket address (pointer reference)
+ * @param p1 the socket address size (pointer reference)
  * @param p2 the address namespace
  */
 void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
@@ -399,7 +399,7 @@ void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
 /**
  * Initialises the socket address.
  *
- * @param p0 the socket address (Hand over as reference!)
+ * @param p0 the socket address (pointer reference)
  * @param p1 the file name or host address model, depending on the socket type (local, ipv4, ipv6)
  * @param p2 the file name or host address model count
  * @param p3 the host address

@@ -79,9 +79,9 @@ void apply_interrupt_thread(void* p0, void* p1) {
                 // Wait for thread to finish.
                 pthread_join(*t, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-                // A mutex is not needed while setting the following parameters,
+                // A mutex is not needed while setting the following parametres,
                 // since the corresponding thread was killed above so that NO
-                // other entities exist that may access the parameters.
+                // other entities exist that may access the parametres.
 
                 // Reset thread.
                 *t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -128,9 +128,9 @@ void apply_interrupt(void* p0, void* p1) {
     // Get service part.
     get_name_array((void*) &s, p0, (void*) SERVICE_LIFECYCLE_OPERATION_CYBOL_NAME, (void*) SERVICE_LIFECYCLE_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get service part model.
-    copy_array_forward((void*) &sm, s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get service part model data.
-    copy_array_forward((void*) &smd, sm, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

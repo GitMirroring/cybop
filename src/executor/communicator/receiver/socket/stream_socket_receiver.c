@@ -41,11 +41,11 @@
 /**
  * Receives a byte array stream from the stream socket.
  *
- * @param p0 the destination byte array (Hand over as reference!)
+ * @param p0 the destination byte array (pointer reference)
  * @param p1 the destination byte array count
  * @param p2 the destination byte array size
  * @param p3 the source communication partner-connected socket of this system
- *           (the client socket to accept, receive data from and attach as parameter to the
+ *           (the client socket to accept, receive data from and attach as parametre to the
  *           cyboi signal generated later, so that this server may reply to the correct client)
  */
 void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {

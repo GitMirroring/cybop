@@ -44,14 +44,14 @@
  * minute (m)
  * second (s)
  *
- * @param p0 the model (Hand over as reference!)
+ * @param p0 the model (pointer reference)
  * @param p1 the model size
  */
 void allocate_date_time(void* p0, void* p1) {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate date time.");
 
-    allocate_array(p0, p1, (void*) INTEGER_MEMORY_TYPE);
+    allocate_array(p0, p1, (void*) INTEGER_STATE_CYBOI_TYPE);
 }
 
 /* DATE_TIME_ALLOCATOR_SOURCE */

@@ -69,7 +69,7 @@ void optionalise_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) OFF_LOG_LEVEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) OFF_LOG_LEVEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) OFF_LOG_LEVEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) OFF_LOG_LEVEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -80,7 +80,7 @@ void optionalise_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ERROR_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) ERROR_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) ERROR_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) ERROR_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -91,7 +91,7 @@ void optionalise_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) WARNING_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) WARNING_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) WARNING_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) WARNING_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -102,7 +102,7 @@ void optionalise_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -113,7 +113,7 @@ void optionalise_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) DEBUG_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) DEBUG_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) DEBUG_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) DEBUG_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -133,7 +133,7 @@ void optionalise_log_level(void* p0, void* p1, void* p2) {
 /**
  * Optionalises the log file option.
  *
- * @param p0 the log file (Hand over as reference!)
+ * @param p0 the log file (pointer reference)
  * @param p1 the log file name
  * @param p2 the log file name count
  */
@@ -156,13 +156,13 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         // Allocate terminated file name as multibyte character array.
         // CAUTION! Do NOT use a wide character array here!
         // The glibc file stream functions below expect standard (multibyte) character arrays.
-        allocate_array((void*) &t, (void*) &ts, (void*) CHARACTER_MEMORY_TYPE);
+        allocate_array((void*) &t, (void*) &ts, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
         // Encode wide character option into multibyte character array.
         encode_utf_8_unicode_character_vector((void*) &t, (void*) &tc, (void*) &ts, p1, p2);
 
         // Add null termination character to terminated file name.
-        overwrite_array((void*) &t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &tc, (void*) &ts);
+        overwrite_array((void*) &t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tc, (void*) &ts);
 
         // Open log file for writing only.
         // If the file already exists, it is truncated to zero length.
@@ -200,7 +200,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         }
 
         // Deallocate terminated file name as multibyte character array.
-        deallocate_array((void*) &t, (void*) &ts, (void*) CHARACTER_MEMORY_TYPE);
+        deallocate_array((void*) &t, (void*) &ts, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     } else {
 
@@ -213,7 +213,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
 /**
  * Deoptionalises the log file option.
  *
- * @param p0 the log file stream (Hand over as reference!)
+ * @param p0 the log file stream (pointer reference)
  */
 void deoptionalise_log_file(void* p0) {
 
@@ -269,7 +269,7 @@ void deoptionalise_log_file(void* p0) {
  * @param p0 the operation mode
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
- * @param p3 the log file stream (Hand over as reference!)
+ * @param p3 the log file stream (pointer reference)
  * @param p4 the value
  * @param p5 the value count
  * @param p6 the option
@@ -287,7 +287,7 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) HELP_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) HELP_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) HELP_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) HELP_CYBOI_COMMAND_OPTION_NAME_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -298,12 +298,12 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) KNOWLEDGE_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) KNOWLEDGE_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) KNOWLEDGE_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) KNOWLEDGE_CYBOI_COMMAND_OPTION_NAME_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Copy file path from value to cybol knowledge file path.
-            overwrite_item_element(p1, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, p5, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) DATA_ITEM_MEMORY_NAME);
+            overwrite_item_element(p1, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
             // Set knowledge operation mode.
             copy_integer(p0, (void*) KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL);
@@ -312,7 +312,7 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) LOG_FILE_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) LOG_FILE_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) LOG_FILE_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) LOG_FILE_CYBOI_COMMAND_OPTION_NAME_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -323,7 +323,7 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) LOG_LEVEL_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) LOG_LEVEL_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) LOG_LEVEL_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) LOG_LEVEL_CYBOI_COMMAND_OPTION_NAME_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -334,7 +334,7 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) TEST_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) TEST_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) TEST_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) TEST_CYBOI_COMMAND_OPTION_NAME_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -345,7 +345,7 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) VERSION_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p7, (void*) VERSION_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) VERSION_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) VERSION_CYBOI_COMMAND_OPTION_NAME_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -373,8 +373,8 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
  * @param p0 the operation mode
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
- * @param p3 the log file stream (Hand over as reference!)
- * @param p4 the arguments (Hand over as reference!)
+ * @param p3 the log file stream (pointer reference)
+ * @param p4 the arguments (pointer reference)
  * @param p5 the arguments count
  * @param p6 the index
  */
@@ -398,8 +398,8 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
             // It is initialised with the options count by default, so that it does
             // NOT get processed, unless set to a valid value lying within the array.
             //
-            // CAUTION! Do NOT misuse the index parameter *j handed over to this function!
-            // The parameter j is the loop index and must NOT be altered here!
+            // CAUTION! Do NOT misuse the index parametre *j handed over to this function!
+            // The parametre j is the loop index and must NOT be altered here!
             // Therefore, a new local variable i is introduced.
             int i = *ac;
             // The command line argument option as multibyte character array.
@@ -418,20 +418,20 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
             int vws = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Allocate option as wide character array.
-            allocate((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+            allocate((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
             // Allocate value as wide character array.
-            allocate((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+            allocate((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
             // Get command line argument option.
             // Example: "--loglevel"
-            get_array_elements((void*) &o, p4, (void*) j, (void*) POINTER_MEMORY_TYPE);
+            get_array_elements((void*) &o, p4, (void*) j, (void*) POINTER_STATE_CYBOI_TYPE);
 
             if (*o != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // Get command line argument option count (number of characters).
                 //
                 // There are two possibilities to determine it:
-                // 1 Force the user to give it as extra command line parameter
+                // 1 Force the user to give it as extra command line parametre
                 //   (this would be proper, but not very user-friendly)
                 // 2 Rely on the null termination character to determine it
                 //   (this is a rather dirty workaround, but the "strlen" function can be used)
@@ -459,14 +459,14 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
 
                 // Get command line argument value, standing after the option.
                 // Example: "debug"
-                get_array_elements((void*) &v, p4, (void*) &i, (void*) POINTER_MEMORY_TYPE);
+                get_array_elements((void*) &v, p4, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE);
 
                 if (*v != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     // Get command line argument value count (number of characters).
                     //
                     // There are two possibilities to determine it:
-                    // 1 Force the user to give it as extra command line parameter
+                    // 1 Force the user to give it as extra command line parametre
                     //   (this would be proper, but not very user-friendly)
                     // 2 Rely on the null termination character to determine it
                     //   (this is a rather dirty workaround, but the strlen function can be used)
@@ -491,9 +491,9 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
             optionalise_option(p0, p1, p2, p3, vw, (void*) &vwc, ow, (void*) &owc);
 
             // Deallocate option as wide character array.
-            deallocate((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+            deallocate((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
             // Deallocate value as wide character array.
-            deallocate((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+            deallocate((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
         } else {
 
@@ -541,8 +541,8 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
  * @param p0 the operation mode
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
- * @param p3 the log file stream (Hand over as reference!)
- * @param p4 the arguments (Hand over as reference!)
+ * @param p3 the log file stream (pointer reference)
+ * @param p4 the arguments (pointer reference)
  * @param p5 the arguments count
  */
 void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {

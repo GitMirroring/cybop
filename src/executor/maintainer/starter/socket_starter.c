@@ -58,8 +58,8 @@
 /**
  * Gets the socket- and address namespace.
  *
- * @param p0 the socket namespace (Hand over as reference!)
- * @param p1 the address namespace (Hand over as reference!)
+ * @param p0 the socket namespace (pointer reference)
+ * @param p1 the address namespace (pointer reference)
  * @param p2 the namespace model
  * @param p3 the namespace model count
  */
@@ -130,7 +130,7 @@ void startup_socket_get_namespace(void* p0, void* p1, void* p2, void* p3) {
 /**
  * Gets the communication style.
  *
- * @param p0 the communication style (Hand over as reference!)
+ * @param p0 the communication style (pointer reference)
  * @param p1 the communication style model
  * @param p2 the communication style model count
  */
@@ -189,7 +189,7 @@ void startup_socket_get_style(void* p0, void* p1, void* p2) {
 /**
  * Gets the host address.
  *
- * @param p0 the ipv4 or ipv6 host address, depending on the address namespace (Hand over as reference!)
+ * @param p0 the ipv4 or ipv6 host address, depending on the address namespace (pointer reference)
  * @param p1 the address model
  * @param p2 the address model count
  * @param p3 the address namespace
@@ -264,7 +264,7 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
                 void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                 // Allocate terminated address model.
-                allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
                 // Encode wide character name into multibyte character array.
                 encode_utf_8_unicode_character_vector((void*) &s, sc, ss, p1, p2);
@@ -275,18 +275,18 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
                     *((int*) ss) = *((int*) sc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                     // Reallocate terminated file name as multibyte character array.
-                    reallocate_array((void*) &s, sc, ss, (void*) CHARACTER_MEMORY_TYPE);
+                    reallocate_array((void*) &s, sc, ss, (void*) CHARACTER_STATE_CYBOI_TYPE);
                 }
 
                 // Add null termination character to terminated file name.
-                overwrite_array((void*) &s, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, sc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, sc, ss);
+                overwrite_array((void*) &s, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, sc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, sc, ss);
 
                 // Convert uint16_t integer hostshort from host byte order
                 // to network byte order.
                 inet_pton(*an, (char*) s, p0);
 
                 // Deallocate terminated address model.
-                deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+                deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
             }
 
         } else {
@@ -303,7 +303,7 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
 /**
  * Initialises the local socket address.
  *
- * @param p0 the local socket address (Hand over as reference!)
+ * @param p0 the local socket address (pointer reference)
  * @param p1 the file name
  * @param p2 the file name count
  */
@@ -351,7 +351,7 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
 
                     // CAUTION! Do NOT reallocate the file name array with:
                     // int nc = *fc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                    // reallocate_array((void*) &((*a)->sun_path), p2, (void*) &nc, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    // reallocate_array((void*) &((*a)->sun_path), p2, (void*) &nc, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
                     //
                     // The reason is that the size of the "sun_path" field of
                     // the "sockaddr_un" structure had to be fixed (to 108,
@@ -375,8 +375,8 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
 
                     // Set terminated file name by first copying the actual name
                     // and then adding the null termination character.
-                    copy_array_forward((void*) &path, p1, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-                    copy_array_forward((void*) &path, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+                    copy_array_forward((void*) &path, p1, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                    copy_array_forward((void*) &path, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                 } else {
 
@@ -402,7 +402,7 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
 /**
  * Initialises the ipv4 socket address.
  *
- * @param p0 the ipv4 socket address (Hand over as reference!)
+ * @param p0 the ipv4 socket address (pointer reference)
  * @param p1 the host address (in network byte order)
  * @param p2 the socket port (in host byte order)
  */
@@ -435,7 +435,7 @@ void startup_socket_initialise_ipv4_socket_address(void* p0, void* p1, void* p2)
                 // IPv4 internet host address. It has just one field, named
                 // "s_addr", which records the host address number as an "uint32_t".
                 //
-                // CAUTION! The host address parameter is already given in
+                // CAUTION! The host address parametre is already given in
                 // network byte order, so that it does NOT have to be converted!
                 (*a)->sin_addr.s_addr = *h;
 
@@ -464,7 +464,7 @@ void startup_socket_initialise_ipv4_socket_address(void* p0, void* p1, void* p2)
 /**
  * Initialises the ipv6 socket address.
  *
- * @param p0 the ipv6 socket address (Hand over as reference!)
+ * @param p0 the ipv6 socket address (pointer reference)
  * @param p1 the host address (in network byte order)
  * @param p2 the socket port (in host byte order)
  */
@@ -497,7 +497,7 @@ void startup_socket_initialise_ipv6_socket_address(void* p0, void* p1, void* p2)
                 // IPv4 internet host address. It has just one field, named
                 // "s_addr", which records the host address number as an "uint32_t".
                 //
-                // CAUTION! The host address parameter is already given in
+                // CAUTION! The host address parametre is already given in
                 // network byte order, so that it does NOT have to be converted!
                 (*a)->sin6_addr = *h;
 
@@ -610,13 +610,13 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         }
 
         // Allocate socket address size of this system.
-        allocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
         // Allocate communication partner socket address size.
-        allocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
         // Allocate socket of this system.
-        allocate((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
         // Allocate communication partner socket.
-        allocate((void*) &ps, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &ps, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
 
         // Initialise socket address size of this system.
         copy_integer(as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -692,8 +692,8 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         }
 
         // Allocate character buffer count and size.
-        allocate((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
-        allocate((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_MEMORY_TYPE);
+        allocate((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
 
         // Initialise character buffer count, size.
         // A possible initial size is 2048, which should
@@ -706,51 +706,51 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         //
         // CAUTION! Allocate character buffer only AFTER
         // the buffer size has been initialised above!
-        allocate((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+        allocate((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
         // Set socket address of this system.
         // Set communication partner socket address.
         if (an == AF_LOCAL) {
 
-            i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &la, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &pla, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) &la, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) &pla, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else if (an == AF_INET) {
 
-            i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &ia4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &pia4, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) &ia4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) &pia4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else if (an == AF_INET6) {
 
-            i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &ia6, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-            i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_MEMORY_NAME;
-            copy_array_forward(p0, (void*) &pia6, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+            i = *base + *SOCKET_ADDRESS_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) &ia6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) &pia6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
 
         // Set socket address size of this system.
-        i = *base + *SOCKET_ADDRESS_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &as, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        i = *base + *SOCKET_ADDRESS_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        copy_array_forward(p0, (void*) &as, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set communication partner socket address size.
-        i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &pas, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        i = *base + *SOCKET_COMMUNICATION_PARTNER_ADDRESS_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        copy_array_forward(p0, (void*) &pas, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set socket of this system.
-        i = *base + *SOCKET_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &s, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        i = *base + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set communication partner socket.
-        i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &ps, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        copy_array_forward(p0, (void*) &ps, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set character buffer.
-        i = *base + *SOCKET_CHARACTER_BUFFER_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &b, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-        i = *base + *SOCKET_CHARACTER_BUFFER_COUNT_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &bc, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
-        i = *base + *SOCKET_CHARACTER_BUFFER_SIZE_INTERNAL_MEMORY_MEMORY_NAME;
-        copy_array_forward(p0, (void*) &bs, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+        i = *base + *SOCKET_CHARACTER_BUFFER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        i = *base + *SOCKET_CHARACTER_BUFFER_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        copy_array_forward(p0, (void*) &bc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        i = *base + *SOCKET_CHARACTER_BUFFER_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        copy_array_forward(p0, (void*) &bs, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Initialise error number.
         // It is a global variable/ function and other operations
@@ -784,7 +784,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
             // CAUTION! The "select" procedure was NOT used to make this socket
             // non-blocking, because it has some overhead in that other sockets
             // need to be considered and their file descriptors handed over as
-            // parameter.
+            // parametre.
             // A simple "sleep" procedure is considered to be a more simple and
             // clean solution here.
 
@@ -851,7 +851,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
                     // for stream sockets here.
 
                     // Enable socket to accept connections, thus making it a server socket.
-                    // The second parameter determines the number of possible
+                    // The second parametre determines the number of possible
                     // pending client connection requests.
                     r = listen(*s, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 

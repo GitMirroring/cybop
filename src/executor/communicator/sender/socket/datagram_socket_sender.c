@@ -40,7 +40,7 @@
 /**
  * Sends a byte array stream to the datagram socket.
  *
- * @param p0 the destination receiver socket address (Hand over as reference!)
+ * @param p0 the destination receiver socket address (pointer reference)
  * @param p1 the destination receiver socket address size
  * @param p2 the destination socket of this system
  * @param p3 the source byte array

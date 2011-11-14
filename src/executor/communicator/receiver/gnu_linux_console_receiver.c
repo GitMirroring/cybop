@@ -50,7 +50,7 @@
 /**
  * Receives a gnu/linux console character.
  *
- * @param p0 the destination wide character array (Hand over as reference!)
+ * @param p0 the destination wide character array (pointer reference)
  * @param p1 the destination wide character array count
  * @param p2 the destination wide character array size
  * @param p3 the loop break flag
@@ -113,7 +113,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                 *csi = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
                                 // Set loop break flag.
                                 // An escape character followed by a left square bracket character
@@ -137,7 +137,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                     *csi = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                     // Copy source character to destination character array.
-                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
                                 } else {
 
@@ -164,7 +164,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                 *esc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
                             } else if (*c == WEOF) {
 
@@ -178,7 +178,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                             } else {
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
                                 // Set loop break flag.
                                 *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
@@ -221,7 +221,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
 /**
  * Receives from gnu/linux console.
  *
- * @param p0 the destination wide character array (Hand over as reference!)
+ * @param p0 the destination wide character array (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source input stream
@@ -254,18 +254,18 @@ void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4)
 /**
  * Receives textual user interface (tui) message via gnu/linux console.
  *
- * @param p0 the command name (Hand over as reference!)
- * @param p1 the command name count (Hand over as reference!)
- * @param p2 the command name size (Hand over as reference!)
- * @param p3 the command type (Hand over as reference!)
- * @param p4 the command type count (Hand over as reference!)
- * @param p5 the command type size (Hand over as reference!)
- * @param p6 the command model (Hand over as reference!)
- * @param p7 the command model count (Hand over as reference!)
- * @param p8 the command model size (Hand over as reference!)
- * @param p9 the command properties (Hand over as reference!)
- * @param p10 the command properties count (Hand over as reference!)
- * @param p11 the command properties size (Hand over as reference!)
+ * @param p0 the command name (pointer reference)
+ * @param p1 the command name count (pointer reference)
+ * @param p2 the command name size (pointer reference)
+ * @param p3 the command type (pointer reference)
+ * @param p4 the command type count (pointer reference)
+ * @param p5 the command type size (pointer reference)
+ * @param p6 the command model (pointer reference)
+ * @param p7 the command model count (pointer reference)
+ * @param p8 the command model size (pointer reference)
+ * @param p9 the command properties (pointer reference)
+ * @param p10 the command properties count (pointer reference)
+ * @param p11 the command properties size (pointer reference)
  * @param p12 the gnu/linux console input stream
  * @param p13 the commands
  * @param p14 the commands count
@@ -285,7 +285,7 @@ void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4,
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate character array.
-    allocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    allocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     // Read pressed keyboard keys as message from gnu/linux console.
     receive_gnu_linux_console((void*) &a, (void*) &ac, (void*) &as, p12, p17);
@@ -297,7 +297,7 @@ void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4,
     decode(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, a, (void*) &ac, p15, p16, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
 
     // Deallocate character array.
-    deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NAME_PARAMETER_QUERY_HTTP_URI_SELECTOR_SOURCE
-#define NAME_PARAMETER_QUERY_HTTP_URI_SELECTOR_SOURCE
+#ifndef NAME_PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
+#define NAME_PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
 
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -39,19 +39,19 @@
 #include "../../../../../variable/type_size/integral_type_size.c"
 
 /**
- * Selects the http uri query parameter name.
+ * Selects the http uri query parametre name.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the break flag
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining
- * @param p5 the parameter value (Hand over as reference!)
- * @param p6 the parameter value count
+ * @param p5 the parametre value (pointer reference)
+ * @param p6 the parametre value count
  */
-void select_http_uri_query_parameter_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http uri query parameter name.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http uri query parametre name.");
 
     //
     // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
@@ -62,19 +62,19 @@ void select_http_uri_query_parameter_name(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) QUERY_PARAMETER_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
             // The separator = was found.
-            // It serves as delimiter for the parameter name,
+            // It serves as delimiter for the parametre name,
             // so that the calling function knows its count (length).
-            // The remaining data represent the parameter value,
+            // The remaining data represent the parametre value,
             // which was handed over to here and can now be assigned.
 /*?? TODO!
-            assign(p9, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_MEMORY_TYPE);
-            assign(p10, p8, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE);
+            assign(p9, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+            assign(p10, p8, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
 */
 
             // Set break flag.
@@ -88,5 +88,5 @@ void select_http_uri_query_parameter_name(void* p0, void* p1, void* p2, void* p3
     }
 }
 
-/* NAME_PARAMETER_QUERY_HTTP_URI_SELECTOR_SOURCE */
+/* NAME_PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE */
 #endif

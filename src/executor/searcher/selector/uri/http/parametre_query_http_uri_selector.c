@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PARAMETER_QUERY_HTTP_URI_SELECTOR_SOURCE
-#define PARAMETER_QUERY_HTTP_URI_SELECTOR_SOURCE
+#ifndef PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
+#define PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
 
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -42,10 +42,10 @@
 // Forward declarations.
 //
 
-void decode_http_uri_query_parameter(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void decode_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
- * Selects the http uri query parameter.
+ * Selects the http uri query parametre.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -53,9 +53,9 @@ void decode_http_uri_query_parameter(void* p0, void* p1, void* p2, void* p3, voi
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining
  */
-void select_http_uri_query_parameter(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http uri query parameter.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http uri query parametre.");
 
     //
     // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
@@ -66,11 +66,11 @@ void select_http_uri_query_parameter(void* p0, void* p1, void* p2, void* p3, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_http_uri_query_parameter(p0, p1, p3, p4);
+            decode_http_uri_query_parametre(p0, p1, p3, p4);
 
             // Set break flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -83,5 +83,5 @@ void select_http_uri_query_parameter(void* p0, void* p1, void* p2, void* p3, voi
     }
 }
 
-/* PARAMETER_QUERY_HTTP_URI_SELECTOR_SOURCE */
+/* PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE */
 #endif

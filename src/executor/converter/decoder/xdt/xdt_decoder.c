@@ -111,10 +111,10 @@
 /**
  * Decodes the source into the destination, according to the given language.
  *
- * @param p0 the destination model (Hand over as reference!)
+ * @param p0 the destination model (pointer reference)
  * @param p1 the destination model count
  * @param p2 the destination model size
- * @param p3 the destination properties (Hand over as reference!)
+ * @param p3 the destination properties (pointer reference)
  * @param p4 the destination properties count
  * @param p5 the destination properties size
  * @param p6 the source
@@ -129,12 +129,12 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 /**
  * Decodes an xdt field.
  *
- * @param p0 the destination field size (Hand over as reference!)
- * @param p1 the destination field identification (Hand over as reference!)
- * @param p2 the destination field content (Hand over as reference!)
- * @param p3 the destination field content count (Hand over as reference!)
+ * @param p0 the destination field size (pointer reference)
+ * @param p1 the destination field identification (pointer reference)
+ * @param p2 the destination field content (pointer reference)
+ * @param p3 the destination field content count (pointer reference)
  * @param p4 the destination verification flag
- * @param p5 the source byte array (Hand over as reference!)
+ * @param p5 the source byte array (pointer reference)
  * @param p6 the source byte array count
  */
 void decode_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
@@ -276,7 +276,7 @@ void decode_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 /**
  * Decodes the next xdt field.
  *
- * @param p0 the next field count = number of bytes to the next field (Hand over as reference!)
+ * @param p0 the next field count = number of bytes to the next field (pointer reference)
  * @param p1 the byte array
  * @param p2 the byte array count
  */
@@ -352,11 +352,11 @@ void decode_xdt_next_field(void* p0, void* p1, void* p2) {
 /**
  * Decodes an xdt record.
  *
- * @param p0 the record size (Hand over as reference!)
- * @param p1 the record identification (Hand over as reference!)
- * @param p2 the record content (Hand over as reference!)
- * @param p3 the record content count (Hand over as reference!)
- * @param p4 the source byte array (Hand over as reference!)
+ * @param p0 the record size (pointer reference)
+ * @param p1 the record identification (pointer reference)
+ * @param p2 the record content (pointer reference)
+ * @param p3 the record content count (pointer reference)
+ * @param p4 the source byte array (pointer reference)
  * @param p5 the source byte array count
  */
 void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
@@ -566,14 +566,14 @@ void decode_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 /**
  * Decodes an xdt package.
  *
- * @param p0 the package size (Hand over as reference!)
- * @param p1 the package header (Hand over as reference!)
- * @param p2 the package header count (Hand over as reference!)
- * @param p3 the package footer (Hand over as reference!)
- * @param p4 the package footer count (Hand over as reference!)
- * @param p5 the package content (Hand over as reference!)
- * @param p6 the package content count (Hand over as reference!)
- * @param p7 the source byte array (Hand over as reference!)
+ * @param p0 the package size (pointer reference)
+ * @param p1 the package header (pointer reference)
+ * @param p2 the package header count (pointer reference)
+ * @param p3 the package footer (pointer reference)
+ * @param p4 the package footer count (pointer reference)
+ * @param p5 the package content (pointer reference)
+ * @param p6 the package content count (pointer reference)
+ * @param p7 the source byte array (pointer reference)
  * @param p8 the source byte array count
  */
 void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
@@ -639,7 +639,7 @@ void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
                                             // Decode xdt record (size, identification, content).
                                             //
                                             // CAUTION! The package header and -footer count are
-                                            // handed over as parameters to get the record content.
+                                            // handed over as parametres to get the record content.
                                             // A local variable defined in this function may NOT
                                             // be used as its value is lost when returning from
                                             // this function. But a valid value has to be
@@ -693,7 +693,7 @@ void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
                                                     // CAUTION! The package footer does NOT
                                                     // have to be stored here explicitly.
-                                                    // It was already handed over as parameter
+                                                    // It was already handed over as parametre
                                                     // to the "decode_xdt_record" function,
                                                     // so that its value is already set.
 
@@ -791,18 +791,18 @@ void decode_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 /**
  * Decodes the model.
  *
- * @param p0 the destination name (Hand over as reference!)
- * @param p1 the destination name count (Hand over as reference!)
- * @param p2 the destination name size (Hand over as reference!)
- * @param p3 the destination type (Hand over as reference!)
- * @param p4 the destination type count (Hand over as reference!)
- * @param p5 the destination type size (Hand over as reference!)
- * @param p6 the destination model (Hand over as reference!)
- * @param p7 the destination model count (Hand over as reference!)
- * @param p8 the destination model size (Hand over as reference!)
- * @param p9 the destination properties (Hand over as reference!)
- * @param p10 the destination properties count (Hand over as reference!)
- * @param p11 the destination properties size (Hand over as reference!)
+ * @param p0 the destination name (pointer reference)
+ * @param p1 the destination name count (pointer reference)
+ * @param p2 the destination name size (pointer reference)
+ * @param p3 the destination type (pointer reference)
+ * @param p4 the destination type count (pointer reference)
+ * @param p5 the destination type size (pointer reference)
+ * @param p6 the destination model (pointer reference)
+ * @param p7 the destination model count (pointer reference)
+ * @param p8 the destination model size (pointer reference)
+ * @param p9 the destination properties (pointer reference)
+ * @param p10 the destination properties count (pointer reference)
+ * @param p11 the destination properties size (pointer reference)
  * @param p12 the source model
  * @param p13 the source model count
  * @param p14 the source type
@@ -851,9 +851,9 @@ void decode_xdt_decode_model(void* p0, void* p1, void* p2, void* p3, void* p4, v
                                     allocate_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p14, p15);
 
                                     // Decode name.
-                                    overwrite_array(p0, p16, (void*) CHARACTER_MEMORY_TYPE, p17, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                    overwrite_array(p0, p16, (void*) CHARACTER_STATE_CYBOI_TYPE, p17, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                                     // Decode type.
-                                    overwrite_array(p3, p14, (void*) CHARACTER_MEMORY_TYPE, p15, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                    overwrite_array(p3, p14, (void*) CHARACTER_STATE_CYBOI_TYPE, p15, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                                     // Decode model.
                                     decode(p6, (void*) *mc, (void*) *ms, p9, (void*) *dc, (void*) *ds, p12, p13, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p14, p15);
 
@@ -4194,13 +4194,13 @@ void decode_xdt_select_field(void* p0, void* p1, void* p2, void* p3, void* p4, v
                 (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT,
                 (void*) DATA_PACKAGE_TRANSFER_BEGIN_FIELD_XDT_MODEL_NAME, (void*) DATA_PACKAGE_TRANSFER_BEGIN_FIELD_XDT_MODEL_NAME_COUNT);
 
-        } else if (*id == *SYSTEM_INTERNAL_PARAMETER_FIELD_XDT_NAME) {
+        } else if (*id == *SYSTEM_INTERNAL_PARAMETRE_FIELD_XDT_NAME) {
 
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 p3, p4,
                 (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT,
-                (void*) SYSTEM_INTERNAL_PARAMETER_FIELD_XDT_MODEL_NAME, (void*) SYSTEM_INTERNAL_PARAMETER_FIELD_XDT_MODEL_NAME_COUNT);
+                (void*) SYSTEM_INTERNAL_PARAMETRE_FIELD_XDT_MODEL_NAME, (void*) SYSTEM_INTERNAL_PARAMETRE_FIELD_XDT_MODEL_NAME_COUNT);
         }
 
         // No further processing of the xdt field content is necessary!
@@ -4222,7 +4222,7 @@ void decode_xdt_select_field(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // CAUTION! Use DESCENDING order, as opposed to array allocation!
 
             // Deallocate knowledge model properties.
-            deallocate((void*) &d, ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
+            deallocate((void*) &d, ds, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT);
             deallocate((void*) &dc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
             deallocate((void*) &ds, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
@@ -4392,12 +4392,12 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) MEDICAL_PRACTICE_DATA_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_PRACTICE_DATA_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *DATA_MEDIUM_HEADER_RECORD_XDT_NAME) {
@@ -4413,12 +4413,12 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // Decode package header (meta data 1).
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) PACKAGE_HEADER_RECORD_XDT_MODEL_NAME, (void*) PACKAGE_HEADER_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *DATA_PACKAGE_FOOTER_RECORD_XDT_NAME) {
@@ -4426,180 +4426,180 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // Decode package footer (meta data 2).
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) PACKAGE_FOOTER_RECORD_XDT_MODEL_NAME, (void*) PACKAGE_FOOTER_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *MEDICAL_TREATMENT_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) MEDICAL_TREATMENT_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_TREATMENT_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *REFERRAL_CASE_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) REFERRAL_CASE_RECORD_XDT_MODEL_NAME, (void*) REFERRAL_CASE_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *PRIVATE_BILLING_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) PRIVATE_BILLING_RECORD_XDT_MODEL_NAME, (void*) PRIVATE_BILLING_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_MODEL_NAME, (void*) EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *UNSTRUCTURED_CASES_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) UNSTRUCTURED_CASES_RECORD_XDT_MODEL_NAME, (void*) UNSTRUCTURED_CASES_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *PATIENT_MASTER_DATA_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) PATIENT_MASTER_DATA_RECORD_XDT_MODEL_NAME, (void*) PATIENT_MASTER_DATA_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *MEDICAL_TREATMENT_DATA_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) MEDICAL_TREATMENT_DATA_RECORD_XDT_MODEL_NAME, (void*) MEDICAL_TREATMENT_DATA_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_MODEL_NAME, (void*) PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_MODEL_NAME, (void*) PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *EXAMINATION_REQUEST_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) EXAMINATION_REQUEST_RECORD_XDT_MODEL_NAME, (void*) EXAMINATION_REQUEST_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *EXAMINATION_DATA_TRANSFER_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) EXAMINATION_DATA_TRANSFER_RECORD_XDT_MODEL_NAME, (void*) EXAMINATION_DATA_TRANSFER_RECORD_XDT_MODEL_NAME_COUNT);
 
         } else if (*id == *EXAMINATION_DATA_DISPLAY_RECORD_XDT_NAME) {
 
             // CAUTION! Hand over a null pointer in place of the model and model count!
             // This is necessary because an EMPTY compound model is to be created.
-            // The given model parameters do not represent the compound's xml file name
+            // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
             decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
                 (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+                (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 (void*) EXAMINATION_DATA_DISPLAY_RECORD_XDT_MODEL_NAME, (void*) EXAMINATION_DATA_DISPLAY_RECORD_XDT_MODEL_NAME_COUNT);
         }
 
@@ -4623,7 +4623,7 @@ void decode_xdt_select_record(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // CAUTION! Use DESCENDING order, as opposed to array allocation!
 
             // Deallocate knowledge model properties.
-            deallocate((void*) &d, ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
+            deallocate((void*) &d, ds, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT);
             deallocate((void*) &dc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
             deallocate((void*) &ds, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
@@ -4771,12 +4771,12 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Decode package content.
     // CAUTION! Hand over a null pointer in place of the model and model count!
     // This is necessary because an EMPTY compound model is to be created.
-    // The given model parameters do not represent the compound's xml file name
+    // The given model parametres do not represent the compound's xml file name
     // but a byte stream which gets processed further below.
     decode_xdt_decode_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
         (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
         *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-        (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT,
+        (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
         (void*) STANDARD_PACKAGE_XDT_NAME, (void*) STANDARD_PACKAGE_XDT_NAME_COUNT);
 
     // Process xdt package content.
@@ -4803,7 +4803,7 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
         // CAUTION! Use DESCENDING order, as opposed to array allocation!
 
         // Deallocate knowledge model properties.
-        deallocate((void*) &d, ds, (void*) PART_MEMORY_TYPE, (void*) PART_MEMORY_TYPE_COUNT);
+        deallocate((void*) &d, ds, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT);
         deallocate((void*) &dc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
         deallocate((void*) &ds, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
@@ -4829,10 +4829,10 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
 /**
  * Decodes an xdt format byte array into a compound model.
  *
- * @param p0 the destination compound model (Hand over as reference!)
+ * @param p0 the destination compound model (pointer reference)
  * @param p1 the destination compound model count
  * @param p2 the destination compound model size
- * @param p3 the destination compound properties (Hand over as reference!)
+ * @param p3 the destination compound properties (pointer reference)
  * @param p4 the destination compound properties count
  * @param p5 the destination compound properties size
  * @param p6 the source xdt byte array
@@ -4888,7 +4888,7 @@ void decode_xdt(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         // has to be handed over as REFERENCE, because it
                         // gets manipulated in the called operations and
                         // these have to store their result in s.
-                        // If temporary variables (function parameters) were used,
+                        // If temporary variables (function parametres) were used,
                         // their values would be lost when the called operation is left.
                         decode_xdt_package((void*) &ps, (void*) &ph, (void*) &phc, (void*) &pf, (void*) &pfc, (void*) &pc, (void*) &pcc, (void*) &s, (void*) &rem);
 

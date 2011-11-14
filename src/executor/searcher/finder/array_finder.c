@@ -57,8 +57,8 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Add investigated array count.
     calculate_integer_add((void*) &c, p4);
@@ -73,7 +73,9 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (j >= c) {
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, (void*) &c);
+
+        if (b != FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The maximum loop count has been reached.
             // All elements have been compared.
@@ -86,9 +88,9 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // CAUTION! Hand over SEARCHED (right) array count as count,
         // since it is shorter or equal to that of the left array.
         // CAUTION! Use loop variable as INVESTIGATED (left) array index.
-        compare_array((void*) &r, p1, p2, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_array((void*) &b, p1, p2, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The searched array has been found.
 
@@ -118,11 +120,11 @@ void find_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find array.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer((void*) &r, p4, p5, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE);
+    compare_integer_greater_or_equal((void*) &r, p4, p5);
 
-    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         find_array_elements(p0, p1, p2, p3, p4, p5);
 

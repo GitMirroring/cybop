@@ -270,8 +270,8 @@ void log_message(void* p0, void* p1, void* p2) {
                     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         // RESET maximum message count to count of log message
-                        // that was handed over as parameter, because that message
-                        // is added as parameter below, that needs an own count.
+                        // that was handed over as parametre, because that message
+                        // is added as parametre below, that needs an own count.
                         copy_integer((void*) &mmc, p2);
 
                     } else {
@@ -306,32 +306,32 @@ void log_message(void* p0, void* p1, void* p2) {
                     // See module "log_level_name_constants.c"!
 
                     // Copy log level.
-                    overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &lnc, (void*) &i);
+                    overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) &lnc, (void*) &i);
                     // Increment index.
                     i = i + lnc;
 
                     // Copy colon.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    log_overwrite_array((void*) LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
                     // Increment index.
                     i = i + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
 
                     // Copy space.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    log_overwrite_array((void*) LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
                     // Increment index.
                     i = i + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
 
                     // Copy log message.
-                    log_overwrite_array((void*) LOG_MESSAGE, p1, (void*) &mmc, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    log_overwrite_array((void*) LOG_MESSAGE, p1, (void*) &mmc, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
                     // Increment index.
                     i = i + mmc;
 
                     // Copy line feed control wide character.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    log_overwrite_array((void*) LOG_MESSAGE, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
                     // Increment index.
                     i = i + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
 
                     // Copy null termination wide character.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+                    log_overwrite_array((void*) LOG_MESSAGE, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
                     // Log message.
                     log_write_terminated_message((void*) LOG_OUTPUT, (void*) LOG_MESSAGE);

@@ -76,7 +76,7 @@
 /**
  * Encodes an UTF-32 Unicode wide character array into an UTF-16 Unicode character stream.
  *
- * @param p0 the destination UTF-16 Unicode character stream (Hand over as reference!)
+ * @param p0 the destination UTF-16 Unicode character stream (pointer reference)
  * @param p1 the destination UTF-16 Unicode character stream count
  * @param p2 the destination UTF-16 Unicode character stream size
  * @param p3 the source wide character array

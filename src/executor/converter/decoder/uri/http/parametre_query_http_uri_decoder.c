@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NAME_PARAMETER_QUERY_HTTP_URI_DECODER_SOURCE
-#define NAME_PARAMETER_QUERY_HTTP_URI_DECODER_SOURCE
+#ifndef PARAMETRE_QUERY_HTTP_URI_DECODER_SOURCE
+#define PARAMETRE_QUERY_HTTP_URI_DECODER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/memory/boolean_memory_model.c"
@@ -32,34 +32,32 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/uri/cyboi_uri_name.c"
 #include "../../../../../executor/accessor/appender/part_appender.c"
-#include "../../../../../executor/converter/selector/uri/http/name_parameter_query_http_uri_selector.c"
+#include "../../../../../executor/converter/decoder/uri/http/name_parametre_query_http_uri_decoder.c"
+#include "../../../../../executor/converter/selector/uri/http/parametre_query_http_uri_selector.c"
 #include "../../../../../executor/memoriser/allocator/model_allocator.c"
 #include "../../../../../executor/memoriser/deallocator/model_deallocator.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Decodes the http uri query parameter name.
+ * Decodes the http uri query parametre.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
  */
-void decode_http_uri_query_parameter_name(void* p0, void* p1, void* p2, void* p3) {
+void decode_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri query parameter name.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri query parametre.");
 
-    // The name.
-    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The value.
-    void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The element.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise element.
-    copy_pointer((void*) &n, p2);
+    copy_pointer((void*) &e, p2);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -70,29 +68,18 @@ void decode_http_uri_query_parameter_name(void* p0, void* p1, void* p2, void* p3
             break;
         }
 
-        select_http_uri_query_parameter_name(p0, p1, (void*) &b, p2, p3, (void*) &v, (void*) &vc);
+        select_http_uri_query_parametre(p0, p1, (void*) &b, p2, p3);
 
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Increment name count.
-            nc++;
+            // Increment element count.
+            ec++;
         }
     }
 
-    // The part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Allocate part.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE);
-
-    // Fill part.
-    overwrite_part_element(p, n, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &nc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) NAME_PART_MEMORY_NAME);
-    overwrite_part_element(p, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) TYPE_PART_MEMORY_NAME);
-    overwrite_part_element(p, v, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &vc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) MODEL_PART_MEMORY_NAME);
-
-    // Append part to destination model.
-    append_item_element(p0, (void*) &p, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    // CAUTION! Hand over e as reference!
+    decode_http_uri_query_parametre_name(p0, p1, (void*) &e, (void*) &ec);
 }
 
-/* NAME_PARAMETER_QUERY_HTTP_URI_DECODER_SOURCE */
+/* PARAMETRE_QUERY_HTTP_URI_DECODER_SOURCE */
 #endif

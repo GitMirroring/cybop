@@ -46,10 +46,10 @@
  * - the current position and remaining count are moved automatically
  *
  * Example calls of this function for ascii characters:
- * detect_element(p0, p1, p2, p3, (void*) CHARACTER_MEMORY_TYPE, p4, p7);
+ * detect_element(p0, p1, p2, p3, (void*) CHARACTER_STATE_CYBOI_TYPE, p4, p7);
  *
  * Example calls of this function for wide characters:
- * detect_array((void*) &r, p7, p8, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) QUERY_PARAMETER_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+ * detect_array((void*) &r, p7, p8, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
  *
  * @param p0 the comparison result
  * @param p1 the source data position (pointer reference)

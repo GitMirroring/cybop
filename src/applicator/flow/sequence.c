@@ -50,14 +50,14 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p1 the signal memory
  * @param p2 the signal memory count
  * @param p3 the signal memory size
- * @param p4 the message type (Hand over as reference!)
- * @param p5 the message type count (Hand over as reference!)
- * @param p6 the message model (Hand over as reference!)
- * @param p7 the message model count (Hand over as reference!)
- * @param p8 the message properties (Hand over as reference!)
- * @param p9 the message properties count (Hand over as reference!)
- * @param p10 the signal priority (Hand over as reference!)
- * @param p11 the signal identification (Hand over as reference!)
+ * @param p4 the message type (pointer reference)
+ * @param p5 the message type count (pointer reference)
+ * @param p6 the message model (pointer reference)
+ * @param p7 the message model count (pointer reference)
+ * @param p8 the message properties (pointer reference)
+ * @param p9 the message properties count (pointer reference)
+ * @param p10 the signal priority (pointer reference)
+ * @param p11 the signal identification (pointer reference)
  */
 /*??
 void apply_send_cyboi_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
@@ -70,9 +70,9 @@ void apply_send_cyboi_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
     sig_atomic_t** irq = (sig_atomic_t**) NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get signal memory mutex.
-    get((void*) &mt, p0, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &mt, p0, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
     // Get interrupt request internal.
-    get((void*) &irq, p0, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_MEMORY_NAME, (void*) POINTER_MEMORY_TYPE, (void*) POINTER_MEMORY_TYPE_COUNT);
+    get((void*) &irq, p0, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
     // Lock signal memory mutex.
     pthread_mutex_lock(*mt);

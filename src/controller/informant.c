@@ -51,36 +51,36 @@ void inform(void* p0) {
     int ms = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate message.
-    allocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    allocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Copy name.
-    overwrite_array((void*) &m, (void*) NAME_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NAME_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) NAME_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NAME_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy space wide character.
-    overwrite_array((void*) &m, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy version.
-    overwrite_array((void*) &m, (void*) VERSION_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) VERSION_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy slogan.
-    overwrite_array((void*) &m, (void*) SLOGAN_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) SLOGAN_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy copyright.
-    overwrite_array((void*) &m, (void*) COPYRIGHT_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) COPYRIGHT_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy licence.
-    overwrite_array((void*) &m, (void*) LICENCE_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) LICENCE_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) LICENCE_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) LICENCE_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
     // Copy null termination wide character.
-    overwrite_array((void*) &m, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &mc, (void*) &ms);
+    overwrite_array((void*) &m, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms);
 
     // Log message.
     log_write_terminated_message(p0, m);
 
     // Deallocate message.
-    deallocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+    deallocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* INFORMANT_SOURCE */

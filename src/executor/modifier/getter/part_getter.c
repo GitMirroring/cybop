@@ -53,7 +53,7 @@
  * Example:
  *
  * void* part_reference = *NULL_POINTER_STATE_CYBOI_MODEL;
- * get_part_element((void*) &part_reference, whole_part, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &j, (void*) MODEL_PART_MEMORY_NAME);
+ * get_part_element((void*) &part_reference, whole_part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j, (void*) MODEL_PART_STATE_CYBOI_NAME);
  *
  * @param p0 the destination array
  * @param p1 the source part
@@ -77,10 +77,10 @@ void get_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // with a fixed size of one which does not have to be changed.
     // Only a simple reference (pointer) of size one is copied here.
     // Using the "copy_array_forward" function is more efficient.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     // Get destination array from source part element item.
-    get_item_element(p0, e, p2, p3, p4, p5, (void*) DATA_ITEM_MEMORY_NAME);
+    get_item_element(p0, e, p2, p3, p4, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 }
 
 /* PART_GETTER_SOURCE */

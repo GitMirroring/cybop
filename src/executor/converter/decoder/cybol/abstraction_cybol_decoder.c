@@ -58,67 +58,67 @@ void decode_type(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ASCII_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) ASCII_TEXT_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) ASCII_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) ASCII_TEXT_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) CHARACTER_MEMORY_TYPE);
+            copy_integer(p0, (void*) CHARACTER_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) BOOLEAN_LOGICVALUE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) BOOLEAN_LOGICVALUE_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) BOOLEAN_LOGICVALUE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) BOOLEAN_LOGICVALUE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) INTEGER_MEMORY_TYPE);
+            copy_integer(p0, (void*) INTEGER_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) CARTESIAN_COMPLEX_NUMBER_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) COMPLEX_MEMORY_TYPE);
+            copy_integer(p0, (void*) COMPLEX_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CYBOL_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) CYBOL_TEXT_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CYBOL_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) CYBOL_TEXT_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) PART_MEMORY_TYPE);
+            copy_integer(p0, (void*) PART_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) DECIMAL_FRACTION_NUMBER_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) FRACTION_MEMORY_TYPE);
+            copy_integer(p0, (void*) FRACTION_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) ENCAPSULATED_KNOWLEDGE_PATH_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) ENCAPSULATED_KNOWLEDGE_PATH_MEMORY_TYPE);
+            copy_integer(p0, (void*) ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) EQUAL_COMPARE_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) EQUAL_COMPARE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -128,7 +128,7 @@ void decode_type(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GREATER_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) GREATER_COMPARE_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) GREATER_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) GREATER_COMPARE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -138,7 +138,7 @@ void decode_type(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GREATER_OR_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) GREATER_OR_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) GREATER_OR_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) GREATER_OR_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -148,37 +148,37 @@ void decode_type(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) HH_MM_SS_DATETIME_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) HH_MM_SS_DATETIME_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) HH_MM_SS_DATETIME_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) HH_MM_SS_DATETIME_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) DATETIME_MEMORY_TYPE);
+            copy_integer(p0, (void*) DATETIME_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) INTEGER_MEMORY_TYPE);
+            copy_integer(p0, (void*) INTEGER_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) KNOWLEDGE_PATH_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) KNOWLEDGE_PATH_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) KNOWLEDGE_PATH_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) KNOWLEDGE_PATH_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) KNOWLEDGE_PATH_MEMORY_TYPE);
+            copy_integer(p0, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) PART_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) PART_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) PART_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) PART_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -189,37 +189,37 @@ void decode_type(void* p0, void* p1, void* p2) {
     //?? Delete "plain operation" later, as it was replaced with cybol mime types like compare/equal etc.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) PLAIN_OPERATION_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) PLAIN_OPERATION_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) PLAIN_OPERATION_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) PLAIN_OPERATION_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) OPERATION_MEMORY_TYPE);
+            copy_integer(p0, (void*) OPERATION_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) PLAIN_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) PLAIN_TEXT_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) WIDE_CHARACTER_MEMORY_TYPE);
+            copy_integer(p0, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) POLAR_COMPLEX_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) POLAR_COMPLEX_NUMBER_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) POLAR_COMPLEX_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) POLAR_COMPLEX_NUMBER_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) COMPLEX_MEMORY_TYPE);
+            copy_integer(p0, (void*) COMPLEX_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) PREFIX_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) PREFIX_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) PREFIX_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) PREFIX_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -229,7 +229,7 @@ void decode_type(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SMALLER_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) SMALLER_COMPARE_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SMALLER_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) SMALLER_COMPARE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -239,7 +239,7 @@ void decode_type(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SMALLER_OR_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) SMALLER_OR_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SMALLER_OR_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) SMALLER_OR_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -249,7 +249,7 @@ void decode_type(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SUFFIX_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) SUFFIX_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SUFFIX_EQUAL_COMPARE_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) SUFFIX_EQUAL_COMPARE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -259,21 +259,21 @@ void decode_type(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) VULGAR_FRACTION_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) VULGAR_FRACTION_NUMBER_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) VULGAR_FRACTION_NUMBER_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) VULGAR_FRACTION_NUMBER_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) FRACTION_MEMORY_TYPE);
+            copy_integer(p0, (void*) FRACTION_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) XDT_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE, p2, (void*) XDT_TEXT_CYBOL_TYPE_COUNT);
+        compare_all_array((void*) &r, p1, (void*) XDT_TEXT_CYBOL_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) XDT_TEXT_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) PART_MEMORY_TYPE);
+            copy_integer(p0, (void*) PART_STATE_CYBOI_TYPE);
         }
     }
 

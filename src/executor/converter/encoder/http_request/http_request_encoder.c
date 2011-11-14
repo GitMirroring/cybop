@@ -65,7 +65,7 @@
 /**
  * Encodes the compound into an http request.
  *
- * @param p0 the destination wide character array (Hand over as reference!)
+ * @param p0 the destination wide character array (pointer reference)
  * @param p1 the destination wide character array count
  * @param p2 the destination wide character array size
  * @param p3 the source compound

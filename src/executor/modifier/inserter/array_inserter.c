@@ -42,7 +42,7 @@
  * All current elements existing behind the given index in the destination array
  * are moved towards the end by the number of elements inserted.
  *
- * This is done in a backwards order, starting from the last element,
+ * CAUTION! This is done in a backwards order, starting from the last element,
  * since otherwise, some elements might overlap and get overwritten.
  *
  * Example:
@@ -55,7 +55,7 @@
  * destination array count: 11
  * ==> result: "Hello, World"
  *
- * @param p0 the destination array (Hand over as reference!)
+ * @param p0 the destination array (pointer reference)
  * @param p1 the source array
  * @param p2 the type
  * @param p3 the count
@@ -95,17 +95,17 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         calculate_integer_add((void*) &n, p3);
 
         // The comparison result.
-        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_PRIMITIVE_OPERATION_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Multiply new size with factor.
             // CAUTION! This multiplication has to be done AFTER the comparison
             // of new size and old size since otherwise, the new size is falsified,
             // which would lead to runtime errors.
-            // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE);
+            // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
 
             // Enlarge array using new count as size.
             reallocate_array(p0, p6, (void*) &n, p2);
@@ -137,7 +137,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  * Inserts the source- into the destination array,
  * starting from the given index.
  *
- * @param p0 the destination array (Hand over as reference!)
+ * @param p0 the destination array (pointer reference)
  * @param p1 the source array
  * @param p2 the type
  * @param p3 the count
@@ -151,13 +151,13 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert array.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Inserting elements outside the current array
             // boundaries is equivalent to just overwriting
@@ -166,11 +166,11 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer((void*) &r, p4, p6, (void*) SMALLER_PRIMITIVE_OPERATION_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             insert_array_inside(p0, p1, p2, p3, p4, p5, p6, p7);
         }

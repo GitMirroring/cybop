@@ -53,7 +53,7 @@ void encode_http_response_status_code(void* p0, void* p1, void* p2, void* p3, vo
 
     log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode http response status code.");
 
-    append_item_element(p0, (void*) OK_200_STATUS_CODE_HTTP_MODEL, (void*) CHARACTER_MEMORY_TYPE, (void*) OK_200_STATUS_CODE_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME);
+    append_item_element(p0, (void*) OK_200_STATUS_CODE_HTTP_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) OK_200_STATUS_CODE_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* STATUS_CODE_HTTP_RESPONSE_ENCODER_SOURCE */

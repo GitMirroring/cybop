@@ -37,7 +37,7 @@ void globalise_service_exit() {
     //
     // The service exit variables are accessed in the system signal handler.
     // Since the "interrupt_service_system_signal_handler" function
-    // receives no parameters besides a simple signal numeric code,
+    // receives no parametres besides a simple signal numeric code,
     // neither the exit variables nor the internal memory can be
     // handed over as argument.
     //

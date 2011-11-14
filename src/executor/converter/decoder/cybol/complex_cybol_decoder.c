@@ -38,7 +38,7 @@
 /**
  * Decodes the wide character data into a complex model.
  *
- * @param p0 the destination data (Hand over as reference!)
+ * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source data

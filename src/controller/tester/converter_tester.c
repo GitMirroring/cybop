@@ -46,7 +46,7 @@ void test_converter_integer_to_wide_character_conversion() {
     size_t ts = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate test wide character array.
-    allocate((void*) &t, (void*) &ts, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    allocate((void*) &t, (void*) &ts, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     // Transform source integer to destination string.
     // A null wide character is written to mark the end of the string.
@@ -67,7 +67,7 @@ void test_converter_integer_to_wide_character_conversion() {
     fwprintf(stdout, L"TEST t: %ls\n", (wchar_t*) t);
 
     // Deallocate test wide character array.
-    deallocate((void*) &t, (void*) &ts, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate((void*) &t, (void*) &ts, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 }
 
 /**
@@ -86,7 +86,7 @@ void test_converter_encode_integer() {
     int s = *NUMBER_18_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination character array.
-    allocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    allocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     // Use compound count as index to create the element name suffix,
     // because the element is added at the end of the compound container.
@@ -97,7 +97,7 @@ void test_converter_encode_integer() {
     fwprintf(stdout, L"Test: Destination character array size: %i\n", *((int*) ds));
 
     // Deallocate destination character array.
-    deallocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 }
 
 /**
@@ -118,7 +118,7 @@ void test_converter_decode_integer_vector() {
     int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate integer vector.
-    allocate((void*) &d, (void*) &ds, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    allocate((void*) &d, (void*) &ds, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
 
     // Decode character array into integer vector.
     decode_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
@@ -129,18 +129,18 @@ void test_converter_decode_integer_vector() {
     int* i2 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get integer at index 0 from integer vector.
-    get((void*) &i0, d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    get((void*) &i0, d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
     // Get integer at index 1 from integer vector.
-    get((void*) &i1, d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    get((void*) &i1, d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
     // Get integer at index 2 from integer vector.
-    get((void*) &i2, d, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    get((void*) &i2, d, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
 
     fwprintf(stdout, L"Integer 0: %i\n", *i0);
     fwprintf(stdout, L"Integer 1: %i\n", *i1);
     fwprintf(stdout, L"Integer 2: %i\n", *i2);
 
     // Deallocate integer vector.
-    deallocate((void*) &d, (void*) &ds, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    deallocate((void*) &d, (void*) &ds, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
 }
 
 /**
@@ -163,7 +163,7 @@ void test_converter_encode_integer_vector() {
     int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination character vector.
-    allocate((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    allocate((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     // Use compound count as index to create the element name suffix,
     // because the element is added at the end of the compound container.
@@ -174,7 +174,7 @@ void test_converter_encode_integer_vector() {
     fwprintf(stdout, L"Encoded character array size: %i\n", ds);
 
     // Deallocate destination character vector.
-    deallocate((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 }
 
 /**
@@ -193,7 +193,7 @@ void test_converter_decode_utf8() {
     int rms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate read model.
-    allocate((void*) &rm, (void*) &rms, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    allocate((void*) &rm, (void*) &rms, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     // Read persistent byte stream over channel.
     receive_data((void*) &rm, (void*) &rmc, (void*) &rms, (void*) f, (void*) &fc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
@@ -208,7 +208,7 @@ void test_converter_decode_utf8() {
     int wms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate wide character model.
-    allocate((void*) &wm, (void*) &wms, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    allocate((void*) &wm, (void*) &wms, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     decode_utf_8_unicode_character_vector((void*) &wm, (void*) &wmc, (void*) &wms, rm, (void*) &rmc);
     //?? TEST only! DELETE LATER!
@@ -218,10 +218,10 @@ void test_converter_decode_utf8() {
     fwprintf(stdout, L"TEST wmc: %i\n", wmc);
 
     // Deallocate read model.
-    deallocate((void*) &rm, (void*) &rms, (void*) CHARACTER_MEMORY_TYPE, (void*) CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate((void*) &rm, (void*) &rms, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
     // Deallocate wide character model.
-    deallocate((void*) &wm, (void*) &wms, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+    deallocate((void*) &wm, (void*) &wms, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 }
 
 /**

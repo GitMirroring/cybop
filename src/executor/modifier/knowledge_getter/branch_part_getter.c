@@ -39,9 +39,9 @@
  *
  * It may be "." for a model part or "#" for a meta property.
  *
- * @param p0 the destination part (Hand over as reference!)
+ * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
- * @param p2 the hierarchical part name current position (Hand over as reference!)
+ * @param p2 the hierarchical part name current position (pointer reference)
  * @param p3 the hierarchical part name remaining count
  */
 void get_part_branch(void* p0, void* p1, void* p2, void* p3) {

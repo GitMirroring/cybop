@@ -141,13 +141,13 @@ void encode_terminal_coordinates(void* p0, void* p1, void* p2, void* p3, void* p
     int fasz = oasz;
 
     // Get part position x, y, z.
-    get((void*) &px, p14, (void*) DIMENSION_0_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-    get((void*) &py, p14, (void*) DIMENSION_1_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-    get((void*) &pz, p14, (void*) DIMENSION_2_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    get((void*) &px, p14, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &py, p14, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &pz, p14, (void*) DIMENSION_2_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
     // Get part size x, y, z.
-    get((void*) &sx, p16, (void*) DIMENSION_0_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-    get((void*) &sy, p16, (void*) DIMENSION_1_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-    get((void*) &sz, p16, (void*) DIMENSION_2_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+    get((void*) &sx, p16, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &sy, p16, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &sz, p16, (void*) DIMENSION_2_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
 
     // Set current position coordinates, initialised with part position.
     cpx = *px;
@@ -161,13 +161,13 @@ void encode_terminal_coordinates(void* p0, void* p1, void* p2, void* p3, void* p
     if (p20 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // Determine source whole position coordinates.
-        get((void*) &wpmx, p18, (void*) DIMENSION_0_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-        get((void*) &wpmy, p18, (void*) DIMENSION_1_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-        get((void*) &wpmz, p18, (void*) DIMENSION_2_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+        get((void*) &wpmx, p18, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+        get((void*) &wpmy, p18, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+        get((void*) &wpmz, p18, (void*) DIMENSION_2_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
         // Determine source whole size coordinates.
-        get((void*) &wsmx, p20, (void*) DIMENSION_0_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-        get((void*) &wsmy, p20, (void*) DIMENSION_1_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
-        get((void*) &wsmz, p20, (void*) DIMENSION_2_VECTOR_MEMORY_NAME, (void*) INTEGER_MEMORY_TYPE, (void*) INTEGER_MEMORY_TYPE_COUNT);
+        get((void*) &wsmx, p20, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+        get((void*) &wsmy, p20, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+        get((void*) &wsmz, p20, (void*) DIMENSION_2_VECTOR_STATE_CYBOI_NAME, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
 
         // Set original area position coordinates, initialised with whole position.
         oapx = *wpmx;

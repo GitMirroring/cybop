@@ -63,12 +63,12 @@ void append_item_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination item element count.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Append source array to destination item data array.
     // CAUTION! Use destination item count as destination index.
     // CAUTION! Set adjust flag since destination gets extended by append.
-    overwrite_item_element(p0, p1, p2, p3, c, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_MEMORY_NAME);
+    overwrite_item_element(p0, p1, p2, p3, c, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 }
 
 /**
@@ -91,7 +91,7 @@ void append_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination item count.
-    copy_array_forward((void*) &dc, p0, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) COUNT_ITEM_MEMORY_NAME);
+    copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Append source- to destination item data array.
     // CAUTION! Use destination item count as destination index.

@@ -88,7 +88,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *CHARACTER_MEMORY_TYPE) {
+            if (*a == *CHARACTER_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -98,7 +98,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *DOUBLE_MEMORY_TYPE) {
+            if (*a == *DOUBLE_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -108,7 +108,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *FRACTION_MEMORY_TYPE) {
+            if (*a == *FRACTION_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -118,7 +118,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *INTEGER_MEMORY_TYPE) {
+            if (*a == *INTEGER_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -128,7 +128,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *ITEM_PRIMITIVE_MEMORY_TYPE) {
+            if (*a == *ITEM_PRIMITIVE_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -138,7 +138,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *PART_MEMORY_TYPE) {
+            if (*a == *PART_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -148,7 +148,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *POINTER_MEMORY_TYPE) {
+            if (*a == *POINTER_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -158,7 +158,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *UNSIGNED_LONG_MEMORY_TYPE) {
+            if (*a == *UNSIGNED_LONG_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -168,7 +168,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *WIDE_CHARACTER_MEMORY_TYPE) {
+            if (*a == *WIDE_CHARACTER_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 

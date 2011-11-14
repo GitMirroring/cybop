@@ -40,7 +40,7 @@
 /**
  * Gets the knowledge part by name, from the given whole array.
  *
- * @param p0 the destination part (Hand over as reference!)
+ * @param p0 the destination part (pointer reference)
  * @param p1 the source whole array
  * @param p2 the part name array
  * @param p3 the part name array count
@@ -63,7 +63,7 @@ void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // A part with the given name was found.
 
         // Get part at index from source whole part.
-        copy_array_forward(p0, p1, (void*) POINTER_MEMORY_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_MEMORY_NAME, (void*) &i);
+        copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
     }
 }
 

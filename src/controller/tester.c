@@ -105,7 +105,7 @@ void test() {
 
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test cyboi.");
 
-    // How to use printf to check parameter values.
+    // How to use printf to check parametre values.
     // The printf function uses stdout for output, but nothing appears on console.
     // Therefore, fprintf is used and stdout is given for output.
     // Example:

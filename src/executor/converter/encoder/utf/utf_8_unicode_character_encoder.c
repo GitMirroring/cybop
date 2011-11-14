@@ -168,7 +168,7 @@
 /**
  * Encodes an UTF-32 Unicode wide character vector into an UTF-8 Unicode multibyte character stream.
  *
- * @param p0 the destination UTF-8 Unicode multibyte character stream (Hand over as reference!)
+ * @param p0 the destination UTF-8 Unicode multibyte character stream (pointer reference)
  * @param p1 the destination UTF-8 Unicode multibyte character stream count
  * @param p2 the destination UTF-8 Unicode multibyte character stream size
  * @param p3 the source wide character array
@@ -208,7 +208,7 @@ void encode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p
                     *ds = *dc + (*sc * *NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
 
                     // Reallocate destination character vector.
-                    reallocate_array(p0, p1, p2, (void*) CHARACTER_MEMORY_TYPE);
+                    reallocate_array(p0, p1, p2, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
                     // Set locale.
                     //

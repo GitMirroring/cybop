@@ -36,7 +36,7 @@
 /**
  * Deallocates the array.
  *
- * @param p0 the array (Hand over as reference!)
+ * @param p0 the array (pointer reference)
  * @param p1 the array size
  * @param p2 the array element type
  */

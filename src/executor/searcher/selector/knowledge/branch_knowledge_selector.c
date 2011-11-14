@@ -78,12 +78,12 @@ void select_knowledge_branch(void* p0, void* p1, void* p2) {
 
         // CAUTION! DO MOVE the position (last parametre) here,
         // since only the actual name is of interest later.
-        detect_array((void*) &r, p1, p2, (void*) PART_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) PART_SEPARATOR_CYBOL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) PART_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PART_SEPARATOR_CYBOL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set part element index to model.
-            copy_integer(p0, (void*) MODEL_PART_MEMORY_NAME);
+            copy_integer(p0, (void*) MODEL_PART_STATE_CYBOI_NAME);
         }
     }
 
@@ -91,19 +91,19 @@ void select_knowledge_branch(void* p0, void* p1, void* p2) {
 
         // CAUTION! DO MOVE the position (last parametre) here,
         // since only the actual name is of interest later.
-        detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set part element index to properties.
-            copy_integer(p0, (void*) PROPERTIES_PART_MEMORY_NAME);
+            copy_integer(p0, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Move position by one if nothing was found.
-        move_position(p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        move_position(p1, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

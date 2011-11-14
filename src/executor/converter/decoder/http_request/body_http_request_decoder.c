@@ -57,14 +57,14 @@ void decode_http_request_body(void* p0, void* p1, void* p2, void* p3) {
     // whilst the destination PROPERTIES contain meta data, i.e. the http headers.
     //
     // CAUTION! The body data may be encoded.
-    // Therefore, use the CHARACTER_MEMORY_TYPE type here
-    // (and DO NOT convert to WIDE_CHARACTER_MEMORY_TYPE by chance).
+    // Therefore, use the CHARACTER_STATE_CYBOI_TYPE type here
+    // (and DO NOT convert to WIDE_CHARACTER_STATE_CYBOI_TYPE by chance).
     //
     // One of the http request header argument/value pairs defines the encoding,
     // so that the cybol application will have to decode the data,
     // because here, the corresponding http encoding header is not available.
     //
-    overwrite_array(p0, *((void**) p2), (void*) CHARACTER_MEMORY_TYPE, p7, p1, (void*) VALUE_PRIMITIVE_MEMORY_NAME, p1, p2);
+    overwrite_array(p0, *((void**) p2), (void*) CHARACTER_STATE_CYBOI_TYPE, p7, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 }
 
 /* BODY_HTTP_REQUEST_DECODER_SOURCE */

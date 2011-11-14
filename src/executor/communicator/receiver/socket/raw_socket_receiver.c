@@ -40,7 +40,7 @@
 /**
  * Receives a byte array stream from the raw socket.
  *
- * @param p0 the destination byte array (Hand over as reference!)
+ * @param p0 the destination byte array (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source socket

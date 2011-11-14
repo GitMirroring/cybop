@@ -40,7 +40,7 @@
 /**
  * Decodes the numeric character reference (html escape code) into a character.
  *
- * @param p0 the destination data (Hand over as reference!)
+ * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
  * @param p3 the source data
@@ -2618,11 +2618,11 @@ void decode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, 
                         *ds = (*ARRAY_REALLOCATION_FACTOR * (*dc)) + tc;
 
                         // Reallocate destination.
-                        reallocate(p0, p1, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) WIDE_CHARACTER_MEMORY_TYPE_COUNT);
+                        reallocate(p0, p1, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
                     }
 
                     // Add temporary value to destination.
-                    overwrite_array(p0, *t, (void*) WIDE_CHARACTER_MEMORY_TYPE, (void*) &tc, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2);
+                    overwrite_array(p0, *t, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) &tc, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2);
 
                     // Increase destination count.
                     *dc = *dc + tc;

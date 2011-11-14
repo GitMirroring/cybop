@@ -36,7 +36,7 @@
 /**
  * Allocates the complex.
  *
- * @param p0 the model (Hand over as reference!)
+ * @param p0 the model (pointer reference)
  * @param p1 the model size
  */
 void allocate_complex(void* p0, void* p1) {
@@ -44,7 +44,7 @@ void allocate_complex(void* p0, void* p1) {
     log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate complex.");
 
     // Create complex.
-    allocate_array(p0, p1, (void*) DOUBLE_MEMORY_TYPE);
+    allocate_array(p0, p1, (void*) DOUBLE_STATE_CYBOI_TYPE);
 }
 
 /* COMPLEX_ALLOCATOR_SOURCE */
