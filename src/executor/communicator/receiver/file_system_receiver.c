@@ -104,7 +104,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) STANDARD_INPUT_STREAM_MODEL_COUNT);
+        compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) STANDARD_INPUT_STREAM_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

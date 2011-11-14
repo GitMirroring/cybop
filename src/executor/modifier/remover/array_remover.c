@@ -89,39 +89,18 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // Subtract count of elements to be removed.
         calculate_integer_subtract((void*) &n, p2);
 
+        // Decrement reference count of removed parts for rubbish (garbage) collection.
+        reference_array(p0, (void*) SUBTRACT_LOGIC_CYBOI_TYPE, p1, p2, p3);
+
+        // Move current elements behind area to be removed towards the beginning of the array.
+        // CAUTION! Move array elements starting from the FIRST since otherwise,
+        // overlapping array elements might get overwritten!
+        // CAUTION! Call this function BEFORE resizing the array
+        // since elements might get lost while shrinking the array.
+        copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
+
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        compare_integer_equal((void*) &r, p1, (void*) PART_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // This IS a part (pointer) array.
-
-            // Decrement reference count of removed parts for rubbish (garbage) collection.
-            decrement_array(p0, p2, p3);
-
-            // Move current elements behind area to be removed towards the beginning of the array.
-            // CAUTION! Move array elements starting from the FIRST since otherwise,
-            // overlapping array elements might get overwritten!
-            // CAUTION! Call this function BEFORE resizing the array
-            // since elements might get lost while shrinking the array.
-            copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
-
-        } else {
-
-            // This is NOT a part (pointer) array.
-
-            // Move current elements behind area to be removed towards the beginning of the array.
-            // CAUTION! Move array elements starting from the FIRST since otherwise,
-            // overlapping array elements might get overwritten!
-            // CAUTION! Call this function BEFORE resizing the array
-            // since elements might get lost while shrinking the array.
-            copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
-        }
-
-        // Reset comparison result.
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         compare_integer_smaller((void*) &r, (void*) &n, p5);
 
@@ -163,7 +142,7 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p3, p4, (void*) SMALLER_PRIMITIVE_OPERATION_TYPE);
+        compare_integer((void*) &r, p3, p4, (void*) SMALLER_PRIMITIVE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -37,7 +37,7 @@
 #include "../../../variable/type_size/integral_type_size.c"
 
 /**
- * Decrements the reference count of the part at index.
+ * Decrements the part's reference count.
  *
  * CAUTION! Deallocates the part if its reference count is zero.
  *

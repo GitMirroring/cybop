@@ -350,7 +350,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
 */
 
-            compare_all_array((void*) &r, *lm, (void*) ROOT_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *lmc, (void*) ROOT_LAYOUT_CYBOL_MODEL_COUNT);
+            compare_all_array((void*) &r, *lm, (void*) ROOT_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *lmc, (void*) ROOT_LAYOUT_CYBOL_MODEL_COUNT);
 
             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -371,7 +371,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 // Reset comparison result.
                 r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                compare_all_array((void*) &r, *a, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+                compare_all_array((void*) &r, *a, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -619,7 +619,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
             // Reset comparison result.
             r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            compare_all_array((void*) &r, *a, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) PART_STATE_CYBOI_TYPE_COUNT);
+            compare_all_array((void*) &r, *a, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) PART_STATE_CYBOI_TYPE_COUNT);
 
             if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

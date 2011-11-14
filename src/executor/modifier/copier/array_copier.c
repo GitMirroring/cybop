@@ -142,7 +142,6 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             void* d = p0;
             void* s = p1;
 
-            // Add offset.
             add_offset((void*) &d, p2, p4);
             add_offset((void*) &s, p2, p5);
 
@@ -191,7 +190,6 @@ void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             void* d = p0;
             void* s = p1;
 
-            // Add offset.
             add_offset((void*) &d, p2, p4);
             add_offset((void*) &s, p2, p5);
 

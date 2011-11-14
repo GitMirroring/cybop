@@ -9,12 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Implement rubbish (garbage) collector:
-            CONTINUE WITH: decrementation in: remover, overwriter AND THEN: incrementation in: inserter, overwriter
-            give part an additional field "references" of type "int*", counting the number of other parts referencing this part
-            if zero (= no more reference), then delete this part
-            it should suffice to decrement this "references" counter whenever "overwrite", "remove" or "copy" were called
-            perhaps "copy" suffices alone, if "overwrite" and "remove" use it internally -- check this out
+        * CONTINUE WITH: Implement rubbish collector: decrementation in: remover, overwriter AND THEN: incrementation in: inserter, overwriter
 
         * Make logger work using new container functions
 

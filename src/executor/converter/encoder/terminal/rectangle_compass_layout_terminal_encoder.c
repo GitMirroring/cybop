@@ -103,7 +103,7 @@ void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p12, (void*) NORTH_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) NORTH_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p12, (void*) NORTH_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) NORTH_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -122,7 +122,7 @@ void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p12, (void*) SOUTH_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) SOUTH_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p12, (void*) SOUTH_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) SOUTH_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -140,7 +140,7 @@ void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p12, (void*) WEST_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) WEST_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p12, (void*) WEST_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) WEST_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -159,7 +159,7 @@ void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p12, (void*) EAST_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) EAST_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p12, (void*) EAST_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) EAST_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -177,7 +177,7 @@ void encode_terminal_rectangle_compass_layout(void* p0, void* p1, void* p2, void
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p12, (void*) CENTRE_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_OPERATION_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) CENTRE_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p12, (void*) CENTRE_COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p13, (void*) CENTRE_COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

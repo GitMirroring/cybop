@@ -123,7 +123,7 @@ void compare_subsequence_array(void* p0, void* p1, void* p2, void* p3, void* p4,
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    compare_integer((void*) &r, p5, p6, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE);
+    compare_integer((void*) &r, p5, p6, (void*) GREATER_OR_EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE);
 
     if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

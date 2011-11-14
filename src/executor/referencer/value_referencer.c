@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VALUE_COPIER_SOURCE
-#define VALUE_COPIER_SOURCE
+#ifndef VALUE_REFERENCER_SOURCE
+#define VALUE_REFERENCER_SOURCE
 
 #include <stdlib.h>
 #include <string.h>
@@ -46,28 +46,28 @@
 #include "../../../logger/logger.c"
 
 /**
- * Copies the value.
+ * Decrements the value.
  *
- * @param p0 the destination value
- * @param p1 the source value
- * @param p2 the type
+ * @param p0 the value
+ * @param p1 the type
  */
-void copy_value(void* p0, void* p1, void* p2) {
+void decrement_value(void* p0, void* p1) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference value.");
 
     // The comparison result.
     // CAUTION! It is used instead of if-else statements.
     // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+/*
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_character(p0, p1);
+            decrement_character(p0, p1);
         }
     }
 
@@ -77,7 +77,7 @@ void copy_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_double(p0, p1);
+            decrement_double(p0, p1);
         }
     }
 
@@ -87,7 +87,7 @@ void copy_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_fraction(p0, p1);
+            decrement_fraction(p0, p1);
         }
     }
 
@@ -97,9 +97,10 @@ void copy_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, p1);
+            decrement_integer(p0, p1);
         }
     }
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -107,7 +108,7 @@ void copy_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_part(p0, p1);
+            decrement_part(p0, p1);
         }
     }
 
@@ -117,17 +118,18 @@ void copy_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_pointer(p0, p1);
+            decrement_pointer(p0, p1);
         }
     }
 
+/*
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) UNSIGNED_LONG_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_unsigned_long(p0, p1);
+            decrement_unsigned_long(p0, p1);
         }
     }
 
@@ -137,9 +139,10 @@ void copy_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_wide_character(p0, p1);
+            decrement_wide_character(p0, p1);
         }
     }
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -148,31 +151,27 @@ void copy_value(void* p0, void* p1, void* p2) {
 }
 
 /**
- * Copies the source- to the destination value
+ * Decrements the source- to the destination value
  * using the given index to calculate an offset.
  *
- * @param p0 the destination value
- * @param p1 the source value
- * @param p2 the type
+ * @param p0 the value
+ * @param p1 the operation type
+ * @param p2 the operand type
  * @param p3 the index
  */
-void copy_value_offset(void* p0, void* p1, void* p2, void* p3) {
+void reference_value_offset(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value offset.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference value offset.");
 
-    // The destination value, source value.
-    // CAUTION! They HAVE TO BE initialised with p0 and p1,
+    // The value.
+    // CAUTION! It HAS TO BE initialised with p0,
     // since an offset is added below.
-    void* d = p0;
-    void* s = p1;
+    void* v = p0;
 
-    // Add offset to destination value and source value.
-    add_offset((void*) &d, p2, p3);
-    add_offset((void*) &s, p2, p3);
+    add_offset((void*) &v, p2, p3);
 
-    // Set source value to destination value.
-    copy_value(d, s, p2);
+    reference_value(v, p1, p2);
 }
 
-/* VALUE_COPIER_SOURCE */
+/* VALUE_REFERENCER_SOURCE */
 #endif

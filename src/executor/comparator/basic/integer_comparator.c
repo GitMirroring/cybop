@@ -64,7 +64,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *EQUAL_PRIMITIVE_OPERATION_TYPE) {
+            if (*a == *EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -74,7 +74,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE) {
+            if (*a == *GREATER_OR_EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -84,7 +84,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_PRIMITIVE_OPERATION_TYPE) {
+            if (*a == *GREATER_PRIMITIVE_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -94,7 +94,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE) {
+            if (*a == *SMALLER_OR_EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -104,7 +104,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_PRIMITIVE_OPERATION_TYPE) {
+            if (*a == *SMALLER_PRIMITIVE_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -114,7 +114,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *UNEQUAL_PRIMITIVE_OPERATION_TYPE) {
+            if (*a == *UNEQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 

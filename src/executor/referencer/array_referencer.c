@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ARRAY_DECREMENTER_SOURCE
-#define ARRAY_DECREMENTER_SOURCE
+#ifndef ARRAY_REFERENCER_SOURCE
+#define ARRAY_REFERENCER_SOURCE
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/type/cyboi/logic_cyboi_type.c"
@@ -37,15 +37,16 @@
 #include "../../../variable/type_size/integral_type_size.c"
 
 /**
- * Decrements the reference count of the array elements.
+ * Increments or decrements the array elements' reference count.
  *
  * @param p0 the array
- * @param p1 the type
- * @param p2 the count
+ * @param p1 the operation type
+ * @param p2 the operand type
+ * @param p3 the count
  */
-void decrement_array_elements(void* p0, void* p1, void* p2) {
+void reference_array_elements(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decrement part elements.");
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference array elements.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -61,42 +62,42 @@ void decrement_array_elements(void* p0, void* p1, void* p2) {
             break;
         }
 
-        decrement_part(p0, p1, (void*) &j);
+        reference_value(p0, p1, p2, (void*) &j);
 
         j++;
     }
 }
 
 /**
- * Decrements the reference count of the array elements,
+ * Increments or decrements the array elements' reference count,
  * starting from the given offset.
  *
  * @param p0 the array
- * @param p1 the type
- * @param p2 the count
- * @param p3 the index
+ * @param p1 the operation type
+ * @param p2 the operand type
+ * @param p3 the count
+ * @param p4 the index
  */
-void decrement_array(void* p0, void* p1, void* p2, void* p3) {
+void reference_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decrement array.");
+        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference array.");
 
         // The array.
         // CAUTION! It HAS TO BE initialised with p0,
         // since an offset is added below.
         void* a = p0;
 
-        // Add offset.
-        add_offset((void*) &a, p1, p3);
+        add_offset((void*) &a, p2, p4);
 
-        decrement_array_elements(a, p1, p2);
+        reference_array_elements(a, p1, p2, p3);
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decrement array. The array is null.");
+        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reference array. The array is null.");
     }
 }
 
-/* ARRAY_DECREMENTER_SOURCE */
+/* ARRAY_REFERENCER_SOURCE */
 #endif

@@ -97,7 +97,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_PRIMITIVE_OPERATION_TYPE);
+        compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_PRIMITIVE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -155,7 +155,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_PRIMITIVE_OPERATION_TYPE);
+        compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -168,7 +168,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) SMALLER_PRIMITIVE_OPERATION_TYPE);
+        compare_integer((void*) &r, p4, p6, (void*) SMALLER_PRIMITIVE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
