@@ -28,6 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -53,105 +54,96 @@
  */
 void copy_value(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value.");
 
-        int* a = (int*) p2;
+    // The comparison result.
+    // CAUTION! It is used instead of if-else statements.
+    // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value.");
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The comparison result.
-        // CAUTION! It is used instead of if-else statements.
-        // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
-        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        compare_integer_equal((void*) &r, p2, (void*) CHARACTER_MEMORY_TYPE);
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *CHARACTER_MEMORY_TYPE) {
-
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-                copy_character(p0, p1);
-            }
+            copy_character(p0, p1);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *DOUBLE_MEMORY_TYPE) {
+        compare_integer_equal((void*) &r, p2, (void*) DOUBLE_MEMORY_TYPE);
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                copy_double(p0, p1);
-            }
+            copy_double(p0, p1);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *FRACTION_MEMORY_TYPE) {
+        compare_integer_equal((void*) &r, p2, (void*) FRACTION_MEMORY_TYPE);
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                copy_fraction(p0, p1);
-            }
+            copy_fraction(p0, p1);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *INTEGER_MEMORY_TYPE) {
+        compare_integer_equal((void*) &r, p2, (void*) INTEGER_MEMORY_TYPE);
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                copy_integer(p0, p1);
-            }
+            copy_integer(p0, p1);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *PART_MEMORY_TYPE) {
+        compare_integer_equal((void*) &r, p2, (void*) PART_MEMORY_TYPE);
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                copy_part(p0, p1);
-            }
+            copy_part(p0, p1);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *POINTER_MEMORY_TYPE) {
+        compare_integer_equal((void*) &r, p2, (void*) POINTER_MEMORY_TYPE);
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                copy_pointer(p0, p1);
-            }
+            copy_pointer(p0, p1);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *UNSIGNED_LONG_MEMORY_TYPE) {
+        compare_integer_equal((void*) &r, p2, (void*) UNSIGNED_LONG_MEMORY_TYPE);
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                copy_unsigned_long(p0, p1);
-            }
+            copy_unsigned_long(p0, p1);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *WIDE_CHARACTER_MEMORY_TYPE) {
+        compare_integer_equal((void*) &r, p2, (void*) WIDE_CHARACTER_MEMORY_TYPE);
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                copy_wide_character(p0, p1);
-            }
+            copy_wide_character(p0, p1);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy value. The operand type is unknown.");
-        }
-
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy value. The operand type is null.");
+        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy value. The operand type is unknown.");
     }
 }
 

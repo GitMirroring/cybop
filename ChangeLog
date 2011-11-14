@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise minor things
+
 2011-11-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Change year to 2012 in comment block of all source code files, to prepare next release

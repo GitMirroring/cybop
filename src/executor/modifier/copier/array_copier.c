@@ -49,30 +49,25 @@
  */
 void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements forward.");
 
-        int* c = (int*) p3;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements forward.");
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The loop variable.
-        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
 
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (j >= *c) {
-
-                break;
-            }
-
-            copy_value_offset(p0, p1, p2, (void*) &j);
-
-            j++;
+            break;
         }
 
-    } else {
+        copy_value_offset(p0, p1, p2, (void*) &j);
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array elements forward. The count is null.");
+        j++;
     }
 }
 
@@ -88,31 +83,30 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
  */
 void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements backward.");
 
-        int* c = (int*) p3;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements backward.");
+    // Initialise loop variable with count.
+    copy_integer((void*) &j, p3);
+    // CAUTION! Subtract one because this is an index.
+    calculate_integer_subtract((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-        // The loop variable.
-        // CAUTION! Subtract one because this is an index.
-        int j = *c - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_integer_smaller((void*) &b, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-            if (j < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (b != FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                break;
-            }
-
-            copy_value_offset(p0, p1, p2, (void*) &j);
-
-            j--;
+            break;
         }
 
-    } else {
+        copy_value_offset(p0, p1, p2, (void*) &j);
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array elements backward. The count is null.");
+        j--;
     }
 }
 
