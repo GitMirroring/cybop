@@ -9,7 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: Implement rubbish collector: decrementation in: remover, overwriter AND THEN: incrementation in: inserter, overwriter
+        * Implement rubbish collector for function "overwrite" (decrement AND increment)
 
         * Make logger work using new container functions
 

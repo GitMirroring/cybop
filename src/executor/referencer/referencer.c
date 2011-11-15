@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ARRAY_REFERENCER_SOURCE
-#define ARRAY_REFERENCER_SOURCE
+#ifndef REFERENCER_SOURCE
+#define REFERENCER_SOURCE
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/type/cyboi/logic_cyboi_type.c"
@@ -42,61 +42,26 @@
  * @param p0 the array
  * @param p1 the operation type
  * @param p2 the count
- */
-void reference_array_elements(void* p0, void* p1, void* p2) {
-
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference array elements.");
-
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
-
-        if (b != FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        reference_part(p0, p1, (void*) &j);
-
-        j++;
-    }
-}
-
-/**
- * Increments or decrements the array elements' reference count,
- * starting from the given offset.
- *
- * @param p0 the array
- * @param p1 the operation type
- * @param p2 the count
  * @param p3 the index
  * @param p4 the operand type
  */
-void reference_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference.");
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference array.");
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // The array.
-        // CAUTION! It HAS TO BE initialised with p0,
-        // since an offset is added below.
-        void* a = p0;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        add_offset((void*) &a, p4, p3);
+        compare_integer_equal((void*) &r, p4, (void*) PART_STATE_CYBOI_TYPE);
 
-        reference_array_elements(a, p1, p2);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    } else {
-
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reference array. The array is null.");
+            reference_array(p0, p1, p2, p3, p4);
+        }
     }
 }
 
-/* ARRAY_REFERENCER_SOURCE */
+/* REFERENCER_SOURCE */
 #endif

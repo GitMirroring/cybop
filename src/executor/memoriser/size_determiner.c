@@ -75,8 +75,11 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*a == *PART_STATE_CYBOI_TYPE) {
 
-            // CAUTION! This "part" type IS NEEDED,
-            // e.g. when DEEP copying a part. Do NOT delete!
+            // CAUTION! Do NOT delete!
+            // This "part" type IS NEEDED,
+            // e.g. when deep copying a part
+            // or when setting the references of a part
+            // for rubbish (garbage) collection.
             // It is actually a pointer array, of which each
             // pointer references a part structure.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);

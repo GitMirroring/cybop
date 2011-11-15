@@ -90,7 +90,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         calculate_integer_subtract((void*) &n, p2);
 
         // Decrement reference count of removed parts for rubbish (garbage) collection.
-        reference_array(p0, (void*) SUBTRACT_LOGIC_CYBOI_TYPE, p1, p2, p3);
+        reference(*d, (void*) SUBTRACT_LOGIC_CYBOI_TYPE, p2, p3, p1);
 
         // Move current elements behind area to be removed towards the beginning of the array.
         // CAUTION! Move array elements starting from the FIRST since otherwise,

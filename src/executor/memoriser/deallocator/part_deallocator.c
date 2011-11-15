@@ -31,6 +31,12 @@
 #include "../../../executor/memoriser/deallocator/model_deallocator.c"
 #include "../../../logger/logger.c"
 
+//
+// Forward declarations.
+//
+
+void reference_array(void* p0, void* p1, void* p2, void* p3, void* p4);
+
 /**
  * Deallocates the part.
  *
@@ -52,6 +58,10 @@ void deallocate_part(void* p0, void* p1, void* p2) {
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The data, size.
+        void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get references, name, type, model, properties.
         copy_array_forward((void*) &r, *p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) REFERENCES_PART_STATE_CYBOI_NAME);
@@ -59,6 +69,13 @@ void deallocate_part(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) &t, *p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &m, *p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &p, *p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+        // Get data, size.
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+        // Decrement reference count of child parts for rubbish (garbage) collection.
+        reference_array(md, (void*) SUBTRACT_LOGIC_CYBOI_TYPE, td, mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         // Deallocate references, name, type, model, properties.
         deallocate_item((void*) &r, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);

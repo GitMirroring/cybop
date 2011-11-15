@@ -127,6 +127,9 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // Set destination array count.
         copy_integer(p6, (void*) &n);
 
+        // Increment reference count of inserted parts for rubbish (garbage) collection.
+        reference_array(*d, (void*) ADD_LOGIC_CYBOI_TYPE, p3, p4, p2);
+
     } else {
 
         log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The destination array is null.");
