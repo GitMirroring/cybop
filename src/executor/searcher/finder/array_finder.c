@@ -28,11 +28,11 @@
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/memory/boolean_memory_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/calculator/integer_adder.c"
-#include "../../../executor/calculator/integer_multiplier.c"
+#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/modifier/copier/value_copier.c"
@@ -88,7 +88,7 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // CAUTION! Hand over SEARCHED (right) array count as count,
         // since it is shorter or equal to that of the left array.
         // CAUTION! Use loop variable as INVESTIGATED (left) array index.
-        compare_array((void*) &b, p1, p2, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_array((void*) &b, p1, p2, (void*) EQUAL_LOGIC_CYBOI_TYPE, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

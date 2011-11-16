@@ -48,7 +48,7 @@
 #include "../../../constant/model/cybol/namespace_cybol_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/memory/internal_memory_memory_name.c"
+#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"

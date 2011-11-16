@@ -30,7 +30,7 @@
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/memory/internal_memory_memory_name.c"
+#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../executor/memoriser/allocator.c"

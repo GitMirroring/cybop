@@ -34,7 +34,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/separator_cybol_name.c"
-#include "../../../constant/name/memory/part_memory_name.c"
+#include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../executor/memoriser/reallocator/compound_reallocator.c"
 #include "../../../executor/modifier/getter/item_getter.c"

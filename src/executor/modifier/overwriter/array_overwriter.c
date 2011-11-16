@@ -26,16 +26,17 @@
 #ifndef ARRAY_OVERWRITER_SOURCE
 #define ARRAY_OVERWRITER_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/basic/integer_comparator.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../../executor/memoriser/offset_adder.c"
-#include "../../../executor/memoriser/size_determiner.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../executor/modifier/copier/value_copier.c"
+#include "../../../executor/memoriser/offset_adder.c"
+#include "../../../executor/memoriser/size_determiner.c"
 #include "../../../logger/logger.c"
 
 /**

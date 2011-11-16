@@ -35,11 +35,11 @@
 #include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
-#include "../../../../constant/model/memory/boolean_memory_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
-#include "../../../../constant/name/memory/internal_memory_memory_name.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../executor/accessor/getter.c"
 #include "../../../../executor/memoriser/allocator/model_allocator.c"
 #include "../../../../executor/memoriser/deallocator/model_deallocator.c"
@@ -350,7 +350,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
 */
 
-            compare_all_array((void*) &r, *lm, (void*) ROOT_LAYOUT_CYBOL_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *lmc, (void*) ROOT_LAYOUT_CYBOL_MODEL_COUNT);
+            compare_all_array((void*) &r, *lm, (void*) ROOT_LAYOUT_CYBOL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *lmc, (void*) ROOT_LAYOUT_CYBOL_MODEL_COUNT);
 
             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -371,7 +371,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 // Reset comparison result.
                 r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                compare_all_array((void*) &r, *a, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+                compare_all_array((void*) &r, *a, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -619,7 +619,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
             // Reset comparison result.
             r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            compare_all_array((void*) &r, *a, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) PART_STATE_CYBOI_TYPE_COUNT);
+            compare_all_array((void*) &r, *a, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) PART_STATE_CYBOI_TYPE_COUNT);
 
             if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

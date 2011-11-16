@@ -31,11 +31,11 @@
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/memory/boolean_memory_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/calculator/integer_adder.c"
-#include "../../../executor/calculator/integer_multiplier.c"
+#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/memoriser/size_determiner.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
@@ -81,7 +81,7 @@ void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Get part j from investigated pointer array p1.
             copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
             // Compare part p name item with given name p2.
-            compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p3, (void*) NAME_PART_STATE_CYBOI_NAME);
+            compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p3, (void*) NAME_PART_STATE_CYBOI_NAME);
 
             if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

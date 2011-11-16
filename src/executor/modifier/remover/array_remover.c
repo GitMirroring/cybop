@@ -142,7 +142,7 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p3, p4, (void*) SMALLER_PRIMITIVE_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, p3, p4, (void*) SMALLER_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

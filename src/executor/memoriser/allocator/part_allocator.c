@@ -27,7 +27,7 @@
 #define PART_ALLOCATOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/name/memory/part_memory_name.c"
+#include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/allocator/model_allocator.c"
 #include "../../../logger/logger.c"

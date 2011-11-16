@@ -40,7 +40,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
-#include "../../constant/name/memory/internal_memory_memory_name.c"
+#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/modifier/getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"

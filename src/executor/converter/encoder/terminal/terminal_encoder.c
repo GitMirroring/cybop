@@ -46,7 +46,7 @@
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
 #include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/memory/boolean_memory_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
@@ -474,7 +474,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
 
-        compare_all_array((void*) &ar, p3, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) PART_STATE_CYBOI_TYPE_COUNT);
+        compare_all_array((void*) &ar, p3, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) PART_STATE_CYBOI_TYPE_COUNT);
 
         if (ar != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -527,7 +527,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                         (void*) &d, (void*) &dc, (void*) &ds);
 
                     // Compare expected name with that of the current compound part element.
-                    compare_all_array((void*) &nr, *n, en, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *nc, (void*) &enc);
+                    compare_all_array((void*) &nr, *n, en, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *nc, (void*) &enc);
 
                     if ((p11 == *NULL_POINTER_STATE_CYBOI_MODEL) || (*((int*) p12) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) || (nr != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
 

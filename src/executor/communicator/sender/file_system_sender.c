@@ -33,7 +33,7 @@
 #include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/memory/boolean_memory_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/stream_model.c"
@@ -207,7 +207,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE, p1, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE, p1, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -231,7 +231,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

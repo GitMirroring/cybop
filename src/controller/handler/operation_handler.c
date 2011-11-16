@@ -28,14 +28,6 @@
 
 #include "../../constant/model/cybol/operation_cybol_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../controller/handler/operation/arithmetic_operation_handler.c"
-#include "../../controller/handler/operation/communication_operation_handler.c"
-#include "../../controller/handler/operation/comparison_operation_handler.c"
-#include "../../controller/handler/operation/file_operation_handler.c"
-#include "../../controller/handler/operation/flow_operation_handler.c"
-#include "../../controller/handler/operation/lifecycle_operation_handler.c"
-#include "../../controller/handler/operation/memory_operation_handler.c"
-#include "../../controller/handler/operation/run_operation_handler.c"
 #include "../../logger/logger.c"
 
 /**

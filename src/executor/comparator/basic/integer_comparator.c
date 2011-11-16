@@ -29,10 +29,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
@@ -64,7 +64,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE) {
+            if (*a == *EQUAL_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -74,7 +74,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_OR_EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE) {
+            if (*a == *GREATER_OR_EQUAL_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -84,7 +84,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_PRIMITIVE_LOGIC_CYBOI_TYPE) {
+            if (*a == *GREATER_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -94,7 +94,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_OR_EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE) {
+            if (*a == *SMALLER_OR_EQUAL_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -104,7 +104,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_PRIMITIVE_LOGIC_CYBOI_TYPE) {
+            if (*a == *SMALLER_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -114,7 +114,7 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *UNEQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE) {
+            if (*a == *UNEQUAL_LOGIC_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 

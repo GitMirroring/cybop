@@ -35,7 +35,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
-#include "../../../constant/name/memory/internal_memory_memory_name.c"
+#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../logger/logger.c"
 

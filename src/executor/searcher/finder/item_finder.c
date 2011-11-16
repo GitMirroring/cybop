@@ -32,8 +32,8 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/calculator/integer_adder.c"
-#include "../../../executor/calculator/integer_multiplier.c"
+#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../executor/memoriser/reallocator/item_reallocator.c"
 #include "../../../executor/memoriser/size_determiner.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
@@ -62,7 +62,7 @@ void find_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    compare_integer((void*) &r, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE);
+    compare_integer((void*) &r, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE);
 
     if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

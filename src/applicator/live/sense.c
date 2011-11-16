@@ -34,7 +34,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/communication/sense_communication_operation_cybol_name.c"
-#include "../../constant/name/memory/internal_memory_memory_name.c"
+#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/accessor/getter/compound_getter.c"
 #include "../../executor/lifeguard/sensor/gnu_linux_console_sensor.c"
 #include "../../executor/lifeguard/sensor/socket_sensor.c"

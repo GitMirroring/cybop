@@ -27,7 +27,7 @@
 #define PERCENT_ENCODING_VECTOR_DECODER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/memory/boolean_memory_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/converter/decoder/percent_encoding_decoder.c"
 #include "../../../../executor/converter/selector/percent_encoding_vector_element_selector.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"

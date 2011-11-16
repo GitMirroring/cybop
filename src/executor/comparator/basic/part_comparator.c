@@ -31,8 +31,8 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/memory/part_memory_name.c"
-#include "../../../constant/name/memory/primitive_memory_name.c"
+#include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../logger/logger.c"
 
 //

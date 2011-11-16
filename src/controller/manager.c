@@ -29,10 +29,9 @@
 #include <pthread.h>
 #include <signal.h>
 
-#include "../constant/channel/cybol_channel.c"
 #include "../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../constant/model/memory/boolean_memory_model.c"
-#include "../constant/model/memory/double_memory_model.c"
+#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../controller/manager/internal_memory_manager.c"

@@ -34,7 +34,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/separator_cybol_name.c"
-#include "../../../constant/name/memory/part_memory_name.c"
+#include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../executor/comparator/all/item_all_comparator.c"
 #include "../../../executor/converter/decoder/wide_character_type_decoder.c"
 #include "../../../executor/modifier/copier/array_copier.c"
@@ -148,10 +148,10 @@ void compare_all_part_all(void* p0, void* p1, void* p2, void* p3) {
     // Overwrite left- with right part model item.
     // CAUTION! Do NOT use the basic function "compare_item" here,
     // since it does not compare the item counts.
-    compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-    compare_all_item((void*) &ar, la, ra, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    compare_all_item((void*) &ar, la, ra, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
     compare_all_item((void*) &mr, lm, rm, p3, rad);
-    compare_all_item((void*) &dr, ld, rd, (void*) EQUAL_PRIMITIVE_LOGIC_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE);
+    compare_all_item((void*) &dr, ld, rd, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE);
 
     if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
         && (ar == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)

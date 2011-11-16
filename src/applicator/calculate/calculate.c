@@ -34,7 +34,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/arithmetic/addition_arithmetic_operation_cybol_name.c"
 #include "../../executor/calculator/fraction/add_fraction_calculator.c"
-#include "../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
