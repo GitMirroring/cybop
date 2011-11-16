@@ -20,7 +20,7 @@
 
         * Implement rubbish collector for function "overwrite"
         * Adapt logger using new container functions
-        * Fix included files in all source code
+        * Fix file includes in all source code
 
 2011-11-15  Christian Heller  <christian.heller@tuxtax.de>
 
