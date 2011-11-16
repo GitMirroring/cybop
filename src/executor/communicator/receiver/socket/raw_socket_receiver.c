@@ -48,8 +48,8 @@
  */
 void receive_raw_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive from raw socket.");
-    log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"The raw socket functionality is NOT implemented yet.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive from raw socket.");
+    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"The raw socket functionality is NOT implemented yet.");
 }
 
 /* RAW_SOCKET_RECEIVER_SOURCE */

@@ -54,7 +54,7 @@
  */
 void calculate_all_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part element.");
 
     // The left part element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -77,7 +77,7 @@ void calculate_all_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
  */
 void calculate_all_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part.");
 
     // The left model.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -117,7 +117,7 @@ void calculate_all_part_model(void* p0, void* p1, void* p2, void* p3) {
 
             void** lp = (void**) p1;
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part model.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part model.");
 
             // The left part name, type, model, properties.
             void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -160,12 +160,12 @@ void calculate_all_part_model(void* p0, void* p1, void* p2, void* p3) {
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate all part all. The left part is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate all part all. The left part is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate all part all. The right part is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate all part all. The right part is null.");
     }
 }
 

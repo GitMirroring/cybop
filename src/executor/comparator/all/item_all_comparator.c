@@ -47,7 +47,7 @@
  */
 void compare_all_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare all item element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare all item element.");
 
     // The left item element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -94,7 +94,7 @@ void compare_all_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, 
  */
 void compare_all_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare all item.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare all item.");
 
     // The left data, count.
     void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;

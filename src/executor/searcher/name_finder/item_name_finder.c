@@ -50,7 +50,7 @@
  */
 void find_name_item_element(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name item element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name item element.");
 
     // The investigated item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -73,7 +73,7 @@ void find_name_item_element(void* p0, void* p1, void* p2, void* p3) {
  */
 void find_name_item(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name item.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name item.");
 
     // The investigated item data, count.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;

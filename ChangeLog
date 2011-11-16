@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-16  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement rubbish collector for function "overwrite"
+        * Adapt logger using new container functions
+
 2011-11-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement rubbish collector for functions "insert" and "remove"

@@ -49,7 +49,7 @@
  */
 void encode_model_diagram_indentation_branch(void* p0, void* p1) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode model diagram indentation branch.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode model diagram indentation branch.");
 
     // The properties flag.
     int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -88,7 +88,7 @@ void encode_model_diagram_indentation_branch(void* p0, void* p1) {
  */
 void encode_model_diagram_indentation_line(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode model diagram indentation line.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode model diagram indentation line.");
 
     // The next tree level.
     int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -132,7 +132,7 @@ void encode_model_diagram_indentation_line(void* p0, void* p1, void* p2, void* p
  */
 void encode_model_diagram_indentation(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode model diagram indentation.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode model diagram indentation.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

@@ -50,7 +50,7 @@ void deallocate_part(void* p0, void* p1, void* p2) {
 
         void** p = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate part.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate part.");
 
         // The references, name, type, model, properties.
         void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -75,7 +75,7 @@ void deallocate_part(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
         // Decrement reference count of child parts for rubbish (garbage) collection.
-        reference_array(md, (void*) SUBTRACT_LOGIC_CYBOI_TYPE, td, mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        reference(md, (void*) SUBTRACT_LOGIC_CYBOI_TYPE, mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
 
         // Deallocate references, name, type, model, properties.
         deallocate_item((void*) &r, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
@@ -89,7 +89,7 @@ void deallocate_part(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate part. The part is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate part. The part is null.");
     }
 }
 

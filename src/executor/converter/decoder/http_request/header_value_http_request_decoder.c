@@ -50,7 +50,7 @@
  */
 void decode_http_request_header_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http request header value.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http request header value.");
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;

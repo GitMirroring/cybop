@@ -65,7 +65,7 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                     void** b = (void**) p0;
 
-                    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive from datagram socket.");
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive from datagram socket.");
 
                     // Initialise error number.
                     // It is a global variable/ function and other operations
@@ -86,7 +86,7 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                     if (*bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received from datagram socket.");
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received from datagram socket.");
 
                         fwprintf(stdout, L"TEST b: %s \n", (char*) *b);
                         fwprintf(stdout, L"TEST bc: %i \n", *bc);
@@ -94,34 +94,34 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                     } else if (*bc == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. No data could be sensed.");
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. No data could be sensed.");
 
                     } else {
 
                         if (errno == EBADF) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The socket argument is not a valid file descriptor.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The socket argument is not a valid file descriptor.");
 
                         } else if (errno == ENOTSOCK) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The descriptor socket is not a socket.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The descriptor socket is not a socket.");
 
                         } else if (errno == EWOULDBLOCK) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The receive operation would block even though nonblocking mode has been set on the socket.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The receive operation would block even though nonblocking mode has been set on the socket.");
 
                         } else if (errno == EINTR) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The operation was interrupted by a signal before any data was receive.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The operation was interrupted by a signal before any data was receive.");
 
                         } else if (errno == ENOTCONN) {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The socket was never connected.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The socket was never connected.");
 
                         } else {
 
                             // CAUTION! Do NOT log the following error:
-                            // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense stream socket message. An unknown error occured while receiving data.");
+                            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense stream socket message. An unknown error occured while receiving data.");
                             //
                             // The reason is that the socket is non-blocking,
                             // so that the "accept" procedure returns always,
@@ -134,22 +134,22 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The buffer is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The buffer is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The buffer count is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The buffer count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The buffer size is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The buffer size is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The original socket of this system is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The original socket of this system is null.");
     }
 }
 

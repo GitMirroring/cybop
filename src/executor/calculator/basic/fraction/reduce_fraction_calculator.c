@@ -38,7 +38,7 @@
  */
 void calculate_fraction_reduce(void* p0) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate fraction reduce.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate fraction reduce.");
 
     // The numerator and denominator.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;

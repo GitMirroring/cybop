@@ -75,7 +75,7 @@
  */
 void apply_receive(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive.");
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;

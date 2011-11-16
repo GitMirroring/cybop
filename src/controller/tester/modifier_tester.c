@@ -43,7 +43,7 @@
  */
 void test_modifier_part_compound() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier part compound.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier part compound.");
     fwprintf(stdout, L"Output gets written into files with prefix: %ls\n", L"TEST");
 
     //
@@ -254,7 +254,7 @@ void test_modifier_part_compound() {
  */
 void test_modifier_part_wide_character() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier part wide character.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier part wide character.");
 
     // The parts.
     void* p1 = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -332,7 +332,7 @@ void test_modifier_part_wide_character() {
  */
 void test_modifier_array() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier array.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier array.");
 
     // The wide character array.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -386,7 +386,7 @@ void test_modifier_array() {
  */
 void test_modifier() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier.");
 
 //    test_modifier_part_compound();
 //    test_modifier_part_wide_character();

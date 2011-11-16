@@ -48,7 +48,7 @@
  */
 void move_position(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Move position.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Move position.");
 
     // The memory area.
     int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

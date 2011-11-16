@@ -45,7 +45,7 @@
  */
 void encode_html_end_tag(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html end tag.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html end tag.");
 
     // Encode indentation.
     encode_html_indentation(p0, p3);

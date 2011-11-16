@@ -52,7 +52,7 @@
  */
 void compare_prefix_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare prefix part element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare prefix part element.");
 
     // The left part element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -75,7 +75,7 @@ void compare_prefix_part_element(void* p0, void* p1, void* p2, void* p3, void* p
  */
 void compare_prefix_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare prefix part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare prefix part.");
 
     // The left model.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -53,7 +53,7 @@
  */
 void apply_destroy(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply destroy.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply destroy.");
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

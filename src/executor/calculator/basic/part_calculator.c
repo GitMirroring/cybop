@@ -51,7 +51,7 @@
  */
 void calculate_part(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate part.");
 
     //
     // Recursively call a calculation function, which in turn

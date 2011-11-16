@@ -155,7 +155,7 @@ void interrupt_service_system_signal_handler(int p0) {
  */
 void startup_system_signal_handler() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup system signal handler.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup system signal handler.");
 
     // The signal set (mask).
     sigset_t mask;

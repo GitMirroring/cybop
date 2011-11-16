@@ -97,7 +97,7 @@ void encode_terminal_coordinates(void* p0, void* p1, void* p2, void* p3, void* p
     void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21,
     void* p22, void* p23, void* p24, void* p25, void* p26, void* p27) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal coordinates.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal coordinates.");
 
     // The source part position x, y, z.
     int* px = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -62,7 +62,7 @@
  */
 void apply_insert(void* p0, int* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply insert.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply insert.");
 
     // The destination part.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

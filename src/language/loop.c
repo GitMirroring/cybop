@@ -23,28 +23,43 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATE_TIME_DEALLOCATOR_SOURCE
-#define DATE_TIME_DEALLOCATOR_SOURCE
+#ifndef LOOP_SOURCE
+#define LOOP_SOURCE
 
-#include "../../../constant/type/cybol/text_cybol_type.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/converter/encoder/model_diagram_encoder.c"
+#include "../../../executor/searcher/mover/position_mover.c"
 #include "../../../logger/logger.c"
+#include "../../../variable/type_size/integral_type_size.c"
 
 /**
- * Deallocates the date time.
+ * Loops the given source code.
  *
- * @param p0 the model (pointer reference)
- * @param p1 the model size
+ * @param p0 the break flag
+ * @param p1 the loop count
+ * @param p2 the loop variable
+ * @param p3 the body function
+ * @param p4 the body function parametre
  */
-void deallocate_date_time(void* p0, void* p1) {
+void loop(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate date time.");
+    // Loop as long as break flag is NOT set.
+    while (!(*((int*) p0))) {
 
-    deallocate_array(p0, p1, (void*) INTEGER_STATE_CYBOI_TYPE);
+        // Test break condition.
+        compare_integer_greater_or_equal(p0, p2, p1);
+
+        // Dereference and call function.
+        (*((void (*)(void*)) p3))(p4);
+
+        // Increment loop variable.
+        calculate_integer_add(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    }
 }
 
-/* DATE_TIME_DEALLOCATOR_SOURCE */
+/* LOOP_SOURCE */
 #endif

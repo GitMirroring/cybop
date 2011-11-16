@@ -84,7 +84,7 @@
  */
 void decode_utf_16_unicode_character_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-16 Unicode character stream.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-16 Unicode character stream.");
 }
 
 /* UTF_16_UNICODE_CHARACTER_DECODER_SOURCE */

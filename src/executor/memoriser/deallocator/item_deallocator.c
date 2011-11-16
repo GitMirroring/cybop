@@ -46,7 +46,7 @@ void deallocate_item(void* p0, void* p1, void* p2) {
 
         void** i = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate item.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate item.");
 
         // The data, count, size.
         void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -68,7 +68,7 @@ void deallocate_item(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate item. The item is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate item. The item is null.");
     }
 }
 

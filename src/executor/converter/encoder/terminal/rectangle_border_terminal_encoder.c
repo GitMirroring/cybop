@@ -101,7 +101,7 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                             wchar_t* hc = (wchar_t*) p0;
 
-                            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal rectangle border.");
+                            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal rectangle border.");
 
                             // The comparison result.
                             int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -168,32 +168,32 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The horizontal character is null.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The horizontal character is null.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The vertical character is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The vertical character is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The left top character is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The left top character is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The right top character is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The right top character is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The left bottom character is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The left bottom character is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The right bottom character is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle border. The right bottom character is null.");
     }
 }
 

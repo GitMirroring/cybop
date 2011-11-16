@@ -47,7 +47,7 @@
  */
 void decode_http_uri_query_content(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri query content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri query content.");
 
     // The source data position.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,7 +97,7 @@ void decode_http_uri_query_content(void* p0, void* p1, void* p2) {
  */
 void decode_http_uri_query(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri query.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri query.");
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;

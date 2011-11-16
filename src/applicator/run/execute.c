@@ -47,7 +47,7 @@
  */
 void apply_execute(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply execute.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply execute.");
 
     //?? TODO: Figure out if assembling a shell command line is necessary at all!
     //?? The "system" function call further below does search programmes internally
@@ -117,28 +117,28 @@ void apply_execute(void* p0, void* p1) {
 
     if (r == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command/ program as process. A negative value was returned.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command/ program as process. A negative value was returned.");
 
         if (errno == EINTR) {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"The function was interrupted by delivery of a signal to the calling process.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"The function was interrupted by delivery of a signal to the calling process.");
 
         } else if (errno == ECHILD) {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"There are no child processes to wait for, or the specified pid is not a child of the calling process.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"There are no child processes to wait for, or the specified pid is not a child of the calling process.");
 
         } else if (errno == EINVAL) {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"An invalid value was provided for the options argument.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"An invalid value was provided for the options argument.");
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"An unknown error occured.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"An unknown error occured.");
         }
 
     } else {
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully executed command/ program as process. The child process was left; the parent process continues.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully executed command/ program as process. The child process was left; the parent process continues.");
     }
 
     // Deallocate encoded shell command line.
@@ -393,7 +393,7 @@ void apply_execute(void* p0, void* p1) {
         // This is still the parent process.
         // A child process could not be created.
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command as process. The process fork failed.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command as process. The process fork failed.");
 
     } else {
 
@@ -402,7 +402,7 @@ void apply_execute(void* p0, void* p1) {
         // The following code is only executed by the parent process.
         // A pid > 0 represents the child process's id.
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Executed command as process. The process fork succeeded. Now waiting for the child process to exit.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Executed command as process. The process fork succeeded. Now waiting for the child process to exit.");
 
     fwprintf(stdout, L"TEST pid > 0 pid: %i\n", pid);
 
@@ -410,7 +410,7 @@ void apply_execute(void* p0, void* p1) {
         // In the GNU C library, pid_t corresponds to the int type.
         waitpid(pid, (int*) *NULL_POINTER_STATE_CYBOI_MODEL, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"The child process exited. Continue executing parent process.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"The child process exited. Continue executing parent process.");
 
     fwprintf(stdout, L"TEST post-waitpid pid: %i\n", pid);
     }

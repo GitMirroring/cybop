@@ -49,7 +49,7 @@
  */
 void allocate_date_time(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate date time.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate date time.");
 
     allocate_array(p0, p1, (void*) INTEGER_STATE_CYBOI_TYPE);
 }

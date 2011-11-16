@@ -49,19 +49,25 @@ void copy_integer(void* p0, void* p1) {
 
             int* de = (int*) p0;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy integer.");
+            // CAUTION! Do NOT call the logger here.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy integer.");
 
             // Assign source- to destination.
             *de = *se;
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy integer. The destination is null.");
+            // CAUTION! Do NOT call the logger here.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy integer. The destination is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy integer. The source is null.");
+        // CAUTION! Do NOT call the logger here.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy integer. The source is null.");
     }
 }
 

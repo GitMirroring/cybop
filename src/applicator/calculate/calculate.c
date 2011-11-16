@@ -98,7 +98,7 @@
  */
 void apply_calculate(void* p0, int* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
 
     // The result part.
     void* res = *NULL_POINTER_STATE_CYBOI_MODEL;

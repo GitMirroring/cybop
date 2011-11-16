@@ -47,18 +47,24 @@ void calculate_integer_multiply(void* p0, void* p1) {
 
             int* p = (int*) p0;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer multiply.");
+            // CAUTION! Do NOT call the logger here.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer multiply.");
 
             *p = *p * *f;
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer multiply. The product is null.");
+            // CAUTION! Do NOT call the logger here.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer multiply. The product is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer multiply. The factor is null.");
+        // CAUTION! Do NOT call the logger here.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer multiply. The factor is null.");
     }
 }
 

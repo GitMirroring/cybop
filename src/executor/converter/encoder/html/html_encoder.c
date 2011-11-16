@@ -48,7 +48,7 @@
  */
 void encode_html(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html.");
 
     // The tree level.
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

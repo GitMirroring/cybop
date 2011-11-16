@@ -59,7 +59,9 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
 
                 void** a = (void**) p0;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reallocate array.");
+                // CAUTION! Do NOT call the logger here.
+                // It uses functions causing circular references.
+                // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reallocate array.");
 
                 // The memory area.
                 int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -68,7 +70,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 determine_size((void*) &ma, p3);
 
                 // Calculate memory area.
-                multiply_with_integer((void*) &ma, p2, (void*) INTEGER_STATE_CYBOI_TYPE);
+                calculate_integer_multiply((void*) &ma, p2);
 
                 if (ma > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -114,34 +116,37 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         determine_size((void*) &nma, p3);
 
                         // Calculate new memory area.
-                        multiply_with_integer((void*) &nma, (void*) &es, (void*) INTEGER_STATE_CYBOI_TYPE);
+                        calculate_integer_multiply((void*) &nma, (void*) &es);
 
                         // The new array elements.
                         void* na = *a + (ma - nma);
 
                         // Initialise ONLY NEW array elements (new memory area)
                         // with null pointer. Leave existing elements untouched.
+                        //
+                        // CAUTION! Initialising with zero is essential, since cyboi
+                        // frequently tests variables for null pointer values.
                         memset(na, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, nma);
                     }
 
                 } else {
 
-                    log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The memory area is not greater than zero.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The memory area is not greater than zero.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The array is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The array is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The count is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The count is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The size is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The size is null.");
     }
 }
 

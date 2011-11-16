@@ -98,7 +98,7 @@
  */
 void select_absolute_path_http_request_uri(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select absolute path http request uri.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select absolute path http request uri.");
 
     //
     // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!

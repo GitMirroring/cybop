@@ -121,7 +121,7 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
 
             void** pos = (void**) p3;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode percent-encoding vector element.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode percent-encoding vector element.");
 
             // The unreserved characters.
             void* u = *pos;
@@ -170,12 +170,12 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector element. The current position is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector element. The current position is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector element. The remaining count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector element. The remaining count is null.");
     }
 }
 
@@ -216,7 +216,7 @@ void decode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void
 
                         if (*dc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode percent-encoding vector.");
+                            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode percent-encoding vector.");
 
                             //
                             // CAUTION! Do NOT operate with WIDE CHARACTERS here!
@@ -241,32 +241,32 @@ void decode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination count is negative.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination count is negative.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination count is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination count is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination size is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The destination size is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The source is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The source is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The source count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode percent-encoding vector. The source count is null.");
     }
 }
 

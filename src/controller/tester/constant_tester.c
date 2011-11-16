@@ -61,7 +61,7 @@ void test_constant_float() {
  */
 void test_constant() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test constant usage.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test constant usage.");
 
 //    test_constant_float();
 }

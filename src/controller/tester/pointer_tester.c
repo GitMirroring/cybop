@@ -427,8 +427,8 @@ void test_pointer_array_with_null_values() {
  * Tests the pointer addition.
  *
  * CAUTION! The following two lines calculate DIFFERENT results!
- * void* b = (void*) (m + (*NUMBER_0_INTEGER_STATE_CYBOI_MODEL * *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE));
- * void* b = (void*) m + (*NUMBER_0_INTEGER_STATE_CYBOI_MODEL * *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+ * void* b = (void*) (m + (*NUMBER_0_INTEGER_STATE_CYBOI_MODEL * *SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE));
+ * void* b = (void*) m + (*NUMBER_0_INTEGER_STATE_CYBOI_MODEL * *SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
  * The first line is wrong and adds 16 instead of just 4.
  * The problem are the parentheses.
  *
@@ -583,7 +583,7 @@ void test_pointer_addition() {
  */
 void test_pointer() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test pointer handling.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test pointer handling.");
 
 //    test_pointer_null();
 //    test_pointer_cast();

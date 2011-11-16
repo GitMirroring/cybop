@@ -46,7 +46,7 @@
  */
 void encode_cybol_boolean_separator(void* p0, void* p1) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol boolean separator.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol boolean separator.");
 
     // The index flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

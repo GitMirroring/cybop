@@ -50,7 +50,7 @@ void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         int* c = (int*) p5;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array elements.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array elements.");
 
         // The loop variable.
         int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -94,7 +94,7 @@ void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array elements. The count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array elements. The count is null.");
     }
 }
 
@@ -121,7 +121,7 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array.");
 
             // The left array, right array.
             // CAUTION! They HAVE TO BE initialised with p1 and p2,
@@ -137,12 +137,12 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array. The left array is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array. The left array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array. The right array is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array. The right array is null.");
     }
 }
 

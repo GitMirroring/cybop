@@ -80,7 +80,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
                     // Also, this function runs in an endless loop and would produce huge log files.
-                    // log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense gnu/linux console message.");
+                    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense gnu/linux console message.");
 
                     // Lock gnu/linux console mutex.
                     //
@@ -178,7 +178,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                     // This function is executed within a thread, but the
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
-                    // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The interrupt is null.");
+                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The interrupt is null.");
                 }
 
             } else {
@@ -187,7 +187,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                 // This function is executed within a thread, but the
                 // logging is not guaranteed to be thread-safe and might
                 // cause unpredictable programme behaviour.
-                // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The mutex is null.");
+                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The mutex is null.");
             }
 
         } else {
@@ -196,7 +196,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
             // This function is executed within a thread, but the
             // logging is not guaranteed to be thread-safe and might
             // cause unpredictable programme behaviour.
-            // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The sleep time is null.");
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The sleep time is null.");
         }
 
     } else {
@@ -205,7 +205,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
-        // log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The input stream is null.");
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The input stream is null.");
     }
 }
 
@@ -220,7 +220,7 @@ void sense_gnu_linux_console(void* p0) {
     // This function is executed within a thread, but the
     // logging is not guaranteed to be thread-safe and might
     // cause unpredictable programme behaviour.
-    // log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense gnu/linux console.");
+    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense gnu/linux console.");
 
     // The interrupt.
     void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;

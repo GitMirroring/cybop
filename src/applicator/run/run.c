@@ -51,7 +51,7 @@
  */
 void apply_run(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply run.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply run.");
 
     // The programme part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

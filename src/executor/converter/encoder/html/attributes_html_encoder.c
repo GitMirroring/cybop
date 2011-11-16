@@ -49,7 +49,7 @@
  */
 void encode_html_attribute(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html attribute.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html attribute.");
 
     // The attribute part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -106,7 +106,7 @@ void encode_html_attribute(void* p0, void* p1, void* p2) {
  */
 void encode_html_attributes(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html attributes.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html attributes.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

@@ -116,7 +116,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
 
                             int* cc = (int*) p4;
 
-                            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal rectangle.");
+                            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal rectangle.");
 
                             // The horizontal character.
                             wchar_t hc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
@@ -194,7 +194,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
 
                                             } else {
 
-                                                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
+                                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
                                             }
 
                                         } else {
@@ -265,7 +265,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
 
                                                     } else {
 
-                                                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
+                                                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode terminal rectangle. The character count is null.");
                                                     }
 
                                                     // Encode character using escape codes.
@@ -297,32 +297,32 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode user interface rectangle. The character count is null.");
     }
 }
 

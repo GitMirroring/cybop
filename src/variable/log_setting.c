@@ -41,6 +41,7 @@ static signed char* LOG_LEVEL;
 /** The log message. */
 static wchar_t* LOG_MESSAGE;
 static signed short int* LOG_MESSAGE_COUNT;
+static signed short int* LOG_MESSAGE_SIZE;
 
 /** The log output. */
 static FILE* LOG_OUTPUT;

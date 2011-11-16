@@ -52,7 +52,7 @@
  */
 void apply_list_directory_contents(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list directory contents.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list directory contents.");
 
     // The all part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;

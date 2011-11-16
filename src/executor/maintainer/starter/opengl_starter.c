@@ -40,7 +40,7 @@
  */
 void startup_opengl(void* p0) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup opengl.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup opengl.");
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 

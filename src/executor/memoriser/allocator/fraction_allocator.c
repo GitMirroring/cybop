@@ -47,7 +47,7 @@ void allocate_fraction(void* p0, void* p1) {
 
         void** f = (void**) p0;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate fraction.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate fraction.");
 
         // Allocate fraction.
         allocate_array(p0, (void*) FRACTION_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
@@ -72,7 +72,7 @@ void allocate_fraction(void* p0, void* p1) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate fraction. The fraction is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate fraction. The fraction is null.");
     }
 }
 

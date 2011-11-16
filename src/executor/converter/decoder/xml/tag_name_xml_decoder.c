@@ -61,7 +61,7 @@ void decode_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
                 int* ha = (int*) p1;
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xml tag name.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xml tag name.");
 
                 // The source tag name.
                 void* tn = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -112,17 +112,17 @@ void decode_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml tag name. The has attributes flag is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml tag name. The has attributes flag is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml tag name. The has content flag is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml tag name. The has content flag is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml tag name. The is empty flag is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml tag name. The is empty flag is null.");
     }
 }
 

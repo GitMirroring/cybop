@@ -172,7 +172,7 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
 
             void* s = p6;
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode uri.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode uri.");
 
             //
             // Do comparisons below in parallel, because:
@@ -292,17 +292,17 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
 
             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The uri is invalid.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The uri is invalid.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The source is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The source is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The source count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The source count is null.");
     }
 }
 

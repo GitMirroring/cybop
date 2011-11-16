@@ -47,7 +47,7 @@
  */
 void reference_part(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference part.");
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

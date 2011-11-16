@@ -50,7 +50,7 @@
  */
 void encode_http_response_body(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode http response body.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode http response body.");
 
     // The character model.
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;

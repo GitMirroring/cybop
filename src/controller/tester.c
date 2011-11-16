@@ -103,7 +103,7 @@
  */
 void test() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test cyboi.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test cyboi.");
 
     // How to use printf to check parametre values.
     // The printf function uses stdout for output, but nothing appears on console.

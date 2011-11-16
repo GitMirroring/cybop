@@ -75,7 +75,7 @@ void copy_part(void* p0, void* p1) {
     //?? It may be deleted later, if not needed.
     //??
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy part.");
 
     // The source part name, type, model, properties.
     void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;

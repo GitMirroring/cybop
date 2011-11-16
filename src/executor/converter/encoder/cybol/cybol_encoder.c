@@ -38,7 +38,7 @@
  */
 void encode_cybol(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol.");
 }
 
 /* CYBOL_ENCODER_SOURCE */

@@ -65,7 +65,7 @@
  */
 void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get item element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get item element.");
 
     // CAUTION! Do NOT simplify the lines below to one line like:
     // copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
@@ -115,7 +115,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         } else {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get item element. The source item count is not greater than the given source index.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get item element. The source item count is not greater than the given source index.");
         }
 
     } else {

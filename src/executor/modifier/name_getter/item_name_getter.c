@@ -47,7 +47,7 @@
  */
 void get_name_item_element(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name item element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name item element.");
 
     // The source whole item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -70,7 +70,7 @@ void get_name_item_element(void* p0, void* p1, void* p2, void* p3) {
  */
 void get_name_item(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name item.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name item.");
 
     // The source whole item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

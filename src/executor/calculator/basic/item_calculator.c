@@ -50,7 +50,7 @@
  */
 void calculate_item(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate item.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate item.");
 
     // CAUTION! The sizes do NOT have to be identical,
     // since they just represent allocated memory.

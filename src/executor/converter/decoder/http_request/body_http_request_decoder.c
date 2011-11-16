@@ -43,7 +43,7 @@
  */
 void decode_http_request_body(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http request body.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http request body.");
 
     //
     // CAUTION! There is NO NEED to detect the body end with a

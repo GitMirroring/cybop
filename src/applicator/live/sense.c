@@ -78,13 +78,13 @@ void apply_sense_message(void* p0, void* p1, void* p2) {
 
         int* t = (int*) p1;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense message.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense message.");
 
         // Only create thread, if not existent.
         // CAUTION! The "pthread_t" type is an integer, so both can be compared.
         if (*t == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Create sense message thread.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Create sense message thread.");
 
             // Create thread.
             //
@@ -108,7 +108,7 @@ void apply_sense_message(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply sense message. The service thread is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply sense message. The service thread is null.");
     }
 }
 
@@ -140,7 +140,7 @@ void apply_sense_message(void* p0, void* p1, void* p2) {
  */
 void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense.");
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -272,7 +272,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply sense interrupt request. The channel is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply sense interrupt request. The channel is unknown.");
     }
 }
 

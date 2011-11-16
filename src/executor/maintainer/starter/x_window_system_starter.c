@@ -57,7 +57,7 @@
  */
 void startup_x_window_system(void* p0) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
 
     // The display.
     // It is a subsumption of xserver, screens, hardware (input devices etc.).
@@ -226,7 +226,7 @@ void startup_x_window_system(void* p0) {
 
     } else {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The x window system is already running.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The x window system is already running.");
     }
 }
 

@@ -46,7 +46,7 @@ void deallocate_array(void* p0, void* p1, void* p2) {
 
         void** a = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate array.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate array.");
 
         // CAUTION! Check array for null value.
         // The "free" function would cause an error when handing over a null value.
@@ -63,12 +63,12 @@ void deallocate_array(void* p0, void* p1, void* p2) {
 
         } else {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate array. The dereferenced array is null.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate array. The dereferenced array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate array. The array is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate array. The array is null.");
     }
 }
 

@@ -49,7 +49,7 @@
  */
 void decode_http_uri(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri.");
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

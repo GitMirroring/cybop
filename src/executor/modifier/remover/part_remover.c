@@ -50,7 +50,7 @@
  */
 void remove_part(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove part.");
 
     // The part model.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;

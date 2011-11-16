@@ -47,7 +47,7 @@
  */
 void decode_authority_hostname(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode authority hostname.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode authority hostname.");
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;

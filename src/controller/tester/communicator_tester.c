@@ -620,7 +620,7 @@ void test_communicator_mesa_opengl() {
  */
 void test_communicator() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test communicator.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test communicator.");
 
 //    test_stdout_stdout();
 //    test_wide_character_wprintf();

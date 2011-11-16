@@ -56,7 +56,7 @@
  */
 void shutdown_x_window_system(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
 
     // The display.
     // It is a subsumption of xserver, screens, hardware (input devices etc.).
@@ -159,7 +159,7 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. There is no x window system running.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. There is no x window system running.");
     }
 }
 

@@ -58,7 +58,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
 
         void** irq = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for interrupt requests.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for interrupt requests.");
 
         // The internal memory index.
         int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -73,7 +73,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected signal memory interrupt.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected signal memory interrupt.");
 
             // Get signal memory interrupt request.
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -94,7 +94,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected gnu/linux console interrupt.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected gnu/linux console interrupt.");
 
             // Get gnu/linux console interrupt request.
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -116,7 +116,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected x window system interrupt.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected x window system interrupt.");
 
             // Get x window system interrupt request.
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -138,7 +138,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected www service interrupt.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected www service interrupt.");
 
             // Get www service interrupt request.
             copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -166,7 +166,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected cyboi service interrupt.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected cyboi service interrupt.");
 
             // Get cyboi service interrupt request.
             copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -194,12 +194,12 @@ fwprintf(stdout, L"TEST detected cyboi service irq: %i\n", *((int*) *irq));
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check for interrupt requests. No interrupt request is set.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check for interrupt requests. No interrupt request is set.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check for interrupt requests. The interrupt request argument is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check for interrupt requests. The interrupt request argument is null.");
     }
 }
 

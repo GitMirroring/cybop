@@ -58,7 +58,7 @@
  */
 void apply_remove(void* p0, int* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply remove.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply remove.");
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

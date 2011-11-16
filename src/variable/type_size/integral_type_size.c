@@ -104,7 +104,7 @@ static signed char* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static signed char* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE;
+static signed char* SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The unsigned short int integral type size.
@@ -114,7 +114,7 @@ static signed char* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static signed char* UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE;
+static signed char* UNSIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The signed int integral type size.
@@ -124,7 +124,7 @@ static signed char* UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 2 (antique systems) or 4
  * Typical size [Bit]: 16 (antique systems) or 32
  */
-static signed char* SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+static signed char* SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The unsigned int integral type size.
@@ -134,7 +134,7 @@ static signed char* SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 2 (antique systems) or 4
  * Typical size [Bit]: 16 (antique systems) or 32
  */
-static signed char* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+static signed char* UNSIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The signed long int integral type size.
@@ -144,7 +144,7 @@ static signed char* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static signed char* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
+static signed char* SIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The unsigned long int integral type size.
@@ -154,7 +154,7 @@ static signed char* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static signed char* UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
+static signed char* UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The signed long long int integral type size.
@@ -164,7 +164,7 @@ static signed char* UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static signed char* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
+static signed char* SIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The unsigned long long int integral type size.
@@ -174,7 +174,7 @@ static signed char* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static signed char* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
+static signed char* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The wchar_t integral type size.

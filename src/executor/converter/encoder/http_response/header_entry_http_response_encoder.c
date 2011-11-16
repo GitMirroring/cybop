@@ -45,7 +45,7 @@
  */
 void encode_http_response_header_entry(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode http response header entry.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode http response header entry.");
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

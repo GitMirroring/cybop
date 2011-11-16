@@ -59,7 +59,7 @@
  */
 void apply_startup(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply startup.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply startup.");
 
     // The service part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -135,7 +135,7 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3) {
 
             } else {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up service. The www service is already running.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up service. The www service is already running.");
             }
         }
     }
@@ -157,14 +157,14 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3) {
 
             } else {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up service. The cyboi service is already running.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up service. The cyboi service is already running.");
             }
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The service is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The service is unknown.");
     }
 }
 

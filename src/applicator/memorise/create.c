@@ -70,7 +70,7 @@
  */
 void apply_create(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create.");
 
     // The name part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -143,7 +143,7 @@ void apply_create(void* p0, void* p1, void* p2) {
 
                 // A whole part exists.
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
 
                 // Append part (handed over as array reference) to whole model (being a part itself).
                 // CAUTION! Do NOT use PART_STATE_CYBOI_TYPE here!
@@ -153,7 +153,7 @@ void apply_create(void* p0, void* p1, void* p2) {
 
             } else {
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root model.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root model.");
 
                 // The whole part is null.
                 //
@@ -181,7 +181,7 @@ void apply_create(void* p0, void* p1, void* p2) {
 
                 // A whole part exists.
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole properties.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole properties.");
 
                 // Append part (handed over as array reference) to whole properties (being a part itself).
                 // CAUTION! Do NOT use PART_STATE_CYBOI_TYPE here!
@@ -191,7 +191,7 @@ void apply_create(void* p0, void* p1, void* p2) {
 
             } else {
 
-                log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root properties.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root properties.");
 
                 // The whole part is null.
                 //
@@ -218,7 +218,7 @@ void apply_create(void* p0, void* p1, void* p2) {
 
             // A whole part exists.
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
 
             // Append part (handed over as array reference) to whole model (being a part itself).
             // CAUTION! Do NOT use PART_STATE_CYBOI_TYPE here!
@@ -228,7 +228,7 @@ void apply_create(void* p0, void* p1, void* p2) {
 
         } else {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root.");
 
             // The whole part is null.
             //

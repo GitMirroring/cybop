@@ -47,7 +47,7 @@
  */
 void decode_http_request_method(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http request method.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http request method.");
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;

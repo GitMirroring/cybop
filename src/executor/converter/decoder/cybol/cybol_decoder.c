@@ -138,7 +138,7 @@ void decode_cybol_model(void* p0, void* p1, void* p2, void* p3) {
  */
 void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol node standard.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol node standard.");
 
     //
     // Identify source part properties parametres.
@@ -320,7 +320,7 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
  */
 void decode_cybol_node_root(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol node root.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol node root.");
 
     // Reset root node flag, so that
     // child nodes are processed normally.
@@ -347,7 +347,7 @@ void decode_cybol_node_root(void* p0, void* p1, void* p2, void* p3) {
  */
 void decode_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol element.");
 
     // The root node flag.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -416,7 +416,7 @@ void decode_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void
  */
 void decode_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol.");
 
     // The source part model tree root node flag.
     // CAUTION! It is necessary to identify the root node.

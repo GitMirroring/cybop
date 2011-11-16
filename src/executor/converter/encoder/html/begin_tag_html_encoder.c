@@ -48,7 +48,7 @@
  */
 void encode_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html begin tag.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html begin tag.");
 
     // Encode indentation.
     encode_html_indentation(p0, p5);

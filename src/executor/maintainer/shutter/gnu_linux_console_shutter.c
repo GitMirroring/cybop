@@ -51,7 +51,7 @@
  */
 void shutdown_gnu_linux_console(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown gnu/linux console.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown gnu/linux console.");
 
     // The gnu/linux console input- and output stream.
     FILE* ip = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -114,7 +114,7 @@ void shutdown_gnu_linux_console(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown gnu/linux console. There is no gnu/linux console running.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown gnu/linux console. There is no gnu/linux console running.");
     }
 }
 

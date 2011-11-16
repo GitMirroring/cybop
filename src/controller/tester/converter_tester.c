@@ -232,7 +232,7 @@ void test_converter_decode_utf8() {
  */
 void test_converter() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test converter.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test converter.");
 
 //    test_converter_integer_to_wide_character_conversion();
 

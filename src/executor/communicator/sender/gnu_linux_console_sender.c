@@ -60,7 +60,7 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         FILE** d = (FILE**) p0;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to gnu/linux console.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to gnu/linux console.");
 
         // The terminated control sequences.
         void* ts = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -107,7 +107,7 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file is null.");
         }
 
         // Deallocate terminated control sequences.
@@ -115,7 +115,7 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file parametre is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to gnu/linux console. The destination terminal file parametre is null.");
     }
 }
 
@@ -139,7 +139,7 @@ void send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 void apply_send_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send gnu/linux console.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send gnu/linux console.");
 
     // The serialised wide character array.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;

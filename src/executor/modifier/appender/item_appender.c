@@ -57,7 +57,7 @@
  */
 void append_item_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Append item element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Append item element.");
 
     // The destination item element count.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -85,7 +85,7 @@ void append_item_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void append_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Append item.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Append item.");
 
     // The destination item count.
     void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;

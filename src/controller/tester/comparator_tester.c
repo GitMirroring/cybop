@@ -40,7 +40,7 @@
  */
 void test_comparator_ascii_character() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator ascii character.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator ascii character.");
 
     char test = 'a';
 
@@ -59,7 +59,7 @@ void test_comparator_ascii_character() {
  */
 void test_comparator_array() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator array.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator array.");
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -128,7 +128,7 @@ void test_comparator_array() {
  */
 void test_comparator_part() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator part.");
 
     // Declare parts.
     void* w1 = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -282,7 +282,7 @@ void test_comparator_part() {
  */
 void test_comparator() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator.");
 
 //    test_comparator_ascii_character();
 //    test_comparator_array();

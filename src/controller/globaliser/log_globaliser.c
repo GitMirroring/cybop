@@ -42,11 +42,15 @@ void globalise_log() {
     *LOG_LEVEL = *OFF_LEVEL_LOG_CYBOI_MODEL;
 
     // Allocate and initialise log message count.
-    LOG_MESSAGE_COUNT = (signed short int*) malloc(*SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-    *LOG_MESSAGE_COUNT = *NUMBER_10000_INTEGER_STATE_CYBOI_MODEL;
+    LOG_MESSAGE_COUNT = (signed short int*) malloc(*SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    *LOG_MESSAGE_COUNT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Allocate and initialise log message size.
+    LOG_MESSAGE_SIZE = (signed short int*) malloc(*SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    *LOG_MESSAGE_SIZE = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate log message.
-    LOG_MESSAGE = (wchar_t*) malloc(*LOG_MESSAGE_COUNT);
+    LOG_MESSAGE = (wchar_t*) malloc(*LOG_MESSAGE_SIZE);
 
     // CAUTION! Do NOT try to allocate or initialise the log output of type FILE!
     //
@@ -57,7 +61,7 @@ void globalise_log() {
     //
     // See module "optionaliser.c", which cares about log file creation!
     //
-    // Hence, the following line would not make sense and is FORBIDDEN:
+    // Hence, the following line would not have sense and is FORBIDDEN:
     // LOG_OUTPUT = (FILE*) malloc(sizeof(FILE));
     LOG_OUTPUT = *NULL_POINTER_STATE_CYBOI_MODEL;
 }

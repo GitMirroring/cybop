@@ -57,7 +57,7 @@
  */
 void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html node.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html node.");
 
     // The tag part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

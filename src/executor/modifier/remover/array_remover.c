@@ -65,7 +65,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         void** d = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove array inside.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove array inside.");
 
         // The move source index.
         int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -118,7 +118,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The array is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The array is null.");
     }
 }
 
@@ -135,7 +135,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  */
 void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove array.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove array.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -152,7 +152,7 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array. The destination index is outside the array boundaries.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array. The destination index is outside the array boundaries.");
     }
 }
 

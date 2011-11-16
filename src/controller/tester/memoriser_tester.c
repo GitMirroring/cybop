@@ -92,7 +92,7 @@ void test_memoriser_array_resizing() {
  */
 void test_memoriser_part() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser part.");
 
     // The part container.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -155,7 +155,7 @@ void test_memoriser_part() {
  */
 void test_memoriser_item() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser item.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser item.");
 
     // The item container.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -189,7 +189,7 @@ void test_memoriser_item() {
  */
 void test_memoriser_array() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test array.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test array.");
 
     // The pointer array.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -204,6 +204,11 @@ void test_memoriser_array() {
 
     copy_array_forward(w, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     copy_array_forward(i, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // CAUTION! The reference for rubbish (garbage) collection is ONLY set,
+    // when using one of the functions: "overwrite", "insert" or "remove".
+    // However, for testing as done here, this is NOT needed.
+    // Further, it would ONLY have sense when storing parts,
+    // since only those have a field called "reference".
     copy_array_forward(p, &w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     copy_array_forward(p, &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
@@ -241,7 +246,7 @@ void test_memoriser_array() {
  */
 void test_memoriser_array_wide_character() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test wide character array.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test wide character array.");
 
     // The wide character array.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -277,7 +282,7 @@ void test_memoriser_array_wide_character() {
  */
 void test_memoriser() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser.");
 
 //    test_memoriser_array_resizing();
 

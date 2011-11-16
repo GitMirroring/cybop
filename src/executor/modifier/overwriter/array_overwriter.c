@@ -84,7 +84,9 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         void** d = (void**) p0;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite array.");
+        // CAUTION! Do NOT call the logger here.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite array.");
 
         // The new size.
         int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -113,7 +115,7 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // CAUTION! This multiplication has to be done AFTER the comparison
             // of new size and old size since otherwise, the new size is falsified,
             // which would lead to runtime errors.
-            multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
+            calculate_integer_multiply((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
 
             // Enlarge array using new count as size.
             reallocate_array(p0, p6, (void*) &n, p2);
@@ -122,8 +124,14 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             copy_integer(p7, (void*) &n);
         }
 
+        // Decrement reference count of overwritten parts for rubbish (garbage) collection.
+        reference(*d, (void*) SUBTRACT_LOGIC_CYBOI_TYPE, p3, p4, p2);
+
         // Copy source to destination.
         copy_array_forward(*d, p1, p2, p3, p4, p5);
+
+        // Increment reference count of new parts for rubbish (garbage) collection.
+        reference(*d, (void*) ADD_LOGIC_CYBOI_TYPE, p3, p4, p2);
 
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -192,7 +200,9 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array. The destination array is null.");
+        // CAUTION! Do NOT call the logger here.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array. The destination array is null.");
     }
 }
 

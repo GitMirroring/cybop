@@ -52,7 +52,7 @@ void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
  */
 void encode_html_structured_tag_content_part(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html structured tag content part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html structured tag content part.");
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -94,7 +94,7 @@ void encode_html_structured_tag_content_part(void* p0, void* p1, void* p2, void*
  */
 void encode_html_structured_tag_content(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html structured tag content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode html structured tag content.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

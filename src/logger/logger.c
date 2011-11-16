@@ -23,22 +23,6 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-//
-// This file handles log messages.
-// It writes log entries to an output, such as the screen.
-//
-// CAUTION! This logger must NOT use any CYBOI functions!
-// Otherwise, an ENDLESS LOOP will be created, because cyboi's
-// functions call the logger in turn.
-//
-// CAUTION! Many functions used in the logger are provided
-// in the "logger/" directory as identical copies of those
-// functions in the "executor/" directory.
-// These copies are necessary to avoid circular references
-// between the logger and the functions used by it, because
-// the functions call the logger and vice versa.
-//
-
 #ifndef LOGGER_SOURCE
 #define LOGGER_SOURCE
 
@@ -48,16 +32,24 @@
 #include <unistd.h>
 #include <wchar.h>
 
-#include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/level_name_log_cyboi_model.c"
-#include "../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../logger/accessor/setter/log_array_setter.c"
+#include "../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../variable/log_setting.c"
+
+//
+// CAUTION! This logger uses some CYBOI functions so that
+// an ENDLESS LOOP might occur, if those functions call
+// the logger in turn.
+//
+// In order to avoid circular references, cyboi functions
+// used by the logger are NOT permitted to use the logger.
+//
 
 //
 // CAUTION! Following some reflexions on logging. There are two possibilities:
@@ -77,20 +69,46 @@
 // as the glibc documentation says.
 // But this also means that all log messages have to be converted to wide characters.
 //
-// Since the glibc "write" function used by the old version of the logger could not
+// Since the glibc "write" function used by the old version of the logger could NOT
 // handle wide characters, the functions "fputws" or "fwprintf" had to be used instead.
-// But they in turn require a termination wide character to be added.
-// Adding such a termination requires the creation of a new wide character array
-// to built together the whole log message, including log level, actual message
-// and finally termination wide character.
+// But they in turn REQUIRE A TERMINATION wide character to be added.
+// Adding such a termination requires the creation of a new wide character array to
+// build the whole log message including: log level, actual message, termination character.
 //
-// But: the logger must not allocate any memory area, since it is used by thread functions as well.
-// Therefore, a log message array with fixed size, pre-allocated at system startup,
-// needs to be forwarded (as global variable) and used by the logger.
+
+//
+// (The following remark is possibly OUTDATED, since threads are now
+// limited to sensing signals and do NOT use logging anymore.)
+//
+// CAUTION! The logger must not allocate any memory area, since it
+// might be used not only by the main process, but in threads as well.
+// Therefore, a log message array gets allocated at cyboi system startup,
+// and is forwarded as global variable "LOG_MESSAGE" to the logger.
 // Whenever a log message is copied to this array and written to console,
 // a MUTEX has to be set BEFORE, so that the log output does not conflict
 // between the main program flow and threads.
+// Trying to allocate memory in a thread would result in an error like:
 //
+// *** glibc detected *** malloc(): memory corruption (fast): 0x080e0470 ***
+// Aborted
+//
+
+//
+// CAUTION! Performance might suffer if allocating/ deallocating
+// memory for every single log message.
+//
+// Just one more argument to use the global variable "LOG_MESSAGE".
+//
+
+//
+// Forward declarations.
+//
+
+void compare_integer_equal(void* p0, void* p1, void* p2);
+void compare_integer_smaller_or_equal(void* p0, void* p1, void* p2);
+void copy_integer(void* p0, void* p1);
+void copy_pointer(void* p0, void* p1);
+void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Writes a terminated log message to the given output stream.
@@ -104,7 +122,7 @@
  * @param p0 the log output stream
  * @param p1 the log message
  */
-void log_write_terminated_message(void* p0, void* p1) {
+void log_write(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -118,15 +136,15 @@ void log_write_terminated_message(void* p0, void* p1) {
 
         } else {
 
-            // CAUTION! DO NOT use logging functionality here!
-            // The logger cannot log itself.
+            // CAUTION! Do NOT call the logger here.
+            // It cannot log itself.
             fputws(L"Error: Could not write terminated log message. The log output stream is null.\n", stdout);
         }
 
     } else {
 
-        // CAUTION! DO NOT use logging functionality here!
-        // The logger cannot log itself.
+        // CAUTION! Do NOT call the logger here.
+        // It cannot log itself.
         fputws(L"Error: Could not write terminated log message. The log message is null.\n", stdout);
     }
 }
@@ -134,64 +152,57 @@ void log_write_terminated_message(void* p0, void* p1) {
 /**
  * Gets the log level name.
  *
- * @param p0 the log level name
+ * @param p0 the log level name (pointer reference)
  * @param p1 the log level name count
  * @param p2 the log level
  */
 void log_get_level_name(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        int* l = (int*) p2;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        compare_integer_equal((void*) &r, p2, (void*) DEBUG_LEVEL_LOG_CYBOI_MODEL);
 
-            int* lnc = (int*) p1;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                void** ln = (void**) p0;
-
-                if (*l == *DEBUG_LEVEL_LOG_CYBOI_MODEL) {
-
-                    *ln = DEBUG_LEVEL_NAME_LOG_MODEL;
-                    *lnc = *DEBUG_LEVEL_NAME_LOG_MODEL_COUNT;
-
-                } else if (*l == *INFORMATION_LEVEL_LOG_CYBOI_MODEL) {
-
-                    *ln = INFORMATION_LEVEL_NAME_LOG_MODEL;
-                    *lnc = *INFORMATION_LEVEL_NAME_LOG_MODEL_COUNT;
-
-                } else if (*l == *WARNING_LEVEL_LOG_CYBOI_MODEL) {
-
-                    *ln = WARNING_LEVEL_NAME_LOG_MODEL;
-                    *lnc = *WARNING_LEVEL_NAME_LOG_MODEL_COUNT;
-
-                } else if (*l == *ERROR_LEVEL_LOG_CYBOI_MODEL) {
-
-                    *ln = ERROR_LEVEL_NAME_LOG_MODEL;
-                    *lnc = *ERROR_LEVEL_NAME_LOG_MODEL_COUNT;
-                }
-
-            } else {
-
-                // CAUTION! DO NOT use logging functionality here!
-                // The logger cannot log itself.
-                log_write_terminated_message((void*) stdout, L"Error: Could not get log level name. The log level name is null.\n");
-            }
-
-        } else {
-
-            // CAUTION! DO NOT use logging functionality here!
-            // The logger cannot log itself.
-            log_write_terminated_message((void*) stdout, L"Error: Could not get log level name. The log level name count is null.\n");
+            copy_pointer(p0, (void*) &DEBUG_LEVEL_NAME_LOG_CYBOI_MODEL);
+            copy_integer(p1, (void*) DEBUG_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT);
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! DO NOT use logging functionality here!
-        // The logger cannot log itself.
-        log_write_terminated_message((void*) stdout, L"Error: Could not get log level name. The log level is null.\n");
+        compare_integer_equal((void*) &r, p2, (void*) ERROR_LEVEL_LOG_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_pointer(p0, (void*) &ERROR_LEVEL_NAME_LOG_CYBOI_MODEL);
+            copy_integer(p1, (void*) ERROR_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_pointer(p0, (void*) &INFORMATION_LEVEL_NAME_LOG_CYBOI_MODEL);
+            copy_integer(p1, (void*) INFORMATION_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) WARNING_LEVEL_LOG_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_pointer(p0, (void*) &WARNING_LEVEL_NAME_LOG_CYBOI_MODEL);
+            copy_integer(p1, (void*) WARNING_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT);
+        }
     }
 }
 
@@ -210,160 +221,44 @@ void log_get_level_name(void* p0, void* p1, void* p2) {
  */
 void log_message(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        int* mc = (int*) p2;
+    compare_integer_smaller_or_equal((void*) &r, p0, (void*) LOG_LEVEL);
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            int* l = (int*) p0;
+        // Log message since the log level matches.
 
-            // Only log message if log level matches.
-            if (*l <= *LOG_LEVEL) {
+        // The log level name.
+        void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int lnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                // The log level name.
-                void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
-                int lnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // Add name of the given log level to log entry.
+        log_get_level_name((void*) &ln, (void*) &lnc, p0);
 
-                // Add name of the given log level to log entry.
-                log_get_level_name((void*) &ln, (void*) &lnc, p0);
+        // Copy log level.
+        overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) &lnc, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Copy colon.
+        overwrite_array((void*) &LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Copy space.
+        overwrite_array((void*) &LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Copy log message.
+        overwrite_array((void*) &LOG_MESSAGE, p1, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Copy line feed control wide character.
+        overwrite_array((void*) &LOG_MESSAGE, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Copy null termination wide character.
+        overwrite_array((void*) &LOG_MESSAGE, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-                if (LOG_OUTPUT != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    //
-                    // CAUTION! Do NOT allocate/ reallocate/ deallocate an array here, because:
-                    //
-                    // 1 Thread Safety
-                    //
-                    // The log functions are not only used by the main process,
-                    // but also in threads. Threads, however, are not allowed to
-                    // allocate any memory, as this would result in an error like:
-                    //
-                    // *** glibc detected *** malloc(): memory corruption (fast): 0x080e0470 ***
-                    // Aborted
-                    //
-                    // 2 Circular References
-                    //
-                    // The arrays use this logger which could cause circular references.
-                    //
-                    // Therefore, the global variable "LOG_MESSAGE" is used below.
-                    // It gets allocated at cyboi system startup.
-                    //
-
-                    // The index.
-                    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    // The maximum message count.
-                    int mmc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                    calculate_integer_add((void*) &mmc, (void*) &lnc);
-                    calculate_integer_add((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-                    calculate_integer_add((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-                    calculate_integer_add((void*) &mmc, p2);
-                    calculate_integer_add((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-                    calculate_integer_add((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-
-                    // The comparison result.
-                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                    compare_integer_smaller_or_equal((void*) &r, (void*) &mmc, (void*) LOG_MESSAGE_COUNT);
-
-                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        // RESET maximum message count to count of log message
-                        // that was handed over as parametre, because that message
-                        // is added as parametre below, that needs an own count.
-                        copy_integer((void*) &mmc, p2);
-
-                    } else {
-
-                        // Limit the maximum log message count to the global log message array's count.
-                        //
-                        // CAUTION! DO NOT FORGET TO SUBTRACT the number of extra characters to be added,
-                        // to have place to copy them to the log message array further below!
-                        // But do NOT subtract "*mc", as it was the reason for a too big message
-                        // and would result in a negative value!
-                        //
-                        // CAUTION! DO NOT SUBTRACT the message count itself, as that would lead
-                        // to a negative maximum message count.
-                        //
-                        // CAUTION! The LOG_MESSAGE_COUNT constant has to have a size
-                        // of at least (lnc + 4) which is normally not more than 20,
-                        // depending on the log level name length (count).
-                        copy_integer((void*) &mmc, (void*) LOG_MESSAGE_COUNT);
-                        calculate_integer_subtract((void*) &mmc, (void*) &lnc);
-                        calculate_integer_subtract((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-                        calculate_integer_subtract((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-                        calculate_integer_subtract((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-                        calculate_integer_subtract((void*) &mmc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-                    }
-
-                    // CAUTION! Further checks are not built in here!
-                    //
-                    // This logger source code assumes that the global variable LOG_MESSAGE_COUNT has
-                    // at least a size of about 15, calculated as follows:
-                    // lnc + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT
-                    // The variable "lnc" may hereby be a value from 5 to 11.
-                    // See module "log_level_name_constants.c"!
-
-                    // Copy log level.
-                    overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) &lnc, (void*) &i);
-                    // Increment index.
-                    i = i + lnc;
-
-                    // Copy colon.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-                    // Increment index.
-                    i = i + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
-
-                    // Copy space.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-                    // Increment index.
-                    i = i + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
-
-                    // Copy log message.
-                    log_overwrite_array((void*) LOG_MESSAGE, p1, (void*) &mmc, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-                    // Increment index.
-                    i = i + mmc;
-
-                    // Copy line feed control wide character.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-                    // Increment index.
-                    i = i + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
-
-                    // Copy null termination wide character.
-                    log_overwrite_array((void*) LOG_MESSAGE, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-
-                    // Log message.
-                    log_write_terminated_message((void*) LOG_OUTPUT, (void*) LOG_MESSAGE);
-
-                } else {
-
-                    // CAUTION! DO NOT use logging functionality here!
-                    // The logger cannot log itself.
-                    // Comment out this function call to avoid disturbing messages at system startup!
-                    // log_write_terminated_message((void*) stdout, L"Error: Could not log message. The log output is undefined.\n");
-                }
-
-            } else {
-
-                // CAUTION! Do NOT write an error message here!
-                // It is a wanted effect NOT to write a log message, NOR an error,
-                // if the given log level is not within the log level tolerance
-                // that was set as global variable at cyboi system startup.
-            }
-
-        } else {
-
-            // CAUTION! DO NOT use logging functionality here!
-            // The logger cannot log itself.
-            log_write_terminated_message((void*) stdout, L"Error: Could not log message. The message count is null.\n");
-        }
+        // Log message.
+        log_write((void*) LOG_OUTPUT, (void*) LOG_MESSAGE);
 
     } else {
 
-        // CAUTION! DO NOT use logging functionality here!
-        // The logger cannot log itself.
-        log_write_terminated_message((void*) stdout, L"Error: Could not log message. The log level is null.\n");
+        // CAUTION! Do NOT write an error message here!
+        // It is a wanted effect NOT to write a log message, NOR an error,
+        // if the given log level is not within the log level tolerance
+        // that was set as global variable at cyboi system startup.
     }
 }
 
@@ -373,7 +268,7 @@ void log_message(void* p0, void* p1, void* p2) {
  * @param p0 the log level
  * @param p1 the log message as null terminated string
  */
-void log_terminated_message(void* p0, void* p1) {
+void log_message_terminated(void* p0, void* p1) {
 
     // The message count.
     int c = wcslen((wchar_t*) p1);

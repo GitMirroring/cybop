@@ -47,7 +47,7 @@
  */
 void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send inline.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send inline.");
 
     overwrite_array(p0, p3, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 }
@@ -76,7 +76,7 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
 void apply_send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8,
     void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send inline message.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send inline message.");
 
     // The converted array.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;

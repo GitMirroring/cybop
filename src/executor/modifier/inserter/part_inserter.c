@@ -52,7 +52,7 @@
  */
 void insert_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert part element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert part element.");
 
     // The destination part element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -81,7 +81,7 @@ void insert_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  */
 void insert_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert part.");
 
     // The destination model.
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;

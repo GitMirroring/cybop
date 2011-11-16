@@ -47,7 +47,7 @@
  */
 void encode_cybol_boolean_value(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol boolean value.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol boolean value.");
 
     // The value.
     void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -79,7 +79,7 @@ void encode_cybol_boolean_value(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode cybol boolean value. The boolean value is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode cybol boolean value. The boolean value is not known.");
     }
 }
 

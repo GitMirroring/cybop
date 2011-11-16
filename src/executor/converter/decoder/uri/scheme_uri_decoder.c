@@ -48,7 +48,7 @@
  */
 void decode_uri_scheme(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode uri scheme.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode uri scheme.");
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;

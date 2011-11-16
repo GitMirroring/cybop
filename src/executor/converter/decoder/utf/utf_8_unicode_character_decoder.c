@@ -200,7 +200,7 @@ void decode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p
 
                         if (*dc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-8 Unicode character vector.");
+                            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-8 Unicode character vector.");
 
                             // The new destination wide character vector size.
                             //
@@ -281,43 +281,43 @@ void decode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p
                                 if (errno == EILSEQ) {
 
         fwprintf(stdout, L"TEST ERROR EILSEQ errno: %i\n", errno);
-                                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The input string contains an invalid multibyte sequence.");
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The input string contains an invalid multibyte sequence.");
 
                                 } else {
 
         fwprintf(stdout, L"TEST ERROR UNKNOWN errno: %i\n", errno);
-                                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. An unknown error occured.");
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. An unknown error occured.");
                                 }
                             }
 
                         } else {
 
-                            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination count is negative.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination count is negative.");
                         }
 
                     } else {
 
-                        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination is null.");
                     }
 
                 } else {
 
-                    log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination count is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination count is null.");
                 }
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination size is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination size is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The source is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The source is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The source count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The source count is null.");
     }
 }
 

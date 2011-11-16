@@ -79,7 +79,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         int* a = (int*) p4;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare value.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare value.");
 
         // The comparison result.
         // CAUTION! It is used instead of if-else statements.
@@ -178,12 +178,12 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare value. The operand type is unknown.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare value. The operand type is unknown.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare value. The operand type is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare value. The operand type is null.");
     }
 }
 
@@ -200,7 +200,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void compare_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare value offset.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare value offset.");
 
     // The left value, right value.
     // CAUTION! They HAVE TO BE initialised with p1 and p2,

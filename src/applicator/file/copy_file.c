@@ -54,7 +54,7 @@
  */
 void apply_copy_file(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply copy file.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply copy file.");
 
     // The recursive part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;

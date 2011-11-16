@@ -65,7 +65,7 @@ void decode_xml_end_tag(void* p0, void* p1);
  */
 void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xml element content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xml element content.");
 
     //
     // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!

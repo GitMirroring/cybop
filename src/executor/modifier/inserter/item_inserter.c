@@ -52,7 +52,7 @@
  */
 void insert_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert item element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert item element.");
 
     // The destination item element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -114,7 +114,7 @@ void insert_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  */
 void insert_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert item.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert item.");
 
     // The destination data, count, size.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;

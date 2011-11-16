@@ -60,7 +60,7 @@
  */
 void overwrite_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite part element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite part element.");
 
     // The destination part element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -88,7 +88,7 @@ void overwrite_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, vo
  */
 void overwrite_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite part.");
 
     // The destination model.
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -121,7 +121,7 @@ void overwrite_part_all(void* p0, void* p1) {
     //?? Figure out how to solve the problem that destination child parts yet have to be allocated
     //?? and where to do this AND where to create the destination part itself!
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite part all.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite part all.");
 
     // The destination name, type, model, properties.
     void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;

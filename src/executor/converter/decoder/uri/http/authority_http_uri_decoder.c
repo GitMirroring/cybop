@@ -50,7 +50,7 @@
  */
 void decode_http_uri_authority_content(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri authority content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri authority content.");
 
     //
     // Add authority as full text representation.
@@ -94,7 +94,7 @@ void decode_http_uri_authority_content(void* p0, void* p1, void* p2) {
  */
 void decode_http_uri_authority(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri authority.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode http uri authority.");
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;

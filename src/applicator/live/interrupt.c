@@ -56,7 +56,7 @@ void apply_interrupt_thread(void* p0, void* p1) {
 
             pthread_t* t = (pthread_t*) p0;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Interrupt thread.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Interrupt thread.");
 
             if (*t != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -91,17 +91,17 @@ void apply_interrupt_thread(void* p0, void* p1) {
 
             } else {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not interrupt thread. The service thread is invalid.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not interrupt thread. The service thread is invalid.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not interrupt thread. The service thread is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not interrupt thread. The service thread is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not interrupt thread. The service thread interrupt is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not interrupt thread. The service thread interrupt is null.");
     }
 }
 
@@ -116,7 +116,7 @@ void apply_interrupt_thread(void* p0, void* p1) {
  */
 void apply_interrupt(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply interrupt.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply interrupt.");
 
     // The service part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -177,7 +177,7 @@ void apply_interrupt(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply interrupt. The service is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply interrupt. The service is unknown.");
     }
 }
 

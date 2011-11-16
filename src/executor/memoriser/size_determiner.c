@@ -51,7 +51,9 @@ void determine_size(void* p0, void* p1) {
 
         int* a = (int*) p1;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Determine size.");
+        // CAUTION! Do NOT call the logger here.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Determine size.");
 
         if (*a == *CHARACTER_STATE_CYBOI_TYPE) {
 
@@ -71,7 +73,7 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*a == *INTEGER_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+            copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
 
         } else if (*a == *PART_STATE_CYBOI_TYPE) {
 
@@ -90,7 +92,7 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*a == *UNSIGNED_LONG_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+            copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
 
         } else if (*a == *WIDE_CHARACTER_STATE_CYBOI_TYPE) {
 
@@ -98,12 +100,16 @@ void determine_size(void* p0, void* p1) {
 
         } else {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is unknown.");
+            // CAUTION! Do NOT call the logger here.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is unknown.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is null.");
+        // CAUTION! Do NOT call the logger here.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is null.");
     }
 }
 

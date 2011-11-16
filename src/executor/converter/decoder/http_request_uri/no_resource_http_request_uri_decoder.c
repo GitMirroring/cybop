@@ -48,7 +48,7 @@ void decode_no_resource_http_request_uri(void* p0, void* p1, void* p2, void* p3,
 
         int* r = (int*) p2;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode no resource http request uri.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode no resource http request uri.");
 
         // The break flag.
         int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -72,7 +72,7 @@ void decode_no_resource_http_request_uri(void* p0, void* p1, void* p2, void* p3,
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode no resource http request uri. The comparison result is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode no resource http request uri. The comparison result is null.");
     }
 }
 

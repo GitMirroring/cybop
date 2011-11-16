@@ -54,7 +54,9 @@
  */
 void copy_value(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value.");
+    // CAUTION! Do NOT call the logger here.
+    // It uses functions causing circular references.
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value.");
 
     // The comparison result.
     // CAUTION! It is used instead of if-else statements.
@@ -143,7 +145,9 @@ void copy_value(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy value. The operand type is unknown.");
+        // CAUTION! Do NOT call the logger here.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy value. The operand type is unknown.");
     }
 }
 
@@ -158,7 +162,9 @@ void copy_value(void* p0, void* p1, void* p2) {
  */
 void copy_value_offset(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value offset.");
+    // CAUTION! Do NOT call the logger here.
+    // It uses functions causing circular references.
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value offset.");
 
     // The destination value, source value.
     // CAUTION! They HAVE TO BE initialised with p0 and p1,

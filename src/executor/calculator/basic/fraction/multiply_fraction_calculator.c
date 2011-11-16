@@ -39,7 +39,7 @@
  */
 void calculate_fraction_multiply(void* p0, void* p1) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate fraction multiply.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate fraction multiply.");
 
     // The destination numerator and denominator.
     void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -53,7 +53,7 @@
  */
 void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Build list name.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Build list name.");
 
     // The basisname name, type, model, properties.
     void** bnn = NULL_POINTER_STATE_CYBOI_MODEL;

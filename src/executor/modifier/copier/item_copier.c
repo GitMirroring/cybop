@@ -51,7 +51,7 @@
  */
 void copy_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy item.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy item.");
 
     // The destination data.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;

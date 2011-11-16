@@ -49,7 +49,7 @@
  */
 void startup_gnu_linux_console(void* p0) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup gnu/linux console.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup gnu/linux console.");
 
     // The gnu/linux console input- and output stream.
     FILE* ip = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -157,19 +157,19 @@ void startup_gnu_linux_console(void* p0) {
 
         } else {
 
-            log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. The termios settings could not be stored.\n");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. The termios settings could not be stored.\n");
 
             if (errno == EBADF) {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. The filedes argument is not a valid file descriptor.\n");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. The filedes argument is not a valid file descriptor.\n");
 
             } else if (errno == ENOTTY) {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. The filedes is not associated with a terminal.\n");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. The filedes is not associated with a terminal.\n");
 
             } else {
 
-                log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. An unknown error occured.\n");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. An unknown error occured.\n");
             }
         }
 
@@ -179,11 +179,11 @@ void startup_gnu_linux_console(void* p0) {
 
         if (l == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"This is a gnu/linux console.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"This is a gnu/linux console.");
 
         } else {
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"This is a standard serial terminal.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"This is a standard serial terminal.");
         }
 */
 
@@ -199,7 +199,7 @@ void startup_gnu_linux_console(void* p0) {
 
     } else {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. The gnu/linux console input or output or both are already running.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup gnu/linux console. The gnu/linux console input or output or both are already running.");
     }
 }
 

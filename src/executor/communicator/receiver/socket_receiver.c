@@ -65,7 +65,7 @@
  */
 void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive socket.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive socket.");
 
 /*??
     fwprintf(stdout, L"TEST 1 l: %s \n", (wchar_t*) p9);
@@ -148,7 +148,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     } else {
 
-        log_terminated_message((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive socket message. The action parametre is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive socket message. The action parametre is null.");
     }
 
     fwprintf(stdout, L"TEST 5 bc: %i \n", *((int*) p29));

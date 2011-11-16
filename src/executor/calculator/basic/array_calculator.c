@@ -49,7 +49,7 @@ void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) 
 
         int* c = (int*) p4;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array elements.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array elements.");
 
         // The loop variable.
         int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -68,7 +68,7 @@ void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) 
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array elements. The count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array elements. The count is null.");
     }
 }
 
@@ -95,7 +95,7 @@ void calculate_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array.");
 
             // The result array, operand array.
             // CAUTION! They HAVE TO BE initialised with p0 and p1,
@@ -111,12 +111,12 @@ void calculate_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The result (operand before operation) array is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The result (operand before operation) array is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The operand array is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The operand array is null.");
     }
 }
 

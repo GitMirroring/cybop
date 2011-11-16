@@ -50,7 +50,7 @@ void get_part_branch(void* p0, void* p1, void* p2, void* p3) {
 
         int* rem = (int*) p3;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part branch.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part branch.");
 
         // The part element index indicating the knowledge branch.
         int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -59,7 +59,7 @@ void get_part_branch(void* p0, void* p1, void* p2, void* p3) {
 
             if (*rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part branch. The remaining count is zero or smaller.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part branch. The remaining count is zero or smaller.");
 
                 break;
             }
@@ -81,7 +81,7 @@ void get_part_branch(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part branch. The remaining count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part branch. The remaining count is null.");
     }
 }
 

@@ -37,7 +37,7 @@
  */
 void test_accessor_size_determiner() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test accessor size determiner.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test accessor size determiner.");
 
     // The character type (type) size.
     int cs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -125,7 +125,7 @@ void test_accessor_array_setter() {
  */
 void test_accessor() {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test accessor.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test accessor.");
 
 //    test_accessor_size_determiner();
 //    test_accessor_assigner();

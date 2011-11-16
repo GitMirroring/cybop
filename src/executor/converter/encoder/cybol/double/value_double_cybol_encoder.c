@@ -56,7 +56,7 @@
  */
 void encode_cybol_double_value(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol double value.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode cybol double value.");
 
     // The value.
     void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -112,7 +112,7 @@ void encode_cybol_double_value(void* p0, void* p1, void* p2) {
         // The value returned by the conversion function is negative,
         // which means that the value was NOT converted successfully.
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode cybol double value.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode cybol double value.");
 
         // CAUTION! A more flexible approach would be to stepwise enlarge
         // the destination array, until the provided source value matches.

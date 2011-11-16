@@ -70,7 +70,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         void** d = (void**) p0;
 
-        log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert array inside.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert array inside.");
 
         // The move destination index.
         int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -128,11 +128,11 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         copy_integer(p6, (void*) &n);
 
         // Increment reference count of inserted parts for rubbish (garbage) collection.
-        reference_array(*d, (void*) ADD_LOGIC_CYBOI_TYPE, p3, p4, p2);
+        reference(*d, (void*) ADD_LOGIC_CYBOI_TYPE, p3, p4, p2);
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The destination array is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The destination array is null.");
     }
 }
 
@@ -151,7 +151,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  */
 void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert array.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert array.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

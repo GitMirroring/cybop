@@ -39,27 +39,27 @@
 void globalise_socket() {
 
     // Allocate and initialise struct in_addr socket type size.
-    INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
     *INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in_addr);
 
     // Allocate and initialise struct sockaddr_in socket type size.
-    INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
     *INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in);
 
     // Allocate and initialise struct in6_addr socket type size.
-    INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
     *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in6_addr);
 
     // Allocate and initialise struct sockaddr_in6 socket type size.
-    INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
     *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in6);
 
     // Allocate and initialise struct sockaddr_un socket type size.
-    LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
     *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_un);
 
     // Allocate and initialise struct sockaddr socket type size.
-    SOCKET_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    SOCKET_ADDRESS_SOCKET_TYPE_SIZE = (signed int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
     *SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr);
 }
 

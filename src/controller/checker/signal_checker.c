@@ -79,8 +79,8 @@
  */
 void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signal with highest priority and otherwise, for interrupts.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signal with highest priority and otherwise, for interrupts.");
 
     // The signal.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;

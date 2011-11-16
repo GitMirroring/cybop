@@ -58,7 +58,7 @@ void decode_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             int* hc = (int*) p1;
 
-            log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xml attribute.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode xml attribute.");
 
             // The source attribute name.
             void* an = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -121,12 +121,12 @@ void decode_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml attribute. The has content flag is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml attribute. The has content flag is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml attribute. The is empty flag is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xml attribute. The is empty flag is null.");
     }
 }
 

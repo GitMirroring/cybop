@@ -47,7 +47,7 @@
  */
 void remove_item(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove item.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove item.");
 
     // The item data, count, size.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -79,7 +79,7 @@
  */
 void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode gnu/linux console.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode gnu/linux console.");
 
     // The source part name, type, model, properties.
     void** n = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -567,7 +567,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode compound model into terminal control sequences. The source count parametre is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode compound model into terminal control sequences. The source count parametre is null.");
             }
 
         } else {
@@ -599,7 +599,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode compound model into terminal control sequences. The hierarchical compound element name contains a meta element, while only part elements are permitted.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode compound model into terminal control sequences. The hierarchical compound element name contains a meta element, while only part elements are permitted.");
     }
 }
 

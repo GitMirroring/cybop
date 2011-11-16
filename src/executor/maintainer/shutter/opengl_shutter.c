@@ -42,7 +42,7 @@
  */
 void shutdown_opengl(void* p0, void* p1, void* p2, void* p3) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown opengl.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown opengl.");
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 

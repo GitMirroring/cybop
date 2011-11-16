@@ -54,7 +54,7 @@ void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         struct _XDisplay** d = (struct _XDisplay**) p0;
 
-        log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to x window system display.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to x window system display.");
 
         // The window.
         int** w = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
@@ -83,17 +83,17 @@ void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             } else {
 
-                log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to x window system display. The destination display is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to x window system display. The destination display is null.");
             }
 
         } else {
 
-            log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to x window system display. The destination display is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to x window system display. The destination display is null.");
         }
 
     } else {
 
-        log_terminated_message((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to x window system display. The destination display argument is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to x window system display. The destination display argument is null.");
     }
 }
 
@@ -108,7 +108,7 @@ void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
  */
 void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send x window system.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send x window system.");
 
     // The x window system mutex.
     pthread_mutex_t** xmt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;

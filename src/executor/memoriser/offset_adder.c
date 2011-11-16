@@ -47,7 +47,9 @@
  */
 void add_offset(void* p0, void* p1, void* p2) {
 
-    log_terminated_message((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add offset.");
+    // CAUTION! Do NOT call the logger here.
+    // It uses functions causing circular references.
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add offset.");
 
     // The offset (memory area).
     int o = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
