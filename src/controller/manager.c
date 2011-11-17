@@ -38,8 +38,6 @@
 #include "../controller/manager/system_signal_handler_manager.c"
 #include "../controller/checker.c"
 #include "../controller/initialiser.c"
-#include "../executor/memoriser/allocator/model_allocator.c"
-#include "../executor/memoriser/deallocator/model_deallocator.c"
 #include "../logger/logger.c"
 #include "../variable/type_size/integral_type_size.c"
 #include "../variable/type_size/real_type_size.c"

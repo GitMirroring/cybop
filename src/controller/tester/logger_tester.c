@@ -36,8 +36,8 @@
  */
 void test_logger_stdout() {
 
-    log_write_terminated_message((void*) stdout, L"Test logger standard output.\n");
-    log_write_terminated_message((void*) stdout, L"It works!\n");
+    log_write((void*) stdout, L"Test logger standard output.\n");
+    log_write((void*) stdout, L"It works!\n");
 }
 
 /**

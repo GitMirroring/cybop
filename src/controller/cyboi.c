@@ -80,7 +80,7 @@ int main(int p0, char** p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // log_write_terminated_message(stdout, L"Information: Execute cyboi.\n");
+        // log_write(stdout, L"Information: Execute cyboi.\n");
 
         // Startup global variables.
         globalise();
@@ -203,14 +203,14 @@ int main(int p0, char** p1) {
         // Shutdown global variables.
         unglobalise();
 
-        log_write_terminated_message(stdout, L"\nInformation: Exit cyboi normally.\n");
+        log_write(stdout, L"\nInformation: Exit cyboi normally.\n");
 
         // Set return value to 0, to indicate proper shutdown.
         r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     } else {
 
-        log_write_terminated_message(stdout, L"Error: Could not execute cyboi. The command line argument vector is null.\n");
+        log_write(stdout, L"Error: Could not execute cyboi. The command line argument vector is null.\n");
     }
 
     return r;

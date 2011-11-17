@@ -27,9 +27,8 @@
 #define CONVERTER_TESTER
 
 #include <stdio.h>
+
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/memoriser/allocator/model_allocator.c"
-#include "../../executor/memoriser/deallocator/model_deallocator.c"
 #include "../../logger/logger.c"
 
 /**
@@ -37,7 +36,7 @@
  */
 void test_converter_integer_to_wide_character_conversion() {
 
-    log_write_terminated_message((void*) stdout, L"Test integer-to-wide character conversion:\n");
+    log_write((void*) stdout, L"Test integer-to-wide character conversion:\n");
 
     // The test wide character array.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -75,7 +74,7 @@ void test_converter_integer_to_wide_character_conversion() {
  */
 void test_converter_encode_integer() {
 
-    log_write_terminated_message((void*) stdout, L"Test encode integer:\n");
+    log_write((void*) stdout, L"Test encode integer:\n");
 
     // The destination character array.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -105,7 +104,7 @@ void test_converter_encode_integer() {
  */
 void test_converter_decode_integer_vector() {
 
-    log_write_terminated_message((void*) stdout, L"Test decode integer vector:\n");
+    log_write((void*) stdout, L"Test decode integer vector:\n");
 
     // The source character array.
     wchar_t sa[] = {L'1', L',', L'2', L',', L'3', L',', L'4', L',', L'5'};
@@ -148,7 +147,7 @@ void test_converter_decode_integer_vector() {
  */
 void test_converter_encode_integer_vector() {
 
-    log_write_terminated_message((void*) stdout, L"Test encode integer vector:\n");
+    log_write((void*) stdout, L"Test encode integer vector:\n");
 
     // The source integer array.
     //?? TODO: Shouldn't this be WITHOUT apostrophes, i.e.:
@@ -182,7 +181,7 @@ void test_converter_encode_integer_vector() {
  */
 void test_converter_decode_utf8() {
 
-    log_write_terminated_message((void*) stdout, L"Test utf-8 decoding:\n");
+    log_write((void*) stdout, L"Test utf-8 decoding:\n");
 
     wchar_t* f = L"exit/run.cybol";
     int fc = 14;

@@ -47,7 +47,7 @@
  */
 void test_memoriser_array_resizing() {
 
-    log_write_terminated_message((void*) stdout, L"Test memoriser array resizing:\n");
+    log_write((void*) stdout, L"Test memoriser array resizing:\n");
 
     // The text.
     wchar_t ta[] = {L't', L'e', L's', L't', L'\n', L'\0'};
@@ -72,14 +72,14 @@ void test_memoriser_array_resizing() {
     overwrite_array(o, (void*) t, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) tc, (void*) &oc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &oc, (void*) &os);
 
     // Print original array content.
-    log_write_terminated_message((void*) stdout, t);
+    log_write((void*) stdout, t);
 
     // Reallocate copied array.
     os = os + *NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
     reallocate_array((void*) &o, (void*) &oc, (void*) &os, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     // Print original array content.
-    log_write_terminated_message((void*) stdout, t);
+    log_write((void*) stdout, t);
 
     // Deallocate original array.
     deallocate_array((void*) &o, (void*) &os, (void*) CHARACTER_STATE_CYBOI_TYPE);

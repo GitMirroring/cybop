@@ -36,7 +36,7 @@
  */
 void test_constant_float() {
 
-    log_write_terminated_message((void*) stdout, L"Test float constants:\n");
+    log_write((void*) stdout, L"Test float constants:\n");
 
     fwprintf(stdout, L"Test base of natural logarithms: %f\n", *E_DOUBLE_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"Test logarithm to base 2 of M_E: %f\n", *LOG_2_E_DOUBLE_STATE_CYBOI_MODEL);

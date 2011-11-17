@@ -45,12 +45,19 @@
 //?? Didier Link <didier@famille-link.fr> said that glut.h would suffice
 //?? and freeglut.h would not be needed.
 //?? #include <GL/freeglut.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <errno.h>
+#include <locale.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <termios.h>
+#include <unistd.h>
 #include <wchar.h>
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../logger/logger.c"
 #include "../../variable/type_size/terminal_type_size.c"
 
@@ -59,10 +66,10 @@
  */
 void test_stdout_stdout() {
 
-    log_write_terminated_message((void*) stdout, L"Test stdout stdout:\n");
+    log_write((void*) stdout, L"Test stdout stdout:\n");
 
-    log_write_terminated_message((void*) stdout, L"test stdout ok\n");
-    log_write_terminated_message((void*) stdout, L"test stdout ok\n");
+    log_write((void*) stdout, L"test stdout ok\n");
+    log_write((void*) stdout, L"test stdout ok\n");
 }
 
 /**
@@ -101,8 +108,8 @@ void test_wide_character_wprintf() {
     // static wchar_t* TEST_WIDE_CHARACTER_STRING = TEST_WIDE_CHARACTER_STRING_ARRAY;
 
 //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY[] = {'r', 'e', 'c', 't', 'a', 'n', '為', 'l', 'e', '\0'};
-    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY[] = {'r', 'e', 'c', 't', 'a', 'n', '─', 'l', 'e', '\0'};
-    static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION = TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY;
+//    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY[] = {'r', 'e', 'c', 't', 'a', 'n', '─', 'l', 'e', '\0'};
+//    static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION = TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY;
 
 //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'為', L'l', L'e'};
     static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'─', L'l', L'e'};
@@ -126,8 +133,8 @@ void test_wide_character_wprintf() {
     // - negative value: (narrow) character mode
     fwide(stdout, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    log_write_terminated_message((void*) stdout, L"Test fputws.\n");
-//??    log_write_terminated_message((void*) stdout, (wchar_t*) TEST_WIDE_CHARACTER_STRING);
+    log_write((void*) stdout, L"Test fputws.\n");
+//??    log_write((void*) stdout, (wchar_t*) TEST_WIDE_CHARACTER_STRING);
     wprintf(L"Test wprintf without stream argument.\n");
 
     // Test wide character constants.
@@ -140,7 +147,7 @@ void test_wide_character_wprintf() {
 
 //??    fwprintf(stdout, L"Test wide character string ls: %5ls \n", TEST_WIDE_CHARACTER_STRING);
 //??    fwprintf(stdout, L"Test wide character string s: %5s \n", TEST_WIDE_CHARACTER_STRING);
-    fwprintf(stdout, L"Test wide character string with termination: %5ls \n", TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION);
+//    fwprintf(stdout, L"Test wide character string with termination: %5ls \n", TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION);
 
     fwprintf(stdout, L"Test wide character string L ls: %5ls \n", TEST_WIDE_CHARACTER_STRING_WITH_L);
     fwprintf(stdout, L"Test wide character string L s: %5s \n", TEST_WIDE_CHARACTER_STRING_WITH_L);
@@ -154,7 +161,7 @@ void test_wide_character_wprintf() {
 //??    fwprintf(stdout, L"Test wide character string fourth letter with cast: %lc \n", (wchar_t*) TEST_WIDE_CHARACTER_STRING[3]);
 //??    fwprintf(stdout, L"Test wide character string fourth letter without cast: %lc \n", TEST_WIDE_CHARACTER_STRING[3]);
 
-    log_write_terminated_message((void*) stdout, L"Test END.\n");
+    log_write((void*) stdout, L"Test END.\n");
 }
 
 /**
@@ -163,7 +170,7 @@ void test_wide_character_wprintf() {
  */
 void test_wide_character_output() {
 
-    log_write_terminated_message((void*) stdout, L"Test wide character array with termination:\n");
+    log_write((void*) stdout, L"Test wide character array with termination:\n");
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     // Possible locales are: LANG, LC_CTYPE, LC_ALL.
@@ -247,7 +254,7 @@ void test_wide_character_output() {
     // Write to terminal.
 //??    fwprintf(t, L"%s\n", ts);
     fwprintf(t, L"%ls\n", (wchar_t*) ts);
-//??    log_write_terminated_message((void*) stdout, (wchar_t*) ts, t);
+//??    log_write((void*) stdout, (wchar_t*) ts, t);
 
     // Destroy terminated control sequences.
     deallocate_array((void*) &ts, (void*) &tss, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
@@ -295,7 +302,7 @@ void test_wide_character_output() {
  */
 void test_communicator_file_read() {
 
-    log_write_terminated_message((void*) stdout, L"Test communicator file read:\n");
+    log_write((void*) stdout, L"Test communicator file read:\n");
 
     // A file named "/home/cybop/tmp/test.cybol" needs to be created
     // in a text editor, for this test to work.
@@ -349,7 +356,7 @@ void test_communicator_file_read() {
  */
 void test_communicator_file_write() {
 
-    log_write_terminated_message((void*) stdout, L"Test communicator file write:\n");
+    log_write((void*) stdout, L"Test communicator file write:\n");
 
     // The character array.
     char aa[] = {'H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\n'};
@@ -374,7 +381,7 @@ void test_communicator_file_write() {
  */
 void test_communicator_console_input() {
 
-    log_write_terminated_message((void*) stdout, L"Test communicator console input:\n");
+    log_write((void*) stdout, L"Test communicator console input:\n");
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     // The terminal device name.
@@ -441,15 +448,15 @@ void test_communicator_console_input() {
 
         if (errno == EBADF) {
 
-            log_write_terminated_message((void*) stdout, L"Could not store old termios settings. The filedes argument is not a valid file descriptor.\n");
+            log_write((void*) stdout, L"Could not store old termios settings. The filedes argument is not a valid file descriptor.\n");
 
         } else if (errno == ENOTTY) {
 
-            log_write_terminated_message((void*) stdout, L"Could not store old termios settings. The filedes is not associated with a terminal.\n");
+            log_write((void*) stdout, L"Could not store old termios settings. The filedes is not associated with a terminal.\n");
 
         } else {
 
-            log_write_terminated_message((void*) stdout, L"Could not store old termios settings.\n");
+            log_write((void*) stdout, L"Could not store old termios settings.\n");
         }
     }
 // GNU_LINUX_OPERATING_SYSTEM
@@ -461,14 +468,14 @@ void test_communicator_console_input() {
  */
 void test_communicator_console_output() {
 
-    log_write_terminated_message((void*) stdout, L"Test communicator console output:\n");
+    log_write((void*) stdout, L"Test communicator console output:\n");
 
 /*??
     if (strcmp("linux", getenv("TERM")) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 */
 
         // This is a gnu/linux console.
-        log_write_terminated_message((void*) stdout, L"This is a gnu/linux console.\n");
+        log_write((void*) stdout, L"This is a gnu/linux console.\n");
 
 /*??
         // Determine device name of controlling terminal.
@@ -488,20 +495,20 @@ void test_communicator_console_output() {
         //
 
         // Print bold word.
-        log_write_terminated_message((void*) stdout, L"This is a \033[1mbold\033[0m word.\n");
+        log_write((void*) stdout, L"This is a \033[1mbold\033[0m word.\n");
 
         // Set colours.
         // CAUTION! The "m" has to stand after the colour number
         // and it must NOT be a capital letter.
-        log_write_terminated_message((void*) stdout, L"Set colour to \033[32mgreen\033[0m.\n");
-        log_write_terminated_message((void*) stdout, L"Set colour to \033[32myellow\041[0m.\n");
-        log_write_terminated_message((void*) stdout, L"Set colour to \033[32mred\031[0m.\n");
+        log_write((void*) stdout, L"Set colour to \033[32mgreen\033[0m.\n");
+        log_write((void*) stdout, L"Set colour to \033[32myellow\041[0m.\n");
+        log_write((void*) stdout, L"Set colour to \033[32mred\031[0m.\n");
 
 /*??
     } else {
 
         // This is a normal serial terminal.
-        log_write_terminated_message((void*) stdout, L"This is a normal serial terminal.\n");
+        log_write((void*) stdout, L"This is a normal serial terminal.\n");
     }
 */
 }
@@ -565,7 +572,7 @@ int test_communicator_mesa_opengl_standard(int argc, char **argv) {
  */
 void test_communicator_mesa_opengl() {
 
-    log_write_terminated_message((void*) stdout, L"Test communicator mesa opengl:\n");
+    log_write((void*) stdout, L"Test communicator mesa opengl:\n");
 
 /*??
     // This example will draw a green square on the screen.

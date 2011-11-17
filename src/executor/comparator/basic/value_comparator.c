@@ -128,16 +128,6 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *ITEM_PRIMITIVE_STATE_CYBOI_TYPE) {
-
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-                compare_item(p0, p1, p2, p3);
-            }
-        }
-
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
             if (*a == *PART_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;

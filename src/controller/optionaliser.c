@@ -31,24 +31,20 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../constant/type/cybol/text_cybol_type.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../constant/type/cyboi/logic_cyboi_type.c"
-#include "../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../constant/model/command_argument/cyboi/log_level_cyboi_command_argument_model.c"
-#include "../constant/model/cyboi/operation_mode_cyboi_model.c"
+#include "../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../constant/model/cyboi/option/log_level_option_cyboi_model.c"
+#include "../constant/model/cyboi/operation_mode_cyboi_model.c"
 #include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/name/command_option/cyboi_command_option_name.c"
+#include "../constant/name/cyboi/option_cyboi_name.c"
+#include "../constant/type/cyboi/logic_cyboi_type.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/comparator/all/array_all_comparator.c"
 #include "../executor/modifier/copier/integer_copier.c"
 #include "../executor/modifier/overwriter/array_overwriter.c"
 #include "../executor/modifier/overwriter/item_overwriter.c"
-#include "../executor/memoriser/allocator/model_allocator.c"
-#include "../executor/memoriser/deallocator/model_deallocator.c"
 
 /**
  * Optionalises the log level option.
@@ -62,71 +58,66 @@ void optionalise_log_level(void* p0, void* p1, void* p2) {
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
     // Comment out this function call to avoid disturbing messages at system startup!
-    // log_write_terminated_message((void*) stdout, L"Debug: Optionalise log level.\n");
+    // log_write((void*) stdout, L"Debug: Optionalise log level.\n");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) OFF_LOG_LEVEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) OFF_LOG_LEVEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set log level.
             copy_integer(p0, (void*) OFF_LEVEL_LOG_CYBOI_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ERROR_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) ERROR_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set log level.
             copy_integer(p0, (void*) ERROR_LEVEL_LOG_CYBOI_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) WARNING_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) WARNING_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set log level.
             copy_integer(p0, (void*) WARNING_LEVEL_LOG_CYBOI_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set log level.
             copy_integer(p0, (void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) DEBUG_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) DEBUG_LEVEL_LOG_CYBOI_MODEL_CYBOI_COMMAND_ARGUMENT_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set log level.
             copy_integer(p0, (void*) DEBUG_LEVEL_LOG_CYBOI_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
-        log_write_terminated_message((void*) stdout, L"Warning: Could not optionalise log level. The log level name is unknown.\n");
+        log_write((void*) stdout, L"Warning: Could not optionalise log level. The log level name is unknown.\n");
     }
 }
 
@@ -146,7 +137,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
         // Comment out this function call to avoid disturbing messages at system startup!
-        // log_write_terminated_message((void*) stdout, L"Debug: Optionalise log file.\n");
+        // log_write((void*) stdout, L"Debug: Optionalise log file.\n");
 
         // The terminated file name.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -162,7 +153,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         encode_utf_8_unicode_character_vector((void*) &t, (void*) &tc, (void*) &ts, p1, p2);
 
         // Add null termination character to terminated file name.
-        overwrite_array((void*) &t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tc, (void*) &ts);
+        overwrite_array((void*) &t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tc, (void*) &ts, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Open log file for writing only.
         // If the file already exists, it is truncated to zero length.
@@ -196,7 +187,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
 
             // CAUTION! DO NOT use logging functionality here!
             // The logger will not work before its options are set.
-            log_write_terminated_message((void*) stdout, L"Error: Could not optionalise log file. An error occured when trying to open or create the file for writing.\n");
+            log_write((void*) stdout, L"Error: Could not optionalise log file. An error occured when trying to open or create the file for writing.\n");
         }
 
         // Deallocate terminated file name as multibyte character array.
@@ -206,7 +197,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
-        log_write_terminated_message((void*) stdout, L"Error: Could not optionalise log file. The file descriptor is null.\n");
+        log_write((void*) stdout, L"Error: Could not optionalise log file. The file descriptor is null.\n");
     }
 }
 
@@ -224,7 +215,7 @@ void deoptionalise_log_file(void* p0) {
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
         // Comment out this function call to avoid disturbing messages at system startup!
-        // log_write_terminated_message((void*) stdout, L"Debug: Deoptionalise log file.\n");
+        // log_write((void*) stdout, L"Debug: Deoptionalise log file.\n");
 
         // CAUTION! This test is necessary! Do NOT delete it!
         // Checking the file stream argument above is not sufficient,
@@ -248,7 +239,7 @@ void deoptionalise_log_file(void* p0) {
             // CAUTION! DO NOT use logging functionality here!
             // The logger will not work before its options are set.
             // Do NOT show the following message, as it would only disturb the user!
-            // log_write_terminated_message((void*) stdout, L"Warning: Could not deoptionalise log file. No log file was given at system startup.\n");
+            // log_write((void*) stdout, L"Warning: Could not deoptionalise log file. No log file was given at system startup.\n");
         }
 
     } else {
@@ -256,7 +247,7 @@ void deoptionalise_log_file(void* p0) {
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
         // Do NOT show the following message, as it would only disturb the user!
-        log_write_terminated_message((void*) stdout, L"Error: Could not deoptionalise log file. The file descriptor is null.\n");
+        log_write((void*) stdout, L"Error: Could not deoptionalise log file. The file descriptor is null.\n");
     }
 }
 
@@ -280,87 +271,87 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
     // Comment out this function call to avoid disturbing messages at system startup!
-    // log_write_terminated_message((void*) stdout, L"Debug: Optionalise option.\n");
+    // log_write((void*) stdout, L"Debug: Optionalise option.\n");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) HELP_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) HELP_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) HELP_OPTION_CYBOI_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) HELP_OPTION_CYBOI_NAME_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set help operation mode.
             copy_integer(p0, (void*) HELP_OPERATION_MODE_CYBOI_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) KNOWLEDGE_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) KNOWLEDGE_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) KNOWLEDGE_OPTION_CYBOI_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) KNOWLEDGE_OPTION_CYBOI_NAME_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Copy file path from value to cybol knowledge file path.
-            overwrite_item_element(p1, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            overwrite_item_element(p1, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set knowledge operation mode.
             copy_integer(p0, (void*) KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) LOG_FILE_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) LOG_FILE_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) LOG_FILE_OPTION_CYBOI_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) LOG_FILE_OPTION_CYBOI_NAME_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set log file to store log messages in.
             optionalise_log_file(p3, p4, p5);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) LOG_LEVEL_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) LOG_LEVEL_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) LOG_LEVEL_OPTION_CYBOI_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) LOG_LEVEL_OPTION_CYBOI_NAME_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set log level, which is a global variable.
             optionalise_log_level(p2, p4, p5);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) TEST_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) TEST_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) TEST_OPTION_CYBOI_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) TEST_OPTION_CYBOI_NAME_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set test operation mode.
             copy_integer(p0, (void*) TEST_OPERATION_MODE_CYBOI_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p6, (void*) VERSION_CYBOI_COMMAND_OPTION_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) VERSION_CYBOI_COMMAND_OPTION_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) VERSION_OPTION_CYBOI_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) VERSION_OPTION_CYBOI_NAME_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set version operation mode.
             copy_integer(p0, (void*) VERSION_OPERATION_MODE_CYBOI_MODEL);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // CAUTION! This function call HAS TO BE COMMENTED OUT,
         // in order to avoid disturbing messages at system startup!
         // The last option argument read from command line is
         // always null, so that this warning would ALWAYS appear.
-        // log_write_terminated_message((void*) stdout, L"Warning: Could not optionalise option. The command line option is unknown.\n");
+        // log_write((void*) stdout, L"Warning: Could not optionalise option. The command line option is unknown.\n");
     }
 }
 
@@ -369,6 +360,9 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
  *
  * It is assumed that the argument is an option followed by a value.
  * Both are determined here and evaluated later in function "optionalise_option".
+ *
+ * Example:
+ * --loglevel debug
  *
  * @param p0 the operation mode
  * @param p1 the cybol knowledge file path item
@@ -380,134 +374,122 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
  */
 void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // CAUTION! DO NOT use logging functionality here!
+    // The logger will not work before its options are set.
+    // Comment out this function call to avoid disturbing messages at system startup!
+    // log_write((void*) stdout, L"Information: Optionalise command line argument.\n");
 
-        int* j = (int*) p6;
+    // The value index, which is equal to the loop variable increased by one.
+    //
+    // CAUTION! Do NOT misuse the index parametre *j handed over to this function!
+    // The parametre j is the loop index and MUST NOT be altered here!
+    // Therefore, a new local variable i is introduced.
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The command line argument option as multibyte character array.
+    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The option as wide character array.
+    void* ow = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int owc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ows = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The command line argument value as multibyte character array.
+    void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The value as wide character array.
+    void* vw = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int vwc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int vws = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Allocate option as wide character array.
+    allocate_array((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    // Allocate value as wide character array.
+    allocate_array((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
-            int* ac = (int*) p5;
+    // Initialise value index with the options count by default,
+    // so that it does NOT get processed, unless set to a
+    // valid value lying within the array.
+    copy_integer((void*) &i, p5);
 
-            // CAUTION! DO NOT use logging functionality here!
-            // The logger will not work before its options are set.
-            // Comment out this function call to avoid disturbing messages at system startup!
-            // log_write_terminated_message((void*) stdout, L"Information: Optionalise command line argument.\n");
+    // Get command line argument option.
+    // Example: "--loglevel"
+    copy_array_forward((void*) &o, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
-            // The value index, which is equal to the loop variable increased by one.
-            //
-            // It is initialised with the options count by default, so that it does
-            // NOT get processed, unless set to a valid value lying within the array.
-            //
-            // CAUTION! Do NOT misuse the index parametre *j handed over to this function!
-            // The parametre j is the loop index and must NOT be altered here!
-            // Therefore, a new local variable i is introduced.
-            int i = *ac;
-            // The command line argument option as multibyte character array.
-            void** o = NULL_POINTER_STATE_CYBOI_MODEL;
-            int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // The option as wide character array.
-            void* ow = *NULL_POINTER_STATE_CYBOI_MODEL;
-            int owc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            int ows = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // The command line argument value as multibyte character array.
-            void** v = NULL_POINTER_STATE_CYBOI_MODEL;
-            int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // The value as wide character array.
-            void* vw = *NULL_POINTER_STATE_CYBOI_MODEL;
-            int vwc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            int vws = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    if (o != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // Allocate option as wide character array.
-            allocate((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
-            // Allocate value as wide character array.
-            allocate((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+        //
+        // Get command line argument option count (number of characters).
+        //
+        // CAUTION! There are two possibilities to determine it:
+        //
+        // 1 Force the user to give it as extra command line parametre
+        //   (this would be proper, but not very user-friendly)
+        //
+        // 2 Rely on the null termination character to determine it
+        //   (this is a rather dirty workaround, but the "strlen" function can be used)
+        //
+        // Possibility 2 is applied here.
+        //
+        oc = strlen((char*) o);
 
-            // Get command line argument option.
-            // Example: "--loglevel"
-            get_array_elements((void*) &o, p4, (void*) j, (void*) POINTER_STATE_CYBOI_TYPE);
-
-            if (*o != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                // Get command line argument option count (number of characters).
-                //
-                // There are two possibilities to determine it:
-                // 1 Force the user to give it as extra command line parametre
-                //   (this would be proper, but not very user-friendly)
-                // 2 Rely on the null termination character to determine it
-                //   (this is a rather dirty workaround, but the "strlen" function can be used)
-                //
-                // Possibility 2 is applied here.
-                oc = strlen((char*) *o);
-
-                // Decode multibyte command line argument option into wide character.
-                decode_utf_8_unicode_character_vector((void*) &ow, (void*) &owc, (void*) &ows, *o, (void*) &oc);
-
-            } else {
-
-                // CAUTION! DO NOT use logging functionality here!
-                // The logger will not work before its options are set.
-                log_write_terminated_message((void*) stdout, L"Error: Could not optionalise command line argument. The command line argument option is null.\n");
-            }
-
-            // Calculate value index.
-            i = *j + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-            if (i < *ac) {
-
-                // CAUTION! Only try to access the value following an option,
-                // if the array is large enough, to avoid access violation errors!
-
-                // Get command line argument value, standing after the option.
-                // Example: "debug"
-                get_array_elements((void*) &v, p4, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE);
-
-                if (*v != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    // Get command line argument value count (number of characters).
-                    //
-                    // There are two possibilities to determine it:
-                    // 1 Force the user to give it as extra command line parametre
-                    //   (this would be proper, but not very user-friendly)
-                    // 2 Rely on the null termination character to determine it
-                    //   (this is a rather dirty workaround, but the strlen function can be used)
-                    //
-                    // Possibility 2 is applied here.
-                    vc = strlen((char*) *v);
-
-                    // Decode multibyte command line argument value into wide character.
-                    decode_utf_8_unicode_character_vector((void*) &vw, (void*) &vwc, (void*) &vws, *v, (void*) &vc);
-
-                } else {
-
-                    // CAUTION! DO NOT use logging functionality here!
-                    // The logger will not work before its options are set.
-                    log_write_terminated_message((void*) stdout, L"Error: Could not optionalise command line argument. The command line argument value is null.\n");
-                }
-            }
-
-            // Optionalise the option and its value.
-            // CAUTION! The value gets handed over as reference, as it gets
-            // copied for the cybol knowledge file name.
-            optionalise_option(p0, p1, p2, p3, vw, (void*) &vwc, ow, (void*) &owc);
-
-            // Deallocate option as wide character array.
-            deallocate((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
-            // Deallocate value as wide character array.
-            deallocate((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
-
-        } else {
-
-            // CAUTION! DO NOT use logging functionality here!
-            // The logger will not work before its options are set.
-            log_write_terminated_message((void*) stdout, L"Error: Could not optionalise command line argument. The argument count is null.\n");
-        }
+        // Decode multibyte command line argument option into wide character.
+        decode_utf_8_unicode_character_vector((void*) &ow, (void*) &owc, (void*) &ows, o, (void*) &oc);
 
     } else {
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
-        log_write_terminated_message(stdout, L"Error: Could not optionalise command line argument. The index is null.\n");
+        log_write((void*) stdout, L"Error: Could not optionalise command line argument. The command line argument option is null.\n");
     }
+
+    // Calculate value index.
+    copy_integer((void*) &i, p6);
+    copy_integer((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+    // CAUTION! Only try to access the value following an option,
+    // if the array is large enough, to avoid access violation errors!
+    compare_integer_smaller((void*) &r, (void*) &i, p5);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Get command line argument value, standing after the option.
+        // Example: "debug"
+        copy_array_forward((void*) &v, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+
+        if (v != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // Get command line argument value count (number of characters).
+            //
+            // There are two possibilities to determine it:
+            // 1 Force the user to give it as extra command line parametre
+            //   (this would be proper, but not very user-friendly)
+            // 2 Rely on the null termination character to determine it
+            //   (this is a rather dirty workaround, but the strlen function can be used)
+            //
+            // Possibility 2 is applied here.
+            vc = strlen((char*) v);
+
+            // Decode multibyte command line argument value into wide character.
+            decode_utf_8_unicode_character_vector((void*) &vw, (void*) &vwc, (void*) &vws, v, (void*) &vc);
+
+        } else {
+
+            // CAUTION! DO NOT use logging functionality here!
+            // The logger will not work before its options are set.
+            log_write((void*) stdout, L"Error: Could not optionalise command line argument. The command line argument value is null.\n");
+        }
+    }
+
+    // Optionalise the option and its value.
+    // CAUTION! The value gets handed over as reference, as it gets
+    // copied for the cybol knowledge file name.
+    optionalise_option(p0, p1, p2, p3, vw, (void*) &vwc, ow, (void*) &owc);
+
+    // Deallocate option as wide character array.
+    deallocate_array((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    // Deallocate value as wide character array.
+    deallocate_array((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -547,39 +529,32 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
  */
 void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // CAUTION! DO NOT use logging functionality here!
+    // The logger will not work before its options are set.
+    // Comment out this function call to avoid disturbing messages at system startup!
+    // log_write((void*) stdout, L"Information: Optionalise command line arguments.\n");
 
-        int* ac = (int*) p5;
+    // The loop variable.
+    //
+    // CAUTION! Do NOT initialise it with 0, as the first command line
+    // argument is the command itself, and not an option!
+    int j = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // CAUTION! DO NOT use logging functionality here!
-        // The logger will not work before its options are set.
-        // Comment out this function call to avoid disturbing messages at system startup!
-        // log_write_terminated_message((void*) stdout, L"Information: Optionalise command line arguments.\n");
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The loop variable.
-        //
-        // CAUTION! Do NOT initialise it with 0, as the first command line
-        // argument is the command itself, and not an option!
-        int j = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p5);
 
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (j >= *ac) {
-
-                break;
-            }
-
-            optionalise_command_line_argument(p0, p1, p2, p3, p4, p5, (void*) &j);
-
-            // Increment loop variable.
-            j++;
+            break;
         }
 
-    } else {
+        optionalise_command_line_argument(p0, p1, p2, p3, p4, p5, (void*) &j);
 
-        // CAUTION! DO NOT use logging functionality here!
-        // The logger will not work before its options are set.
-        log_write_terminated_message(stdout, L"Error: Could not optionalise command line argument options. The options count is null.\n");
+        // Increment loop variable.
+        j++;
     }
 }
 
@@ -593,7 +568,7 @@ void deoptionalise(void* p0) {
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
     // Do NOT show the following message, as it would only disturb the user!
-    // log_write_terminated_message((void*) stdout, L"Information: Deoptionalise command line argument options.\n");
+    // log_write((void*) stdout, L"Information: Deoptionalise command line argument options.\n");
 
     // Deoptionalise log file.
     deoptionalise_log_file(p0);

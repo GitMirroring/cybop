@@ -31,14 +31,10 @@
 #include <stdio.h>
 #include <termios.h>
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter.c"
-#include "../../../executor/memoriser/allocator/model_allocator.c"
-#include "../../../executor/memoriser/allocator.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/type_size/terminal_type_size.c"
 

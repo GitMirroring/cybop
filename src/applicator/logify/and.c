@@ -23,40 +23,31 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PREPROCESSOR_TESTER
-#define PREPROCESSOR_TESTER
+#ifndef AND_SOURCE
+#define AND_SOURCE
 
+#include "../../constant/channel/cybol_channel.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/lifecycle_operation_cybol_name.c"
+#include "../../constant/type/cybol/text_cybol_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../executor/accessor/getter/compound_getter.c"
 #include "../../logger/logger.c"
+#include "../../variable/service_interrupt.c"
+#include "../../variable/thread_identification.c"
 
 /**
- * Tests the preprocessor directives.
- */
-void test_preprocessor_directives() {
-
-    log_write((void*) stdout, L"Test preprocessor directives:\n");
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    log_write((void*) stdout, L"GNU_LINUX\n");
-#elif WINDOWS_OPERATING_SYSTEM
-    log_write((void*) stdout, L"WINDOWS\n");
-#else
-    log_write((void*) stdout, L"OTHER\n");
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
-}
-
-/**
- * Tests the preprocessor.
+ * Applies the boolean logic AND operation.
  *
- * Sub test procedure call can be activated/ deactivated here
- * by simply commenting/ uncommenting the corresponding lines.
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  */
-void test_preprocessor() {
-
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test preprocessor.");
-
-//    test_preprocessor_directives();
+void apply_and(void* p0, void* p1) {
 }
 
-/* PREPROCESSOR_TESTER */
+/* AND_SOURCE */
 #endif

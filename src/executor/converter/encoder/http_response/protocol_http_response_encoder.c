@@ -26,14 +26,11 @@
 #ifndef PROTOCOL_HTTP_RESPONSE_ENCODER_SOURCE
 #define PROTOCOL_HTTP_RESPONSE_ENCODER_SOURCE
 
-#include "../../../../constant/model/http/protocol_version_http_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/accessor/appender/part_appender.c"
+#include "../../../../constant/model/http/protocol_version_http_model.c"
 #include "../../../../executor/converter/selector/http_request/protocol_http_request_selector.c"
-#include "../../../../executor/memoriser/allocator/model_allocator.c"
-#include "../../../../executor/memoriser/deallocator/model_deallocator.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 

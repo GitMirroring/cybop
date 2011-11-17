@@ -29,10 +29,6 @@
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -40,9 +36,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../executor/accessor/getter.c"
-#include "../../../../executor/memoriser/allocator/model_allocator.c"
-#include "../../../../executor/memoriser/deallocator/model_deallocator.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 
 /**
  * Encodes the source compound model into an x window system model.

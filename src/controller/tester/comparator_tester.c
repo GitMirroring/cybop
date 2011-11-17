@@ -46,11 +46,11 @@ void test_comparator_ascii_character() {
 
     if (test = *LATIN_SMALL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL) {
 
-        log_write_terminated_message((void*) stdout, L"Characters ARE equal.\n");
+        log_write((void*) stdout, L"Characters ARE equal.\n");
 
     } else {
 
-        log_write_terminated_message((void*) stdout, L"Characters are NOT equal.\n");
+        log_write((void*) stdout, L"Characters are NOT equal.\n");
     }
 }
 

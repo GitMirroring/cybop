@@ -90,7 +90,7 @@
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before these global variables are set.
-        log_write_terminated_message(stdout, L"Error: Could not open socket sending http_response file. A file error occured.\n");
+        log_write(stdout, L"Error: Could not open socket sending http_response file. A file error occured.\n");
     }
     // --- END TEST ---
 */

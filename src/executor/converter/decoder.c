@@ -26,6 +26,9 @@
 #ifndef DECODER_SOURCE
 #define DECODER_SOURCE
 
+#include "../../constant/channel/cybol_channel.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cybol/application_cybol_type.c"
 #include "../../constant/type/cybol/application_x_cybol_type.c"
 #include "../../constant/type/cybol/colour_cybol_type.c"
@@ -38,11 +41,7 @@
 #include "../../constant/type/cybol/text_cybol_type.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../constant/channel/cybol_channel.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
-#include "../../executor/converter/decoder/type_decoder.c"
 #include "../../executor/converter/decoder/authority_decoder.c"
 #include "../../executor/converter/decoder/ascii_character_vector_decoder.c"
 #include "../../executor/converter/decoder/boolean_decoder.c"
@@ -61,14 +60,13 @@
 #include "../../executor/converter/decoder/model_diagram_decoder.c"
 #include "../../executor/converter/decoder/terminal_background_decoder.c"
 #include "../../executor/converter/decoder/terminal_foreground_decoder.c"
+#include "../../executor/converter/decoder/type_decoder.c"
 #include "../../executor/converter/decoder/uri_decoder.c"
 #include "../../executor/converter/decoder/utf_16_unicode_character_decoder.c"
 #include "../../executor/converter/decoder/utf_8_unicode_character_decoder.c"
 #include "../../executor/converter/decoder/xdt_decoder.c"
 #include "../../executor/converter/decoder/xml_decoder.c"
 #include "../../executor/converter/decoder/x_window_system_decoder.c"
-#include "../../executor/memoriser/allocator/model_allocator.c"
-#include "../../executor/memoriser/deallocator/model_deallocator.c"
 
 //?? TEMPORARY FOR TESTING! DELETE LATER!
 #include "../../executor/communicator/sender/file_sender.c"
@@ -88,16 +86,6 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p4, (void*) TYPE_TEXT_CYBOL_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            decode_type(p0, p2, p3);
-        }
-    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -502,6 +490,16 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_terminal_foreground(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) TYPE_TEXT_CYBOL_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            decode_type(p0, p2, p3);
         }
     }
 

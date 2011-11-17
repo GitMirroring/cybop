@@ -26,10 +26,9 @@
 #ifndef ITEM_DEALLOCATOR_SOURCE
 #define ITEM_DEALLOCATOR_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/name/memory/item_memory_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../logger/logger.c"
 

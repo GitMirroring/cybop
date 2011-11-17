@@ -26,19 +26,13 @@
 #ifndef INITIALISER_SOURCE
 #define INITIALISER_SOURCE
 
-#include "../applicator/communicator/receiving_communicator.c"
-#include "../constant/type/cybol/text_cybol_type.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../constant/channel/cybol_channel.c"
 #include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/model/signal_priority_model.c"
+#include "../constant/type/cybol/state/text_state_cybol_type.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../controller/checker.c"
-#include "../executor/accessor/getter/signal_memory_getter.c"
-#include "../executor/memoriser/allocator/model_allocator.c"
-#include "../executor/memoriser/deallocator/model_deallocator.c"
+#include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/memoriser/deallocator/part_deallocator.c"
 #include "../logger/logger.c"
 
@@ -58,7 +52,7 @@ void initialise(void* p0, void* p1, void* p2) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The startup signal part model, properties.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message (run source, file name) item data, count.
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -68,7 +62,7 @@ void initialise(void* p0, void* p1, void* p2) {
 
     // Get startup signal part model, properties.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sp, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get message item data, count.
     copy_array_forward((void*) &md, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -80,7 +74,7 @@ void initialise(void* p0, void* p1, void* p2) {
     overwrite_part_element(s, (void*) PART_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
     // Receive startup signal model, properties.
-    receive_file_system(sm, sd, md, mc, (void*) CYBOL_TEXT_CYBOL_TYPE);
+    receive_file_system(sm, sp, md, mc, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE);
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add startup signal to signal memory.");

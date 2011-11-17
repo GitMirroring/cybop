@@ -36,7 +36,7 @@
  */
 void test_type_sizes() {
 
-    log_write_terminated_message((void*) stdout, L"Test type sizes:\n");
+    log_write((void*) stdout, L"Test type sizes:\n");
 
     fwprintf(stdout, L"null pointer memory model: %i\n", *NULL_POINTER_STATE_CYBOI_MODEL);
 

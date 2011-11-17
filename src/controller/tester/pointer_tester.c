@@ -38,7 +38,7 @@
  */
 void test_pointer_null_subroutine(void* p0, void* p1) {
 
-    log_write_terminated_message((void*) stdout, L"Test pointer null as subroutine:\n");
+    log_write((void*) stdout, L"Test pointer null as subroutine:\n");
 
     void** a = (void**) p0;
     void* b = p1;
@@ -55,7 +55,7 @@ void test_pointer_null_subroutine(void* p0, void* p1) {
  */
 void test_pointer_null() {
 
-    log_write_terminated_message((void*) stdout, L"Test pointer null:\n");
+    log_write((void*) stdout, L"Test pointer null:\n");
 
     void** a = NULL_POINTER_STATE_CYBOI_MODEL;
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -68,7 +68,7 @@ void test_pointer_null() {
  */
 void test_pointer_cast() {
 
-    log_write_terminated_message((void*) stdout, L"Test pointer cast:\n");
+    log_write((void*) stdout, L"Test pointer cast:\n");
 
     // Assign a test character array.
     wchar_t* test_char = L"test pointer cast ok\n";
@@ -84,7 +84,7 @@ void test_pointer_cast() {
 
     // The wchar_t** has to be dereferenced using the * operator,
     // because the fputs function expects a wchar_t*.
-    log_write_terminated_message((void*) stdout, *test_back);
+    log_write((void*) stdout, *test_back);
 }
 
 /**
@@ -95,7 +95,7 @@ void test_pointer_cast() {
  */
 void test_pointer_return() {
 
-    log_write_terminated_message((void*) stdout, L"Test pointer return:\n");
+    log_write((void*) stdout, L"Test pointer return:\n");
 
     // The character array (including new line and null termination character).
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -130,7 +130,7 @@ void test_pointer_return() {
  */
 void test_character_array_with_termination() {
 
-    log_write_terminated_message((void*) stdout, L"Test character array with termination:\n");
+    log_write((void*) stdout, L"Test character array with termination:\n");
 
     // The brackets indicating an array cannot be avoided or replaced by a pointer.
     // The following line does not work:
@@ -141,7 +141,7 @@ void test_character_array_with_termination() {
     // GNU C library functions such as "fputs".
     wchar_t test[] = {L't', L'e', L's', L't', L' ', L'c', L'h', L'a', L'r', L' ', L'a', L'r', L'r', L'a', L'y', L' ', L'o', L'k', L'\n', L'\0'};
 
-    log_write_terminated_message((void*) stdout, test);
+    log_write((void*) stdout, test);
 }
 
 /**
@@ -149,7 +149,7 @@ void test_character_array_with_termination() {
  */
 void test_character_array_single_element() {
 
-    log_write_terminated_message((void*) stdout, L"Test character array single element:\n");
+    log_write((void*) stdout, L"Test character array single element:\n");
 
     // The character array.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -167,7 +167,7 @@ void test_character_array_single_element() {
 */
 
     // Print out array contents.
-    log_write_terminated_message((void*) stdout, (wchar_t*) c);
+    log_write((void*) stdout, (wchar_t*) c);
 
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     wchar_t* catest = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -194,7 +194,7 @@ void test_character_array_single_element() {
  */
 void test_character_array_multiple_elements() {
 
-    log_write_terminated_message((void*) stdout, L"Test character array multiple elements:\n");
+    log_write((void*) stdout, L"Test character array multiple elements:\n");
 
     // The destination array.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -212,7 +212,7 @@ void test_character_array_multiple_elements() {
     // The destination index to which to copy the source array.
 //??    overwrite_array(d, (void*) s, (void*) ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
-    log_write_terminated_message((void*) stdout, (wchar_t*) d);
+    log_write((void*) stdout, (wchar_t*) d);
 
     // The source array for overwriting.
     wchar_t oa[] = {L'o', L'v', L'e', L'r', L'w', L'r', L'i', L't', L't', L'e', L'n', L'.', L'\n', L'\0'};
@@ -222,14 +222,14 @@ void test_character_array_multiple_elements() {
 
 //??    overwrite_array(d, (void*) os, (void*) oss, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
-    log_write_terminated_message((void*) stdout, (wchar_t*) d);
+    log_write((void*) stdout, (wchar_t*) d);
 
     // The remove index.
     int ri = *NUMBER_12_INTEGER_STATE_CYBOI_MODEL;
 
     remove_array_elements(d, (void*) &ds, (void*) &ri, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
-    log_write_terminated_message((void*) stdout, (wchar_t*) d);
+    log_write((void*) stdout, (wchar_t*) d);
 
     // The new array size to cut off remaining elements,
     // including two places for new line '\n' and c string termination '\0'.
@@ -237,7 +237,7 @@ void test_character_array_multiple_elements() {
 
     reallocate_array((void*) &d, (void*) &ns, (void*) &ns, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
-    log_write_terminated_message((void*) stdout, (wchar_t*) d);
+    log_write((void*) stdout, (wchar_t*) d);
 
     // The result array.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -245,7 +245,7 @@ void test_character_array_multiple_elements() {
     // Test getting a reference.
     get_array_elements((void*) &r, d, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
-    log_write_terminated_message((void*) stdout, (wchar_t*) r);
+    log_write((void*) stdout, (wchar_t*) r);
 
     // Destroy destination array.
     deallocate_array((void*) &d, (void*) &ns, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
@@ -256,7 +256,7 @@ void test_character_array_multiple_elements() {
  */
 void test_integer_array() {
 
-    log_write_terminated_message((void*) stdout, L"Test integer array:\n");
+    log_write((void*) stdout, L"Test integer array:\n");
 
     // The test value (for the "decode" function below).
     wchar_t* test = L"2,3,4";
@@ -324,7 +324,7 @@ void test_integer_array() {
  */
 void test_pointer_array() {
 
-    log_write_terminated_message((void*) stdout, L"Test pointer array:\n");
+    log_write((void*) stdout, L"Test pointer array:\n");
 
     //
     // Creation.
@@ -382,7 +382,7 @@ void test_pointer_array() {
  */
 void test_pointer_array_with_null_values() {
 
-    log_write_terminated_message((void*) stdout, L"Test pointer array with null values:\n");
+    log_write((void*) stdout, L"Test pointer array with null values:\n");
 
     // The pointer array.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -442,7 +442,7 @@ void test_pointer_array_with_null_values() {
  */
 void test_pointer_addition() {
 
-    log_write_terminated_message((void*) stdout, L"Test pointer addition:\n");
+    log_write((void*) stdout, L"Test pointer addition:\n");
 
     // Allocate arrays of an arbitrary size.
     void* v = (void*) malloc(*NUMBER_10_INTEGER_STATE_CYBOI_MODEL);

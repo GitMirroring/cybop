@@ -45,7 +45,7 @@
 void check(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
-    log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_MODEL_COUNT);
+    log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_CYBOI_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_CYBOI_MODEL_COUNT);
 
     // CAUTION! The parametres were not handed over as function arguments,
     // since it is more flexible to just hand over the internal memory as argument.

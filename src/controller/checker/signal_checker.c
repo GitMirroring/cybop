@@ -37,9 +37,6 @@
 #include "../../controller/checker/interrupt_checker.c"
 #include "../../controller/checker/wait_checker.c"
 #include "../../controller/handler.c"
-#include "../../executor/accessor/getter/signal_memory_getter.c"
-#include "../../executor/accessor/remover/signal_memory_remover.c"
-#include "../../executor/accessor/getter.c"
 #include "../../logger/logger.c"
 
 /**

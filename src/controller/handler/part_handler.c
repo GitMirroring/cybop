@@ -26,13 +26,11 @@
 #ifndef PART_HANDLER_SOURCE
 #define PART_HANDLER_SOURCE
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/memory/compound_memory_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
 #include "../../logger/logger.c"
 
@@ -54,25 +52,21 @@
 void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
-    log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) HANDLE_PART_MESSAGE_LOG_MODEL, (void*) HANDLE_PART_MESSAGE_LOG_MODEL_COUNT);
+    log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) HANDLE_PART_MESSAGE_LOG_CYBOI_MODEL, (void*) HANDLE_PART_MESSAGE_LOG_CYBOI_MODEL_COUNT);
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST handle part *mc: %i\n", *mc);
-
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p1);
 
-        if (b != FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
-
-fwprintf(stdout, L"TEST handle part j: %i\n", j);
 
         handle_part_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 

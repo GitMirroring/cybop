@@ -32,6 +32,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/comparator/basic/integer/greater_integer_comparator.c"
+#include "../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../executor/modifier/copier/value_copier.c"

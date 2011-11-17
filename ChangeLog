@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix file includes in all source code
+        * Debug compilation errors
+
 2011-11-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement rubbish collector for function "overwrite"
