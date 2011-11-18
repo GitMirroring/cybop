@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GNU_LINUX_CONSOLE_SENSER_SOURCE
-#define GNU_LINUX_CONSOLE_SENSER_SOURCE
+#ifndef TERMINAL_SENSER_SOURCE
+#define TERMINAL_SENSER_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
@@ -32,8 +32,6 @@
 #include <signal.h>
 #include <wchar.h>
 
-#include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -41,6 +39,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/accessor/getter/compound_getter.c"
 #include "../../../executor/accessor/getter/signal_memory_getter.c"
 #include "../../../executor/accessor/getter.c"
@@ -50,14 +49,14 @@
 #include "../../../variable/thread_identification.c"
 
 /**
- * Senses gnu/linux console message.
+ * Senses terminal message.
  *
  * @param p0 the interrupt
  * @param p1 the mutex
  * @param p2 the sleep time
  * @param p3 the input stream
  */
-void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
+void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -80,9 +79,9 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
                     // Also, this function runs in an endless loop and would produce huge log files.
-                    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense gnu/linux console message.");
+                    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense terminal message.");
 
-                    // Lock gnu/linux console mutex.
+                    // Lock terminal mutex.
                     //
                     // CAUTION! This lock has to stand not only before the interrupt request is set below,
                     // BUT ALSO BEFORE the next character is detected in the input stream!
@@ -96,7 +95,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                     // and other inputs like arrow down not to be recognised properly.
                     pthread_mutex_lock(mt);
 
-                    // Get character from gnu/linux console input stream,
+                    // Get character from terminal input stream,
                     // just to detect that some (event) character is available.
                     // This is also called "peeking ahead" at the input.
                     //
@@ -150,18 +149,18 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                         // encounter end of file.
                         ungetwc(c, is);
 
-                        // Set gnu/linux console interrupt request to indicate
-                        // that a message has been received via gnu/linux console,
+                        // Set terminal interrupt request to indicate
+                        // that a message has been received via terminal,
                         // which may now be processed in the main thread of this system.
                         *irq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                     }
 
-                    // Unlock gnu/linux console mutex.
+                    // Unlock terminal mutex.
                     pthread_mutex_unlock(mt);
 
                     while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                        // Sleep as long as the gnu/linux console interrupt is not handled and reset yet.
+                        // Sleep as long as the terminal interrupt is not handled and reset yet.
                         //
                         // This is to give the central processing unit (cpu) some
                         // time to breathe, that is to be idle or to process other signals.
@@ -178,7 +177,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                     // This function is executed within a thread, but the
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
-                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The interrupt is null.");
+                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The interrupt is null.");
                 }
 
             } else {
@@ -187,7 +186,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
                 // This function is executed within a thread, but the
                 // logging is not guaranteed to be thread-safe and might
                 // cause unpredictable programme behaviour.
-                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The mutex is null.");
+                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The mutex is null.");
             }
 
         } else {
@@ -196,7 +195,7 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
             // This function is executed within a thread, but the
             // logging is not guaranteed to be thread-safe and might
             // cause unpredictable programme behaviour.
-            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The sleep time is null.");
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The sleep time is null.");
         }
 
     } else {
@@ -205,22 +204,22 @@ void sense_gnu_linux_console_message(void* p0, void* p1, void* p2, void* p3) {
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense gnu/linux console message. The input stream is null.");
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The input stream is null.");
     }
 }
 
 /**
- * Senses gnu/linux console messages.
+ * Senses terminal messages.
  *
  * @param p0 the internal memory array
  */
-void sense_gnu_linux_console(void* p0) {
+void sense_terminal(void* p0) {
 
     // CAUTION! DO NOT log this function call!
     // This function is executed within a thread, but the
     // logging is not guaranteed to be thread-safe and might
     // cause unpredictable programme behaviour.
-    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense gnu/linux console.");
+    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense terminal.");
 
     // The interrupt.
     void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -232,13 +231,13 @@ void sense_gnu_linux_console(void* p0) {
     void* is = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get interrupt.
-    copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get mutex.
-    copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get sleep time.
-    copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_SLEEP_TIME_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_SLEEP_TIME_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get input stream.
-    copy_array_forward((void*) &is, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &is, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -251,7 +250,7 @@ void sense_gnu_linux_console(void* p0) {
         // and processed in the system signal handler procedure
         // (situated in the controller/checker.c module).
 
-        sense_gnu_linux_console_message(irq, mt, st, is);
+        sense_terminal_message(irq, mt, st, is);
     }
 
     // An implicit call to pthread_exit() is made when this thread
@@ -265,5 +264,5 @@ void sense_gnu_linux_console(void* p0) {
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* GNU_LINUX_CONSOLE_SENSER_SOURCE */
+/* TERMINAL_SENSER_SOURCE */
 #endif

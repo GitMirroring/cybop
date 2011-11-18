@@ -28,8 +28,8 @@
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter.c"
-#include "../../../executor/memoriser/allocator.c"
+#include "../../../executor/maintainer/shutter/x_window_system_shutter.c"
+#include "../../../logger/logger.c"
 
 /**
  * Shuts down the opengl system.

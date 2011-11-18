@@ -26,17 +26,14 @@
 #ifndef HTML_DECODER_SOURCE
 #define HTML_DECODER_SOURCE
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/channel/cybol_channel.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
-#include "../../../../logger/logger.c"
-#include "../../../../executor/accessor/getter/compound_getter.c"
-#include "../../../../executor/accessor/getter.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Decodes the html into a model.

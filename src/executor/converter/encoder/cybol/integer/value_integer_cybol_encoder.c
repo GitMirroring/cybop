@@ -35,13 +35,10 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../executor/memoriser/allocator.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Encodes the integer value into a wide character value.

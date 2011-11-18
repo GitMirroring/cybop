@@ -28,13 +28,14 @@
 
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../executor/referencer/referencer.c"
 #include "../../../logger/logger.c"
 
 //
 // Forward declarations.
 //
 
-void reference_array(void* p0, void* p1, void* p2, void* p3, void* p4);
+void reference(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Deallocates the part.

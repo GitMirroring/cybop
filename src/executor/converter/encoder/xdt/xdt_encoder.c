@@ -38,7 +38,7 @@
 #include "../../../../constant/name/xdt_model/record_xdt_model_name.c"
 #include "../../../../executor/converter/encoder/ascii_character_vector_encoder.c"
 #include "../../../../executor/converter/encoder/date_time_encoder.c"
-#include "../../../../executor/converter/encoder/integer_vector_encoder.c"
+#include "../../../../executor/converter/encoder/cybol/integer/integer_cybol_encoder.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../logger/logger.c"
 

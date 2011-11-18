@@ -37,6 +37,8 @@
 #include "../../controller/checker/interrupt_checker.c"
 #include "../../controller/checker/wait_checker.c"
 #include "../../controller/handler.c"
+#include "../../executor/modifier/getter/item_getter.c"
+#include "../../executor/modifier/remover/item_remover.c"
 #include "../../logger/logger.c"
 
 /**

@@ -26,15 +26,12 @@
 #ifndef NODE_HTML_ENCODER_SOURCE
 #define NODE_HTML_ENCODER_SOURCE
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/channel/cybol_channel.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/compound_getter.c"
 #include "../../../../executor/accessor/getter.c"
 #include "../../../../executor/converter/encoder/html/begin_tag_html_encoder.c"

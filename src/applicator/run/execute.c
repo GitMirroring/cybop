@@ -36,7 +36,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/command_option/unix/shell_unix_command_option_name.c"
-#include "../../executor/converter/decoder/utf_8_unicode_character_decoder.c"
+#include "../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
 #include "../../logger/logger.c"
 
 /**

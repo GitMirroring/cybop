@@ -26,12 +26,13 @@
 #ifndef ARRAY_REMOVER_SOURCE
 #define ARRAY_REMOVER_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../executor/calculator/integer_subtracter.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
+#include "../../../executor/referencer/referencer.c"
 #include "../../../logger/logger.c"
 
 /**

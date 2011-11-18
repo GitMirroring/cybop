@@ -26,17 +26,12 @@
 #ifndef SENSE_SOURCE
 #define SENSE_SOURCE
 
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/communication/sense_communication_operation_cybol_name.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../executor/accessor/getter/compound_getter.c"
-#include "../../executor/lifeguard/sensor/gnu_linux_console_sensor.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/lifeguard/sensor/terminal_sensor.c"
 #include "../../executor/lifeguard/sensor/socket_sensor.c"
 #include "../../executor/lifeguard/sensor/x_window_system_sensor.c"
 #include "../../logger/logger.c"
@@ -48,19 +43,19 @@
 // The following functions HAVE TO BE declared here since
 // otherwise, the compiler will report errors like:
 //
-// error: 'sense_gnu_linux_console' undeclared
+// error: 'sense_terminal' undeclared
 //
 // The reason is (probably) that the functions are forwarded
 // as reference (function pointer), for example:
 //
-// &sense_gnu_linux_console
+// &sense_terminal
 //
 // The compiler does not seem to be able to recognise them
 // as functions that way. Therefore, the following explicit
 // declarations of the functions are necessary.
 //
 
-void sense_gnu_linux_console(void* p0);
+void sense_terminal(void* p0);
 void sense_cyboi_socket(void* p0);
 void sense_www_socket(void* p0);
 void sense_x_window_system(void* p0);
@@ -117,7 +112,7 @@ void apply_sense_message(void* p0, void* p1, void* p2) {
  *
  * In order to sense interrupt requests of various devices, special mechanisms
  * for interrupt detection have to be started. To these mechanisms belong:
- * - gnu/linux console
+ * - terminal
  * - x window system
  * - socket
  *
@@ -129,7 +124,7 @@ void apply_sense_message(void* p0, void* p1, void* p2) {
  * corresponding message via the channel the interrupt belongs to.
  *
  * Expected parametres:
- * - channel (required): the channel via which to receive the message (gnu_linux_console, www, x_window_system etc.)
+ * - channel (required): the channel via which to receive the message (terminal, www, x_window_system etc.)
  * - handler (optional): the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to
  *
  * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
@@ -209,20 +204,20 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, cmd, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, cmd, (void*) TERMINAL_CYBOL_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set handler type, model, properties.
-            copy_array_forward(p2, (void*) ha, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_TYPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hac, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_MODEL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hmc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_PROPERTIES_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hdc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p2, (void*) ha, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_TYPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p2, (void*) hac, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p2, (void*) hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_MODEL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p2, (void*) hmc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p2, (void*) hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_PROPERTIES_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p2, (void*) hdc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Sense incoming message.
-            apply_sense_message(p2, (void*) GNU_LINUX_CONSOLE_THREAD, (void*) &sense_gnu_linux_console);
+            apply_sense_message(p2, (void*) TERMINAL_THREAD, (void*) &sense_terminal);
         }
     }
 

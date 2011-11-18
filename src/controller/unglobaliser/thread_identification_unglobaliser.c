@@ -36,8 +36,8 @@ void unglobalise_thread_identification() {
     // Free cyboi service thread.
     free((void*) CYBOI_SERVICE_THREAD);
 
-    // Free gnu/linux console thread.
-    free((void*) GNU_LINUX_CONSOLE_THREAD);
+    // Free terminal thread.
+    free((void*) TERMINAL_THREAD);
 
     // Free www service thread.
     free((void*) WWW_SERVICE_THREAD);

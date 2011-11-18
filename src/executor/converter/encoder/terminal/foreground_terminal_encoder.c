@@ -26,15 +26,12 @@
 #ifndef FOREGROUND_TERMINAL_ENCODER_SOURCE
 #define FOREGROUND_TERMINAL_ENCODER_SOURCE
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
-#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
+#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
@@ -58,7 +55,7 @@ void encode_terminal_foreground(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) BLACK_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) BLACK_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) BLACK_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) BLACK_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -68,7 +65,7 @@ void encode_terminal_foreground(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) RED_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) RED_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) RED_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) RED_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -78,7 +75,7 @@ void encode_terminal_foreground(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) GREEN_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) GREEN_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) GREEN_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) GREEN_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -88,7 +85,7 @@ void encode_terminal_foreground(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) YELLOW_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) YELLOW_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) YELLOW_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) YELLOW_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -98,7 +95,7 @@ void encode_terminal_foreground(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) BLUE_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) BLUE_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) BLUE_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) BLUE_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -108,7 +105,7 @@ void encode_terminal_foreground(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) MAGENTA_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) MAGENTA_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) MAGENTA_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) MAGENTA_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -118,7 +115,7 @@ void encode_terminal_foreground(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) COBALT_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) COBALT_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) COBALT_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) COBALT_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -128,7 +125,7 @@ void encode_terminal_foreground(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) WHITE_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WHITE_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) WHITE_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WHITE_FOREGROUND_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 }

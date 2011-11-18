@@ -26,10 +26,8 @@
 #ifndef COMPLEX_DEALLOCATOR_SOURCE
 #define COMPLEX_DEALLOCATOR_SOURCE
 
-#include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../logger/logger.c"
 

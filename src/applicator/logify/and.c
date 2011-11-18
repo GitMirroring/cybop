@@ -26,19 +26,8 @@
 #ifndef AND_SOURCE
 #define AND_SOURCE
 
-#include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/lifecycle_operation_cybol_name.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../executor/accessor/getter/compound_getter.c"
 #include "../../logger/logger.c"
-#include "../../variable/service_interrupt.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Applies the boolean logic AND operation.

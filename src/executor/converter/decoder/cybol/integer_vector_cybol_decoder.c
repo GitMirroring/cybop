@@ -35,14 +35,11 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/accessor/getter.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/converter/decoder/integer_decoder.c"
 #include "../../../../executor/memoriser/allocator.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"

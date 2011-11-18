@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COUNT_CYBOI_TYPE_CONSTANT_SOURCE
-#define COUNT_CYBOI_TYPE_CONSTANT_SOURCE
+#ifndef CYBOI_TYPE_CONSTANT_SOURCE
+#define CYBOI_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -38,5 +38,5 @@
  */
 static int* CYBOI_TYPE_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* COUNT_CYBOI_TYPE_CONSTANT_SOURCE */
+/* CYBOI_TYPE_CONSTANT_SOURCE */
 #endif

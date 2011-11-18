@@ -103,7 +103,7 @@ void test_pointer_return() {
 
     // Create character array.
     c = (void*) L"Hello World!";
-    allocate((void*) &cs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    allocate_array((void*) &cs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
     *cs = *NUMBER_13_INTEGER_STATE_CYBOI_MODEL;
 
     // THIS is the important part of the test.
@@ -116,13 +116,13 @@ void test_pointer_return() {
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get character from character array.
-    get_array_elements((void*) &r, c, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+//??    get_array_elements((void*) &r, c, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Print result (character array).
     fwprintf(stdout, L"r: %ls\n", (wchar_t*) r);
 
     // Destroy character array.
-    deallocate((void*) &cs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_array((void*) &cs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -227,7 +227,7 @@ void test_character_array_multiple_elements() {
     // The remove index.
     int ri = *NUMBER_12_INTEGER_STATE_CYBOI_MODEL;
 
-    remove_array_elements(d, (void*) &ds, (void*) &ri, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+//??    remove_array_elements(d, (void*) &ds, (void*) &ri, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     log_write((void*) stdout, (wchar_t*) d);
 
@@ -243,7 +243,7 @@ void test_character_array_multiple_elements() {
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Test getting a reference.
-    get_array_elements((void*) &r, d, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+//??    get_array_elements((void*) &r, d, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     log_write((void*) stdout, (wchar_t*) r);
 
@@ -268,11 +268,11 @@ void test_integer_array() {
     int* ms = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate test knowledge model.
-    allocate((void*) &mc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    allocate_array((void*) &mc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
     *mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    allocate((void*) &ms, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    allocate_array((void*) &ms, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
     *ms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    allocate((void*) &m, (void*) ms, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    allocate_array((void*) &m, (void*) ms, (void*) INTEGER_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"pre mc: %i\n", *mc);
     fwprintf(stdout, L"pre ms: %i\n", *ms);
@@ -286,14 +286,14 @@ void test_integer_array() {
 /*??
     // Decode (parse) test value and assign to test knowledge model.
     decode((void*) &m, (void*) mc, (void*) ms, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) test, (void*) &testc,
-        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
 */
 
 /*?? TODO!
     // Set test values.
-    overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_STATE_CYBOI_TYPE);
+    overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_STATE_CYBOI_TYPE);
+    overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_STATE_CYBOI_TYPE);
 */
 
     // The result values read out from the integer vector.
@@ -301,10 +301,12 @@ void test_integer_array() {
     int* result1 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int* result2 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
+/*??
     // Get result values.
-    get((void*) &result0, m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    get((void*) &result1, m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    get((void*) &result2, m, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &result0, m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
+    get((void*) &result1, m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
+    get((void*) &result2, m, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
+*/
 
     fwprintf(stdout, L"post mc: %i\n", *mc);
     fwprintf(stdout, L"post ms: %i\n", *ms);
@@ -314,9 +316,9 @@ void test_integer_array() {
     fwprintf(stdout, L"post result2: %i\n", *result2);
 
     // Deallocate test knowledge model.
-    deallocate((void*) &m, (void*) ms, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    deallocate((void*) &mc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    deallocate((void*) &ms, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_array((void*) &m, (void*) ms, (void*) INTEGER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &mc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &ms, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -363,7 +365,7 @@ void test_pointer_array() {
     fwprintf(stdout, L"p[1] after set: %i\n", p[1]);
 
     // Get character array from pointer array.
-    get_array_elements((void*) &r, p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+//??    get_array_elements((void*) &r, p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
     // Print result (character array).
     fwprintf(stdout, L"r pointer: %i\n", *r);
@@ -405,11 +407,13 @@ void test_pointer_array_with_null_values() {
     void* r3 = *NULL_POINTER_STATE_CYBOI_MODEL;
     char** r4 = (char**) NULL_POINTER_STATE_CYBOI_MODEL;
 
+/*??
     get_array_elements((void*) &r0, a, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     get_array_elements((void*) &r1, a, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     get_array_elements((void*) &r2, a, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     get_array_elements((void*) &r3, a, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     get_array_elements((void*) &r4, a, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+*/
 
     fwprintf(stdout, L"Result pointer as string r0: %s\n", *r0);
     fwprintf(stdout, L"Result pointer as integer r1: %i\n", **r1);
@@ -434,8 +438,8 @@ void test_pointer_array_with_null_values() {
  *
  * The following addition adds 8 instead of just 2.
  * int* m = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
- * allocate((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
- * overwrite_array(m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+ * allocate_array((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
+ * overwrite_array(m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
  * int* c = m + 2;
  * should be: = 10 + 2 = 12
  * but it is: = 10 + (2 * sizeof(int)) = 10 + 8 = 18

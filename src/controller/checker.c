@@ -50,7 +50,7 @@ void check(void* p0) {
     // CAUTION! The parametres were not handed over as function arguments,
     // since it is more flexible to just hand over the internal memory as argument.
     //
-    // It is very likely that new services (besides gnu/linux console, x window system, socket etc.)
+    // It is very likely that new services (besides terminal, x window system, socket etc.)
     // will be added in the future. So it is easier not to have to change the function arguments,
     // but instead just retrieve them from the internal memory below.
     //

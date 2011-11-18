@@ -42,6 +42,8 @@
 #include "../constant/type/cyboi/logic_cyboi_type.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/comparator/all/array_all_comparator.c"
+#include "../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
+#include "../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
 #include "../executor/modifier/copier/integer_copier.c"
 #include "../executor/modifier/overwriter/array_overwriter.c"
 #include "../executor/modifier/overwriter/item_overwriter.c"

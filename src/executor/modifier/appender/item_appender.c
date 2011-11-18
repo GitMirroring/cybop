@@ -95,7 +95,7 @@ void append_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Append source- to destination item data array.
     // CAUTION! Use destination item count as destination index.
-    overwrite_item(p0, p1, p2, p3, dc, p4);
+    overwrite_item(p0, p1, p2, p3, dc, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /* ITEM_APPENDER_SOURCE */

@@ -365,7 +365,7 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                 // Reset comparison result.
                 r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                compare_all_array((void*) &r, *a, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+		compare_integer_equal((void*) &r, *a, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

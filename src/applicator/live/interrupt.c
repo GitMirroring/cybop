@@ -26,16 +26,10 @@
 #ifndef INTERRUPTING_MAINTAINER_SOURCE
 #define INTERRUPTING_MAINTAINER_SOURCE
 
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/lifecycle_operation_cybol_name.c"
-#include "../../executor/accessor/getter/compound_getter.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../logger/logger.c"
 #include "../../variable/service_interrupt.c"
 #include "../../variable/thread_identification.c"
@@ -109,7 +103,7 @@ void apply_interrupt_thread(void* p0, void* p1) {
  * Interrupts a service.
  *
  * Expected parametres:
- * - service (required): the service to be interrupted (gnu_linux_console, www, x_window_system etc.)
+ * - service (required): the service to be interrupted (terminal, www, x_window_system etc.)
  *
  * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
@@ -137,11 +131,11 @@ void apply_interrupt(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, (void*) *smd, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, (void*) *smd, (void*) TERMINAL_CYBOL_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_interrupt_thread((void*) GNU_LINUX_CONSOLE_THREAD, (void*) GNU_LINUX_CONSOLE_EXIT);
+            apply_interrupt_thread((void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
         }
     }
 

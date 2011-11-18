@@ -26,15 +26,12 @@
 #ifndef URL_ESCAPE_CODE_DECODER_SOURCE
 #define URL_ESCAPE_CODE_DECODER_SOURCE
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/character/character_constants.c"
 #include "../../../../constant/http/url_escape_code_constants.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/integral_type_size.c"
 #include "../../../../variable/reallocation_factor.c"

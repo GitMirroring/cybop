@@ -37,10 +37,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cybol/address_cybol_model.c"
 #include "../../../constant/model/cybol/communication_style_cybol_model.c"
@@ -49,6 +45,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"

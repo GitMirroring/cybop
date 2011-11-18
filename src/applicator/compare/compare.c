@@ -26,22 +26,11 @@
 #ifndef COMPARE_SOURCE
 #define COMPARE_SOURCE
 
-#include "../../applicator/comparator/equality/all_equality_comparator.c"
-#include "../../applicator/comparator/equality/part_equality_comparator.c"
-#include "../../applicator/comparator/equality/prefix_equality_comparator.c"
-#include "../../applicator/comparator/equality/suffix_equality_comparator.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../constant/model/cybol/comparison_selection_cybol_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/comparison_operation_cybol_name.c"
-#include "../../executor/accessor/getter/compound_getter.c"
-#include "../../executor/comparator/all/array_all_comparator.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../logger/logger.c"
 
 /**

@@ -26,28 +26,17 @@
 #ifndef STARTUP_SOURCE
 #define STARTUP_SOURCE
 
-#include "../../applicator/maintainer/starting/gnu_linux_console_starting_maintainer.c"
-#include "../../applicator/maintainer/starting/socket_starting_maintainer.c"
-#include "../../applicator/maintainer/starting/x_window_system_starting_maintainer.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/lifecycle_operation_cybol_name.c"
-#include "../../executor/accessor/getter/compound_getter.c"
-#include "../../executor/comparator/all/array_all_comparator.c"
-#include "../../executor/memoriser/allocator.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../logger/logger.c"
 
 /**
  * Starts up a service.
  *
  * Expected parametres:
- * - service (required): the service to be started up (gnu_linux_console, tcp_socket, unix_socket, x_window_system, ...)
+ * - service (required): the service to be started up (terminal, tcp_socket, unix_socket, x_window_system, ...)
  * - namespace (optional, only if service is www, cyboi or similar): the namespace of the socket
  * - style (optional, only if service is www, cyboi or similar): the namespace of the socket
  * - style (optional, only if service is www, cyboi or similar): the address of hosts communicating with this system via socket
@@ -100,11 +89,11 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, smd, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, smd, (void*) TERMINAL_CYBOL_CHANNEL);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            startup_gnu_linux_console(p3);
+            startup_terminal(p3);
         }
     }
 

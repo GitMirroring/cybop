@@ -34,10 +34,6 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -53,9 +49,10 @@
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/name/memory/vector_memory_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/compound_getter.c"
 #include "../../../../executor/accessor/getter.c"
-#include "../../../../executor/converter/encoder/integer_vector_encoder.c"
+#include "../../../../executor/converter/encoder/cybol/integer/integer_cybol_encoder.c"
 #include "../../../../executor/converter/encoder/terminal_background_encoder.c"
 #include "../../../../executor/converter/encoder/terminal_foreground_encoder.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
@@ -186,7 +183,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                                                 if (ci < *cc) {
 
                                                     // Get character value at position x.
-                                                    get((void*) &c, p3, (void*) &ci, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+                                                    get((void*) &c, p3, (void*) &ci, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
                                                 }
 
                                                 // Encode character using escape codes.
@@ -260,7 +257,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                                                         if (ci < *cc) {
 
                                                             // Get character value at position x.
-                                                            get(p3, (void*) &ci, (void*) &c, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+                                                            get(p3, (void*) &ci, (void*) &c, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
                                                         }
 
                                                     } else {

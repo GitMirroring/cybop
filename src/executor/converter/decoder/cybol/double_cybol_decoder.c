@@ -64,7 +64,7 @@ void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int s = *sc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Create temporary null-terminated string.
-            allocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+            allocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
             // The index.
             int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -106,7 +106,7 @@ void decode_double(void* p0, void* p1, void* p2, void* p3, void* p4) {
             overwrite_array(p0, (void*) &v, (void*) DOUBLE_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Destroy temporary null-terminated string.
-            deallocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+            deallocate_model((void*) &tmp, (void*) &tmpc, (void*) &tmps, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
         } else {
 

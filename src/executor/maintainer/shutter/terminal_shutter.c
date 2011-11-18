@@ -23,25 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GNU_LINUX_CONSOLE_SHUTTER_SOURCE
-#define GNU_LINUX_CONSOLE_SHUTTER_SOURCE
+#ifndef TERMINAL_SHUTTER_SOURCE
+#define TERMINAL_SHUTTER_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
 #include <termios.h>
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../executor/accessor/getter.c"
-#include "../../../executor/memoriser/allocator.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/thread_identification.c"
 
 /**
- * Shuts down the gnu/linux console.
+ * Shuts down the terminal.
  *
  * This is done in the reverse order the service was started up.
  *
@@ -49,23 +45,23 @@
  * @param p1 the service thread
  * @param p2 the service thread interrupt
  */
-void shutdown_gnu_linux_console(void* p0, void* p1, void* p2) {
+void shutdown_terminal(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown gnu/linux console.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal.");
 
-    // The gnu/linux console input- and output stream.
+    // The terminal input- and output stream.
     FILE* ip = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
     FILE* op = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get gnu/linux console input- and output stream.
-    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get terminal input- and output stream.
+    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Only deallocate gnu/linux console resources if at least one,
+    // Only deallocate terminal resources if at least one,
     // the input- OR output stream internal is null.
     if ((ip != *NULL_POINTER_STATE_CYBOI_MODEL) && (op != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
-        // Interrupt gnu/linux console service thread.
+        // Interrupt terminal service thread.
         interrupt_thread(p1, p2);
 
         // The old termios settings.
@@ -77,15 +73,15 @@ void shutdown_gnu_linux_console(void* p0, void* p1, void* p2) {
         void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Get gnu/linux console internals.
-        copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &to, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_ORIGINAL_ATTRIBUTES_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &tn, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_WORKING_ATTRIBUTES_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        // Get terminal internals.
+        copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &to, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_ORIGINAL_ATTRIBUTES_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &tn, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_WORKING_ATTRIBUTES_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         // Get character buffer.
-        copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_THREAD_CHARACTER_BUFFER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &bc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_THREAD_CHARACTER_BUFFER_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &bs, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GNU_LINUX_CONSOLE_THREAD_CHARACTER_BUFFER_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_THREAD_CHARACTER_BUFFER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &bc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_THREAD_CHARACTER_BUFFER_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &bs, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_THREAD_CHARACTER_BUFFER_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
         // Get file descriptor for file stream.
         // CAUTION! The stream "stdin" must be used instead of "stdout" here!
@@ -114,12 +110,12 @@ void shutdown_gnu_linux_console(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown gnu/linux console. There is no gnu/linux console running.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. There is no terminal running.");
     }
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* GNU_LINUX_CONSOLE_SHUTTER_SOURCE */
+/* TERMINAL_SHUTTER_SOURCE */
 #endif

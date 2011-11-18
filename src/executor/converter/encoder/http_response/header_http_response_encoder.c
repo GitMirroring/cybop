@@ -49,7 +49,7 @@ void encode_http_response_header_content_length(void* p0, void* p1) {
     void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate character array.
-    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Encode wide character array into multibyte character array.
     encode_integer((void*) &a, ac, as, p3, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
@@ -62,7 +62,7 @@ void encode_http_response_header_content_length(void* p0, void* p1) {
     overwrite_array(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
     // Deallocate character array.
-    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /**

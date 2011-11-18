@@ -16,16 +16,22 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix file includes
+        * Debug compilation errors
+        * Rename "gnu/linux console" into "terminal"
+
 2011-11-17  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Fix file includes in all source code
+        * Fix file includes
         * Debug compilation errors
 
 2011-11-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement rubbish collector for function "overwrite"
         * Adapt logger using new container functions
-        * Fix file includes in all source code
+        * Fix file includes
 
 2011-11-15  Christian Heller  <christian.heller@tuxtax.de>
 

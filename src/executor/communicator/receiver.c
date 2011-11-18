@@ -26,21 +26,18 @@
 #ifndef RECEIVER_SOURCE
 #define RECEIVER_SOURCE
 
-#include "../../applicator/communicator/receiving/file_system_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/gnu_linux_console_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/inline_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/latex_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/socket_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/x_window_system_receiving_communicator.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/communicator/receiver/file_system_receiver.c"
+#include "../../executor/communicator/receiver/terminal_receiver.c"
+#include "../../executor/communicator/receiver/inline_receiver.c"
+#include "../../executor/communicator/receiver/latex_receiver.c"
+#include "../../executor/communicator/receiver/socket_receiver.c"
+#include "../../executor/communicator/receiver/x_window_system_receiver.c"
 #include "../../executor/modifier/getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
@@ -140,22 +137,22 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) GNU_LINUX_CONSOLE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 /*??
-            // The gnu/linux console mutex.
+            // The terminal mutex.
             void** mt = NULL_POINTER_STATE_CYBOI_MODEL;
-            // The gnu/linux console input stream.
+            // The terminal input stream.
             void** is = NULL_POINTER_STATE_CYBOI_MODEL;
 
-            // Get gnu/linux console mutex.
-            get((void*) &mt, p0, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
-            // Get gnu/linux console input stream.
-            get((void*) &is, p0, (void*) GNU_LINUX_CONSOLE_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+            // Get terminal mutex.
+            get((void*) &mt, p0, (void*) TERMINAL_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+            // Get terminal input stream.
+            get((void*) &is, p0, (void*) TERMINAL_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
-            receive_gnu_linux_console(p0, p1, *is, p12, p13, p1, p2, *mt);
+            receive_terminal(p0, p1, *is, p12, p13, p1, p2, *mt);
 */
         }
     }

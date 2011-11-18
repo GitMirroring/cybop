@@ -30,10 +30,11 @@
 #include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../executor/comparator/basic/value_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../executor/referencer/referencer.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -165,7 +166,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             // Inserting elements outside the current array
             // boundaries is equivalent to just overwriting
             // elements, since none have to be moved.
-            overwrite_array(p0, p1, p2, p3, p4, p5, p6, p7);
+            overwrite_array(p0, p1, p2, p3, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 

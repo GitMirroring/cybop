@@ -26,16 +26,12 @@
 #ifndef TYPE_DECODER_SOURCE
 #define TYPE_DECODER_SOURCE
 
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/type/cybol/compare_cybol_type.c"
 #include "../../../../constant/type/cybol/datetime_cybol_type.c"
 #include "../../../../constant/type/cybol/logicvalue_cybol_type.c"
-//?? Delete this later. Superfluous since replaced with compare/equal etc.
-#include "../../../../constant/type/cybol/operation_cybol_type.c"
 #include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/operation/operation_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"

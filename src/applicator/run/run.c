@@ -28,14 +28,13 @@
 
 #include <unistd.h>
 
-#include "../../applicator/runner/executing_runner.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/run/program_run_operation_cybol_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/allocator.c"
+#include "../../executor/runner/runner.c"
 #include "../../logger/logger.c"
 #include "../../variable/reallocation_factor.c"
 

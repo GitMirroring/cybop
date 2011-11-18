@@ -26,28 +26,13 @@
 #ifndef SEND_SOURCE
 #define SEND_SOURCE
 
-#include "../../applicator/communicator/sending/cyboi_system_sending_communicator.c"
-#include "../../applicator/communicator/sending/file_system_sending_communicator.c"
-#include "../../applicator/communicator/sending/gnu_linux_console_sending_communicator.c"
-#include "../../applicator/communicator/sending/inline_sending_communicator.c"
-#include "../../applicator/communicator/sending/latex_sending_communicator.c"
-#include "../../applicator/communicator/sending/shell_sending_communicator.c"
-#include "../../applicator/communicator/sending/socket_sending_communicator.c"
-#include "../../applicator/communicator/sending/x_window_system_sending_communicator.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cybol/service_cybol_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/service_port_model.c"
 #include "../../constant/model/signal_priority_model.c"
-#include "../../constant/name/cybol/operation/communication/send_communication_operation_cybol_name.c"
-#include "../../executor/accessor/getter/array_getter.c"
-#include "../../executor/accessor/getter/compound_getter.c"
-#include "../../executor/memoriser/allocator.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../logger/logger.c"
 
 /**
@@ -163,11 +148,11 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, cmd, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, cmd, (void*) TERMINAL_CYBOL_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_gnu_linux_console(p2, *ma, *mac, *mm, *mmc, *md, *mdc, *am, *amc, *clm, *clmc, p3, p4);
+            send_terminal(p2, *ma, *mac, *mm, *mmc, *md, *mdc, *am, *amc, *clm, *clmc, p3, p4);
         }
     }
 

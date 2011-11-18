@@ -75,7 +75,7 @@ void test_stdout_stdout() {
 /**
  * Tests the wide character output function "fwprintf".
  *
- * CAUTION! Some wide characters are not recognised by the gnu/linux console yet,
+ * CAUTION! Some wide characters are not recognised by the terminal yet,
  * so that only question marks appear on the place of the corresponding character, e.g.:
  * - U+70BA CJK UNIFIED IDEOGRAPH-70BA 為
  * - U+256D BOX DRAWINGS LIGHT ARC DOWN AND RIGHT ╭
@@ -165,7 +165,7 @@ void test_wide_character_wprintf() {
 }
 
 /**
- * Tests the wide character output on gnu/linux console,
+ * Tests the wide character output on terminal,
  * in between escape control sequences.
  */
 void test_wide_character_output() {
@@ -184,12 +184,12 @@ void test_wide_character_output() {
     // The working termios interface.
     struct termios* tw = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Create gnu/linux console internals.
+    // Create terminal internals.
 //??        allocate((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
     to = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
     tw = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
 
-    // Initialise gnu/linux console internals.
+    // Initialise terminal internals.
     // Set file stream.
     // CAUTION! Possibly, stdin must be used instead of stdout here!
     t = stdout;
@@ -391,7 +391,7 @@ void test_communicator_console_input() {
     // The new termios settings.
     struct termios* tn = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate gnu/linux console internals.
+    // Allocate terminal internals.
     to = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
     tn = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
 
@@ -474,8 +474,8 @@ void test_communicator_console_output() {
     if (strcmp("linux", getenv("TERM")) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 */
 
-        // This is a gnu/linux console.
-        log_write((void*) stdout, L"This is a gnu/linux console.\n");
+        // This is a terminal.
+        log_write((void*) stdout, L"This is a terminal.\n");
 
 /*??
         // Determine device name of controlling terminal.

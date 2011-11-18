@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GNU_LINUX_CONSOLE_DECODER_SOURCE
-#define GNU_LINUX_CONSOLE_DECODER_SOURCE
+#ifndef TERMINAL_DECODER_SOURCE
+#define TERMINAL_DECODER_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -34,17 +34,12 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
-#include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/gnu_linux_console/escape_control_sequence_gnu_linux_console_model.c"
+#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -53,9 +48,8 @@
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/name/memory/vector_memory_name.c"
-#include "../../../../executor/accessor/getter/compound_getter.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../../executor/accessor/getter.c"
 #include "../../../../executor/converter/decoder/integer_vector_decoder.c"
 #include "../../../../executor/converter/decoder/terminal_background_decoder.c"
 #include "../../../../executor/converter/decoder/terminal_foreground_decoder.c"
@@ -66,7 +60,7 @@
  * Decodes the escape control sequence character data into a cyboi command.
  *
  * This function changes the escape control sequences into real names as defined by CYBOL.
- * Example: The ARROW_UP_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL (ESC[A sequence) gets converted into the
+ * Example: The ARROW_UP_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL (ESC[A sequence) gets converted into the
  * constant ARROW_UP_KEYBOARD_KEY_CYBOL_NAME with the value "arrow_up", which is used so in CYBOL files.
  *
  * @param p0 the destination data (pointer reference)
@@ -75,16 +69,16 @@
  * @param p3 the source data
  * @param p4 the source count
  */
-void decode_gnu_linux_console_escape_control_sequence(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_terminal_escape_control_sequence(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode gnu/linux console escape control sequence.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode terminal escape control sequence.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) ARROW_UP_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) ARROW_UP_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT);
+        compare_all_array((void*) &r, p3, (void*) ARROW_UP_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) ARROW_UP_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -94,7 +88,7 @@ void decode_gnu_linux_console_escape_control_sequence(void* p0, void* p1, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) ARROW_DOWN_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) ARROW_DOWN_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT);
+        compare_all_array((void*) &r, p3, (void*) ARROW_DOWN_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) ARROW_DOWN_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +98,7 @@ void decode_gnu_linux_console_escape_control_sequence(void* p0, void* p1, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) ARROW_LEFT_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) ARROW_LEFT_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT);
+        compare_all_array((void*) &r, p3, (void*) ARROW_LEFT_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) ARROW_LEFT_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -114,7 +108,7 @@ void decode_gnu_linux_console_escape_control_sequence(void* p0, void* p1, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) ARROW_RIGHT_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) ARROW_RIGHT_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT);
+        compare_all_array((void*) &r, p3, (void*) ARROW_RIGHT_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) ARROW_RIGHT_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -129,7 +123,7 @@ void decode_gnu_linux_console_escape_control_sequence(void* p0, void* p1, void* 
 }
 
 /**
- * Decodes the gnu/linux console character data into a command.
+ * Decodes the terminal character data into a command.
  *
  * This function changes the key codes into real names as defined by CYBOL.
  * Example: The LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL (<enter> key) gets converted into the
@@ -141,9 +135,9 @@ void decode_gnu_linux_console_escape_control_sequence(void* p0, void* p1, void* 
  * @param p3 the source data
  * @param p4 the source count
  */
-void decode_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode gnu/linux console character.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode terminal character.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -177,7 +171,7 @@ void decode_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3, 
 }
 
 /**
- * Decodes the gnu/linux console character data into a command.
+ * Decodes the terminal character data into a command.
  *
  * @param p0 the destination data (pointer reference)
  * @param p1 the destination count
@@ -185,51 +179,51 @@ void decode_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3, 
  * @param p3 the source data
  * @param p4 the source count
  */
-void decode_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode gnu/linux console.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode terminal.");
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*sc > *ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT) {
+            if (*sc > *ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT) {
 
                 // Only do the following comparison if the source array
                 // is greater than the escape control sequence prefix,
                 // since a value has to follow after the escape control sequence prefix.
 
-                // CAUTION! Use the "ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT" for both comparison values,
+                // CAUTION! Use the "ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT" for both comparison values,
                 // since they would not be equal if their size differed.
-                compare_all_array((void*) &r, p3, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT);
+                compare_all_array((void*) &r, p3, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                     // Initialise temporary character sequence with pointer to the
                     // first character AFTER the escape control sequence prefix.
-                    void* t = p3 + (*ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                    int tc = *sc - *ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT;
+                    void* t = p3 + (*ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+                    int tc = *sc - *ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT;
 
-                    decode_gnu_linux_console_escape_control_sequence(p0, p1, p2, t, (void*) &tc);
+                    decode_terminal_escape_control_sequence(p0, p1, p2, t, (void*) &tc);
                 }
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_gnu_linux_console_character(p0, p1, p2, p3, p4);
+            decode_terminal_character(p0, p1, p2, p3, p4);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode gnu/linux console. The source character array count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode terminal. The source character array count is null.");
     }
 }
 
-/* GNU_LINUX_CONSOLE_DECODER_SOURCE */
+/* TERMINAL_DECODER_SOURCE */
 #endif

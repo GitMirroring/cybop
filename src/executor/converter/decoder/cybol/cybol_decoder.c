@@ -26,14 +26,11 @@
 #ifndef CYBOL_DECODER_SOURCE
 #define CYBOL_DECODER_SOURCE
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybop/cybop_name.c"
-#include "../../../../executor/accessor/appender/compound_appender.c"
-#include "../../../../executor/accessor/getter/compound_getter.c"
 #include "../../../../executor/converter/detector/cybol_detector.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"

@@ -26,18 +26,10 @@
 #ifndef SHUTDOWN_SOURCE
 #define SHUTDOWN_SOURCE
 
-#include "../../applicator/maintainer/shutting/gnu_linux_console_shutting_maintainer.c"
-#include "../../applicator/maintainer/shutting/socket_shutting_maintainer.c"
-#include "../../applicator/maintainer/shutting/x_window_system_shutting_maintainer.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/lifecycle_operation_cybol_name.c"
-#include "../../executor/accessor/getter/compound_getter.c"
-#include "../../executor/comparator/all/array_all_comparator.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../logger/logger.c"
 #include "../../variable/service_interrupt.c"
 #include "../../variable/thread_identification.c"
@@ -46,7 +38,7 @@
  * Shuts down a service.
  *
  * Expected parametres:
- * - service (required): the service to be shut down (gnu_linux_console, www, x_window_system, ...)
+ * - service (required): the service to be shut down (terminal, www, x_window_system, ...)
  *
  * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
  * @param p1 the parametres array count
@@ -76,11 +68,11 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, smd, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, smd, (void*) TERMINAL_CYBOL_CHANNEL);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            shutdown_gnu_linux_console(p3, (void*) GNU_LINUX_CONSOLE_THREAD, (void*) GNU_LINUX_CONSOLE_EXIT);
+            shutdown_terminal(p3, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
         }
     }
 

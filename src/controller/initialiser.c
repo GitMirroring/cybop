@@ -32,8 +32,11 @@
 #include "../constant/type/cybol/state/text_state_cybol_type.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../controller/checker.c"
+#include "../executor/communicator/receiver/file_system_receiver.c"
 #include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/memoriser/deallocator/part_deallocator.c"
+#include "../executor/modifier/appender/item_appender.c"
+#include "../executor/modifier/overwriter/part_overwriter.c"
 #include "../logger/logger.c"
 
 /**
@@ -71,7 +74,7 @@ void initialise(void* p0, void* p1, void* p2) {
     // CAUTION! A name is not necessary, since only
     // the actual model and properties are of interest.
     // CAUTION! The model and properties are received below.
-    overwrite_part_element(s, (void*) PART_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(s, (void*) PART_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
     // Receive startup signal model, properties.
     receive_file_system(sm, sp, md, mc, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE);

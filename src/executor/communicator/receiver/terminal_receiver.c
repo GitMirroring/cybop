@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GNU_LINUX_CONSOLE_RECEIVER_SOURCE
-#define GNU_LINUX_CONSOLE_RECEIVER_SOURCE
+#ifndef TERMINAL_RECEIVER_SOURCE
+#define TERMINAL_RECEIVER_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
@@ -38,14 +38,13 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/communicator/receiver/gnu_linux_console_receiver.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../executor/converter/decoder/utf_8_unicode_character_decoder.c"
+#include "../../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../logger/logger.c"
 
 /**
- * Receives a gnu/linux console character.
+ * Receives a terminal character.
  *
  * @param p0 the destination wide character array (pointer reference)
  * @param p1 the destination wide character array count
@@ -57,7 +56,7 @@
  * @param p7 the source input stream
  * @param p8 the mutex
  */
-void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -79,7 +78,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
 
                         int* b = (int*) p3;
 
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive gnu/linux console character.");
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal character.");
 
                         // Initialise error number.
                         // It is a global variable/ function and other operations
@@ -89,17 +88,17 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                         // the function that might cause an error.
                         errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                        // Lock gnu/linux console mutex.
+                        // Lock terminal mutex.
                         pthread_mutex_lock(p8);
 
-                        // Receive character from source input stream of gnu/linux console.
+                        // Receive character from source input stream of terminal.
                         //
                         // CAUTION! The multibyte- is converted to a wide character internally,
                         // so that the return value of type "wint_t" may be casted to "wchar_t".
                         // Function calls to "decode_utf_8_unicode_character_vector" are therefore NOT necessary here!
                         *c = fgetwc(s);
 
-                        // Unlock gnu/linux console mutex.
+                        // Unlock terminal mutex.
                         pthread_mutex_unlock(p8);
 
                         if (errno != EILSEQ) {
@@ -142,13 +141,13 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
                                     // An escape- followed by another, second character
                                     // (which is not an opening square bracket) has been detected.
 
-                                    // Lock gnu/linux console mutex.
+                                    // Lock terminal mutex.
                                     pthread_mutex_lock(p8);
 
                                     // Unget this character so that it may be processed once more later on.
                                     ungetwc(*c, p7);
 
-                                    // Unlock gnu/linux console mutex.
+                                    // Unlock terminal mutex.
                                     pthread_mutex_unlock(p8);
 
                                     // Set loop break flag.
@@ -165,7 +164,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
 
                             } else if (*c == WEOF) {
 
-                                // The function "communicate_sensing_gnu_linux_console_message" filters out
+                                // The function "communicate_sensing_terminal_message" filters out
                                 // invalid (non-existing) characters recognised by the return value WEOF (-1).
                                 // However, to be on the safe side, they are filtered out here once more.
 
@@ -183,7 +182,7 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from gnu/linux console. The character reading failed.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from terminal. The character reading failed.");
 
                             // Set loop break flag.
                             *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
@@ -191,32 +190,32 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The loop break flag is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The loop break flag is null.");
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The input character is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The input character is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The escape character mode is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The escape character mode is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The escape control sequence is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The escape control sequence is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive gnu/linux console character. The source input stream is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The source input stream is null.");
     }
 }
 
 /**
- * Receives from gnu/linux console.
+ * Receives from terminal.
  *
  * @param p0 the destination wide character array (pointer reference)
  * @param p1 the destination count
@@ -224,9 +223,9 @@ void receive_gnu_linux_console_character(void* p0, void* p1, void* p2, void* p3,
  * @param p3 the source input stream
  * @param p4 the mutex
  */
-void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive gnu/linux console.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
 
     // The loop break flag.
     int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -244,12 +243,12 @@ void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4)
             break;
         }
 
-        receive_gnu_linux_console_character(p0, p1, p2, (void*) &b, (void*) &c, (void*) &esc, (void*) &csi, p3, p4);
+        receive_terminal_character(p0, p1, p2, (void*) &b, (void*) &c, (void*) &esc, (void*) &csi, p3, p4);
     }
 }
 
 /**
- * Receives textual user interface (tui) message via gnu/linux console.
+ * Receives textual user interface (tui) message via terminal.
  *
  * @param p0 the command name (pointer reference)
  * @param p1 the command name count (pointer reference)
@@ -263,42 +262,42 @@ void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4)
  * @param p9 the command properties (pointer reference)
  * @param p10 the command properties count (pointer reference)
  * @param p11 the command properties size (pointer reference)
- * @param p12 the gnu/linux console input stream
+ * @param p12 the terminal input stream
  * @param p13 the commands
  * @param p14 the commands count
  * @param p15 the knowledge memory
  * @param p16 the knowledge memory count
  * @param p17 the mutex
  */
-void receive_gnu_linux_console(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
+void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
     void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive gnu/linux console.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
 
-    // The character array read from the gnu/linux console.
+    // The character array read from the terminal.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate character array.
-    allocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
-    // Read pressed keyboard keys as message from gnu/linux console.
-    receive_gnu_linux_console((void*) &a, (void*) &ac, (void*) &as, p12, p17);
+    // Read pressed keyboard keys as message from terminal.
+    receive_terminal((void*) &a, (void*) &ac, (void*) &as, p12, p17);
 
     // CAUTION! The multibyte- is converted to a wide character internally (in glibc function "fgetwc").
     // Function calls to "decode_utf_8_unicode_character_vector" are therefore NOT necessary here!
 
     // Decode character array into command.
-    decode(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, a, (void*) &ac, p15, p16, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
+    decode(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, a, (void*) &ac, p15, p16, (void*) TERMINAL_CYBOL_CHANNEL, (void*) TERMINAL_CYBOL_CHANNEL_COUNT);
 
     // Deallocate character array.
-    deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* GNU_LINUX_CONSOLE_RECEIVER_SOURCE */
+/* TERMINAL_RECEIVER_SOURCE */
 #endif

@@ -41,7 +41,7 @@
  * Reacts to an interrupt service system signal.
  *
  * Services run in a separate thread each, for example:
- * - gnu/linux console
+ * - terminal
  * - unix socket
  * - tcp socket
  * - x window system
@@ -67,18 +67,18 @@ void interrupt_service_system_signal_handler(int p0) {
 
 //??    fwprintf(stdout, L"TEST signal handler thread t: %l\n", t);
 
-    if (t == *GNU_LINUX_CONSOLE_THREAD) {
+    if (t == *TERMINAL_THREAD) {
 
-//??    fwprintf(stdout, L"TEST signal handler gnu/linux console %i\n", p0);
+//??    fwprintf(stdout, L"TEST signal handler terminal %i\n", p0);
 
-        if (*GNU_LINUX_CONSOLE_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (*TERMINAL_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//??    fwprintf(stdout, L"TEST signal handler gnu/linux console irq %i\n", p0);
+//??    fwprintf(stdout, L"TEST signal handler terminal irq %i\n", p0);
 
             pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
             // CAUTION! The thread CANNOT be reset here with:
-            // *GNU_LINUX_CONSOLE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            // *TERMINAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             // Therefore, do the reset in the corresponding

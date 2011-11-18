@@ -34,10 +34,6 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -53,9 +49,10 @@
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/name/memory/vector_memory_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/compound_getter.c"
 #include "../../../../executor/accessor/getter.c"
-#include "../../../../executor/converter/encoder/integer_vector_encoder.c"
+#include "../../../../executor/converter/encoder/cybol/integer/integer_cybol_encoder.c"
 #include "../../../../executor/converter/encoder/terminal_background_encoder.c"
 #include "../../../../executor/converter/encoder/terminal_foreground_encoder.c"
 #include "../../../../executor/modifier/overwriter/appender/item_appender.c"
@@ -104,13 +101,13 @@ void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4,
     // printf("\033[%d;%dH", y_row, x_column)
     //
 
-    append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     encode_cybol_integer_value(p0, (void*) &cy, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
     append_item_element(p0, (void*) SEMICOLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     encode_cybol_integer_value(p0, (void*) &cx, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
     append_item_element(p0, (void*) LATIN_CAPITAL_LETTER_H_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(p0, (void*) ATTRIBUTE_OFF_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_OFF_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ATTRIBUTE_OFF_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_OFF_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     //
     // Add background and foreground properties.
@@ -119,13 +116,13 @@ void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4,
     // printf("\033[32mgreen colour\033[0mswitched off.")
     //
 
-    append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     encode_terminal_background(p0, p4, p5);
-    append_item_element(p0, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-    append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     encode_terminal_foreground(p0, p6, p7);
-    append_item_element(p0, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     //
     // Set character properties.
@@ -142,8 +139,8 @@ void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(p0, (void*) HIDDEN_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) HIDDEN_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) HIDDEN_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) HIDDEN_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 
     // Reset comparison result.
@@ -154,8 +151,8 @@ void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(p0, (void*) INVERSE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) INVERSE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) INVERSE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) INVERSE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 
     // Reset comparison result.
@@ -166,8 +163,8 @@ void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(p0, (void*) BLINK_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) BLINK_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) BLINK_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) BLINK_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 
     // Reset comparison result.
@@ -178,8 +175,8 @@ void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(p0, (void*) UNDERLINE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) UNDERLINE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) UNDERLINE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) UNDERLINE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 
     // Reset comparison result.
@@ -190,8 +187,8 @@ void encode_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(p0, (void*) BOLD_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) BOLD_ESCAPE_CONTROL_SEQUENCE_GNU_LINUX_CONSOLE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) BOLD_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) BOLD_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 
     // Set character.

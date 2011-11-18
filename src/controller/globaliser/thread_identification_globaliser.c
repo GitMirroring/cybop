@@ -40,9 +40,9 @@ void globalise_thread_identification() {
     CYBOI_SERVICE_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
     *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    // Allocate and initialise gnu/linux console thread identification.
-    GNU_LINUX_CONSOLE_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
-    *GNU_LINUX_CONSOLE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // Allocate and initialise terminal thread identification.
+    TERMINAL_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
+    *TERMINAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate www service thread identification.
     WWW_SERVICE_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);

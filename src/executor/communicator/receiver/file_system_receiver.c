@@ -35,10 +35,10 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/stream_model.c"
+#include "../../../constant/model/terminal/stream_terminal_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../executor/converter/encoder/utf_8_unicode_character_encoder.c"
+#include "../../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
+#include "../../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/reallocation_factor.c"
 
@@ -100,7 +100,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) STANDARD_INPUT_STREAM_MODEL_COUNT);
+        compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

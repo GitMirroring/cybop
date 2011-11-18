@@ -26,41 +26,30 @@
 #ifndef ENCODER_SOURCE
 #define ENCODER_SOURCE
 
-#include "../../constant/type/cybol/application_cybol_type.c"
-#include "../../constant/type/cybol/application_x_cybol_type.c"
-#include "../../constant/type/cybol/colour_cybol_type.c"
-#include "../../constant/type/cybol/datetime_cybol_type.c"
-#include "../../constant/type/cybol/interface_cybol_type.c"
-#include "../../constant/type/cybol/logicvalue_cybol_type.c"
-#include "../../constant/type/cybol/message_cybol_type.c"
-#include "../../constant/type/cybol/number_cybol_type.c"
-#include "../../constant/type/cybol/operation_cybol_type.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
 #include "../../executor/converter/decoder/cybol_decoder.c"
 #include "../../executor/converter/encoder/boolean_encoder.c"
 #include "../../executor/converter/encoder/complex_encoder.c"
 #include "../../executor/converter/encoder/cybol_encoder.c"
 #include "../../executor/converter/encoder/date_time_encoder.c"
-#include "../../executor/converter/encoder/double_vector_encoder.c"
+#include "../../executor/converter/encoder/cybol/double/double_cybol_encoder.c"
 #include "../../executor/converter/encoder/fraction_encoder.c"
-#include "../../executor/converter/encoder/gnu_linux_console_encoder.c"
+#include "../../executor/converter/encoder/terminal_encoder.c"
 #include "../../executor/converter/encoder/html_encoder.c"
 #include "../../executor/converter/encoder/http_request_encoder.c"
 #include "../../executor/converter/encoder/http_response_encoder.c"
 #include "../../executor/converter/encoder/integer_encoder.c"
-#include "../../executor/converter/encoder/integer_vector_encoder.c"
+#include "../../executor/converter/encoder/cybol/integer/integer_cybol_encoder.c"
 #include "../../executor/converter/encoder/latex_encoder.c"
 #include "../../executor/converter/encoder/model_diagram_encoder.c"
 #include "../../executor/converter/encoder/terminal_background_encoder.c"
 #include "../../executor/converter/encoder/terminal_foreground_encoder.c"
 #include "../../executor/converter/encoder/utf_16_unicode_character_encoder.c"
-#include "../../executor/converter/encoder/utf_8_unicode_character_encoder.c"
+#include "../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
 #include "../../executor/converter/encoder/xdt_encoder.c"
 #include "../../executor/converter/encoder/xml_encoder.c"
 #include "../../executor/converter/encoder/x_window_system_encoder.c"
@@ -150,11 +139,11 @@ void encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p21, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p22, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p21, (void*) TERMINAL_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p22, (void*) TERMINAL_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            encode_gnu_linux_console(p0, p1, p2, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p13, p14);
+//??            encode_terminal(p0, p1, p2, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p13, p14);
         }
     }
 

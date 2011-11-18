@@ -26,18 +26,13 @@
 #ifndef PART_FINDER_SOURCE
 #define PART_FINDER_SOURCE
 
-#include "../../../constant/type/cybol/number_cybol_type.c"
-#include "../../../constant/type/cybol/path_cybol_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cybol/separator_cybol_name.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/reallocation_factor.c"
 
 /**
  * Tries to find the searched array in the investigated part.

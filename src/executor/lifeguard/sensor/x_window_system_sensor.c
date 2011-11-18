@@ -33,12 +33,11 @@
 #include <pthread.h>
 #include <signal.h>
 
-#include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/accessor/getter.c"
 #include "../../../executor/memoriser/allocator.c"
 #include "../../../variable/thread_identification.c"

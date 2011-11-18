@@ -26,19 +26,10 @@
 #ifndef CHANNEL_DECODER_SOURCE
 #define CHANNEL_DECODER_SOURCE
 
-#include "../../../../constant/type/cybol/compare_cybol_type.c"
-#include "../../../../constant/type/cybol/datetime_cybol_type.c"
-#include "../../../../constant/type/cybol/logicvalue_cybol_type.c"
-//?? Delete this later. Superfluous since replaced with compare/equal etc.
-#include "../../../../constant/type/cybol/operation_cybol_type.c"
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/operation/operation_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../logger/logger.c"
 
@@ -68,11 +59,11 @@ void decode_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) GNU_LINUX_CONSOLE_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) TERMINAL_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) TERMINAL_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) GNU_LINUX_CONSOLE_CYBOI_CHANNEL);
+            copy_integer(p0, (void*) TERMINAL_CYBOI_CHANNEL);
         }
     }
 

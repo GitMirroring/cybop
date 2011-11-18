@@ -26,19 +26,11 @@
 #ifndef OVERWRITE_SOURCE
 #define OVERWRITE_SOURCE
 
-#include "../../applicator/memoriser/copying/boolean_copying_memoriser.c"
-#include "../../applicator/memoriser/copying/character_vector_copying_memoriser.c"
-#include "../../applicator/memoriser/copying/integer_vector_copying_memoriser.c"
-#include "../../constant/type/cybol/logicvalue_cybol_type.c"
-#include "../../constant/type/cybol/number_cybol_type.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/memory/copy_memory_operation_cybol_name.c"
-#include "../../executor/accessor/getter/compound_getter.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
 #include "../../logger/logger.c"
 

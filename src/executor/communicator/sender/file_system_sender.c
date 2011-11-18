@@ -33,10 +33,9 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/stream_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../executor/converter/encoder/utf_8_unicode_character_encoder.c"
+#include "../../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/reallocation_factor.c"
 
@@ -202,7 +201,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE, p1, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE, p1, (void*) STANDARD_OUTPUT_STREAM_TERMINAL_MODEL_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -226,7 +225,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL_COUNT);
 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -259,7 +258,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 void* tns = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                 // Allocate terminated file name.
-                allocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+                allocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
                 // Encode wide character option into multibyte character array.
                 encode_utf_8_unicode_character_vector((void*) &tn, tnc, tns, *d, p1);
@@ -299,7 +298,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 }
 
                 // Deallocate terminated file name.
-                deallocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+                deallocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE);
             }
 
         } else {
@@ -334,10 +333,10 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p15 the file name
  * @param p16 the file name count
  */
-void apply_send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8,
+void send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8,
     void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send file system.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file system.");
 
     // The serialised wide character array.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -345,7 +344,7 @@ void apply_send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
-    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Serialise source knowledge model into serialised wide character array.
     encode((void*) &s, sc, ss,
@@ -359,19 +358,19 @@ void apply_send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     void* es = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate encoded character array.
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     // Encode serialised wide character array into encoded character array.
     encode_utf_8_unicode_character_vector((void*) &e, ec, es, s, sc);
 
     // Deallocate serialised wide character array.
-    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Write encoded array into file.
-    send_data((void*) &p15, p16, *NULL_POINTER_STATE_CYBOI_MODEL, e, ec, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
+    send_file((void*) &p15, p16, *NULL_POINTER_STATE_CYBOI_MODEL, e, ec);
 
     // Deallocate encoded character array.
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* FILE_SYSTEM_SENDER_SOURCE */

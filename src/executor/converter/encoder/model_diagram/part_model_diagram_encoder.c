@@ -26,18 +26,12 @@
 #ifndef PART_MODEL_DIAGRAM_ENCODER_SOURCE
 #define PART_MODEL_DIAGRAM_ENCODER_SOURCE
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/converter/encoder/integer_vector_encoder.c"
-#include "../../../../executor/converter/encoder/double_vector_encoder.c"
-#include "../../../../executor/modifier/inserter/array_inserter.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 //

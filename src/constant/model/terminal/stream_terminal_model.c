@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The standard input stream terminal model. */
 static wchar_t STANDARD_INPUT_STREAM_TERMINAL_MODEL_ARRAY[] = {L's', L't', L'a', L'n', L'd', L'a', L'r', L'd', L'_', L'i', L'n', L'p', L'u', L't'};

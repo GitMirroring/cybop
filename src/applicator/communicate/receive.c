@@ -26,20 +26,8 @@
 #ifndef RECEIVE_SOURCE
 #define RECEIVE_SOURCE
 
-#include "../../applicator/communicator/receiving/file_system_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/gnu_linux_console_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/inline_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/latex_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/socket_receiving_communicator.c"
-#include "../../applicator/communicator/receiving/x_window_system_receiving_communicator.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/modifier/getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
@@ -59,7 +47,7 @@
  * the model AND properties are received TOGETHER, in just one operation.
  *
  * Expected parametres:
- * - channel (required): the channel via which to receive the message (gnu_linux_console, www, x_window_system etc.)
+ * - channel (required): the channel via which to receive the message (terminal, www, x_window_system etc.)
  * - language (required): the language (type, type, structure) of the data received (http_request, xdt, boolean, character etc.)
  * - message (required): the source (knowledge template) from where to receive data
  * - meta message (optional): the source (knowledge template) from where to receive meta data (properties)
@@ -182,7 +170,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Allocate model diagram.
-    allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
     // Encode model into model diagram.
     encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
         *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
@@ -202,7 +190,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     // Write multibyte character stream as message to file system.
     send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
     // Deallocate model diagram.
-    deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
     deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 //?? TEST END

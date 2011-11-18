@@ -26,15 +26,10 @@
 #ifndef SHELL_SEND_SOURCE
 #define SHELL_SEND_SOURCE
 
-#include "../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../constant/channel/cybol_channel.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/stream_model.c"
-#include "../../../executor/communicator/receiver.c"
 #include "../../../executor/converter/decoder.c"
 #include "../../../executor/converter/encoder.c"
 #include "../../../executor/memoriser/allocator.c"
@@ -70,7 +65,7 @@ void apply_send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     int ss = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
-    allocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Serialise source knowledge model into serialised wide character array.
     encode((void*) &s, (void*) &sc, (void*) &ss,
@@ -100,10 +95,10 @@ void apply_send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     encode_utf_8_unicode_character_vector((void*) &e, (void*) &ec, (void*) &es, s, (void*) &sc);
 
     // Deallocate serialised wide character array.
-    deallocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Write encoded array as message to shell standard output.
-    send_data((void*) &STANDARD_OUTPUT_STREAM_MODEL, (void*) STANDARD_OUTPUT_STREAM_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, e, (void*) &ec, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
+    send_data((void*) &STANDARD_OUTPUT_STREAM_TERMINAL_MODEL, (void*) STANDARD_OUTPUT_STREAM_TERMINAL_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, e, (void*) &ec, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
 
     // Deallocate encoded character array.
     deallocate((void*) &e, (void*) &es, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);

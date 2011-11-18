@@ -256,7 +256,7 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
                     // Add scheme as uri part here, because the authority does not contain one.
                     append_part(p0, p1, p2,
                         (void*) CYBOI_SCHEME_URI_NAME, (void*) CYBOI_SCHEME_URI_NAME_COUNT,
-                        (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT,
+                        (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT,
                         (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
                     decode_http_uri_authority_content(p0, p1, p2, (void*) &p6, p7);
@@ -283,7 +283,7 @@ void decode_uri(void* p0, void* p1, void* p2, void* p3) {
                     // Add scheme as uri part here, because the path does not contain one.
                     append_part(p0, p1, p2,
                         (void*) CYBOI_SCHEME_URI_NAME, (void*) CYBOI_SCHEME_URI_NAME_COUNT,
-                        (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT,
+                        (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT,
                         (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
                     decode_http_uri_path(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);

@@ -35,6 +35,7 @@
 #include "../controller/handler/operation_handler.c"
 #include "../controller/handler/part_handler.c"
 #include "../executor/comparator/all/array_all_comparator.c"
+#include "../executor/modifier/knowledge_getter/branch_part_getter.c"
 #include "../logger/logger.c"
 
 /**

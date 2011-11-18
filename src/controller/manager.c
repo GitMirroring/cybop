@@ -38,6 +38,10 @@
 #include "../controller/manager/system_signal_handler_manager.c"
 #include "../controller/checker.c"
 #include "../controller/initialiser.c"
+#include "../executor/maintainer/shutter/terminal_shutter.c"
+#include "../executor/maintainer/shutter/opengl_shutter.c"
+#include "../executor/maintainer/shutter/socket_shutter.c"
+#include "../executor/maintainer/shutter/x_window_system_shutter.c"
 #include "../logger/logger.c"
 #include "../variable/type_size/integral_type_size.c"
 #include "../variable/type_size/real_type_size.c"
@@ -149,8 +153,8 @@ void manage(void* p0) {
     //
 
     volatile sig_atomic_t* signal_memory_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The gnu/linux console interrupt request flag.
-    volatile sig_atomic_t* gnu_linux_console_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal interrupt request flag.
+    volatile sig_atomic_t* terminal_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The x window system interrupt request flag.
     volatile sig_atomic_t* x_window_system_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The www service interrupt request flag.
@@ -160,8 +164,8 @@ void manage(void* p0) {
 
     // The signal memory mutex.
     pthread_mutex_t* signal_memory_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The gnu/linux console mutex.
-    pthread_mutex_t* gnu_linux_console_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal mutex.
+    pthread_mutex_t* terminal_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The x window system mutex.
     pthread_mutex_t* x_window_system_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The www service mutex.
@@ -172,7 +176,7 @@ void manage(void* p0) {
     // The signal memory sleep time.
     double* signal_memory_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The gnu linux console sleep time.
-    double* gnu_linux_console_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    double* terminal_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The x window system sleep time.
     double* x_window_system_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The www service sleep time.
@@ -195,8 +199,8 @@ void manage(void* p0) {
 
     // Allocate signal memory interrupt request flag.
     signal_memory_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
-    // Allocate gnu/linux console interrupt request flag.
-    gnu_linux_console_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
+    // Allocate terminal interrupt request flag.
+    terminal_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
     // Allocate x window system interrupt request flag.
     x_window_system_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
     // Allocate www service interrupt request flag.
@@ -206,8 +210,8 @@ void manage(void* p0) {
 
     // Allocate signal memory mutex.
     signal_memory_mutex = (pthread_mutex_t*) malloc(*MUTEX_THREAD_TYPE_SIZE);
-    // Allocate gnu/linux console mutex.
-    gnu_linux_console_mutex = (pthread_mutex_t*) malloc(*MUTEX_THREAD_TYPE_SIZE);
+    // Allocate terminal mutex.
+    terminal_mutex = (pthread_mutex_t*) malloc(*MUTEX_THREAD_TYPE_SIZE);
     // Allocate x window system mutex.
     x_window_system_mutex = (pthread_mutex_t*) malloc(*MUTEX_THREAD_TYPE_SIZE);
     // Allocate www service mutex.
@@ -218,7 +222,7 @@ void manage(void* p0) {
     // Allocate signal memory sleep time.
     signal_memory_sleep_time = (double*) malloc(*DOUBLE_REAL_TYPE_SIZE);
     // Allocate gnu linux console sleep time.
-    gnu_linux_console_sleep_time = (double*) malloc(*DOUBLE_REAL_TYPE_SIZE);
+    terminal_sleep_time = (double*) malloc(*DOUBLE_REAL_TYPE_SIZE);
     // Allocate x window system sleep time.
     x_window_system_sleep_time = (double*) malloc(*DOUBLE_REAL_TYPE_SIZE);
     // Allocate www service sleep time.
@@ -232,8 +236,8 @@ void manage(void* p0) {
 
     // Initialise signal memory interrupt request flag.
     *signal_memory_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // Initialise gnu/linux console interrupt request flag.
-    *gnu_linux_console_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // Initialise terminal interrupt request flag.
+    *terminal_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Initialise x window system interrupt request flag.
     *x_window_system_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Initialise www service interrupt request flag.
@@ -249,8 +253,8 @@ void manage(void* p0) {
 
     // Initialise signal memory mutex.
     pthread_mutex_init(signal_memory_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
-    // Initialise gnu/linux console mutex.
-    pthread_mutex_init(gnu_linux_console_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Initialise terminal mutex.
+    pthread_mutex_init(terminal_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise x window system mutex.
     pthread_mutex_init(x_window_system_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise www service mutex.
@@ -261,7 +265,7 @@ void manage(void* p0) {
     // Initialise signal memory sleep time.
     *signal_memory_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
     // Initialise gnu linux console sleep time.
-    *gnu_linux_console_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
+    *terminal_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
     // Initialise x window system sleep time.
     *x_window_system_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
     // Initialise www service sleep time.
@@ -293,7 +297,7 @@ void manage(void* p0) {
 
     startup_internal_memory(i, (void*) &k, (void*) &s,
         (void*) &signal_memory_irq, (void*) &signal_memory_mutex, (void*) &signal_memory_sleep_time,
-        (void*) &gnu_linux_console_irq, (void*) &gnu_linux_console_mutex, (void*) &gnu_linux_console_sleep_time,
+        (void*) &terminal_irq, (void*) &terminal_mutex, (void*) &terminal_sleep_time,
         (void*) &x_window_system_irq, (void*) &x_window_system_mutex, (void*) &x_window_system_sleep_time,
         (void*) &www_service_irq, (void*) &www_service_mutex, (void*) &www_service_sleep_time,
         (void*) &cyboi_service_irq, (void*) &cyboi_service_mutex, (void*) &cyboi_service_sleep_time);
@@ -317,14 +321,14 @@ void manage(void* p0) {
     // corresponding service shutdown operation in cybol logic templates.
     // The "interrupt" procedures are called within the "shutdown" procedures.
 
-    // Shutdown gnu/linux console.
-    maintain_shutting_gnu_linux_console(i, (void*) GNU_LINUX_CONSOLE_THREAD, (void*) GNU_LINUX_CONSOLE_EXIT);
+    // Shutdown terminal.
+    shutdown_terminal(i, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
     // Shutdown x window system.
-    maintain_shutting_x_window_system(i, (void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
+    shutdown_x_window_system(i, (void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
     // Shutdown www service.
-    maintain_shutting_socket(i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
+    shutdown_socket(i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
     // Shutdown cyboi service.
-    maintain_shutting_socket(i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
+    shutdown_socket(i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
 
     //
     // Variable finalisation.
@@ -338,8 +342,8 @@ void manage(void* p0) {
 
     // Destroy signal memory mutex.
     pthread_mutex_destroy(signal_memory_mutex);
-    // Destroy gnu/linux console mutex.
-    pthread_mutex_destroy(gnu_linux_console_mutex);
+    // Destroy terminal mutex.
+    pthread_mutex_destroy(terminal_mutex);
     // Destroy x window system mutex.
     pthread_mutex_destroy(x_window_system_mutex);
     // Destroy www service mutex.
@@ -353,8 +357,8 @@ void manage(void* p0) {
 
     // Deallocate signal memory interrupt request flag.
     free((void*) signal_memory_irq);
-    // Deallocate gnu/linux console interrupt request flag.
-    free((void*) gnu_linux_console_irq);
+    // Deallocate terminal interrupt request flag.
+    free((void*) terminal_irq);
     // Deallocate x window system interrupt request flag.
     free((void*) x_window_system_irq);
     // Deallocate www service interrupt request flag.
@@ -364,8 +368,8 @@ void manage(void* p0) {
 
     // Deallocate signal memory mutex.
     free((void*) signal_memory_mutex);
-    // Deallocate gnu/linux console mutex.
-    free((void*) gnu_linux_console_mutex);
+    // Deallocate terminal mutex.
+    free((void*) terminal_mutex);
     // Deallocate x window system mutex.
     free((void*) x_window_system_mutex);
     // Deallocate www service mutex.
@@ -376,7 +380,7 @@ void manage(void* p0) {
     // Deallocate signal memory sleep time.
     free((void*) signal_memory_sleep_time);
     // Deallocate gnu linux console sleep time.
-    free((void*) gnu_linux_console_sleep_time);
+    free((void*) terminal_sleep_time);
     // Deallocate x window system sleep time.
     free((void*) x_window_system_sleep_time);
     // Deallocate www service sleep time.

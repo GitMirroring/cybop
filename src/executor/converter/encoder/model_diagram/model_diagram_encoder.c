@@ -26,16 +26,14 @@
 #ifndef MODEL_DIAGRAM_ENCODER_SOURCE
 #define MODEL_DIAGRAM_ENCODER_SOURCE
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/converter/encoder/model_diagram/node_model_diagram_encoder.c"
-#include "../../../../executor/converter/encoder/integer_vector_encoder.c"
-#include "../../../../executor/converter/encoder/double_vector_encoder.c"
+#include "../../../../executor/converter/encoder/cybol/integer/integer_cybol_encoder.c"
+#include "../../../../executor/converter/encoder/cybol/double/double_cybol_encoder.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
@@ -45,12 +43,10 @@
  * A model diagram in this case is a textual representation of a knowledge model,
  * in form of many line feed-separated lines representing a model part each.
  *
- * @param p0 the destination model diagram (pointer reference)
- * @param p1 the destination model diagram count
- * @param p2 the destination model diagram size
- * @param p3 the source part
+ * @param p0 the destination model diagram item
+ * @param p1 the source part
  */
-void encode_model_diagram(void* p0, void* p1, void* p2, void* p3) {
+void encode_model_diagram(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode model diagram.");
 
@@ -70,10 +66,10 @@ void encode_model_diagram(void* p0, void* p1, void* p2, void* p3) {
     void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part elements.
-    copy_array_forward((void*) &n, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &a, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &m, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &d, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &n, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &a, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &d, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get part elements data, count retrieved as reference.
     copy_array_forward((void*) &nd, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nc, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -90,7 +86,7 @@ void encode_model_diagram(void* p0, void* p1, void* p2, void* p3) {
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Encode model diagram root node.
-    encode_model_diagram_node(p0, p1, p2, nd, nc, ad, ac, md, mc, dd, dc, (void*) &l, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    encode_model_diagram_node(p0, nd, nc, ad, ac, md, mc, dd, dc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &l);
 }
 
 /* MODEL_DIAGRAM_ENCODER_SOURCE */

@@ -26,17 +26,12 @@
 #ifndef PART_OVERWRITER_SOURCE
 #define PART_OVERWRITER_SOURCE
 
-#include "../../../constant/type/cybol/number_cybol_type.c"
-#include "../../../constant/type/cybol/path_cybol_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cybol/separator_cybol_name.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
-#include "../../../executor/converter/decoder/wide_character_type_decoder.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../logger/logger.c"
@@ -55,7 +50,7 @@
  * @param p3 the count
  * @param p4 the destination part index
  * @param p5 the source array index
- * @param p6 the adjust flag
+ * @param p6 the adjust count flag
  * @param p7 the destination part element index
  */
 void overwrite_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
@@ -84,7 +79,7 @@ void overwrite_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, vo
  * @param p3 the count
  * @param p4 the destination index
  * @param p5 the source index
- * @param p6 the adjust flag
+ * @param p6 the adjust count flag
  */
 void overwrite_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
@@ -165,10 +160,10 @@ void overwrite_part_all(void* p0, void* p1) {
     copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
     // Overwrite destination- with source part model item.
-    overwrite_item(dn, sn, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, snc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    overwrite_item(da, sa, (void*) INTEGER_STATE_CYBOI_TYPE, sac, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    overwrite_item(dm, sm, sad, smc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    overwrite_item(dd, sd, (void*) PART_STATE_CYBOI_TYPE, sdc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    overwrite_item(dn, sn, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, snc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_item(da, sa, (void*) INTEGER_STATE_CYBOI_TYPE, sac, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_item(dm, sm, sad, smc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_item(dd, sd, (void*) PART_STATE_CYBOI_TYPE, sdc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /* PART_OVERWRITER_SOURCE */

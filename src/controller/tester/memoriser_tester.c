@@ -69,7 +69,7 @@ void test_memoriser_array_resizing() {
     allocate_array((void*) &c, (void*) &cs, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     // Fill original array with text.
-    overwrite_array(o, (void*) t, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) tc, (void*) &oc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &oc, (void*) &os);
+    overwrite_array(o, (void*) t, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) tc, (void*) &oc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &oc, (void*) &os, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Print original array content.
     log_write((void*) stdout, t);
@@ -101,9 +101,9 @@ void test_memoriser_part() {
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Fill part container.
-    overwrite_part_element(p, (void*) L"test_$0", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, (void*) L"test_$0", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // The part elements retrieved as reference.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -164,7 +164,7 @@ void test_memoriser_item() {
     allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Fill item container.
-    overwrite_item_element(i, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    overwrite_item_element(i, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The item elements retrieved as reference.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

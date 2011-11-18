@@ -34,10 +34,6 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
 #include "../../../../constant/model/cybol/border_cybol_model.c"
@@ -53,9 +49,10 @@
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/name/memory/vector_memory_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/compound_getter.c"
 #include "../../../../executor/accessor/getter.c"
-#include "../../../../executor/converter/encoder/integer_vector_encoder.c"
+#include "../../../../executor/converter/encoder/cybol/integer/integer_cybol_encoder.c"
 #include "../../../../executor/converter/encoder/terminal_background_encoder.c"
 #include "../../../../executor/converter/encoder/terminal_foreground_encoder.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
@@ -79,7 +76,7 @@
  */
 void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode gnu/linux console.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode terminal.");
 
     // The source part name, type, model, properties.
     void** n = *NULL_POINTER_STATE_CYBOI_MODEL;

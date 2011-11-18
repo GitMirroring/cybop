@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -79,7 +80,7 @@ void select_knowledge_name(void* p0, void* p1, void* p2) {
         // CAUTION! Do NOT move the position (last parametre) here,
         // since the "." has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (model).
-        detect_array((void*) &r, p1, p2, (void*) PART_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PART_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -93,7 +94,7 @@ void select_knowledge_name(void* p0, void* p1, void* p2) {
         // CAUTION! Do NOT move the position (last parametre) here,
         // since the "#" has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (properties).
-        detect_array((void*) &r, p1, p2, (void*) META_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) META_SEPARATOR_CYBOL_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

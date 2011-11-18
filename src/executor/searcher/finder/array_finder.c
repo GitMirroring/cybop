@@ -75,7 +75,7 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, (void*) &c);
 
-        if (b != FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The maximum loop count has been reached.
             // All elements have been compared.

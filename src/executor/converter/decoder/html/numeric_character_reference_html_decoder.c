@@ -26,14 +26,12 @@
 #ifndef NUMERIC_CHARACTER_REFERENCE_DECODER_SOURCE
 #define NUMERIC_CHARACTER_REFERENCE_DECODER_SOURCE
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/character/character_constants.c"
 #include "../../../../constant/character/numeric_character_reference_constants.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/reallocation_factor.c"
 
@@ -2618,7 +2616,7 @@ void decode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, 
                         *ds = (*ARRAY_REALLOCATION_FACTOR * (*dc)) + tc;
 
                         // Reallocate destination.
-                        reallocate(p0, p1, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+                        reallocate(p0, p1, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
                     }
 
                     // Add temporary value to destination.

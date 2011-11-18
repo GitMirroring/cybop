@@ -26,19 +26,16 @@
 #ifndef NODE_MODEL_DIAGRAM_ENCODER_SOURCE
 #define NODE_MODEL_DIAGRAM_ENCODER_SOURCE
 
-#include "../../../../constant/type/cybol/text_cybol_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/converter/encoder/model_diagram/compound_model_diagram_encoder.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/converter/encoder/model_diagram/indentation_model_diagram_encoder.c"
 #include "../../../../executor/converter/encoder/model_diagram/line_model_diagram_encoder.c"
-#include "../../../../executor/converter/encoder/integer_vector_encoder.c"
-#include "../../../../executor/converter/encoder/double_vector_encoder.c"
+#include "../../../../executor/converter/encoder/model_diagram/part_model_diagram_encoder.c"
+#include "../../../../executor/converter/encoder/cybol/integer/integer_cybol_encoder.c"
+#include "../../../../executor/converter/encoder/cybol/double/double_cybol_encoder.c"
 #include "../../../../executor/modifier/inserter/array_inserter.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
@@ -127,17 +124,6 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p3, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            encode_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p6, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) OPERATION_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

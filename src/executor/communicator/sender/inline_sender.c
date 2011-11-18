@@ -84,7 +84,7 @@ void apply_send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate array.
-    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Encode source knowledge model into array.
     encode((void*) &a, ac, as,
@@ -106,7 +106,7 @@ void apply_send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 */
 
     // Deallocate array.
-    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* INLINE_SENDER_SOURCE */

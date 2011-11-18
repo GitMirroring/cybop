@@ -62,9 +62,9 @@
  * @param p3 the signal memory interrupt request flag (pointer reference)
  * @param p4 the signal memory mutex (pointer reference)
  * @param p5 the signal memory sleep time (pointer reference)
- * @param p6 the gnu/linux console interrupt request flag (pointer reference)
- * @param p7 the gnu/linux console mutex (pointer reference)
- * @param p8 the gnu/linux console sleep time (pointer reference)
+ * @param p6 the terminal interrupt request flag (pointer reference)
+ * @param p7 the terminal mutex (pointer reference)
+ * @param p8 the terminal sleep time (pointer reference)
  * @param p9 the x window system interrupt request flag (pointer reference)
  * @param p10 the x window system mutex (pointer reference)
  * @param p11 the x window system sleep time (pointer reference)
@@ -126,12 +126,12 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Set signal memory sleep time.
     copy_array_forward(p0, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SIGNAL_MEMORY_SLEEP_TIME_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-    // Set gnu/linux console interrupt request flag.
-    copy_array_forward(p0, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set gnu/linux console mutex.
-    copy_array_forward(p0, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set gnu/linux console sleep time.
-    copy_array_forward(p0, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GNU_LINUX_CONSOLE_SLEEP_TIME_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set terminal interrupt request flag.
+    copy_array_forward(p0, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set terminal mutex.
+    copy_array_forward(p0, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set terminal sleep time.
+    copy_array_forward(p0, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_SLEEP_TIME_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Set x window system interrupt request flag.
     copy_array_forward(p0, p9, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
