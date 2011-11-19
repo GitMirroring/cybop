@@ -60,20 +60,20 @@ void send_terminal_sequence(void* p0, void* p1, void* p2, void* p3, void* p4) {
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to terminal.");
 
         // The terminated control sequences.
-        void* ts = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* tsc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* tss = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* tsd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int tsc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int tss = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Allocate terminated control sequences.
         //
         // CAUTION! Use a standard (non-wide) character vector here,
         // because the source is handed over as utf-8 encoded multibyte characters
         // and will be forwarded as such to the gnu linux console!
-        allocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+        allocate_array((void*) &tsd, (void*) &tss, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
         // Append control sequences and null termination character.
-        overwrite_array((void*) &ts, p3, (void*) CHARACTER_STATE_CYBOI_TYPE, p4, tsc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, tsc, tss);
-        overwrite_array((void*) &ts, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tsc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, tsc, tss);
+        overwrite_array((void*) &tsd, p3, (void*) CHARACTER_STATE_CYBOI_TYPE, p4, (void*) &tsc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tsc, (void*) &tss, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        overwrite_array((void*) &tsd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tsc, (void*) &tss, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (*d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -108,7 +108,7 @@ void send_terminal_sequence(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         // Deallocate terminated control sequences.
-        deallocate_model((void*) &ts, (void*) &tsc, (void*) &tss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+        deallocate_array((void*) &tsd, (void*) &tss, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     } else {
 
@@ -139,12 +139,12 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4,
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal.");
 
     // The serialised wide character array.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ss = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
-    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     if (p9 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -152,31 +152,31 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4,
 
         if (*f != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            overwrite_array((void*) &s, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sc, ss);
-            overwrite_array((void*) &s, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sc, ss);
+            overwrite_array((void*) &sd, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) &sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &sc, (void*) &ss, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &sd, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) &sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &sc, (void*) &ss, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     // Encode textual user interface (tui) into array.
-    encode_terminal((void*) &s, sc, ss, p1, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7, p8, p11, p12);
+    encode_terminal((void*) &sd, (void*) &sc, (void*) &ss, p1, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7, p8, p11, p12);
 
     // The encoded character array.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* es = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int es = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate encoded character array.
     //
     // CAUTION! Use a standard (non-wide) character vector here,
     // because the source is handed over as utf-8 encoded multibyte characters
     // and will be forwarded as such to the gnu linux console!
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     // Encode serialised wide character array into encoded character array.
-    encode_utf_8_unicode_character_vector((void*) &e, ec, es, s, sc);
+    encode_utf_8_unicode_character_vector((void*) &ed, (void*) &ec, (void*) &es, sd, (void*) &sc);
 
     // Deallocate serialised wide character array.
-    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // The terminal output stream.
     void** op = NULL_POINTER_STATE_CYBOI_MODEL;
@@ -185,10 +185,10 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4,
     get_array_elements((void*) &op, p0, (void*) TERMINAL_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE);
 
     // Send encoded array as message to shell standard output.
-    send_terminal_sequence((void*) op, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, e, ec);
+    send_terminal_sequence((void*) op, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, ed, (void*) &ec);
 
     // Deallocate encoded character array.
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* TERMINAL_SENDER_SOURCE */

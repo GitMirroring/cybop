@@ -33,6 +33,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../executor/lifeguard/interrupter/thread_interrupter.c"
 
 //
 // CAUTION! The x window system uses a number of synonymous types:
@@ -140,6 +141,7 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
 
 //??        XCloseDisplay(d);
 
+/*??
         // Destroy x window system internals.
         // CAUTION! Use descending order!
         // Example: The values (v) are destroyed BEFORE the value mask (vm)
@@ -154,6 +156,7 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
         deallocate((void*) &bg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_STATE_CYBOI_TYPE);
         deallocate((void*) &cm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
         deallocate((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+*/
 
     } else {
 

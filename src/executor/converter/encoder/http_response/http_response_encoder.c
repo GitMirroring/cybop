@@ -63,15 +63,15 @@ void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //
 
     // The body character array.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate body character array.
-    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate_array((void*) &ad, (void*) &as, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     // Encode body wide character array into body multibyte character array.
-    encode_utf_8_unicode_character_vector((void*) &a, ac, as, p5, p6);
+    encode_utf_8_unicode_character_vector((void*) &a, (void*) &ac, (void*) &as, p5, p6);
 
     encode_http_response_protocol(p0, p1, p2, p9, p10, p11, p12, p13, p14);
     overwrite_array(p0, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
@@ -103,7 +103,7 @@ void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void
     overwrite_array(p0, a, (void*) CHARACTER_STATE_CYBOI_TYPE, ac, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
     // Deallocate body character array.
-    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_array((void*) &ad, (void*) &as, (void*) CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* HTTP_RESPONSE_ENCODER_SOURCE */

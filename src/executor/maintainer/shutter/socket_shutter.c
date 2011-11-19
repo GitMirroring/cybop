@@ -31,6 +31,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../executor/lifeguard/interrupter/thread_interrupter.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -108,6 +109,7 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
             // Close communication partner socket.
 //??            close(*ps);
 
+/*??
             // Deallocate character buffer.
             deallocate((void*) &b, bs, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
             deallocate((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
@@ -124,6 +126,7 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
             deallocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
             // Deallocate communication partner socket address size.
             deallocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+*/
 
         } else {
 

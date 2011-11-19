@@ -9,8 +9,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * allocate_model(
-
         * Fix file includes
         * Debug compilation errors
 

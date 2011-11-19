@@ -63,7 +63,7 @@ void startup_terminal(void* p0) {
         struct termios* to = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The new termios settings.
         struct termios* tn = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The character buffer used for input in the thread function.
+        // The character buffer used for input.
         void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -80,8 +80,8 @@ void startup_terminal(void* p0) {
         to = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
         tn = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
         // Allocate character buffer count, size.
-        allocate_model((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
-        allocate_model((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
 
         // Initialise character buffer count, size.
         //
@@ -92,7 +92,7 @@ void startup_terminal(void* p0) {
         copy_integer(bs, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
 
         // Allocate character buffer.
-        allocate_model((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
         // Initialise terminal internals.
         //

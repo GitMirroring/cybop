@@ -130,6 +130,7 @@ void test_copier_part() {
     // Encode and output part as model diagram.
     //
 
+/*??
     // The model diagram.
     void* mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
     int mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -159,6 +160,7 @@ void test_copier_part() {
     deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
     deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+*/
 
     // Deallocate parts.
     deallocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);

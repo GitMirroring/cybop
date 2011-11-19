@@ -193,107 +193,134 @@ void startup_socket_get_style(void* p0, void* p1, void* p2) {
  */
 void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // This test IS necessary, since the host address is assigned directly,
+    // using the assignment operator and not a copy function.
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* an = (int*) p3;
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket get host address.");
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The ipv4 address.
+        struct in_addr* a4 = (struct in_addr*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The ipv6 address.
+        struct in6_addr* a6 = (struct in6_addr*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            struct in_addr* a4 = (struct in_addr*) *NULL_POINTER_STATE_CYBOI_MODEL;
-            struct in6_addr* a6 = (struct in6_addr*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*an == AF_INET) {
+            compare_integer_equal((void*) &r, p3, (void*) &AF_INET);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 a4 = (struct in_addr*) p0;
+            }
+        }
 
-            } else if (*an == AF_INET6) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_integer_equal((void*) &r, p3, (void*) &AF_INET6);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 a6 = (struct in6_addr*) p0;
             }
+        }
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket get host address.");
+        // The second comparison result.
+        int r2 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            // The comparison result.
-            int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        if (r2 == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            compare_integer_equal((void*) &r2, p1, (void*) LOOPBACK_ADDRESS_CYBOL_MODEL);
 
-                compare_integer_equal((void*) &r, p1, (void*) LOOPBACK_ADDRESS_CYBOL_MODEL);
+            if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                // Reset comparison result.
+                r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                    if (*an == AF_INET) {
+                if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    compare_integer_equal((void*) &r, p3, (void*) &AF_INET);
+
+                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         (*a4).s_addr = INADDR_LOOPBACK;
+                    }
+                }
 
-                    } else if (*an == AF_INET6) {
+                if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    compare_integer_equal((void*) &r, p3, (void*) &AF_INET6);
+
+                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         *a6 = in6addr_loopback;
                     }
                 }
             }
+        }
 
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r2 == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p1, (void*) ANY_ADDRESS_CYBOL_MODEL);
+            compare_integer_equal((void*) &r2, p1, (void*) ANY_ADDRESS_CYBOL_MODEL);
 
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    if (*an == AF_INET) {
+                // Reset comparison result.
+                r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    compare_integer_equal((void*) &r, p3, (void*) &AF_INET);
+
+                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         (*a4).s_addr = INADDR_ANY;
+                    }
+                }
 
-                    } else if (*an == AF_INET6) {
+                if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    compare_integer_equal((void*) &r, p3, (void*) &AF_INET6);
+
+                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         *a6 = in6addr_any;
                     }
                 }
             }
+        }
 
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r2 == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // If none of the above address models was found, then the given
-                // address is supposed to be the host address directly.
+            // If none of the above address models was found, then the given
+            // address is supposed to be the host address directly.
 
-                // The terminated address model.
-                void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-                void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
-                void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The terminated address.
+            void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int ss = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                // Allocate terminated address model.
-                allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+            // Allocate terminated address.
+            allocate_array((void*) &sd, (void*) &ss, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
-                // Encode wide character name into multibyte character array.
-                encode_utf_8_unicode_character_vector((void*) &s, sc, ss, p1, p2);
+            // Encode wide character name into multibyte character array.
+            encode_utf_8_unicode_character_vector((void*) &sd, (void*) &sc, (void*) &ss, p1, p2);
 
-                if (*((int*) ss) <= *((int*) sc)) {
+            // Add null termination character to terminated address.
+            overwrite_array((void*) &sd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &sc, (void*) &ss);
 
-                    // Increase character array size to have place for the termination character.
-                    *((int*) ss) = *((int*) sc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+            // Convert uint16_t integer hostshort from host byte order
+            // to network byte order.
+            inet_pton(*((int*) p3), (char*) sd, p0);
 
-                    // Reallocate terminated file name as multibyte character array.
-                    reallocate_array((void*) &s, sc, ss, (void*) CHARACTER_STATE_CYBOI_TYPE);
-                }
-
-                // Add null termination character to terminated file name.
-                overwrite_array((void*) &s, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, sc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, sc, ss);
-
-                // Convert uint16_t integer hostshort from host byte order
-                // to network byte order.
-                inet_pton(*an, (char*) s, p0);
-
-                // Deallocate terminated address model.
-                deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket host address. The host address is null.");
+            // Deallocate terminated address.
+            deallocate_array((void*) &sd, (void*) &ss, (void*) CHARACTER_STATE_CYBOI_TYPE);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket host address. The address namespace is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get startup socket host address. The host address is null.");
     }
 }
 

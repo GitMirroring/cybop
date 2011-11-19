@@ -39,6 +39,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
 #include "../../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
+#include "../../../executor/converter/decoder.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/reallocation_factor.c"
 
@@ -158,8 +159,8 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /**
  * Receives data via file system.
  *
- * @param p0 the destination model item (Hand over as item, since size may change!)
- * @param p1 the destination properties item (Hand over as item, since size may change!)
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
  * @param p2 the source data (file name)
  * @param p3 the source count
  * @param p4 the type

@@ -75,24 +75,22 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The encoded character array.
     // CAUTION! Its size has to be GREATER than zero, e.g. 1024!
     // Otherwise, there will be no place for the data to be received.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* es = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int es = *NUMBER_10000_INTEGER_STATE_CYBOI_MODEL; // *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL
 
     // Allocate encoded character array.
-//??    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     // Receive message from stream.
-    receive_stream_socket((void*) &e, ec, es, p6);
+    receive_stream_socket((void*) &ed, (void*) &ec, (void*) &es, p6);
 
     // Deserialise serialised wide character array into destination knowledge model.
     // The http request's parametres are written into the destination compound model.
-    decode(p0, p1, p2, p3, p4, p5, e, ec, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p9, p10);
+    decode(p0, p1, p2, p3, p4, p5, ed, (void*) &ec, p9, p10);
 
     // Deallocate encoded character array.
-//??    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     //?? TODO: The destination compound model content needs to be RESET every time since
     //?? otherwise, new commands are just added to the "action" part entry, for example.

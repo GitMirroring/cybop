@@ -143,6 +143,7 @@ void test_modifier_part_compound() {
     // Output whole one as model diagram.
     //
 
+/*??
     // The model diagram.
     void* mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
     int mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -172,11 +173,13 @@ void test_modifier_part_compound() {
     deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
     deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+*/
 
     //
     // Output whole two as model diagram.
     //
 
+/*??
     // The model diagram.
     mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
     mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -206,11 +209,13 @@ void test_modifier_part_compound() {
     deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
     deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+*/
 
     //
     // Output whole three as model diagram.
     //
 
+/*??
     // The model diagram.
     mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
     mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -240,6 +245,7 @@ void test_modifier_part_compound() {
     deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
     deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+*/
 
     //
     // Deallocate parts.

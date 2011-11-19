@@ -32,6 +32,8 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/converter/encoder/cybol/double/separator_double_cybol_encoder.c"
+#include "../../../../../executor/converter/encoder/cybol/double/value_double_cybol_encoder.c"
 #include "../../../../../logger/logger.c"
 
 /**

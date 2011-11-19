@@ -1,0 +1,103 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.11.0 2012-01-01
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef THREAD_INTERRUPTER_SOURCE
+#define THREAD_INTERRUPTER_SOURCE
+
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../logger/logger.c"
+#include "../../../variable/service_interrupt.c"
+#include "../../../variable/thread_identification.c"
+
+/**
+ * Interrupts the thread.
+ *
+ * @param p0 the service thread
+ * @param p1 the service thread interrupt
+ */
+void interrupt_thread(void* p0, void* p1) {
+
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* i = (int*) p1;
+
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            pthread_t* t = (pthread_t*) p0;
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Interrupt thread.");
+
+            if (*t != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+
+                // Set thread interrupt flag for signal handler.
+                *i = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+                // Send signal to thread.
+                //
+                // CAUTION! Sending a SIGKILL signal to a thread using pthread_kill()
+                // ends the ENTIRE PROCESS, not simply the target thread.
+                // SIGKILL is defined to end the entire process, regardless
+                // of the thread it is delivered to, or how it is sent.
+                //
+                // The user signal SIGUSR1 is used here instead.
+                // It is processed in the interrupt_service_system_signal_handler
+                // procedure, situated in the following module:
+                // controller/manager/system_signal_handler_manager.c
+                pthread_kill(*t, SIGUSR1);
+
+                // Wait for thread to finish.
+                pthread_join(*t, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+                // A mutex is not needed while setting the following parametres,
+                // since the corresponding thread was killed above so that NO
+                // other entities exist that may access the parametres.
+
+                // Reset thread.
+                *t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+                // Reset thread interrupt flag for signal handler.
+                *i = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+            } else {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not interrupt thread. The service thread is invalid.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not interrupt thread. The service thread is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not interrupt thread. The service thread interrupt is null.");
+    }
+}
+
+/* THREAD_INTERRUPTER_SOURCE */
+#endif

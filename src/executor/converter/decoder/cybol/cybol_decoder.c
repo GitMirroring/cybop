@@ -53,7 +53,7 @@ void decode_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void
  * what is the model hierarchy in a parsed xml/cybol file
  * becomes the properties (meta data) in the cyboi-internal knowledge tree.
  *
- * @param p0 the destination item (Hand over as item, since size may change!)
+ * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source index
  * @param p3 the source part model tree root node flag
@@ -95,7 +95,7 @@ void decode_cybol_model_elements(void* p0, void* p1, void* p2, void* p3) {
  * what is the model hierarchy in a parsed xml/cybol file
  * becomes the properties (meta data) in the cyboi-internal knowledge tree.
  *
- * @param p0 the destination item (Hand over as item, since size may change!)
+ * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the source part model tree root node flag
@@ -126,7 +126,7 @@ void decode_cybol_model(void* p0, void* p1, void* p2, void* p3) {
 /**
  * Decodes the cybol standard node.
  *
- * @param p0 the destination item (Hand over as item, since size may change!)
+ * @param p0 the destination item
  * @param p1 the source part model data
  * @param p2 the source part model count
  * @param p3 the source part properties data
@@ -310,7 +310,7 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
 /**
  * Decodes the cybol root node.
  *
- * @param p0 the destination item (Hand over as item, since size may change!)
+ * @param p0 the destination item
  * @param p1 the source part model data
  * @param p2 the source part model count
  * @param p3 the source part model tree root node flag
@@ -335,7 +335,7 @@ void decode_cybol_node_root(void* p0, void* p1, void* p2, void* p3) {
 /**
  * Decodes the cybol element.
  *
- * @param p0 the destination item (Hand over as item, since size may change!)
+ * @param p0 the destination item
  * @param p1 the source part model data
  * @param p2 the source part model count
  * @param p3 the source part properties data
@@ -405,7 +405,7 @@ void decode_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void
  * ...
  * | #- | wide_character | model [This is the xml tag name.]
  *
- * @param p0 the destination item (Hand over as item, since size may change!)
+ * @param p0 the destination item
  * @param p1 the source part model data
  * @param p2 the source part model count
  * @param p3 the source part properties data

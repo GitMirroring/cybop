@@ -34,6 +34,7 @@
 #include "../../../../executor/converter/encoder/model_diagram/indentation_model_diagram_encoder.c"
 #include "../../../../executor/converter/encoder/model_diagram/line_model_diagram_encoder.c"
 #include "../../../../executor/converter/encoder/model_diagram/part_model_diagram_encoder.c"
+#include "../../../../executor/converter/encoder/model_diagram/type_model_diagram_encoder.c"
 #include "../../../../executor/converter/encoder/cybol/integer/integer_cybol_encoder.c"
 #include "../../../../executor/converter/encoder/cybol/double/double_cybol_encoder.c"
 #include "../../../../executor/modifier/inserter/array_inserter.c"
@@ -106,7 +107,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             encode_model_diagram_line(p0);
-            encode_double_vector(p0, p5, p6);
+            encode_cybol_double(p0, p5, p6);
         }
     }
 
@@ -117,7 +118,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             encode_model_diagram_line(p0);
-            encode_integer_vector(p0, p5, p6);
+            encode_cybol_integer(p0, p5, p6);
         }
     }
 

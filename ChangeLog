@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt calls of outdated "allocate_model" into "allocate_array"
+        * Debug compilation errors
+
 2011-11-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix file includes

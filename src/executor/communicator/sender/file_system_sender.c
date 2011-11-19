@@ -53,7 +53,7 @@ void send_file_character(void* p0, void* p1, void* p2, void* p3) {
     char* c = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Read character from source array.
-    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    copy_array_forward((void*) &c, p1, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Write character to file.
     char e = fputc(*c, (FILE*) p0);
@@ -80,7 +80,7 @@ void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
     char* c = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Read character from source array.
-    get_array_elements((void*) &c, p1, p2, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    copy_array_forward((void*) &c, p1, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Write character to file.
     //
@@ -253,25 +253,25 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // nor the standard error output, then interpret it as file name.
 
                 // The terminated file name.
-                void* tn = *NULL_POINTER_STATE_CYBOI_MODEL;
-                void* tnc = *NULL_POINTER_STATE_CYBOI_MODEL;
-                void* tns = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* tnd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                int tnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int tns = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Allocate terminated file name.
-                allocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE);
+                allocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
                 // Encode wide character option into multibyte character array.
-                encode_utf_8_unicode_character_vector((void*) &tn, tnc, tns, *d, p1);
+                encode_utf_8_unicode_character_vector((void*) &tnd, (void*) &tnc, (void*) &tns, *d, p1);
 
                 // Add null termination character to terminated file name.
-                overwrite_array((void*) &tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tnc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, tnc, tns);
+                overwrite_array((void*) &tnd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tnc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tnc, (void*) &tns, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                 // Open file.
                 // CAUTION! The file name cannot be handed over as is.
                 // CYBOI strings are NOT terminated with the null character '\0'.
                 // Since 'fopen' expects a null terminated string, the termination character
                 // must be added to the string before that is used to open the file.
-                f = fopen((char*) tn, "w");
+                f = fopen((char*) tnd, "w");
 
                 if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -298,7 +298,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 }
 
                 // Deallocate terminated file name.
-                deallocate_model((void*) &tn, (void*) &tnc, (void*) &tns, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE);
+                deallocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_STATE_CYBOI_TYPE);
             }
 
         } else {
@@ -339,38 +339,35 @@ void send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file system.");
 
     // The serialised wide character array.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ss = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
-    allocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Serialise source knowledge model into serialised wide character array.
-    encode((void*) &s, sc, ss,
-        p1, p2, p3, p4, p5, p6, p7, p8,
-        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-        p9, p10, p11, p12);
+//    encode((void*) &sd, (void*) &sc, (void*) &ss, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
     // The encoded character array.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* es = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int es = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate encoded character array.
-    allocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_STATE_CYBOI_TYPE);
 
     // Encode serialised wide character array into encoded character array.
-    encode_utf_8_unicode_character_vector((void*) &e, ec, es, s, sc);
+    encode_utf_8_unicode_character_vector((void*) &ed, (void*) &ec, (void*) &es, sd, (void*) &sc);
 
     // Deallocate serialised wide character array.
-    deallocate_model((void*) &s, (void*) &sc, (void*) &ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Write encoded array into file.
-    send_file((void*) &p15, p16, *NULL_POINTER_STATE_CYBOI_MODEL, e, ec);
+    send_file((void*) &p15, p16, *NULL_POINTER_STATE_CYBOI_MODEL, ed, (void*) &ec);
 
     // Deallocate encoded character array.
-    deallocate_model((void*) &e, (void*) &ec, (void*) &es, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* FILE_SYSTEM_SENDER_SOURCE */

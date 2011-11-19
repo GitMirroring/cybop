@@ -154,6 +154,7 @@ void test_finder_part_hierarchical() {
     // Output knowledge tree as model diagram.
     //
 
+/*??
     // The model diagram.
     void* mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
     int mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -183,6 +184,7 @@ void test_finder_part_hierarchical() {
     deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
     deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+*/
 
     //
     // Get parts by hierarchical knowledge path name.

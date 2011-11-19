@@ -55,42 +55,39 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /**
  * Sends a knowledge model to the receiving array.
  *
- * @param p0 the destination receiving wide character array (pointer reference)
- * @param p1 the destination receiving wide character array count
- * @param p2 the destination receiving wide character array size
- * @param p3 the source message type
+ * @param p0 the destination wide character data (pointer reference)
+ * @param p1 the destination wide character count
+ * @param p2 the destination wide character size
+ * @param p3 the source message type data
  * @param p4 the source message type count
- * @param p5 the source message model
+ * @param p5 the source message model data
  * @param p6 the source message model count
- * @param p7 the source message properties
+ * @param p7 the source message properties data
  * @param p8 the source message properties count
- * @param p9 the source metadata type
+ * @param p9 the source metadata type data
  * @param p10 the source metadata type count
- * @param p11 the source metadata model
+ * @param p11 the source metadata model data
  * @param p12 the source metadata model count
- * @param p13 the source metadata properties
+ * @param p13 the source metadata properties data
  * @param p14 the source metadata properties count
  * @param p15 the language
  * @param p16 the language count
  */
-void apply_send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8,
+void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8,
     void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send inline message.");
 
     // The converted array.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate array.
-    allocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_model((void*) &ad, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Encode source knowledge model into array.
-    encode((void*) &a, ac, as,
-        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p8,
-        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p9, p10, p11, p12, p13, p14,
-        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p15, p16);
+    encode((void*) &ad, (void*) &ac, (void*) &as, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16);
 
 /*??
     fwprintf(stdout, L"TEST sending inline a: %ls\n", (wchar_t*) a);
@@ -98,7 +95,7 @@ void apply_send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 */
 
     // Write encoded array into destination array.
-    send_data(p0, p1, p2, a, ac, (void*) INLINE_CYBOL_CHANNEL, (void*) INLINE_CYBOL_CHANNEL_COUNT);
+    send_data(p0, p1, p2, ad, (void*) &ac, (void*) INLINE_CYBOL_CHANNEL, (void*) INLINE_CYBOL_CHANNEL_COUNT);
 
 /*??
     fwprintf(stdout, L"TEST sending inline p0: %ls\n", *((wchar_t**) p0));
@@ -106,7 +103,7 @@ void apply_send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 */
 
     // Deallocate array.
-    deallocate_model((void*) &a, (void*) &ac, (void*) &as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_model((void*) &ad, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /* INLINE_SENDER_SOURCE */

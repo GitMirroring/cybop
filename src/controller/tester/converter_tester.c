@@ -81,26 +81,26 @@ void test_converter_encode_integer() {
     log_write((void*) stdout, L"Test encode integer:\n");
 
     // The destination character array.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // An arbitrary source integer value.
     int s = *NUMBER_18_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination character array.
-    allocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Use compound count as index to create the element name suffix,
     // because the element is added at the end of the compound container.
-    encode_integer((void*) &d, dc, ds, (void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+//    encode_cybol_integer((void*) &dd, (void*) &dc, (void*) &ds, (void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
-    fwprintf(stdout, L"Test: Destination character array: %ls\n", (wchar_t*) d);
-    fwprintf(stdout, L"Test: Destination character array count: %i\n", *((int*) dc));
-    fwprintf(stdout, L"Test: Destination character array size: %i\n", *((int*) ds));
+    fwprintf(stdout, L"Test: Destination character array: %ls\n", (wchar_t*) dd);
+    fwprintf(stdout, L"Test: Destination character array count: %i\n", dc);
+    fwprintf(stdout, L"Test: Destination character array size: %i\n", ds);
 
     // Deallocate destination character array.
-    deallocate_model((void*) &d, (void*) &dc, (void*) &ds, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -124,7 +124,7 @@ void test_converter_decode_integer_vector() {
     allocate_array((void*) &d, (void*) &ds, (void*) INTEGER_STATE_CYBOI_TYPE);
 
     // Decode character array into integer vector.
-    decode_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
+//    decode_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
 
     // The integer values.
     int* i0 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -172,7 +172,7 @@ void test_converter_encode_integer_vector() {
 
     // Use compound count as index to create the element name suffix,
     // because the element is added at the end of the compound container.
-    encode_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
+//    encode_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
 
     fwprintf(stdout, L"Encoded character array: %ls\n", d);
     fwprintf(stdout, L"Encoded character array count: %i\n", dc);

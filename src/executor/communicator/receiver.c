@@ -55,8 +55,8 @@
  * contain both, the model AND the properties, in one file. To cover these cases,
  * the model AND properties are received TOGETHER, in just one operation.
  *
- * @param p0 the destination model item (Hand over as item, since size may change!)
- * @param p1 the destination properties item (Hand over as item, since size may change!)
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
  * @param p4 the type

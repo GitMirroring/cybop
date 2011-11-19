@@ -34,9 +34,9 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../executor/converter/encoder/cybol/boolean/separator_boolean_cybol_encoder.c"
+#include "../../../../../executor/converter/encoder/cybol/boolean/value_boolean_cybol_encoder.c"
 #include "../../../../../logger/logger.c"
-#include "../../../../../executor/memoriser/allocator.c"
-#include "../../../../../executor/comparator/all/array_all_comparator.c"
 
 /**
  * Encodes the boolean values into comma-separated wide character values.

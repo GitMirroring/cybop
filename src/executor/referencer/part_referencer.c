@@ -26,15 +26,15 @@
 #ifndef PART_REFERENCER_SOURCE
 #define PART_REFERENCER_SOURCE
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/converter/encoder/model_diagram_encoder.c"
-#include "../../executor/searcher/mover/position_mover.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/calculator/basic/integer_calculator.c"
+#include "../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../executor/memoriser/deallocator/part_deallocator.c"
+#include "../../executor/modifier/copier/array_copier.c"
 #include "../../logger/logger.c"
-#include "../../variable/type_size/integral_type_size.c"
 
 /**
  * Increments or decrements the part's reference count.
