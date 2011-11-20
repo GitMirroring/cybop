@@ -40,37 +40,6 @@
 //
 
 /**
- * The utf-7 unicode cybol encoding.
- *
- * An older, relatively unpopular 7-bit encoding, often considered obsolete.
- * It was meant to be used for transmitting Unicode texts via 7 Bit channels
- * (e.g. email or usenet).
- *
- * UTF-7 is not part of The Unicode Standard, but rather an RFC.
- */
-static wchar_t UTF_7_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'u', L't', L'f', L'-', L'7'};
-static wchar_t* UTF_7_UNICODE_CYBOL_ENCODING = UTF_7_UNICODE_CYBOL_ENCODING_ARRAY;
-static int* UTF_7_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The utf-8 unicode cybol encoding.
- *
- * An 8-bit, variable-width encoding, which maximises compatibility with ASCII.
- * UTF-8 uses one to four bytes per code point and, being compact for Latin
- * scripts and ASCII-compatible, provides the de facto standard encoding for
- * interchange of Unicode text.
- * Its first 7 Bits are used as in the ASCII character set. The 8th Bit can
- * commence a longer Unicode character, which extends to either 2, 3 or 4 Byte.
- *
- * It is popular in UNIX-like operating system environments and also used by
- * most recent GNU/Linux distributions as a direct replacement for legacy
- * encodings in general text handling.
- */
-static wchar_t UTF_8_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'u', L't', L'f', L'-', L'8'};
-static wchar_t* UTF_8_UNICODE_CYBOL_ENCODING = UTF_8_UNICODE_CYBOL_ENCODING_ARRAY;
-static int* UTF_8_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The cesu-8 unicode cybol encoding.
  *
  * The Unicode areas U+D800ï¿½U+DBFF and U+DC00ï¿½U+DFFF are explicitly no characters,
@@ -86,6 +55,29 @@ static int* UTF_8_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MO
 static wchar_t CESU_8_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'c', L'e', L's', L'u', L'-', L'8'};
 static wchar_t* CESU_8_UNICODE_CYBOL_ENCODING = CESU_8_UNICODE_CYBOL_ENCODING_ARRAY;
 static int* CESU_8_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The gb18030 unicode cybol encoding.
+ *
+ * GB18030 is defined by the Standardization Administration of China.
+ * It is the official character set of the People's Republic of China (PRC).
+ */
+static wchar_t GB18030_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'g', L'b', L'1', L'8', L'0', L'3', L'0'};
+static wchar_t* GB18030_UNICODE_CYBOL_ENCODING = GB18030_UNICODE_CYBOL_ENCODING_ARRAY;
+static int* GB18030_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The punycode unicode cybol encoding.
+ *
+ * Punycode enables the encoding of Unicode strings into the limited character
+ * set supported by the ASCII-based Domain Name System.
+ *
+ * The encoding is used as part of IDNA, which is a system enabling the use of
+ * Internationalized Domain Names in all languages that are supported by Unicode.
+ */
+static wchar_t PUNYCODE_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'p', L'u', L'n', L'y', L'c', L'o', L'd', L'e'};
+static wchar_t* PUNYCODE_UNICODE_CYBOL_ENCODING = PUNYCODE_UNICODE_CYBOL_ENCODING_ARRAY;
+static int* PUNYCODE_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The utf-16 unicode cybol encoding.
@@ -132,6 +124,37 @@ static int* UTF_16_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_M
 static wchar_t UTF_32_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'u', L't', L'f', L'-', L'3', L'2'};
 static wchar_t* UTF_32_UNICODE_CYBOL_ENCODING = UTF_32_UNICODE_CYBOL_ENCODING_ARRAY;
 static int* UTF_32_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The utf-7 unicode cybol encoding.
+ *
+ * An older, relatively unpopular 7-bit encoding, often considered obsolete.
+ * It was meant to be used for transmitting Unicode texts via 7 Bit channels
+ * (e.g. email or usenet).
+ *
+ * UTF-7 is not part of The Unicode Standard, but rather an RFC.
+ */
+static wchar_t UTF_7_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'u', L't', L'f', L'-', L'7'};
+static wchar_t* UTF_7_UNICODE_CYBOL_ENCODING = UTF_7_UNICODE_CYBOL_ENCODING_ARRAY;
+static int* UTF_7_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The utf-8 unicode cybol encoding.
+ *
+ * An 8-bit, variable-width encoding, which maximises compatibility with ASCII.
+ * UTF-8 uses one to four bytes per code point and, being compact for Latin
+ * scripts and ASCII-compatible, provides the de facto standard encoding for
+ * interchange of Unicode text.
+ * Its first 7 Bits are used as in the ASCII character set. The 8th Bit can
+ * commence a longer Unicode character, which extends to either 2, 3 or 4 Byte.
+ *
+ * It is popular in UNIX-like operating system environments and also used by
+ * most recent GNU/Linux distributions as a direct replacement for legacy
+ * encodings in general text handling.
+ */
+static wchar_t UTF_8_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'u', L't', L'f', L'-', L'8'};
+static wchar_t* UTF_8_UNICODE_CYBOL_ENCODING = UTF_8_UNICODE_CYBOL_ENCODING_ARRAY;
+static int* UTF_8_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The utf-ebcdic unicode cybol encoding.
@@ -192,29 +215,6 @@ static int* UTF_EBCDIC_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CY
 static wchar_t UTF_SCSU_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'u', L't', L'f', L'-', L's', L'c', L's', L'u'};
 static wchar_t* UTF_SCSU_UNICODE_CYBOL_ENCODING = UTF_SCSU_UNICODE_CYBOL_ENCODING_ARRAY;
 static int* UTF_SCSU_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The punycode unicode cybol encoding.
- *
- * Punycode enables the encoding of Unicode strings into the limited character
- * set supported by the ASCII-based Domain Name System.
- *
- * The encoding is used as part of IDNA, which is a system enabling the use of
- * Internationalized Domain Names in all languages that are supported by Unicode.
- */
-static wchar_t PUNYCODE_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'p', L'u', L'n', L'y', L'c', L'o', L'd', L'e'};
-static wchar_t* PUNYCODE_UNICODE_CYBOL_ENCODING = PUNYCODE_UNICODE_CYBOL_ENCODING_ARRAY;
-static int* PUNYCODE_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The gb18030 unicode cybol encoding.
- *
- * GB18030 is defined by the Standardization Administration of China.
- * It is the official character set of the People's Republic of China (PRC).
- */
-static wchar_t GB18030_UNICODE_CYBOL_ENCODING_ARRAY[] = {L'g', L'b', L'1', L'8', L'0', L'3', L'0'};
-static wchar_t* GB18030_UNICODE_CYBOL_ENCODING = GB18030_UNICODE_CYBOL_ENCODING_ARRAY;
-static int* GB18030_UNICODE_CYBOL_ENCODING_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* UNICODE_CYBOL_ENCODING_CONSTANT_SOURCE */
 #endif

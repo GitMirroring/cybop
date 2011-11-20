@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TYPE_DECODER_SOURCE
-#define TYPE_DECODER_SOURCE
+#ifndef TYPE_CYBOL_DECODER_SOURCE
+#define TYPE_CYBOL_DECODER_SOURCE
 
 #include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
@@ -32,9 +32,9 @@
 #include "../../../../constant/type/cybol/datetime_cybol_type.c"
 #include "../../../../constant/type/cybol/logicvalue_cybol_type.c"
 #include "../../../../constant/type/cybol/text_cybol_type.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../logger/logger.c"
 
@@ -279,5 +279,5 @@ void decode_type(void* p0, void* p1, void* p2) {
     }
 }
 
-/* TYPE_DECODER_SOURCE */
+/* TYPE_CYBOL_DECODER_SOURCE */
 #endif

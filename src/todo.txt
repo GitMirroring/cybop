@@ -9,8 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Clear up place and conversion of cybol- into cyboi type
-        * Fix file includes
+        * Clear up conversion of cybol- into cyboi in "standard_node_cybol_decoder.c"
         * Debug compilation errors
 
         * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"

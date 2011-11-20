@@ -49,6 +49,15 @@ static wchar_t* ASCII_CYBOL_ENCODING = ASCII_CYBOL_ENCODING_ARRAY;
 static int* ASCII_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
+ * The big-5 cybol encoding.
+ *
+ * Big-5 or Big5: Traditional Chinese (Taiwan, Hong Kong, Macau).
+ */
+static wchar_t BIG_5_CYBOL_ENCODING_ARRAY[] = {L'b', L'i', L'g', L'-', L'5'};
+static wchar_t* BIG_5_CYBOL_ENCODING = BIG_5_CYBOL_ENCODING_ARRAY;
+static int* BIG_5_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
  * The ebcdic cybol encoding.
  *
  * Extended Binary Coded Decimal Interchange Code (EBCDIC).
@@ -66,14 +75,12 @@ static wchar_t GB_CYBOL_ENCODING_ARRAY[] = {L'g', L'b'};
 static wchar_t* GB_CYBOL_ENCODING = GB_CYBOL_ENCODING_ARRAY;
 static int* GB_CYBOL_ENCODING_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/*
- * The big-5 cybol encoding.
- *
- * Big-5 or Big5: Traditional Chinese (Taiwan, Hong Kong, Macau).
- */
-static wchar_t BIG_5_CYBOL_ENCODING_ARRAY[] = {L'b', L'i', L'g', L'-', L'5'};
-static wchar_t* BIG_5_CYBOL_ENCODING = BIG_5_CYBOL_ENCODING_ARRAY;
-static int* BIG_5_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The html coded cybol encoding. */
+/*??
+static wchar_t HTML_CODED_CYBOL_ENCODING_ARRAY[] = {L'h', L't', L'm', L'l', L' ', L'c', L'o', L'd', L'e', L'd'};
+static wchar_t* HTML_CODED_CYBOL_ENCODING = HTML_CODED_CYBOL_ENCODING_ARRAY;
+static int* HTML_CODED_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+*/
 
 /*
  * The shift-jis cybol encoding.
@@ -99,13 +106,6 @@ static int* SHIFT_JIS_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_
 static wchar_t UNIVERSAL_CYBOL_ENCODING_ARRAY[] = {L'u', L'n', L'i', L'v', L'e', L'r', L's', L'a', L'l'};
 static wchar_t* UNIVERSAL_CYBOL_ENCODING = UNIVERSAL_CYBOL_ENCODING_ARRAY;
 static int* UNIVERSAL_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The html coded cybol encoding. */
-/*??
-static wchar_t HTML_CODED_CYBOL_ENCODING_ARRAY[] = {L'h', L't', L'm', L'l', L' ', L'c', L'o', L'd', L'e', L'd'};
-static wchar_t* HTML_CODED_CYBOL_ENCODING = HTML_CODED_CYBOL_ENCODING_ARRAY;
-static int* HTML_CODED_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-*/
 
 /* CYBOL_ENCODING_CONSTANT_SOURCE */
 #endif
