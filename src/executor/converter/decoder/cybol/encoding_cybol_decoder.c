@@ -41,15 +41,15 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the wide character encoding into an integer encoding.
+ * Decodes the cybol encoding into a cyboi encoding.
  *
  * @param p0 the destination data
  * @param p1 the source data
  * @param p2 the source count
  */
-void decode_encoding(void* p0, void* p1, void* p2) {
+void decode_cybol_encoding(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode encoding.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol encoding.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -68,7 +68,7 @@ void decode_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode encoding. The source encoding is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode cybol encoding. The source encoding is unknown.");
     }
 }
 

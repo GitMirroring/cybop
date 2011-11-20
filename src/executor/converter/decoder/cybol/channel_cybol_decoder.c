@@ -37,15 +37,15 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the wide character channel into an integer channel.
+ * Decodes the cybol channel into a cyboi channel.
  *
  * @param p0 the destination data
  * @param p1 the source data
  * @param p2 the source count
  */
-void decode_channel(void* p0, void* p1, void* p2) {
+void decode_cybol_channel(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode channel.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol channel.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -122,7 +122,7 @@ void decode_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode channel. The source channel is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode cybol channel. The source channel is unknown.");
     }
 }
 

@@ -19,6 +19,7 @@
 2011-11-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug compilation errors
+        * Clean up decoding of cybol channel/ encoding/ type
 
 2011-11-19  Christian Heller  <christian.heller@tuxtax.de>
 

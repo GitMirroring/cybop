@@ -28,42 +28,24 @@
 
 #include <stdio.h>
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../logger/logger.c"
 
 /**
- * Receives an inline stream and writes it into an array.
+ * Receives the inline stream and writes it into an array.
  *
- * @param p0 the model (pointer reference)
- * @param p1 the model count
- * @param p2 the model size
- * @param p3 the properties (pointer reference)
- * @param p4 the properties count
- * @param p5 the properties size
- * @param p6 the message
- * @param p7 the message count
- * @param p8 the language
- * @param p9 the language count
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
+ * @param p2 the source data
+ * @param p3 the source count
+ * @param p4 the type
  */
-void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive inline.");
-
-    // The data array, count, size.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate data array.
-    allocate_array((void*) &a, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-
-    // Receive data array, count, size.
-    overwrite_array((void*) &a, p6, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &c, (void*) &s);
 
     // CAUTION! Do NOT try to decode from UTF-8 or other formats here!
     // In other words, do NOT call a function such as this:
@@ -75,10 +57,7 @@ void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // evaluated as inline wide character array.
 
     // Decode data array according to given document type.
-    decode(p0, p1, p2, p3, p4, p5, a, (void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p8, p9);
-
-    // Deallocate data array.
-    deallocate_array((void*) &a, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    decode(p0, p1, p2, p3, p4);
 }
 
 /* INLINE_RECEIVER_SOURCE */

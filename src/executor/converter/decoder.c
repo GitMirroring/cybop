@@ -66,6 +66,11 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode.");
 
+    // CAUTION! Operations have an EMPTY model,
+    // but they DO HAVE parametres,
+    // which are given as cybol properties.
+    // Therefore, DO decode operations here!
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

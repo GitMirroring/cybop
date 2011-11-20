@@ -77,6 +77,8 @@ void initialise(void* p0, void* p1, void* p2) {
     overwrite_part_element(s, (void*) PART_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
     // Receive startup signal model, properties.
+    //?? TODO: Is CYBOL_TEXT_STATE_CYBOL_TYPE_AS_CHAR needed here instead?
+    //?? If not, then delete that constant in file "text_state_cybol_type.c"!
     receive_file_system(sm, sp, md, mc, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE);
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");

@@ -72,9 +72,9 @@ static int* EQUAL_COMPARE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI
  *
  * This is a CYBOL extension.
  */
-static wchar_t PART_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L'p', L'a', L'r', L't'};
-static wchar_t* PART_EQUAL_COMPARE_LOGIC_CYBOL_TYPE = PART_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* PART_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t EQUAL_PART_COMPARE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L'p', L'a', L'r', L't'};
+static wchar_t* EQUAL_PART_COMPARE_LOGIC_CYBOL_TYPE = EQUAL_PART_COMPARE_LOGIC_CYBOL_TYPE_ARRAY;
+static int* EQUAL_PART_COMPARE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The compare/equal-prefix cybol type.
@@ -83,9 +83,9 @@ static int* PART_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_
  *
  * This is a CYBOL extension.
  */
-static wchar_t PREFIX_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L'p', L'r', L'e', L'f', L'i', L'x'};
-static wchar_t* PREFIX_EQUAL_COMPARE_LOGIC_CYBOL_TYPE = PREFIX_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* PREFIX_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t EQUAL_PREFIX_COMPARE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L'p', L'r', L'e', L'f', L'i', L'x'};
+static wchar_t* EQUAL_PREFIX_COMPARE_LOGIC_CYBOL_TYPE = EQUAL_PREFIX_COMPARE_LOGIC_CYBOL_TYPE_ARRAY;
+static int* EQUAL_PREFIX_COMPARE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The compare/equal-suffix cybol type.
@@ -94,9 +94,9 @@ static int* PREFIX_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_STAT
  *
  * This is a CYBOL extension.
  */
-static wchar_t SUFFIX_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L's', L'u', L'f', L'f', L'i', L'x'};
-static wchar_t* SUFFIX_EQUAL_COMPARE_LOGIC_CYBOL_TYPE = SUFFIX_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SUFFIX_EQUAL_COMPARE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t EQUAL_SUFFIX_COMPARE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L's', L'u', L'f', L'f', L'i', L'x'};
+static wchar_t* EQUAL_SUFFIX_COMPARE_LOGIC_CYBOL_TYPE = EQUAL_SUFFIX_COMPARE_LOGIC_CYBOL_TYPE_ARRAY;
+static int* EQUAL_SUFFIX_COMPARE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The compare/greater cybol type.
