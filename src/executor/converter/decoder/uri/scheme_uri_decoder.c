@@ -31,8 +31,8 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/uri/cyboi_uri_name.c"
-#include "../../../../executor/converter/selector/uri/scheme_uri_selector.c"
-#include "../../../../executor/converter/selector/uri/uri_selector.c"
+#include "../../../../executor/searcher/selector/uri/scheme_uri_selector.c"
+#include "../../../../executor/searcher/selector/uri/uri_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

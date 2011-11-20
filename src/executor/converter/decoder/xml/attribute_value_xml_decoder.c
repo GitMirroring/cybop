@@ -33,7 +33,7 @@
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/accessor/appender/compound_appender.c"
 #include "../../../../executor/accessor/appender/part_appender.c"
-#include "../../../../executor/converter/selector/xml/attribute_value_xml_selector.c"
+#include "../../../../executor/searcher/selector/xml/attribute_value_xml_selector.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../logger/logger.c"
 

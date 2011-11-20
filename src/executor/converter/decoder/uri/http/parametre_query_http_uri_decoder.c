@@ -32,7 +32,7 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/uri/cyboi_uri_name.c"
 #include "../../../../../executor/converter/decoder/uri/http/name_parametre_query_http_uri_decoder.c"
-#include "../../../../../executor/converter/selector/uri/http/parametre_query_http_uri_selector.c"
+#include "../../../../../executor/searcher/selector/uri/http/parametre_query_http_uri_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**

@@ -32,7 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http/cyboi_http_name.c"
 #include "../../../../executor/converter/decoder/percent_encoding_vector_decoder.c"
-#include "../../../../executor/converter/selector/http_request/uri_http_request_selector.c"
+#include "../../../../executor/searcher/selector/http_request/uri_http_request_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

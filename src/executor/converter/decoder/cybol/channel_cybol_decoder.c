@@ -26,6 +26,8 @@
 #ifndef CHANNEL_DECODER_SOURCE
 #define CHANNEL_DECODER_SOURCE
 
+#include "../../../../constant/channel/cyboi/cyboi_channel.c"
+#include "../../../../constant/channel/cybol/cybol_channel.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"

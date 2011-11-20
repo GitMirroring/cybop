@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // The constants defined here are copies of the standard constants
@@ -49,22 +49,22 @@
 
 /** The username authority cyboi name. */
 static wchar_t USERNAME_AUTHORITY_CYBOI_NAME_ARRAY[] = {L'u', L's', L'e', L'r', L'n', L'a', L'm', L'e'};
-static wchar_t USERNAME_AUTHORITY_CYBOI_NAME = USERNAME_AUTHORITY_CYBOI_NAME_ARRAY;
+static wchar_t* USERNAME_AUTHORITY_CYBOI_NAME = USERNAME_AUTHORITY_CYBOI_NAME_ARRAY;
 static int* USERNAME_AUTHORITY_CYBOI_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The password authority cyboi name. */
 static wchar_t PASSWORD_AUTHORITY_CYBOI_NAME_ARRAY[] = {L'p', L'a', L's', L's', L'w', L'o', L'r', L'd'};
-static wchar_t PASSWORD_AUTHORITY_CYBOI_NAME = PASSWORD_AUTHORITY_CYBOI_NAME_ARRAY;
+static wchar_t* PASSWORD_AUTHORITY_CYBOI_NAME = PASSWORD_AUTHORITY_CYBOI_NAME_ARRAY;
 static int* PASSWORD_AUTHORITY_CYBOI_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The hostname authority cyboi name. */
 static wchar_t HOSTNAME_AUTHORITY_CYBOI_NAME_ARRAY[] = {L'h', L'o', L's', L't', L'n', L'a', L'm', L'e'};
-static wchar_t HOSTNAME_AUTHORITY_CYBOI_NAME = HOSTNAME_AUTHORITY_CYBOI_NAME_ARRAY;
+static wchar_t* HOSTNAME_AUTHORITY_CYBOI_NAME = HOSTNAME_AUTHORITY_CYBOI_NAME_ARRAY;
 static int* HOSTNAME_AUTHORITY_CYBOI_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The port authority cyboi name. */
 static wchar_t PORT_AUTHORITY_CYBOI_NAME_ARRAY[] = {L'p', L'o', L'r', L't'};
-static wchar_t PORT_AUTHORITY_CYBOI_NAME = PORT_AUTHORITY_CYBOI_NAME_ARRAY;
+static wchar_t* PORT_AUTHORITY_CYBOI_NAME = PORT_AUTHORITY_CYBOI_NAME_ARRAY;
 static int* PORT_AUTHORITY_CYBOI_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* AUTHORITY_CYBOI_NAME_CONSTANT_SOURCE */

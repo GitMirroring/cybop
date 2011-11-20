@@ -26,49 +26,32 @@
 #ifndef DECODER_SOURCE
 #define DECODER_SOURCE
 
-#include "../../constant/channel/cybol_channel.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cybol/application_cybol_type.c"
-#include "../../constant/type/cybol/application_x_cybol_type.c"
-#include "../../constant/type/cybol/colour_cybol_type.c"
-#include "../../constant/type/cybol/datetime_cybol_type.c"
-#include "../../constant/type/cybol/interface_cybol_type.c"
-#include "../../constant/type/cybol/logicvalue_cybol_type.c"
-#include "../../constant/type/cybol/message_cybol_type.c"
-#include "../../constant/type/cybol/number_cybol_type.c"
-#include "../../constant/type/cybol/operation_cybol_type.c"
-#include "../../constant/type/cybol/text_cybol_type.c"
 #include "../../executor/converter/decoder/authority/authority_decoder.c"
-#include "../../executor/converter/decoder/ascii_character_vector_decoder.c"
-#include "../../executor/converter/decoder/boolean_decoder.c"
-#include "../../executor/converter/decoder/complex_decoder.c"
-#include "../../executor/converter/decoder/cybol_decoder.c"
-#include "../../executor/converter/decoder/date_time_decoder.c"
-#include "../../executor/converter/decoder/double_vector_decoder.c"
-#include "../../executor/converter/decoder/fraction_decoder.c"
-#include "../../executor/converter/decoder/terminal_decoder.c"
-#include "../../executor/converter/decoder/html_decoder.c"
-#include "../../executor/converter/decoder/http_request_decoder.c"
-#include "../../executor/converter/decoder/http_response_decoder.c"
-#include "../../executor/converter/decoder/integer_decoder.c"
-#include "../../executor/converter/decoder/integer_vector_decoder.c"
-#include "../../executor/converter/decoder/latex_decoder.c"
-#include "../../executor/converter/decoder/model_diagram_decoder.c"
-#include "../../executor/converter/decoder/terminal_background_decoder.c"
-#include "../../executor/converter/decoder/terminal_foreground_decoder.c"
-#include "../../executor/converter/decoder/type_decoder.c"
-#include "../../executor/converter/decoder/uri_decoder.c"
-#include "../../executor/converter/decoder/utf_16_unicode_character_decoder.c"
+#include "../../executor/converter/decoder/cybol/boolean_cybol_decoder.c"
+#include "../../executor/converter/decoder/cybol/channel_cybol_decoder.c"
+#include "../../executor/converter/decoder/cybol/complex_cybol_decoder.c"
+#include "../../executor/converter/decoder/cybol/cybol_decoder.c"
+#include "../../executor/converter/decoder/cybol/date_time_cybol_decoder.c"
+#include "../../executor/converter/decoder/cybol/double_vector_cybol_decoder.c"
+#include "../../executor/converter/decoder/cybol/fraction_cybol_decoder.c"
+#include "../../executor/converter/decoder/cybol/integer_vector_cybol_decoder.c"
+#include "../../executor/converter/decoder/cybol/type_cybol_decoder.c"
+#include "../../executor/converter/decoder/html/html_decoder.c"
+#include "../../executor/converter/decoder/http_request/http_request_decoder.c"
+#include "../../executor/converter/decoder/http_response/http_response_decoder.c"
+#include "../../executor/converter/decoder/latex/latex_decoder.c"
+#include "../../executor/converter/decoder/terminal/terminal_decoder.c"
+#include "../../executor/converter/decoder/uri/uri_decoder.c"
+#include "../../executor/converter/decoder/utf/utf_16_unicode_character_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
-#include "../../executor/converter/decoder/xdt_decoder.c"
-#include "../../executor/converter/decoder/xml_decoder.c"
-#include "../../executor/converter/decoder/x_window_system_decoder.c"
+#include "../../executor/converter/decoder/xdt/xdt_decoder.c"
+#include "../../executor/converter/decoder/xml/xml_decoder.c"
 
 //?? TEMPORARY FOR TESTING! DELETE LATER!
-#include "../../executor/communicator/sender/file_sender.c"
+//#include "../../executor/communicator/sender/file_sender.c"
 
 /**
  * Decodes the source into the destination, according to the given type.
@@ -140,6 +123,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Decode source message (cybol file) into temporary model.
             decode_xml((void*) &md, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds, p2, p3);
 
+/*??
 //?? TEST BEGIN
             // The model diagram.
             void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -147,12 +131,10 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-/*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 m, mc, d, dc);
-*/
             // The multibyte character stream.
             void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
             int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -172,6 +154,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Deallocate multibyte character stream.
             deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 //?? TEST END
+*/
 
             // Decode temporary compound memory model into cyboi knowledge compound memory model.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
@@ -182,6 +165,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Deallocate temporary properties.
             deallocate_array((void*) &dd, (void*) &ds, (void*) PART_STATE_CYBOI_TYPE);
 
+/*??
 //?? TEST BEGIN
             // Reset model diagram.
             md = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -189,12 +173,10 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-/*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
-*/
             // Reset multibyte character stream.
             mb = *NULL_POINTER_STATE_CYBOI_MODEL;
             mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -214,6 +196,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Deallocate multibyte character stream.
             deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 //?? TEST END
+*/
         }
     }
 
@@ -278,6 +261,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             decode_http_request(p0, p1, p2, p3);
 
+/*??
 //?? TEST BEGIN
             // The model diagram.
             void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -285,12 +269,10 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-/*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
-*/
             // The multibyte character stream.
             void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
             int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -310,6 +292,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Deallocate multibyte character stream.
             deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 //?? TEST END
+*/
         }
     }
 
@@ -336,6 +319,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Decode source message into temporary compound memory model.
             decode_xml((void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds, p2, p3);
 
+/*??
 //?? TEST BEGIN
             // The model diagram.
             void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -343,12 +327,10 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-/*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 m, (void*) &mc, d, (void*) &dc);
-*/
             // The multibyte character stream.
             void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
             int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -368,6 +350,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Deallocate multibyte character stream.
             deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 //?? TEST END
+*/
 
             // Decode temporary compound memory model into cyboi knowledge compound memory model.
             decode_cybol(p0, m, (void*) &mc, d, (void*) &dc);
@@ -377,6 +360,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Deallocate temporary properties.
             deallocate((void*) &d, (void*) &ds, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT);
 
+/*??
 //?? TEST BEGIN
             // Reset model diagram.
             md = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -384,12 +368,10 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-/*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
-*/
             // Reset multibyte character stream.
             mb = *NULL_POINTER_STATE_CYBOI_MODEL;
             mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -409,6 +391,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Deallocate multibyte character stream.
             deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 //?? TEST END
+*/
         }
     }
 
@@ -510,6 +493,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             decode_uri(p0, p1, p2, p3);
 
+/*??
 //?? TEST BEGIN
             // The model diagram.
             void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -517,12 +501,10 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
             allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-/*?? TODO!
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
                 *((void**) p0), p1, *((void**) p3), p4);
-*/
             // The multibyte character stream.
             void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
             int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -542,6 +524,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Deallocate multibyte character stream.
             deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
 //?? TEST END
+*/
         }
     }
 

@@ -30,8 +30,8 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/uri/cyboi_uri_name.c"
-#include "../../../../executor/converter/selector/authority/password_authority_selector.c"
+#include "../../../../constant/name/cyboi/authority/authority_cyboi_name.c"
+#include "../../../../executor/searcher/selector/authority/password_authority_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -84,7 +84,7 @@ void decode_authority_password(void* p0, void* p1, void* p2, void* p3) {
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
 
     // Fill part.
-    overwrite_part_element(p, (void*) CYBOI_PASSWORD_AUTHORITY_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) CYBOI_PASSWORD_AUTHORITY_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, (void*) PASSWORD_AUTHORITY_CYBOI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PASSWORD_AUTHORITY_CYBOI_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p, e, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) &ec, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 

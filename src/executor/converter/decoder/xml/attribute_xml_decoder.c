@@ -35,7 +35,7 @@
 #include "../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../executor/converter/decoder/xml/attribute_name_xml_decoder.c"
 #include "../../../../executor/converter/decoder/xml/attribute_value_xml_decoder.c"
-#include "../../../../executor/converter/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
+#include "../../../../executor/searcher/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../logger/logger.c"
 

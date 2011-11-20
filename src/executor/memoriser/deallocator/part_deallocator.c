@@ -27,6 +27,8 @@
 #define PART_DEALLOCATOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../executor/referencer/referencer.c"
 #include "../../../logger/logger.c"

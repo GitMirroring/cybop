@@ -26,14 +26,14 @@
 #ifndef INTEGER_CALCULATOR_SOURCE
 #define INTEGER_CALCULATOR_SOURCE
 
-#include "../../../constant/type/operation/operation_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/basic/integer/add_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/divide_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/multiply_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/subtract_integer_calculator.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/basic/integer/divide_integer_calculator.c"
+#include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
+#include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../logger/logger.c"
 
 /**

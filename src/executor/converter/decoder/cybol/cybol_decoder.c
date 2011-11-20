@@ -30,8 +30,6 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybop/cybop_name.c"
-#include "../../../../executor/converter/detector/cybol_detector.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
@@ -162,10 +160,10 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     void* smmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source name, channel, type, model part.
-    get_name_array((void*) &sn, p3, (void*) NAME_CYBOP_NAME, (void*) NAME_CYBOP_NAME_COUNT, p4);
-    get_name_array((void*) &sc, p3, (void*) CHANNEL_CYBOP_NAME, (void*) CHANNEL_CYBOP_NAME_COUNT, p4);
-    get_name_array((void*) &sa, p3, (void*) TYPE_CYBOP_NAME, (void*) TYPE_CYBOP_NAME_COUNT, p4);
-    get_name_array((void*) &sm, p3, (void*) MODEL_CYBOP_NAME, (void*) MODEL_CYBOP_NAME_COUNT, p4);
+    get_name_array((void*) &sn, p3, (void*) NAME_CYBOL_NAME, (void*) NAME_CYBOL_NAME_COUNT, p4);
+    get_name_array((void*) &sc, p3, (void*) CHANNEL_CYBOL_NAME, (void*) CHANNEL_CYBOL_NAME_COUNT, p4);
+    get_name_array((void*) &sa, p3, (void*) TYPE_CYBOL_NAME, (void*) TYPE_CYBOL_NAME_COUNT, p4);
+    get_name_array((void*) &sm, p3, (void*) MODEL_CYBOL_NAME, (void*) MODEL_CYBOL_NAME_COUNT, p4);
     // Get source name, channel, type, model part model.
     // CAUTION! Do NOT use NAME_PART_STATE_CYBOI_NAME, CHANNEL_PART_STATE_CYBOI_NAME,
     // TYPE_PART_STATE_CYBOI_NAME, MODEL_PART_STATE_CYBOI_NAME here!
@@ -251,14 +249,14 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     overwrite_item_element(pa, (void*) &ra, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     //
-    // Sometimes, a cybol model represents an type, e.g. when creating a part.
-    // This is indicated by an type with value "text/type".
-    // In such cases, the cybol model's character string value has to be converted into
+    // Sometimes, a cybol model represents a type, e.g. when creating a part.
+    // This is indicated by a type with value "text/type".
+    // In such cases, the cybol model's character array has to be converted into
     // an integer value, since cyboi processes types in this form internally.
     //
     // Example (see the "type" property's "model" attribute):
     //
-    // <part name="create_counter" channel="inline" type="operation/plain" model="create">
+    // <part name="create_counter" channel="inline" type="memorise/create" model="">
     //     <property name="name" channel="inline" type="text/plain" model="counter"/>
     //     <property name="type" channel="inline" type="text/type" model="memory/compound"/>
     //     <property name="element" channel="inline" type="text/plain" model="part"/>
@@ -269,7 +267,7 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // the given model is a cyboi-internal constant.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &f, (void*) &ra, (void*) TYPE_PRIMITIVE_STATE_CYBOI_TYPE);
+    compare_all_array((void*) &f, (void*) &ra, (void*) TYPE_TEXT_STATE_CYBOL_TYPE, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, lc, (void*) TYPE_TEXT_STATE_CYBOL_TYPE_COUNT);
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -9,6 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Clear up place and conversion of cybol- into cyboi type
         * Fix file includes
         * Debug compilation errors
 

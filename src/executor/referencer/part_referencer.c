@@ -29,6 +29,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/basic/integer_calculator.c"
 #include "../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
@@ -75,11 +76,11 @@ void reference_part(void* p0, void* p1, void* p2) {
     calculate_integer(rd, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int res = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller_or_equal((void*) &r, rd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_smaller_or_equal((void*) &res, rd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         deallocate_part((void*) &p, ms, td);
     }

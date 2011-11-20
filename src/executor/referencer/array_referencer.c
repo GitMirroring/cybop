@@ -26,10 +26,10 @@
 #ifndef ARRAY_REFERENCER_SOURCE
 #define ARRAY_REFERENCER_SOURCE
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/referencer/part_referencer.c"
 #include "../../logger/logger.c"
 
@@ -53,7 +53,7 @@ void reference_array_elements(void* p0, void* p1, void* p2) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
-        if (b != FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }

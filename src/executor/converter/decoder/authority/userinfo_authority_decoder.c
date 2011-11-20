@@ -30,10 +30,9 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/uri/cyboi_uri_name.c"
 #include "../../../../executor/converter/decoder/authority/hostname_authority_decoder.c"
 #include "../../../../executor/converter/decoder/authority/username_authority_decoder.c"
-#include "../../../../executor/converter/selector/authority/userinfo_authority_selector.c"
+#include "../../../../executor/searcher/selector/authority/userinfo_authority_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
