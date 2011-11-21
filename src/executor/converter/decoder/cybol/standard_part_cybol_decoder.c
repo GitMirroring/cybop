@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STANDARD_NODE_CYBOL_DECODER_SOURCE
-#define STANDARD_NODE_CYBOL_DECODER_SOURCE
+#ifndef STANDARD_PART_CYBOL_DECODER_SOURCE
+#define STANDARD_PART_CYBOL_DECODER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -34,18 +34,18 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the cybol standard node.
+ * Decodes the cybol standard part.
  *
  * @param p0 the destination item
  * @param p1 the source part model data
  * @param p2 the source part model count
  * @param p3 the source part properties data
  * @param p4 the source part properties count
- * @param p5 the source part model tree root node flag
+ * @param p5 the root part flag
  */
-void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void decode_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol node standard.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol part standard.");
 
     //
     // Identify source part properties parametres.
@@ -122,10 +122,6 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // because the part model has not been allocated yet when reading
     // the type for the first time.
     int rt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The runtime model.
-    // CAUTION! Certain operations expect well-defined parametres,
-    // which are defined as constant inside cyboi.
-    int rm = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // Decode cybol source channel into cyboi runtime channel constant.
@@ -144,13 +140,12 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // Therefore, the type has to be converted here.
     //
     decode_cybol_type((void*) &rt, stmd, stmc);
-    decode_cybol_model((void*) &rm, smmd, smmc);
 
     //
     // Create new part.
     //
-    // CAUTION! This may only be done AFTER having retrieved the source
-    // type, since that is needed for allocating the new part.
+    // CAUTION! This may only be done AFTER having retrieved the source type,
+    // since that is needed for allocating the new part.
     //
 
     // The part.
@@ -169,81 +164,20 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-    //
-    // Process source part properties.
-    //
-    // CAUTION! What is the properties in a parsed xml/cybol file,
-    // becomes the model in the cyboi-internal knowledge tree.
-    //
-
     // Fill part name.
     overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part type.
     // CAUTION! Use the cyboi RUNTIME type constant as source here!
     // CAUTION! Do NOT use a simple "copy" function here, since this is an item.
     overwrite_item_element(pt, (void*) &rt, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-    //
-    // Sometimes, a cybol model represents a type, e.g. when creating a part.
-    // Other times, a cybol model represents a colour or other kinds of data.
-    // This is indicated by a type with special value, e.g. "text/type".
-    // In such cases, the cybol model's character array has to be converted into
-    // an integer value, since cyboi processes types in this form internally.
-    // See the "type" property's "model" attribute in the following examples:
-    //
-    // Example 1:
-    //
-    // <part name="create_counter" channel="inline" type="memorise/create" model="">
-    //     <property name="name" channel="inline" type="text/plain" model="counter"/>
-    //     <property name="type" channel="inline" type="text/type" model="memory/compound"/>
-    //     <property name="element" channel="inline" type="text/plain" model="part"/>
-    // </part>
-    //
-    // Example 2:
-    //
-    // <part name="mc_item" channel="inline" type="text/plain" model="m - Start Midnight Commander (MC)">
-    //     <property name="position" channel="inline" type="number/integer" model="1,3,0"/>
-    //     <property name="size" channel="inline" type="number/integer" model="68,1,1"/>
-    //     <property name="background" channel="inline" type="text/plain" model="blue"/>
-    //     <property name="foreground" channel="inline" type="text/plain" model="white"/>
-    //     <property name="bold" channel="inline" type="logicvalue/boolean" model="true"/>
-    // </part>
-    //
-
-    // The cyboi model flag indicating whether or not
-    // the given model is a cyboi-internal constant.
-    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    compare_all_array((void*) &f, (void*) &rt, (void*) TYPE_TEXT_STATE_CYBOL_TYPE, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, lc, (void*) TYPE_TEXT_STATE_CYBOL_TYPE_COUNT);
-
-    if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // Decode cybol source model (representing an type)
-        // into cyboi runtime type constant.
-        decode_type((void*) &rm, smmd, smmc);
-
-        // Fill part model.
-        // CAUTION! Use the cyboi RUNTIME model constant as source here!
-        overwrite_item_element(pm, (void*) &rm, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-    } else {
-
-        // Fill part model and properties.
-        // Receive and decode source model, properties into part model, properties.
-        receive_data(pm, pp, smmd, smmc, (void*) &rt, (void*) &rc);
-    }
-
-    //
-    // Process source part model.
-    //
+    // Fill part model taken from cybol source part properties.
+    // CAUTION! What is the properties in a parsed xml/cybol file,
+    // becomes the model in the cyboi-internal knowledge tree.
+    receive_data(pm, pp, smmd, smmc, (void*) &rt, (void*) &rc);
+    // Fill part properties taken from cybol source part model.
     // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
     // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-    //
-
-    // Fill part properties.
-    // Decode the new part's meta information,
-    // by recursively calling this function itself.
-    decode_cybol_model(pd, p1, p2, p5);
+    decode_cybol_properties(pp, p1, p2, p5);
 
     //
     // Add part to destination.
@@ -252,5 +186,5 @@ void decode_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* STANDARD_NODE_CYBOL_DECODER_SOURCE */
+/* STANDARD_PART_CYBOL_DECODER_SOURCE */
 #endif

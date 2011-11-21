@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Refactor cybol decoder
+
 2011-11-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug compilation errors

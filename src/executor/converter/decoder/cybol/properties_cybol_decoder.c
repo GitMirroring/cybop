@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MODEL_CYBOL_DECODER_SOURCE
-#define MODEL_CYBOL_DECODER_SOURCE
+#ifndef PROPERTIES_CYBOL_DECODER_SOURCE
+#define PROPERTIES_CYBOL_DECODER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,9 +35,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the cybol model.
- *
- * It represents the new part's properties (meta) hierarchy.
+ * Decodes the cybol properties.
  *
  * CAUTION! What is the properties in a parsed xml/cybol file
  * becomes the model in the cyboi-internal knowledge tree;
@@ -47,9 +45,9 @@
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
- * @param p3 the source part model tree root node flag
+ * @param p3 the root node flag
  */
-void decode_cybol_model(void* p0, void* p1, void* p2, void* p3) {
+void decode_cybol_properties(void* p0, void* p1, void* p2, void* p3) {
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -65,12 +63,12 @@ void decode_cybol_model(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        decode_cybol_model_elements(p0, p1, (void*) &j, p3);
+        decode_cybol_property(p0, p1, (void*) &j, p3);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* MODEL_CYBOL_DECODER_SOURCE */
+/* PROPERTIES_CYBOL_DECODER_SOURCE */
 #endif

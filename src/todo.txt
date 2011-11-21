@@ -9,7 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Clean up conversion of cybol- into cyboi MODELS in "standard_node_cybol_decoder.c"
+        * Clean up conversion of cybol- into cyboi MODELS in "standard_part_cybol_decoder.c"
             - decode inline and file_system and group + add all types to "decoder.c"
         * Debug compilation errors
 

@@ -23,51 +23,35 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ELEMENT_CYBOL_DECODER_SOURCE
-#define ELEMENT_CYBOL_DECODER_SOURCE
+#ifndef ROOT_PART_CYBOL_DECODER_SOURCE
+#define ROOT_PART_CYBOL_DECODER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
-#include "../../../../executor/converter/decoder/cybol/root_node_cybol_decoder.c"
-#include "../../../../executor/converter/decoder/cybol/standard_node_cybol_decoder.c"
+#include "../../../../executor/converter/decoder/cybol/model_cybol_decoder.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the cybol element.
+ * Decodes the cybol root part.
  *
  * @param p0 the destination item
  * @param p1 the source part model data
  * @param p2 the source part model count
- * @param p3 the source part properties data
- * @param p4 the source part properties count
- * @param p5 the source part model tree root node flag
+ * @param p3 the root part flag
  */
-void decode_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void decode_cybol_part_root(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol part root.");
 
-    // The root node flag.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // Reset root part flag, so that
+    // child parts are processed normally.
+    copy_integer(p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // This is a standard part node and NOT the root node.
-
-        decode_cybol_node_standard(p0, p1, p2, p3, p4);
-
-    } else {
-
-        // This IS the root node.
-
-        // Add the meta node model and properties directly
-        // to destination whole (root).
-        decode_cybol_node_root(p0, p1, p2, p5);
-    }
+    // Fill part properties taken from cybol source part model.
+    decode_cybol_properties(p0, p1, p2, p3);
 }
 
-/* ELEMENT_CYBOL_DECODER_SOURCE */
+/* ROOT_PART_CYBOL_DECODER_SOURCE */
 #endif

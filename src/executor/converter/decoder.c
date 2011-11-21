@@ -53,6 +53,32 @@
 //?? TEMPORARY FOR TESTING! DELETE LATER!
 //#include "../../executor/communicator/sender/file_sender.c"
 
+//
+// Sometimes, a cybol model represents a type, e.g. when creating a part.
+// Other times, a cybol model represents a colour or other kinds of data.
+// This is indicated by a type with special value, e.g. "text/type".
+// In such cases, the cybol model's character array has to be converted into
+// an integer value, since cyboi processes types in this form internally.
+//
+// Example 1 (see "type" property's "type" and "model" attribute):
+//
+// <part name="create_counter" channel="inline" type="memorise/create" model="">
+//     <property name="name" channel="inline" type="text/plain" model="counter"/>
+//     <property name="type" channel="inline" type="text/type" model="memory/compound"/>
+//     <property name="element" channel="inline" type="text/plain" model="part"/>
+// </part>
+//
+// Example 2 (see "background" property's "type" and "model" attribute):
+//
+// <part name="mc_item" channel="inline" type="text/plain" model="m - Start Midnight Commander (MC)">
+//     <property name="position" channel="inline" type="number/integer" model="1,3,0"/>
+//     <property name="size" channel="inline" type="number/integer" model="68,1,1"/>
+//     <property name="background" channel="inline" type="colour/terminal" model="blue"/>
+//     <property name="foreground" channel="inline" type="colour/terminal" model="white"/>
+//     <property name="bold" channel="inline" type="logicvalue/boolean" model="true"/>
+// </part>
+//
+
 /**
  * Decodes the source into the destination, according to the given type.
  *
