@@ -35,13 +35,18 @@
 // because they have to be assigned a unique identification integer,
 // which is easier to verify having they here altogether.
 //
+// CAUTION! However, STATE and LOGIC constants have been split into TWO files.
+// Mind the following ranges and DO NOT MIX them:
+// - state constants: 0..499
+// - logic constants: 500..999
+//
 
 //
-// Pointer.
+// Date time.
 //
 
-/** The pointer state cyboi type. */
-static int* POINTER_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The datetime state cyboi type. */
+static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Logic value.
@@ -70,38 +75,38 @@ static int* INTEGER_STATE_CYBOI_TYPE = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY
 static int* UNSIGNED_LONG_STATE_CYBOI_TYPE = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Text.
+// Part.
 //
 
-/** The character state cyboi type. */
-static int* CHARACTER_STATE_CYBOI_TYPE = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The wide character state cyboi type. */
-static int* WIDE_CHARACTER_STATE_CYBOI_TYPE = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// Date time.
-//
-
-/** The datetime state cyboi type. */
-static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The part state cyboi type. */
+static int* PART_STATE_CYBOI_TYPE = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Path.
 //
 
 /** The encapsulated knowledge path state cyboi type. */
-static int* ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOI_TYPE = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOI_TYPE = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The knowledge path state cyboi type. */
-static int* KNOWLEDGE_PATH_STATE_CYBOI_TYPE = NUMBER_51_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* KNOWLEDGE_PATH_STATE_CYBOI_TYPE = NUMBER_41_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Part.
+// Pointer.
 //
 
-/** The part state cyboi type. */
-static int* PART_STATE_CYBOI_TYPE = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The pointer state cyboi type. */
+static int* POINTER_STATE_CYBOI_TYPE = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Text.
+//
+
+/** The character state cyboi type. */
+static int* CHARACTER_STATE_CYBOI_TYPE = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The wide character state cyboi type. */
+static int* WIDE_CHARACTER_STATE_CYBOI_TYPE = NUMBER_61_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STATE_CYBOI_TYPE_CONSTANT_SOURCE */
 #endif

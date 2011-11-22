@@ -111,35 +111,37 @@ void decode_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smmc, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // The runtime channel.
-    int rc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The runtime encoding.
-    int re = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The runtime type.
+    //
+    // Convert some cybol source data (strings) into cyboi destination data (integer).
+    //
+
+    // The destination channel.
+    int dc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination encoding.
+    int de = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination type cybol form.
+    // CAUTION! This is a cyboi integer representing a cybol mime type.
+    int dtc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination type.
     // CAUTION! It is needed e.g. to retrieve the type of the part to be created.
     // Otherwise, it would not be known which part model to create.
-    // The source type CANNOT be converted directly into the part's type,
+    // CAUTION! The source type CANNOT be converted directly into the part's type,
     // because the part model has not been allocated yet when reading
     // the type for the first time.
-    int rt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int dt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    //
-    // Decode cybol source channel into cyboi runtime channel constant.
-    //
-    decode_cybol_channel((void*) &rc, scmd, scmc);
-    //
-    // Decode cybol source encoding into cyboi runtime encoding constant.
-    //
-    decode_cybol_encoding((void*) &re, semd, semc);
-    //
-    // Decode cybol source type into cyboi runtime type constant.
-    //
-    // A cybol type is of type "wchar_t"; a cyboi-internal type of type "int".
+    // Decode cybol source channel into cyboi destination channel.
+    decode_cybol_channel((void*) &dc, scmd, scmc);
+    // Decode cybol source encoding into cyboi destination encoding.
+    decode_cybol_encoding((void*) &de, semd, semc);
+    // Decode cybol source type into cybol cyboi destination type.
+    decode_cybol_type((void*) &dtc, stmd, stmc);
+    // Decode cybol source type into cyboi destination type.
+    // CAUTION! A cybol type is of type "wchar_t"; a cyboi-internal type of type "int".
     // Both are not always equal in their meaning.
     // For example, an "xdt" file is converted into a cyboi "part".
     // Therefore, the type has to be converted here.
-    //
-    decode_cybol_type((void*) &rt, stmd, stmc);
+    decode_cybol_type((void*) &dt, (void*) &dtc);
 
     //
     // Create new part.
@@ -157,7 +159,9 @@ void decode_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &rt);
+    // CAUTION! Use the CYBOI destination type determined above
+    // (and NOT the CYBOL cyboi destination type)!
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &dt);
     // Get part name, type, model, properties.
     copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
@@ -167,13 +171,16 @@ void decode_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // Fill part name.
     overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part type.
-    // CAUTION! Use the cyboi RUNTIME type constant as source here!
+    // CAUTION! Use the CYBOI destination type determined above
+    // (and NOT the CYBOL cyboi destination type)!
     // CAUTION! Do NOT use a simple "copy" function here, since this is an item.
-    overwrite_item_element(pt, (void*) &rt, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    overwrite_item_element(pt, (void*) &dt, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part model taken from cybol source part properties.
     // CAUTION! What is the properties in a parsed xml/cybol file,
     // becomes the model in the cyboi-internal knowledge tree.
-    receive_data(pm, pp, smmd, smmc, (void*) &rt, (void*) &rc);
+    // CAUTION! Use the CYBOL cyboi destination type determined above
+    // (and NOT the CYBOI destination type)!
+    receive_data(pm, pp, smmd, smmc, (void*) &dtc, (void*) &dc);
     // Fill part properties taken from cybol source part model.
     // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
     // becomes the properties (meta data) in the cyboi-internal knowledge tree.

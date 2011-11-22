@@ -57,9 +57,9 @@
  * Microsoft Excel files.
  * Suffixes: xls, xla
  */
-static wchar_t MS_EXCEL_APPLICATION_VND_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'v', L'n', L'd', L'.', L'm', L's', L'-', L'e', L'x', L'c', L'e', L'l'};
-static wchar_t* MS_EXCEL_APPLICATION_VND_STATE_CYBOL_TYPE = MS_EXCEL_APPLICATION_VND_STATE_CYBOL_TYPE_ARRAY;
-static int* MS_EXCEL_APPLICATION_VND_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t VND_MS_EXCEL_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'v', L'n', L'd', L'.', L'm', L's', L'-', L'e', L'x', L'c', L'e', L'l'};
+static wchar_t* VND_MS_EXCEL_APPLICATION_STATE_CYBOL_TYPE = VND_MS_EXCEL_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
+static int* VND_MS_EXCEL_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 application/vnd.ms-powerpoint: Microsoft Powerpoint files

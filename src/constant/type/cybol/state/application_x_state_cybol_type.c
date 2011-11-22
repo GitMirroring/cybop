@@ -27,6 +27,7 @@
 #define APPLICATION_X_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -63,9 +64,9 @@ application/x-httpd-php-source: PHP source files
  * LaTeX files.
  * Suffixes: tex
  */
-static wchar_t LATEX_APPLICATION_X_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'l', L'a', L't', L'e', L'x'};
-static wchar_t* LATEX_APPLICATION_X_STATE_CYBOL_TYPE = LATEX_APPLICATION_X_STATE_CYBOL_TYPE_ARRAY;
-static int* LATEX_APPLICATION_X_STATE_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t X_LATEX_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'l', L'a', L't', L'e', L'x'};
+static wchar_t* X_LATEX_APPLICATION_STATE_CYBOL_TYPE = X_LATEX_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
+static int* X_LATEX_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 application/x-shockwave-flash: Adobe Flash files; Documented in Adobe TechNote tn_4151 and Adobe TechNote tn_16509
@@ -79,9 +80,9 @@ application/x-rar-compressed: RAR archive files
  * Tarball files.
  * Suffixes: tar
  */
-static wchar_t TAR_APPLICATION_X_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'a', L'r'};
-static wchar_t* TAR_APPLICATION_X_STATE_CYBOL_TYPE = TAR_APPLICATION_X_STATE_CYBOL_TYPE_ARRAY;
-static int* TAR_APPLICATION_X_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t X_TAR_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'a', L'r'};
+static wchar_t* X_TAR_APPLICATION_STATE_CYBOL_TYPE = X_TAR_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
+static int* X_TAR_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* APPLICATION_X_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

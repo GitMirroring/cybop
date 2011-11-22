@@ -37,9 +37,9 @@
 /**
  * The interface/x-winamp-skin cybol type.
  */
-static wchar_t X_WINAMP_INTERFACE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'n', L't', L'e', L'r', L'f', L'a', L'c', L'e', L'/', L'x', L'-', L'w', L'i', L'n', L'a', L'm', L'p', L'-', L's', L'k', L'i', L'n'};
-static wchar_t* X_WINAMP_INTERFACE_STATE_CYBOL_TYPE = X_WINAMP_INTERFACE_STATE_CYBOL_TYPE_ARRAY;
-static int* X_WINAMP_INTERFACE_STATE_CYBOL_TYPE_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'n', L't', L'e', L'r', L'f', L'a', L'c', L'e', L'/', L'x', L'-', L'w', L'i', L'n', L'a', L'm', L'p', L'-', L's', L'k', L'i', L'n'};
+static wchar_t* X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_TYPE = X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_TYPE_ARRAY;
+static int* X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_TYPE_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* INTERFACE_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif
