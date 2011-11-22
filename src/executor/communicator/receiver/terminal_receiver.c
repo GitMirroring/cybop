@@ -109,7 +109,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                 *csi = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
                                 // Set loop break flag.
                                 // An escape character followed by a left square bracket character
@@ -133,7 +133,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                     *csi = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                     // Copy source character to destination character array.
-                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
                                 } else {
 
@@ -160,7 +160,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                 *esc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
                             } else if (*c == WEOF) {
 
@@ -174,7 +174,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                             } else {
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 
                                 // Set loop break flag.
                                 *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
@@ -281,7 +281,7 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate character array.
-    allocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Read pressed keyboard keys as message from terminal.
     receive_terminal((void*) &a, (void*) &ac, (void*) &as, p12, p17);
@@ -293,7 +293,7 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     decode(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, a, (void*) &ac, p15, p16, (void*) TERMINAL_CYBOL_CHANNEL, (void*) TERMINAL_CYBOL_CHANNEL_COUNT);
 
     // Deallocate character array.
-    deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

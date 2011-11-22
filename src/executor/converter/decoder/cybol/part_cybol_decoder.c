@@ -30,8 +30,8 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
-#include "../../../../executor/converter/decoder/cybol/root_node_cybol_decoder.c"
-#include "../../../../executor/converter/decoder/cybol/standard_node_cybol_decoder.c"
+#include "../../../../executor/converter/decoder/cybol/root_part_cybol_decoder.c"
+#include "../../../../executor/converter/decoder/cybol/standard_part_cybol_decoder.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -42,7 +42,7 @@
  * @param p2 the source part model count
  * @param p3 the source part properties data
  * @param p4 the source part properties count
- * @param p5 the root node flag
+ * @param p5 the root part flag
  */
 void decode_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
@@ -57,7 +57,7 @@ void decode_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         // This is a standard part node and NOT the root node.
 
-        decode_cybol_part_standard(p0, p1, p2, p3, p4);
+        decode_cybol_part_standard(p0, p1, p2, p3, p4, p5);
 
     } else {
 

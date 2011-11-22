@@ -55,15 +55,15 @@ void encode_http_response_body(void* p0, void* p1, void* p2, void* p3, void* p4,
     int ms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate character array.
-    allocate_array((void*) &md, (void*) &ms, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &md, (void*) &ms, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode wide character array into multibyte character array.
     encode_utf_8_unicode_character_vector((void*) &md, (void*) &mc, (void*) &ms, p3, p4);
 
-    append_item_element(p0, md, (void*) CHARACTER_STATE_CYBOI_TYPE, mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, md, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate character array.
-    deallocate_array((void*) &md, (void*) &ms, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &md, (void*) &ms, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* BODY_HTTP_RESPONSE_ENCODER_SOURCE */

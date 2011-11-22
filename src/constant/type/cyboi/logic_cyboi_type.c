@@ -42,223 +42,223 @@
 //
 
 //
-// Calculate.
+// calculate
 //
 
-/** The absolute logic cyboi type. */
-static int* ABSOLUTE_LOGIC_CYBOI_TYPE = NUMBER_500_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The absolute calculate logic cyboi type. */
+static int* ABSOLUTE_CALCULATE_LOGIC_CYBOI_TYPE = NUMBER_500_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The add logic cyboi type. */
-static int* ADD_LOGIC_CYBOI_TYPE = NUMBER_501_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The add calculate logic cyboi type. */
+static int* ADD_CALCULATE_LOGIC_CYBOI_TYPE = NUMBER_501_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The divide logic cyboi type. */
-static int* DIVIDE_LOGIC_CYBOI_TYPE = NUMBER_502_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The divide calculate logic cyboi type. */
+static int* DIVIDE_CALCULATE_LOGIC_CYBOI_TYPE = NUMBER_502_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The multiply logic cyboi type. */
-static int* MULTIPLY_LOGIC_CYBOI_TYPE = NUMBER_503_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The multiply calculate logic cyboi type. */
+static int* MULTIPLY_CALCULATE_LOGIC_CYBOI_TYPE = NUMBER_503_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The negate logic cyboi type. */
-static int* NEGATE_LOGIC_CYBOI_TYPE = NUMBER_504_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The negate calculate logic cyboi type. */
+static int* NEGATE_CALCULATE_LOGIC_CYBOI_TYPE = NUMBER_504_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The reduce logic cyboi type. */
-static int* REDUCE_LOGIC_CYBOI_TYPE = NUMBER_505_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The reduce calculate logic cyboi type. */
+static int* REDUCE_CALCULATE_LOGIC_CYBOI_TYPE = NUMBER_505_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The remainder logic cyboi type. */
-static int* REMAINDER_LOGIC_CYBOI_TYPE = NUMBER_506_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The remainder calculate logic cyboi type. */
+static int* REMAINDER_CALCULATE_LOGIC_CYBOI_TYPE = NUMBER_506_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The subtract logic cyboi type. */
-static int* SUBTRACT_LOGIC_CYBOI_TYPE = NUMBER_507_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// Communicate.
-//
-
-/** The receive logic cyboi type. */
-static int* RECEIVE_LOGIC_CYBOI_TYPE = NUMBER_550_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The send logic cyboi type. */
-static int* SEND_LOGIC_CYBOI_TYPE = NUMBER_551_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The subtract calculate logic cyboi type. */
+static int* SUBTRACT_CALCULATE_LOGIC_CYBOI_TYPE = NUMBER_507_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Compare.
+// communicate
 //
 
-/** The equal logic cyboi type. */
-static int* EQUAL_LOGIC_CYBOI_TYPE = NUMBER_600_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The receive communicate logic cyboi type. */
+static int* RECEIVE_COMMUNICATE_LOGIC_CYBOI_TYPE = NUMBER_550_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The equal-part logic cyboi type. */
-static int* EQUAL_PART_LOGIC_CYBOI_TYPE = NUMBER_601_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The equal-prefix logic cyboi type. */
-static int* EQUAL_PREFIX_LOGIC_CYBOI_TYPE = NUMBER_602_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The equal-suffix logic cyboi type. */
-static int* EQUAL_SUFFIX_LOGIC_CYBOI_TYPE = NUMBER_603_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The greater logic cyboi type. */
-static int* GREATER_LOGIC_CYBOI_TYPE = NUMBER_604_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The greater-or-equal logic cyboi type. */
-static int* GREATER_OR_EQUAL_LOGIC_CYBOI_TYPE = NUMBER_605_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The smaller logic cyboi type. */
-static int* SMALLER_LOGIC_CYBOI_TYPE = NUMBER_606_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The smaller-or-equal logic cyboi type. */
-static int* SMALLER_OR_EQUAL_LOGIC_CYBOI_TYPE = NUMBER_607_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The unequal logic cyboi type. */
-static int* UNEQUAL_LOGIC_CYBOI_TYPE = NUMBER_608_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The send communicate logic cyboi type. */
+static int* SEND_COMMUNICATE_LOGIC_CYBOI_TYPE = NUMBER_551_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Convert.
+// compare
 //
 
-/** The decode logic cyboi type. */
-static int* DECODE_LOGIC_CYBOI_TYPE = NUMBER_650_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The equal compare logic cyboi type. */
+static int* EQUAL_COMPARE_LOGIC_CYBOI_TYPE = NUMBER_600_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The encode logic cyboi type. */
-static int* ENCODE_LOGIC_CYBOI_TYPE = NUMBER_651_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The equal-part compare logic cyboi type. */
+static int* EQUAL_PART_COMPARE_LOGIC_CYBOI_TYPE = NUMBER_601_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//
-// File.
-//
+/** The equal-prefix compare logic cyboi type. */
+static int* EQUAL_PREFIX_COMPARE_LOGIC_CYBOI_TYPE = NUMBER_602_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The archive logic cyboi type. */
-static int* ARCHIVE_LOGIC_CYBOI_TYPE = NUMBER_700_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The equal-suffix compare logic cyboi type. */
+static int* EQUAL_SUFFIX_COMPARE_LOGIC_CYBOI_TYPE = NUMBER_603_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The copy logic cyboi type. */
-static int* COPY_LOGIC_CYBOI_TYPE = NUMBER_701_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The greater compare logic cyboi type. */
+static int* GREATER_COMPARE_LOGIC_CYBOI_TYPE = NUMBER_604_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The list-directory-contents logic cyboi type. */
-static int* LIST_DIRECTORY_CONTENTS_LOGIC_CYBOI_TYPE = NUMBER_702_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The greater-or-equal compare logic cyboi type. */
+static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_TYPE = NUMBER_605_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//
-// Flow.
-//
+/** The smaller compare logic cyboi type. */
+static int* SMALLER_COMPARE_LOGIC_CYBOI_TYPE = NUMBER_606_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The branch logic cyboi type. */
-static int* BRANCH_LOGIC_CYBOI_TYPE = NUMBER_750_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The smaller-or-equal compare logic cyboi type. */
+static int* SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_TYPE = NUMBER_607_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The loop logic cyboi type. */
-static int* LOOP_LOGIC_CYBOI_TYPE = NUMBER_751_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The sequence logic cyboi type. */
-static int* SEQUENCE_LOGIC_CYBOI_TYPE = NUMBER_752_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The unequal compare logic cyboi type. */
+static int* UNEQUAL_COMPARE_LOGIC_CYBOI_TYPE = NUMBER_608_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Live.
+// convert
 //
 
-/** The exit logic cyboi type. */
-static int* EXIT_LOGIC_CYBOI_TYPE = NUMBER_780_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The decode convert logic cyboi type. */
+static int* DECODE_CONVERT_LOGIC_CYBOI_TYPE = NUMBER_650_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The interrupt logic cyboi type. */
-static int* INTERRUPT_LOGIC_CYBOI_TYPE = NUMBER_781_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The sense logic cyboi type. */
-static int* SENSE_LOGIC_CYBOI_TYPE = NUMBER_782_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The encode convert logic cyboi type. */
+static int* ENCODE_CONVERT_LOGIC_CYBOI_TYPE = NUMBER_651_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Logify.
+// file
 //
 
-/** The and logic cyboi type. */
-static int* AND_LOGIC_CYBOI_TYPE = NUMBER_800_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The archive file logic cyboi type. */
+static int* ARCHIVE_FILE_LOGIC_CYBOI_TYPE = NUMBER_700_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The nand logic cyboi type. */
-static int* NAND_LOGIC_CYBOI_TYPE = NUMBER_801_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The copy file logic cyboi type. */
+static int* COPY_FILE_LOGIC_CYBOI_TYPE = NUMBER_701_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The neg logic cyboi type. */
-static int* NEG_LOGIC_CYBOI_TYPE = NUMBER_802_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The nor logic cyboi type. */
-static int* NOR_LOGIC_CYBOI_TYPE = NUMBER_803_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The not logic cyboi type. */
-static int* NOT_LOGIC_CYBOI_TYPE = NUMBER_804_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The or logic cyboi type. */
-static int* OR_LOGIC_CYBOI_TYPE = NUMBER_805_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xnor logic cyboi type. */
-static int* XNOR_LOGIC_CYBOI_TYPE = NUMBER_806_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xor logic cyboi type. */
-static int* XOR_LOGIC_CYBOI_TYPE = NUMBER_807_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The list-directory-contents file logic cyboi type. */
+static int* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOI_TYPE = NUMBER_702_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Maintain.
+// flow
 //
 
-/** The shutdown logic cyboi type. */
-static int* SHUTDOWN_LOGIC_CYBOI_TYPE = NUMBER_820_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The branch flow logic cyboi type. */
+static int* BRANCH_FLOW_LOGIC_CYBOI_TYPE = NUMBER_750_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The startup logic cyboi type. */
-static int* STARTUP_LOGIC_CYBOI_TYPE = NUMBER_821_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The loop flow logic cyboi type. */
+static int* LOOP_FLOW_LOGIC_CYBOI_TYPE = NUMBER_751_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//
-// Manipulate.
-//
-
-/** The get logic cyboi type. */
-static int* GET_LOGIC_CYBOI_TYPE = NUMBER_850_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The reset logic cyboi type. */
-static int* RESET_LOGIC_CYBOI_TYPE = NUMBER_851_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The rotate left logic cyboi type. */
-static int* ROTATE_LEFT_LOGIC_CYBOI_TYPE = NUMBER_852_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The rotate right logic cyboi type. */
-static int* ROTATE_RIGHT_LOGIC_CYBOI_TYPE = NUMBER_853_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The set logic cyboi type. */
-static int* SET_LOGIC_CYBOI_TYPE = NUMBER_854_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The shift left logic cyboi type. */
-static int* SHIFT_LEFT_LOGIC_CYBOI_TYPE = NUMBER_855_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The shift right logic cyboi type. */
-static int* SHIFT_RIGHT_LOGIC_CYBOI_TYPE = NUMBER_856_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The sequence flow logic cyboi type. */
+static int* SEQUENCE_FLOW_LOGIC_CYBOI_TYPE = NUMBER_752_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Memorise.
+// live
 //
 
-/** The create logic cyboi type. */
-static int* CREATE_LOGIC_CYBOI_TYPE = NUMBER_900_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The exit live logic cyboi type. */
+static int* EXIT_LIVE_LOGIC_CYBOI_TYPE = NUMBER_780_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The destroy logic cyboi type. */
-static int* DESTROY_LOGIC_CYBOI_TYPE = NUMBER_901_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The interrupt live logic cyboi type. */
+static int* INTERRUPT_LIVE_LOGIC_CYBOI_TYPE = NUMBER_781_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//
-// Modify.
-//
-
-/** The append logic cyboi type. */
-static int* APPEND_LOGIC_CYBOI_TYPE = NUMBER_910_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The build logic cyboi type. */
-static int* BUILD_LOGIC_CYBOI_TYPE = NUMBER_911_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The count logic cyboi type. */
-static int* COUNT_LOGIC_CYBOI_TYPE = NUMBER_912_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The get logic cyboi type. */
-static int* GET_LOGIC_CYBOI_TYPE = NUMBER_913_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The insert logic cyboi type. */
-static int* INSERT_LOGIC_CYBOI_TYPE = NUMBER_914_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The overwrite logic cyboi type. */
-static int* OVERWRITE_LOGIC_CYBOI_TYPE = NUMBER_915_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The remove logic cyboi type. */
-static int* REMOVE_LOGIC_CYBOI_TYPE = NUMBER_916_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The sense live logic cyboi type. */
+static int* SENSE_LIVE_LOGIC_CYBOI_TYPE = NUMBER_782_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Run.
+// logify
+//
+
+/** The and logify logic cyboi type. */
+static int* AND_LOGIFY_LOGIC_CYBOI_TYPE = NUMBER_800_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The nand logify logic cyboi type. */
+static int* NAND_LOGIFY_LOGIC_CYBOI_TYPE = NUMBER_801_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The neg logify logic cyboi type. */
+static int* NEG_LOGIFY_LOGIC_CYBOI_TYPE = NUMBER_802_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The nor logify logic cyboi type. */
+static int* NOR_LOGIFY_LOGIC_CYBOI_TYPE = NUMBER_803_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The not logify logic cyboi type. */
+static int* NOT_LOGIFY_LOGIC_CYBOI_TYPE = NUMBER_804_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The or logify logic cyboi type. */
+static int* OR_LOGIFY_LOGIC_CYBOI_TYPE = NUMBER_805_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The xnor logify logic cyboi type. */
+static int* XNOR_LOGIFY_LOGIC_CYBOI_TYPE = NUMBER_806_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The xor logify logic cyboi type. */
+static int* XOR_LOGIFY_LOGIC_CYBOI_TYPE = NUMBER_807_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// maintain
+//
+
+/** The shutdown maintain logic cyboi type. */
+static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOI_TYPE = NUMBER_820_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The startup maintain logic cyboi type. */
+static int* STARTUP_MAINTAIN_LOGIC_CYBOI_TYPE = NUMBER_821_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// manipulate
+//
+
+/** The get manipulate logic cyboi type. */
+static int* GET_MANIPULATE_LOGIC_CYBOI_TYPE = NUMBER_850_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The reset manipulate logic cyboi type. */
+static int* RESET_MANIPULATE_LOGIC_CYBOI_TYPE = NUMBER_851_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The rotate left manipulate logic cyboi type. */
+static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOI_TYPE = NUMBER_852_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The rotate right manipulate logic cyboi type. */
+static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOI_TYPE = NUMBER_853_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The set manipulate logic cyboi type. */
+static int* SET_MANIPULATE_LOGIC_CYBOI_TYPE = NUMBER_854_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The shift left manipulate logic cyboi type. */
+static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOI_TYPE = NUMBER_855_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The shift right manipulate logic cyboi type. */
+static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOI_TYPE = NUMBER_856_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// memorise
+//
+
+/** The create memorise logic cyboi type. */
+static int* CREATE_MEMORISE_LOGIC_CYBOI_TYPE = NUMBER_900_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The destroy memorise logic cyboi type. */
+static int* DESTROY_MEMORISE_LOGIC_CYBOI_TYPE = NUMBER_901_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// modify
+//
+
+/** The append modify logic cyboi type. */
+static int* APPEND_MODIFY_LOGIC_CYBOI_TYPE = NUMBER_910_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The build modify logic cyboi type. */
+static int* BUILD_MODIFY_LOGIC_CYBOI_TYPE = NUMBER_911_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The count modify logic cyboi type. */
+static int* COUNT_MODIFY_LOGIC_CYBOI_TYPE = NUMBER_912_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The get modify logic cyboi type. */
+static int* GET_MODIFY_LOGIC_CYBOI_TYPE = NUMBER_913_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The insert modify logic cyboi type. */
+static int* INSERT_MODIFY_LOGIC_CYBOI_TYPE = NUMBER_914_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The overwrite modify logic cyboi type. */
+static int* OVERWRITE_MODIFY_LOGIC_CYBOI_TYPE = NUMBER_915_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The remove modify logic cyboi type. */
+static int* REMOVE_MODIFY_LOGIC_CYBOI_TYPE = NUMBER_916_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// run
 //
 
 /** The run logic cyboi type. */

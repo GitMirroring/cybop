@@ -62,7 +62,7 @@ void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,7 +74,7 @@ void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3
             // which was handed over to here and can now be assigned.
 /*?? TODO!
             assign(p9, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-            assign(p10, p8, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
+            assign(p10, p8, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 */
 
             // Set break flag.

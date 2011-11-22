@@ -55,8 +55,8 @@ void deallocate_fraction(void* p0, void* p1) {
         retrieve((void*) &d, p0, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
 
         // Deallocate numerator and denominator.
-        deallocate((void*) &n, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-        deallocate((void*) &d, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+        deallocate((void*) &n, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
+        deallocate((void*) &d, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
 
         // Deallocate fraction.
         deallocate(p0, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);

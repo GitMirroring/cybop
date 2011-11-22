@@ -79,7 +79,7 @@ void select_knowledge_branch(void* p0, void* p1, void* p2) {
 
         // CAUTION! DO MOVE the position (last parametre) here,
         // since only the actual name is of interest later.
-        detect_array((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +92,7 @@ void select_knowledge_branch(void* p0, void* p1, void* p2) {
 
         // CAUTION! DO MOVE the position (last parametre) here,
         // since only the actual name is of interest later.
-        detect_array((void*) &r, p1, p2, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +104,7 @@ void select_knowledge_branch(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Move position by one if nothing was found.
-        move_position(p1, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

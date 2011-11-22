@@ -53,7 +53,7 @@ void decode_http_uri_authority_content(void* p0, void* p1, void* p2) {
     // Add authority as full text representation.
     //
 
-    append_item_allocate_part(p0, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME_COUNT, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    append_item_allocate_part(p0, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME, (void*) CYBOI_AUTHORITY_TEXT_URI_NAME_COUNT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     //
     // Add authority as hierarchy consisting of parts.
@@ -66,15 +66,15 @@ void decode_http_uri_authority_content(void* p0, void* p1, void* p2) {
     void* hd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate hierarchy part.
-    allocate_part((void*) &h, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE);
+    allocate_part((void*) &h, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Get hierarchy part model, properties.
     copy_array_forward((void*) &hm, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &hd, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
     // Fill hierarchy part.
-    overwrite_part_element(h, (void*) CYBOI_AUTHORITY_URI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) CYBOI_AUTHORITY_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(h, (void*) PART_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(h, (void*) CYBOI_AUTHORITY_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOI_AUTHORITY_URI_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(h, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     receive_inline(hm, hd, p1, p2, (void*) AUTHORITY_TEXT_CYBOL_TYPE);
 
     // Append hierarchy part to destination model.

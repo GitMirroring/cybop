@@ -334,7 +334,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
                             // Sense the graphical part's command.
                             sense_x_window_system_command(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, *d, *dc, p17, p18, p19, p20);
 
-                            compare_all_array((void*) &r, *a, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) PART_STATE_CYBOI_TYPE_COUNT);
+                            compare_all_array((void*) &r, *a, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *ac, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT);
 
                             if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

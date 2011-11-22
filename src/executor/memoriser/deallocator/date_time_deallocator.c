@@ -41,7 +41,7 @@ void deallocate_date_time(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate date time.");
 
-    deallocate_array(p0, p1, (void*) INTEGER_STATE_CYBOI_TYPE);
+    deallocate_array(p0, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* DATE_TIME_DEALLOCATOR_SOURCE */

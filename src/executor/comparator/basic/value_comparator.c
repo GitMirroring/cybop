@@ -86,19 +86,27 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
         int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+        //
+        // element
+        //
+
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *CHARACTER_STATE_CYBOI_TYPE) {
+            if (*a == *PART_ELEMENT_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-                compare_character(p0, p1, p2, p3);
+                compare_part(p0, p1, p2, p3);
             }
         }
 
+        //
+        // number
+        //
+
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *DOUBLE_STATE_CYBOI_TYPE) {
+            if (*a == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -108,7 +116,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *FRACTION_STATE_CYBOI_TYPE) {
+            if (*a == *FRACTION_NUMBER_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -118,7 +126,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *INTEGER_STATE_CYBOI_TYPE) {
+            if (*a == *INTEGER_NUMBER_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -128,13 +136,17 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *PART_STATE_CYBOI_TYPE) {
+            if (*a == *UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-                compare_part(p0, p1, p2, p3);
+                compare_unsigned_long(p0, p1, p2, p3);
             }
         }
+
+        //
+        // pointer
+        //
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -146,19 +158,23 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
             }
         }
 
+        //
+        // text
+        //
+
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *UNSIGNED_LONG_STATE_CYBOI_TYPE) {
+            if (*a == *CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-                compare_unsigned_long(p0, p1, p2, p3);
+                compare_character(p0, p1, p2, p3);
             }
         }
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (*a == *WIDE_CHARACTER_STATE_CYBOI_TYPE) {
+            if (*a == *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 
                 r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 

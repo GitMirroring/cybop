@@ -56,7 +56,7 @@ void decode_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) UTF_8_UNICODE_CYBOL_ENCODING, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) UTF_8_UNICODE_CYBOL_ENCODING_COUNT);
+        compare_all_array((void*) &r, p1, (void*) UTF_8_UNICODE_CYBOL_ENCODING, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) UTF_8_UNICODE_CYBOL_ENCODING_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

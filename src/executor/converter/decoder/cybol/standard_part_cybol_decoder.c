@@ -28,9 +28,17 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/converter/decoder/cybol/model_cybol_decoder.c"
-#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../constant/name/cybol/cybol_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/converter/decoder/cybol/channel_cybol_decoder.c"
+#include "../../../../executor/converter/decoder/cybol/encoding_cybol_decoder.c"
+#include "../../../../executor/converter/decoder/cybol/properties_cybol_decoder.c"
+#include "../../../../executor/converter/decoder/cybol/type_cybol_decoder.c"
+#include "../../../../executor/converter/decoder/cybol/type_cyboi_cybol_decoder.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -136,12 +144,12 @@ void decode_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     decode_cybol_encoding((void*) &de, semd, semc);
     // Decode cybol source type into cybol cyboi destination type.
     decode_cybol_type((void*) &dtc, stmd, stmc);
-    // Decode cybol source type into cyboi destination type.
+    // Decode cybol cyboi destination type into cyboi destination type.
     // CAUTION! A cybol type is of type "wchar_t"; a cyboi-internal type of type "int".
     // Both are not always equal in their meaning.
     // For example, an "xdt" file is converted into a cyboi "part".
     // Therefore, the type has to be converted here.
-    decode_cybol_type((void*) &dt, (void*) &dtc);
+    decode_cybol_cyboi_type((void*) &dt, (void*) &dtc);
 
     //
     // Create new part.
@@ -169,12 +177,12 @@ void decode_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
     // Fill part name.
-    overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part type.
     // CAUTION! Use the CYBOI destination type determined above
     // (and NOT the CYBOL cyboi destination type)!
     // CAUTION! Do NOT use a simple "copy" function here, since this is an item.
-    overwrite_item_element(pt, (void*) &dt, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    overwrite_item_element(pt, (void*) &dt, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part model taken from cybol source part properties.
     // CAUTION! What is the properties in a parsed xml/cybol file,
     // becomes the model in the cyboi-internal knowledge tree.

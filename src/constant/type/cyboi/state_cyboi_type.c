@@ -42,71 +42,71 @@
 //
 
 //
-// Date time.
+// datetime
 //
 
 /** The datetime state cyboi type. */
 static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Logic value.
+// element
 //
 
-/** The boolean state cyboi type. */
-static int* BOOLEAN_STATE_CYBOI_TYPE = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The part element state cyboi type. */
+static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Number.
+// logicvalue
 //
 
-/** The complex state cyboi type. */
-static int* COMPLEX_STATE_CYBOI_TYPE = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The double state cyboi type. */
-static int* DOUBLE_STATE_CYBOI_TYPE = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The fraction state cyboi type. */
-static int* FRACTION_STATE_CYBOI_TYPE = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The integer state cyboi type. */
-static int* INTEGER_STATE_CYBOI_TYPE = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The unsigned long state cyboi type. */
-static int* UNSIGNED_LONG_STATE_CYBOI_TYPE = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The boolean logicvalue state cyboi type. */
+static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Part.
+// number
 //
 
-/** The part state cyboi type. */
-static int* PART_STATE_CYBOI_TYPE = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The complex number state cyboi type. */
+static int* COMPLEX_NUMBER_STATE_CYBOI_TYPE = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The double number state cyboi type. */
+static int* DOUBLE_NUMBER_STATE_CYBOI_TYPE = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The fraction number state cyboi type. */
+static int* FRACTION_NUMBER_STATE_CYBOI_TYPE = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The integer number state cyboi type. */
+static int* INTEGER_NUMBER_STATE_CYBOI_TYPE = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The unsigned long number state cyboi type. */
+static int* UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Path.
+// path
 //
 
-/** The encapsulated knowledge path state cyboi type. */
-static int* ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOI_TYPE = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The encapsulated path state cyboi type. */
+static int* ENCAPSULATED_PATH_STATE_CYBOI_TYPE = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The knowledge path state cyboi type. */
 static int* KNOWLEDGE_PATH_STATE_CYBOI_TYPE = NUMBER_41_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Pointer.
+// pointer
 //
 
 /** The pointer state cyboi type. */
 static int* POINTER_STATE_CYBOI_TYPE = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Text.
+// text
 //
 
-/** The character state cyboi type. */
-static int* CHARACTER_STATE_CYBOI_TYPE = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The character text state cyboi type. */
+static int* CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The wide character state cyboi type. */
-static int* WIDE_CHARACTER_STATE_CYBOI_TYPE = NUMBER_61_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The wide character text state cyboi type. */
+static int* WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_61_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STATE_CYBOI_TYPE_CONSTANT_SOURCE */
 #endif

@@ -53,7 +53,7 @@ void calculate_unsigned_long(void* p0, void* p1, void* p2) {
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ABSOLUTE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) ABSOLUTE_CALCULATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -63,7 +63,7 @@ void calculate_unsigned_long(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ADD_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -73,7 +73,7 @@ void calculate_unsigned_long(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) DIVIDE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) DIVIDE_CALCULATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +83,7 @@ void calculate_unsigned_long(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) MULTIPLY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) MULTIPLY_CALCULATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -93,7 +93,7 @@ void calculate_unsigned_long(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) NEGATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) NEGATE_CALCULATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -103,7 +103,7 @@ void calculate_unsigned_long(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SUBTRACT_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

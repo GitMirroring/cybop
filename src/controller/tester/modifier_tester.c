@@ -66,30 +66,30 @@ void test_modifier_part_compound() {
     allocate_part((void*) &w1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     allocate_part((void*) &w2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     allocate_part((void*) &w3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    allocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-    allocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
     // Initialise parts.
     //
 
     // Fill whole one.
-    overwrite_part_element(w1, (void*) L"source", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(w1, (void*) PART_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w1, (void*) L"source", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w1, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Fill whole two.
-    overwrite_part_element(w2, (void*) L"shallow", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(w2, (void*) PART_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w2, (void*) L"shallow", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Fill whole three.
-    overwrite_part_element(w3, (void*) L"deep", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(w3, (void*) PART_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w3, (void*) L"deep", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Fill part one.
-    overwrite_part_element(p1, (void*) L"blu", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p1, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p1, (void*) L"Hello, ", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p1, (void*) L"blu", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p1, (void*) L"Hello, ", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Fill part two.
-    overwrite_part_element(p2, (void*) L"bla", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p2, (void*) L"World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p2, (void*) L"bla", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p2, (void*) L"World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     //
     // Assign parts to whole one.
@@ -132,12 +132,12 @@ void test_modifier_part_compound() {
     // This function "dives" into the last node of the knowledge hierarchy.
     //
     // The difference to the shallow copy above is that the type
-    // PART_STATE_CYBOI_TYPE is given instead of POINTER_STATE_CYBOI_TYPE.
+    // PART_ELEMENT_STATE_CYBOI_TYPE is given instead of POINTER_STATE_CYBOI_TYPE.
     //
 
     // Copy all parts of whole one into whole two.
     // CAUTION! Hand over the correct count of elements!
-    overwrite_part(w3, w1, (void*) PART_STATE_CYBOI_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_part(w3, w1, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
     // Output whole one as model diagram.
@@ -158,9 +158,9 @@ void test_modifier_part_compound() {
     int fns = *NUMBER_35_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate model diagram.
-    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Allocate multibyte character stream.
-    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode model into model diagram.
     encode_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w1);
@@ -170,9 +170,9 @@ void test_modifier_part_compound() {
     send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
 
     // Deallocate model diagram.
-    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
-    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 */
 
     //
@@ -194,9 +194,9 @@ void test_modifier_part_compound() {
     fns = *NUMBER_35_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate model diagram.
-    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Allocate multibyte character stream.
-    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode model into model diagram.
     encode_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w2);
@@ -206,9 +206,9 @@ void test_modifier_part_compound() {
     send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
 
     // Deallocate model diagram.
-    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
-    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 */
 
     //
@@ -230,9 +230,9 @@ void test_modifier_part_compound() {
     fns = *NUMBER_37_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate model diagram.
-    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Allocate multibyte character stream.
-    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode model into model diagram.
     encode_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w3);
@@ -242,17 +242,17 @@ void test_modifier_part_compound() {
     send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
 
     // Deallocate model diagram.
-    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
-    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 */
 
     //
     // Deallocate parts.
     //
 
-    deallocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     deallocate_part((void*) &w1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     deallocate_part((void*) &w2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     deallocate_part((void*) &w3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
@@ -270,23 +270,23 @@ void test_modifier_part_wide_character() {
     void* p2 = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate parts.
-    allocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-    allocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Fill part one.
-    overwrite_part_element(p1, (void*) L"blu", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p1, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p1, (void*) L"He, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p1, (void*) L"blu", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p1, (void*) L"He, World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Fill part two.
-    overwrite_part_element(p2, (void*) L"bla", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p2, (void*) L"ABClloXYZ", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p2, (void*) L"bla", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p2, (void*) L"ABClloXYZ", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     //
     // Add (model content of) part two to part one.
     //
 
-    insert_part(p1, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
+    insert_part(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Output test results.
@@ -332,8 +332,8 @@ void test_modifier_part_wide_character() {
     fwprintf(stdout, L"TEST dc: %i\n", *((int*) dc));
 
     // Deallocate parts.
-    deallocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -348,28 +348,28 @@ void test_modifier_array() {
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    allocate_array((void*) &w, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &w, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append "Hello".
-    insert_array((void*) &w, (void*) L"ABCHelloXYZ", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
+    insert_array((void*) &w, (void*) L"ABCHelloXYZ", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
     // Append "World!".
-    insert_array((void*) &w, (void*) L"World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
+    insert_array((void*) &w, (void*) L"World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
     // Remove "llo".
-    remove_array((void*) &w, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
+    remove_array((void*) &w, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
     // Insert "ho, ".
-    insert_array((void*) &w, (void*) L"ho, ", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
+    insert_array((void*) &w, (void*) L"ho, ", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
@@ -379,12 +379,12 @@ void test_modifier_array() {
     // since arrays are initialised with the null
     // termination character "\0" by default,
     // so that the "fwprintf" function stops output there.
-    insert_array((void*) &w, (void*) L"test", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_20_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
+    insert_array((void*) &w, (void*) L"test", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_20_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
-    deallocate_array((void*) &w, (void*) &s, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &w, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

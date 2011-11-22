@@ -302,20 +302,20 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
             int ss = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Allocate terminated address.
-            allocate_array((void*) &sd, (void*) &ss, (void*) CHARACTER_STATE_CYBOI_TYPE);
+            allocate_array((void*) &sd, (void*) &ss, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Encode wide character name into multibyte character array.
             encode_utf_8_unicode_character_vector((void*) &sd, (void*) &sc, (void*) &ss, p1, p2);
 
             // Add null termination character to terminated address.
-            overwrite_array((void*) &sd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &sc, (void*) &ss);
+            overwrite_array((void*) &sd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &sc, (void*) &ss);
 
             // Convert uint16_t integer hostshort from host byte order
             // to network byte order.
             inet_pton(*((int*) p3), (char*) sd, p0);
 
             // Deallocate terminated address.
-            deallocate_array((void*) &sd, (void*) &ss, (void*) CHARACTER_STATE_CYBOI_TYPE);
+            deallocate_array((void*) &sd, (void*) &ss, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
 
     } else {
@@ -375,7 +375,7 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
 
                     // CAUTION! Do NOT reallocate the file name array with:
                     // int nc = *fc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                    // reallocate_array((void*) &((*a)->sun_path), p2, (void*) &nc, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+                    // reallocate_array((void*) &((*a)->sun_path), p2, (void*) &nc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
                     //
                     // The reason is that the size of the "sun_path" field of
                     // the "sockaddr_un" structure had to be fixed (to 108,
@@ -399,8 +399,8 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
 
                     // Set terminated file name by first copying the actual name
                     // and then adding the null termination character.
-                    copy_array_forward((void*) &path, p1, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                    copy_array_forward((void*) &path, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                    copy_array_forward((void*) &path, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                    copy_array_forward((void*) &path, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                 } else {
 
@@ -634,13 +634,13 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         }
 
         // Allocate socket address size of this system.
-        allocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Allocate communication partner socket address size.
-        allocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Allocate socket of this system.
-        allocate((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Allocate communication partner socket.
-        allocate((void*) &ps, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate((void*) &ps, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Initialise socket address size of this system.
         copy_integer(as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -716,8 +716,8 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         }
 
         // Allocate character buffer count and size.
-        allocate((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
-        allocate((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Initialise character buffer count, size.
         // A possible initial size is 2048, which should
@@ -730,7 +730,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         //
         // CAUTION! Allocate character buffer only AFTER
         // the buffer size has been initialised above!
-        allocate((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+        allocate((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Set socket address of this system.
         // Set communication partner socket address.

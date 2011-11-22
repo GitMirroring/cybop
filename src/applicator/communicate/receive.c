@@ -170,17 +170,17 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Allocate model diagram.
-    allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Encode model into model diagram.
     encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE, (void*) PART_STATE_CYBOI_TYPE_COUNT,
+        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
         p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // The multibyte character stream.
     void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
     int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Allocate multibyte character stream.
-    allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
     // Encode model diagram into multibyte character stream.
     encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
     // The file name.
@@ -190,9 +190,9 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     // Write multibyte character stream as message to file system.
     send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
     // Deallocate model diagram.
-    deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
-    deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+    deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
 //?? TEST END
 */
 }

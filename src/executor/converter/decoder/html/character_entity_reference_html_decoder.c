@@ -76,11 +76,11 @@ void decode_character_entity_reference(void* p0, void* p1, void* p2, void* p3, v
                         *ds = (*ARRAY_REALLOCATION_FACTOR * (*dc)) + tc;
 
                         // Reallocate destination.
-                        reallocate(p0, p1, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+                        reallocate(p0, p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
                     }
 
                     // Add temporary value to destination.
-                    overwrite_array(*d, p1, (void*) t, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+                    overwrite_array(*d, p1, (void*) t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                     // Increase destination count.
                     *dc = *dc + tc;

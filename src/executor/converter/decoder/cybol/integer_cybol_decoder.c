@@ -72,13 +72,13 @@ void decode_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int tmps = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
         // Allocate temporary null-terminated string.
-        allocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Copy original string to temporary null-terminated string.
-        overwrite_array((void*) &tmp, p3, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, tmpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        overwrite_array((void*) &tmp, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, tmpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Add string termination to temporary null-terminated string.
         // The source count is used as index for the termination character.
-        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tmpc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        overwrite_array((void*) &tmp, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tmpc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tmpc, (void*) &tmps, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // The tail variable is useless here and only needed for the string
         // transformation function. If the whole string array consists of
@@ -108,7 +108,7 @@ void decode_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         // Deallocate temporary null-terminated string.
-        deallocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &tmp, (void*) &tmps, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     } else {
 

@@ -214,7 +214,7 @@ void decode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p
                             *ds = *dc + (*sc * *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                             // Reallocate destination wide character vector.
-                            reallocate_array(p0, p1, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+                            reallocate_array(p0, p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                             // Set locale.
                             //

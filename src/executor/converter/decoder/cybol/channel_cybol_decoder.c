@@ -52,7 +52,7 @@ void decode_cybol_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) FILE_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FILE_SYSTEM_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -62,7 +62,7 @@ void decode_cybol_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TERMINAL_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) TERMINAL_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) TERMINAL_CYBOL_CHANNEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TERMINAL_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -72,7 +72,7 @@ void decode_cybol_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) INLINE_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) INLINE_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) INLINE_CYBOL_CHANNEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) INLINE_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,7 +82,7 @@ void decode_cybol_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SHELL_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) SHELL_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SHELL_CYBOL_CHANNEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SHELL_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +92,7 @@ void decode_cybol_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SOCKET_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) SOCKET_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) SOCKET_CYBOL_CHANNEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SOCKET_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -102,7 +102,7 @@ void decode_cybol_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) WWW_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) WWW_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) WWW_CYBOL_CHANNEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) WWW_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -112,7 +112,7 @@ void decode_cybol_channel(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

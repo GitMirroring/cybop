@@ -43,10 +43,10 @@
  * - the current position and remaining count are moved automatically
  *
  * Example calls of this function for ascii characters:
- * detect_element(p0, p1, p2, p3, (void*) CHARACTER_STATE_CYBOI_TYPE, p4, p7);
+ * detect_element(p0, p1, p2, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, p7);
  *
  * Example calls of this function for wide characters:
- * detect_array((void*) &r, p7, p8, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+ * detect_array((void*) &r, p7, p8, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
  *
  * @param p0 the comparison result
  * @param p1 the source data position (pointer reference)
@@ -79,7 +79,7 @@ void detect_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
                 // CAUTION! The remaining count may NOT be handed over as position count,
                 // since it might be greater than the array count and would thus differ.
-                compare_all_array(p0, *((void**) p1), p3, (void*) EQUAL_LOGIC_CYBOI_TYPE, p4, p5, p5);
+                compare_all_array(p0, *((void**) p1), p3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, p4, p5, p5);
 
                 if (*r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

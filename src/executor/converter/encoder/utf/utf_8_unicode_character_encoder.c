@@ -207,7 +207,7 @@ void encode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p
                     *ds = *dc + (*sc * *NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
 
                     // Reallocate destination character vector.
-                    reallocate_array(p0, p1, p2, (void*) CHARACTER_STATE_CYBOI_TYPE);
+                    reallocate_array(p0, p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                     // Set locale.
                     //

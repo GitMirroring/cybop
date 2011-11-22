@@ -52,7 +52,7 @@ void calculate_pointer(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ADD_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -63,7 +63,7 @@ void calculate_pointer(void* p0, void* p1, void* p2) {
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SUBTRACT_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

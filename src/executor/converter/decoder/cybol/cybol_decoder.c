@@ -29,7 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/converter/decoder/cybol/element_cybol_decoder.c"
+#include "../../../../executor/converter/decoder/cybol/part_cybol_decoder.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -84,7 +84,7 @@ void decode_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // CAUTION! It is necessary to identify the root node.
     int f = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    decode_cybol_element(p0, p1, p2, p3, p4, (void*) &f);
+    decode_cybol_part(p0, p1, p2, p3, p4, (void*) &f);
 }
 
 /* CYBOL_DECODER_SOURCE */

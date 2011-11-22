@@ -118,8 +118,8 @@ void apply_create(void* p0, void* p1, void* p2) {
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, amd);
 
     // Fill part.
-    overwrite_part_element(p, nmd, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, nmc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p, amd, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, nmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nmc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, amd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -137,7 +137,7 @@ void apply_create(void* p0, void* p1, void* p2) {
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
 
                 // Append part (handed over as array reference) to whole model (being a part itself).
-                // CAUTION! Do NOT use PART_STATE_CYBOI_TYPE here!
+                // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
                 append_part_element(w, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -154,7 +154,7 @@ void apply_create(void* p0, void* p1, void* p2) {
                 // Therefore, if the whole part is null, the knowledge memory is used instead.
 
                 // Append part (handed over as array reference) to knowledge memory root model (being a part itself).
-                // CAUTION! Do NOT use PART_STATE_CYBOI_TYPE here!
+                // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
                 append_part_element(p2, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -175,7 +175,7 @@ void apply_create(void* p0, void* p1, void* p2) {
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole properties.");
 
                 // Append part (handed over as array reference) to whole properties (being a part itself).
-                // CAUTION! Do NOT use PART_STATE_CYBOI_TYPE here!
+                // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
                 append_part_element(w, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
@@ -192,7 +192,7 @@ void apply_create(void* p0, void* p1, void* p2) {
                 // Therefore, if the whole part is null, the knowledge memory is used instead.
 
                 // Append part (handed over as array reference) to knowledge memory root properties (being a part itself).
-                // CAUTION! Do NOT use PART_STATE_CYBOI_TYPE here!
+                // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
                 // The reason is that deep copying would be used to assign the part inside,
                 // instead of just assigning the part reference in a shallow copying manner.
                 append_part_element(p2, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
@@ -212,7 +212,7 @@ void apply_create(void* p0, void* p1, void* p2) {
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
 
             // Append part (handed over as array reference) to whole model (being a part itself).
-            // CAUTION! Do NOT use PART_STATE_CYBOI_TYPE here!
+            // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
             // The reason is that deep copying would be used to assign the part inside,
             // instead of just assigning the part reference in a shallow copying manner.
             append_part_element(w, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -229,7 +229,7 @@ void apply_create(void* p0, void* p1, void* p2) {
             // Therefore, if the whole part is null, the knowledge memory is used instead.
 
             // Append part (handed over as array reference) to knowledge memory root model (being a part itself).
-            // CAUTION! Do NOT use PART_STATE_CYBOI_TYPE here!
+            // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
             // The reason is that deep copying would be used to assign the part inside,
             // instead of just assigning the part reference in a shallow copying manner.
             append_part_element(p2, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

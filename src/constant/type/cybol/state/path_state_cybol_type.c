@@ -66,9 +66,9 @@
  *
  * The same rules as for the "path/knowledge" language apply here.
  */
-static wchar_t ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOL_TYPE_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd'};
-static wchar_t* ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOL_TYPE = ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOL_TYPE_ARRAY;
-static int* ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t ENCAPSULATED_PATH_STATE_CYBOL_TYPE_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd'};
+static wchar_t* ENCAPSULATED_PATH_STATE_CYBOL_TYPE = ENCAPSULATED_PATH_STATE_CYBOL_TYPE_ARRAY;
+static int* ENCAPSULATED_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The path/knowledge cybol type.

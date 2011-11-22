@@ -61,7 +61,7 @@ void initialise(void* p0, void* p1, void* p2) {
     void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate startup signal part.
-    allocate_part((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE);
+    allocate_part((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Get startup signal part model, properties.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -74,7 +74,7 @@ void initialise(void* p0, void* p1, void* p2) {
     // CAUTION! A name is not necessary, since only
     // the actual model and properties are of interest.
     // CAUTION! The model and properties are received below.
-    overwrite_part_element(s, (void*) PART_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(s, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
     // Receive startup signal model, properties.
     //?? TODO: Is CYBOL_TEXT_STATE_CYBOL_TYPE_AS_CHAR needed here instead?
@@ -94,7 +94,7 @@ void initialise(void* p0, void* p1, void* p2) {
     check(p2);
 
     // Deallocate startup signal part.
-    deallocate_part((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 
 /* INITIALISER_SOURCE */

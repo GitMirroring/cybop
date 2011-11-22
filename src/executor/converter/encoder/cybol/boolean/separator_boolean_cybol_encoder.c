@@ -57,7 +57,7 @@ void encode_cybol_boolean_separator(void* p0, void* p1) {
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Append comma prefix if this is NOT the first value.
-        append_item_element(p0, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
 

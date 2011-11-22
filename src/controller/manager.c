@@ -193,7 +193,7 @@ void manage(void* p0) {
     // given by the constant INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT.
     allocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
     // Allocate knowledge memory part.
-    allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE);
+    allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     // Allocate signal memory item.
     allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
@@ -391,7 +391,7 @@ void manage(void* p0) {
     // Deallocate signal memory item.
     deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     // Deallocate knowledge memory part.
-    deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     // Deallocate internal memory array.
     deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 }

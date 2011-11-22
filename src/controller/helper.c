@@ -50,20 +50,20 @@ void help(void* p0) {
     int ms = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate message.
-    allocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Copy message.
-    overwrite_array((void*) &m, (void*) HELP_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) HELP_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array((void*) &m, (void*) HELP_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HELP_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     // Copy null termination wide character.
-    overwrite_array((void*) &m, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array((void*) &m, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Log message.
     log_write(p0, m);
 
     // Deallocate message.
-    deallocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* HELPER_SOURCE */

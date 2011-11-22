@@ -52,7 +52,7 @@ void reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) PART_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

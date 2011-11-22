@@ -92,7 +92,7 @@ void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                         // Find comma character index.
-                        get_array_elements_index((void*) &i, p3, p4, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+                        get_array_elements_index((void*) &i, p3, p4, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                         if (i > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -123,7 +123,7 @@ void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // (which is 3, as needed for the length)
                         decode_integer((void*) &v, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, (void*) &fec);
 
-                        overwrite_array(p0, (void*) &v, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                        overwrite_array(p0, (void*) &v, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                         if (i > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

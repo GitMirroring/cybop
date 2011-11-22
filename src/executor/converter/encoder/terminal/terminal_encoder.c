@@ -471,7 +471,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT,
             p13, p14);
 
-        compare_all_array((void*) &ar, p3, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, (void*) PART_STATE_CYBOI_TYPE_COUNT);
+        compare_all_array((void*) &ar, p3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT);
 
         if (ar != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -524,7 +524,7 @@ void encode_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                         (void*) &d, (void*) &dc, (void*) &ds);
 
                     // Compare expected name with that of the current compound part element.
-                    compare_all_array((void*) &nr, *n, en, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *nc, (void*) &enc);
+                    compare_all_array((void*) &nr, *n, en, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *nc, (void*) &enc);
 
                     if ((p11 == *NULL_POINTER_STATE_CYBOI_MODEL) || (*((int*) p12) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) || (nr != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
 

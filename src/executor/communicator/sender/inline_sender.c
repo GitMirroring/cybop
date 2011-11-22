@@ -49,7 +49,7 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send inline.");
 
-    overwrite_array(p0, p3, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p4, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+    overwrite_array(p0, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 }
 
 /**
@@ -84,7 +84,7 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate array.
-    allocate_model((void*) &ad, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_model((void*) &ad, (void*) &as, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode source knowledge model into array.
     encode((void*) &ad, (void*) &ac, (void*) &as, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16);
@@ -103,7 +103,7 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 */
 
     // Deallocate array.
-    deallocate_model((void*) &ad, (void*) &as, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_model((void*) &ad, (void*) &as, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* INLINE_SENDER_SOURCE */

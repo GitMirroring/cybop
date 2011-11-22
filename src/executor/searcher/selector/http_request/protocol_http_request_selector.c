@@ -89,7 +89,7 @@ void select_http_request_protocol(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BODY_BEGIN_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -102,7 +102,7 @@ void select_http_request_protocol(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

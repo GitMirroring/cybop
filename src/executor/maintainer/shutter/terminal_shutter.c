@@ -96,18 +96,18 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
         //
         // CAUTION! DO NOT deallocate ip and op because they refer to stdin and stdout of the system!
         // This might be changed at a (much) later point in CYBOI development.
-        deallocate((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
-        deallocate((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        deallocate((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 */
         // Deallocate termios settings.
         free(to);
         free(tn);
 
         // Deallocate character buffer.
-        deallocate_array((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
         // Deallocate character buffer count, size.
-        deallocate_array((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
-        deallocate_array((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     } else {
 

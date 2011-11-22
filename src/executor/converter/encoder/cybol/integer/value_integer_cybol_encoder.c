@@ -78,7 +78,7 @@ void encode_cybol_integer_value(void* p0, void* p1, void* p2) {
     int ts = *NUMBER_256_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate temporary array.
-    allocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Transform source value to destination string.
     // A null wide character is written to mark the end of the string.
@@ -98,7 +98,7 @@ void encode_cybol_integer_value(void* p0, void* p1, void* p2) {
 
         // The value was converted successfully.
 
-        append_item_element(p0, td, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, td, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 
@@ -116,7 +116,7 @@ void encode_cybol_integer_value(void* p0, void* p1, void* p2) {
     }
 
     // Deallocate temporary array.
-    deallocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* VALUE_INTEGER_CYBOL_ENCODER_SOURCE */

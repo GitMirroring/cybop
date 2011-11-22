@@ -43,16 +43,16 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void decode_boolean(void* p0, void* p1, void* p2) {
+void decode_cybol_boolean(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode boolean.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode cybol boolean.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -63,7 +63,7 @@ void decode_boolean(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p2, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,7 +74,7 @@ void decode_boolean(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode boolean. The value cannot be interpreted.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode cybol boolean. The value cannot be interpreted.");
     }
 }
 

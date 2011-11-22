@@ -87,10 +87,10 @@ void apply_list_directory_contents(void* p0, void* p1) {
     int args = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate arguments vector.
-    allocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append command.
-    overwrite_array((void*) &arg, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array((void*) &arg, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -102,8 +102,8 @@ void apply_list_directory_contents(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append all option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            overwrite_array((void*) &arg, (void*) ALL_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ALL_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) ALL_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -114,8 +114,8 @@ void apply_list_directory_contents(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append long listing option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            overwrite_array((void*) &arg, (void*) LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -123,7 +123,7 @@ void apply_list_directory_contents(void* p0, void* p1) {
     run_executing(arg, (void*) &argc);
 
     // Deallocate arguments vector.
-    deallocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* LIST_DIRECTORY_CONTENTS_SOURCE */

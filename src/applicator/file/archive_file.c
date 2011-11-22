@@ -98,10 +98,10 @@ void apply_archive_file(void* p0, void* p1) {
     int args = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate arguments vector.
-    allocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append command.
-    overwrite_array((void*) &arg, (void*) ARCHIVE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ARCHIVE_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array((void*) &arg, (void*) ARCHIVE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARCHIVE_UNIX_COMMAND_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -113,8 +113,8 @@ void apply_archive_file(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append create option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            overwrite_array((void*) &arg, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -125,8 +125,8 @@ void apply_archive_file(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append update option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            overwrite_array((void*) &arg, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -137,8 +137,8 @@ void apply_archive_file(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append bzip2 option.
-            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            overwrite_array((void*) &arg, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite_array((void*) &arg, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) &argc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &argc, (void*) &args, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -146,7 +146,7 @@ void apply_archive_file(void* p0, void* p1) {
     run_executing(arg, (void*) &argc);
 
     // Deallocate arguments vector.
-    deallocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate((void*) &arg, (void*) &args, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* ARCHIVE_FILE_SOURCE */

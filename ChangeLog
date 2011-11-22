@@ -19,7 +19,8 @@
 2011-11-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add cybol cyboi constants in files "state_cybol_cyboi_type.c" and "logic_cybol_cyboi_type.c"
-        * Refactor cybol decoder
+        * Add and clean up types in file "decoder.c"
+        * Complete cybol decoder
 
 2011-11-21  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -76,24 +76,24 @@ void encode_html_attribute(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_all_array((void*) &r, nd, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, nc, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT);
+    compare_all_array((void*) &r, nd, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Only add attribute, if the properties part name is NOT "tag"!
 
         // Append space character.
-        append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Append attribute name.
-        append_item_element(p0, nd, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, nc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, nd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Append equals sign character.
-        append_item_element(p0, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Append quotation mark character.
-        append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Append space character.
-        append_item_element(p0, md, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Append quotation mark character.
-        append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
 

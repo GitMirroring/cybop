@@ -98,7 +98,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_COMPARE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -106,7 +106,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             // CAUTION! This multiplication has to be done AFTER the comparison
             // of new size and old size since otherwise, the new size is falsified,
             // which would lead to runtime errors.
-            // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
+            // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             // Enlarge array using new count as size.
             reallocate_array(p0, p6, (void*) &n, p2);
@@ -129,7 +129,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         copy_integer(p6, (void*) &n);
 
         // Increment reference count of inserted parts for rubbish (garbage) collection.
-        reference(*d, (void*) ADD_LOGIC_CYBOI_TYPE, p3, p4, p2);
+        reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE, p3, p4, p2);
 
     } else {
 
@@ -159,7 +159,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -172,7 +172,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) SMALLER_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, p4, p6, (void*) SMALLER_COMPARE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

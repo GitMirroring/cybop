@@ -71,7 +71,7 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +83,7 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) TAG_END_XML_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) TAG_END_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -95,7 +95,7 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) ATTRIBUTE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p3, p4, (void*) ATTRIBUTE_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

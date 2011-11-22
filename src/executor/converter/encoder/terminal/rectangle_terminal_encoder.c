@@ -183,7 +183,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                                                 if (ci < *cc) {
 
                                                     // Get character value at position x.
-                                                    get((void*) &c, p3, (void*) &ci, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+                                                    get((void*) &c, p3, (void*) &ci, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
                                                 }
 
                                                 // Encode character using escape codes.
@@ -257,7 +257,7 @@ void encode_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
                                                         if (ci < *cc) {
 
                                                             // Get character value at position x.
-                                                            get(p3, (void*) &ci, (void*) &c, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+                                                            get(p3, (void*) &ci, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
                                                         }
 
                                                     } else {

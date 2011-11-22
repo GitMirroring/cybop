@@ -63,19 +63,27 @@ void copy_value(void* p0, void* p1, void* p2) {
     // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // element
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) CHARACTER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_character(p0, p1);
+            copy_part(p0, p1);
         }
     }
 
+    //
+    // number
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) DOUBLE_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -85,7 +93,7 @@ void copy_value(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) FRACTION_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -95,7 +103,7 @@ void copy_value(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) INTEGER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -105,13 +113,17 @@ void copy_value(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) PART_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_part(p0, p1);
+            copy_unsigned_long(p0, p1);
         }
     }
+
+    //
+    // pointer
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -123,19 +135,23 @@ void copy_value(void* p0, void* p1, void* p2) {
         }
     }
 
+    //
+    // text
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) UNSIGNED_LONG_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_unsigned_long(p0, p1);
+            copy_character(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

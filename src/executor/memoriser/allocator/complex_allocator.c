@@ -42,7 +42,7 @@ void allocate_complex(void* p0, void* p1) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate complex.");
 
     // Create complex.
-    allocate_array(p0, p1, (void*) DOUBLE_STATE_CYBOI_TYPE);
+    allocate_array(p0, p1, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* COMPLEX_ALLOCATOR_SOURCE */

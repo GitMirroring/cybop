@@ -61,9 +61,9 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t RUN_RUN_LOGIC_CYBOL_TYPE_ARRAY[] = {L'r', L'u', L'n', L'/', L'r', L'u', L'n'};
-static wchar_t* RUN_RUN_LOGIC_CYBOL_TYPE = RUN_RUN_LOGIC_CYBOL_TYPE_ARRAY;
-static int* RUN_RUN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t RUN_LOGIC_CYBOL_TYPE_ARRAY[] = {L'r', L'u', L'n', L'/', L'r', L'u', L'n'};
+static wchar_t* RUN_LOGIC_CYBOL_TYPE = RUN_LOGIC_CYBOL_TYPE_ARRAY;
+static int* RUN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* RUN_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

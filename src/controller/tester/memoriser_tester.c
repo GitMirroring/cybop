@@ -64,27 +64,27 @@ void test_memoriser_array_resizing() {
     int cs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate original array.
-    allocate_array((void*) &o, (void*) &os, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &o, (void*) &os, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Allocate copied array.
-    allocate_array((void*) &c, (void*) &cs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &c, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Fill original array with text.
-    overwrite_array(o, (void*) t, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) tc, (void*) &oc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &oc, (void*) &os, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array(o, (void*) t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) tc, (void*) &oc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &oc, (void*) &os, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Print original array content.
     log_write((void*) stdout, t);
 
     // Reallocate copied array.
     os = os + *NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
-    reallocate_array((void*) &o, (void*) &oc, (void*) &os, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    reallocate_array((void*) &o, (void*) &oc, (void*) &os, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Print original array content.
     log_write((void*) stdout, t);
 
     // Deallocate original array.
-    deallocate_array((void*) &o, (void*) &os, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &o, (void*) &os, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate copied array.
-    deallocate_array((void*) &c, (void*) &cs, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &c, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -98,12 +98,12 @@ void test_memoriser_part() {
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part container.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Fill part container.
-    overwrite_part_element(p, (void*) L"test_$0", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, (void*) L"test_$0", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // The part elements retrieved as reference.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -147,7 +147,7 @@ void test_memoriser_part() {
     fwprintf(stdout, L"TEST dc: %i\n", *((int*) dc));
 
     // Deallocate part container.
-    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -161,10 +161,10 @@ void test_memoriser_item() {
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate item container.
-    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Fill item container.
-    overwrite_item_element(i, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    overwrite_item_element(i, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The item elements retrieved as reference.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -181,7 +181,7 @@ void test_memoriser_item() {
     fwprintf(stdout, L"TEST item size: %i\n", *((int*) s));
 
     // Deallocate item container.
-    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -199,11 +199,11 @@ void test_memoriser_array() {
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     allocate_array((void*) &p, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
-    allocate_array((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_array((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-    copy_array_forward(w, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    copy_array_forward(i, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(w, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(i, (void*) NUMBER_10000_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // CAUTION! The reference for rubbish (garbage) collection is ONLY set,
     // when using one of the functions: "overwrite", "insert" or "remove".
     // However, for testing as done here, this is NOT needed.
@@ -236,8 +236,8 @@ void test_memoriser_array() {
     fwprintf(stdout, L"TEST *wr: %ls\n", (wchar_t*) wr);
     fwprintf(stdout, L"TEST *ir: %i\n", *((int*) ir));
 
-    deallocate_array((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE);
-    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     deallocate_array((void*) &p, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 
@@ -251,27 +251,27 @@ void test_memoriser_array_wide_character() {
     // The wide character array.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Copy wide characters with zero indices.
     // This is identical to the following simplified function call:
-    // copy_array_forward(a, L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
-    copy_array_forward(w, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // copy_array_forward(a, L"Hello, World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
+    copy_array_forward(w, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
 
     // Copy wide characters with different destination index.
-    copy_array_forward(w, (void*) L"again", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(w, (void*) L"again", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
 
     // Copy wide characters with different source index.
-    copy_array_forward(w, (void*) L"blublablublaHehooblubla", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
+    copy_array_forward(w, (void*) L"blublablublaHehooblubla", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
 
     // Copy wide characters with different destination- and source index.
-    copy_array_forward(w, (void*) L"xxxxxxxxxxxlloxxxxxxx", (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_11_INTEGER_STATE_CYBOI_MODEL);
+    copy_array_forward(w, (void*) L"xxxxxxxxxxxlloxxxxxxx", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_11_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
 
-    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

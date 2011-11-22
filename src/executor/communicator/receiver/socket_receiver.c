@@ -80,7 +80,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     int es = *NUMBER_10000_INTEGER_STATE_CYBOI_MODEL; // *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL
 
     // Allocate encoded character array.
-    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Receive message from stream.
     receive_stream_socket((void*) &ed, (void*) &ec, (void*) &es, p6);
@@ -90,7 +90,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     decode(p0, p1, p2, p3, p4, p5, ed, (void*) &ec, p9, p10);
 
     // Deallocate encoded character array.
-    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //?? TODO: The destination compound model content needs to be RESET every time since
     //?? otherwise, new commands are just added to the "action" part entry, for example.
@@ -235,7 +235,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     wchar_t* url_basename = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int url_basename_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Create url basename.
-    allocate_array((void*) &url_basename, (void*) &url_basename_count, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &url_basename, (void*) &url_basename_count, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Get url base name.
     receive_socket_url(msg, &msg_count, &url_basename, &url_basename_count);
 
@@ -243,7 +243,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     wchar_t* param = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int param_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Create paramater.
-    allocate_array((void*) &param, (void*) &param_count, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &param, (void*) &param_count, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Get parametres.
     receive_socket_parametre(msg, &msg_count, &param, &param_count);
 

@@ -105,7 +105,7 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                                compare_all_array((void*) &r, p6, (void*) ASCII_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) ASCII_LINE_BORDER_CYBOL_MODEL_COUNT);
+                                compare_all_array((void*) &r, p6, (void*) ASCII_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) ASCII_LINE_BORDER_CYBOL_MODEL_COUNT);
 
                                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -120,7 +120,7 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                                compare_all_array((void*) &r, p6, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL_COUNT);
+                                compare_all_array((void*) &r, p6, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL_COUNT);
 
                                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -135,7 +135,7 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                                compare_all_array((void*) &r, p6, (void*) ROUND_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) ROUND_LINE_BORDER_CYBOL_MODEL_COUNT);
+                                compare_all_array((void*) &r, p6, (void*) ROUND_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) ROUND_LINE_BORDER_CYBOL_MODEL_COUNT);
 
                                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -150,7 +150,7 @@ void encode_terminal_rectangle_border(void* p0, void* p1,
 
                             if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                                compare_all_array((void*) &r, p6, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, p7, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL_COUNT);
+                                compare_all_array((void*) &r, p6, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL_COUNT);
 
                                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

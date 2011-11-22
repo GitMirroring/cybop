@@ -87,7 +87,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    compare_integer((void*) &r, p6, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) EQUAL_LOGIC_CYBOI_TYPE);
+    compare_integer((void*) &r, p6, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
 
     if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -106,7 +106,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // than the given source index. Otherwise, array boundaries
         // might get crossed and false pointer values returned.
         // Therefore, this is checked here.
-        compare_integer((void*) &r, c, p5, (void*) GREATER_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, c, p5, (void*) GREATER_COMPARE_LOGIC_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

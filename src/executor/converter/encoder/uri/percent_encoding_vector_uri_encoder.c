@@ -140,7 +140,7 @@ void encode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void
     *ds = *dc + (*sc * *NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
 
     // Reallocate destination character vector.
-    reallocate_array(p0, p1, p2, (void*) CHARACTER_STATE_CYBOI_TYPE);
+    reallocate_array(p0, p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Convert percent-encoded characters into ASCII characters.
 

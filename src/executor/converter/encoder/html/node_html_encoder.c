@@ -82,7 +82,7 @@ void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p6, (void*) PART_STATE_CYBOI_TYPE);
+        compare_integer((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +92,7 @@ void encode_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p6, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+        compare_integer((void*) &r, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

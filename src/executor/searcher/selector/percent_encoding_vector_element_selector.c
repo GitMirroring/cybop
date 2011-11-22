@@ -76,7 +76,7 @@ void select_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p2, p3, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p2, p3, (void*) SEPARATOR_PERCENT_ENCODING_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEPARATOR_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

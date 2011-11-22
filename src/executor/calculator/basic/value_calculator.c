@@ -74,39 +74,13 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) DOUBLE_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            calculate_double(p0, p1, p2);
-        }
-    }
+    //
+    // element
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) FRACTION_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            calculate_fraction(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) INTEGER_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            calculate_integer(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) ITEM_PRIMITIVE_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p3, (void*) ITEM_ELEMENT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -116,13 +90,61 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) PART_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             calculate_part(p0, p1, p2);
         }
     }
+
+    //
+    // number
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            calculate_double(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            calculate_fraction(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            calculate_integer(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            calculate_unsigned_long(p0, p1, p2);
+        }
+    }
+
+    //
+    // pointer
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -131,16 +153,6 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             calculate_pointer(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) UNSIGNED_LONG_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            calculate_unsigned_long(p0, p1, p2);
         }
     }
 

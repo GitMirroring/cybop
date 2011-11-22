@@ -216,13 +216,13 @@ void encode_x_window_system_element(void* p0, void* p1, void* p2, void* p3, void
         p7, p8);
 
     // Get source part position coordinates.
-    get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &pmx, *pm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &pmy, *pm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &pmz, *pm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
     // Get source part size coordinates.
-    get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-    get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &smx, *sm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &smy, *sm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
+    get((void*) &smz, *sm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
 
 /*??
 fwprintf(stdout, L"layout: %s\n", *lm);
@@ -230,7 +230,7 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
 */
 
 /*??
-    compare_all_array((void*) &r, *lm, (void*) ROOT_LAYOUT_CYBOL_MODEL, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *lmc, (void*) ROOT_LAYOUT_CYBOL_MODEL_COUNT);
+    compare_all_array((void*) &r, *lm, (void*) ROOT_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *lmc, (void*) ROOT_LAYOUT_CYBOL_MODEL_COUNT);
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -252,7 +252,7 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer_equal((void*) &r, *a, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, *a, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -262,13 +262,13 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
             int texts = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Allocate terminated text.
-            allocate_array((void*) &textd, (void*) &texts, (void*) CHARACTER_STATE_CYBOI_TYPE);
+            allocate_array((void*) &textd, (void*) &texts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Encode wide character name into text, which is a multibyte character array.
             encode_utf_8_unicode_character_vector((void*) &textd, (void*) &textc, (void*) &texts, *m, *mc);
 
             // Add null termination character to text.
-            overwrite_array((void*) &textd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &textc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &textc, (void*) &texts);
+            overwrite_array((void*) &textd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &textc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &textc, (void*) &texts);
 
             //?? TODO: Create "text" as 2byte character array,
             //?? since the xlib C library expects it that way.
@@ -282,7 +282,7 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
             XDrawString(*di, **w, *gc, *pmx, *pmy + *NUMBER_20_INTEGER_STATE_CYBOI_MODEL, textd, *((int*) textc));
 
             // Deallocate terminated text.
-            deallocate_array((void*) &textd, (void*) &texts, (void*) CHARACTER_STATE_CYBOI_TYPE);
+            deallocate_array((void*) &textd, (void*) &texts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             /*
             In the conventional 'XFontStruct' model, an X client opens
@@ -444,9 +444,9 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
         tis = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Create terminated title.
-        allocate_array((void*) &tt, (void*) &ttc, (void*) &tts, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+        allocate_array((void*) &tt, (void*) &ttc, (void*) &tts, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
         // Create terminated icon name.
-        allocate_array((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+        allocate_array((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
 
         // Encode wide character name into title, which is a multibyte character array.
         encode_utf_8_unicode_character_vector((void*) &tt, ttc, tts, *tm, *tmc);
@@ -459,7 +459,7 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
             *((int*) tts) = *((int*) ttc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Reallocate title as multibyte character array.
-            reallocate_array((void*) &tt, ttc, tts, (void*) CHARACTER_STATE_CYBOI_TYPE);
+            reallocate_array((void*) &tt, ttc, tts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
 
         if (*((int*) tis) <= *((int*) tic)) {
@@ -468,13 +468,13 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
             *((int*) tis) = *((int*) tic) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Reallocate icon name as multibyte character array.
-            reallocate_array((void*) &ti, tic, tis, (void*) CHARACTER_STATE_CYBOI_TYPE);
+            reallocate_array((void*) &ti, tic, tis, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
 
         // Add null termination character to title.
-        overwrite_array((void*) &tt, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, ttc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, ttc, tts);
+        overwrite_array((void*) &tt, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, ttc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, ttc, tts);
         // Add null termination character to icon name.
-        overwrite_array((void*) &ti, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tic, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, tic, tis);
+        overwrite_array((void*) &ti, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tic, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, tic, tis);
 
         // Set terminated window title.
         //
@@ -485,15 +485,15 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
         XSetIconName(*di, **w, (char*) ti);
 
         // Destroy terminated title.
-        deallocate_array((void*) &tt, (void*) &ttc, (void*) &tts, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+        deallocate_array((void*) &tt, (void*) &ttc, (void*) &tts, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
         // Destroy terminated icon name.
-        deallocate_array((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_STATE_CYBOI_TYPE, (void*) CHARACTER_STATE_CYBOI_TYPE_COUNT);
+        deallocate_array((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
     }
 
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_all_array((void*) &r, *a, (void*) PART_STATE_CYBOI_TYPE, (void*) EQUAL_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE, *ac, (void*) PART_STATE_CYBOI_TYPE_COUNT);
+    compare_all_array((void*) &r, *a, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *ac, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -588,9 +588,9 @@ void encode_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
             p7, p8);
 
         // Determine source whole size coordinates.
-        get((void*) &wsmx, *wsm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-        get((void*) &wsmy, *wsm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
-        get((void*) &wsmz, *wsm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_STATE_CYBOI_TYPE, (void*) INTEGER_STATE_CYBOI_TYPE_COUNT);
+        get((void*) &wsmx, *wsm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
+        get((void*) &wsmy, *wsm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
+        get((void*) &wsmz, *wsm, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
 
         // Set original area position coordinates, set to the zero origo.
         oapx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

@@ -73,15 +73,15 @@ void startup_terminal(void* p0) {
         //
         // CAUTION! An allocation is NOT necessary, as long as
         // the standard input- and output streams are used below.
-        allocate((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
-        allocate((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 */
         // Allocate termios settings.
         to = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
         tn = (struct termios*) malloc(*INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
         // Allocate character buffer count, size.
-        allocate_array((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Initialise character buffer count, size.
         //
@@ -92,7 +92,7 @@ void startup_terminal(void* p0) {
         copy_integer(bs, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
 
         // Allocate character buffer.
-        allocate_array((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Initialise terminal internals.
         //
