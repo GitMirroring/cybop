@@ -42,8 +42,7 @@
 // Forward declarations.
 //
 
-void decode_http_request_header_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
-//?? void decode_http_request_body(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void decode_http_request_header_argument(void* p0, void* p1, void* p2, void* p3);
 
 //
 // CAUTION! This comment is valid for all "select" functions below.

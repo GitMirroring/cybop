@@ -28,7 +28,7 @@
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/converter/decoder/percent_encoding_decoder.c"
+#include "../../../../executor/converter/decoder/uri/percent_encoding_decoder.c"
 #include "../../../../executor/searcher/selector/percent_encoding_vector_element_selector.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
@@ -123,6 +123,7 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode percent-encoding vector element.");
 
+/*??
             // The unreserved characters.
             void* u = *pos;
             int uc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -167,6 +168,7 @@ void decode_percent_encoding_vector_element(void* p0, void* p1, void* p2, void* 
                 // so that nothing is left to be processed here.
                 decode_percent_encoding_vector_element(p0, p1, p2, p3, p4);
             }
+*/
 
         } else {
 
@@ -218,6 +220,7 @@ void decode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void
 
                             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode percent-encoding vector.");
 
+/*??
                             //
                             // CAUTION! Do NOT operate with WIDE CHARACTERS here!
                             // The percent-encoding is based upon ASCII characters with just one byte!
@@ -238,6 +241,7 @@ void decode_percent_encoding_vector(void* p0, void* p1, void* p2, void* p3, void
 
                             // CAUTION! Hand over p3 as reference.
                             decode_percent_encoding_vector_element(p0, p1, p2, (void*) &p3, p4);
+*/
 
                         } else {
 

@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/http/cyboi_http_name.c"
+#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
 #include "../../../../executor/searcher/selector/http_request/header_argument_http_request_selector.c"
 #include "../../../../logger/logger.c"
 

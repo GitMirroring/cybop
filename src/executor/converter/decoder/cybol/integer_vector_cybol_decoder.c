@@ -40,12 +40,10 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/converter/decoder/integer_decoder.c"
-#include "../../../../executor/memoriser/allocator.c"
+#include "../../../../executor/converter/decoder/cybol/integer_cybol_decoder.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/integral_type_size.c"
-#include "../../../../variable/reallocation_factor.c"
 
 /**
  * Decodes the wide character data into an integer vector.
@@ -84,6 +82,7 @@ void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     // that actually does not belong to the array.
                     if (*sc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+/*??
                         // The comma index.
                         int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
                         // The first element count.
@@ -147,6 +146,7 @@ void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
                             // Recursively call this function.
                             decode_integer_vector(p0, p1, p2, e, (void*) &ec);
                         }
+*/
 
                     } else {
 

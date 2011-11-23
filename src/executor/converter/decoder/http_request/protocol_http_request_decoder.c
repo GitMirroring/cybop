@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/http/cyboi_http_name.c"
+#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
 #include "../../../../executor/searcher/selector/http_request/protocol_http_request_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -68,7 +68,7 @@ void decode_http_request_protocol(void* p0, void* p1, void* p2, void* p3) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p1, (void*) CYBOI_PROTOCOL_HTTP_NAME, (void*) CYBOI_PROTOCOL_HTTP_NAME_COUNT, e, (void*) &ec);
+            append_item_allocate_part_decode_character(p1, (void*) PROTOCOL_HTTP_CYBOI_NAME, (void*) PROTOCOL_HTTP_CYBOI_NAME_COUNT, e, (void*) &ec);
 
             break;
 

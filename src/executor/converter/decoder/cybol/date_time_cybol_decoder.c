@@ -32,9 +32,6 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/memoriser/allocator.c"
-#include "../../../../executor/memoriser/deallocator.c"
-#include "../../../../executor/memoriser/reallocator.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/integral_type_size.c"
 #include "../../../../variable/reallocation_factor.c"
@@ -121,6 +118,7 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
 
                         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode ddmmyyyy date time.");
 
+/*??
                         // The temporary null-terminated day string.
                         wchar_t* tmpd = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
                         int tmpds = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
@@ -156,6 +154,7 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
                         overwrite_array((void*) &tmpy, syi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 */
 
+/*??
                         // The day termination character index.
                         int dti = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
                         // The month termination character index.
@@ -172,6 +171,7 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
                         overwrite_array((void*) &tmpy, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &yti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 */
 
+/*??
                         // The tail variable is useless here and only needed for the string
                         // transformation function. If the whole string array consists of
                         // many sub strings, separated by space characters, then each sub
@@ -221,6 +221,7 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
                         overwrite_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SECOND_DATETIME_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 */
 
+/*??
                         // Increase date time count by one, because of new element.
                         (*dc)++;
 
@@ -230,6 +231,7 @@ void decode_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void* p4)
                         deallocate_array((void*) &tmpm, (void*) &tmpms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
                         // Destroy temporary null-terminated year string.
                         deallocate_array((void*) &tmpy, (void*) &tmpys, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+*/
 
                     } else {
 

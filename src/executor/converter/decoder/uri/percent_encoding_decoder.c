@@ -83,6 +83,7 @@ void decode_percent_encoding(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //?? --- The following code is temporary and should be moved into an own file!
         //
 
+/*??
         // The temporary null-terminated string.
         void* tmp = *NULL_POINTER_STATE_CYBOI_MODEL;
         int tmpc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -137,6 +138,7 @@ void decode_percent_encoding(void* p0, void* p1, void* p2, void* p3, void* p4) {
         overwrite_array(p0, (void*) &v, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         move_position(p3, p4, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+*/
 
     } else {
 

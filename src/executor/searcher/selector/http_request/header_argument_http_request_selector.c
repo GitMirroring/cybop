@@ -26,11 +26,11 @@
 #ifndef HEADER_ARGUMENT_HTTP_REQUEST_SELECTOR_SOURCE
 #define HEADER_ARGUMENT_HTTP_REQUEST_SELECTOR_SOURCE
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http/separator_http_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/converter/decoder/http_request/header_value_http_request_decoder.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"

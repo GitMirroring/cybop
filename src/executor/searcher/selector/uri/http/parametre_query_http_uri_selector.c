@@ -26,12 +26,12 @@
 #ifndef PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
 #define PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
 
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/uri/cyboi_uri_name.c"
+#include "../../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
 #include "../../../../../constant/name/uri/separator_uri_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/converter/decoder/uri/http/fragment_http_uri_decoder.c"
 #include "../../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../../executor/searcher/mover/position_mover.c"
@@ -42,7 +42,7 @@
 // Forward declarations.
 //
 
-void decode_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void decode_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3);
 
 /**
  * Selects the http uri query parametre.

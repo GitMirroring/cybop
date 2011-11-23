@@ -28,7 +28,8 @@
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/http/cyboi_http_name.c"
+#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -46,12 +47,12 @@ void decode_http_request_body(void* p0, void* p1, void* p2, void* p3) {
     //
     // CAUTION! There is NO NEED to detect the body end with a
     // function like "select_http_request_body".
-    // All of the remaining characters are seen as body.
+    // ALL of the REMAINING characters represent the body.
     //
 
     //
     // The body represents the actual http message content.
-    // Its data are thus added to the destination MODEL (p0, p1, p2),
+    // Its data are thus added to the destination MODEL,
     // whilst the destination PROPERTIES contain meta data, i.e. the http headers.
     //
     // CAUTION! The body data may be encoded.
@@ -62,7 +63,7 @@ void decode_http_request_body(void* p0, void* p1, void* p2, void* p3) {
     // so that the cybol application will have to decode the data,
     // because here, the corresponding http encoding header is not available.
     //
-    overwrite_array(p0, *((void**) p2), (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+    append_item_element(p0, *((void**) p2), (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 }
 
 /* BODY_HTTP_REQUEST_DECODER_SOURCE */
