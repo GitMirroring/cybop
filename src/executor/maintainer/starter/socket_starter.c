@@ -308,7 +308,7 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
             encode_utf_8_unicode_character_vector((void*) &sd, (void*) &sc, (void*) &ss, p1, p2);
 
             // Add null termination character to terminated address.
-            overwrite_array((void*) &sd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &sc, (void*) &ss);
+            overwrite_array((void*) &sd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &sc, (void*) &ss, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Convert uint16_t integer hostshort from host byte order
             // to network byte order.

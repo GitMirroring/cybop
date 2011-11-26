@@ -4840,6 +4840,7 @@ void decode_xdt_select_package(void* p0, void* p1, void* p2, void* p3, void* p4,
  */
 void decode_xdt(void* p0, void* p1, void* p2, void* p3) {
 
+/*??
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p7;
@@ -4872,11 +4873,6 @@ void decode_xdt(void* p0, void* p1, void* p2, void* p3) {
                     void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
                     int pfc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-/*??
-                    // Test values.
-                    fwprintf(stdout, L"TEST xdt file source count: %i\n\n", *sc);
-*/
-
                     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         if (rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -4892,23 +4888,10 @@ void decode_xdt(void* p0, void* p1, void* p2, void* p3) {
                         // their values would be lost when the called operation is left.
                         decode_xdt_package((void*) &ps, (void*) &ph, (void*) &phc, (void*) &pf, (void*) &pfc, (void*) &pc, (void*) &pcc, (void*) &s, (void*) &rem);
 
-/*??
-                        // Test values.
-                        fwprintf(stdout, L"TEST package size: %i\n", ps);
-                        fwprintf(stdout, L"TEST package header count: %i\n", phc);
-                        fwprintf(stdout, L"TEST package footer count: %i\n", pfc);
-                        fwprintf(stdout, L"TEST package content: %i\n", pcc);
-*/
-
                         if (ps > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                             // Decrement remaining bytes in the source byte array.
                             rem = rem - ps;
-
-/*??
-                            // Test values.
-                            fwprintf(stdout, L"TEST package remaining bytes: %i\n\n", rem);
-*/
 
                             // Select xdt package.
                             decode_xdt_select_package(*dm, p1, p2, *dd, p4, p5,
@@ -4956,6 +4939,7 @@ void decode_xdt(void* p0, void* p1, void* p2, void* p3) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode xdt. The source byte array count is null.");
     }
+*/
 }
 
 /* XDT_DECODER_SOURCE */

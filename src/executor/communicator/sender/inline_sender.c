@@ -49,7 +49,7 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send inline.");
 
-    overwrite_array(p0, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+    overwrite_array(p0, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /**

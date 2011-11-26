@@ -34,6 +34,7 @@
 #include "../../../../executor/converter/decoder/uri/http/authority_http_uri_decoder.c"
 #include "../../../../executor/converter/decoder/uri/http/path_http_uri_decoder.c"
 #include "../../../../executor/converter/decoder/uri/scheme_uri_decoder.c"
+#include "../../../../executor/modifier/appender/part_allocator_item_appender.c"
 #include "../../../../logger/logger.c"
 
 //

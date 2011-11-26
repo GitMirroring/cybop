@@ -90,10 +90,10 @@ void encode_cybol_double_value(void* p0, void* p1, void* p2) {
     // If not all output fits into the provided buffer,
     // a negative value is returned.
 #ifdef CYGWIN_ENVIRONMENT
-    int tc = wsprintfW(td, L"%d", *((long double*) v));
+    tc = wsprintfW(td, L"%d", *((long double*) v));
 /* CYGWIN_ENVIRONMENT */
 #else
-    int tc = swprintf(td, ts, L"%d", *((long double*) v));
+    tc = swprintf(td, ts, L"%d", *((long double*) v));
 /* CYGWIN_ENVIRONMENT */
 #endif
 

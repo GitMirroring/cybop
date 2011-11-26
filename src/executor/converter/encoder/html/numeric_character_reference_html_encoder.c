@@ -86,7 +86,7 @@ void encode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // Add temporary value to destination.
-                    overwrite_array(p0, (void*) t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &tc, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                    overwrite_array(p0, (void*) t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &tc, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
 
             } else {

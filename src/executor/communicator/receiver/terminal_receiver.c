@@ -109,7 +109,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                 *csi = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                 // Set loop break flag.
                                 // An escape character followed by a left square bracket character
@@ -133,7 +133,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                     *csi = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                     // Copy source character to destination character array.
-                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                                    overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                 } else {
 
@@ -160,7 +160,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                 *esc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                             } else if (*c == WEOF) {
 
@@ -174,7 +174,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                             } else {
 
                                 // Copy source character to destination character array.
-                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                                overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                 // Set loop break flag.
                                 *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;

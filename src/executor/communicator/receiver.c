@@ -26,7 +26,7 @@
 #ifndef RECEIVER_SOURCE
 #define RECEIVER_SOURCE
 
-#include "../../constant/channel/cybol_channel.c"
+#include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"

@@ -87,10 +87,10 @@ void encode_cybol_integer_value(void* p0, void* p1, void* p2) {
     // If not all output fits into the provided buffer,
     // a negative value is returned.
 #ifdef CYGWIN_ENVIRONMENT
-    int tc = wsprintfW(td, L"%i", *((unsigned long long int*) v));
+    tc = wsprintfW(td, L"%i", *((unsigned long long int*) v));
 /* CYGWIN_ENVIRONMENT */
 #else
-    int tc = swprintf(td, ts, L"%i", *((unsigned long long int*) v));
+    tc = swprintf(td, ts, L"%i", *((unsigned long long int*) v));
 /* CYGWIN_ENVIRONMENT */
 #endif
 

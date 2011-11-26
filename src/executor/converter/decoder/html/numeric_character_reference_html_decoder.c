@@ -2604,27 +2604,8 @@ void decode_numeric_character_reference(void* p0, void* p1, void* p2, void* p3, 
                 }
 */
 
-                //
-                // Set actual destination, using the temporary value.
-                //
-
-                if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                    if ((*dc + tc) > *ds) {
-
-                        // Calculate destination size.
-                        *ds = (*ARRAY_REALLOCATION_FACTOR * (*dc)) + tc;
-
-                        // Reallocate destination.
-                        reallocate(p0, p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-                    }
-
-                    // Add temporary value to destination.
-                    overwrite_array(p0, *t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &tc, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2);
-
-                    // Increase destination count.
-                    *dc = *dc + tc;
-                }
+                // Add temporary value to destination.
+                overwrite_array(p0, *t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &tc, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             } else {
 

@@ -63,17 +63,17 @@ void apply_execute(void* p0, void* p1) {
     allocate_array((void*) &cl, (void*) &cls, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append shell command.
-    overwrite_array((void*) &cl, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     // Append shell command.
-    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array((void*) &cl, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     // Append user command.
-    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls);
-    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array((void*) &cl, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     // Append null character as string termination.
-    overwrite_array((void*) &cl, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls);
+    overwrite_array((void*) &cl, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
 /*??
     fwprintf(stdout, L"TEST dir: %ls\n", (wchar_t*) cl);

@@ -106,7 +106,7 @@ void test_converter_encode_integer() {
 /**
  * Tests the decode integer vector function.
  */
-void test_converter_decode_integer_vector() {
+void test_converter_decode_cybol_integer_vector() {
 
     log_write((void*) stdout, L"Test decode integer vector:\n");
 
@@ -124,7 +124,7 @@ void test_converter_decode_integer_vector() {
     allocate_array((void*) &d, (void*) &ds, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Decode character array into integer vector.
-//    decode_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
+//    decode_cybol_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
 
     // The integer values.
     int* i0 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -243,7 +243,7 @@ void test_converter() {
 
 //    test_converter_encode_integer();
 
-//    test_converter_decode_integer_vector();
+//    test_converter_decode_cybol_integer_vector();
 //    test_converter_encode_integer_vector();
 
 //    test_converter_decode_utf8();

@@ -111,7 +111,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, ad, (void*) ENCAPSULATED_KNOWLEDGE_PATH_STATE_CYBOI_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, ad, (void*) ENCAPSULATED_PATH_STATE_CYBOI_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

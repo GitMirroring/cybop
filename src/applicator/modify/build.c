@@ -141,12 +141,12 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
     reallocate_array(resm, *resms, *resms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Set result array.
-    overwrite_array(*resm, *bnm, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *bnmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *resmc, *resms);
-    overwrite_array(*resm, (void*) LIST_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LIST_SEPARATOR_CYBOL_NAME_COUNT, *bnmc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *resmc, *resms);
+    overwrite_array(*resm, *bnm, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *bnmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *resmc, *resms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    overwrite_array(*resm, (void*) LIST_SEPARATOR_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LIST_SEPARATOR_CYBOL_NAME_COUNT, *bnmc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *resmc, *resms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     int temp_index = *((int*) *bnmc) + *LIST_SEPARATOR_CYBOL_NAME_COUNT;
 
-    overwrite_array(*resm, int_string, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, &int_string_count, &temp_index, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *resmc, *resms);
+    overwrite_array(*resm, int_string, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, &int_string_count, &temp_index, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *resmc, *resms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Destroy int_string array.
     deallocate_array((void*) &int_string, (void*) &int_string_size, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

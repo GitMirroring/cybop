@@ -57,7 +57,7 @@
  * @param p3 the source data
  * @param p4 the source count
  */
-void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_cybol_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -144,7 +144,7 @@ void decode_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
                             int ec = *sc - (i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                             // Recursively call this function.
-                            decode_integer_vector(p0, p1, p2, e, (void*) &ec);
+                            decode_cybol_integer_vector(p0, p1, p2, e, (void*) &ec);
                         }
 */
 
