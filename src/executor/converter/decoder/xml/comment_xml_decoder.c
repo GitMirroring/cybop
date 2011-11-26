@@ -26,15 +26,12 @@
 #ifndef COMMENT_XML_DECODER_SOURCE
 #define COMMENT_XML_DECODER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../../executor/accessor/appender/compound_appender.c"
-#include "../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../executor/searcher/selector/xml/comment_xml_selector.c"
-#include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../logger/logger.c"
 
 /**

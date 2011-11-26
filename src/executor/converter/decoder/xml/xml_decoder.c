@@ -26,14 +26,13 @@
 #ifndef XML_DECODER_SOURCE
 #define XML_DECODER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../../executor/accessor/appender/compound_appender.c"
-#include "../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../executor/converter/decoder/xml/element_content_xml_decoder.c"
-#include "../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**

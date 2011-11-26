@@ -152,10 +152,10 @@
  *
  * CAUTION! The source character array MUST NOT be given
  * as percent-encoded octets. In other words, it has to
- * have been decoded before being handed over to this function.
+ * have been DECODED BEFORE being handed over to this function.
  *
  * CAUTION! The source character array HAS TO BE given
- * as sequence of wide characters.
+ * as sequence of WIDE characters.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -164,145 +164,90 @@
  */
 void decode_uri(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode uri.");
 
-        int sc = *((int*) p7);
+    // The source data position.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p2);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p3);
 
-            void* s = p6;
+    //
+    // CAUTION! Do comparisons below IN PARALLEL, because:
+    // - the uri types do not depend on each other
+    // - each detection has to start with the first character
+    //
+    // CAUTION! The order of the comparisons is IMPORTANT!
+    // Do NOT change it easily!
+    //
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode uri.");
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            //
-            // Do comparisons below in parallel, because:
-            // - the uri types do not depend on each other
-            // - each detection has to start with the first character
-            //
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-            //
+        decode_no_resource_http_request_uri(p0, p1, (void*) &r, (void*) &d, (void*) &c);
 
-/*??
-    fwprintf(stdout, L"TEST decode uri 0 s: %ls\n", (wchar_t*) s);
-    fwprintf(stdout, L"TEST decode uri 0 sc: %i\n", sc);
-*/
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The comparison result.
-            int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // Reset source.
-                s = p6;
-                sc = *((int*) p7);
-
-                decode_no_resource_http_request_uri(p0, p1, p2, p3, p4, p5, (void*) &r, (void*) &s, (void*) &sc);
-
-/*??
-    fwprintf(stdout, L"TEST decode uri 1 s: %ls\n", (wchar_t*) s);
-    fwprintf(stdout, L"TEST decode uri 1 sc: %i\n", sc);
-*/
-
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // Do nothing, since the http request uri is empty "*",
-                    // which means that it points to nowhere, i.e. no resource is given.
-                }
-            }
-
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // Reset source.
-                s = p6;
-                sc = *((int*) p7);
-
-/*??
-    fwprintf(stdout, L"TEST decode uri RESET s: %ls\n", (wchar_t*) s);
-    fwprintf(stdout, L"TEST decode uri RESET sc: %i\n", sc);
-*/
-
-                decode_absolute_uri_http_request_uri(p0, p1, p2, p3, p4, p5, (void*) &r, (void*) &s, (void*) &sc);
-
-/*??
-    fwprintf(stdout, L"TEST decode uri 2 s: %ls\n", (wchar_t*) s);
-    fwprintf(stdout, L"TEST decode uri 2 sc: %i\n", sc);
-*/
-
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    decode_uri_scheme(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);
-                }
-            }
-
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // Reset source.
-                s = p6;
-                sc = *((int*) p7);
-
-                decode_authority_form_http_request_uri(p0, p1, p2, p3, p4, p5, (void*) &r, (void*) &s, (void*) &sc);
-
-/*??
-    fwprintf(stdout, L"TEST decode uri 3 s: %ls\n", (wchar_t*) s);
-    fwprintf(stdout, L"TEST decode uri 3 sc: %i\n", sc);
-*/
-
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // Add scheme as full text string.
-                    // The scheme is handed over as http request "protocol" header.
-                    // Add scheme as uri part here, because the authority does not contain one.
-                    append_part(p0, p1, p2,
-                        (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT,
-                        (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT,
-                        (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-                    decode_http_uri_authority_content(p0, p1, p2, (void*) &p6, p7);
-                }
-            }
-
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // Reset source.
-                s = p6;
-                sc = *((int*) p7);
-
-                decode_absolute_path_http_request_uri(p0, p1, p2, p3, p4, p5, (void*) &r, (void*) &s, (void*) &sc);
-
-/*??
-    fwprintf(stdout, L"TEST decode uri 4 s: %ls\n", (wchar_t*) s);
-    fwprintf(stdout, L"TEST decode uri 4 sc: %i\n", sc);
-*/
-
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // Add scheme as full text string.
-                    // The scheme is handed over as http request "protocol" header.
-                    // Add scheme as uri part here, because the path does not contain one.
-                    append_part(p0, p1, p2,
-                        (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT,
-                        (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT,
-                        (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-                    decode_http_uri_path(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);
-                }
-            }
-
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The uri is invalid.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The source is null.");
+            // Do nothing, since the http request uri is empty "*",
+            // which means that it points to nowhere, i.e. no resource is given.
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The source count is null.");
+        decode_absolute_uri_http_request_uri(p0, p1, (void*) &r, (void*) &d, (void*) &c);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            decode_uri_scheme(p0, p1, (void*) &d, (void*) &c);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        decode_authority_form_http_request_uri(p0, p1, (void*) &r, (void*) &d, (void*) &c);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Add scheme as full text string.
+            // The scheme is handed over as http request "protocol" header.
+            // Add scheme as uri part here, because the authority does not contain one.
+            append_item_allocate_part(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT,
+                (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT,
+                (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+            decode_http_uri_authority_content(p0, (void*) &d, (void*) &c);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        decode_absolute_path_http_request_uri(p0, p1, (void*) &r, (void*) &d, (void*) &c);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Add scheme as full text string.
+            // The scheme is handed over as http request "protocol" header.
+            // Add scheme as uri part here, because the path does not contain one.
+            append_item_allocate_part(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT,
+                (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT,
+                (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT,
+                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+            decode_http_uri_path(p0, p1, (void*) &d, (void*) &c);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode uri. The uri is invalid.");
     }
 }
 

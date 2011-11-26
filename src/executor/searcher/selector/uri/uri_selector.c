@@ -33,7 +33,6 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/uri/scheme_uri_model.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../../constant/name/xml_name.c"
 #include "../../../../executor/converter/decoder/uri/http_uri_decoder.c"
 #include "../../../../logger/logger.c"
 

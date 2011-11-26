@@ -159,7 +159,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
-            allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            allocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
@@ -169,7 +169,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
-            allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
@@ -179,9 +179,9 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
-            deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Deallocate multibyte character stream.
-            deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 //?? TEST END
 */
         }
@@ -193,22 +193,26 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The temporary model.
+            // The temporary model, properties item.
             void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-            int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            int ms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // The temporary properties.
-            void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-            int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The temporary model, properties item data, count.
+            void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            // Allocate temporary model.
-            allocate((void*) &m, (void*) &ms, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT);
-            // Allocate temporary properties.
-            allocate((void*) &d, (void*) &ds, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT);
+            // Allocate temporary model, properties item.
+            allocate_item((void*) &m, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            allocate_item((void*) &p, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            // Get temporary model, properties item data, count.
+            copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-            // Decode source message into temporary compound memory model.
-            decode_xml((void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds, p2, p3);
+            // Decode source message into temporary model, properties item.
+            decode_xml((void*) &m, (void*) &p, p2, p3);
 
 /*??
 //?? TEST BEGIN
@@ -217,7 +221,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
-            allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            allocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
@@ -227,7 +231,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
-            allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
@@ -237,19 +241,18 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
-            deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Deallocate multibyte character stream.
-            deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 //?? TEST END
 */
 
-            // Decode temporary compound memory model into cyboi knowledge compound memory model.
-            decode_cybol(p0, m, (void*) &mc, d, (void*) &dc);
+            // Decode temporary model, properties item into cyboi model.
+            decode_cybol(p0, md, mc, pd, pc);
 
-            // Deallocate temporary model.
-            deallocate((void*) &m, (void*) &ms, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT);
-            // Deallocate temporary properties.
-            deallocate((void*) &d, (void*) &ds, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT);
+            // Deallocate temporary model, properties item.
+            deallocate_item((void*) &m, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &p, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
 /*??
 //?? TEST BEGIN
@@ -258,7 +261,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
-            allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            allocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
@@ -268,7 +271,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
-            allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // Reset file name.
@@ -278,9 +281,9 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
-            deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Deallocate multibyte character stream.
-            deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 //?? TEST END
 */
         }
@@ -378,22 +381,26 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The temporary model data, count, size.
+            // The temporary model, properties item.
+            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The temporary model, properties item data, count.
             void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-            int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            int ms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // The temporary properties data, count, size.
-            void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            // Allocate temporary model.
-            allocate_array((void*) &md, (void*) &ms, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-            // Allocate temporary properties.
-            allocate_array((void*) &dd, (void*) &ds, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            // Allocate temporary model, properties item.
+            allocate_item((void*) &m, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            allocate_item((void*) &p, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            // Get temporary model, properties item data, count.
+            copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-            // Decode source message (cybol file) into temporary model.
-            decode_xml((void*) &md, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds, p2, p3);
+            // Decode source message (cybol file) into temporary model, properties item.
+            decode_xml((void*) &m, (void*) &p, p2, p3);
 
 /*??
 //?? TEST BEGIN
@@ -402,7 +409,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
-            allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            allocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
@@ -412,7 +419,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
-            allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
@@ -422,20 +429,19 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
-            deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Deallocate multibyte character stream.
-            deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 //?? TEST END
 */
 
-            // Decode temporary compound memory model into cyboi knowledge compound memory model.
+            // Decode temporary model, properties item into cyboi model.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            decode_cybol(p0, m, mc, d, dc);
+            decode_cybol(p0, md, mc, pd, pc);
 
-            // Deallocate temporary model.
-            deallocate_array((void*) &md, (void*) &ms, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-            // Deallocate temporary properties.
-            deallocate_array((void*) &dd, (void*) &ds, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            // Deallocate temporary model, properties item.
+            deallocate_item((void*) &m, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &p, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
 /*??
 //?? TEST BEGIN
@@ -444,7 +450,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
-            allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            allocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
@@ -454,7 +460,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
-            allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // Reset file name.
@@ -464,9 +470,9 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
-            deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Deallocate multibyte character stream.
-            deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 //?? TEST END
 */
         }
@@ -532,7 +538,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate model diagram.
-            allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            allocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model into model diagram.
             encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
@@ -542,7 +548,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Allocate multibyte character stream.
-            allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
             encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
@@ -552,9 +558,9 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Write multibyte character stream as message to file system.
             send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
             // Deallocate model diagram.
-            deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Deallocate multibyte character stream.
-            deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+            deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 //?? TEST END
 */
         }

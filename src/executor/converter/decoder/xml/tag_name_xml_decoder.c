@@ -26,15 +26,12 @@
 #ifndef TAG_NAME_XML_DECODER_SOURCE
 #define TAG_NAME_XML_DECODER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../../executor/accessor/appender/compound_appender.c"
-#include "../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../executor/searcher/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
-#include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -66,6 +63,8 @@ void decode_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, void*
                 // The source tag name.
                 void* tn = *NULL_POINTER_STATE_CYBOI_MODEL;
                 int tnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                // The break flag.
+                int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 // Initialise element.
                 copy_pointer((void*) &tn, p4);

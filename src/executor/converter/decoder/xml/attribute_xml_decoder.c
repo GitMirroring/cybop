@@ -30,13 +30,9 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../../executor/accessor/appender/compound_appender.c"
-#include "../../../../executor/accessor/appender/part_appender.c"
 #include "../../../../executor/converter/decoder/xml/attribute_name_xml_decoder.c"
 #include "../../../../executor/converter/decoder/xml/attribute_value_xml_decoder.c"
 #include "../../../../executor/searcher/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
-#include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -66,12 +62,19 @@ void decode_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // The source attribute value.
             void* av = *NULL_POINTER_STATE_CYBOI_MODEL;
             int avc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // The part.
+            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The has attribute flag.
+            // CAUTION! This HAS TO BE a local variable, because the function
+            // may be called recursively and if the flag were handed over
+            // as argument to this function, then it would have an initial value
+            // from a previous call of this function, which might lead to wrong results.
+            int ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            // The break flag.
+            int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             decode_xml_attribute_name((void*) &an, (void*) &anc, p3, p4);
             decode_xml_attribute_value((void*) &av, (void*) &avc, p3, p4);
-
-            // The part.
-            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Allocate part.
             allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -83,13 +86,6 @@ void decode_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // Append part to destination model.
             append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-            // The has attribute flag.
-            // CAUTION! This HAS TO BE a local variable, because the function
-            // may be called recursively and if the flag were handed over
-            // as argument to this function, then it would have an initial value
-            // from a previous call of this function, which might lead to wrong results.
-            int ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

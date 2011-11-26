@@ -217,7 +217,7 @@ void test_converter_decode_utf8() {
 
     decode_utf_8_unicode_character_vector((void*) &wm, (void*) &wmc, (void*) &wms, rm, (void*) &rmc);
     //?? TEST only! DELETE LATER!
-//??    decode_utf_8_unicode_character_vector((void*) &wm, (void*) &wmc, (void*) &wms, (void*) ASCII_CYBOL_TEXT_CYBOL_TYPE, (void*) CYBOL_TEXT_CYBOL_TYPE_COUNT);
+//??    decode_utf_8_unicode_character_vector((void*) &wm, (void*) &wmc, (void*) &wms, (void*) ASCII_CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT);
 
     fwprintf(stdout, L"TEST wm: %ls\n", (wchar_t*) wm);
     fwprintf(stdout, L"TEST wmc: %i\n", wmc);
