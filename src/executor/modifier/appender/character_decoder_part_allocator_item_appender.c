@@ -35,6 +35,9 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
+#include "../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../executor/modifier/appender/part_allocator_item_appender.c"
 #include "../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../logger/logger.c"
 

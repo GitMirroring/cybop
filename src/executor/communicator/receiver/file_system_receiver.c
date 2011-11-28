@@ -39,9 +39,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
 #include "../../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
-#include "../../../executor/converter/decoder.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/reallocation_factor.c"
 
 /**
  * Receives a file stream.
@@ -199,7 +197,7 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Deserialise decoded data into destination model and properties.
-    decode(p0, p1, dd, (void*) &dc, p4);
+//??    decode(p0, p1, dd, (void*) &dc, p4);
 
     // Deallocate decoded data.
     deallocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

@@ -70,7 +70,7 @@ void encode_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4,
     encode_model_diagram_line(p0);
 
     // Append part type.
-    encode_type(p0, p3);
+    encode_model_diagram_type(p0, p3);
 
     //
     // Append part model.

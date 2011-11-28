@@ -269,6 +269,7 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p16 the knowledge memory count
  * @param p17 the mutex
  */
+/*??
 void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
     void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
@@ -295,6 +296,7 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // Deallocate character array.
     deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
+*/
 
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif

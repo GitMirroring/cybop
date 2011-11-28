@@ -333,7 +333,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_cybol_integer_vector(p0, p2, p3);
+//??            decode_cybol_integer_vector(p0, p2, p3);
         }
     }
 

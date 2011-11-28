@@ -26,12 +26,11 @@
 #ifndef ARRAY_NAME_GETTER_SOURCE
 #define ARRAY_NAME_GETTER_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/http/http_cyboi_name.c"
-#include "../../../executor/comparator/all/part_all_comparator.c"
-#include "../../../executor/searcher/selector/http_request/method_http_request_selector.c"
+#include "../../../executor/searcher/name_finder/array_name_finder.c"
 #include "../../../logger/logger.c"
 
 /**

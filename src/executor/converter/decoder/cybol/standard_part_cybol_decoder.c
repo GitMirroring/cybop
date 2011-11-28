@@ -190,7 +190,11 @@ void decode_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // becomes the model in the cyboi-internal knowledge tree.
     // CAUTION! Use the CYBOL cyboi destination type determined above
     // (and NOT the CYBOI destination type)!
-    receive_data(pm, pp, smmd, smmc, (void*) &dtc, (void*) &dc);
+    // CAUTION! A null pointer is handed over as last parametre here.
+    // When reading cybol, the only possible two channels are "inline" and "file".
+    // The internal memory (last parametre) is only necessary for
+    // "terminal", "x_window_system" and similar channels.
+    receive_data(pm, pp, smmd, smmc, (void*) &dtc, (void*) &dc, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Fill part properties taken from cybol source part model.
     // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
     // becomes the properties (meta data) in the cyboi-internal knowledge tree.

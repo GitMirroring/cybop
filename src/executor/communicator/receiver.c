@@ -33,12 +33,10 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/receiver/file_system_receiver.c"
-#include "../../executor/communicator/receiver/terminal_receiver.c"
 #include "../../executor/communicator/receiver/inline_receiver.c"
-#include "../../executor/communicator/receiver/latex_receiver.c"
 #include "../../executor/communicator/receiver/socket_receiver.c"
+#include "../../executor/communicator/receiver/terminal_receiver.c"
 #include "../../executor/communicator/receiver/x_window_system_receiver.c"
-#include "../../executor/modifier/getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 

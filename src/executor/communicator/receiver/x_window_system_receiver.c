@@ -33,6 +33,7 @@
 #include <pthread.h>
 #include <signal.h>
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -72,6 +73,7 @@ void sense_x_window_system_mouse_command(void* p0, void* p1, void* p2, void* p3,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
     void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
+/*??
     if (p15 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* b = (int*) p15;
@@ -116,6 +118,7 @@ void sense_x_window_system_mouse_command(void* p0, void* p1, void* p2, void* p3,
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system mouse command. The mouse button is null.");
     }
+*/
 }
 
 /**
@@ -209,6 +212,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
     void* p12, void* p13, void* p14, void* p15, void* p16,
     void* p17, void* p18, void* p19, void* p20) {
 
+/*??
     if (p16 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* mz = (int*) p16;
@@ -430,6 +434,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system part. The mouse z coordinate is null.");
     }
+*/
 }
 
 /**
@@ -443,6 +448,7 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
  */
 void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
+/*??
     // The knowledge memory.
     void** k = NULL_POINTER_STATE_CYBOI_MODEL;
     void** kc = NULL_POINTER_STATE_CYBOI_MODEL;
@@ -684,6 +690,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //?? What is this useful for?
         //?? XDrawImageString(e.xexpose.display, e.xexpose.window, gc_menu_font, 100, 100, event.xbutton.x, wcslen(event.xbutton.x));
 
+/*??
     } else if ((t == ButtonPress) || (t == ButtonRelease)) {
 
     fwprintf(stdout, L"TEST button press sense t: %i\n", t);
@@ -749,11 +756,16 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 */
 
+/*??
     } else if ((t == EnterNotify) || (LeaveNotify)) {
 
         //?? an_event.xcrossing
     }
+*/
 }
+
+/* GNU_LINUX_OPERATING_SYSTEM */
+#endif
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */
 #endif

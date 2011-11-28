@@ -36,6 +36,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
+#include "../../../executor/comparator/all/part_all_comparator.c"
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/memoriser/size_determiner.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
