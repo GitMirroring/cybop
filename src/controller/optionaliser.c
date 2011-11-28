@@ -409,11 +409,6 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
     // Allocate value as wide character array.
     allocate_array((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Initialise value index with the options count by default,
-    // so that it does NOT get processed, unless set to a
-    // valid value lying within the array.
-    copy_integer((void*) &i, p5);
-
     // Get command line argument option.
     // Example: "--loglevel"
     copy_array_forward((void*) &o, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
@@ -445,12 +440,16 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
         log_write((void*) stdout, L"Error: Could not optionalise command line argument. The command line argument option is null.\n");
     }
 
-    // Calculate value index.
+    // Calculate value index, which is equal to the loop index increased by one.
     copy_integer((void*) &i, p6);
-    copy_integer((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    calculate_integer_add((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    // CAUTION! Only try to access the value following an option,
-    // if the array is large enough, to avoid access violation errors!
+    // CAUTION! It was already tested through the loop break flag that
+    // the index handed over as parametre to here lies within the array.
+    // However, the value belonging to an option has an index which
+    // INCREASED BY ONE, so that it might lie OUTSIDE the argument array.
+    // Therefore, that incremented index is tested here again,
+    // in order to avoid an access violation error!
     compare_integer_smaller((void*) &r, (void*) &i, p5);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

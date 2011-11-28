@@ -175,10 +175,13 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Allocate encoded data.
     allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    fwprintf(stdout, L"TEST filename: %ls\n", (wchar_t*) p2);
+    fwprintf(stdout, L"TEST filename count: %i\n", *((int*) p3));
+
     // Write file into encoded data.
     receive_file((void*) &ed, (void*) &ec, (void*) &es, p2, p3);
 
-//??    fwprintf(stdout, L"TEST char: %s\n", (char*) ed);
+    fwprintf(stdout, L"TEST char: %s\n", (char*) ed);
 
     // The decoded data, count, size.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -191,7 +194,7 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Decode encoded data into decoded data.
     decode_utf_8_unicode_character_vector((void*) &dd, (void*) &dc, (void*) &ds, ed, (void*) &ec);
 
-//??    fwprintf(stdout, L"TEST w_char: %ls\n", (wchar_t*) dd);
+    fwprintf(stdout, L"TEST w_char: %ls\n", (wchar_t*) dd);
 
     // Deallocate encoded data.
     deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

@@ -235,15 +235,15 @@ void manage(void* p0) {
     //
 
     // Initialise signal memory interrupt request flag.
-    *signal_memory_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    copy_integer((void*) signal_memory_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Initialise terminal interrupt request flag.
-    *terminal_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    copy_integer((void*) terminal_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Initialise x window system interrupt request flag.
-    *x_window_system_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    copy_integer((void*) x_window_system_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Initialise www service interrupt request flag.
-    *www_service_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    copy_integer((void*) www_service_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Initialise cyboi service interrupt request flag.
-    *cyboi_service_irq = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    copy_integer((void*) cyboi_service_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // In the following mutex initialisation functions, the second parametre
@@ -263,15 +263,15 @@ void manage(void* p0) {
     pthread_mutex_init(cyboi_service_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Initialise signal memory sleep time.
-    *signal_memory_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
+    copy_double((void*) signal_memory_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
     // Initialise gnu linux console sleep time.
-    *terminal_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
+    copy_double((void*) terminal_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
     // Initialise x window system sleep time.
-    *x_window_system_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
+    copy_double((void*) x_window_system_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
     // Initialise www service sleep time.
-    *www_service_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
+    copy_double((void*) www_service_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
     // Initialise cyboi service sleep time.
-    *cyboi_service_sleep_time = *NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL;
+    copy_double((void*) cyboi_service_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
 
     //
     // System startup.

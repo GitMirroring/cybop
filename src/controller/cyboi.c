@@ -206,7 +206,7 @@ int main(int p0, char** p1) {
         log_write(stdout, L"\nInformation: Exit cyboi normally.\n");
 
         // Set return value to 0, to indicate proper shutdown.
-        r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        copy_integer((void*) &r, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     } else {
 

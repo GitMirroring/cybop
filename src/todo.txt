@@ -9,8 +9,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Decode inline and file_system
-        * Debug compilation errors
+        * Split "receive" functionality into "receive", "decode", "deserialise"
+            in modules "receive.c" and "standard_part_cybol_decoder.c"
+        * Clean up "file_system_receiver.c" from then superfluous source code
+        * Adapt "initialiser.c" to new "receive" functionality
+        * Rename "decode/encode" into "deserialise/serialise"
+        * Provide "decode/encode" functions for utf-8, utf-32 etc.
 
         * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"
         * Add logic cyboi integer constants as counterpart to cybol model constants (state and logic)
