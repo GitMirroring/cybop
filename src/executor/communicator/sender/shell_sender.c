@@ -92,7 +92,7 @@ void apply_send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     allocate((void*) &e, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
 
     // Encode serialised wide character array into encoded character array.
-    encode_utf_8_unicode_character_vector((void*) &e, (void*) &ec, (void*) &es, s, (void*) &sc);
+    encode_utf_8((void*) &e, (void*) &ec, (void*) &es, s, (void*) &sc);
 
     // Deallocate serialised wide character array.
     deallocate((void*) &s, (void*) &ss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

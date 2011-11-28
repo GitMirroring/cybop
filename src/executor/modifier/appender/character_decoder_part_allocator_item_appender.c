@@ -34,7 +34,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
+#include "../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../executor/modifier/appender/part_allocator_item_appender.c"
@@ -67,7 +67,7 @@ void append_item_allocate_part_decode_character(void* p0, void* p1, void* p2, vo
     allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Decode multibyte character array into wide character data.
-    decode_utf_8_unicode_character_vector((void*) &d, (void*) &c, (void*) &s, p3, p4);
+    decode_utf_8((void*) &d, (void*) &c, (void*) &s, p3, p4);
 
     // Allocate part with wide character data as model and append it to destination item.
     append_item_allocate_part(p0, p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, d, (void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);

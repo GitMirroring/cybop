@@ -36,7 +36,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/command_option/unix/shell_unix_command_option_name.c"
-#include "../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
+#include "../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../logger/logger.c"
 
 /**
@@ -89,7 +89,7 @@ void apply_execute(void* p0, void* p1) {
     allocate((void*) &ecl, (void*) &ecls, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode encoded shell command line.
-    encode_utf_8_unicode_character_vector((void*) &ecl, (void*) &eclc, (void*) &ecls, cl, (void*) &clc);
+    encode_utf_8((void*) &ecl, (void*) &eclc, (void*) &ecls, cl, (void*) &clc);
 
     // Deallocate shell command line.
     deallocate_array((void*) &cl, (void*) &cls, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

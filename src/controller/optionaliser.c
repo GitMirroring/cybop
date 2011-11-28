@@ -42,8 +42,8 @@
 #include "../constant/type/cyboi/logic_cyboi_type.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/comparator/all/array_all_comparator.c"
-#include "../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
-#include "../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
+#include "../executor/converter/decoder/utf/utf_8_decoder.c"
+#include "../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../executor/modifier/copier/integer_copier.c"
 #include "../executor/modifier/overwriter/array_overwriter.c"
 #include "../executor/modifier/overwriter/item_overwriter.c"
@@ -152,7 +152,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         allocate_array((void*) &t, (void*) &ts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Encode wide character option into multibyte character array.
-        encode_utf_8_unicode_character_vector((void*) &t, (void*) &tc, (void*) &ts, p1, p2);
+        encode_utf_8((void*) &t, (void*) &tc, (void*) &ts, p1, p2);
 
         // Add null termination character to terminated file name.
         overwrite_array((void*) &t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tc, (void*) &ts, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -431,7 +431,7 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
         oc = strlen((char*) o);
 
         // Decode multibyte command line argument option into wide character.
-        decode_utf_8_unicode_character_vector((void*) &ow, (void*) &owc, (void*) &ows, o, (void*) &oc);
+        decode_utf_8((void*) &ow, (void*) &owc, (void*) &ows, o, (void*) &oc);
 
     } else {
 
@@ -472,7 +472,7 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
             vc = strlen((char*) v);
 
             // Decode multibyte command line argument value into wide character.
-            decode_utf_8_unicode_character_vector((void*) &vw, (void*) &vwc, (void*) &vws, v, (void*) &vc);
+            decode_utf_8((void*) &vw, (void*) &vwc, (void*) &vws, v, (void*) &vc);
 
         } else {
 

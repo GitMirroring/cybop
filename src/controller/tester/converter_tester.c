@@ -30,9 +30,9 @@
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
+#include "../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../executor/converter/encoder/model_diagram/model_diagram_encoder.c"
-#include "../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
+#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../logger/logger.c"
 
 /**
@@ -215,9 +215,9 @@ void test_converter_decode_utf8() {
     // Allocate wide character model.
     allocate_array((void*) &wm, (void*) &wms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    decode_utf_8_unicode_character_vector((void*) &wm, (void*) &wmc, (void*) &wms, rm, (void*) &rmc);
+    decode_utf_8((void*) &wm, (void*) &wmc, (void*) &wms, rm, (void*) &rmc);
     //?? TEST only! DELETE LATER!
-//??    decode_utf_8_unicode_character_vector((void*) &wm, (void*) &wmc, (void*) &wms, (void*) ASCII_CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT);
+//??    decode_utf_8((void*) &wm, (void*) &wmc, (void*) &wms, (void*) ASCII_CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT);
 
     fwprintf(stdout, L"TEST wm: %ls\n", (wchar_t*) wm);
     fwprintf(stdout, L"TEST wmc: %i\n", wmc);

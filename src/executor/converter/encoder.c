@@ -43,7 +43,7 @@
 #include "../../executor/converter/encoder/model_diagram/model_diagram_encoder.c"
 #include "../../executor/converter/encoder/terminal/terminal_encoder.c"
 #include "../../executor/converter/encoder/utf/utf_16_unicode_character_encoder.c"
-#include "../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
+#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../executor/converter/encoder/xdt/xdt_encoder.c"
 #include "../../executor/converter/encoder/xml/xml_encoder.c"
 #include "../../executor/converter/encoder/x_window_system/x_window_system_encoder.c"

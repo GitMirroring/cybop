@@ -38,7 +38,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
+#include "../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../logger/logger.c"
 
@@ -173,7 +173,7 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4,
     allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode serialised wide character array into encoded character array.
-    encode_utf_8_unicode_character_vector((void*) &ed, (void*) &ec, (void*) &es, sd, (void*) &sc);
+    encode_utf_8((void*) &ed, (void*) &ec, (void*) &es, sd, (void*) &sc);
 
     // Deallocate serialised wide character array.
     deallocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

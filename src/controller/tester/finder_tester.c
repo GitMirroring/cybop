@@ -29,7 +29,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../executor/communicator/sender/file_system_sender.c"
 #include "../../executor/converter/encoder/model_diagram/model_diagram_encoder.c"
-#include "../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
+#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../executor/modifier/knowledge_getter/branch_part_getter.c"
 #include "../../executor/modifier/name_getter/part_name_getter.c"
 #include "../../executor/searcher/finder/array_finder.c"
@@ -176,7 +176,7 @@ void test_finder_part_hierarchical() {
     // Encode model into model diagram.
     encode_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, application);
     // Encode model diagram into multibyte character stream.
-    encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
+    encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
     // Write multibyte character stream as message to file system.
     send_file_system((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
 

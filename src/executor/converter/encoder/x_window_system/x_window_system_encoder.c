@@ -265,7 +265,7 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
             allocate_array((void*) &textd, (void*) &texts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Encode wide character name into text, which is a multibyte character array.
-            encode_utf_8_unicode_character_vector((void*) &textd, (void*) &textc, (void*) &texts, *m, *mc);
+            encode_utf_8((void*) &textd, (void*) &textc, (void*) &texts, *m, *mc);
 
             // Add null termination character to text.
             overwrite_array((void*) &textd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &textc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &textc, (void*) &texts, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -449,9 +449,9 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
         allocate_array((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
 
         // Encode wide character name into title, which is a multibyte character array.
-        encode_utf_8_unicode_character_vector((void*) &tt, ttc, tts, *tm, *tmc);
+        encode_utf_8((void*) &tt, ttc, tts, *tm, *tmc);
         // Encode wide character name into icon name, which is a multibyte character array.
-        encode_utf_8_unicode_character_vector((void*) &ti, tic, tis, *im, *imc);
+        encode_utf_8((void*) &ti, tic, tis, *im, *imc);
 
         if (*((int*) tts) <= *((int*) ttc)) {
 

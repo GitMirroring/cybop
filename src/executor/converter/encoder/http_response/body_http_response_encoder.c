@@ -58,7 +58,7 @@ void encode_http_response_body(void* p0, void* p1, void* p2, void* p3, void* p4,
     allocate_array((void*) &md, (void*) &ms, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode wide character array into multibyte character array.
-    encode_utf_8_unicode_character_vector((void*) &md, (void*) &mc, (void*) &ms, p3, p4);
+    encode_utf_8((void*) &md, (void*) &mc, (void*) &ms, p3, p4);
 
     append_item_element(p0, md, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef UTF_8_UNICODE_CHARACTER_DECODER_SOURCE
-#define UTF_8_UNICODE_CHARACTER_DECODER_SOURCE
+#ifndef UTF_8_ENCODER_SOURCE
+#define UTF_8_ENCODER_SOURCE
 
 #include <errno.h>
 #include <locale.h>
@@ -34,7 +34,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/memoriser/reallocator/array_reallocator.c"
+#include "../../../../executor/memoriser/reallocator/item_reallocator.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/conversion_type_size.c"
 
@@ -166,158 +166,134 @@
 //
 
 /**
- * Decodes the UTF-8 Unicode multibyte character data into UTF-32 Unicode wide character data.
+ * Encodes an UTF-32 wide character vector into an UTF-8 multibyte character stream.
  *
- * @param p0 the destination data (pointer reference)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source data
- * @param p4 the source count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void decode_utf_8_unicode_character_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void encode_utf_8(void* p0, void* p1, void* p2) {
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* sc = (int*) p4;
+        int* sc = (int*) p2;
 
-        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            char* s = (char*) p3;
+            void* s = p1;
 
-            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode UTF-8.");
 
-                int* ds = (int*) p2;
+            // The destination item data, count, size.
+            void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The new destination size.
+            int nds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Get destination item data, count, size.
+            copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &ds, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-                    int* dc = (int*) p1;
+            // Initialise new destination size.
+            //
+            // CAUTION! The "worst case" is assumed, i.e. that each source wide character
+            // represents a non-ascii character encoded by utf-8 with FOUR single bytes.
+            // Therefore, the destination size is adjusted accordingly.
+            // In case some source wide characters are ascii characters -- even better,
+            // since then less than four destination characters are used for encoding,
+            // and the destination character array will have LESS entries (count)
+            // than the destination size that was set before.
+            // In this case, the destination size will be too big,
+            // but that doesn't matter.
+            //
+            // CAUTION! Do NOT easily change the order of function calls.
+            // The source count multiplication has to be done BEFORE
+            // adding the old destination count value.
+            // CAUTION! The old destination count is added so that new
+            // elements are just appended but do not overwrite existing data.
+            calculate_integer_add((void*) &nds, p2);
+            calculate_integer_multiply((void*) &nds, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+            calculate_integer_add((void*) &nds, dc);
 
-                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Reallocate destination item.
+            reallocate_item(p0, (void*) &nds, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-                        wchar_t** d = (wchar_t**) p0;
+            // Set locale.
+            //
+            // Possible locales are: LANG, LC_CTYPE, ..., LC_ALL
+            // where LANG has the lowest and LC_ALL the highest priority.
+            // That is, if LC_ALL is specified, it overwrites e.g. the LC_CTYPE setting.
+            // If no value "" is given, the default will be used.
+            // Note, that LC_CTYPE suffices for the purpose of character conversion,
+            // since it is the category that applies to classification and conversion
+            // of characters, and to multibyte and wide characters.
+            //
+            // CAUTION! This setting is necessary for UTF-8 Unicode character conversion
+            // with restartable multibyte conversion functions like "mbsnrtowcs"
+            // and "wcsnrtombs" to work correctly.
+            // The return value is not used; this is a global setting.
+            char* loc = setlocale(LC_CTYPE, "");
 
-                        if (*dc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            // The state of the conversion.
+            //
+            // Certain character sets use a stateful encoding.
+            // That is, the encoded values depend in some way
+            // on the previous bytes in the text.
+            //
+            // Since the conversion functions allow converting a text
+            // in more than one step, there must be a way to pass this
+            // information from one call of the functions to another.
+            //
+            // A variable of type mbstate_t can contain all the
+            // information about the shift state needed from one call
+            // to a conversion function to another.
+            mbstate_t st;
 
-                            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-8 Unicode character vector.");
+            // Clear the whole conversion state variable.
+            //
+            // There is no specific function or initializer to put the
+            // state object in any specific state. The rules are that
+            // the object should always represent the initial state
+            // before the first use and this is achieved here.
+            memset((void*) &st, '\0', *MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE);
 
-                            // The new destination wide character vector size.
-                            //
-                            // CAUTION! The "worst case" is assumed, i.e. that each source character
-                            // represents an ascii character encoded by utf-8 with ONE single byte.
-                            // Therefore, the destination size is adjusted accordingly.
-                            // In case not all source characters are ascii characters -- even better,
-                            // since then more than just one source character were used for encoding,
-                            // and the destination wide character array will have LESS entries (count)
-                            // than the destination size that was set before.
-                            // In this case, the destination size will be too big, but can be reduced
-                            // to the actual destination count below, if so wanted.
-                            *ds = *dc + (*sc * *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+            // Initialise error number.
+            // It is a global variable/ function and other operations
+            // may have set some value that is not wanted here.
+            //
+            // CAUTION! Initialise the error number BEFORE calling the function
+            // that might cause an error.
+            errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                            // Reallocate destination wide character vector.
-                            reallocate_array(p0, p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            // Converts the wide character string into a multibyte character string.
+            //
+            // Except in the case of an encoding error, the return value is the
+            // number of bytes in all the multibyte character sequences stored
+            // in the destination.
+            int n = wcsnrtombs(dd, (void*) &s, *sc, *((int*) ds), &st);
 
-                            // Set locale.
-                            //
-                            // Possible locales are: LANG, LC_CTYPE, ..., LC_ALL
-                            // where LANG has the lowest and LC_ALL the highest priority.
-                            // That is, if LC_ALL is specified, it overwrites e.g. the LC_CTYPE setting.
-                            // If no value "" is given, the default will be used.
-                            // Note, that LC_CTYPE suffices for the purpose of character conversion,
-                            // since it is the category that applies to classification and conversion
-                            // of characters, and to multibyte and wide characters.
-                            //
-                            // CAUTION! This setting is necessary for UTF-8 Unicode character conversion
-                            // with restartable multibyte conversion functions like "mbsnrtowcs"
-                            // and "wcsnrtombs" to work correctly.
-                            // The return value is not used; this is a global setting.
-                            char* loc = setlocale(LC_CTYPE, "");
+            if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                            // The state of the conversion.
-                            //
-                            // Certain character sets use a stateful encoding.
-                            // That is, the encoded values depend in some way
-                            // on the previous bytes in the text.
-                            //
-                            // Since the conversion functions allow converting a text
-                            // in more than one step, there must be a way to pass this
-                            // information from one call of the functions to another.
-                            //
-                            // A variable of type mbstate_t can contain all the
-                            // information about the shift state needed from one call
-                            // to a conversion function to another.
-//??                            mbstate_t st;
-
-                            // Clear the whole conversion state variable.
-                            //
-                            // There is no specific function or initializer to put the
-                            // state object in any specific state. The rules are that
-                            // the object should always represent the initial state
-                            // before the first use and this is achieved here.
-//??                            memset((void*) &st, '\0', *MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE);
-
-                            // Initialise error number.
-                            // It is a global variable/ function and other operations
-                            // may have set some value that is not wanted here.
-                            //
-                            // CAUTION! Initialise the error number BEFORE calling the function
-                            // that might cause an error.
-                            errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                            // Converts the multibyte character string into a wide character string.
-                            //
-                            // Returns the number of wide characters converted.
-//??                            int n = mbsnrtowcs(*d, &s, *sc, *ds, &st);
-                            int n = mbsnrtowcs(*d, (const char**) &s, *sc, *ds, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-                            if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                // Increment destination count by the number of wide characters converted.
-                                *dc = *dc + n;
-
-                            } else {
-
-                                if (errno == EILSEQ) {
-
-        fwprintf(stdout, L"TEST ERROR EILSEQ errno: %i\n", errno);
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The input string contains an invalid multibyte sequence.");
-
-                                } else {
-
-        fwprintf(stdout, L"TEST ERROR UNKNOWN errno: %i\n", errno);
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. An unknown error occured.");
-                                }
-                            }
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination count is negative.");
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination is null.");
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination count is null.");
-                }
+                // Increment destination count by the number of MULTIBYTE characters converted.
+                calculate_integer_add(dc, (void*) &n);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The destination size is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The conversion failed, possibly because one of the wide characters in the input string has no valid multibyte character equivalent.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The source is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The source is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8 unicode character stream. The source count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The source count is null.");
     }
 }
 
-/* UTF_8_UNICODE_CHARACTER_DECODER_SOURCE */
+/* UTF_8_ENCODER_SOURCE */
 #endif

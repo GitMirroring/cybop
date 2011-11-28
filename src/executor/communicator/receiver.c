@@ -49,19 +49,21 @@
  * CAUTION! Do NOT rename this function to "read",
  * as that name is already used for glibc library's input.
  *
- * CAUTION! Some file formats (like the German xDT format for medical data exchange)
- * contain both, the model AND the properties, in one file. To cover these cases,
- * the model AND properties are received TOGETHER, in just one operation.
+ * CAUTION! Some file formats (like the German xDT format for
+ * medical data exchange or HTTP requests/ responses) contain both,
+ * the model AND the properties, in one file. To cover these cases,
+ * the model AND properties are processed TOGETHER, in just one function.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
  * @param p4 the type
- * @param p5 the channel
+ * @param p5 the encoding
  * @param p6 the internal memory array
+ * @param p7 the channel
  */
-void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
@@ -71,7 +73,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) CYBOI_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) CYBOI_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -99,7 +101,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -108,7 +110,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             // CAUTION! The properties are handed over as well, since sometimes,
             // they are read from the message together with the model, for
             // example when converting from a file in xdt format.
-            receive_file_system(p0, p1, p2, p3, p4);
+            receive_file_system(p0, p1, p2, p3, p4, p5);
 
             // Receive properties by reading meta message data.
             //
@@ -135,7 +137,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -157,34 +159,21 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Receive model by reading message data.
             //
-            // CAUTION! The properties are handed over as well, since sometimes,
-            // they are read from the message together with the model, for
-            // example when converting from a file in xdt format.
+            // CAUTION! The properties are handed over as well,
+            // since the model might also contain meta data.
             receive_inline(p0, p1, p2, p3, p4);
-
-            //?? TODO: The following comment is outdated and may possibly be deleted.
-            // CAUTION! Do NOT try to receive meta data here!
-            // When calling the following function:
-            // communicate_receiving_inline(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p16, p17, p18, p19);
-            // for some unclear reason the destination array is replaced and returned as null,
-            // if source data do not exist. The normal behaviour, however, would be that
-            // the destination array is left untouched if the source data are empty.
-            // This has probably something to do with the function "replace_wide_character_vector",
-            // but is this unclear.
-            // It has not been investigated further, since inline data receiving does not
-            // use meta data anyway, so that this will probably never be needed.
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) WWW_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) WWW_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -198,7 +187,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

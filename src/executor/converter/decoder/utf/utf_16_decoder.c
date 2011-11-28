@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef UTF_16_UNICODE_CHARACTER_ENCODER_SOURCE
-#define UTF_16_UNICODE_CHARACTER_ENCODER_SOURCE
+#ifndef UTF_16_DECODER_SOURCE
+#define UTF_16_DECODER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -74,18 +74,16 @@
 //
 
 /**
- * Encodes an UTF-32 Unicode wide character array into an UTF-16 Unicode character stream.
+ * Decodes the UTF-16 character data into UTF-32 wide character data.
  *
- * @param p0 the destination UTF-16 Unicode character stream (pointer reference)
- * @param p1 the destination UTF-16 Unicode character stream count
- * @param p2 the destination UTF-16 Unicode character stream size
- * @param p3 the source wide character array
- * @param p4 the source wide character array count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void encode_utf_16_unicode_character_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void decode_utf_16(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode UTF-16 Unicode character stream.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-16.");
 }
 
-/* UTF_16_UNICODE_CHARACTER_ENCODER_SOURCE */
+/* UTF_16_DECODER_SOURCE */
 #endif

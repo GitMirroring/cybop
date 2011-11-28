@@ -37,26 +37,26 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/terminal/stream_terminal_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
-#include "../../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
+#include "../../../executor/converter/decoder/utf/utf_8_decoder.c"
+#include "../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../logger/logger.c"
 
 /**
  * Receives a file stream.
  *
- * @param p0 the destination data (pointer reference)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source file stream
+ * @param p0 the destination item
+ * @param p1 the source file stream
  */
-void receive_file_stream(void* p0, void* p1, void* p2, void* p3) {
+void receive_file_stream(void* p0, void* p1) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive file stream.");
 
         // Read first character.
-        char c = fgetc(p3);
+        char c = fgetc(p1);
 
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -65,30 +65,27 @@ void receive_file_stream(void* p0, void* p1, void* p2, void* p3) {
                 break;
             }
 
-            // Set character into destination data.
-            // The destination count serves as array index for setting the character.
-            overwrite_array(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Append character to destination data.
+            append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Read next character.
-            c = fgetc(p3);
+            c = fgetc(p1);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive file stream. The file is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive file stream. The file stream is null.");
     }
 }
 
 /**
- * Receives a file and writes it into a byte array.
+ * Receives a file.
  *
- * @param p0 the destination data (pointer reference)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source data (file name)
- * @param p4 the source count
+ * @param p0 the destination item
+ * @param p1 the source data (file name)
+ * @param p2 the source count
  */
-void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_file(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive file.");
 
@@ -99,45 +96,49 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The given string is not a file name, but specifies the "standard_input".
             f = stdin;
 
-            receive_file_stream(p0, p1, p2, (void*) f);
+            receive_file_stream(p0, (void*) f);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // If the given name does not match the standard input, then interpret it as file name.
+        // If the given name does not match the standard input,
+        // then interpret it as file name.
 
-        // The terminated file name.
-        void* tnd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        int tnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        int tns = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The terminated file name item.
+        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The terminated file name item data.
+        void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Allocate terminated file name.
-        allocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        // Allocate terminated file name item.
+        allocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Get terminated file name item data.
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
         // Encode wide character name into multibyte character array.
-        encode_utf_8_unicode_character_vector((void*) &tnd, (void*) &tnc, (void*) &tns, p3, p4);
+        encode_utf_8(t, p1, p2);
 
-        // Add null termination character to terminated file name.
-        overwrite_array((void*) &tnd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tnc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tnc, (void*) &tns, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Add null termination character.
+        append_item_element(t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Open file.
-        // CAUTION! The file name cannot be handed over as is.
+        // CAUTION! The file name CANNOT be handed over as is.
         // CYBOI strings are NOT terminated with the null character '\0'.
         // Since 'fopen' expects a null terminated string, the termination character
         // must be added to the string before that is used to open the file.
-        f = fopen((char*) tnd, "r");
+        f = fopen((char*) td, "r");
 
         if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            receive_file_stream(p0, p1, p2, (void*) f);
+            receive_file_stream(p0, (void*) f);
 
             // Close file.
             // CAUTION! Check file for null pointer above
@@ -149,8 +150,8 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive file. The file is null.");
         }
 
-        // Deallocate terminated file name.
-        deallocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        // Deallocate terminated file name item.
+        deallocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
 
@@ -162,48 +163,51 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p2 the source data (file name)
  * @param p3 the source count
  * @param p4 the type
+ * @param p5 the encoding
  */
-void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive file system.");
 
-    // The encoded data, count, size.
+    // The encoded message item.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The decoded message item.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded message item data, count.
     void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int es = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate encoded data.
-    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    fwprintf(stdout, L"TEST filename: %ls\n", (wchar_t*) p2);
-    fwprintf(stdout, L"TEST filename count: %i\n", *((int*) p3));
-
-    // Write file into encoded data.
-    receive_file((void*) &ed, (void*) &ec, (void*) &es, p2, p3);
-
-    fwprintf(stdout, L"TEST char: %s\n", (char*) ed);
-
-    // The decoded data, count, size.
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The decoded message item data, count.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate decoded data.
-    allocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate encoded message item.
+    allocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate decoded message item.
+    allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Decode encoded data into decoded data.
-    decode_utf_8_unicode_character_vector((void*) &dd, (void*) &dc, (void*) &ds, ed, (void*) &ec);
+    // Get encoded message item data, count.
+    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get decoded message item data, count.
+    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST w_char: %ls\n", (wchar_t*) dd);
+fwprintf(stdout, L"TEST filename: %ls\n", (wchar_t*) p2);
+fwprintf(stdout, L"TEST filename count: %i\n", *((int*) p3));
 
-    // Deallocate encoded data.
-    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Receive byte data via channel.
+    receive_file(e, p2, p3);
+fwprintf(stdout, L"TEST ed: %s\n", (char*) ed);
+    // Decode data via encoding.
+    decode(d, ed, ec, p5);
+fwprintf(stdout, L"TEST dd: %ls\n", (wchar_t*) dd);
+    // Deserialise data via type (language).
+    decode_data(p0, p1, dd, dc, p4);
 
-    // Deserialise decoded data into destination model and properties.
-//??    decode(p0, p1, dd, (void*) &dc, p4);
-
-    // Deallocate decoded data.
-    deallocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate byte message item.
+    deallocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate decoded message item.
+    deallocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

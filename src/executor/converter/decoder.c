@@ -47,7 +47,7 @@
 #include "../../executor/converter/decoder/terminal/terminal_decoder.c"
 #include "../../executor/converter/decoder/uri/uri_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_16_unicode_character_decoder.c"
-#include "../../executor/converter/decoder/utf/utf_8_unicode_character_decoder.c"
+#include "../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../executor/converter/decoder/xdt/xdt_decoder.c"
 #include "../../executor/converter/decoder/xml/xml_decoder.c"
 
@@ -93,10 +93,10 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode.");
 
-    // CAUTION! Cybol logic operations have an EMPTY model.
+    // CAUTION! Cybol operations have an EMPTY model.
     // Hence, they do NOT have to be considered here.
-    // Their parametres were already converted into properties
-    // while having been decoded from cybol.
+    // Their parametres were already converted into
+    // properties while being decoded from cybol.
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -171,7 +171,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Allocate multibyte character stream.
             allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
-            encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
+            encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
             void* fn = L"TEST_DECODER_HTTP_REQUEST.txt";
             int fnc = *NUMBER_29_INTEGER_STATE_CYBOI_MODEL;
@@ -233,7 +233,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Allocate multibyte character stream.
             allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
-            encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
+            encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
             void* fn = L"TEST_HTTP_RESPONSE_CYBOL.txt";
             int fnc = *NUMBER_28_INTEGER_STATE_CYBOI_MODEL;
@@ -273,7 +273,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Allocate multibyte character stream.
             allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
-            encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
+            encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // Reset file name.
             fn = L"TEST_HTTP_RESPONSE_COMPOUND.txt";
             fnc = *NUMBER_31_INTEGER_STATE_CYBOI_MODEL;
@@ -421,7 +421,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Allocate multibyte character stream.
             allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
-            encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
+            encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
             void* fn = L"TEST_DECODER_XML.txt";
             int fnc = *NUMBER_20_INTEGER_STATE_CYBOI_MODEL;
@@ -462,7 +462,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Allocate multibyte character stream.
             allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
-            encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
+            encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // Reset file name.
             fn = L"TEST_DECODER_CYBOL.txt";
             fnc = *NUMBER_22_INTEGER_STATE_CYBOI_MODEL;
@@ -540,7 +540,7 @@ void decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Allocate multibyte character stream.
             allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Encode model diagram into multibyte character stream.
-            encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
+            encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
             // The file name.
             void* fn = L"TEST_DECODER_URI.txt";
             int fnc = *NUMBER_20_INTEGER_STATE_CYBOI_MODEL;

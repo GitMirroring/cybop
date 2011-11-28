@@ -71,7 +71,7 @@ void encode_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void
     allocate_array((void*) &ad, (void*) &as, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode body wide character array into body multibyte character array.
-    encode_utf_8_unicode_character_vector((void*) &a, (void*) &ac, (void*) &as, p5, p6);
+    encode_utf_8((void*) &a, (void*) &ac, (void*) &as, p5, p6);
 
     encode_http_response_protocol(p0, p1, p2, p9, p10, p11, p12, p13, p14);
     overwrite_array(p0, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

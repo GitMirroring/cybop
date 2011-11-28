@@ -35,7 +35,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../executor/converter/encoder/utf/utf_8_unicode_character_encoder.c"
+#include "../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/reallocation_factor.c"
 
@@ -261,7 +261,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 allocate_array((void*) &tnd, (void*) &tns, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                 // Encode wide character option into multibyte character array.
-                encode_utf_8_unicode_character_vector((void*) &tnd, (void*) &tnc, (void*) &tns, *d, p1);
+                encode_utf_8((void*) &tnd, (void*) &tnc, (void*) &tns, *d, p1);
 
                 // Add null termination character to terminated file name.
                 overwrite_array((void*) &tnd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tnc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tnc, (void*) &tns, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -358,7 +358,7 @@ void send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode serialised wide character array into encoded character array.
-    encode_utf_8_unicode_character_vector((void*) &ed, (void*) &ec, (void*) &es, sd, (void*) &sc);
+    encode_utf_8((void*) &ed, (void*) &ec, (void*) &es, sd, (void*) &sc);
 
     // Deallocate serialised wide character array.
     deallocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

@@ -19,7 +19,7 @@
 2011-11-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug compilation errors
-        * Prepare data reception from file and in general
+        * Structure "receive" functionality into "receive", "decode", "deserialise"
 
 2011-11-26  Christian Heller  <christian.heller@tuxtax.de>
 

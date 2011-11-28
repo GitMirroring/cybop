@@ -102,12 +102,15 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     // The socket communication style part model.
     void* stm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The channel part model data.
+    // The channel part model data, count.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoding part model data.
+    void* cmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoding part model data, count.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part model data, count.
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model data, count.
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -175,40 +178,27 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &stmd, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &stmc, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // The encoded message item.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The decoded message item.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoded message item data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The decoded message item data, count.
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
+    // Convert some cybol source data (strings) into cyboi destination data (integer).
+    //
 
-    // Allocate encoded message item.
-    allocate_item((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate decoded message item.
-    allocate_item((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // The destination channel.
+    int dc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination encoding.
+    int de = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination type cybol form.
+    // CAUTION! This is a cyboi integer representing a cybol mime type.
+    int dtc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get encoded message item data, count.
-    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get decoded message item data, count.
-    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Decode cybol source channel into cyboi destination channel.
+    decode_cybol_channel((void*) &dc, cmd, cmc);
+    // Decode cybol source encoding into cyboi destination encoding.
+    decode_cybol_encoding((void*) &de, emd, emc);
+    // Decode cybol source type into cybol cyboi destination type.
+    decode_cybol_type((void*) &dtc, tmd, tmc);
 
-    // Receive data via channel.
-    receive_data(e, mmd, mmc, p3, cmd);
-    // Decode data via encoding.
-    decode(d, ed, ec, emd);
-    // Deserialise data via type (language).
-    decode_data(mom, mod, dd, dc, lmd);
-
-    // Deallocate encoded message item.
-    deallocate_item((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate decoded message item.
-    deallocate_item((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Receive data.
+    receive_data(mom, mod, mmd, mmc, (void*) &dtc, (void*) &de, p3, (void*) &dc);
 
 /*??
 //?? TEST BEGIN
@@ -229,7 +219,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     // Allocate multibyte character stream.
     allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
     // Encode model diagram into multibyte character stream.
-    encode_utf_8_unicode_character_vector((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
+    encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
     // The file name.
     void* fn = L"TEST_RECEIVING_COMMUNICATOR.txt";
     int fnc = *NUMBER_27_INTEGER_STATE_CYBOI_MODEL;

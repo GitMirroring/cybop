@@ -48,8 +48,6 @@ void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive inline.");
 
     // CAUTION! Do NOT try to decode from UTF-8 or other formats here!
-    // In other words, do NOT call a function such as this:
-    // decode_utf_8_unicode_character_vector((void*) &wm, (void*) &wmc, (void*) &wms, rm, (void*) &rmc);
     //
     // The reason is that each cybol file is already decoded from a multibyte
     // character array into a wide character array at once when being read.
@@ -57,7 +55,7 @@ void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // evaluated as inline wide character array.
 
     // Decode data array according to given document type.
-//??    decode(p0, p1, p2, p3, p4);
+    decode(p0, p1, p2, p3, p4);
 }
 
 /* INLINE_RECEIVER_SOURCE */
