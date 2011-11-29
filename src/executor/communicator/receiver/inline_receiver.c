@@ -28,11 +28,13 @@
 
 #include <stdio.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../logger/logger.c"
+
+//
+// Forward declarations.
+//
+
+void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Receives the inline stream and writes it into an array.
@@ -55,7 +57,7 @@ void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // evaluated as inline wide character array.
 
     // Decode data array according to given document type.
-    decode(p0, p1, p2, p3, p4);
+    deserialise(p0, p1, p2, p3, p4);
 }
 
 /* INLINE_RECEIVER_SOURCE */

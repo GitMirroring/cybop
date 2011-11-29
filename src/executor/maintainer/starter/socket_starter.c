@@ -187,7 +187,7 @@ void startup_socket_get_style(void* p0, void* p1, void* p2) {
  * Gets the host address.
  *
  * @param p0 the ipv4 or ipv6 host address, depending on the address namespace (pointer reference)
- * @param p1 the address model
+ * @param p1 the address model data
  * @param p2 the address model count
  * @param p3 the address namespace
  */
@@ -296,26 +296,31 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
             // If none of the above address models was found, then the given
             // address is supposed to be the host address directly.
 
-            // The terminated address.
+            // The terminated address item.
+            void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The terminated address item data, count.
             void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            int ss = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            // Allocate terminated address.
-            allocate_array((void*) &sd, (void*) &ss, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            // Allocate terminated address item.
+            allocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+            // Get terminated address item data, count.
+            copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             // Encode wide character name into multibyte character array.
-            encode_utf_8((void*) &sd, (void*) &sc, (void*) &ss, p1, p2);
+            encode_utf_8(s, p1, p2);
 
-            // Add null termination character to terminated address.
-            overwrite_array((void*) &sd, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &sc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &sc, (void*) &ss, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Add null termination character.
+            append_item_element(s, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Convert uint16_t integer hostshort from host byte order
             // to network byte order.
             inet_pton(*((int*) p3), (char*) sd, p0);
 
-            // Deallocate terminated address.
-            deallocate_array((void*) &sd, (void*) &ss, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            // Deallocate terminated address item.
+            deallocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
 
     } else {

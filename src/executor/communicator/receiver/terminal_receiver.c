@@ -95,7 +95,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                         //
                         // CAUTION! The multibyte- is converted to a wide character internally,
                         // so that the return value of type "wint_t" may be casted to "wchar_t".
-                        // Function calls to "decode_utf_8_unicode_character_vector" are therefore NOT necessary here!
+                        // Function calls to "decode_utf_8" are therefore NOT necessary here!
                         *c = fgetwc(s);
 
                         // Unlock terminal mutex.
@@ -288,10 +288,10 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     receive_terminal((void*) &a, (void*) &ac, (void*) &as, p12, p17);
 
     // CAUTION! The multibyte- is converted to a wide character internally (in glibc function "fgetwc").
-    // Function calls to "decode_utf_8_unicode_character_vector" are therefore NOT necessary here!
+    // Function calls to "decode_utf_8" are therefore NOT necessary here!
 
     // Decode character array into command.
-    decode(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, a, (void*) &ac, p15, p16, (void*) TERMINAL_CYBOL_CHANNEL, (void*) TERMINAL_CYBOL_CHANNEL_COUNT);
+    deserialise(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, a, (void*) &ac, p15, p16, (void*) TERMINAL_CYBOL_CHANNEL, (void*) TERMINAL_CYBOL_CHANNEL_COUNT);
 
     // Deallocate character array.
     deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

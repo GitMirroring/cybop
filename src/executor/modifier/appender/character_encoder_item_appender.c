@@ -49,24 +49,29 @@
  * @param p1 the source data
  * @param p2 the source data count
  */
-void append_item_encode_character(void* p0, void* p1, void* p2) {
+void append_item_serialise_character(void* p0, void* p1, void* p2) {
 
-    // The character data, count, size.
+    // The character item.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The character item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate character data.
-    allocate_array((void*) &d, (void*) &s, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate character item.
+    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Get character item data, count.
+    copy_array_forward((void*) &d, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Encode wide character array into multibyte character data.
-    encode_utf_8((void*) &d, (void*) &c, (void*) &s, p1, p2);
+    encode_utf_8(i, p1, p2);
 
     // Append character data to destination.
-    append_item_element(p0, d, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, d, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-    // Deallocate character data.
-    deallocate_array((void*) &d, (void*) &s, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate character item.
+    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* CHARACTER_ENCODER_ITEM_APPENDER_SOURCE */

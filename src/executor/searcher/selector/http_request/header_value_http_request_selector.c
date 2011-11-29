@@ -31,8 +31,8 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http/separator_http_name.c"
-#include "../../../../executor/converter/decoder/http_request/body_http_request_decoder.c"
-//?? #include "../../../../executor/converter/decoder/http_request/header_argument_http_request_decoder.c"
+#include "../../../../executor/representer/deserialiser/http_request/body_http_request_deserialiser.c"
+//?? #include "../../../../executor/representer/deserialiser/http_request/header_argument_http_request_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -42,7 +42,7 @@
 // Forward declarations.
 //
 
-void decode_http_request_header_argument(void* p0, void* p1, void* p2, void* p3);
+void deserialise_http_request_header_argument(void* p0, void* p1, void* p2, void* p3);
 
 //
 // CAUTION! This comment is valid for all "select" functions below.
@@ -99,7 +99,7 @@ void select_http_request_header_value(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_http_request_body(p0, p1, p3, p4);
+            deserialise_http_request_body(p0, p1, p3, p4);
 
             // Set break flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -112,7 +112,7 @@ void select_http_request_header_value(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_http_request_header_argument(p0, p1, p3, p4);
+            deserialise_http_request_header_argument(p0, p1, p3, p4);
 
             // Set break flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

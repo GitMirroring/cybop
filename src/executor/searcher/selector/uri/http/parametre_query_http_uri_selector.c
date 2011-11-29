@@ -32,7 +32,7 @@
 #include "../../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
 #include "../../../../../constant/name/uri/separator_uri_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/converter/decoder/uri/http/fragment_http_uri_decoder.c"
+#include "../../../../../executor/representer/deserialiser/uri/http/fragment_http_uri_deserialiser.c"
 #include "../../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../../logger/logger.c"
@@ -42,7 +42,7 @@
 // Forward declarations.
 //
 
-void decode_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3);
+void deserialise_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3);
 
 /**
  * Selects the http uri query parametre.
@@ -70,7 +70,7 @@ void select_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_http_uri_query_parametre(p0, p1, p3, p4);
+            deserialise_http_uri_query_parametre(p0, p1, p3, p4);
 
             // Set break flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

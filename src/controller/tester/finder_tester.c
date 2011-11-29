@@ -28,7 +28,7 @@
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../executor/communicator/sender/file_system_sender.c"
-#include "../../executor/converter/encoder/model_diagram/model_diagram_encoder.c"
+#include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../executor/modifier/knowledge_getter/branch_part_getter.c"
 #include "../../executor/modifier/name_getter/part_name_getter.c"
@@ -174,7 +174,7 @@ void test_finder_part_hierarchical() {
     allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode model into model diagram.
-    encode_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, application);
+    serialise_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, application);
     // Encode model diagram into multibyte character stream.
     encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
     // Write multibyte character stream as message to file system.

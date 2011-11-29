@@ -36,7 +36,7 @@
 #include "../../../constant/name/cybol/separator_cybol_name.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../executor/comparator/all/item_all_comparator.c"
-#include "../../../executor/converter/decoder/wide_character_type_decoder.c"
+#include "../../../executor/representer/deserialiser/wide_character_type_deserialiser.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../logger/logger.c"

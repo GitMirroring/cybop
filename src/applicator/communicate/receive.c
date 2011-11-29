@@ -191,11 +191,11 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     int dtc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Decode cybol source channel into cyboi destination channel.
-    decode_cybol_channel((void*) &dc, cmd, cmc);
+    deserialise_cybol_channel((void*) &dc, cmd, cmc);
     // Decode cybol source encoding into cyboi destination encoding.
-    decode_cybol_encoding((void*) &de, emd, emc);
+    deserialise_cybol_encoding((void*) &de, emd, emc);
     // Decode cybol source type into cybol cyboi destination type.
-    decode_cybol_type((void*) &dtc, tmd, tmc);
+    deserialise_cybol_type((void*) &dtc, tmd, tmc);
 
     // Receive data.
     receive_data(mom, mod, mmd, mmc, (void*) &dtc, (void*) &de, p3, (void*) &dc);
@@ -209,7 +209,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     // Allocate model diagram.
     allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Encode model into model diagram.
-    encode_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
+    serialise_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
         *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
         p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // The multibyte character stream.

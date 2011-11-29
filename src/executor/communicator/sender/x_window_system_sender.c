@@ -119,7 +119,7 @@ void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4
 //??    fwprintf(stdout, L"TEST send x 0: %i\n", p0);
 
     // Encode compound model into x window system window.
-    encode_x_window_system(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4);
+    serialise_x_window_system(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4);
 
     // The display, which is a subsumption of
     // xserver, screens, hardware (input devices etc.).
@@ -137,7 +137,7 @@ void apply_send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4
 
     pthread_mutex_unlock(*xmt);
 
-    // TODO?? Destroy here ALL other things that were created in encode_x_window_system!!
+    // TODO?? Destroy here ALL other things that were created in serialise_x_window_system!!
 }
 
 /* X_WINDOW_SYSTEM_SENDER_SOURCE */

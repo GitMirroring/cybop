@@ -56,24 +56,29 @@
  * @param p3 the source model
  * @param p4 the source model count
  */
-void append_item_allocate_part_decode_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void append_item_allocate_part_deserialise_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    // The wide character data, count, size.
+    // The wide character item.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The wide character item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate wide character data.
-    allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate wide character item.
+    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Decode multibyte character array into wide character data.
-    decode_utf_8((void*) &d, (void*) &c, (void*) &s, p3, p4);
+    // Get wide character item data, count.
+    copy_array_forward((void*) &d, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Decode multibyte character array into wide character item.
+    decode_utf_8(i, p3, p4);
 
     // Allocate part with wide character data as model and append it to destination item.
-    append_item_allocate_part(p0, p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, d, (void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    append_item_allocate_part(p0, p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, d, c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    // Deallocate wide character data.
-    deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate wide character item.
+    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* CHARACTER_DECODER_PART_ALLOCATOR_ITEM_APPENDER_SOURCE */

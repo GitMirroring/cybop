@@ -266,7 +266,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode(p0, p1);
+            deserialise(p0, p1);
         }
     }
 
@@ -276,7 +276,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            encode(p0, p1);
+            serialise(p0, p1);
         }
     }
 

@@ -138,13 +138,33 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal.");
 
-    // The serialised wide character array.
+    // The serialised wide character item.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded character item.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded character item data, count.
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serialised wide character item data, count.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ss = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal output stream.
+    void** op = NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
-    allocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate encoded character item.
+    // CAUTION! Use a standard (non-wide) character vector here,
+    // because the source is handed over as utf-8 encoded multibyte characters
+    // and will be forwarded as such to the gnu linux console!
+    allocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Get serialised wide character item data, count.
+    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get encoded character item data, count.
+    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     if (p9 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -152,43 +172,27 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4,
 
         if (*f != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            overwrite_array((void*) &sd, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) &sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &sc, (void*) &ss, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            overwrite_array((void*) &sd, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) &sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &sc, (void*) &ss, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            append_item_element(s, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(s, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
     // Encode textual user interface (tui) into array.
-    encode_terminal((void*) &sd, (void*) &sc, (void*) &ss, p1, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7, p8, p11, p12);
-
-    // The encoded character array.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int es = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate encoded character array.
-    //
-    // CAUTION! Use a standard (non-wide) character vector here,
-    // because the source is handed over as utf-8 encoded multibyte characters
-    // and will be forwarded as such to the gnu linux console!
-    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    serialise_terminal(s, p1, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7, p8, p11, p12);
 
     // Encode serialised wide character array into encoded character array.
-    encode_utf_8((void*) &ed, (void*) &ec, (void*) &es, sd, (void*) &sc);
-
-    // Deallocate serialised wide character array.
-    deallocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // The terminal output stream.
-    void** op = NULL_POINTER_STATE_CYBOI_MODEL;
+    encode_utf_8(e, sd, sc);
 
     // Get terminal output stream.
     get_array_elements((void*) &op, p0, (void*) TERMINAL_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE);
 
     // Send encoded array as message to shell standard output.
-    send_terminal_sequence((void*) op, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, ed, (void*) &ec);
+    send_terminal_sequence((void*) op, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, ed, ec);
 
-    // Deallocate encoded character array.
-    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate serialised wide character item.
+    deallocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate encoded character item.
+    deallocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* TERMINAL_SENDER_SOURCE */

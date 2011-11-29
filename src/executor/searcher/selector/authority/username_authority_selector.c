@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/authority/separator_authority_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/converter/decoder/authority/password_authority_decoder.c"
+#include "../../../../executor/representer/deserialiser/authority/password_authority_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -63,7 +63,7 @@ void select_authority_username(void* p0, void* p1, void* p2, void* p3, void* p4)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_authority_password(p0, p1, p3, p4);
+            deserialise_authority_password(p0, p1, p3, p4);
 
             // Set break flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

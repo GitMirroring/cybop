@@ -87,7 +87,7 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     allocate_model((void*) &ad, (void*) &as, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode source knowledge model into array.
-    encode((void*) &ad, (void*) &ac, (void*) &as, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16);
+    serialise((void*) &ad, (void*) &ac, (void*) &as, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16);
 
 /*??
     fwprintf(stdout, L"TEST sending inline a: %ls\n", (wchar_t*) a);

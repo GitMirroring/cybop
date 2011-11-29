@@ -9,12 +9,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Use item instead of array for decoding/encoding utf-8
+        * Adapt files in directory "executor/converter/encoder/"
         * Correct parametres handed over to sub routines in "controller/handler/operation_handler.c"
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
             in file "socket_starter.c" to new model constants
         * Adapt file "http_request_selector.c" or delete if not needed anymore
-        * Adapt files in directory "executor/converter/encoder/" (continue with "terminal")
 
         * Offer part deallocation shallow and deep
             (deep is not always wanted, if a child is referenced by many parts)
@@ -106,9 +105,6 @@
 
         * Use recursion instead of loop at several places in source code,
             in order to improve runtime speed
-
-        * Rename "decode/encode" into "deserialise/serialise"?
-        * Provide "decode/encode" functions for utf-8, utf-32 etc.?
 
         * Search for "??" (places that are left TODO) and clean up source code
 

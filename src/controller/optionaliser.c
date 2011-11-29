@@ -141,21 +141,26 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         // Comment out this function call to avoid disturbing messages at system startup!
         // log_write((void*) stdout, L"Debug: Optionalise log file.\n");
 
-        // The terminated file name.
+        // The terminated file name item.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-        int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        int ts = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The terminated file name item data, count.
+        void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Allocate terminated file name as multibyte character array.
+        // Allocate terminated file name item.
         // CAUTION! Do NOT use a wide character array here!
         // The glibc file stream functions below expect standard (multibyte) character arrays.
-        allocate_array((void*) &t, (void*) &ts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        allocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Get terminated file name item data, count.
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
         // Encode wide character option into multibyte character array.
-        encode_utf_8((void*) &t, (void*) &tc, (void*) &ts, p1, p2);
+        encode_utf_8(t, p1, p2);
 
         // Add null termination character to terminated file name.
-        overwrite_array((void*) &t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &tc, (void*) &ts, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        append_item_element(t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Open log file for writing only.
         // If the file already exists, it is truncated to zero length.
@@ -165,7 +170,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         // library functions. The library creates objects of type FILE.
         // Programs should deal only with pointers to these objects (FILE* values),
         // rather than the objects themselves.
-        *f = fopen((char*) t, "w");
+        *f = fopen((char*) td, "w");
 
         if (*f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -175,7 +180,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
             int g = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Set file owner.
-            chown((char*) t, o, g);
+            chown((char*) td, o, g);
 
             // The file access rights.
             //?? TODO: When trying to cross-compile cyboi for windows,
@@ -183,7 +188,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
             int r = S_IRUSR | S_IWUSR; //?? | S_IRGRP | S_IWGRP;
 
             // Set file access rights.
-            chmod((char*) t, r);
+            chmod((char*) td, r);
 
         } else {
 
@@ -192,8 +197,8 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
             log_write((void*) stdout, L"Error: Could not optionalise log file. An error occured when trying to open or create the file for writing.\n");
         }
 
-        // Deallocate terminated file name as multibyte character array.
-        deallocate_array((void*) &t, (void*) &ts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        // Deallocate terminated file name item.
+        deallocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     } else {
 
@@ -374,7 +379,7 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
  * @param p5 the arguments count
  * @param p6 the index
  */
-void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
@@ -382,7 +387,6 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
     // log_write((void*) stdout, L"Information: Optionalise command line argument.\n");
 
     // The value index, which is equal to the loop variable increased by one.
-    //
     // CAUTION! Do NOT misuse the index parametre *j handed over to this function!
     // The parametre j is the loop index and MUST NOT be altered here!
     // Therefore, a new local variable i is introduced.
@@ -390,24 +394,29 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
     // The command line argument option as multibyte character array.
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
     int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The option as wide character array.
-    void* ow = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int owc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ows = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The command line argument value as multibyte character array.
     void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
     int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The value as wide character array.
+    // The option, value as wide character item.
+    void* ow = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* vw = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int vwc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int vws = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The option, value as wide character item data, count.
+    void* owd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* owc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* vwd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* vwc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Allocate option as wide character array.
-    allocate_array((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate value as wide character array.
-    allocate_array((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate option, value wide character item.
+    allocate_item((void*) &ow, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &vw, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Get option, value wide character item data, count.
+    copy_array_forward((void*) &owd, ow, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &owc, ow, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &vwd, vw, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &vwc, vw, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Get command line argument option.
     // Example: "--loglevel"
@@ -431,7 +440,7 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
         oc = strlen((char*) o);
 
         // Decode multibyte command line argument option into wide character.
-        decode_utf_8((void*) &ow, (void*) &owc, (void*) &ows, o, (void*) &oc);
+        decode_utf_8(ow, o, (void*) &oc);
 
     } else {
 
@@ -446,7 +455,7 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
 
     // CAUTION! It was already tested through the loop break flag that
     // the index handed over as parametre to here lies within the array.
-    // However, the value belonging to an option has an index which
+    // However, the value belonging to an option has an index which is
     // INCREASED BY ONE, so that it might lie OUTSIDE the argument array.
     // Therefore, that incremented index is tested here again,
     // in order to avoid an access violation error!
@@ -472,7 +481,7 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
             vc = strlen((char*) v);
 
             // Decode multibyte command line argument value into wide character.
-            decode_utf_8((void*) &vw, (void*) &vwc, (void*) &vws, v, (void*) &vc);
+            decode_utf_8(vw, v, (void*) &vc);
 
         } else {
 
@@ -485,12 +494,11 @@ void optionalise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
     // Optionalise the option and its value.
     // CAUTION! The value gets handed over as reference, as it gets
     // copied for the cybol knowledge file name.
-    optionalise_option(p0, p1, p2, p3, vw, (void*) &vwc, ow, (void*) &owc);
+    optionalise_option(p0, p1, p2, p3, vwd, vwc, owd, owc);
 
-    // Deallocate option as wide character array.
-    deallocate_array((void*) &ow, (void*) &ows, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate value as wide character array.
-    deallocate_array((void*) &vw, (void*) &vws, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate option, value wide character item.
+    deallocate_item((void*) &ow, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &vw, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -552,7 +560,7 @@ void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             break;
         }
 
-        optionalise_command_line_argument(p0, p1, p2, p3, p4, p5, (void*) &j);
+        optionalise_argument(p0, p1, p2, p3, p4, p5, (void*) &j);
 
         // Increment loop variable.
         j++;

@@ -91,7 +91,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) ALLOW_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) ALLOW_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) ALLOW_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) ALLOW_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -101,7 +101,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -111,7 +111,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -121,7 +121,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -131,7 +131,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -141,7 +141,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -151,7 +151,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -161,7 +161,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -171,7 +171,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) EXPIRES_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) EXPIRES_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) EXPIRES_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) EXPIRES_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -181,7 +181,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_CYBOI_NAME, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -195,7 +195,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) ACCEPT_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) ACCEPT_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -205,7 +205,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -215,7 +215,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -225,7 +225,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -235,7 +235,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -245,7 +245,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) EXPECT_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) EXPECT_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) EXPECT_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) EXPECT_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -255,7 +255,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) FROM_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) FROM_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) FROM_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) FROM_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -265,7 +265,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) HOST_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) HOST_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) HOST_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) HOST_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -275,7 +275,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) IF_MATCH_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_MATCH_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) IF_MATCH_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_MATCH_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -285,7 +285,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -295,7 +295,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -305,7 +305,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) IF_RANGE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_RANGE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) IF_RANGE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_RANGE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -315,7 +315,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -325,7 +325,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -335,7 +335,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -345,7 +345,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) RANGE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) RANGE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) RANGE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) RANGE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -355,7 +355,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) REFERER_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) REFERER_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) REFERER_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) REFERER_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -365,7 +365,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) TE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) TE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) TE_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) TE_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -375,7 +375,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) USER_AGENT_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) USER_AGENT_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) USER_AGENT_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) USER_AGENT_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -385,7 +385,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) VARY_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) VARY_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) VARY_REQUEST_HEADER_HTTP_CYBOI_NAME, (void*) VARY_REQUEST_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -399,7 +399,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -409,7 +409,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) AGE_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) AGE_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) AGE_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) AGE_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -419,7 +419,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) ETAG_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) ETAG_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) ETAG_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) ETAG_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -429,7 +429,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) LOCATION_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) LOCATION_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) LOCATION_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) LOCATION_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -439,7 +439,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -449,7 +449,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -459,7 +459,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) SERVER_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) SERVER_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) SERVER_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) SERVER_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -469,7 +469,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_CYBOI_NAME, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -483,7 +483,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -493,7 +493,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) CONNECTION_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) CONNECTION_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) CONNECTION_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) CONNECTION_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -503,7 +503,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) DATE_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) DATE_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) DATE_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) DATE_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -513,7 +513,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) PRAGMA_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) PRAGMA_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) PRAGMA_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) PRAGMA_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -523,7 +523,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) TRAILER_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) TRAILER_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) TRAILER_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) TRAILER_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -533,7 +533,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -543,7 +543,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) UPGRADE_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) UPGRADE_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) UPGRADE_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) UPGRADE_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -553,7 +553,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) VIA_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) VIA_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) VIA_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) VIA_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 
@@ -563,7 +563,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_decode_character(p0, (void*) WARNING_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) WARNING_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
+            append_item_allocate_part_deserialise_character(p0, (void*) WARNING_GENERAL_HEADER_HTTP_CYBOI_NAME, (void*) WARNING_GENERAL_HEADER_HTTP_CYBOI_NAME_COUNT, p3, p4);
         }
     }
 }

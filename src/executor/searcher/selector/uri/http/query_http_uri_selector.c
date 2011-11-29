@@ -32,7 +32,7 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
 #include "../../../../../constant/name/uri/separator_uri_name.c"
-#include "../../../../../executor/converter/decoder/uri/http/fragment_http_uri_decoder.c"
+#include "../../../../../executor/representer/deserialiser/uri/http/fragment_http_uri_deserialiser.c"
 #include "../../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../../logger/logger.c"
@@ -64,7 +64,7 @@ void select_http_uri_query(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_http_uri_fragment(p0, p1, p3, p4);
+            deserialise_http_uri_fragment(p0, p1, p3, p4);
 
             // Set break flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

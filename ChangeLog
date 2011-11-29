@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename "decode/encode" into "deserialise/serialise" in directory "representer"
+        * Provide "decode/encode" functions for utf-8 and utf-16 in directory "converter"
+        * Use item instead of array for decoding/encoding utf-8
+
 2011-11-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug compilation errors

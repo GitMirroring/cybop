@@ -31,7 +31,7 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/converter/decoder/utf/utf_8_decoder.c"
-#include "../../executor/converter/encoder/model_diagram/model_diagram_encoder.c"
+#include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../logger/logger.c"
 
@@ -76,7 +76,7 @@ void test_converter_integer_to_wide_character_conversion() {
 /**
  * Tests the encode integer function.
  */
-void test_converter_encode_integer() {
+void test_converter_serialise_integer() {
 
     log_write((void*) stdout, L"Test encode integer:\n");
 
@@ -93,7 +93,7 @@ void test_converter_encode_integer() {
 
     // Use compound count as index to create the element name suffix,
     // because the element is added at the end of the compound container.
-//    encode_cybol_integer((void*) &dd, (void*) &dc, (void*) &ds, (void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+//    serialise_cybol_integer((void*) &dd, (void*) &dc, (void*) &ds, (void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
     fwprintf(stdout, L"Test: Destination character array: %ls\n", (wchar_t*) dd);
     fwprintf(stdout, L"Test: Destination character array count: %i\n", dc);
@@ -106,7 +106,7 @@ void test_converter_encode_integer() {
 /**
  * Tests the decode integer vector function.
  */
-void test_converter_decode_cybol_integer_vector() {
+void test_converter_deserialise_cybol_integer_vector() {
 
     log_write((void*) stdout, L"Test decode integer vector:\n");
 
@@ -124,7 +124,7 @@ void test_converter_decode_cybol_integer_vector() {
     allocate_array((void*) &d, (void*) &ds, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Decode character array into integer vector.
-//    decode_cybol_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
+//    deserialise_cybol_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
 
     // The integer values.
     int* i0 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -151,7 +151,7 @@ void test_converter_decode_cybol_integer_vector() {
 /**
  * Tests the encode integer vector function.
  */
-void test_converter_encode_integer_vector() {
+void test_converter_serialise_integer_vector() {
 
     log_write((void*) stdout, L"Test encode integer vector:\n");
 
@@ -172,7 +172,7 @@ void test_converter_encode_integer_vector() {
 
     // Use compound count as index to create the element name suffix,
     // because the element is added at the end of the compound container.
-//    encode_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
+//    serialise_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
 
     fwprintf(stdout, L"Encoded character array: %ls\n", d);
     fwprintf(stdout, L"Encoded character array count: %i\n", dc);
@@ -196,9 +196,20 @@ void test_converter_decode_utf8() {
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
     int rmc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int rms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The wide character item.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The wide character item data, count.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate read model.
     allocate_array((void*) &rm, (void*) &rms, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate wide character item.
+    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Get wide character item data, count.
+    copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Read persistent byte stream over channel.
 //    receive_data((void*) &rm, (void*) &rmc, (void*) &rms, (void*) f, (void*) &fc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
@@ -207,26 +218,17 @@ void test_converter_decode_utf8() {
     fwprintf(stdout, L"TEST rmc: %i\n", rmc);
     fwprintf(stdout, L"TEST rm: %s\n", (wchar_t*) rm);
 
-    // The wide character model.
-    void* wm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int wmc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int wms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate wide character model.
-    allocate_array((void*) &wm, (void*) &wms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    decode_utf_8((void*) &wm, (void*) &wmc, (void*) &wms, rm, (void*) &rmc);
+    decode_utf_8(i, rm, (void*) &rmc);
     //?? TEST only! DELETE LATER!
-//??    decode_utf_8((void*) &wm, (void*) &wmc, (void*) &wms, (void*) ASCII_CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT);
+//??    decode_utf_8(i, (void*) ASCII_CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT);
 
-    fwprintf(stdout, L"TEST wm: %ls\n", (wchar_t*) wm);
-    fwprintf(stdout, L"TEST wmc: %i\n", wmc);
+    fwprintf(stdout, L"TEST id: %ls\n", (wchar_t*) id);
+    fwprintf(stdout, L"TEST ic: %i\n", *((int*) ic));
 
     // Deallocate read model.
     deallocate_array((void*) &rm, (void*) &rms, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Deallocate wide character model.
-    deallocate_array((void*) &wm, (void*) &wms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate wide character item.
+    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -241,10 +243,10 @@ void test_converter() {
 
 //    test_converter_integer_to_wide_character_conversion();
 
-//    test_converter_encode_integer();
+//    test_converter_serialise_integer();
 
-//    test_converter_decode_cybol_integer_vector();
-//    test_converter_encode_integer_vector();
+//    test_converter_deserialise_cybol_integer_vector();
+//    test_converter_serialise_integer_vector();
 
 //    test_converter_decode_utf8();
 }

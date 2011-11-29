@@ -1,0 +1,63 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.11.0 2012-01-01
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef HTTP_RESPONSE_DESERIALISER_SOURCE
+#define HTTP_RESPONSE_DESERIALISER_SOURCE
+
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
+
+//
+// Many Web servers supply incorrect Content-Type headers with their
+// HTTP responses.  In order to be compatible with these Web servers,
+// Web browsers must consider the content of HTTP responses as well as
+// the Content-Type header when determining the effective mime type of
+// the response. The following document describes an algorithm for
+// determining the effective mime type of HTTP responses that balances
+// security and compatibility considerations:
+//
+// http://tools.ietf.org/html/draft-abarth-mime-sniff-00
+//
+// CAUTION! This is a draft document that, by the rules of IETF,
+// has to be referenced as "work in progress", which is hereby done.
+//
+
+/**
+ * Deserialises the http response into a model and properties.
+ *
+ * @param p0 the destination model item (pointer reference)
+ * @param p1 the destination properties item (pointer reference)
+ * @param p2 the source wide character array
+ * @param p3 the source wide character array count
+ */
+void deserialise_http_response(void* p0, void* p1, void* p2, void* p3) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http response.");
+
+//??    deserialise_http_response_??(p0, p1, p2, p3, p4, p5, (void*) &p6, p7);
+}
+
+/* HTTP_RESPONSE_DESERIALISER_SOURCE */
+#endif

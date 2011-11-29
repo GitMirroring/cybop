@@ -31,11 +31,11 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/converter/decoder/xml/declaration_xml_decoder.c"
-#include "../../../../executor/converter/decoder/xml/definition_xml_decoder.c"
-#include "../../../../executor/converter/decoder/xml/comment_xml_decoder.c"
-#include "../../../../executor/converter/decoder/xml/end_tag_xml_decoder.c"
-#include "../../../../executor/converter/decoder/xml/element_xml_decoder.c"
+#include "../../../../executor/representer/deserialiser/xml/declaration_xml_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xml/definition_xml_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xml/comment_xml_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xml/end_tag_xml_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xml/element_xml_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -45,11 +45,11 @@
 //
 
 /*??
-void decode_xml_comment(void* p0, void* p1);
-void decode_xml_declaration(void* p0, void* p1, void* p2, void* p3, void* p4);
-void decode_xml_definition(void* p0, void* p1, void* p2, void* p3, void* p4);
-void decode_xml_element(void* p0, void* p1, void* p2, void* p3, void* p4);
-void decode_xml_end_tag(void* p0, void* p1);
+void deserialise_xml_comment(void* p0, void* p1);
+void deserialise_xml_declaration(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_xml_definition(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_xml_element(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_xml_end_tag(void* p0, void* p1);
 */
 
 /**
@@ -104,7 +104,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_xml_end_tag(p3, p4);
+            deserialise_xml_end_tag(p3, p4);
 
             // Set break flag, because this xml element's end tag
             // has been reached and its content fully been decoded.
@@ -119,7 +119,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The data contained in an XML declaration are added to the destination properties.
-            decode_xml_declaration(p1, p3, p4);
+            deserialise_xml_declaration(p1, p3, p4);
         }
     }
 
@@ -130,7 +130,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The data contained in an XML comment are just ignored.
-            decode_xml_comment(p3, p4);
+            deserialise_xml_comment(p3, p4);
         }
     }
 
@@ -141,7 +141,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The data contained in an XML definition are added to the destination properties.
-            decode_xml_definition(p1, p3, p4);
+            deserialise_xml_definition(p1, p3, p4);
         }
     }
 
@@ -152,7 +152,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The data contained in an XML element are added to the destination model.
-            decode_xml_element(p0, p3, p4);
+            deserialise_xml_element(p0, p3, p4);
         }
     }
 

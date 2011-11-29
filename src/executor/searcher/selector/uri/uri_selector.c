@@ -33,7 +33,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/uri/scheme_uri_model.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../../executor/converter/decoder/uri/http_uri_decoder.c"
+#include "../../../../executor/representer/deserialiser/uri/http_uri_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -87,7 +87,7 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_http_uri(p0, p1, *((void**) p2), p3);
+            deserialise_http_uri(p0, p1, *((void**) p2), p3);
         }
     }
 

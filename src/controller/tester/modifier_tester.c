@@ -30,7 +30,7 @@
 
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/sender/file_system_sender.c"
-#include "../../executor/converter/encoder/model_diagram/model_diagram_encoder.c"
+#include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/copier/part_copier.c"
@@ -163,7 +163,7 @@ void test_modifier_part_compound() {
     allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode model into model diagram.
-    encode_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w1);
+    serialise_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w1);
     // Encode model diagram into multibyte character stream.
     encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
     // Write multibyte character stream as message to file system.
@@ -199,7 +199,7 @@ void test_modifier_part_compound() {
     allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode model into model diagram.
-    encode_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w2);
+    serialise_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w2);
     // Encode model diagram into multibyte character stream.
     encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
     // Write multibyte character stream as message to file system.
@@ -235,7 +235,7 @@ void test_modifier_part_compound() {
     allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode model into model diagram.
-    encode_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w3);
+    serialise_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w3);
     // Encode model diagram into multibyte character stream.
     encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
     // Write multibyte character stream as message to file system.

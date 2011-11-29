@@ -37,10 +37,11 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/terminal/stream_terminal_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../executor/converter/decoder.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../executor/representer/deserialiser.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -202,7 +203,7 @@ fwprintf(stdout, L"TEST ed: %s\n", (char*) ed);
     decode(d, ed, ec, p5);
 fwprintf(stdout, L"TEST dd: %ls\n", (wchar_t*) dd);
     // Deserialise data via type (language).
-    decode_data(p0, p1, dd, dc, p4);
+    deserialise(p0, p1, dd, dc, p4);
 
     // Deallocate byte message item.
     deallocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

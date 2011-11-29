@@ -42,8 +42,8 @@
 /**
  * Executes the command as process.
  *
- * @param p0 the command array
- * @param p1 the command array count
+ * @param p0 the command data
+ * @param p1 the command count
  */
 void apply_execute(void* p0, void* p1) {
 
@@ -52,47 +52,48 @@ void apply_execute(void* p0, void* p1) {
     //?? TODO: Figure out if assembling a shell command line is necessary at all!
     //?? The "system" function call further below does search programmes internally
     //?? and by default uses the "sh" to execute commands.
-    //?? Therefore, the prefix "sh" and the rest assembled below may be superfluous.
+    //?? Therefore, the prefix "sh" and the rest assembled below might be superfluous.
 
-    // The shell command line.
+    // The shell command line item.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int clc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int cls = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The encoded shell command line item.
+    void* ecl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The shell command line item data, count.
+    void* cld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* clc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded shell command line item data, count.
+    void* ecld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* eclc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate shell command line.
-    allocate_array((void*) &cl, (void*) &cls, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate shell command line item.
+    allocate_item((void*) &cl, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate encoded shell command line item.
+    allocate_item((void*) &ecl, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Get shell command line item data, count.
+    copy_array_forward((void*) &cld, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &clc, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Append shell command.
-    overwrite_array((void*) &cl, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    append_item_element(cl, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Append shell command.
-    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    overwrite_array((void*) &cl, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    append_item_element(cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(cl, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Append user command.
-    overwrite_array((void*) &cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    overwrite_array((void*) &cl, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    overwrite_array((void*) &cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    append_item_element(cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(cl, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Append null character as string termination.
-    overwrite_array((void*) &cl, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &clc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &clc, (void*) &cls, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    append_item_element(cl, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
 /*??
-    fwprintf(stdout, L"TEST dir: %ls\n", (wchar_t*) cl);
-    fwprintf(stdout, L"TEST dir count: %i\n", clc);
+    fwprintf(stdout, L"TEST dir: %ls\n", (wchar_t*) cld);
+    fwprintf(stdout, L"TEST dir count: %i\n", *((int*) clc));
 */
 
-    // The encoded shell command line.
-    void* ecl = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int eclc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ecls = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate encoded shell command line.
-    allocate((void*) &ecl, (void*) &ecls, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
     // Encode encoded shell command line.
-    encode_utf_8((void*) &ecl, (void*) &eclc, (void*) &ecls, cl, (void*) &clc);
-
-    // Deallocate shell command line.
-    deallocate_array((void*) &cl, (void*) &cls, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    encode_utf_8(ecl, cld, clc);
 
     // Initialise error number.
     // It is a global variable/ function and other operations
@@ -141,8 +142,10 @@ void apply_execute(void* p0, void* p1) {
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully executed command/ program as process. The child process was left; the parent process continues.");
     }
 
-    // Deallocate encoded shell command line.
-    deallocate((void*) &ecl, (void*) &ecls, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate shell command line item.
+    deallocate_item((void*) &cl, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate encoded shell command line item.
+    deallocate_item((void*) &ecl, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
 /*??
     //?? The following block implements the same three primitive functions
