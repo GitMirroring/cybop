@@ -27,12 +27,18 @@
 #define RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The channel receive communication operation cybol name. */
 static wchar_t CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
 static wchar_t* CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME = CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_ARRAY;
 static int* CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The encoding receive communication operation cybol name. */
+static wchar_t ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
+static wchar_t* ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME = ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_ARRAY;
+static int* ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The handler receive communication operation cybol name. */
 static wchar_t HANDLER_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_ARRAY[] = {L'h', L'a', L'n', L'd', L'l', L'e', L'r'};

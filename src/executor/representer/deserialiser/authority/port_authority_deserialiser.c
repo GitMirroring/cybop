@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/authority/authority_cyboi_name.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/modifier/overwriter/part_overwriter.c"
 #include "../../../../executor/searcher/selector/authority/port_authority_selector.c"
 #include "../../../../logger/logger.c"

@@ -23,14 +23,15 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BOOLEAN_DESERIALISER_SOURCE
-#define BOOLEAN_DESERIALISER_SOURCE
+#ifndef BOOLEAN_CYBOL_DESERIALISER_SOURCE
+#define BOOLEAN_CYBOL_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cybol/state/boolean_state_cybol_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/state/boolean_state_cybol_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
@@ -78,5 +79,5 @@ void deserialise_cybol_boolean(void* p0, void* p1, void* p2) {
     }
 }
 
-/* BOOLEAN_DESERIALISER_SOURCE */
+/* BOOLEAN_CYBOL_DESERIALISER_SOURCE */
 #endif

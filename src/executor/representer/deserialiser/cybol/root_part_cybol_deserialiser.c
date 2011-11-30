@@ -29,8 +29,8 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/representer/deserialiser/cybol/properties_cybol_deserialiser.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/representer/deserialiser/cybol/properties_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**

@@ -31,15 +31,13 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/cybol_name.c"
+#include "../../../../constant/type/cyboi/cyboi_type.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-// CAUTION! Do NOT include the following file to avoid circular references.
-// Use a forward declaration of the corresponding function instead.
-#include "../../../../executor/communicator/receiver.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/encoding_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/properties_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cyboi_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/modifier/name_getter/array_name_getter.c"
 #include "../../../../executor/modifier/overwriter/item_overwriter.c"
@@ -49,7 +47,7 @@
 // Forward declaration.
 //
 
-//?? void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Deserialises the cybol standard part.

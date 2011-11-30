@@ -29,7 +29,8 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../executor/modifier/getter/knowledge_part_getter.c"
+#include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
+#include "../../executor/communicator/receiver.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -57,12 +58,11 @@
  * - root (required): the knowledge model that will serve as the root
  * - style (optional, only if channel is www, cyboi or similar): the style of socket communication
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
- * @param p2 the knowledge memory part
- * @param p3 the internal memory array
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the internal memory array
  */
-void apply_receive(void* p0, void* p1, void* p2, void* p3) {
+void apply_receive(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive.");
 
@@ -165,6 +165,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get language part model data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lmc, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get message part model data, count.
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -195,10 +196,10 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     // Decode cybol source encoding into cyboi destination encoding.
     deserialise_cybol_encoding((void*) &de, emd, emc);
     // Decode cybol source type into cybol cyboi destination type.
-    deserialise_cybol_type((void*) &dtc, tmd, tmc);
+    deserialise_cybol_type((void*) &dtc, lmd, lmc);
 
     // Receive data.
-    receive_data(mom, mod, mmd, mmc, (void*) &dtc, (void*) &de, p3, (void*) &dc);
+    receive_data(mom, mod, mmd, mmc, (void*) &dtc, (void*) &de, p2, (void*) &dc);
 
 /*??
 //?? TEST BEGIN

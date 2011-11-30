@@ -26,6 +26,8 @@
 #ifndef OPERATION_HANDLER_SOURCE
 #define OPERATION_HANDLER_SOURCE
 
+#include "../../applicator/communicate/receive.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../logger/logger.c"
 
@@ -137,6 +139,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             subtract(p0, p1);
         }
     }
+*/
 
     //
     // communicate
@@ -148,10 +151,11 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            receive(p0, p1);
+            apply_receive(p0, p1, p5);
         }
     }
 
+/*
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) SEND_COMMUNICATE_LOGIC_CYBOI_TYPE);

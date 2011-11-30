@@ -29,6 +29,7 @@
 #include <pthread.h>
 #include <signal.h>
 
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/double_state_cyboi_model.c"
@@ -36,11 +37,10 @@
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../controller/manager/internal_memory_manager.c"
 #include "../controller/manager/system_signal_handler_manager.c"
-#include "../controller/checker.c"
 #include "../controller/initialiser.c"
-#include "../executor/maintainer/shutter/terminal_shutter.c"
 #include "../executor/maintainer/shutter/opengl_shutter.c"
 #include "../executor/maintainer/shutter/socket_shutter.c"
+#include "../executor/maintainer/shutter/terminal_shutter.c"
 #include "../executor/maintainer/shutter/x_window_system_shutter.c"
 #include "../logger/logger.c"
 #include "../variable/type_size/integral_type_size.c"
@@ -60,9 +60,9 @@
  * - startup internal memory (global system parametres, e.g. for input/output)
  * - startup knowledge memory (statics = state knowledge + logic knowledge)
  * - startup signal memory (knowledge models to be executed as operations)
- * - create startup signal and add to signal memory
+ * - allocate startup signal and add to signal memory
  * - run signal checker loop (dynamics)
- * - destroy startup signal
+ * - deallocate startup signal
  * - shutdown signal memory
  * - shutdown knowledge memory
  * - shutdown internal memory

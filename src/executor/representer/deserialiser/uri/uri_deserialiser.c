@@ -27,6 +27,7 @@
 #define URI_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/type/cyboi/cyboi_type.c"
 #include "../../../../executor/representer/deserialiser/http_request_uri/absolute_path_http_request_uri_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/http_request_uri/absolute_uri_http_request_uri_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/http_request_uri/authority_form_http_request_uri_deserialiser.c"

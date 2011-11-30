@@ -28,10 +28,11 @@
 
 #include <string.h>
 
-#include "../constant/model/cyboi/operation_mode_cyboi_model.c"
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../constant/model/cyboi/operation_mode_cyboi_model.c"
 #include "../controller/globaliser.c"
 #include "../controller/helper.c"
 #include "../controller/informant.c"

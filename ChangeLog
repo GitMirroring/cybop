@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-11-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Enable function "apply_receive" to fix circular reference
+
 2011-11-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename "decode/encode" into "deserialise/serialise" in directory "representer"
