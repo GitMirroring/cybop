@@ -91,40 +91,45 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // It uses functions causing circular references.
         // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite array.");
 
-        // The new size.
-        int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The new destination count.
+        int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        // CAUTION! The destination array count is NOT considered here,
-        // because an element may be added far behind the end of the array.
+        // CAUTION! An element may be added far behind the end of the array.
         // This is similar to random access of an arbitrary byte of a file.
-        // In such a case, the destination index plus number of elements
-        // to be added will deliver the new size of the destination array.
+        // In such a case, the destination index plus number of source elements
+        // to be added will deliver the new count of the destination array.
 
         // Add destination index.
-        calculate_integer_add((void*) &n, p4);
-        // Add count of new elements to be written over old elements.
-        calculate_integer_add((void*) &n, p3);
+        calculate_integer_add((void*) &nc, p4);
+        // Add count of source elements to be written over destination elements.
+        calculate_integer_add((void*) &nc, p3);
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer_greater((void*) &r, (void*) &n, p7);
+        compare_integer_greater((void*) &r, (void*) &nc, p7);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The new destination size is greater than the old.
+            // The new destination count is greater than
+            // the current destination size.
 
-            // Multiply new size with factor.
+            // The new destination size.
+            int ns = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            // Copy count to size.
+            calculate_integer_add((void*) &ns, (void*) &nc);
+            // Multiply new destination size with factor.
             // CAUTION! This multiplication has to be done AFTER the comparison
             // of new size and old size since otherwise, the new size is falsified,
             // which would lead to runtime errors.
-            calculate_integer_multiply((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
+            calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
 
-            // Enlarge array using new count as size.
-            reallocate_array(p0, p6, (void*) &n, p2);
+            // Enlarge array using new destination size.
+            reallocate_array(p0, p6, (void*) &ns, p2);
 
             // Adjust new size.
-            copy_integer(p7, (void*) &n);
+            copy_integer(p7, (void*) &ns);
         }
 
         // Decrement reference count of overwritten parts for rubbish (garbage) collection.
@@ -198,7 +203,7 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // but also if the number of elements decreases (shrinking).
             // If this was not done, false results would occur.
             //
-            copy_integer(p6, (void*) &n);
+            copy_integer(p6, (void*) &nc);
         }
 
     } else {
