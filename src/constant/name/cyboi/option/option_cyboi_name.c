@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The "--help" option cyboi name. */
 static wchar_t HELP_OPTION_CYBOI_NAME_ARRAY[] = {L'-', L'-', L'h', L'e', L'l', L'p'};

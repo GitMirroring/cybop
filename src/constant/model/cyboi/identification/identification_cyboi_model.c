@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The name identification cyboi model. */
 static wchar_t NAME_IDENTIFICATION_CYBOI_MODEL_ARRAY[] = {L'C', L'y', L'b', L'e', L'r', L'n', L'e', L't', L'i', L'c', L's', L' ', L'O', L'r', L'i', L'e', L'n', L't', L'e', L'd', L' ', L'I', L'n', L't', L'e', L'r', L'p', L'r', L'e', L't', L'e', L'r', L' ', L'(', L'C', L'Y', L'B', L'O', L'I', L')'};

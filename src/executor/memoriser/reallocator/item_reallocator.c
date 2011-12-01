@@ -36,47 +36,42 @@
 /**
  * Reallocates the item.
  *
- * @param p0 the item (pointer reference)
+ * CAUTION! Do NOT hand over the item as pointer reference!
+ * Its main structure does NOT get reallocated,
+ * but only the internal data array.
+ *
+ * @param p0 the item
  * @param p1 the size
  * @param p2 the type
  */
 void reallocate_item(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reallocate item.");
 
-        void** i = (void**) p0;
+    // The data, count, size.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reallocate item.");
+    // Get destination item data, count, size.
+    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-        // The data, count, size.
-        void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // Reallocate data.
+    reallocate_array((void*) &d, c, p1, p2);
 
-        // Get destination item data, count, size.
-        copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+    // Set size.
+    // CAUTION! The count remains the same.
+    copy_integer(s, p1);
 
-        // Reallocate data.
-        reallocate_array((void*) &d, c, s, p2);
-
-        // Set size.
-        // CAUTION! The count remains the same.
-        copy_integer(s, p1);
-
-        // Set data.
-        // CAUTION! This IS necessary since the data array
-        // got reallocated and a new memory pointer returned.
-        // CAUTION! The count and size do NOT have to be set,
-        // since they were not reallocated and thus
-        // still point to the same memory area.
-        copy_array_forward(*i, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate item. The item is null.");
-    }
+    // Set data.
+    // CAUTION! This IS necessary since the data array
+    // got reallocated and a new memory pointer returned.
+    // CAUTION! The count and size do NOT have to be set,
+    // since they were not reallocated and thus
+    // still point to the same memory area.
+    copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* ITEM_REALLOCATOR_SOURCE */

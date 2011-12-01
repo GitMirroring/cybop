@@ -30,9 +30,9 @@
 
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../constant/model/cyboi/operation_mode/operation_mode_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/model/cyboi/operation_mode_cyboi_model.c"
 #include "../controller/globaliser.c"
 #include "../controller/helper.c"
 #include "../controller/informant.c"
@@ -148,10 +148,10 @@ int main(int p0, char** p1) {
         // if no command line argument is given by the user.
         int m = *HELP_OPERATION_MODE_CYBOI_MODEL;
 
-        // The cybol knowledge file path.
+        // The cybol knowledge file path item.
         void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Allocate cybol knowledge file path.
+        // Allocate cybol knowledge file path item.
         allocate_item((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Optionalise command line argument options.
@@ -192,7 +192,7 @@ int main(int p0, char** p1) {
 
         // Deoptionalise command line argument options.
         // CAUTION! Hand over the LOG_OUTPUT variable AS REFERENCE!
-        // This is necessary, because it is reset to null internally.
+        // This is necessary, because it is reset to NULL internally.
         // If this was not done, subsequent logger calls would cause segmentation faults,
         // because the null pointer test within the logger would be successful,
         // even though the LOG_OUTPUT pointer would be invalid.

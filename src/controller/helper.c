@@ -27,7 +27,7 @@
 #define HELPER_SOURCE
 
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../constant/model/cyboi/identification_cyboi_model.c"
+#include "../constant/model/cyboi/identification/identification_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/memoriser/allocator/array_allocator.c"

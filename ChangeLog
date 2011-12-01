@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-12-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug files "item_reallocator.c", "utf_8_decoder.c", "optionaliser.c"
+
 2011-11-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Enable function "apply_receive" to fix circular reference

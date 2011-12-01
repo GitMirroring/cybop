@@ -33,12 +33,12 @@
 
 #include "../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../constant/model/cyboi/operation_mode/operation_mode_cyboi_model.c"
 #include "../constant/model/cyboi/option/log_level_option_cyboi_model.c"
-#include "../constant/model/cyboi/operation_mode_cyboi_model.c"
 #include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/name/cyboi/option_cyboi_name.c"
+#include "../constant/name/cyboi/option/option_cyboi_name.c"
 #include "../constant/type/cyboi/logic_cyboi_type.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/comparator/all/array_all_comparator.c"
@@ -283,6 +283,7 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST option 0: %i\n", r);
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p6, (void*) HELP_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) HELP_OPTION_CYBOI_NAME_COUNT);
@@ -341,14 +342,19 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         }
     }
 
+fwprintf(stdout, L"TEST option 1: %i\n", r);
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST option 2: %i\n", r);
         compare_all_array((void*) &r, p6, (void*) VERSION_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) VERSION_OPTION_CYBOI_NAME_COUNT);
 
+fwprintf(stdout, L"TEST option 3: %i\n", r);
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST option 4: %i\n", *((int*) p0));
             // Set version operation mode.
             copy_integer(p0, (void*) VERSION_OPERATION_MODE_CYBOI_MODEL);
+fwprintf(stdout, L"TEST option 5: %i\n", *((int*) p0));
         }
     }
 
@@ -392,10 +398,10 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // Therefore, a new local variable i is introduced.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The command line argument option as multibyte character array.
-    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* od = *NULL_POINTER_STATE_CYBOI_MODEL;
     int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The command line argument value as multibyte character array.
-    void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* vd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The option, value as wide character item.
     void* ow = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -420,9 +426,9 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     // Get command line argument option.
     // Example: "--loglevel"
-    copy_array_forward((void*) &o, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+    copy_array_forward((void*) &od, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
-    if (o != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (od != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // Get command line argument option count (number of characters).
@@ -437,10 +443,10 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
         //
         // Possibility 2 is applied here.
         //
-        oc = strlen((char*) o);
+        oc = strlen((char*) od);
 
         // Decode multibyte command line argument option into wide character.
-        decode_utf_8(ow, o, (void*) &oc);
+        decode_utf_8(ow, od, (void*) &oc);
 
     } else {
 
@@ -465,9 +471,9 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         // Get command line argument value, standing after the option.
         // Example: "debug"
-        copy_array_forward((void*) &v, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        copy_array_forward((void*) &vd, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-        if (v != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (vd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Get command line argument value count (number of characters).
             //
@@ -478,10 +484,10 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
             //   (this is a rather dirty workaround, but the strlen function can be used)
             //
             // Possibility 2 is applied here.
-            vc = strlen((char*) v);
+            vc = strlen((char*) vd);
 
             // Decode multibyte command line argument value into wide character.
-            decode_utf_8(vw, v, (void*) &vc);
+            decode_utf_8(vw, vd, (void*) &vc);
 
         } else {
 
@@ -491,14 +497,33 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
         }
     }
 
+fwprintf(stdout, L"TEST opt 2 mode: %i\n", *((int*) p0));
+
+fwprintf(stdout, L"TEST pre o: %s\n", (char*) od);
+fwprintf(stdout, L"TEST pre oc: %i\n", oc);
+fwprintf(stdout, L"TEST pre owd: %ls\n", (wchar_t*) owd);
+fwprintf(stdout, L"TEST pre owc: %i\n", *((int*) owc));
+fwprintf(stdout, L"TEST pre v: %s\n", (char*) vd);
+fwprintf(stdout, L"TEST pre vc: %i\n", vc);
+
     // Optionalise the option and its value.
     // CAUTION! The value gets handed over as reference, as it gets
     // copied for the cybol knowledge file name.
     optionalise_option(p0, p1, p2, p3, vwd, vwc, owd, owc);
 
+fwprintf(stdout, L"TEST post o: %s\n", (char*) od);
+fwprintf(stdout, L"TEST post oc: %i\n", oc);
+fwprintf(stdout, L"TEST post owd: %ls\n", (wchar_t*) owd);
+fwprintf(stdout, L"TEST post owc: %i\n", *((int*) owc));
+fwprintf(stdout, L"TEST post v: %s\n", (char*) vd);
+fwprintf(stdout, L"TEST post vc: %i\n", vc);
+
+fwprintf(stdout, L"TEST opt 3 mode: %i\n", *((int*) p0));
     // Deallocate option, value wide character item.
     deallocate_item((void*) &ow, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST opt 4: %i\n", r);
     deallocate_item((void*) &vw, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST opt 5: %i\n", r);
 }
 
 /**

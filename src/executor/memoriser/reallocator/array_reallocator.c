@@ -102,6 +102,8 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         // smaller than the count, because this will result
                         // in a negative value and cause the new array elements
                         // pointer further below to cross the array's boundary!
+                        // If the size is smaller than the count, elements
+                        // outside the smaller size area are just lost.
 
                         // The NEW memory area to be initialised.
                         int nma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

@@ -180,7 +180,7 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            void* s = p1;
+            void* sd = p1;
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-8.");
 
@@ -196,6 +196,8 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &ds, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST decode utf-8 dc 0: %i\n", *((int*) dc));
+fwprintf(stdout, L"TEST decode utf-8 ds 0: %i\n", *((int*) ds));
             // Initialise new destination size.
             //
             // CAUTION! The "worst case" is assumed, i.e. that each source character
@@ -217,8 +219,12 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             calculate_integer_multiply((void*) &nds, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
             calculate_integer_add((void*) &nds, dc);
 
+fwprintf(stdout, L"TEST decode utf-8 dc 1: %i\n", *((int*) dc));
+fwprintf(stdout, L"TEST decode utf-8 ds 1: %i\n", *((int*) ds));
             // Reallocate destination item.
             reallocate_item(p0, (void*) &nds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST decode utf-8 dc 2: %i\n", *((int*) dc));
+fwprintf(stdout, L"TEST decode utf-8 ds 2: %i\n", *((int*) ds));
 
             // Set locale.
             //
@@ -236,6 +242,7 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             // The return value is not used; this is a global setting.
             char* loc = setlocale(LC_CTYPE, "");
 
+fwprintf(stdout, L"TEST decode utf-8 dc 3: %i\n", *((int*) dc));
             // The state of the conversion.
             //
             // Certain character sets use a stateful encoding.
@@ -267,11 +274,35 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             // that might cause an error.
             errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST utf-8 pre dd: %i\n", dd);
+fwprintf(stdout, L"TEST utf-8 pre dd: %ls\n", (wchar_t*) dd);
+fwprintf(stdout, L"TEST utf-8 pre dc: %i\n", *((int*) dc));
+fwprintf(stdout, L"TEST utf-8 pre ds: %i\n", *((int*) ds));
+fwprintf(stdout, L"TEST utf-8 pre nds: %i\n", nds);
+fwprintf(stdout, L"TEST utf-8 pre sd: %i\n", sd);
+fwprintf(stdout, L"TEST utf-8 pre sd: %s\n", (char*) sd);
+fwprintf(stdout, L"TEST utf-8 pre sc: %i\n", *((int*) sc));
+
             // Converts the multibyte character string into a wide character string.
-            //
             // Returns the number of wide characters converted.
+            // CAUTION! The multibyte source character string need NOT be null-terminated,
+            // since the third parametre already indicates its count.
+            // CAUTION! Hand over the NEW destination size as fourth parametre,
+            // since it indicates the maximum number of characters to be converted
+            // and conversion would break too early if that parametre was too small.
+            // CAUTION! The fifth parametre may be NULL. It just indicates where
+            // conversion is started and a glibc-internal object is created if null.
 //??            int n = mbsnrtowcs(*d, &s, *sc, *ds, &st);
-            int n = mbsnrtowcs(dd, (const char**) &s, *sc, *((int*) ds), *NULL_POINTER_STATE_CYBOI_MODEL);
+            int n = mbsnrtowcs(dd, (const char**) &sd, *sc, nds, *NULL_POINTER_STATE_CYBOI_MODEL);
+fwprintf(stdout, L"TEST utf-8 post dd: %i\n", dd);
+fwprintf(stdout, L"TEST utf-8 post dd: %ls\n", (wchar_t*) dd);
+fwprintf(stdout, L"TEST utf-8 post dc: %i\n", *((int*) dc));
+fwprintf(stdout, L"TEST utf-8 post ds: %i\n", *((int*) ds));
+fwprintf(stdout, L"TEST utf-8 post nds: %i\n", nds);
+fwprintf(stdout, L"TEST utf-8 post sd: %i\n", sd);
+fwprintf(stdout, L"TEST utf-8 post sd: %s\n", (char*) sd);
+fwprintf(stdout, L"TEST utf-8 post sc: %i\n", *((int*) sc));
+fwprintf(stdout, L"TEST utf-8 post n: %i\n", n);
 
             if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -282,12 +313,12 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
                 if (errno == EILSEQ) {
 
-    fwprintf(stdout, L"TEST ERROR EILSEQ errno: %i\n", errno);
+fwprintf(stdout, L"TEST ERROR EILSEQ errno: %i\n", errno);
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The input string contains an invalid multibyte sequence.");
 
                 } else {
 
-    fwprintf(stdout, L"TEST ERROR UNKNOWN errno: %i\n", errno);
+fwprintf(stdout, L"TEST ERROR UNKNOWN errno: %i\n", errno);
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. An unknown error occured.");
                 }
             }

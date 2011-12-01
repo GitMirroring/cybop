@@ -26,7 +26,7 @@
 #ifndef OPERATION_MODE_CYBOI_MODEL_CONSTANT_SOURCE
 #define OPERATION_MODE_CYBOI_MODEL_CONSTANT_SOURCE
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The version operation mode cyboi model. */
 static int* VERSION_OPERATION_MODE_CYBOI_MODEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;

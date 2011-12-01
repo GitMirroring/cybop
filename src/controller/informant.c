@@ -26,14 +26,16 @@
 #ifndef INFORMANT_SOURCE
 #define INFORMANT_SOURCE
 
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../constant/model/cyboi/identification_cyboi_model.c"
+#include "../constant/model/cyboi/identification/identification_cyboi_model.c"
+#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../executor/modifier/overwriter/array_overwriter.c"
-#include "../executor/memoriser/allocator/array_allocator.c"
-#include "../executor/memoriser/deallocator/array_deallocator.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../executor/modifier/appender/item_appender.c"
+#include "../executor/modifier/copier/array_copier.c"
+#include "../executor/memoriser/allocator/item_allocator.c"
+#include "../executor/memoriser/deallocator/item_deallocator.c"
+#include "../logger/logger.c"
 
 /**
  * Writes cyboi information message to given output stream.
@@ -42,45 +44,48 @@
  */
 void inform(void* p0) {
 
-    // The message.
+    // The message item.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The message item data.
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Allocate message item.
     // Set size to arbitrary big value, so that message does
     // not have to be reallocated for every character below.
-    // This lets the programme run faster.
-    int ms = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
+    // This lets the programme possibly run faster.
+    allocate_item((void*) &m, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Allocate message.
-    allocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Get message item data.
+    copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Copy name.
-    overwrite_array((void*) &m, (void*) NAME_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NAME_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy space wide character.
-    overwrite_array((void*) &m, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy version.
-    overwrite_array((void*) &m, (void*) VERSION_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy slogan.
-    overwrite_array((void*) &m, (void*) SLOGAN_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy copyright.
-    overwrite_array((void*) &m, (void*) COPYRIGHT_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy licence.
-    overwrite_array((void*) &m, (void*) LICENCE_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LICENCE_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy null termination wide character.
-    overwrite_array((void*) &m, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Append name.
+    append_item_element(m, (void*) NAME_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NAME_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append space.
+    append_item_element(m, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append version.
+    append_item_element(m, (void*) VERSION_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append line feed control.
+    append_item_element(m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append slogan.
+    append_item_element(m, (void*) SLOGAN_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append line feed control.
+    append_item_element(m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append copyright.
+    append_item_element(m, (void*) COPYRIGHT_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append line feed control.
+    append_item_element(m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append licence.
+    append_item_element(m, (void*) LICENCE_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LICENCE_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append line feed control.
+    append_item_element(m, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append null termination.
+    append_item_element(m, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Log message.
-    log_write(p0, m);
+    log_write(p0, md);
 
-    // Deallocate message.
-    deallocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate message item.
+    deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* INFORMANT_SOURCE */
