@@ -447,7 +447,7 @@ void test_finder() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test finder.");
 
-    test_finder_part_hierarchical();
+//    test_finder_part_hierarchical();
 //    test_finder_part_by_name();
 //    test_finder_array();
 }

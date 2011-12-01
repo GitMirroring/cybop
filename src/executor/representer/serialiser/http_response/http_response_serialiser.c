@@ -69,10 +69,6 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Allocate body item.
     allocate_item((void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Get body item data, count.
-    copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
     // Encode body wide character array into body multibyte character item.
     encode_utf_8(b, p3, p4);
 
@@ -96,6 +92,13 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     //
     append_item_element(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
+    // Get body item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
     // This function is commented out, since it is not needed for now.
     // Its content was moved directly into here (see above),
     // since the body count (length) needs to be determined.
@@ -103,7 +106,7 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     // CAUTION! Append body ONLY here and NOT before,
     // since it has to stand at the end of the http message.
-    append_item_element(p0, a, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, ac, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, bc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate body item.
     deallocate_item((void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

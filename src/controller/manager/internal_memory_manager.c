@@ -97,11 +97,9 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
 
         // Set null pointer at index.
-        //
-        // CAUTION! The standard "set" procedure could have been used here as well.
-        // However, to speed up the program, the "set_array_elements"
-        // procedure was used directly, as it does not do so many comparisons
-        // (like for example with "POINTER_STATE_CYBOI_TYPE", to find the right procedure).
+        //?? TODO: Speed up programme by avoiding type comparison.
+        //?? Provide optimised array functions that compare the type
+        //?? just once for the whole array and NOT for each element.
         copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         j++;

@@ -43,15 +43,13 @@ void calculate_fraction_reduce(void* p0) {
     // The numerator and denominator.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get numerator and denominator.
-    copy_array_forward((void*) &n, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
-
     // The result numerator and denominator.
     int rn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int rd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    // Get numerator and denominator.
+    copy_array_forward((void*) &n, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
     // Determine absolute values.
     calculate_integer_absolute((void*) &rn, n);
     calculate_integer_absolute((void*) &rd, d);

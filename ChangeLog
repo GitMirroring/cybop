@@ -18,7 +18,9 @@
 
 2011-12-01  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Debug files "item_reallocator.c", "utf_8_decoder.c", "optionaliser.c"
+        * Debug source code so that pointers to elements of an item or a part are not
+            retrieved too early, since references may have changed if reallocation
+            happened in functions like "decode_utf_8" or "append_item_element"
 
 2011-11-30  Christian Heller  <christian.heller@tuxtax.de>
 

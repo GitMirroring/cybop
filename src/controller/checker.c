@@ -73,12 +73,12 @@ void check(void* p0) {
     copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_SLEEP_TIME_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // The shutdown flag.
-    int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Run endless loop checking signal memory for signals.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (f != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Leave loop if shutdown flag was set.
             break;

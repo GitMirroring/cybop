@@ -43,26 +43,26 @@
  * Sends a character to file.
  *
  * @param p0 the destination file stream
- * @param p1 the source array
- * @param p2 the source array index
+ * @param p1 the source data
+ * @param p2 the source index
  * @param p3 the break flag
  */
 void send_file_character(void* p0, void* p1, void* p2, void* p3) {
 
     // The character.
-    char* c = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Read character from source array.
     copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Write character to file.
-    char e = fputc(*c, (FILE*) p0);
+    char e = fputc(*((char*) c), (FILE*) p0);
 
     // Test error value.
     if (e == EOF) {
 
         // Set break flag, so that the loop can be left in the next cycle.
-        copy_integer(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
@@ -77,7 +77,7 @@ void send_file_character(void* p0, void* p1, void* p2, void* p3) {
 void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
     // The character.
-    char* c = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Read character from source array.
     copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
@@ -87,13 +87,13 @@ void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
     // CAUTION! Do NOT use the "fputwc" function here, but "fwprintf" instead.
     // The input is char, but the stdout output is set to wide character mode at cyboi startup.
     // Therefore, fwprintf is used to convert char to wchar_t output.
-    int e = fwprintf((FILE*) p0, L"%s", c);
+    int e = fwprintf((FILE*) p0, L"%s", (char*) c);
 
     // Test error value.
     if (e != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // Set break flag, so that the loop can be left in the next cycle.
-        copy_integer(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
@@ -260,14 +260,17 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // Allocate terminated file name item.
                 allocate_item((void*) &tn, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-                // Get terminated file name item data, count.
-                copy_array_forward((void*) &tnd, tn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
                 // Encode wide character option into multibyte character array.
                 encode_utf_8(tn, *d, p1);
 
                 // Add null termination character to terminated file name.
                 append_item_element(tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+                // Get terminated file name item data, count.
+                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                // Inside the structure, arrays may have been reallocated,
+                // with elements pointing to different memory areas now.
+                copy_array_forward((void*) &tnd, tn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
                 // Open file.
                 // CAUTION! The file name cannot be handed over as is.
@@ -357,18 +360,25 @@ void send_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // Allocate encoded character item.
     allocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Get serialised wide character item data, count.
-    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get encoded character item data, count.
-    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
     // Serialise source knowledge model into serialised wide character array.
 //    serialise(s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
+    // Get serialised wide character item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
     // Encode serialised wide character array into encoded character array.
     encode_utf_8(e, sd, sc);
+
+    // Get encoded character item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Write encoded array into file.
     send_file((void*) &p15, p16, *NULL_POINTER_STATE_CYBOI_MODEL, ed, ec);

@@ -298,22 +298,23 @@ void startup_socket_get_host_address(void* p0, void* p1, void* p2, void* p3) {
 
             // The terminated address item.
             void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The terminated address item data, count.
+            // The terminated address item data.
             void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Allocate terminated address item.
             allocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-            // Get terminated address item data, count.
-            copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             // Encode wide character name into multibyte character array.
             encode_utf_8(s, p1, p2);
 
             // Add null termination character.
             append_item_element(s, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+            // Get terminated address item data.
+            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+            // Inside the structure, arrays may have been reallocated,
+            // with elements pointing to different memory areas now.
+            copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
             // Convert uint16_t integer hostshort from host byte order
             // to network byte order.

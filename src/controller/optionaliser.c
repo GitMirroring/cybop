@@ -143,24 +143,25 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
 
         // The terminated file name item.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The terminated file name item data, count.
+        // The terminated file name item data.
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate terminated file name item.
         // CAUTION! Do NOT use a wide character array here!
         // The glibc file stream functions below expect standard (multibyte) character arrays.
         allocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-        // Get terminated file name item data, count.
-        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
         // Encode wide character option into multibyte character array.
         encode_utf_8(t, p1, p2);
 
         // Add null termination character to terminated file name.
         append_item_element(t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+        // Get terminated file name item data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
         // Open log file for writing only.
         // If the file already exists, it is truncated to zero length.
@@ -283,7 +284,6 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST option 0: %i\n", r);
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p6, (void*) HELP_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) HELP_OPTION_CYBOI_NAME_COUNT);
@@ -342,19 +342,14 @@ fwprintf(stdout, L"TEST option 0: %i\n", r);
         }
     }
 
-fwprintf(stdout, L"TEST option 1: %i\n", r);
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST option 2: %i\n", r);
         compare_all_array((void*) &r, p6, (void*) VERSION_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) VERSION_OPTION_CYBOI_NAME_COUNT);
 
-fwprintf(stdout, L"TEST option 3: %i\n", r);
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST option 4: %i\n", *((int*) p0));
             // Set version operation mode.
             copy_integer(p0, (void*) VERSION_OPERATION_MODE_CYBOI_MODEL);
-fwprintf(stdout, L"TEST option 5: %i\n", *((int*) p0));
         }
     }
 
@@ -418,12 +413,6 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
     allocate_item((void*) &ow, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     allocate_item((void*) &vw, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Get option, value wide character item data, count.
-    copy_array_forward((void*) &owd, ow, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &owc, ow, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &vwd, vw, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &vwc, vw, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
     // Get command line argument option.
     // Example: "--loglevel"
     copy_array_forward((void*) &od, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
@@ -445,7 +434,7 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
         //
         oc = strlen((char*) od);
 
-        // Decode multibyte command line argument option into wide character.
+        // Decode multibyte character option into wide character.
         decode_utf_8(ow, od, (void*) &oc);
 
     } else {
@@ -486,7 +475,7 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
             // Possibility 2 is applied here.
             vc = strlen((char*) vd);
 
-            // Decode multibyte command line argument value into wide character.
+            // Decode multibyte character value into wide character.
             decode_utf_8(vw, vd, (void*) &vc);
 
         } else {
@@ -497,33 +486,23 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
         }
     }
 
-fwprintf(stdout, L"TEST opt 2 mode: %i\n", *((int*) p0));
-
-fwprintf(stdout, L"TEST pre o: %s\n", (char*) od);
-fwprintf(stdout, L"TEST pre oc: %i\n", oc);
-fwprintf(stdout, L"TEST pre owd: %ls\n", (wchar_t*) owd);
-fwprintf(stdout, L"TEST pre owc: %i\n", *((int*) owc));
-fwprintf(stdout, L"TEST pre v: %s\n", (char*) vd);
-fwprintf(stdout, L"TEST pre vc: %i\n", vc);
+    // Get option, value wide character item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &owd, ow, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &owc, ow, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &vwd, vw, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &vwc, vw, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Optionalise the option and its value.
     // CAUTION! The value gets handed over as reference, as it gets
     // copied for the cybol knowledge file name.
     optionalise_option(p0, p1, p2, p3, vwd, vwc, owd, owc);
 
-fwprintf(stdout, L"TEST post o: %s\n", (char*) od);
-fwprintf(stdout, L"TEST post oc: %i\n", oc);
-fwprintf(stdout, L"TEST post owd: %ls\n", (wchar_t*) owd);
-fwprintf(stdout, L"TEST post owc: %i\n", *((int*) owc));
-fwprintf(stdout, L"TEST post v: %s\n", (char*) vd);
-fwprintf(stdout, L"TEST post vc: %i\n", vc);
-
-fwprintf(stdout, L"TEST opt 3 mode: %i\n", *((int*) p0));
     // Deallocate option, value wide character item.
     deallocate_item((void*) &ow, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST opt 4: %i\n", r);
     deallocate_item((void*) &vw, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST opt 5: %i\n", r);
 }
 
 /**

@@ -29,9 +29,9 @@
 #include <stdio.h>
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/character_code/ascii/ascii_character_code_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../executor/converter/decoder/utf/utf_8_decoder.c"
-#include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../logger/logger.c"
 
@@ -185,50 +185,45 @@ void test_converter_serialise_integer_vector() {
 /**
  * Tests the utf-8 decoding.
  */
-void test_converter_decode_utf8() {
+void test_converter_decode_utf_8() {
 
-    log_write((void*) stdout, L"Test utf-8 decoding:\n");
+    log_write((void*) stdout, L"Test converter decode utf-8:\n");
 
-    wchar_t* f = L"exit/run.cybol";
-    int fc = 14;
+    // The destination item.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The destination item data, count, size.
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The read model.
-    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int rmc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int rms = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The wide character item.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The wide character item data, count.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // Allocate destination item.
+    allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Allocate read model.
-    allocate_array((void*) &rm, (void*) &rms, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate wide character item.
-    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Get destination item data, count, size.
+    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ds, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-    // Get wide character item data, count.
-    copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"TEST pre dd: %i\n", dd);
+    fwprintf(stdout, L"TEST pre dd: %ls\n", (wchar_t*) dd);
+    fwprintf(stdout, L"TEST pre dc: %i\n", *((int*) dc));
+    fwprintf(stdout, L"TEST pre ds: %i\n", *((int*) ds));
+    fwprintf(stdout, L"TEST pre sd: %i\n", PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL);
+    fwprintf(stdout, L"TEST pre sd: %s\n", PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL);
+    fwprintf(stdout, L"TEST pre sc: %i\n", *PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
-    // Read persistent byte stream over channel.
-//    receive_data((void*) &rm, (void*) &rmc, (void*) &rms, (void*) f, (void*) &fc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
+    decode_utf_8(d, (void*) PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
-    fwprintf(stdout, L"TEST rms: %i\n", rms);
-    fwprintf(stdout, L"TEST rmc: %i\n", rmc);
-    fwprintf(stdout, L"TEST rm: %s\n", (wchar_t*) rm);
+    fwprintf(stdout, L"TEST post dd: %i\n", dd);
+    fwprintf(stdout, L"TEST post dd: %ls\n", (wchar_t*) dd);
+    fwprintf(stdout, L"TEST post dc: %i\n", *((int*) dc));
+    fwprintf(stdout, L"TEST post ds: %i\n", *((int*) ds));
+    fwprintf(stdout, L"TEST post sd: %i\n", PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL);
+    fwprintf(stdout, L"TEST post sd: %s\n", PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL);
+    fwprintf(stdout, L"TEST post sc: %i\n", *PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
-    decode_utf_8(i, rm, (void*) &rmc);
-    //?? TEST only! DELETE LATER!
-//??    decode_utf_8(i, (void*) ASCII_CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT);
-
-    fwprintf(stdout, L"TEST id: %ls\n", (wchar_t*) id);
-    fwprintf(stdout, L"TEST ic: %i\n", *((int*) ic));
-
-    // Deallocate read model.
-    deallocate_array((void*) &rm, (void*) &rms, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate wide character item.
-    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -248,7 +243,7 @@ void test_converter() {
 //    test_converter_deserialise_cybol_integer_vector();
 //    test_converter_serialise_integer_vector();
 
-//    test_converter_decode_utf8();
+    test_converter_decode_utf_8();
 }
 
 /* CONVERTER_TESTER */

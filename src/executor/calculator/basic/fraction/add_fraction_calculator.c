@@ -47,6 +47,10 @@ void calculate_fraction_add(void* p0, void* p1) {
     // The source numerator and denominator.
     void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary source numerator value.
+    // CAUTION! The original *sn should NOT be altered, since a
+    // source should always be left untouched (read-only).
+    int tsn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get destination numerator and denominator.
     copy_array_forward((void*) &dn, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
@@ -54,11 +58,6 @@ void calculate_fraction_add(void* p0, void* p1) {
     // Get source numerator and denominator.
     copy_array_forward((void*) &sn, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
-
-    // The temporary source numerator value.
-    // CAUTION! The original *sn should NOT be altered, since a
-    // source should always be left untouched (read-only).
-    int tsn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // Copy temporary source numerator value.
     copy_integer((void*) &tsn, sn);
 
