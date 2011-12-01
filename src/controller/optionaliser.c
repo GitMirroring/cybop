@@ -52,7 +52,7 @@
  * Optionalises the log level option.
  *
  * @param p0 the log level
- * @param p1 the log level name
+ * @param p1 the log level name data
  * @param p2 the log level name count
  */
 void optionalise_log_level(void* p0, void* p1, void* p2) {
@@ -127,7 +127,7 @@ void optionalise_log_level(void* p0, void* p1, void* p2) {
  * Optionalises the log file option.
  *
  * @param p0 the log file (pointer reference)
- * @param p1 the log file name
+ * @param p1 the log file name data
  * @param p2 the log file name count
  */
 void optionalise_log_file(void* p0, void* p1, void* p2) {
@@ -269,9 +269,9 @@ void deoptionalise_log_file(void* p0) {
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
  * @param p3 the log file stream (pointer reference)
- * @param p4 the value
+ * @param p4 the value data
  * @param p5 the value count
- * @param p6 the option
+ * @param p6 the option data
  * @param p7 the option count
  */
 void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
@@ -302,7 +302,7 @@ void optionalise_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Copy file path from value to cybol knowledge file path.
-            overwrite_item_element(p1, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            append_item_element(p1, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Set knowledge operation mode.
             copy_integer(p0, (void*) KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL);
@@ -494,6 +494,11 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
     copy_array_forward((void*) &owc, ow, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &vwd, vw, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &vwc, vw, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST vd: %s\n", (char*) vd);
+fwprintf(stdout, L"TEST vc: %i\n", vc);
+fwprintf(stdout, L"TEST vwd: %ls\n", (wchar_t*) vwd);
+fwprintf(stdout, L"TEST vwc: %i\n", *((int*) vwc));
 
     // Optionalise the option and its value.
     // CAUTION! The value gets handed over as reference, as it gets

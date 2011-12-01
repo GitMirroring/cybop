@@ -65,8 +65,8 @@ void allocate_item(void* p0, void* p1, void* p2) {
         // The data does NOT have to be initialised and remains empty.
         // The count is set to zero, since the model does not contain any elements yet.
         // The size is set to the value that was handed over as argument.
-        copy_array_forward(c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(s, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_integer(c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        copy_integer(s, p1);
 
         // Set data, count, size.
         copy_array_forward(*i, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
