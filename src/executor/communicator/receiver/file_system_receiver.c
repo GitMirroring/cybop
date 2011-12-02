@@ -189,9 +189,6 @@ void receive_file_system(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // Allocate decoded message item.
     allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-fwprintf(stdout, L"TEST filename: %ls\n", (wchar_t*) p2);
-fwprintf(stdout, L"TEST filename count: %i\n", *((int*) p3));
-
     // Receive byte data via channel.
     receive_file(e, p2, p3);
 
@@ -201,8 +198,6 @@ fwprintf(stdout, L"TEST filename count: %i\n", *((int*) p3));
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST ed: %s\n", (char*) ed);
-fwprintf(stdout, L"TEST ec: %i\n", *((int*) ec));
 
     // Decode data via encoding.
     decode(d, ed, ec, p5);
@@ -213,8 +208,6 @@ fwprintf(stdout, L"TEST ec: %i\n", *((int*) ec));
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST dd: %ls\n", (wchar_t*) dd);
-fwprintf(stdout, L"TEST dc: %i\n", *((int*) dc));
 
     // Deserialise data via type (language).
     deserialise(p0, p1, dd, dc, p4);

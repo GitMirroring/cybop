@@ -86,7 +86,7 @@ void serialise_model_diagram(void* p0, void* p1) {
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Encode model diagram root node.
-    serialise_model_diagram_node(p0, nd, nc, ad, ac, md, mc, dd, dc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &l);
+    serialise_model_diagram_node(p0, nd, nc, ad, ac, md, mc, dd, dc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
 }
 
 /* MODEL_DIAGRAM_SERIALISER_SOURCE */

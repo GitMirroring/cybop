@@ -87,7 +87,7 @@ void initialise(void* p0, void* p1, void* p2) {
     // Receive startup signal model, properties.
     //?? TODO: Is CYBOL_TEXT_STATE_CYBOL_TYPE_AS_CHAR needed here instead?
     //?? If not, then delete that constant in file "text_state_cybol_type.c"!
-    receive_file_system(sm, sp, md, mc, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) UTF_8_CYBOI_ENCODING);
+    receive_file_system(sm, sp, md, mc, (void*) CYBOL_TEXT_STATE_CYBOL_CYBOI_TYPE, (void*) UTF_8_CYBOI_ENCODING);
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add startup signal to signal memory.");

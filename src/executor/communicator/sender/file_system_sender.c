@@ -53,7 +53,7 @@ void send_file_character(void* p0, void* p1, void* p2, void* p3) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Read character from source array.
-    copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward(c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Write character to file.
     char e = fputc(*((char*) c), (FILE*) p0);
@@ -70,8 +70,8 @@ void send_file_character(void* p0, void* p1, void* p2, void* p3) {
  * Sends a wide character to file.
  *
  * @param p0 the destination file stream
- * @param p1 the source array
- * @param p2 the source array index
+ * @param p1 the source data
+ * @param p2 the source index
  * @param p3 the break flag
  */
 void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
@@ -80,12 +80,14 @@ void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Read character from source array.
-    copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    // CAUTION! Do NOT use WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE here!
+    // The input is char, but stdout was set to wide character mode at cyboi startup.
+    copy_array_forward(c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Write character to file.
     //
     // CAUTION! Do NOT use the "fputwc" function here, but "fwprintf" instead.
-    // The input is char, but the stdout output is set to wide character mode at cyboi startup.
+    // The input is char, but stdout was set to wide character mode at cyboi startup.
     // Therefore, fwprintf is used to convert char to wchar_t output.
     int e = fwprintf((FILE*) p0, L"%s", (char*) c);
 
@@ -104,7 +106,7 @@ void send_file_wide_character(void* p0, void* p1, void* p2, void* p3) {
  * @param p1 the source array
  * @param p2 the source array index
  * @param p3 the break flag
- * @param p4 the wide character flag (0 - char; 1 - wchar_t)
+ * @param p4 the wide character flag (FALSE_BOOLEAN_STATE_CYBOI_MODEL - char; TRUE_BOOLEAN_STATE_CYBOI_MODEL - wchar_t)
  */
 void send_file_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -112,7 +114,7 @@ void send_file_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         int* w = (int*) p4;
 
-        if (*w == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (*w == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             send_file_character(p0, p1, p2, p3);
 
@@ -131,9 +133,9 @@ void send_file_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * Sends a file stream.
  *
  * @param p0 the destination file stream
- * @param p1 the source byte array
- * @param p2 the source byte array count
- * @param p3 the wide character flag (0 - char; 1 - wchar_t)
+ * @param p1 the source data
+ * @param p2 the source count
+ * @param p3 the wide character flag (FALSE_BOOLEAN_STATE_CYBOI_MODEL - char; TRUE_BOOLEAN_STATE_CYBOI_MODEL - wchar_t)
  */
 void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
@@ -145,14 +147,17 @@ void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file stream.");
 
+fwprintf(stdout, L"TEST CONTENT d:\n%s\n", (char*) p1);
+fwprintf(stdout, L"TEST CONTENT c: %i\n", *((int*) p2));
+
             // The loop variable.
             int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The break flag.
-            int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                if ((j >= *sc) || (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
+                if ((j >= *sc) || (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
                     break;
                 }
@@ -176,7 +181,7 @@ void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
 /**
  * Sends a file that was read from a byte array.
  *
- * @param p0 the destination file name (pointer reference)
+ * @param p0 the destination file name data (pointer reference)
  * @param p1 the destination file name count
  * @param p2 the destination file name size
  * @param p3 the source byte array
@@ -195,20 +200,21 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file.");
 
             // The comparison result.
-            int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
             // The file.
             FILE* f = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST send 0:\n%i\n", *d);
+            if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) STANDARD_OUTPUT_STREAM_TERMINAL_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_OUTPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) STANDARD_OUTPUT_STREAM_TERMINAL_MODEL_COUNT);
 
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                     // The given string is not a file name, but specifies the "standard_output".
                     f = stdout;
 
-                    send_file_stream((void*) f, p3, p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+                    send_file_stream((void*) f, p3, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                     // Flush any buffered output on the stream to the file.
                     //
@@ -223,16 +229,17 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST send 1:\n%i\n", *d);
+            if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL_COUNT);
+                compare_all_array((void*) &r, *d, (void*) STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL_COUNT);
 
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                     // The given string is not a file name, but specifies the "standard_error_output".
                     f = stderr;
 
-                    send_file_stream((void*) f, p3, p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+                    send_file_stream((void*) f, p3, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                     // Flush any buffered output on the stream to the file.
                     //
@@ -247,7 +254,8 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 }
             }
 
-            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST send 2:\n%i\n", *d);
+            if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // If the given name does neither match the standard output
                 // nor the standard error output, then interpret it as file name.
@@ -272,6 +280,8 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // with elements pointing to different memory areas now.
                 copy_array_forward((void*) &tnd, tn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST send 3 tnd: %s\n", (char*) tnd);
+
                 // Open file.
                 // CAUTION! The file name cannot be handed over as is.
                 // CYBOI strings are NOT terminated with the null character '\0'.
@@ -279,10 +289,12 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // must be added to the string before that is used to open the file.
                 f = fopen((char*) tnd, "w");
 
+fwprintf(stdout, L"TEST send 4 f: %i\n", f);
                 if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    send_file_stream((void*) f, p3, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    send_file_stream((void*) f, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+fwprintf(stdout, L"TEST send 5: %i\n", f);
                     // Flush any buffered output on the stream to the file.
                     //
                     // If this was not done here, the buffered output on the

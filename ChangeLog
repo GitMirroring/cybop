@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-12-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug xml decoder, model diagram encoder, file sender
+
 2011-12-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug source code so that pointers to elements of an item or a part are not

@@ -52,7 +52,7 @@
  * @param p0 the comparison result
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
- * @param p3 the array
+ * @param p3 the data
  * @param p4 the type
  * @param p5 the count
  * @param p6 the move flag
