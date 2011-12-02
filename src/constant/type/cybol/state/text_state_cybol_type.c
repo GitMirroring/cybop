@@ -100,19 +100,6 @@ static wchar_t* CYBOL_TEXT_STATE_CYBOL_TYPE = CYBOL_TEXT_STATE_CYBOL_TYPE_ARRAY;
 static int* CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/cybol cybol type as ascii character string.
- *
- * CAUTION! This constant is redundant with CYBOL_TEXT_STATE_CYBOL_TYPE.
- * It is necessary, because the module "initialiser.c" needs to hand over
- * a multibyte character string as argument, which later gets decoded
- * into a wide character string.
- *
- * The "CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT" from above is used as count.
- */
-static char CYBOL_TEXT_STATE_CYBOL_TYPE_AS_CHAR_ARRAY[] = {'t', 'e', 'x', 't', '/', 'c', 'y', 'b', 'o', 'l'};
-static char* CYBOL_TEXT_STATE_CYBOL_TYPE_AS_CHAR = CYBOL_TEXT_STATE_CYBOL_TYPE_AS_CHAR_ARRAY;
-
-/**
  * The text/html cybol type.
  *
  * Hypertext Markup Language (HTML) format.

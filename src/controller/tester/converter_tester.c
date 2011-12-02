@@ -243,7 +243,7 @@ void test_converter() {
 //    test_converter_deserialise_cybol_integer_vector();
 //    test_converter_serialise_integer_vector();
 
-    test_converter_decode_utf_8();
+//    test_converter_decode_utf_8();
 }
 
 /* CONVERTER_TESTER */
