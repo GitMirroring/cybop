@@ -37,10 +37,10 @@
  * Gets the knowledge part by name, from the given whole array.
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source whole array
- * @param p2 the part name array
- * @param p3 the part name array count
- * @param p4 the source whole array count
+ * @param p1 the source whole data
+ * @param p2 the part name data
+ * @param p3 the part name count
+ * @param p4 the source whole count
  */
 void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

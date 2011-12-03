@@ -53,10 +53,10 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * Deserialises the cybol standard part.
  *
  * @param p0 the destination item
- * @param p1 the source part model data
- * @param p2 the source part model count
- * @param p3 the source part properties data
- * @param p4 the source part properties count
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
  * @param p5 the root part flag
  */
 void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
@@ -91,6 +91,7 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     void* smmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+//?? TODO: change called function!
     // Get source name, channel, encoding, type, model part.
     get_name_array((void*) &sn, p3, (void*) NAME_CYBOL_NAME, (void*) NAME_CYBOL_NAME_COUNT, p4);
     get_name_array((void*) &sc, p3, (void*) CHANNEL_CYBOL_NAME, (void*) CHANNEL_CYBOL_NAME_COUNT, p4);
@@ -164,61 +165,76 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     // Therefore, the type has to be converted here.
     deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
 
-    //
-    // Create new part.
-    //
-    // CAUTION! This may only be done AFTER having retrieved the source type,
-    // since that is needed for allocating the new part.
-    //
+    // CAUTION! This test is IMPORTANT!
+    // If the source is null, then NO part should be created.
+    if (dt > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-    // The part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part name, type, model, properties.
-    void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
+        //
+        // Create new part.
+        //
+        // CAUTION! This may only be done AFTER having retrieved the
+        // source type, since that is needed for allocating the new part.
+        //
 
-    // Allocate part.
-    // CAUTION! Use the CYBOI destination type determined above
-    // (and NOT the CYBOL cyboi destination type)!
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &dt);
-    // Get part name, type, model, properties.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+        // The part.
+        void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The part name, type, model, properties.
+        void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Fill part name.
-    overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Fill part type.
-    // CAUTION! Use the CYBOI destination type determined above
-    // (and NOT the CYBOL cyboi destination type)!
-    // CAUTION! Do NOT use a simple "copy" function here, since this is an item.
-    overwrite_item_element(pt, (void*) &dt, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Fill part model taken from cybol source part properties.
-    // CAUTION! What is the properties in a parsed xml/cybol file,
-    // becomes the model in the cyboi-internal knowledge tree.
-    // CAUTION! Use the CYBOL cyboi destination type determined above
-    // (and NOT the CYBOI destination type)!
-    // CAUTION! A null pointer is handed over as last parametre here.
-    // When reading cybol, the only possible two channels are "inline" and "file".
-    // The internal memory (last parametre) is only necessary for
-    // "terminal", "x_window_system" and similar channels.
-    receive_data(pm, pp, smmd, smmc, (void*) &dtc, (void*) &de, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &dc);
-    // Fill part properties taken from cybol source part model.
-    // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
-    // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-    deserialise_cybol_properties(pp, p1, p2, p5);
+        // Allocate part.
+        // CAUTION! Use the CYBOI destination type determined above
+        // (and NOT the CYBOL cyboi destination type)!
+        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &dt);
+        // Get part name, type, model, properties.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-    //
-    // Add part to destination.
-    //
+    fwprintf(stdout, L"TEST snmd: %i\n", snmd);
+    fwprintf(stdout, L"TEST snmd: %ls\n", (wchar_t*) snmd);
+    fwprintf(stdout, L"TEST dc: %i\n", dc);
+    fwprintf(stdout, L"TEST de: %i\n", de);
+    fwprintf(stdout, L"TEST dtc: %i\n", dtc);
+    fwprintf(stdout, L"TEST dt: %i\n", dt);
+        // Fill part name.
+        overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Fill part type.
+        // CAUTION! Use the CYBOI destination type determined above
+        // (and NOT the CYBOL cyboi destination type)!
+        // CAUTION! Do NOT use a simple "copy" function here, since this is an item.
+        overwrite_item_element(pt, (void*) &dt, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Fill part model taken from cybol source part properties.
+        // CAUTION! What is the properties in a parsed xml/cybol file,
+        // becomes the model in the cyboi-internal knowledge tree.
+        // CAUTION! Use the CYBOL cyboi destination type determined above
+        // (and NOT the CYBOI destination type)!
+        // CAUTION! A null pointer is handed over as last parametre here.
+        // When reading cybol, the only possible two channels are "inline" and "file".
+        // The internal memory (last parametre) is only necessary for
+        // "terminal", "x_window_system" and similar channels.
+        receive_data(pm, pp, smmd, smmc, (void*) &dtc, (void*) &de, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &dc);
+        // Fill part properties taken from cybol source part model.
+        // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
+        // becomes the properties (meta data) in the cyboi-internal knowledge tree.
+        deserialise_cybol_properties(pp, p1, p2, p5);
 
-    append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        //
+        // Add part to destination.
+        //
+
+        append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol part standard. The type is invalid. Probably, the source is null.");
+    }
 }
 
 /* STANDARD_PART_CYBOL_DESERIALISER_SOURCE */

@@ -54,6 +54,7 @@ void deserialise_cybol_properties(void* p0, void* p1, void* p2, void* p3) {
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST loop count: %i\n", *((int*) p2));
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
@@ -68,6 +69,7 @@ void deserialise_cybol_properties(void* p0, void* p1, void* p2, void* p3) {
         // Increment loop variable.
         j++;
     }
+fwprintf(stdout, L"TEST loop j: %i\n", j);
 }
 
 /* PROPERTIES_CYBOL_DESERIALISER_SOURCE */

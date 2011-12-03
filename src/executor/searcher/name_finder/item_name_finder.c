@@ -45,8 +45,8 @@
  *
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the investigated item (each element pointing to a part)
- * @param p2 the searched name array
- * @param p3 the searched name array count
+ * @param p2 the searched name data
+ * @param p3 the searched name count
  */
 void find_name_item_element(void* p0, void* p1, void* p2, void* p3) {
 

@@ -47,60 +47,55 @@
  * Finds a part with the given name in the investigated array.
  *
  * @param p0 the index (if found; unchanged otherwise)
- * @param p1 the investigated array (each element pointing to a part)
- * @param p2 the searched name array
- * @param p3 the searched name array count
- * @param p4 the investigated array count
+ * @param p1 the investigated data (each element pointing to a part)
+ * @param p2 the searched name data
+ * @param p3 the searched name count
+ * @param p4 the investigated count
  */
 void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array.");
 
-        int* c = (int*) p4;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array.");
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The loop variable.
-        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The part.
-        void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The comparison result.
-        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
 
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (j >= *c) {
+            // The maximum loop count has been reached.
+            // All elements have been compared.
+            // A part with the searched name could not be found.
+            // Leave index untouched.
 
-                // The maximum loop count has been reached.
-                // All elements have been compared.
-                // A part with the searched name could not be found.
-                // Leave index untouched.
-
-                break;
-            }
-
-            // Get part j from investigated pointer array p1.
-            copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
-            // Compare part p name item with given name p2.
-            compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NAME_PART_STATE_CYBOI_NAME);
-
-            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // The part with the searched name has been found.
-
-                // Remember the index.
-                copy_integer(p0, (void*) &j);
-
-                // The loop may be left now.
-                break;
-            }
-
-            j++;
+            break;
         }
 
-    } else {
+        // Get part j from investigated pointer array p1.
+        copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
+        // Compare part p name item with given name p2.
+        compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NAME_PART_STATE_CYBOI_NAME);
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not find name array. The array is null.");
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // The part with the searched name has been found.
+
+            // Remember the index.
+            copy_integer(p0, (void*) &j);
+
+            // The loop may be left now.
+            break;
+        }
+
+        j++;
     }
 }
 

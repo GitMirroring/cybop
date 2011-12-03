@@ -37,8 +37,8 @@
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
- * @param p2 the part name array
- * @param p3 the part name array count
+ * @param p2 the part name data
+ * @param p3 the part name count
  * @param p4 the destination part element index
  */
 void get_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
