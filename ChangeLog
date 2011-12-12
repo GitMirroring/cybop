@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-12-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend serialisation of model diagram types
+
 2011-12-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug xml decoder, model diagram encoder, file sender

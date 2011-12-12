@@ -30,75 +30,23 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The boolean model diagram type. */
-static wchar_t BOOLEAN_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'b', L'o', L'o', L'l', L'e', L'a', L'n'};
-static wchar_t* BOOLEAN_MODEL_DIAGRAM_TYPE = BOOLEAN_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* BOOLEAN_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The character model diagram type. */
-static wchar_t CHARACTER_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'c', L'h', L'a', L'r', L'a', L'c', L't', L'e', L'r'};
-static wchar_t* CHARACTER_MODEL_DIAGRAM_TYPE = CHARACTER_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* CHARACTER_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The complex model diagram type. */
-static wchar_t COMPLEX_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'c', L'o', L'm', L'p', L'l', L'e', L'x'};
-static wchar_t* COMPLEX_MODEL_DIAGRAM_TYPE = COMPLEX_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* COMPLEX_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The datetime model diagram type. */
-static wchar_t DATETIME_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e'};
-static wchar_t* DATETIME_MODEL_DIAGRAM_TYPE = DATETIME_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* DATETIME_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The double model diagram type. */
-static wchar_t DOUBLE_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'd', L'o', L'u', L'b', L'l', L'e'};
-static wchar_t* DOUBLE_MODEL_DIAGRAM_TYPE = DOUBLE_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* DOUBLE_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The encapsulated_knowledge_path model diagram type. */
-static wchar_t ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd', L'_', L'k', L'n', L'o', L'w', L'l', L'e', L'd', L'g', L'e', L'_', L'p', L'a', L't', L'h'};
-static wchar_t* ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE = ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* ENCAPSULATED_KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The fraction model diagram type. */
-static wchar_t FRACTION_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'f', L'r', L'a', L'c', L't', L'i', L'o', L'n'};
-static wchar_t* FRACTION_MODEL_DIAGRAM_TYPE = FRACTION_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* FRACTION_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The integer model diagram type. */
-static wchar_t INTEGER_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'i', L'n', L't', L'e', L'g', L'e', L'r'};
-static wchar_t* INTEGER_MODEL_DIAGRAM_TYPE = INTEGER_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* INTEGER_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The knowledge_path model diagram type. */
-static wchar_t KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'k', L'n', L'o', L'w', L'l', L'e', L'd', L'g', L'e', L'_', L'p', L'a', L't', L'h'};
-static wchar_t* KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE = KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* KNOWLEDGE_PATH_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The operation model diagram type. */
-static wchar_t OPERATION_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'o', L'p', L'e', L'r', L'a', L't', L'i', L'o', L'n'};
-static wchar_t* OPERATION_MODEL_DIAGRAM_TYPE = OPERATION_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* OPERATION_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//
+// element
+//
 
 /** The part model diagram type. */
 static wchar_t PART_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'p', L'a', L'r', L't'};
 static wchar_t* PART_MODEL_DIAGRAM_TYPE = PART_MODEL_DIAGRAM_TYPE_ARRAY;
 static int* PART_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//
+// pointer
+//
+
 /** The pointer model diagram type. */
 static wchar_t POINTER_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'p', L'o', L'i', L'n', L't', L'e', L'r'};
 static wchar_t* POINTER_MODEL_DIAGRAM_TYPE = POINTER_MODEL_DIAGRAM_TYPE_ARRAY;
 static int* POINTER_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The unsigned_long model diagram type. */
-static wchar_t UNSIGNED_LONG_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'u', L'n', L's', L'i', L'g', L'n', L'e', L'd', L'_', L'l', L'o', L'n', L'g'};
-static wchar_t* UNSIGNED_LONG_MODEL_DIAGRAM_TYPE = UNSIGNED_LONG_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* UNSIGNED_LONG_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The wide_character model diagram type. */
-static wchar_t WIDE_CHARACTER_MODEL_DIAGRAM_TYPE_ARRAY[] = {L'w', L'i', L'd', L'e', L'_', L'c', L'h', L'a', L'r', L'a', L'c', L't', L'e', L'r'};
-static wchar_t* WIDE_CHARACTER_MODEL_DIAGRAM_TYPE = WIDE_CHARACTER_MODEL_DIAGRAM_TYPE_ARRAY;
-static int* WIDE_CHARACTER_MODEL_DIAGRAM_TYPE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MODEL_DIAGRAM_TYPE_SOURCE */
 #endif
