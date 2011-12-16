@@ -33,6 +33,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/model_diagram/indentation_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/line_model_diagram_serialiser.c"
+#include "../../../../executor/representer/serialiser/model_diagram/model_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/part_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/type_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
@@ -72,77 +73,8 @@ void serialise_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* 
     // Append part type.
     serialise_model_diagram_type(p0, p3);
 
-    //
     // Append part model.
-    //
-
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_model_diagram_part(p0, p5, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p10);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) ENCAPSULATED_PATH_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_model_diagram_line(p0);
-            serialise_cybol_double(p0, p5, p6);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_model_diagram_line(p0);
-            serialise_cybol_integer(p0, p5, p6);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_model_diagram_line(p0);
-            append_item_element(p0, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        }
-    }
+    serialise_model_diagram_model(p0, p5, p6, p10, p3);
 
     // Append part properties.
     serialise_model_diagram_part(p0, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p10);

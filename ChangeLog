@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-12-16  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Factor out serialisation of model diagram model
+
 2011-12-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Extend serialisation of model diagram types
