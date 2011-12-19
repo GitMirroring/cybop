@@ -55,7 +55,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part model, properties.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part.
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
@@ -71,7 +71,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
     // The has attribute flag.
     int ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -81,7 +81,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     int ie = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Decode tag name.
-    deserialise_xml_tag_name(pd, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
+    deserialise_xml_tag_name(pp, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
 
     if (ha != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -89,13 +89,13 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
         ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Decode attribute.
-        deserialise_xml_attribute(pd, (void*) &hc, (void*) &ie, p1, p2);
+        deserialise_xml_attribute(pp, (void*) &hc, (void*) &ie, p1, p2);
     }
 
     if (hc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Decode the element's content.
-        deserialise_xml_element_content(pm, pd, p1, p2);
+        deserialise_xml_element_content(pm, pp, p1, p2);
     }
 
     // Append part to destination model.

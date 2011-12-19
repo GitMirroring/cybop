@@ -124,6 +124,8 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     // Get source name, channel, encoding, type, model part model data, count.
     copy_array_forward((void*) &snmd, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &snmc, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST part standard stmd: %i\n", stmd);
+fwprintf(stdout, L"TEST part standard stmc: %i\n", stmc);
     copy_array_forward((void*) &scmd, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scmc, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &semd, sem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -151,6 +153,8 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     // because the part model has not been allocated yet when reading
     // the type for the first time.
     int dt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The root flag.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Decode cybol source channel into cyboi destination channel.
     deserialise_cybol_channel((void*) &dc, scmd, scmc);
@@ -167,7 +171,13 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
 
     // CAUTION! This test is IMPORTANT!
     // If the source is null, then NO part should be created.
-    if (dt > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+//??    if (dt > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+    compare_integer_smaller((void*) &r, (void*) &dt, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        copy_integer((void*) &dt, PART_ELEMENT_STATE_CYBOI_TYPE);
+    }
 
         //
         // Create new part.
@@ -230,11 +240,12 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
         //
 
         append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
+/*??
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol part standard. The type is invalid. Probably, the source is null.");
     }
+*/
 }
 
 /* STANDARD_PART_CYBOL_DESERIALISER_SOURCE */

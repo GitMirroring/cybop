@@ -40,18 +40,6 @@
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
 
-//
-// Forward declarations.
-//
-
-/*??
-void deserialise_xml_comment(void* p0, void* p1);
-void deserialise_xml_declaration(void* p0, void* p1, void* p2, void* p3, void* p4);
-void deserialise_xml_definition(void* p0, void* p1, void* p2, void* p3, void* p4);
-void deserialise_xml_element(void* p0, void* p1, void* p2, void* p3, void* p4);
-void deserialise_xml_end_tag(void* p0, void* p1);
-*/
-
 /**
  * Selects the xml element content.
  *
@@ -161,7 +149,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
         // None of the comparisons above matched.
         // Therefore, increment the source data position by ONE (pointer size).
 
-        move_position(p3, p4, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        move_position(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

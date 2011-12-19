@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-12-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix xml deserialiser (wrong type in all calls of position mover)
+        * Fix cybol deserialiser partly
+
 2011-12-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Factor out serialisation of model diagram model

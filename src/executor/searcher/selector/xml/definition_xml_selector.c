@@ -66,7 +66,7 @@ void select_xml_definition(void* p0, void* p1, void* p2) {
         // None of the comparisons above delivered a positive (r != 0) result.
         // Therefore, increment the current position by one (pointer size).
 
-        move_position(p1, p2, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

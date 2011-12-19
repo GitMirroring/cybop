@@ -462,43 +462,69 @@ fwprintf(stdout, L"TEST pre deserialise cybol pc: %i\n", *((int*) pc));
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
             deserialise_cybol(p0, md, mc, pd, pc);
 
-fwprintf(stdout, L"TEST pre deallocate temporary: %i\n", m);
             // Deallocate temporary model, properties item.
             deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
             deallocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-/*??
 //?? TEST BEGIN
-            // Reset model diagram.
-            md = *NULL_POINTER_STATE_CYBOI_MODEL;
-            mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // Allocate model diagram.
-            allocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-            // Encode model into model diagram.
-            serialise_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
-                *((void**) p0), p1, *((void**) p3), p4);
-            // Reset multibyte character stream.
-            mb = *NULL_POINTER_STATE_CYBOI_MODEL;
-            mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // Allocate multibyte character stream.
-            allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            // The temporary model, properties item data, count.
+            void* tmpmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* tmpmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* tmppd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* tmppc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // with elements pointing to different memory areas now.
+            copy_array_forward((void*) &tmpmd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &tmpmc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &tmppd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &tmppc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            // The model diagram item.
+            d = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The multibyte character stream item.
+            b = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The file name.
+            fd = L"TEST_DESERIALISE_CYBOL.txt";
+            fc = *NUMBER_26_INTEGER_STATE_CYBOI_MODEL;
+            fs = *NUMBER_27_INTEGER_STATE_CYBOI_MODEL;
+            // The model diagram item data, count.
+            dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The multibyte character stream item model data, count.
+            bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The tree level.
+            l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // Allocate model diagram item.
+            allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            // Allocate multibyte character stream item.
+            allocate_item((void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            // Encode model into model diagram item.
+            // CAUTION! Do NOT forward NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
+            // since the tree level value gets changed in the following functions!
+fwprintf(stdout, L"TEST pre serialise: %i\n", *((int*) tmpmc));
+            serialise_model_diagram_node(d, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, tmpmd, tmpmc, tmppd, tmppc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+fwprintf(stdout, L"TEST post serialise: %i\n", *((int*) tmpmc));
+            // Get model diagram item data, count.
+            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+            // Inside the structure, arrays may have been reallocated,
+            // with elements pointing to different memory areas now.
+            copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
             // Encode model diagram into multibyte character stream.
-            encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
-            // Reset file name.
-            fn = L"TEST_DECODER_CYBOL.txt";
-            fnc = *NUMBER_22_INTEGER_STATE_CYBOI_MODEL;
-            fns = *NUMBER_23_INTEGER_STATE_CYBOI_MODEL;
-            // Write multibyte character stream as message to file system.
-            send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
-            // Deallocate model diagram.
-            deallocate_array((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            encode_utf_8(b, dd, dc);
+            // Get multibyte character stream item data, count.
+            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+            // Inside the structure, arrays may have been reallocated,
+            // with elements pointing to different memory areas now.
+            copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            // Write multibyte character stream to file system.
+            send_file((void*) &fd, (void*) &fc, (void*) &fs, bd, bc);
+            // Deallocate model diagram item.
+            deallocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             // Deallocate multibyte character stream.
-            deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 //?? TEST END
-*/
+
         }
     }
 

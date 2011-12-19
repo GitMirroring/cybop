@@ -49,21 +49,21 @@ void determine_size(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* a = (int*) p1;
+        int* t = (int*) p1;
 
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Determine size.");
 
-        if (*a == *CHARACTER_TEXT_STATE_CYBOI_TYPE) {
+        if (*t == *CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*a == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {
+        } else if (*t == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) DOUBLE_REAL_TYPE_SIZE);
 
-        } else if (*a == *FRACTION_NUMBER_STATE_CYBOI_TYPE) {
+        } else if (*t == *FRACTION_NUMBER_STATE_CYBOI_TYPE) {
 
             // CAUTION! This "fraction" type IS NEEDED,
             // e.g. when DEEP copying a part. Do NOT delete!
@@ -71,11 +71,11 @@ void determine_size(void* p0, void* p1) {
             // pointer references a fraction structure.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *INTEGER_NUMBER_STATE_CYBOI_TYPE) {
+        } else if (*t == *INTEGER_NUMBER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
 
-        } else if (*a == *PART_ELEMENT_STATE_CYBOI_TYPE) {
+        } else if (*t == *PART_ELEMENT_STATE_CYBOI_TYPE) {
 
             // CAUTION! Do NOT delete!
             // This "part" type IS NEEDED,
@@ -86,15 +86,15 @@ void determine_size(void* p0, void* p1) {
             // pointer references a part structure.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *POINTER_STATE_CYBOI_TYPE) {
+        } else if (*t == *POINTER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*a == *UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE) {
+        } else if (*t == *UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
 
-        } else if (*a == *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE) {
+        } else if (*t == *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 

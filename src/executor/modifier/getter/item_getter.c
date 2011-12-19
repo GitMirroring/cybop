@@ -85,11 +85,11 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     compare_integer((void*) &r, p6, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
 
-    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // This is a data item element.
 
@@ -100,7 +100,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
         // Reset comparison result.
-        copy_integer((void*) &r, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // CAUTION! The data item element's count HAS TO BE GREATER
         // than the given source index. Otherwise, array boundaries
@@ -108,7 +108,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // Therefore, this is checked here.
         compare_integer((void*) &r, c, p5, (void*) GREATER_COMPARE_LOGIC_CYBOI_TYPE);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Get destination array as element of the source item container.
             copy_array_forward(p0, e, p2, p3, p4, p5);

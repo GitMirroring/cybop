@@ -1,5 +1,5 @@
 <model>
-    <part name="message" channel="inline" encoding="utf-8" type="live/exit" model="exit"/>
+    <part name="message" channel="inline" encoding="utf-8" type="live/exit" model=""/>
 </model>
 
 <!--
