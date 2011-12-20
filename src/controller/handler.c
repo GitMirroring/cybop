@@ -59,19 +59,19 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle signal.");
 
     // The signal part type, model, properties.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal part elements data, count.
-    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The referenced (by a knowledge path) signal part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encapsulated signal part.
-    void* ep = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encapsulated signal part model.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encapsulated signal part model data, count.
@@ -79,18 +79,20 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get signal part type, model, properties.
-    copy_array_forward((void*) &a, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get signal part elements data, count.
-    copy_array_forward((void*) &ad, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+fwprintf(stdout, L"TEST handle 0: %i\n", part);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -98,59 +100,65 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         // It is needed for at least initial startup logic residing in CYBOL
         // files only, before any logic is created and contained as runtime
         // knowledge models in the knowledge memory.
-        compare_integer_equal((void*) &r, ad, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, td, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST handle 1: %i\n", part);
+
             // Handle compound part signal.
-            handle_part(md, mc, dd, dc, p1, p2, p3, p4, p5, p6, p7);
+            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, ad, (void*) ENCAPSULATED_PATH_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, td, (void*) ENCAPSULATED_PATH_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST handle 2: %i\n", part);
+
             // Get encapsulated signal part.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &ep, p3, (void*) &md, mc);
+            get_part_branch((void*) &e, p3, (void*) &md, mc);
 
             // Get encapsulated signal part model item.
-            copy_array_forward((void*) &em, ep, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             // Get encapsulated signal part model data, count array.
             copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             // Get double-encapsulated signal part.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &p, p3, (void*) &emd, emc);
+            get_part_branch((void*) &part, p3, (void*) &emd, emc);
 
             // Handle signal.
-            handle(p, p1, p2, p3, p4, p5, p6, p7);
+            handle(part, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, ad, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, td, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST handle 3: %i\n", part);
+
             // Get signal part referenced by a knowledge path.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &p, p3, (void*) &md, mc);
+            get_part_branch((void*) &part, p3, (void*) &md, mc);
 
             // Handle signal.
-            handle(p, p1, p2, p3, p4, p5, p6, p7);
+            handle(part, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Handle primitive operation signal.
-        handle_operation(dd, dc, p1, p2, p3, p4, p5, p6, p7, ad);
+        handle_operation(pd, pc, p1, p2, p3, p4, p5, p6, p7, td);
     }
 }
 

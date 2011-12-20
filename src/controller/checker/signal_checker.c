@@ -95,12 +95,16 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The direct execution flag.
     int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST check s: %i\n", s);
+
     // Get next signal to be processed from position index zero.
     // CAUTION! The signal memory item's count is checked inside
     // this function. If it is smaller or equal to the given index
     // (here: zero), then the signal value s is NOT changed,
     // i.e. it remains NULL if initialised so before.
     get_item_element((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST check s: %i\n", s);
 
     if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -115,8 +119,12 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Lock signal memory mutex.
         pthread_mutex_lock(mt);
 
+fwprintf(stdout, L"TEST check 2: %i\n", s);
+
         // Remove signal from signal memory.
         remove_item(p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+fwprintf(stdout, L"TEST check 3: %i\n", s);
 
         // Unlock signal memory mutex.
         pthread_mutex_unlock(mt);
@@ -126,6 +134,8 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     } else {
 
+fwprintf(stdout, L"TEST check empty 0: %i\n", s);
+
         // The signal memory is empty, so that the cyboi system
         // may check for new interrupt requests now.
 
@@ -134,6 +144,8 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // - mutex (to be blocked while resetting the interrupt request below)
         // - handler (the signal to be forwarded to the "handle" function below)
         check_interrupt((void*) &irq, (void*) &mt, (void*) &s, p4);
+
+fwprintf(stdout, L"TEST check empty 1: %i\n", s);
 
         // CAUTION! These conditions HAVE TO BE connected by a boolean AND operator,
         // because otherwise, the "else" branch below would not always be reached.
@@ -156,12 +168,16 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Unlock mutex.
             pthread_mutex_unlock(mt);
 
+fwprintf(stdout, L"TEST check empty 2: %i\n", s);
+
             // Handle signal.
             //
             // CAUTION! The "handle" function has to be called DIRECTLY
             // (with direct execution flag set) here!
             // For reasons, see the comment block above!
             handle(s, (void*) &x, p0, p3, p4, p1, irq, mt);
+
+fwprintf(stdout, L"TEST check empty 3: %i\n", s);
 
             // CAUTION! An interrupt request was detected and the corresponding data received.
             // It is therefore VERY likely that new signals have been generated while handling the data.
@@ -172,6 +188,8 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // No interrupt request was detected, so that the cyboi system
             // can be sent to sleep now, in order to save cpu time.
+
+fwprintf(stdout, L"TEST check wait: %i\n", s);
 
             check_wait(p2, p4);
         }

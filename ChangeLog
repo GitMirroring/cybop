@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2011-12-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix cybol deserialiser and wrong value of constant "TYPE_CYBOL_NAME"
+
 2011-12-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix xml deserialiser (wrong type in all calls of position mover)

@@ -456,8 +456,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
             deallocate_item((void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 //?? TEST END
 
-fwprintf(stdout, L"TEST pre deserialise cybol mc: %i\n", *((int*) mc));
-fwprintf(stdout, L"TEST pre deserialise cybol pc: %i\n", *((int*) pc));
             // Decode temporary model, properties item into cyboi model.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
             deserialise_cybol(p0, md, mc, pd, pc);
@@ -500,9 +498,7 @@ fwprintf(stdout, L"TEST pre deserialise cybol pc: %i\n", *((int*) pc));
             // Encode model into model diagram item.
             // CAUTION! Do NOT forward NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
             // since the tree level value gets changed in the following functions!
-fwprintf(stdout, L"TEST pre serialise: %i\n", *((int*) tmpmc));
             serialise_model_diagram_node(d, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, tmpmd, tmpmc, tmppd, tmppc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
-fwprintf(stdout, L"TEST post serialise: %i\n", *((int*) tmpmc));
             // Get model diagram item data, count.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
             // Inside the structure, arrays may have been reallocated,

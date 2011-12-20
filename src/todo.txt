@@ -9,16 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Fix cybol deserialiser; see function "standard_part_cybol_deserialiser.c"
-    // CAUTION! This test is IMPORTANT!
-    // If the source is null, then NO part should be created.
-//??    if (dt > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-    compare_integer_smaller((void*) &r, (void*) &dt, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        copy_integer((void*) &dt, PART_ELEMENT_STATE_CYBOI_TYPE);
-    }
+        * Is signal added to signal memory in "initialiser.c"? --> is null in "operation_handler.c"
 
         * Debug "property_cybol_deserialiser.c" called by "deserialiser.c"
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",

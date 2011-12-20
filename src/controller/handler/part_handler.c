@@ -69,6 +69,8 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             break;
         }
 
+fwprintf(stdout, L"TEST handle part j: %i\n", j);
+
         handle_part_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
         // Increment loop variable.
