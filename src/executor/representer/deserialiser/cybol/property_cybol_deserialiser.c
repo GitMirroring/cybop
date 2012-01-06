@@ -48,8 +48,8 @@ void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, vo
  * Deserialises the cybol property.
  *
  * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source index
+ * @param p1 the source part model data
+ * @param p2 the source part model index
  * @param p3 the root part flag
  */
 void deserialise_cybol_property(void* p0, void* p1, void* p2, void* p3) {

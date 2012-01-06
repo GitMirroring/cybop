@@ -9,6 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue in cybol_deserialiser_standard_node and root_node
         * Is signal added to signal memory in "initialiser.c"? --> is null in "operation_handler.c"
 
         * Debug "property_cybol_deserialiser.c" called by "deserialiser.c"

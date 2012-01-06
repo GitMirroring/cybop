@@ -183,7 +183,8 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     // Create new part.
     //
     // CAUTION! This may only be done AFTER having retrieved the
-    // source type, since that is needed for allocating the new part.
+    // source type and having converted it into a destination type,
+    // since that is needed for allocating the new part.
     //
 
     // The part.
@@ -219,15 +220,16 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     // becomes the model in the cyboi-internal knowledge tree.
     // CAUTION! Use the CYBOL cyboi destination type determined above
     // (and NOT the CYBOI destination type)!
-    // CAUTION! A null pointer is handed over as last parametre here.
-    // When reading cybol, the only possible two channels are "inline" and "file".
-    // The internal memory (last parametre) is only necessary for
+    // CAUTION! A null pointer is handed over as second-last parametre here.
+    // When reading cybol, the only possible two channels are "inline" and "file",
+    // but the internal memory (second-last parametre) is only necessary for
     // "terminal", "x_window_system" and similar channels.
     receive_data(pm, pp, smmd, smmc, (void*) &dtc, (void*) &de, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &dc);
     // Fill part properties taken from cybol source part model.
     // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
     // becomes the properties (meta data) in the cyboi-internal knowledge tree.
     deserialise_cybol_properties(pp, p1, p2, p5);
+//??    deserialise_cybol_properties(pm, p1, p2, p5); //?? TODO: CAUTION! Use pp or pm here?
 
     //
     // Add part to destination.

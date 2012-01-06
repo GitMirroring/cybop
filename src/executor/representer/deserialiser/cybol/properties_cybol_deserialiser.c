@@ -43,8 +43,8 @@
  * becomes the properties (meta data) in the cyboi-internal knowledge tree.
  *
  * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p1 the source part model data
+ * @param p2 the source part model count
  * @param p3 the root part flag
  */
 void deserialise_cybol_properties(void* p0, void* p1, void* p2, void* p3) {
@@ -54,8 +54,6 @@ void deserialise_cybol_properties(void* p0, void* p1, void* p2, void* p3) {
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST source count: %i\n", *((int*) p2));
-
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
@@ -64,8 +62,6 @@ fwprintf(stdout, L"TEST source count: %i\n", *((int*) p2));
 
             break;
         }
-
-fwprintf(stdout, L"TEST loop j: %i\n", j);
 
         deserialise_cybol_property(p0, p1, (void*) &j, p3);
 

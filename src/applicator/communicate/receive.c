@@ -96,7 +96,7 @@ void apply_receive(void* p0, void* p1, void* p2) {
     void* mem = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The model part model, properties.
     void* mom = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mod = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mop = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The root part model.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket communication style part model.
@@ -153,7 +153,7 @@ void apply_receive(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &mem, me, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get model part model, properties.
     copy_array_forward((void*) &mom, mo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mod, mo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mop, mo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get root part model.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get socket communication style part model.
@@ -199,7 +199,7 @@ void apply_receive(void* p0, void* p1, void* p2) {
     deserialise_cybol_type((void*) &dtc, lmd, lmc);
 
     // Receive data.
-    receive_data(mom, mod, mmd, mmc, (void*) &dtc, (void*) &de, p2, (void*) &dc);
+    receive_data(mom, mop, mmd, mmc, (void*) &dtc, (void*) &de, p2, (void*) &dc);
 
 /*??
 //?? TEST BEGIN
