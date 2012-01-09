@@ -167,11 +167,18 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
 
     // CAUTION! This test is IMPORTANT!
-    // If a source type attribute is not given,
-    // then this is (hopefully) the cybol root tag
-    // and a part is allocated.
-    // If the cybol developer forgot to specify a type,
-    // then the "part" type is used as default here.
+    // If a source type attribute is not given, then this
+    // is (hopefully) the CYBOL ROOT NODE and a part is allocated.
+    // CAUTION! It is true, a root flag was set initially
+    // when starting to deserialise the cybol source.
+    // However, that flag was only used to call the correct
+    // function, but source data were just forwarded to it.
+    // Another test (guess) for root node IS necessary here,
+    // i.e. no given type means root node.
+    // CAUTION! If the cybol developer FORGOT to specify a type,
+    // then the "part" type is used here by default, since it
+    // does no real harm to create a node with (possibly) wrong type.
+    // In the end, the CYBOL DEVELOPER has to care about that.
     compare_integer_smaller((void*) &r, (void*) &dt, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
