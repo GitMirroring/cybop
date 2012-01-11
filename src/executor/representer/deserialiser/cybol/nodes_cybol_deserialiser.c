@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PROPERTIES_CYBOL_DESERIALISER_SOURCE
-#define PROPERTIES_CYBOL_DESERIALISER_SOURCE
+#ifndef NODES_CYBOL_DESERIALISER_SOURCE
+#define NODES_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/representer/deserialiser/cybol/property_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/node_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the cybol properties.
+ * Deserialises the cybol nodes.
  *
  * CAUTION! What is the properties in a parsed xml/cybol file
  * becomes the model in the cyboi-internal knowledge tree;
@@ -43,11 +43,12 @@
  * becomes the properties (meta data) in the cyboi-internal knowledge tree.
  *
  * @param p0 the destination item
- * @param p1 the source part model data
- * @param p2 the source part model count
- * @param p3 the root part flag
+ * @param p1 the root destination item
+ * @param p2 the source model data
+ * @param p3 the source model count
+ * @param p4 the root part flag
  */
-void deserialise_cybol_properties(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_cybol_nodes(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -56,19 +57,19 @@ void deserialise_cybol_properties(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        deserialise_cybol_property(p0, p1, (void*) &j, p3);
+        deserialise_cybol_node(p0, p1, p2, (void*) &j, p4);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* PROPERTIES_CYBOL_DESERIALISER_SOURCE */
+/* NODES_CYBOL_DESERIALISER_SOURCE */
 #endif

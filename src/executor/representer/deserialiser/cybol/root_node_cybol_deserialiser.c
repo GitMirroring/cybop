@@ -23,35 +23,39 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ROOT_PART_CYBOL_DESERIALISER_SOURCE
-#define ROOT_PART_CYBOL_DESERIALISER_SOURCE
+#ifndef ROOT_NODE_CYBOL_DESERIALISER_SOURCE
+#define ROOT_NODE_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/cybol/properties_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/nodes_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
+#include "../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+
 /**
- * Deserialises the cybol root part.
+ * Deserialises the cybol root node.
  *
  * @param p0 the destination item
- * @param p1 the source part model data
- * @param p2 the source part model count
- * @param p3 the root part flag
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the root node flag
  */
-void deserialise_cybol_part_root(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_cybol_node_root(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part root.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node root.");
 
-    // Reset root part flag, so that
-    // child parts are processed normally.
+    // Decrement root flag.
+//??    calculate_integer_subtract(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+    // Reset root node flag, so that child nodes are processed normally.
     copy_integer(p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    // Fill part properties taken from cybol source part model.
-    deserialise_cybol_properties(p0, p1, p2, p3);
+    // Deserialise child nodes of cybol source model.
+    deserialise_cybol_nodes(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3);
 }
 
-/* ROOT_PART_CYBOL_DESERIALISER_SOURCE */
+/* ROOT_NODE_CYBOL_DESERIALISER_SOURCE */
 #endif

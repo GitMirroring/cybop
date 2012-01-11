@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-01-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug cybol deserialiser
+
 2011-12-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix cybol deserialiser and wrong value of constant "TYPE_CYBOL_NAME"

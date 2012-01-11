@@ -23,51 +23,52 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_CYBOL_DESERIALISER_SOURCE
-#define PART_CYBOL_DESERIALISER_SOURCE
+#ifndef NODE_CONTENT_CYBOL_DESERIALISER_SOURCE
+#define NODE_CONTENT_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
-#include "../../../../executor/representer/deserialiser/cybol/root_part_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/standard_part_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/root_node_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/standard_node_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the cybol part.
+ * Deserialises the cybol node content.
  *
  * @param p0 the destination item
- * @param p1 the source part model data
- * @param p2 the source part model count
- * @param p3 the source part properties data
- * @param p4 the source part properties count
- * @param p5 the root part flag
+ * @param p1 the root destination item
+ * @param p2 the source model data
+ * @param p3 the source model count
+ * @param p4 the source properties data
+ * @param p5 the source properties count
+ * @param p6 the root part flag
  */
-void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node content.");
 
     // The root node flag.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_greater((void*) &r, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // This is a standard part node and NOT the root node.
+        // This is a standard node and NOT the root node.
 
-        deserialise_cybol_part_standard(p0, p1, p2, p3, p4, p5);
+        deserialise_cybol_node_standard(p0, p2, p3, p4, p5, p6);
 
     } else {
 
         // This IS the root node.
 
         // Add the meta node model and properties directly
-        // to destination whole (root).
-        deserialise_cybol_part_root(p0, p1, p2, p5);
+        // to root destination item.
+        deserialise_cybol_node_root(p1, p2, p3, p6);
     }
 }
 
-/* PART_CYBOL_DESERIALISER_SOURCE */
+/* NODE_CONTENT_CYBOL_DESERIALISER_SOURCE */
 #endif

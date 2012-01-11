@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STANDARD_PART_CYBOL_DESERIALISER_SOURCE
-#define STANDARD_PART_CYBOL_DESERIALISER_SOURCE
+#ifndef STANDARD_NODE_CYBOL_DESERIALISER_SOURCE
+#define STANDARD_NODE_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,7 +35,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/encoding_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/properties_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/nodes_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cyboi_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
@@ -50,21 +50,21 @@
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
- * Deserialises the cybol standard part.
+ * Deserialises the cybol standard node.
  *
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the root part flag
+ * @param p5 the root node flag
  */
-void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part standard.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node standard.");
 
     //
-    // Identify source part properties parametres.
+    // Identify source node part properties parametres.
     //
 
     // The source name, channel, encoding, type, model part.
@@ -167,10 +167,10 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
 
     // CAUTION! This test is IMPORTANT!
-    // If a source type attribute is not given, then this
-    // is (hopefully) the CYBOL ROOT NODE and a part is allocated.
-    // CAUTION! It is true, a root flag was set initially
-    // when starting to deserialise the cybol source.
+    // If a source type attribute is NOT given, then this
+    // is (hopefully) the cybol ROOT NODE and a part is allocated.
+    // CAUTION! It is true, a root flag was set initially when starting
+    // to deserialise the cybol source, and forwarded as parametre.
     // However, that flag was only used to call the correct
     // function, but source data were just forwarded to it.
     // Another test (guess) for root node IS necessary here,
@@ -231,12 +231,12 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     // When reading cybol, the only possible two channels are "inline" and "file",
     // but the internal memory (second-last parametre) is only necessary for
     // "terminal", "x_window_system" and similar channels.
-    receive_data(pm, pp, smmd, smmc, (void*) &dtc, (void*) &de, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &dc);
+    receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL /*??pp*/, smmd, smmc, (void*) &dtc, (void*) &de, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &dc);
     // Fill part properties taken from cybol source part model.
     // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
     // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-    deserialise_cybol_properties(pp, p1, p2, p5);
-//??    deserialise_cybol_properties(pm, p1, p2, p5); //?? TODO: CAUTION! Use pp or pm here?
+    deserialise_cybol_nodes(pp, p0, p1, p2, p5);
+//??    deserialise_cybol_nodes(pm, p0, p1, p2, p5);
 
     //
     // Add part to destination.
@@ -245,5 +245,5 @@ void deserialise_cybol_part_standard(void* p0, void* p1, void* p2, void* p3, voi
     append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* STANDARD_PART_CYBOL_DESERIALISER_SOURCE */
+/* STANDARD_NODE_CYBOL_DESERIALISER_SOURCE */
 #endif
