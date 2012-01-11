@@ -271,10 +271,16 @@ void log_message(void* p0, void* p1, void* p2) {
  */
 void log_message_terminated(void* p0, void* p1) {
 
+fwprintf(stdout, L"TEST log 0: %i\n", p0);
+
     // The message count.
     int c = wcslen((wchar_t*) p1);
 
+fwprintf(stdout, L"TEST log 1: %i\n", p0);
+
     log_message(p0, p1, (void*) &c);
+
+fwprintf(stdout, L"TEST log 2: %i\n", p0);
 }
 
 /* LOGGER_SOURCE */
