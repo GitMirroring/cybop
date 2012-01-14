@@ -34,7 +34,7 @@
 //
 
 /** The mbstate_t conversion type size. */
-static signed char* MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE;
+static int* MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE;
 
 /* CONVERSION_TYPE_SIZE_SOURCE */
 #endif

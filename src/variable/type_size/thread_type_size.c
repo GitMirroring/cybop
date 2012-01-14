@@ -34,10 +34,10 @@
 //
 
 /** The pthread_t thread type size. */
-static signed char* THREAD_TYPE_SIZE;
+static int* THREAD_TYPE_SIZE;
 
 /** The pthread_mutex_t thread type size. */
-static signed char* MUTEX_THREAD_TYPE_SIZE;
+static int* MUTEX_THREAD_TYPE_SIZE;
 
 /* THREAD_TYPE_SIZE_SOURCE */
 #endif

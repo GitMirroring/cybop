@@ -34,13 +34,13 @@
 //
 
 /** The cyboi service exit flag. */
-static signed char* CYBOI_SERVICE_EXIT;
+static int* CYBOI_SERVICE_EXIT;
 /** The gnu linux console exit flag. */
-static signed char* TERMINAL_EXIT;
+static int* TERMINAL_EXIT;
 /** The www service exit flag. */
-static signed char* WWW_SERVICE_EXIT;
+static int* WWW_SERVICE_EXIT;
 /** The x window system exit flag. */
-static signed char* X_WINDOW_SYSTEM_EXIT;
+static int* X_WINDOW_SYSTEM_EXIT;
 
 /* SERVICE_INTERRUPT_SOURCE */
 #endif

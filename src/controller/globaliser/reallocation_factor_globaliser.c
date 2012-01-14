@@ -68,15 +68,15 @@ void globalise_reallocation_factor() {
     //
 
     // Allocate and initialise array reallocation factor.
-    ARRAY_REALLOCATION_FACTOR = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+    ARRAY_REALLOCATION_FACTOR = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *ARRAY_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise compound reallocation factor.
-    COMPOUND_REALLOCATION_FACTOR = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+    COMPOUND_REALLOCATION_FACTOR = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *COMPOUND_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise cybol file reallocation factor.
-    CYBOL_FILE_REALLOCATION_FACTOR = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+    CYBOL_FILE_REALLOCATION_FACTOR = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *CYBOL_FILE_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 }
 

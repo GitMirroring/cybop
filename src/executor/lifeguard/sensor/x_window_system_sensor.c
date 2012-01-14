@@ -112,7 +112,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
 
         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            unsigned int* st = (unsigned int*) p2;
+            int* st = (int*) p2;
 
             if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

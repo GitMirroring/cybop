@@ -34,7 +34,7 @@
 //
 
 /** The pid_t process type size. */
-static signed char* IDENTIFICATION_PROCESS_TYPE_SIZE;
+static int* IDENTIFICATION_PROCESS_TYPE_SIZE;
 
 /* PROCESS_TYPE_SIZE_SOURCE */
 #endif

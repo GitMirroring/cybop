@@ -34,7 +34,7 @@
 //
 
 /** The termios terminal type size. */
-static signed int* INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE;
+static int* INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE;
 
 /* TERMINAL_TYPE_SIZE_SOURCE */
 #endif

@@ -34,7 +34,7 @@
 //
 
 /** The XGCValues x window system type size. */
-static signed int* XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE;
+static int* XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE;
 
 /* X_WINDOW_SYSTEM_TYPE_SIZE_SOURCE */
 #endif

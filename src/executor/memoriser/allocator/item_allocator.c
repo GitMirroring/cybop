@@ -42,37 +42,22 @@
  */
 void allocate_item(void* p0, void* p1, void* p2) {
 
-fwprintf(stdout, L"TEST item -3: %i\n", p0);
-
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-fwprintf(stdout, L"TEST item -2: %i\n", p0);
 
         void** i = (void**) p0;
 
-fwprintf(stdout, L"TEST item -1: %i\n", i);
-
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate item.");
-
-fwprintf(stdout, L"TEST item 0: %i\n", i);
 
         // Allocate item.
         allocate_array(p0, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-
-fwprintf(stdout, L"TEST item 1: %i\n", i);
 
         // The data, count, size.
         void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST item 2: %i\n", i);
-
         // Allocate data, count, size.
         allocate_array((void*) &d, p1, p2);
-
-fwprintf(stdout, L"TEST item 3: %i\n", i);
-
         allocate_array((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 

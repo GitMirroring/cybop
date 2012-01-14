@@ -34,11 +34,11 @@
 //
 
 /** The array reallocation factor. */
-static signed char* ARRAY_REALLOCATION_FACTOR;
+static int* ARRAY_REALLOCATION_FACTOR;
 /** The cybol file reallocation factor. */
-static signed char* CYBOL_FILE_REALLOCATION_FACTOR;
+static int* CYBOL_FILE_REALLOCATION_FACTOR;
 /** The compound reallocation factor. */
-static signed char* COMPOUND_REALLOCATION_FACTOR;
+static int* COMPOUND_REALLOCATION_FACTOR;
 
 /* REALLOCATION_FACTOR_SOURCE */
 #endif

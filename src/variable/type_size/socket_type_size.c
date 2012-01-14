@@ -34,22 +34,22 @@
 //
 
 /** The in_addr socket type size. */
-static signed int* INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE;
+static int* INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE;
 
 /** The sockaddr_in socket type size. */
-static signed int* INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
+static int* INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
 
 /** The in6_addr socket type size. */
-static signed int* INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE;
+static int* INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE;
 
 /** The sockaddr_in6 socket type size. */
-static signed int* INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
+static int* INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
 
 /** The sockaddr_un socket type size. */
-static signed int* LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
+static int* LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
 
 /** The sockaddr socket type size. */
-static signed int* SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
+static int* SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
 
 /* SOCKET_TYPE_SIZE_SOURCE */
 #endif

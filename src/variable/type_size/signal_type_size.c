@@ -34,10 +34,10 @@
 //
 
 /** The sig_atomic_t signal type size. */
-static signed char* ATOMIC_SIGNAL_TYPE_SIZE;
+static int* ATOMIC_SIGNAL_TYPE_SIZE;
 
 /** The volatile sig_atomic_t signal type size. */
-static signed char* VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE;
+static int* VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE;
 
 /* SIGNAL_TYPE_SIZE_SOURCE */
 #endif

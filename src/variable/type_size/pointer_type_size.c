@@ -34,7 +34,7 @@
 //
 
 /** The void* pointer type size. */
-static signed char* POINTER_TYPE_SIZE;
+static int* POINTER_TYPE_SIZE;
 
 /* POINTER_TYPE_SIZE_SOURCE */
 #endif

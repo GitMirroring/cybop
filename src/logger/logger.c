@@ -239,13 +239,13 @@ void log_message(void* p0, void* p1, void* p2) {
         log_get_level_name((void*) &ln, (void*) &lnc, p0);
 
         // Copy log level.
-        overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &lnc, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &lnc, (void*) LOG_MESSAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Copy colon.
         overwrite_array((void*) &LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Copy space.
         overwrite_array((void*) &LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Copy log message.
-        overwrite_array((void*) &LOG_MESSAGE, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        overwrite_array((void*) &LOG_MESSAGE, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LOG_MESSAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Copy line feed control wide character.
         overwrite_array((void*) &LOG_MESSAGE, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Copy null termination wide character.
@@ -271,16 +271,10 @@ void log_message(void* p0, void* p1, void* p2) {
  */
 void log_message_terminated(void* p0, void* p1) {
 
-fwprintf(stdout, L"TEST log 0: %i\n", p0);
-
     // The message count.
     int c = wcslen((wchar_t*) p1);
 
-fwprintf(stdout, L"TEST log 1: %i\n", p0);
-
     log_message(p0, p1, (void*) &c);
-
-fwprintf(stdout, L"TEST log 2: %i\n", p0);
 }
 
 /* LOGGER_SOURCE */

@@ -39,6 +39,9 @@ void unglobalise_log() {
     // Free log message count.
     free((void*) LOG_MESSAGE_COUNT);
 
+    // Free log message size.
+    free((void*) LOG_MESSAGE_SIZE);
+
     // Free log message.
     free((void*) LOG_MESSAGE);
 

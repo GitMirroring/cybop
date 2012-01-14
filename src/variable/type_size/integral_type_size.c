@@ -72,9 +72,6 @@
 // Also, bit field types specified as plain "int" may be
 // signed or unsigned, depending on the compiler.
 //
-// In cyboi, ONLY explicit specifiers should be used, e.g.:
-// "signed int" or "unsigned int" BUT NOT "int".
-//
 
 /**
  * The signed char integral type size.
@@ -84,7 +81,7 @@
  * Typical size [Byte]: 1
  * Typical size [Bit]: 8
  */
-static signed char* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
+static int* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
 
 /**
  * The unsigned char integral type size.
@@ -94,7 +91,7 @@ static signed char* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 1
  * Typical size [Bit]: 8
  */
-static signed char* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
+static int* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
 
 /**
  * The signed short int integral type size.
@@ -104,7 +101,7 @@ static signed char* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static signed char* SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
+static int* SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The unsigned short int integral type size.
@@ -114,7 +111,7 @@ static signed char* SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static signed char* UNSIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
+static int* UNSIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The signed int integral type size.
@@ -124,7 +121,7 @@ static signed char* UNSIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
  * Typical size [Byte]: 2 (antique systems) or 4
  * Typical size [Bit]: 16 (antique systems) or 32
  */
-static signed char* SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
+static int* SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The unsigned int integral type size.
@@ -134,7 +131,7 @@ static signed char* SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
  * Typical size [Byte]: 2 (antique systems) or 4
  * Typical size [Bit]: 16 (antique systems) or 32
  */
-static signed char* UNSIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
+static int* UNSIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The signed long int integral type size.
@@ -144,7 +141,7 @@ static signed char* UNSIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static signed char* SIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
+static int* SIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The unsigned long int integral type size.
@@ -154,7 +151,7 @@ static signed char* SIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static signed char* UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
+static int* UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The signed long long int integral type size.
@@ -164,7 +161,7 @@ static signed char* UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static signed char* SIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
+static int* SIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The unsigned long long int integral type size.
@@ -174,7 +171,7 @@ static signed char* SIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static signed char* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
+static int* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
 
 /**
  * The wchar_t integral type size.
@@ -187,7 +184,7 @@ static signed char* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE;
  * Typical size [Byte]: 1 (some embedded systems) or 2 (some Unix systems, Java, Win32, Win64, .NET) or 4 (GNU systems)
  * Typical size [Bit]: 8 (some embedded systems) or 16 (some Unix systems, Java, Win32, Win64, .NET) or 32 (GNU systems)
  */
-static signed char* WIDE_CHARACTER_INTEGRAL_TYPE_SIZE;
+static int* WIDE_CHARACTER_INTEGRAL_TYPE_SIZE;
 
 /* INTEGRAL_TYPE_SIZE_SOURCE */
 #endif

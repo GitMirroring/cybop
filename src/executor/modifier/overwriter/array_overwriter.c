@@ -119,6 +119,7 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
             // Copy count to size.
             calculate_integer_add((void*) &ns, (void*) &nc);
+
             // Multiply new destination size with factor.
             // CAUTION! This multiplication has to be done AFTER the comparison
             // of new size and old size since otherwise, the new size is falsified,

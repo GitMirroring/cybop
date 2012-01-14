@@ -37,7 +37,7 @@
 void globalise_process() {
 
     // Allocate and initialise pid_t process type size.
-    IDENTIFICATION_PROCESS_TYPE_SIZE = (signed char*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+    IDENTIFICATION_PROCESS_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *IDENTIFICATION_PROCESS_TYPE_SIZE = sizeof(pid_t);
 }
 

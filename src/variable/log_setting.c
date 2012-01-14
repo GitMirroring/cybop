@@ -29,6 +29,14 @@
 #include <stdio.h>
 
 //
+// CAUTION! Do NOT use types like "unsigned short int*" here!
+// Otherwise, wrong values will occur when casting to "int*"
+// and back later in the programme, e.g. in:
+// | logger | overwrite_array | reallocate_array
+// Therefore, the standard "int*" type is used.
+//
+
+//
 // CAUTION! Do NOT try to assign any values here!
 // Otherwise, the compiler shows the following error:
 // "error: initializer element is not constant"
@@ -36,12 +44,12 @@
 //
 
 /** The log level. */
-static signed char* LOG_LEVEL;
+static int* LOG_LEVEL;
 
 /** The log message. */
 static wchar_t* LOG_MESSAGE;
-static signed short int* LOG_MESSAGE_COUNT;
-static signed short int* LOG_MESSAGE_SIZE;
+static int* LOG_MESSAGE_COUNT;
+static int* LOG_MESSAGE_SIZE;
 
 /** The log output. */
 static FILE* LOG_OUTPUT;

@@ -70,6 +70,7 @@ void deserialise_percent_encoding(void* p0, void* p1, void* p2, void* p3, void* 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise percent-encoding.");
 
         // The character value.
+        //?? TODO: Is "unsigned char" needed due to bigger size?
         unsigned char v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         /*??

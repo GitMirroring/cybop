@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-01-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Use standard "int" as type instead of "unsigned short int" etc.,
+            in order to avoid wrong values when casting types
+
 2012-01-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug cybol deserialiser

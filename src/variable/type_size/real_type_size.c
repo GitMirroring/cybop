@@ -81,7 +81,7 @@
  * Typical size [Byte]: 4
  * Typical size [Bit]: 32
  */
-static signed char* FLOAT_REAL_TYPE_SIZE;
+static int* FLOAT_REAL_TYPE_SIZE;
 
 /**
  * The double real type size.
@@ -93,7 +93,7 @@ static signed char* FLOAT_REAL_TYPE_SIZE;
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static signed char* DOUBLE_REAL_TYPE_SIZE;
+static int* DOUBLE_REAL_TYPE_SIZE;
 
 /**
  * The long double real type size.
@@ -105,7 +105,7 @@ static signed char* DOUBLE_REAL_TYPE_SIZE;
  * Typical size [Byte]: 8 or 12
  * Typical size [Bit]: 64 or 96
  */
-static signed char* LONG_DOUBLE_REAL_TYPE_SIZE;
+static int* LONG_DOUBLE_REAL_TYPE_SIZE;
 
 /* REAL_TYPE_SIZE_SOURCE */
 #endif
