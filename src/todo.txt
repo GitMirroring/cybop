@@ -9,10 +9,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue debugging cybol deserialiser
+2012-01-16  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Finish debugging cybol deserialiser
+        * Debug minor things
+        * Adapt cybol example applications to new cybol mime types and operations
+
+--
         * Is signal added to signal memory in "initialiser.c"? --> is null in "operation_handler.c"
 
-        * Debug "property_cybol_deserialiser.c" called by "deserialiser.c"
+        * Adapt cybol example applications to new cybol mime types and operations
+
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
             in file "socket_starter.c" to new model constants
         * Adapt file "http_request_selector.c" or delete if not needed anymore
@@ -20,18 +27,9 @@
         * Offer part deallocation shallow and deep
             (deep is not always wanted, if a child is referenced by many parts)
 
-        * Adapt example applications to new operation cybol mime types and new comparison functions
-        * Use MIME types to categorise operations in "abstraction" attribute, e.g.:
-            <part name="compare_count" channel="inline" abstraction="comparison/greater_or_equal" model="">
-                <property name="abstraction" channel="inline" abstraction="text/plain" model="integer"/>
-                <property name="left" channel="inline" abstraction="path/knowledge" model=".counter.count"/>
-                <property name="right" channel="inline" abstraction="path/knowledge" model=".counter.maximum"/>
-                <property name="result" channel="inline" abstraction="path/knowledge" model=".counter.break"/>
-            </part>
-
         * Try to increase performance by commenting out "memset" in array allocation
         * Optimise "replace_array" function by replacing offset with constantly growing variable (less addition in loop necessary)
-        * Remove "size" parametre in all "deallocate" functions, since it is superfluous
+        * Remove "size" parametre in all "deallocate" functions (?), since it is superfluous
 
         * Remove model and details content of receiving compound for each new http request;
             otherwise, new commands are just added to the "action" part entry in "receive_socket.c";
@@ -62,28 +60,12 @@
         * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
             http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
 
-        * Add new cybol function "convert" or "translate"
+        * Add new cybol function "convert" or "translate" (or "deserialise" and "serialise"?)
         * Simplify send/receive functions by factoring out translation to steps before
         * Hand over already translated message to send/receive
         * Enable multiple abstractions like "character|UTF-32|gzip", separated by
             a "pipe" character and processed one-by-one, in the given order?
             --> not necessary, if all translation is done transparently in cybol models
-
-        * Add one file with prefix "cyboi_" in parallel to each file containing
-            standard xDT constants in directory "constant/name/xdt/" and below;
-            e.g. a file "cyboi_field_xdt_name.c" with constants a la "CYBOI_KBV_TEST_NUMBER_FIELD_XDT_NAME"
-            in addition to the file "field_xdt_name.c" with standard format constants a la "KBV_TEST_NUMBER_FIELD_XDT_NAME";
-        * Merge all files using old naming schemes like "memory", "model", "compound" into new format
-        * Rename old files "field_xdt_model_name.c" etc. to "cyboi_*"
-
-        * Adapt "*_assigner.c" modules to new primitive types/ type sizes
-        * Leave abstractions to only provide basic types like: character, integral, real, pointer
-            and map these to the corresponding basic standard type, i.e.: wchar_t, signed int, double, void*
-            (so that special types like "unsigned short int" are only used cyboi-internally, but not in cybol)
-        * Adapt file "primitive_memory_abstraction.c" to actually necessary types
-        * Adapt source code by using memory-efficient types wherever possible,
-            e.g. "signed short int" instead of just "int" (as done up to now)
-            or "signed char" for simple flags used for just two values
 
         * Adapt all places in source code where reallocation is used to new
             reallocation factor handling and also shrink memory structures appropriately

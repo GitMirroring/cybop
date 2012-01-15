@@ -92,7 +92,9 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST handle 0: %i\n", part);
+fwprintf(stdout, L"TEST handle part: %i\n", part);
+fwprintf(stdout, L"TEST handle td: %i\n", td);
+//?? fwprintf(stdout, L"TEST handle td: %i\n", *((int*) td));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +106,7 @@ fwprintf(stdout, L"TEST handle 0: %i\n", part);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST handle 1: %i\n", part);
+fwprintf(stdout, L"TEST handle cybol: %i\n", r);
 
             // Handle compound part signal.
             handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6, p7);
@@ -117,7 +119,7 @@ fwprintf(stdout, L"TEST handle 1: %i\n", part);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST handle 2: %i\n", part);
+fwprintf(stdout, L"TEST handle encapsulated: %i\n", r);
 
             // Get encapsulated signal part.
             // CAUTION! Hand over name as reference!
@@ -144,7 +146,7 @@ fwprintf(stdout, L"TEST handle 2: %i\n", part);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST handle 3: %i\n", part);
+fwprintf(stdout, L"TEST handle knowledge: %i\n", r);
 
             // Get signal part referenced by a knowledge path.
             // CAUTION! Hand over name as reference!

@@ -50,6 +50,7 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal.");
 
+/*??
     // The terminal input- and output stream.
     FILE* ip = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
     FILE* op = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -99,6 +100,7 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
         deallocate((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         deallocate((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 */
+/*??
         // Deallocate termios settings.
         free(to);
         free(tn);
@@ -113,6 +115,7 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. There is no terminal running.");
     }
+*/
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

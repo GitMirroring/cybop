@@ -46,6 +46,7 @@
  */
 void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
 
+/*??
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* base = (int*) p3;
@@ -128,6 +129,7 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
             deallocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 */
 
+/*??
         } else {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket. There is no socket of this system running.");
@@ -137,6 +139,7 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket. The base internal is null.");
     }
+*/
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

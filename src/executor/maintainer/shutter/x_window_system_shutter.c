@@ -57,6 +57,7 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
 
+/*??
     // The display.
     // It is a subsumption of xserver, screens, hardware (input devices etc.).
     struct _XDisplay* d = (struct _XDisplay*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -158,10 +159,12 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
         deallocate((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 */
 
+/*??
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. There is no x window system running.");
     }
+*/
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */
