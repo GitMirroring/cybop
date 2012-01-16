@@ -47,14 +47,13 @@ void deserialise_cybol_node_root(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node root.");
 
-    // Decrement root flag.
-//??    calculate_integer_subtract(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+fwprintf(stdout, L"TEST root: %i\n", p0);
 
     // Reset root node flag, so that child nodes are processed normally.
-    copy_integer(p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+//??    copy_integer(p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Deserialise child nodes of cybol source model.
-    deserialise_cybol_nodes(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3);
+    deserialise_cybol_nodes(p0, p1, p2, p3);
 }
 
 /* ROOT_NODE_CYBOL_DESERIALISER_SOURCE */

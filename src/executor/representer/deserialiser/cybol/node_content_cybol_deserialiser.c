@@ -38,27 +38,32 @@
  * Deserialises the cybol node content.
  *
  * @param p0 the destination item
- * @param p1 the root destination item
- * @param p2 the source model data
- * @param p3 the source model count
- * @param p4 the source properties data
- * @param p5 the source properties count
- * @param p6 the root part flag
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ * @param p5 the root part flag
  */
-void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node content.");
 
+fwprintf(stdout, L"TEST content: %i\n", p0);
+
+    deserialise_cybol_node_standard(p0, p1, p2, p3, p4, p5);
+
+/*??
     // The root node flag.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_greater((void*) &r, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+//??    compare_integer_greater((void*) &r, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // This is a standard node and NOT the root node.
 
-        deserialise_cybol_node_standard(p0, p2, p3, p4, p5, p6);
+        deserialise_cybol_node_standard(p0, p1, p2, p3, p4, p5);
 
     } else {
 
@@ -66,8 +71,9 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
 
         // Add the meta node model and properties directly
         // to root destination item.
-        deserialise_cybol_node_root(p1, p2, p3, p6);
+        deserialise_cybol_node_root(p0, p1, p2, p5);
     }
+*/
 }
 
 /* NODE_CONTENT_CYBOL_DESERIALISER_SOURCE */

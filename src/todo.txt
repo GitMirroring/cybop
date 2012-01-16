@@ -9,10 +9,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2012-01-16  Christian Heller  <christian.heller@tuxtax.de>
+2012-01-??  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Finish debugging cybol deserialiser
-        * Debug minor things
+        * Clean up cybol deserialiser
         * Adapt cybol example applications to new cybol mime types and operations
 
 --

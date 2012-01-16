@@ -82,9 +82,10 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The source part model tree root node flag.
     // CAUTION! It is necessary to identify the root node.
-    int f = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
+    int f = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    deserialise_cybol_node_content(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, (void*) &f);
+    deserialise_cybol_node_standard(p0, p1, p2, p3, p4, (void*) &f);
+//??    deserialise_cybol_node_content(p0, p1, p2, p3, p4, (void*) &f);
 }
 
 /* CYBOL_DESERIALISER_SOURCE */

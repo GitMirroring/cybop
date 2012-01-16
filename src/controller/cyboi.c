@@ -83,12 +83,8 @@ int main(int p0, char** p1) {
 
         // log_write(stdout, L"Information: Execute cyboi.\n");
 
-fwprintf(stdout, L"TEST 0: %i\n", r);
-
         // Startup global variables.
         globalise();
-
-fwprintf(stdout, L"TEST 1: %i\n", r);
 
         // Orient streams.
         //
@@ -145,8 +141,6 @@ fwprintf(stdout, L"TEST 1: %i\n", r);
         orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST 2: %i\n", r);
-
         // The operation mode.
         //
         // CAUTION! It is initialised with the help operation mode,
@@ -157,17 +151,11 @@ fwprintf(stdout, L"TEST 2: %i\n", r);
         // The cybol knowledge file path item.
         void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST 3: %i\n", r);
-
         // Allocate cybol knowledge file path item.
         allocate_item((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-fwprintf(stdout, L"TEST 4: %i\n", r);
-
         // Optionalise command line argument options.
         optionalise((void*) &m, k, (void*) LOG_LEVEL, (void*) &LOG_OUTPUT, (void*) p1, (void*) &p0);
-
-fwprintf(stdout, L"TEST 5: %i\n", r);
 
         // Orient log output file stream.
         //

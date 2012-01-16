@@ -43,12 +43,13 @@
  * becomes the properties (meta data) in the cyboi-internal knowledge tree.
  *
  * @param p0 the destination item
- * @param p1 the root destination item
- * @param p2 the source model data
- * @param p3 the source model count
- * @param p4 the root part flag
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the root part flag
  */
-void deserialise_cybol_nodes(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_nodes(void* p0, void* p1, void* p2, void* p3) {
+
+fwprintf(stdout, L"TEST nodes count: %i\n", *((int*) p2));
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -57,14 +58,16 @@ void deserialise_cybol_nodes(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+
+fwprintf(stdout, L"TEST nodes j: %i\n", j);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        deserialise_cybol_node(p0, p1, p2, (void*) &j, p4);
+        deserialise_cybol_node(p0, p1, (void*) &j, p3);
 
         // Increment loop variable.
         j++;
