@@ -73,6 +73,24 @@
 // signed or unsigned, depending on the compiler.
 //
 
+//
+// Performance:
+//
+// Using 32-bit variables (like "int") is better than working
+// with 8- or 16-bit ones (like "short" or "unsigned char"),
+// since the latter might slow down processor speed due to
+// memory addressing mechanisms. Most processors are totally
+// 32-bit -- just the size of the "int" type.
+//
+// Pointers on 64 Bit systems are 64 Bit, but at least
+// multiples of 32 bytes.
+//
+// Increase in speed means more memory consumption due to
+// larger type sizes. But this is always the decision:
+// Space or time? Precision or momentum?
+// (Heisenberg uncertainty principle?)
+//
+
 /**
  * The signed char integral type size.
  *
