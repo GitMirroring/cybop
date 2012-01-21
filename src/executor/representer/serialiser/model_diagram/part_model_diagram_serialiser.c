@@ -117,6 +117,7 @@ void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* 
 
     // Initialise new tree level with current tree level.
     copy_integer((void*) &l, p4);
+
     // Increment new tree level.
     calculate_integer_add((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
@@ -124,6 +125,15 @@ void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* 
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // In this case, the break flag is set to true already here.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

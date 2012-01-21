@@ -72,6 +72,8 @@ fwprintf(stdout, L"TEST nodes j: %i\n", j);
         // Increment loop variable.
         j++;
     }
+
+fwprintf(stdout, L"TEST nodes leave last j: %i\n", j);
 }
 
 /* NODES_CYBOL_DESERIALISER_SOURCE */

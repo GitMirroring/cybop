@@ -93,7 +93,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // just like the interrupt request.
     void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The direct execution flag.
-    int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
 fwprintf(stdout, L"TEST check s: %i\n", s);
 

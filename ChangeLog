@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-01-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug signal handling (part element had wrong count for copying; direct execution flag was not set)
+        * Repair problem in model diagram serialiser part loop, that break flag was not set to true if count is null
+
 2012-01-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug cybol deserialiser
