@@ -115,6 +115,11 @@ static wchar_t SHELL_CYBOL_CHANNEL_ARRAY[] = {L's', L'h', L'e', L'l', L'l'};
 static wchar_t* SHELL_CYBOL_CHANNEL = SHELL_CYBOL_CHANNEL_ARRAY;
 static int* SHELL_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The signal cybol channel. */
+static wchar_t SIGNAL_CYBOL_CHANNEL_ARRAY[] = {L's', L'i', L'g', L'n', L'a', L'l'};
+static wchar_t* SIGNAL_CYBOL_CHANNEL = SIGNAL_CYBOL_CHANNEL_ARRAY;
+static int* SIGNAL_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The smb cybol channel. */
 static wchar_t SMB_CYBOL_CHANNEL_ARRAY[] = {L's', L'm', L'b'};
 static wchar_t* SMB_CYBOL_CHANNEL = SMB_CYBOL_CHANNEL_ARRAY;

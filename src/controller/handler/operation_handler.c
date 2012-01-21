@@ -27,6 +27,7 @@
 #define OPERATION_HANDLER_SOURCE
 
 #include "../../applicator/communicate/receive.c"
+#include "../../applicator/communicate/send.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../logger/logger.c"
@@ -156,14 +157,13 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
         }
     }
 
-/*
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) SEND_COMMUNICATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send(p0, p1);
+            apply_send(p0, p1, p5);
         }
     }
 
@@ -171,6 +171,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
     // compare
     //
 
+/*
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE);

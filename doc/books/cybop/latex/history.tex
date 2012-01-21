@@ -307,7 +307,7 @@ on the architecture and implementation of the \emph{CYBOI Interpreter}.
         that too much functionality had been put into the thread functions,
         e.g. the handling of a signal, reception and conversion of data.
         All that is now done in the main thread instead. What remains for the
-        input/ output threads is just the setting of an interrupt flag in a
+        input threads is just the setting of an interrupt flag in a
         "sense" function, whenever data arrive.
     \item[2008] All CYBOI source code gets adapted to using wide characters/ Unicode.
     \item[2008] CYBOL abstraction constants now follow the MIME type schema.
@@ -325,8 +325,9 @@ on the architecture and implementation of the \emph{CYBOI Interpreter}.
     \item[2010] Array functions are unified for all primitive data types.
     \item[2011] The whole container framework gets refactored and simplified.
         It is based on three fundamental structures: array, item, part.
-        The former compound structure is now just a simple pointer array
-        holding references to parts.
+        The array is the basis holding primitive data.
+        An item consists of three arrays: data, count, size.
+        A part has four items: name, type, model, properties.
     \item[20xx] Open issues yet to be implemented are, for example:
         compiling CYBOI under \emph{Windows} OS and making use of their GUI
         functionality; improving the GUI layout and providing a GUI theme
