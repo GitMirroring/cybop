@@ -104,6 +104,8 @@ fwprintf(stdout, L"TEST check s: %i\n", s);
     // i.e. it remains NULL if initialised so before.
     get_item_element((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"\n\nTEST signal checker s: %i\n\n\n", s);
+
 fwprintf(stdout, L"TEST check s: %i\n", s);
 
     if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {

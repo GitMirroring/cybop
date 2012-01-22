@@ -62,7 +62,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part element.");
 
-    // The (child) signal part.
+    // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -101,7 +101,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         pthread_mutex_lock(p10);
 
         // Add signal part to signal memory.
-        append_item_element(p8, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p8, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Set interrupt request flag, in order to notify the signal checker
         // that a new signal has been placed in the signal memory.
