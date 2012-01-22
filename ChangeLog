@@ -22,6 +22,8 @@
         * Repair problem in model diagram serialiser part loop, that break flag was not set to true if count is null
         * Adapt cybol example applications prefixed "exit" to new cybol mime types and operations
         * Make functions "apply_send" and "send_signal" work
+        * Move "tester" directory out of "controller" to source root
+        * Create test files in directory "testing/" for writing model diagram to file
 
 2012-01-16  Christian Heller  <christian.heller@tuxtax.de>
 

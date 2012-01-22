@@ -28,8 +28,8 @@
 
 #include <stdio.h>
 
-#include "../../logger/logger.c"
-#include "../../variable/type_size/integral_type_size.c"
+#include "../logger/logger.c"
+#include "../variable/type_size/integral_type_size.c"
 
 /**
  * Tests the type sizes.

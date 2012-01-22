@@ -26,21 +26,21 @@
 #ifndef TESTER_SOURCE
 #define TESTER_SOURCE
 
-#include "../controller/tester/accessor_tester.c"
-#include "../controller/tester/arithmetiser_tester.c"
-#include "../controller/tester/assembler_tester.c"
-#include "../controller/tester/communicator_tester.c"
-#include "../controller/tester/comparator_tester.c"
-#include "../controller/tester/constant_tester.c"
-#include "../controller/tester/converter_tester.c"
-#include "../controller/tester/copier_tester.c"
-#include "../controller/tester/finder_tester.c"
-#include "../controller/tester/logger_tester.c"
-#include "../controller/tester/memoriser_tester.c"
-#include "../controller/tester/modifier_tester.c"
-#include "../controller/tester/pointer_tester.c"
-#include "../controller/tester/preprocessor_tester.c"
-#include "../controller/tester/variable_tester.c"
+#include "../tester/accessor_tester.c"
+#include "../tester/arithmetiser_tester.c"
+#include "../tester/assembler_tester.c"
+#include "../tester/communicator_tester.c"
+#include "../tester/comparator_tester.c"
+#include "../tester/constant_tester.c"
+#include "../tester/converter_tester.c"
+#include "../tester/copier_tester.c"
+#include "../tester/finder_tester.c"
+#include "../tester/logger_tester.c"
+#include "../tester/memoriser_tester.c"
+#include "../tester/modifier_tester.c"
+#include "../tester/pointer_tester.c"
+#include "../tester/preprocessor_tester.c"
+#include "../tester/variable_tester.c"
 
 //
 // Examples for source code testing via log messages.

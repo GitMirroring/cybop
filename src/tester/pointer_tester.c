@@ -29,9 +29,9 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../logger/logger.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../logger/logger.c"
 
 /**
  * Tests the pointer null value as subroutine.

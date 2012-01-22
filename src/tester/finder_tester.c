@@ -26,16 +26,16 @@
 #ifndef FINDER_TESTER
 #define FINDER_TESTER
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../executor/communicator/sender/file_system_sender.c"
-#include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
-#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../executor/modifier/knowledge_getter/branch_part_getter.c"
-#include "../../executor/modifier/name_getter/part_name_getter.c"
-#include "../../executor/searcher/finder/array_finder.c"
-#include "../../executor/searcher/finder/item_finder.c"
-#include "../../executor/searcher/finder/part_finder.c"
-#include "../../logger/logger.c"
+#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../executor/communicator/sender/file_system_sender.c"
+#include "../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
+#include "../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../executor/modifier/knowledge_getter/branch_part_getter.c"
+#include "../executor/modifier/name_getter/part_name_getter.c"
+#include "../executor/searcher/finder/array_finder.c"
+#include "../executor/searcher/finder/item_finder.c"
+#include "../executor/searcher/finder/part_finder.c"
+#include "../logger/logger.c"
 
 /**
  * Tests the part by hierarchical name finder.

@@ -28,12 +28,12 @@
 
 #include <stdio.h>
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../executor/converter/decoder/utf/utf_8_decoder.c"
-#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../logger/logger.c"
+#include "../constant/channel/cyboi/cyboi_channel.c"
+#include "../constant/model/character_code/ascii/ascii_character_code_model.c"
+#include "../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../executor/converter/decoder/utf/utf_8_decoder.c"
+#include "../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../logger/logger.c"
 
 /**
  * Tests the integer-to-wide character conversion.

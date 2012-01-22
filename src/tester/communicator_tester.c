@@ -56,10 +56,10 @@
 #include <unistd.h>
 #include <wchar.h>
 
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../logger/logger.c"
-#include "../../variable/type_size/terminal_type_size.c"
+#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../logger/logger.c"
+#include "../variable/type_size/terminal_type_size.c"
 
 /**
  * Tests the standard output and error stream.

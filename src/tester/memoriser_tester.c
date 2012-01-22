@@ -28,19 +28,19 @@
 
 #include <wchar.h>
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/copier/item_copier.c"
-#include "../../executor/modifier/copier/part_copier.c"
-#include "../../executor/memoriser/allocator/array_allocator.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/memoriser/allocator/part_allocator.c"
-#include "../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../executor/memoriser/deallocator/part_deallocator.c"
-#include "../../executor/modifier/overwriter/item_overwriter.c"
-#include "../../executor/modifier/overwriter/part_overwriter.c"
-#include "../../logger/logger.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../executor/modifier/copier/array_copier.c"
+#include "../executor/modifier/copier/item_copier.c"
+#include "../executor/modifier/copier/part_copier.c"
+#include "../executor/memoriser/allocator/array_allocator.c"
+#include "../executor/memoriser/allocator/item_allocator.c"
+#include "../executor/memoriser/allocator/part_allocator.c"
+#include "../executor/memoriser/deallocator/array_deallocator.c"
+#include "../executor/memoriser/deallocator/item_deallocator.c"
+#include "../executor/memoriser/deallocator/part_deallocator.c"
+#include "../executor/modifier/overwriter/item_overwriter.c"
+#include "../executor/modifier/overwriter/part_overwriter.c"
+#include "../logger/logger.c"
 
 /**
  * Tests the array resizing.

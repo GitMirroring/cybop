@@ -26,15 +26,15 @@
 #ifndef COMPARATOR_TESTER
 #define COMPARATOR_TESTER
 
-#include "../../constant/type/cyboi/cyboi_type.c"
-#include "../../executor/comparator/all/array_all_comparator.c"
-#include "../../executor/comparator/all/part_all_comparator.c"
-#include "../../executor/comparator/prefix/array_prefix_comparator.c"
-#include "../../executor/comparator/subsequence/array_subsequence_comparator.c"
-#include "../../executor/comparator/suffix/array_suffix_comparator.c"
-#include "../../executor/modifier/inserter/part_inserter.c"
-#include "../../executor/modifier/overwriter/part_overwriter.c"
-#include "../../logger/logger.c"
+#include "../constant/type/cyboi/cyboi_type.c"
+#include "../executor/comparator/all/array_all_comparator.c"
+#include "../executor/comparator/all/part_all_comparator.c"
+#include "../executor/comparator/prefix/array_prefix_comparator.c"
+#include "../executor/comparator/subsequence/array_subsequence_comparator.c"
+#include "../executor/comparator/suffix/array_suffix_comparator.c"
+#include "../executor/modifier/inserter/part_inserter.c"
+#include "../executor/modifier/overwriter/part_overwriter.c"
+#include "../logger/logger.c"
 
 /**
  * Tests the ascii character - wide character equality.

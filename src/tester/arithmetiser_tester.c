@@ -26,11 +26,11 @@
 #ifndef ARITHMETISER_TESTER
 #define ARITHMETISER_TESTER
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../executor/memoriser/size_determiner.c"
-#include "../../logger/logger.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../executor/memoriser/size_determiner.c"
+#include "../logger/logger.c"
 
 /**
  * Tests the arithmetiser integer adder.

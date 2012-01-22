@@ -26,7 +26,7 @@
 #ifndef ASSEMBLER_TESTER
 #define ASSEMBLER_TESTER
 
-#include "../../logger/logger.c"
+#include "../logger/logger.c"
 
 /**
  * Tests the assembler register handling.

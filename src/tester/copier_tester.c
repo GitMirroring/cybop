@@ -28,19 +28,19 @@
 
 #include <wchar.h>
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/communicator/sender/file_system_sender.c"
-#include "../../executor/converter/decoder/utf/utf_8_decoder.c"
-#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../executor/memoriser/allocator/part_allocator.c"
-#include "../../executor/memoriser/deallocator/part_deallocator.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/copier/part_copier.c"
-#include "../../executor/modifier/getter/part_getter.c"
-#include "../../executor/modifier/inserter/part_inserter.c"
-#include "../../executor/modifier/overwriter/part_overwriter.c"
-#include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
-#include "../../logger/logger.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../executor/communicator/sender/file_system_sender.c"
+#include "../executor/converter/decoder/utf/utf_8_decoder.c"
+#include "../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../executor/memoriser/allocator/part_allocator.c"
+#include "../executor/memoriser/deallocator/part_deallocator.c"
+#include "../executor/modifier/copier/array_copier.c"
+#include "../executor/modifier/copier/part_copier.c"
+#include "../executor/modifier/getter/part_getter.c"
+#include "../executor/modifier/inserter/part_inserter.c"
+#include "../executor/modifier/overwriter/part_overwriter.c"
+#include "../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
+#include "../logger/logger.c"
 
 /**
  * Tests the part.

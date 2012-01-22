@@ -28,18 +28,18 @@
 
 #include <wchar.h>
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/communicator/sender/file_system_sender.c"
-#include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
-#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/copier/part_copier.c"
-#include "../../executor/memoriser/allocator/part_allocator.c"
-#include "../../executor/memoriser/deallocator/part_deallocator.c"
-#include "../../executor/modifier/inserter/array_inserter.c"
-#include "../../executor/modifier/overwriter/part_overwriter.c"
-#include "../../executor/modifier/remover/array_remover.c"
-#include "../../logger/logger.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../executor/communicator/sender/file_system_sender.c"
+#include "../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
+#include "../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../executor/modifier/copier/array_copier.c"
+#include "../executor/modifier/copier/part_copier.c"
+#include "../executor/memoriser/allocator/part_allocator.c"
+#include "../executor/memoriser/deallocator/part_deallocator.c"
+#include "../executor/modifier/inserter/array_inserter.c"
+#include "../executor/modifier/overwriter/part_overwriter.c"
+#include "../executor/modifier/remover/array_remover.c"
+#include "../logger/logger.c"
 
 /**
  * Tests part modification on compound part.

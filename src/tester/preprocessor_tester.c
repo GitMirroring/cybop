@@ -26,7 +26,7 @@
 #ifndef PREPROCESSOR_TESTER
 #define PREPROCESSOR_TESTER
 
-#include "../../logger/logger.c"
+#include "../logger/logger.c"
 
 /**
  * Tests the preprocessor directives.
