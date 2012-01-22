@@ -31,26 +31,9 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../logger/logger.c"
-
-/**
- * Sends an inline stream that was read from an array.
- *
- * @param p0 the destination wide character array (pointer reference)
- * @param p1 the destination wide character array count
- * @param p2 the destination wide character array size
- * @param p3 the source wide character array
- * @param p4 the source wide character array count
- */
-void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send inline.");
-
-    overwrite_array(p0, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-}
 
 /**
  * Sends a knowledge model to the receiving array.

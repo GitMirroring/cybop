@@ -26,39 +26,43 @@
 #ifndef SIGNAL_SENDER_SOURCE
 #define SIGNAL_SENDER_SOURCE
 
-#include <signal.h>
-
-#include "../../constant/channel/cyboi_channel.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../logger/logger.c"
 
 /**
  * Sends a message to the cyboi system (this system itself).
  *
- * @param p0 the signal memory item
+ * @param p0 the internal memory array
  * @param p1 the signal part
- * @param p2 the internal memory array
  */
-void send_signal(void* p0, void* p1, void* p2) {
+void send_signal(void* p0, void* p1) {
 
-    log_terminated_message((void*) INFORMATION_LEVEL_LOG_MODEL, (void*) L"Send signal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send signal.");
 
+    // The signal memory.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory mutex.
-    pthread_mutex_t* mt = (pthread_mutex_t*) *NULL_POINTER_MEMORY_MODEL;
+    pthread_mutex_t* mt = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory interrupt request flag.
-    sig_atomic_t* irq = (sig_atomic_t*) *NULL_POINTER_MEMORY_MODEL;
+    sig_atomic_t* irq = (sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // Get signal memory.
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get signal memory mutex.
     copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get signal memory interrupt request flag.
-    copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Lock signal memory mutex.
     pthread_mutex_lock(mt);
 
     // Add signal part to signal memory.
-    append_item_element(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Set interrupt request flag, in order to notify the signal checker
     // that a new signal has been placed in the signal memory.

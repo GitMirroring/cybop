@@ -26,13 +26,10 @@
 #ifndef SEND_SOURCE
 #define SEND_SOURCE
 
-#include "../../constant/channel/cybol_channel.c"
-#include "../../constant/model/cybol/service_cybol_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/service_port_model.c"
-#include "../../constant/model/signal_priority_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/name/cybol/operation/communication/send_communication_operation_cybol_name.c"
+#include "../../executor/communicator/sender.c"
 #include "../../logger/logger.c"
 
 /**
@@ -90,11 +87,22 @@ void apply_send(void* p0, void* p1, void* p2) {
 
     // The channel part model.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoding part model.
+    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part model.
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver part model.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The channel part model data.
+    // The channel part model data, count.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoding part model data, count.
+    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part model data, count.
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_name_array((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -121,11 +129,22 @@ void apply_send(void* p0, void* p1, void* p2) {
 
     // Get channel part model.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get encoding part model.
+    copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get type part model.
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get receiver part model.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &cmc, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get encoding part model data.
+    copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get type part model data.
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //
     // Convert some cybol source data (strings) into cyboi destination data (integer).

@@ -81,17 +81,17 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signal with highest priority and otherwise, for interrupts.");
 
-    // The signal.
+    // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt request.
     // CAUTION! It CANNOT be handed over as parametre, since it
     // is not always only the signal memory interrupt request.
     // Other input channels' interrupts may be assigned as well below.
-    void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
+    sig_atomic_t* irq = (sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
     // CAUTION! It CANNOT be handed over as parametre,
     // just like the interrupt request.
-    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    pthread_mutex_t* mt = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The direct execution flag.
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -129,8 +129,12 @@ fwprintf(stdout, L"TEST check 3: %i\n", s);
         // Unlock signal memory mutex.
         pthread_mutex_unlock(mt);
 
+fwprintf(stdout, L"TEST check 4: %i\n", s);
+
         // Handle signal.
         handle(s, (void*) &x, p0, p3, p4, p1, irq, mt);
+
+fwprintf(stdout, L"TEST check 5: %i\n", s);
 
     } else {
 

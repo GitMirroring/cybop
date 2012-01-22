@@ -28,11 +28,9 @@
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
 #include "../../executor/communicator/receiver.c"
 #include "../../logger/logger.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Receives a message via the given channel.
@@ -50,7 +48,7 @@
  * Expected parametres:
  * - channel (required): the channel via which to receive the message (terminal, www, x_window_system etc.)
  * - encoding (required): the encoding (utf-8, utf-32 for inline channel etc.)
- * - language (required): the language (type, type, structure) of the data received (http_request, xdt, boolean, character etc.)
+ * - type (required): the language (type, type, structure) of the data received (http_request, xdt, boolean, character etc.)
  * - message (required): the source (knowledge template) from where to receive data
  * - meta message (optional): the source (knowledge template) from where to receive meta data (properties)
  * - model (required): the compound model to be filled with the data received
@@ -70,8 +68,8 @@ void apply_receive(void* p0, void* p1, void* p2) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The language part.
-    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part.
     // CAUTION! If a file is read, then this is the file name.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -88,8 +86,8 @@ void apply_receive(void* p0, void* p1, void* p2) {
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part model.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The language part model.
-    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part model.
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model.
     void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The meta message part model.
@@ -108,9 +106,9 @@ void apply_receive(void* p0, void* p1, void* p2) {
     // The encoding part model data, count.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The language part model data, count.
-    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* lmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part model data, count.
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model data, count.
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -128,8 +126,8 @@ void apply_receive(void* p0, void* p1, void* p2) {
     get_name_array((void*) &c, p0, (void*) CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get encoding part.
     get_name_array((void*) &e, p0, (void*) ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
-    // Get language part.
-    get_name_array((void*) &l, p0, (void*) LANGUAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) LANGUAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
+    // Get type part.
+    get_name_array((void*) &t, p0, (void*) TYPE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) TYPE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get message part.
     get_name_array((void*) &m, p0, (void*) MESSAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) MESSAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get meta message part.
@@ -145,8 +143,8 @@ void apply_receive(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get encoding part model.
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get language part model.
-    copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get type part model.
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get message part model.
     copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get meta message part model.
@@ -161,11 +159,13 @@ void apply_receive(void* p0, void* p1, void* p2) {
 
     // Get channel part model data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &cmc, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get encoding part model data.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get language part model data.
-    copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &lmc, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get type part model data.
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get message part model data, count.
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -196,7 +196,7 @@ void apply_receive(void* p0, void* p1, void* p2) {
     // Decode cybol source encoding into cyboi destination encoding.
     deserialise_cybol_encoding((void*) &de, emd, emc);
     // Decode cybol source type into cybol cyboi destination type.
-    deserialise_cybol_type((void*) &dtc, lmd, lmc);
+    deserialise_cybol_type((void*) &dtc, tmd, tmc);
 
     // Receive data.
     receive_data(mom, mop, mmd, mmc, (void*) &dtc, (void*) &de, p2, (void*) &dc);

@@ -29,15 +29,17 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/communication/send_communication_operation_cybol_name.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/communicator/receiver/file_system_sender.c"
-#include "../../executor/communicator/receiver/inline_sender.c"
-#include "../../executor/communicator/receiver/shell_sender.c"
-#include "../../executor/communicator/receiver/socket_sender.c"
-#include "../../executor/communicator/receiver/terminal_sender.c"
-#include "../../executor/communicator/receiver/x_window_system_sender.c"
+#include "../../executor/communicator/sender/signal_sender.c"
+/*??
+#include "../../executor/communicator/sender/file_system_sender.c"
+#include "../../executor/communicator/sender/inline_sender.c"
+#include "../../executor/communicator/sender/shell_sender.c"
+#include "../../executor/communicator/sender/socket_sender.c"
+#include "../../executor/communicator/sender/terminal_sender.c"
+#include "../../executor/communicator/sender/x_window_system_sender.c"
+*/
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -161,7 +163,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_signal(p0, p1, p4);
+            send_signal(p4, p1);
         }
     }
 
