@@ -115,7 +115,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                 // An escape character followed by a left square bracket character
                                 // were received before. So this is an escape control sequence.
                                 // Since all values have been received, the loop can be left now.
-                                *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                                *b = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                             } else if (*esc == *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -151,7 +151,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                     pthread_mutex_unlock(p8);
 
                                     // Set loop break flag.
-                                    *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                                    *b = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
                                 }
 
                             } else if (*c == *((wint_t*) ESCAPE_CONTROL_UNICODE_CHARACTER_CODE_MODEL)) {
@@ -169,7 +169,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                 // However, to be on the safe side, they are filtered out here once more.
 
                                 // Set loop break flag.
-                                *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                                *b = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                             } else {
 
@@ -177,7 +177,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                 overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                 // Set loop break flag.
-                                *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                                *b = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
                             }
 
                         } else {
@@ -185,7 +185,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from terminal. The character reading failed.");
 
                             // Set loop break flag.
-                            *b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                            *b = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
                         }
 
                     } else {

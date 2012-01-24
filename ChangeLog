@@ -19,6 +19,8 @@
 2012-01-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up cybol deserialiser
+        * Repair problem in all loops, that break flag was not set to true
+            if count is null, so that the loop was never left in this case
 
 2012-01-22  Christian Heller  <christian.heller@tuxtax.de>
 

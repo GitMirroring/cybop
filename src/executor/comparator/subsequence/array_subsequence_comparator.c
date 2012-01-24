@@ -75,9 +75,9 @@ void compare_subsequence_array_elements(void* p0, void* p1, void* p2, void* p3, 
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The subsequence had been found in the previous loop cycle.
             // The result flag has been set to true.
@@ -121,11 +121,11 @@ void compare_subsequence_array(void* p0, void* p1, void* p2, void* p3, void* p4,
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare subsequence array.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     compare_integer((void*) &r, p5, p6, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
 
-    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_subsequence_array_elements(p0, p1, p2, p3, p4, p5, p6);
 

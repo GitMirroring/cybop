@@ -9,9 +9,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Repair problem in all loops, that break flag was not set to true if count is null,
-            so that the loop was never left in this case (SEE: part_model_diagram_serialiser.c)
-
         * Adapt cybol example applications to new cybol mime types and operations
 
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
