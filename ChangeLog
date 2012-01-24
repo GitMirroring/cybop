@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-01-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Clean up cybol deserialiser
+
 2012-01-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug signal handling where part element had wrong count for copying and direct execution flag was not set

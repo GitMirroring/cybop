@@ -29,7 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/representer/deserialiser/cybol/node_content_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/content_node_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -80,12 +80,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol.");
 
-    // The source part model tree root node flag.
-    // CAUTION! It is necessary to identify the root node.
-    int f = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    deserialise_cybol_node_standard(p0, p1, p2, p3, p4, (void*) &f);
-//??    deserialise_cybol_node_content(p0, p1, p2, p3, p4, (void*) &f);
+    deserialise_cybol_node_content(p0, p1, p2, p3, p4);
 }
 
 /* CYBOL_DESERIALISER_SOURCE */

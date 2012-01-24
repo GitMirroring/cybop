@@ -45,11 +45,8 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the root part flag
  */
-void deserialise_cybol_nodes(void* p0, void* p1, void* p2, void* p3) {
-
-fwprintf(stdout, L"TEST nodes count: %i\n", *((int*) p2));
+void deserialise_cybol_nodes(void* p0, void* p1, void* p2) {
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -60,20 +57,16 @@ fwprintf(stdout, L"TEST nodes count: %i\n", *((int*) p2));
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
-fwprintf(stdout, L"TEST nodes j: %i\n", j);
-
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        deserialise_cybol_node(p0, p1, (void*) &j, p3);
+        deserialise_cybol_node(p0, p1, (void*) &j);
 
         // Increment loop variable.
         j++;
     }
-
-fwprintf(stdout, L"TEST nodes leave last j: %i\n", j);
 }
 
 /* NODES_CYBOL_DESERIALISER_SOURCE */

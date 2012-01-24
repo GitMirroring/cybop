@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STANDARD_NODE_CYBOL_DESERIALISER_SOURCE
-#define STANDARD_NODE_CYBOL_DESERIALISER_SOURCE
+#ifndef CONTENT_NODE_CYBOL_DESERIALISER_SOURCE
+#define CONTENT_NODE_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -50,20 +50,17 @@
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
- * Deserialises the cybol standard node.
+ * Deserialises the cybol node content.
  *
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the root node flag
  */
-void deserialise_cybol_node_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node standard.");
-
-fwprintf(stdout, L"TEST standard: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node content.");
 
     //
     // Identify source node part properties parametres.
@@ -134,8 +131,6 @@ fwprintf(stdout, L"TEST standard: %i\n", p0);
     copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smmc, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST standard snmd: %ls\n", (wchar_t*) snmd);
-
     //
     // Convert some cybol source data (strings) into cyboi destination data (integer).
     //
@@ -183,20 +178,12 @@ fwprintf(stdout, L"TEST standard snmd: %ls\n", (wchar_t*) snmd);
     // then the "part" type is used here by default, since it
     // does no real harm to create a node with (possibly) wrong type.
     // In the end, the CYBOL DEVELOPER has to care about that.
-//    compare_integer_smaller((void*) &r, (void*) &dt, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     if ((sn == *NULL_POINTER_STATE_CYBOI_MODEL) && (sc == *NULL_POINTER_STATE_CYBOI_MODEL)
         && (se == *NULL_POINTER_STATE_CYBOI_MODEL) && (st == *NULL_POINTER_STATE_CYBOI_MODEL)
         && (sm == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
-        r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        copy_integer((void*) &r, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
-
-/*??
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        copy_integer((void*) &dt, PART_ELEMENT_STATE_CYBOI_TYPE);
-    }
-*/
 
     //
     // Create new part.
@@ -214,8 +201,6 @@ fwprintf(stdout, L"TEST standard snmd: %ls\n", (wchar_t*) snmd);
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST r: %i\n", r);
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // This is a standard node.
@@ -224,6 +209,7 @@ fwprintf(stdout, L"TEST r: %i\n", r);
         // CAUTION! Use the CYBOI destination type determined above
         // (and NOT the CYBOL cyboi destination type)!
         allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &dt);
+
         // Get part name, type, model, properties.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
@@ -249,14 +235,11 @@ fwprintf(stdout, L"TEST r: %i\n", r);
         // When reading cybol, the only possible two channels are "inline" and "file",
         // but the internal memory (second-last parametre) is only necessary for
         // "terminal", "x_window_system" and similar channels.
-fwprintf(stdout, L"TEST standard node pre receive: %i\n", r);
         receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL /*??pp*/, smmd, smmc, (void*) &dtc, (void*) &de, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &dc);
-fwprintf(stdout, L"TEST standard node post receive: %i\n", r);
         // Fill part properties taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-        deserialise_cybol_nodes(pp, p1, p2, (void*) &r); //?? p5);
-//??        deserialise_cybol_nodes(pm, p1, p2, p5);
+        deserialise_cybol_nodes(pp, p1, p2);
 
     } else {
 
@@ -265,24 +248,18 @@ fwprintf(stdout, L"TEST standard node post receive: %i\n", r);
         // Fill part properties taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-        deserialise_cybol_nodes(p0, p1, p2, (void*) &r); //?? p5);
+        deserialise_cybol_nodes(p0, p1, p2);
     }
 
-fwprintf(stdout, L"TEST standard node x r: %i\n", r);
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-fwprintf(stdout, L"TEST standard node y r: %i\n", r);
 
         //
         // Add part to destination, if this is NOT the root node.
         //
 
         append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-fwprintf(stdout, L"TEST standard node z r: %i\n", r);
     }
 }
 
-/* STANDARD_NODE_CYBOL_DESERIALISER_SOURCE */
+/* CONTENT_NODE_CYBOL_DESERIALISER_SOURCE */
 #endif

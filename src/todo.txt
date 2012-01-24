@@ -9,16 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2012-01-??  Christian Heller  <christian.heller@tuxtax.de>
-
-        * Clean up cybol deserialiser
-        * Adapt cybol example applications to new cybol mime types and operations
         * Repair problem in all loops, that break flag was not set to true if count is null,
             so that the loop was never left in this case (SEE: part_model_diagram_serialiser.c)
-
---
-        * the following is probably NOT a bug and solved when cybol deserialisation finally works:
-            Is signal added to signal memory in "initialiser.c"? --> is null in "operation_handler.c"
 
         * Adapt cybol example applications to new cybol mime types and operations
 

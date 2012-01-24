@@ -42,19 +42,16 @@
 // Forward declarations.
 //
 
-void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Deserialises the cybol node.
  *
  * @param p0 the destination item
- * @param p1 the source part model data
- * @param p2 the source part model index
- * @param p3 the root part flag
+ * @param p1 the source model data
+ * @param p2 the source model index
  */
-void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3) {
-
-fwprintf(stdout, L"TEST node: %i\n", p0);
+void deserialise_cybol_node(void* p0, void* p1, void* p2) {
 
     // The source part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -78,7 +75,7 @@ fwprintf(stdout, L"TEST node: %i\n", p0);
     copy_array_forward((void*) &ppd, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ppc, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    deserialise_cybol_node_content(p0, pmd, pmc, ppd, ppc, p3);
+    deserialise_cybol_node_content(p0, pmd, pmc, ppd, ppc);
 }
 
 /* NODE_CYBOL_DESERIALISER_SOURCE */
