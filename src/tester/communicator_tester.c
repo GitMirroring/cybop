@@ -373,7 +373,7 @@ void test_communicator_file_write() {
     // The file name count.
     int fnc = *NUMBER_26_INTEGER_STATE_CYBOI_MODEL;
 
-//??    send_file((void*) &a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
+//??    send_file((void*) a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
 }
 
 /**

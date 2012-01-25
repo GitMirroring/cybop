@@ -35,10 +35,10 @@
 #include "../../../logger/logger.c"
 
 /**
- * Sends a message to the cyboi system (this system itself).
+ * Sends a message as signal to the cyboi system (this system itself).
  *
  * @param p0 the internal memory array
- * @param p1 the signal part
+ * @param p1 the source message part
  */
 void send_signal(void* p0, void* p1) {
 

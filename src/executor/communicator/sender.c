@@ -32,14 +32,7 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/sender/signal_sender.c"
-/*??
-#include "../../executor/communicator/sender/file_system_sender.c"
-#include "../../executor/communicator/sender/inline_sender.c"
-#include "../../executor/communicator/sender/shell_sender.c"
-#include "../../executor/communicator/sender/socket_sender.c"
-#include "../../executor/communicator/sender/terminal_sender.c"
-#include "../../executor/communicator/sender/x_window_system_sender.c"
-*/
+//?? #include "../../executor/communicator/sender/shell_sender.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -153,6 +146,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //?? RENAME SHELL INTO STANDARD_OUTPUT??
 //??            send_shell((void*) &p0, p7, p8, p9, p10, p11, p12);
         }
     }

@@ -67,7 +67,7 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     // Allocate multibyte character stream item.
     allocate_item((void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Encode model into model diagram item.
+    // Serialise model into model diagram item.
     // CAUTION! Do NOT forward NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
     // since the tree level value gets changed in the following functions!
     serialise_model_diagram_node(d, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
