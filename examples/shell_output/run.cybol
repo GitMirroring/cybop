@@ -1,10 +1,10 @@
 <model>
-    <part name="output" channel="inline" type="operation/plain" model="send">
-        <property name="channel" channel="inline" type="text/plain" model="shell"/>
-        <property name="language" channel="inline" type="text/plain" model="text/plain"/>
-        <property name="message" channel="inline" type="text/plain" model="Hello, World!"/>
+    <part name="print" channel="inline" encoding="utf-8" type="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="shell"/>
+        <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="Hello, World!"/>
     </part>
-    <part name="shutdown" channel="inline" type="operation/plain" model="exit"/>
+    <part name="shutdown" channel="inline" encoding="utf-8" type="live/exit" model=""/>
 </model>
 
 <!--
