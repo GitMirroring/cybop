@@ -30,11 +30,9 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/representer/deserialiser.c"
-#include "../../../executor/representer/serialiser.c"
-#include "../../../executor/memoriser/allocator.c"
+#include "../../../executor/memoriser/allocator/item_allocator.c"
+//?? #include "../../../executor/representer/serialiser.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/reallocation_factor.c"
 
 /**
  * Sends a knowledge model to standard output.

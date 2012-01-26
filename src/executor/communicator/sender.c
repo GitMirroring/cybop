@@ -32,7 +32,7 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/sender/signal_sender.c"
-//?? #include "../../executor/communicator/sender/standard_output_sender.c"
+#include "../../executor/communicator/sender/standard_output_sender.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 

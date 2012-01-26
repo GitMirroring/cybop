@@ -19,6 +19,7 @@
 2012-01-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename channel "shell" into "standard_output"
+        * Start updating serialiser files
 
 2012-01-24  Christian Heller  <christian.heller@tuxtax.de>
 

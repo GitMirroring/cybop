@@ -26,17 +26,15 @@
 #ifndef VALUE_BOOLEAN_CYBOL_SERIALISER_SOURCE
 #define VALUE_BOOLEAN_CYBOL_SERIALISER_SOURCE
 
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../constant/model/cybol/boolean_cybol_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/model/cybol/state/boolean_state_cybol_model.c"
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../../logger/logger.c"
-#include "../../../../../executor/memoriser/allocator.c"
-#include "../../../../../executor/comparator/all/array_all_comparator.c"
 
 /**
  * Serialises the boolean value into a wide character value.
