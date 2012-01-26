@@ -32,7 +32,7 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/sender/signal_sender.c"
-//?? #include "../../executor/communicator/sender/shell_sender.c"
+//?? #include "../../executor/communicator/sender/standard_output_sender.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -142,12 +142,11 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SHELL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) STANDARD_OUTPUT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? RENAME SHELL INTO STANDARD_OUTPUT??
-//??            send_shell((void*) &p0, p7, p8, p9, p10, p11, p12);
+//??            send_standard_output(p0, p7, p8, p9, p10, p11, p12);
         }
     }
 

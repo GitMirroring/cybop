@@ -110,11 +110,6 @@ static wchar_t SFTP_CYBOL_CHANNEL_ARRAY[] = {L's', L'f', L't', L'p'};
 static wchar_t* SFTP_CYBOL_CHANNEL = SFTP_CYBOL_CHANNEL_ARRAY;
 static int* SFTP_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The shell cybol channel. */
-static wchar_t SHELL_CYBOL_CHANNEL_ARRAY[] = {L's', L'h', L'e', L'l', L'l'};
-static wchar_t* SHELL_CYBOL_CHANNEL = SHELL_CYBOL_CHANNEL_ARRAY;
-static int* SHELL_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The signal cybol channel. */
 static wchar_t SIGNAL_CYBOL_CHANNEL_ARRAY[] = {L's', L'i', L'g', L'n', L'a', L'l'};
 static wchar_t* SIGNAL_CYBOL_CHANNEL = SIGNAL_CYBOL_CHANNEL_ARRAY;
@@ -149,6 +144,11 @@ static int* SOCKET_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRA
 static wchar_t SQL_CYBOL_CHANNEL_ARRAY[] = {L's', L'q', L'l'};
 static wchar_t* SQL_CYBOL_CHANNEL = SQL_CYBOL_CHANNEL_ARRAY;
 static int* SQL_CYBOL_CHANNEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The standard output cybol channel. */
+static wchar_t STANDARD_OUTPUT_CYBOL_CHANNEL_ARRAY[] = {L's', L't', L'a', L'n', L'd', L'a', L'r', L'd', L'_', L'o', L'u', L't', L'p', L'u', L't'};
+static wchar_t* STANDARD_OUTPUT_CYBOL_CHANNEL = STANDARD_OUTPUT_CYBOL_CHANNEL_ARRAY;
+static int* STANDARD_OUTPUT_CYBOL_CHANNEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The terminal cybol channel. */
 static wchar_t TERMINAL_CYBOL_CHANNEL_ARRAY[] = {L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l'};

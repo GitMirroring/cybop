@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SHELL_SEND_SOURCE
-#define SHELL_SEND_SOURCE
+#ifndef STANDARD_OUTPUT_SEND_SOURCE
+#define STANDARD_OUTPUT_SEND_SOURCE
 
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -37,7 +37,7 @@
 #include "../../../variable/reallocation_factor.c"
 
 /**
- * Sends a knowledge model to the operating system shell's standard output.
+ * Sends a knowledge model to standard output.
  *
  * @param p0 the internal memory array
  * @param p1 the source message part
@@ -46,9 +46,9 @@
  * @param p11 the clean data
  * @param p13 the new line data
  */
-void send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void send_standard_output(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send shell.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send standard output.");
 
     // The serialised item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -114,5 +114,5 @@ void send_shell(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     deallocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* SHELL_SEND_SOURCE */
+/* STANDARD_OUTPUT_SEND_SOURCE */
 #endif

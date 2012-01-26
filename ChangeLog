@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-01-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename channel "shell" into "standard_output"
+
 2012-01-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up cybol deserialiser
