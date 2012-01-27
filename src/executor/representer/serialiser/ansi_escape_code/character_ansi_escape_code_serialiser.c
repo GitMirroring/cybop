@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_TERMINAL_SERIALISER_SOURCE
-#define CHARACTER_TERMINAL_SERIALISER_SOURCE
+#ifndef CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#define CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -40,7 +40,7 @@
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
+#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -195,5 +195,5 @@ void serialise_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
     append_item_element(p0, p15, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* CHARACTER_TERMINAL_SERIALISER_SOURCE */
+/* CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
 #endif

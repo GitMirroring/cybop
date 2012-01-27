@@ -23,14 +23,14 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FOREGROUND_TERMINAL_SERIALISER_SOURCE
-#define FOREGROUND_TERMINAL_SERIALISER_SOURCE
+#ifndef FOREGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#define FOREGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
-#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
+#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
@@ -130,5 +130,5 @@ void serialise_terminal_foreground(void* p0, void* p1, void* p2) {
     }
 }
 
-/* FOREGROUND_TERMINAL_SERIALISER_SOURCE */
+/* FOREGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
 #endif

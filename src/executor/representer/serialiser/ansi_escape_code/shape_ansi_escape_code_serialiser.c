@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SHAPE_TERMINAL_SERIALISER_SOURCE
-#define SHAPE_TERMINAL_SERIALISER_SOURCE
+#ifndef SHAPE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#define SHAPE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -40,7 +40,7 @@
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
+#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -151,5 +151,5 @@ void serialise_terminal_shape(void* p0, void* p1, void* p2, void* p3, void* p4, 
     }
 }
 
-/* SHAPE_TERMINAL_SERIALISER_SOURCE */
+/* SHAPE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
 #endif

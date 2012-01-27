@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COORDINATES_TERMINAL_SERIALISER_SOURCE
-#define COORDINATES_TERMINAL_SERIALISER_SOURCE
+#ifndef COORDINATES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#define COORDINATES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -40,7 +40,7 @@
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
 #include "../../../../constant/model/cybol/layout_cybol_model.c"
 #include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/terminal/escape_control_sequence_terminal_model.c"
+#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -195,5 +195,5 @@ void serialise_terminal_coordinates(void* p0, void* p1, void* p2, void* p3, void
         (void*) &cpx, (void*) &cpy, (void*) &cpz, (void*) &csx, (void*) &csy, (void*) &csz, p22, p23);
 }
 
-/* COORDINATES_TERMINAL_SERIALISER_SOURCE */
+/* COORDINATES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
 #endif
