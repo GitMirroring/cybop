@@ -38,7 +38,7 @@
 #include "../../../../constant/name/http/header/request_header_http_name.c"
 #include "../../../../constant/name/http/header/response_header_http_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/appender/character_decoder_part_allocator_item_appender.c"
+#include "../../../../executor/modifier/appender/character_deserialiser_part_allocator_item_appender.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/integral_type_size.c"
 

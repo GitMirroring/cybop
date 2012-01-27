@@ -30,22 +30,15 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/http/protocol_version_http_model.c"
-#include "../../../../executor/searcher/selector/http_request/protocol_http_request_selector.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Serialises the http response protocol.
  *
- * @param p0 the destination character item
- * @param p1 the source metadata type
- * @param p2 the source metadata type count
- * @param p3 the source metadata model
- * @param p4 the source metadata model count
- * @param p5 the source metadata properties
- * @param p6 the source metadata properties count
+ * @param p0 the destination item
  */
-void serialise_http_response_protocol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_http_response_protocol(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise http response protocol.");
 

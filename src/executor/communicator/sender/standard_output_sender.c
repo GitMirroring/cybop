@@ -32,7 +32,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/converter/encoder.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
-//?? #include "../../../executor/representer/serialiser.c"
+#include "../../../executor/representer/serialiser.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -78,7 +78,7 @@ void send_standard_output(void* p0, void* p1, void* p2, void* p3, void* p4) {
     }
 
     // Serialise source message part.
-//??     serialise(s, p0, p2);
+    serialise(s, p0, p2);
 
     if (n != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

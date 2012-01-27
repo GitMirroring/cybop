@@ -47,15 +47,15 @@
  *
  * @param p0 the destination item
  * @param p1 the source data
- * @param p2 the source data count
+ * @param p2 the source count
  */
 void append_item_serialise_character(void* p0, void* p1, void* p2) {
 
     // The character item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The character item data, count.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate character item.
     allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -67,11 +67,11 @@ void append_item_serialise_character(void* p0, void* p1, void* p2) {
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &d, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &c, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Append character data to destination.
-    append_item_element(p0, d, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, id, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, ic, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate character item.
     deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

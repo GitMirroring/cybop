@@ -1,6 +1,7 @@
 <model>
     <part name="print" channel="inline" encoding="utf-8" type="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="standard_output"/>
+        <property name="encoding" channel="inline" encoding="utf-8" type="text/plain" model="utf-8"/>
         <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="text/plain"/>
         <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="Hello, World!"/>
     </part>

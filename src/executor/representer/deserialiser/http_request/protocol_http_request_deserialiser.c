@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
-#include "../../../../executor/modifier/appender/character_decoder_part_allocator_item_appender.c"
+#include "../../../../executor/modifier/appender/character_deserialiser_part_allocator_item_appender.c"
 #include "../../../../executor/searcher/selector/http_request/protocol_http_request_selector.c"
 #include "../../../../logger/logger.c"
 

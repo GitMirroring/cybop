@@ -23,28 +23,31 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STATUS_CODE_HTTP_RESPONSE_SERIALISER_SOURCE
-#define STATUS_CODE_HTTP_RESPONSE_SERIALISER_SOURCE
+#ifndef CONTENT_LENGTH_HEADER_HTTP_RESPONSE_SERIALISER_SOURCE
+#define CONTENT_LENGTH_HEADER_HTTP_RESPONSE_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/http/status_code_http_model.c"
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
+#include "../../../../executor/representer/serialiser/http_response/header_entry_http_response_serialiser.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the http response status code.
+ * Serialises the http response header content length.
  *
- * @param p0 the destination item
+ * @param p0 the destination character item
+ * @param p1 the source content length
  */
-void serialise_http_response_status_code(void* p0) {
+void serialise_http_response_header_content_length(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise http response status code.");
-
-    append_item_element(p0, (void*) OK_200_STATUS_CODE_HTTP_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) OK_200_STATUS_CODE_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) HEADER_ARGUMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HEADER_ARGUMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    serialise_cybol_integer(p0, p1, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    append_item_element(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* STATUS_CODE_HTTP_RESPONSE_SERIALISER_SOURCE */
+/* CONTENT_LENGTH_HEADER_HTTP_RESPONSE_SERIALISER_SOURCE */
 #endif

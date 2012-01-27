@@ -35,7 +35,7 @@
 #include "../../../../executor/communicator/receiver/inline_receiver.c"
 #include "../../../../executor/representer/deserialiser/uri/percent_encoding_vector_deserialiser.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
-#include "../../../../executor/modifier/appender/character_decoder_part_allocator_item_appender.c"
+#include "../../../../executor/modifier/appender/character_deserialiser_part_allocator_item_appender.c"
 #include "../../../../executor/modifier/overwriter/part_overwriter.c"
 #include "../../../../executor/searcher/selector/http_request/uri_http_request_selector.c"
 #include "../../../../logger/logger.c"
