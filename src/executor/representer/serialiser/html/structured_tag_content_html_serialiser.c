@@ -26,14 +26,11 @@
 #ifndef STRUCTURED_TAG_CONTENT_HTML_SERIALISER_SOURCE
 #define STRUCTURED_TAG_CONTENT_HTML_SERIALISER_SOURCE
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/accessor/getter/compound_getter.c"
-#include "../../../../executor/accessor/getter.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 //

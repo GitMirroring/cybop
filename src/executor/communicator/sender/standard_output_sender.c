@@ -30,6 +30,7 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/converter/encoder.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 //?? #include "../../../executor/representer/serialiser.c"
 #include "../../../logger/logger.c"
@@ -37,17 +38,20 @@
 /**
  * Sends a knowledge model to standard output.
  *
- * @param p0 the internal memory array
- * @param p1 the source message part
- * @param p1 the source type data
- * @param p9 the type data
- * @param p11 the clean data
- * @param p13 the new line data
+ * @param p0 the source message part
+ * @param p1 the encoding
+ * @param p2 the type
+ * @param p3 the clean data
+ * @param p4 the new line data
  */
-void send_standard_output(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void send_standard_output(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send standard output.");
 
+    // The clean data flag.
+    int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The new line flag.
+    int n = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The serialised item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoded item.
@@ -58,14 +62,9 @@ void send_standard_output(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The encoded item data, count.
     void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The clean data flag.
-    int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The new line flag.
-    int n = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-/*??
-    compare_integer_unequal((void*) &c, p??, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    compare_integer_unequal((void*) &n, p??, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &c, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &n, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Allocate serialised item.
     allocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -74,13 +73,14 @@ void send_standard_output(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        append_item_element(s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(s, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(s, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ERASE_DISPLAY_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
 
     // Serialise source message part.
-    serialise(s, p1, p??);
+//??     serialise(s, p0, p2);
 
-    if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (n != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         append_item_element(s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
@@ -93,8 +93,7 @@ void send_standard_output(void* p0, void* p1, void* p2, void* p3, void* p4, void
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Encode serialised wide character array into encoded character array.
-    encode(e, sd, sc, p??);
-*/
+    encode(e, sd, sc, p1);
 
     // Get encoded item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

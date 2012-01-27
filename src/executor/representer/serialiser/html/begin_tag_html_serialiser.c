@@ -26,14 +26,13 @@
 #ifndef BEGIN_TAG_HTML_SERIALISER_SOURCE
 #define BEGIN_TAG_HTML_SERIALISER_SOURCE
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../executor/representer/serialiser/html/attributes_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 
 /**

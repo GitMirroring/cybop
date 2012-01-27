@@ -26,76 +26,17 @@
 #ifndef ATTRIBUTES_HTML_SERIALISER_SOURCE
 #define ATTRIBUTES_HTML_SERIALISER_SOURCE
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
-#include "../../../../executor/accessor/getter/compound_getter.c"
-#include "../../../../executor/accessor/getter.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../executor/representer/serialiser/html/attribute_html_serialiser.c"
 #include "../../../../logger/logger.c"
-
-/**
- * Serialises the html attribute into html format.
- *
- * @param p0 the destination item
- * @param p1 the source properties data
- * @param p2 the source properties index
- */
-void serialise_html_attribute(void* p0, void* p1, void* p2) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html attribute.");
-
-    // The attribute part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The attribute part name, model.
-    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The attribute part name, model data, count.
-    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get attribute part at index.
-    copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
-    // Get attribute part name, model.
-    copy_array_forward((void*) &n, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &m, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get attribute part name, model data, count.
-    copy_array_forward((void*) &nd, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &nc, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    compare_all_array((void*) &r, nd, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT);
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // Only add attribute, if the properties part name is NOT "tag"!
-
-        // Append space character.
-        append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Append attribute name.
-        append_item_element(p0, nd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Append equals sign character.
-        append_item_element(p0, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Append quotation mark character.
-        append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Append space character.
-        append_item_element(p0, md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Append quotation mark character.
-        append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    }
-}
 
 /**
  * Serialises the html attributes into html format.
