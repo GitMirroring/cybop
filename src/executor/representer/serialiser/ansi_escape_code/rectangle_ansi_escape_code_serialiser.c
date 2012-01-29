@@ -83,7 +83,7 @@
  * @param p20 the border
  * @param p21 the border count
  */
-void serialise_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
+void serialise_ansi_escape_code_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13,
     void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
 
@@ -113,7 +113,7 @@ void serialise_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* 
 
                             int* cc = (int*) p4;
 
-                            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise terminal rectangle.");
+                            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code rectangle.");
 
                             // The horizontal character.
                             wchar_t hc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
@@ -129,7 +129,7 @@ void serialise_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* 
                             wchar_t rbc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
                             // Determine border characters.
-                            serialise_terminal_rectangle_border((void*) &hc, (void*) &vc,
+                            serialise_ansi_escape_code_rectangle_border((void*) &hc, (void*) &vc,
                                 (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p20, p21);
 
                             // The z loop count.
@@ -187,7 +187,7 @@ void serialise_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* 
                                                 }
 
                                                 // Encode character using escape codes.
-                                                serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, c);
+                                                serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, c);
 
                                             } else {
 
@@ -203,17 +203,17 @@ void serialise_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* 
                                                 if (x == *px) {
 
                                                     // Encode left top border character using escape codes.
-                                                    serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &ltc);
+                                                    serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &ltc);
 
                                                 } else if (x == (xl - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL)) {
 
                                                     // Encode right top border character using escape codes.
-                                                    serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rtc);
+                                                    serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rtc);
 
                                                 } else {
 
                                                     // Encode horizontal border character using escape codes.
-                                                    serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &hc);
+                                                    serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &hc);
                                                 }
 
                                             } else if (y == (yl - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL)) {
@@ -221,17 +221,17 @@ void serialise_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* 
                                                 if (x == *px) {
 
                                                     // Encode left bottom border character using escape codes.
-                                                    serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &lbc);
+                                                    serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &lbc);
 
                                                 } else if (x == (xl - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL)) {
 
                                                     // Encode right bottom border character using escape codes.
-                                                    serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rbc);
+                                                    serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &rbc);
 
                                                 } else {
 
                                                     // Encode horizontal border character using escape codes.
-                                                    serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &hc);
+                                                    serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &hc);
                                                 }
 
                                             } else {
@@ -239,12 +239,12 @@ void serialise_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* 
                                                 if (x == *px) {
 
                                                     // Encode left bottom border character using escape codes.
-                                                    serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
+                                                    serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
 
                                                 } else if (x == (xl - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL)) {
 
                                                     // Encode right bottom border character using escape codes.
-                                                    serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
+                                                    serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, &vc);
 
                                                 } else {
 
@@ -266,7 +266,7 @@ void serialise_terminal_rectangle(void* p0, void* p1, void* p2, void* p3, void* 
                                                     }
 
                                                     // Encode character using escape codes.
-                                                    serialise_terminal_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, c);
+                                                    serialise_ansi_escape_code_character(p0, p1, p2, &x, &y, &z, p10, p11, p12, p13, p5, p6, p7, p8, p9, c);
                                                 }
                                             }
                                         }

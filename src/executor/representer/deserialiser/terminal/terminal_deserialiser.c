@@ -54,7 +54,7 @@
  * @param p3 the source data
  * @param p4 the source count
  */
-void deserialise_terminal_escape_control_sequence(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_ansi_escape_code_escape_control_sequence(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise terminal escape control sequence.");
 
@@ -120,7 +120,7 @@ void deserialise_terminal_escape_control_sequence(void* p0, void* p1, void* p2, 
  * @param p3 the source data
  * @param p4 the source count
  */
-void deserialise_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise terminal character.");
 
@@ -194,14 +194,14 @@ void deserialise_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     void* t = p3 + (*ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
                     int tc = *sc - *ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT;
 
-                    deserialise_terminal_escape_control_sequence(p0, p1, p2, t, (void*) &tc);
+                    deserialise_ansi_escape_code_escape_control_sequence(p0, p1, p2, t, (void*) &tc);
                 }
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_terminal_character(p0, p1, p2, p3, p4);
+            deserialise_ansi_escape_code_character(p0, p1, p2, p3, p4);
         }
 
     } else {

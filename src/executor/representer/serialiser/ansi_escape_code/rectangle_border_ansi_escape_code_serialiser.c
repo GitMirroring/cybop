@@ -60,7 +60,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises a terminal rectangle border.
+ * Serialises the rectangle border into ansi escape code.
  *
  * @param p0 the horizontal character
  * @param p1 the vertical character
@@ -69,128 +69,82 @@
  * @param p4 the left bottom
  * @param p5 the right bottom
  * @param p6 the border
- * @param p7 the border count
  */
-void serialise_terminal_rectangle_border(void* p0, void* p1,
-    void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_ansi_escape_code_rectangle_border(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code rectangle border.");
 
-        wchar_t* rbc = (wchar_t*) p5;
+    // The part type, model, properties.
+    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part type, model, properties data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Get part type, model, properties.
+    copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    // Get part type, model, properties data, count.
+    copy_array_forward((void*) &td, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-            wchar_t* lbc = (wchar_t*) p4;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                wchar_t* rtc = (wchar_t*) p3;
+        compare_all_array((void*) &r, p6, (void*) ASCII_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) ASCII_LINE_BORDER_CYBOL_MODEL_COUNT);
 
-                if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    wchar_t* ltc = (wchar_t*) p2;
-
-                    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        wchar_t* vc = (wchar_t*) p1;
-
-                        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                            wchar_t* hc = (wchar_t*) p0;
-
-                            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise terminal rectangle border.");
-
-                            // The comparison result.
-                            int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                compare_all_array((void*) &r, p6, (void*) ASCII_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) ASCII_LINE_BORDER_CYBOL_MODEL_COUNT);
-
-                                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                    *hc = *HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL;
-                                    *vc = *VERTICAL_LINE_UNICODE_CHARACTER_CODE_MODEL;
-                                    *ltc = *PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL;
-                                    *rtc = *PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL;
-                                    *lbc = *PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL;
-                                    *rbc = *PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL;
-                                }
-                            }
-
-                            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                compare_all_array((void*) &r, p6, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL_COUNT);
-
-                                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                    *hc = *BOX_DRAWINGS_DOUBLE_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL;
-                                    *vc = *BOX_DRAWINGS_DOUBLE_VERTICAL_UNICODE_CHARACTER_CODE_MODEL;
-                                    *ltc = *BOX_DRAWINGS_DOUBLE_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL;
-                                    *rtc = *BOX_DRAWINGS_DOUBLE_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL;
-                                    *lbc = *BOX_DRAWINGS_DOUBLE_UP_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL;
-                                    *rbc = *BOX_DRAWINGS_DOUBLE_UP_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL;
-                                }
-                            }
-
-                            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                compare_all_array((void*) &r, p6, (void*) ROUND_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) ROUND_LINE_BORDER_CYBOL_MODEL_COUNT);
-
-                                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                    *hc = *BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL;
-                                    *vc = *BOX_DRAWINGS_LIGHT_VERTICAL_UNICODE_CHARACTER_CODE_MODEL;
-                                    *ltc = *BOX_DRAWINGS_LIGHT_ARC_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL;
-                                    *rtc = *BOX_DRAWINGS_LIGHT_ARC_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL;
-                                    *lbc = *BOX_DRAWINGS_LIGHT_ARC_UP_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL;
-                                    *rbc = *BOX_DRAWINGS_LIGHT_ARC_UP_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL;
-                                }
-                            }
-
-                            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                compare_all_array((void*) &r, p6, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL_COUNT);
-
-                                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                    *hc = *DIGIT_TWO_UNICODE_CHARACTER_CODE_MODEL;
-                                    *vc = *BOX_DRAWINGS_LIGHT_VERTICAL_UNICODE_CHARACTER_CODE_MODEL;
-                                    *ltc = *BOX_DRAWINGS_LIGHT_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL;
-                                    *rtc = *BOX_DRAWINGS_LIGHT_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL;
-                                    *lbc = *BOX_DRAWINGS_LIGHT_UP_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL;
-                                    *rbc = *BOX_DRAWINGS_LIGHT_UP_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL;
-                                }
-                            }
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise terminal rectangle border. The horizontal character is null.");
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise terminal rectangle border. The vertical character is null.");
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise terminal rectangle border. The left top character is null.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise terminal rectangle border. The right top character is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise terminal rectangle border. The left bottom character is null.");
+            copy_wide_character(p0, (void*) HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p1, (void*) VERTICAL_LINE_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p2, (void*) PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p3, (void*) PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p4, (void*) PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p5, (void*) PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL);
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise terminal rectangle border. The right bottom character is null.");
+        compare_all_array((void*) &r, p6, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_wide_character(p0, (void*) BOX_DRAWINGS_DOUBLE_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p1, (void*) BOX_DRAWINGS_DOUBLE_VERTICAL_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p2, (void*) BOX_DRAWINGS_DOUBLE_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p3, (void*) BOX_DRAWINGS_DOUBLE_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p4, (void*) BOX_DRAWINGS_DOUBLE_UP_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p5, (void*) BOX_DRAWINGS_DOUBLE_UP_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p6, (void*) ROUND_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) ROUND_LINE_BORDER_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_wide_character(p0, (void*) BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p1, (void*) BOX_DRAWINGS_LIGHT_VERTICAL_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p2, (void*) BOX_DRAWINGS_LIGHT_ARC_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p3, (void*) BOX_DRAWINGS_LIGHT_ARC_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p4, (void*) BOX_DRAWINGS_LIGHT_ARC_UP_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p5, (void*) BOX_DRAWINGS_LIGHT_ARC_UP_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p6, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_wide_character(p0, (void*) DIGIT_TWO_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p1, (void*) BOX_DRAWINGS_LIGHT_VERTICAL_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p2, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p3, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p4, (void*) BOX_DRAWINGS_LIGHT_UP_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL);
+            copy_wide_character(p5, (void*) BOX_DRAWINGS_LIGHT_UP_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL);
+        }
     }
 }
 

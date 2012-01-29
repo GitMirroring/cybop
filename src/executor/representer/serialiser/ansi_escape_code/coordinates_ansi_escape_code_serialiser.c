@@ -60,41 +60,29 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the terminal coordinates.
+ * Serialises the coordinates into ansi escape code.
  *
  * @param p0 the destination control sequence code item
  * @param p3 the character
- * @param p4 the character count
- * @param p5 the hidden property
- * @param p6 the inverse property
- * @param p7 the blink property
- * @param p8 the underline property
- * @param p9 the bold property
+ * @param p5 the hidden data
+ * @param p6 the inverse data
+ * @param p7 the blink data
+ * @param p8 the underline data
+ * @param p9 the bold data
  * @param p10 the background
- * @param p11 the background count
  * @param p12 the foreground
- * @param p13 the foreground count
  * @param p14 the position
- * @param p15 the position count
  * @param p16 the size
- * @param p17 the size count
- * @param p18 the whole model position
- * @param p19 the whole model position count
- * @param p20 the whole model size
- * @param p21 the whole model size count
+ * @param p18 the whole position
+ * @param p20 the whole size
  * @param p22 the border
- * @param p23 the border count
- * @param p24 the layout cell
- * @param p25 the layout cell count
+ * @param p24 the cell
  * @param p26 the layout
- * @param p27 the layout count
  */
-void serialise_terminal_coordinates(void* p0, void* p1, void* p2, void* p3, void* p4,
-    void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13,
-    void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21,
-    void* p22, void* p23, void* p24, void* p25, void* p26, void* p27) {
+void serialise_ansi_escape_code_coordinates(void* p0, void* p1, void* p2, void* p3, void* p4,
+    void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise terminal coordinates.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code coordinates.");
 
     // The source part position x, y, z.
     int* px = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -186,12 +174,12 @@ void serialise_terminal_coordinates(void* p0, void* p1, void* p2, void* p3, void
     }
 
     // Calculate coordinates according to given layout.
-    serialise_terminal_rectangle_layout((void*) &cpx, (void*) &cpy, (void*) &cpz, (void*) &csx, (void*) &csy, (void*) &csz,
+    serialise_ansi_escape_code_rectangle_layout((void*) &cpx, (void*) &cpy, (void*) &cpz, (void*) &csx, (void*) &csy, (void*) &csz,
         (void*) &fapx, (void*) &fapy, (void*) &fapz, (void*) &fasx, (void*) &fasy, (void*) &fasz,
         (void*) &oapx, (void*) &oapy, (void*) &oapz, (void*) &oasx, (void*) &oasy, (void*) &oasz,
         p24, p25, p26, p27);
 
-    serialise_terminal_rectangle(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13,
+    serialise_ansi_escape_code_rectangle(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13,
         (void*) &cpx, (void*) &cpy, (void*) &cpz, (void*) &csx, (void*) &csy, (void*) &csz, p22, p23);
 }
 

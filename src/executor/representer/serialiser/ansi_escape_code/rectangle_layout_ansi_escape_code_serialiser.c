@@ -50,8 +50,6 @@
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/name/memory/vector_memory_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter/compound_getter.c"
-#include "../../../../executor/accessor/getter.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/terminal_background_serialiser.c"
 #include "../../../../executor/representer/serialiser/terminal_foreground_serialiser.c"
@@ -60,7 +58,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises a terminal rectangle layout.
+ * Serialises the rectangle layout into ansi escape code.
  *
  * @param p0 the cell position x (of the part)
  * @param p1 the cell position y
@@ -85,35 +83,35 @@
  * @param p20 the layout
  * @param p21 the layout count
  */
-void serialise_terminal_rectangle_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
+void serialise_ansi_escape_code_rectangle_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
     void* p12, void* p13, void* p14, void* p15, void* p16, void* p17,
     void* p18, void* p19, void* p20, void* p21) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise terminal rectangle layout.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code rectangle layout.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p20, (void*) COORDINATES_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p21, (void*) COORDINATES_LAYOUT_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Determine new position and size coordinates for part.
-            serialise_terminal_rectangle_coordinates_layout(p0, p1, p2, p3, p4, p5, p12, p13, p14, p15, p16, p17);
+            serialise_ansi_escape_code_rectangle_coordinates_layout(p0, p1, p2, p3, p4, p5, p12, p13, p14, p15, p16, p17);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p20, (void*) COMPASS_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p21, (void*) COMPASS_LAYOUT_CYBOL_MODEL_COUNT);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Determine new position and size coordinates for part.
-            serialise_terminal_rectangle_compass_layout(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p18, p19);
+            serialise_ansi_escape_code_rectangle_compass_layout(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p18, p19);
         }
     }
 

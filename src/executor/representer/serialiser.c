@@ -262,7 +262,7 @@ void serialise(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_terminal_background(p0, p1, p2, p7, p8);
+            serialise_ansi_escape_code_background(p0, p1, p2, p7, p8);
         }
     }
 
@@ -272,7 +272,7 @@ void serialise(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_terminal_foreground(p0, p1, p2, p7, p8);
+            serialise_ansi_escape_code_foreground(p0, p1, p2, p7, p8);
         }
     }
 */

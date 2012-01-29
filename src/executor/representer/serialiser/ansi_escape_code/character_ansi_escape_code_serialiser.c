@@ -59,7 +59,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the terminal character into an escape control sequence.
+ * Serialises the ansi escape code character into an escape control sequence.
  *
  * @param p0 the destination control sequence code item
  * @param p1 the x coordinate
@@ -76,9 +76,9 @@
  * @param p12 the bold flag
  * @param p13 the character
  */
-void serialise_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise terminal character.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code character.");
 
     // CAUTION! The top-left terminal corner is 1:1, but the given positions
     // start counting from 0, so that 1 has to be added to all positions!
@@ -117,11 +117,11 @@ void serialise_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
     //
 
     append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    serialise_terminal_background(p0, p4, p5);
+    serialise_ansi_escape_code_background(p0, p4, p5);
     append_item_element(p0, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     append_item_element(p0, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    serialise_terminal_foreground(p0, p6, p7);
+    serialise_ansi_escape_code_foreground(p0, p6, p7);
     append_item_element(p0, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_SUFFIX_ESCAPE_CONTROL_SEQUENCE_TERMINAL_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     //

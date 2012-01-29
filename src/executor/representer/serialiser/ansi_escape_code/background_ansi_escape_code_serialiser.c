@@ -38,13 +38,13 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the terminal background colour name into a control sequence code.
+ * Serialises the ansi escape code background colour name into a control sequence code.
  *
  * @param p0 the destination control sequence code item
  * @param p1 the source colour data
  * @param p2 the source colour count
  */
-void serialise_terminal_background(void* p0, void* p1, void* p2) {
+void serialise_ansi_escape_code_background(void* p0, void* p1, void* p2) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

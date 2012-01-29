@@ -75,10 +75,10 @@
  * @param p10 the original area size y
  * @param p11 the original area size z
  */
-void serialise_terminal_rectangle_coordinates_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
+void serialise_ansi_escape_code_rectangle_coordinates_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise terminal rectangle coordinates layout.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code rectangle coordinates layout.");
 
     int* cpx = (int*) p0;
     int* cpy = (int*) p1;
