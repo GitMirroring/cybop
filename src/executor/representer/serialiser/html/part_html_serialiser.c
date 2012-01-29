@@ -23,28 +23,33 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef PART_HTML_SERIALISER_SOURCE
+#define PART_HTML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
+//
+// Forward declarations.
+//
+
+void serialise_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+
 /**
- * Serialises the part into ansi escape code.
+ * Serialises the part into html.
  *
  * @param p0 the destination item
  * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
+ * @param p2 the source model index
+ * @param p3 the indentation level
  */
-void serialise_ansi_escape_code_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_html_part(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html part.");
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,26 +79,7 @@ void serialise_ansi_escape_code_part(void* p0, void* p1, void* p2, void* p3, voi
 
     // Recursively call encode node function for the part's model and properties.
     serialise_html_node(p0, md, mc, pd, pc, p3, td);
-
--- TODO: How to handle name? Is it important? Or ignore?
-
-    // Compare expected name with that of the current compound part element.
-    compare_all_array((void*) &nr, *n, en, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *nc, (void*) &enc);
-
-    if ((p11 == *NULL_POINTER_STATE_CYBOI_MODEL) || (*((int*) p12) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) || (nr != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
-
-        // Either, no hierarchical element name (repaint area) was given
-        // (p11 == *NULL_POINTER_STATE_CYBOI_MODEL), in which case not just a small area
-        // but the whole textual user interface (tui) window is repainted,
-        // (CAUTION! (*((int*) p12) == 0) is also necessary!)
-        // OR:
-        // the compound part name matches the next name in the
-        // given cascade of separated names, pointing to a knowledge model.
-
-        // Recursively process part model.
-        serialise_ansi_escape_code_part(p0, *a, *ac, *m, *mc, *d, *dc, p7, p8, rn, (void*) &rnc, p13, p14);
-    }
 }
 
-/* PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* PART_HTML_SERIALISER_SOURCE */
 #endif

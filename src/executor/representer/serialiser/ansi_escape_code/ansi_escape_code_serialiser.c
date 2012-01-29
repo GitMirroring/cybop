@@ -45,9 +45,7 @@
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/name/memory/vector_memory_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
-#include "../../../../executor/representer/serialiser/terminal_background_serialiser.c"
-#include "../../../../executor/representer/serialiser/terminal_foreground_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/node_ansi_escape_code_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -56,7 +54,7 @@
  * @param p0 the destination item
  * @param p1 the source part
  * @param p2 the source whole part containing the source part
- * @param p3 the source area to be repainted name
+ * @param p3 the repainted area name
  */
 void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
@@ -86,8 +84,8 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Encode ansi escape code root part.
-    serialise_ansi_escape_code_part(p0, md, mc, pd, pc, (void*) &l, td);
+    // Encode ansi escape code root node.
+    serialise_ansi_escape_code_node(p0, md, mc, pd, pc, (void*) &l, td);
 }
 
 /* ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

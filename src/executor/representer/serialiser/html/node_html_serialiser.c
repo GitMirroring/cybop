@@ -33,8 +33,8 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/representer/serialiser/html/begin_tag_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/compound_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/end_tag_html_serialiser.c"
-#include "../../../../executor/representer/serialiser/html/structured_tag_content_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/tag_content_html_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -83,7 +83,7 @@ void serialise_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_html_structured_tag_content(p0, p1, p2, p5);
+            serialise_html_compound(p0, p1, p2, p5);
         }
     }
 
