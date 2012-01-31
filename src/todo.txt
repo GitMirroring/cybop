@@ -9,7 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Update serialiser files
+        * Update ansi escape code serialiser files
 
         * Adapt cybol example applications to new cybol mime types and operations; CONTINUE with "shell_output"
 

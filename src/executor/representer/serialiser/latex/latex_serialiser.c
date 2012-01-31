@@ -30,15 +30,13 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the latex model and creates a byte stream from it.
+ * Serialises the model into latex.
  *
- * @param p0 the destination byte stream (pointer reference)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source latex model
- * @param p4 the source count
+ * @param p0 the destination latex item
+ * @param p3 the source model data
+ * @param p4 the source model count
  */
-void serialise_latex(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_latex(void* p0, void* p1, void* p2) {
 }
 
 /* LATEX_SERIALISER_SOURCE */

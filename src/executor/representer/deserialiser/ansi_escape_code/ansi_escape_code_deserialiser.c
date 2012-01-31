@@ -23,29 +23,37 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef XML_DESERIALISER_SOURCE
-#define XML_DESERIALISER_SOURCE
+#ifndef ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
+#define ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
+
+#ifdef CYGWIN_ENVIRONMENT
+#include <windows.h>
+/* CYGWIN_ENVIRONMENT */
+#endif
+
+#include <stdio.h>
+#include <wchar.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/modifier/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/xml/element_content_xml_deserialiser.c"
+#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
+#include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/searcher/selector/ansi_escape_code/ansi_escape_code_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the xml wide character data into a model and properties.
+ * Deserialises the ansi escape code character data into a command.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void deserialise_xml(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_ansi_escape_code(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code.");
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -53,9 +61,9 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3) {
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p2);
+    copy_pointer((void*) &d, (void*) &p1);
     // Copy source count remaining.
-    copy_integer((void*) &c, p3);
+    copy_integer((void*) &c, p2);
 
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.
@@ -63,8 +71,8 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3) {
     // since the parametre that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
-    deserialise_xml_element_content(p0, p1, (void*) &d, (void*) &c);
+    select_ansi_escape_code(p0, (void*) &d, (void*) &c);
 }
 
-/* XML_DESERIALISER_SOURCE */
+/* ANSI_ESCAPE_CODE_DESERIALISER_SOURCE */
 #endif

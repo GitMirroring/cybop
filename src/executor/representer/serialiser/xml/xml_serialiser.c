@@ -33,15 +33,11 @@
 /**
  * Serialises the compound into a xml byte array.
  *
- * @param p0 the destination wide character array (pointer reference)
- * @param p1 the destination wide character array count
- * @param p2 the destination wide character array size
- * @param p3 the source compound
- * @param p4 the source compound count
- * @param p5 the source compound
- * @param p6 the source compound count
+ * @param p0 the destination xml item
+ * @param p1 the source model data
+ * @param p2 the source model count
  */
-void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_xml(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml.");
 }

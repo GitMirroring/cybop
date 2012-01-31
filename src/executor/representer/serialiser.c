@@ -42,7 +42,7 @@
 #include "../../executor/representer/serialiser/http_response/http_response_serialiser.c"
 #include "../../executor/representer/serialiser/latex/latex_serialiser.c"
 #include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
-#include "../../executor/representer/serialiser/terminal/terminal_serialiser.c"
+#include "../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
 #include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
 #include "../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"

@@ -111,13 +111,11 @@
  * - generic delimiters: : / ? # [ ] @
  * - sub delimiters: ! $ & ' ( ) * + , ; =
  *
- * @param p0 the destination percent-encoded character array (pointer reference)
- * @param p1 the destination percent-encoded character array count
- * @param p2 the destination percent-encoded character array size
- * @param p3 the source character
- * @param p4 the source character count
+ * @param p0 the destination percent-encoded item
+ * @param p1 the source character data
+ * @param p2 the source character count
  */
-void serialise_percent_encoding(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_percent_encoding(void* p0, void* p1, void* p2) {
 
 /*??
     if ((*dc + *sc) >= *ds) {

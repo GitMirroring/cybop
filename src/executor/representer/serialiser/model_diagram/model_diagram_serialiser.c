@@ -38,7 +38,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the knowledge model and creates a model diagram from it.
+ * Serialises the model into a model diagram.
  *
  * A model diagram in this case is a textual representation of a knowledge model,
  * in form of many line feed-separated lines representing a model part each.

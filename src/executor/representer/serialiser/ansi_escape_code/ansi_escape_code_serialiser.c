@@ -43,7 +43,6 @@
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
-#include "../../../../constant/name/memory/vector_memory_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/node_ansi_escape_code_serialiser.c"
 #include "../../../../logger/logger.c"

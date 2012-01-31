@@ -26,7 +26,6 @@
 #ifndef XDT_SERIALISER_SOURCE
 #define XDT_SERIALISER_SOURCE
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -36,10 +35,7 @@
 #include "../../../../constant/name/xdt/record_xdt_name.c"
 #include "../../../../constant/name/cyboi/xdt/field_xdt_cyboi_name.c"
 #include "../../../../constant/name/cyboi/xdt/record_xdt_cyboi_name.c"
-#include "../../../../executor/representer/serialiser/ascii_character_vector_serialiser.c"
-#include "../../../../executor/representer/serialiser/date_time_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -104,15 +100,13 @@
 /**
  * Serialises a compound model into an xdt format byte array.
  *
- * @param p0 the destination xdt byte array (pointer reference)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source compound model
- * @param p4 the source count
+ * @param p0 the destination xdt item
+ * @param p1 the source model data
+ * @param p2 the source model count
  */
-void serialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_xdt(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise compound model into xdt format.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model into xdt.");
 }
 
 /* XDT_SERIALISER_SOURCE */

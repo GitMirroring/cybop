@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-01-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update selector, deserialiser, serialiser
+
 2012-01-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Update serialiser files
