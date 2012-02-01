@@ -42,25 +42,44 @@
 //
 
 //
+// colour
+//
+
+/** The cmyk colour state cyboi type. */
+static int* CMYK_COLOUR_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The rgb colour state cyboi type. */
+static int* RGB_COLOUR_STATE_CYBOI_TYPE = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The terminal-background colour state cyboi type. */
+static int* TERMINAL_BACKGROUND_COLOUR_STATE_CYBOI_TYPE = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The terminal-foreground colour state cyboi type. */
+static int* TERMINAL_FOREGROUND_COLOUR_STATE_CYBOI_TYPE = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // datetime
 //
 
 /** The datetime state cyboi type. */
-static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The hh-mm-ss datetime state cyboi type. */
+static int* HH_MM_SS_DATETIME_STATE_CYBOI_TYPE = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // element
 //
 
 /** The part element state cyboi type. */
-static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // logicvalue
 //
 
 /** The boolean logicvalue state cyboi type. */
-static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // number

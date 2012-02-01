@@ -30,37 +30,49 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/referencer/elements_array_referencer.c"
+#include "../../executor/referencer/part_referencer.c"
 #include "../../logger/logger.c"
 
 /**
- * Increments or decrements the array elements' reference count,
- * starting from the given offset.
+ * Increments or decrements the array elements' reference count.
  *
  * @param p0 the array
  * @param p1 the operation type
  * @param p2 the count
- * @param p3 the index
- * @param p4 the operand type
  */
-void reference_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void reference_array_elements(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference array elements.");
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reference array.");
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // The array.
-        // CAUTION! It HAS TO BE initialised with p0,
-        // since an offset is added below.
-        void* a = p0;
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        add_offset((void*) &a, p4, p3);
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
-        reference_array_elements(a, p1, p2);
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    } else {
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reference array. The array is null.");
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
+        }
+
+        reference_part(p0, p1, (void*) &j);
+
+        j++;
     }
 }
 
