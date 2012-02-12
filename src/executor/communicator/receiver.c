@@ -32,7 +32,7 @@
 #include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/communicator/receiver/file_system_receiver.c"
+#include "../../executor/communicator/receiver/file/file_receiver.c"
 #include "../../executor/communicator/receiver/inline_receiver.c"
 #include "../../executor/communicator/receiver/socket_receiver.c"
 #include "../../executor/communicator/receiver/terminal_receiver.c"
@@ -41,7 +41,7 @@
 #include "../../variable/thread_identification.c"
 
 /**
- * Receives data via the given channel.
+ * Receives via the given channel into the destination.
  *
  * CAUTION! Do NOT rename this function to "receive",
  * as that name is already used by low-level socket functionality.
@@ -65,7 +65,7 @@
  */
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -197,7 +197,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive data. The channel is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive. The channel is unknown.");
     }
 }
 

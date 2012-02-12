@@ -10,6 +10,8 @@
 #
 
         * Update ansi escape code serialiser files
+            (all function signatures of serialise/deserialise and encode/decode and send/receive are correct now;
+            only fix compilation bugs)
 
         * Adapt cybol example applications to new cybol mime types and operations; CONTINUE with "shell_output"
 

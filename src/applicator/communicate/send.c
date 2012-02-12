@@ -45,8 +45,8 @@
  * - channel (required): the channel via which to send the message (e.g. http)
  * - encoding (optional): the encoding to be used, e.g. ascii; the default is utf-8
  * - type (required): the language into which to encode the message before sending it (e.g. html)
- * - message (required): the actual message to be sent to another system
- * - receiver (required): the name of the system receiving the message
+ * - message (required): the source message to be sent to another system
+ * - receiver (optional): the destination receiving the message
  * - mode (optional, only if channel is http): the mode of communication
  * - namespace (optional, only if channel is http): the namespace of the socket
  * - style (optional, only if channel is http): the style of communication
@@ -91,6 +91,9 @@ void apply_send(void* p0, void* p1, void* p2) {
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model.
     void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The message part model, properties.
+    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver part model.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -103,6 +106,11 @@ void apply_send(void* p0, void* p1, void* p2) {
     // The type part model data, count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The message part model, properties data, count.
+    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mpd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mpc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_name_array((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -133,6 +141,9 @@ void apply_send(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get type part model.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get message part model, properties.
+    copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mp, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get receiver part model.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
@@ -145,6 +156,11 @@ void apply_send(void* p0, void* p1, void* p2) {
     // Get type part model data.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get message part model, properties data, count.
+    copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mpd, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mpc, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //
     // Convert some cybol source data (strings) into cyboi destination data (integer).
@@ -166,7 +182,7 @@ void apply_send(void* p0, void* p1, void* p2) {
     deserialise_cybol_type((void*) &dtc, tmd, tmc);
 
     // Send data.
-    send_data(rm, m, (void*) &dtc, (void*) &de, p2, (void*) &dc);
+    send_data(rm, mmd, mmc, mpd, mpc, (void*) &dtc, (void*) &de, p2, m, (void*) &dc);
 }
 
 /* SEND_SOURCE */

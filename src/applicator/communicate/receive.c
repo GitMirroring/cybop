@@ -200,39 +200,6 @@ void apply_receive(void* p0, void* p1, void* p2) {
 
     // Receive data.
     receive_data(mom, mop, mmd, mmc, (void*) &dtc, (void*) &de, p2, (void*) &dc);
-
-/*??
-//?? TEST BEGIN
-    // The model diagram.
-    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int mdc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int mds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // Allocate model diagram.
-    allocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Encode model into model diagram.
-    serialise_model_diagram((void*) &md, (void*) &mdc, (void*) &mds,
-        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE_COUNT,
-        p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    // The multibyte character stream.
-    void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // Allocate multibyte character stream.
-    allocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
-    // Encode model diagram into multibyte character stream.
-    encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, md, (void*) &mdc);
-    // The file name.
-    void* fn = L"TEST_RECEIVING_COMMUNICATOR.txt";
-    int fnc = *NUMBER_27_INTEGER_STATE_CYBOI_MODEL;
-    int fns = *NUMBER_28_INTEGER_STATE_CYBOI_MODEL;
-    // Write multibyte character stream as message to file system.
-    send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
-    // Deallocate model diagram.
-    deallocate((void*) &md, (void*) &mds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate multibyte character stream.
-    deallocate((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
-//?? TEST END
-*/
 }
 
 /* RECEIVE_SOURCE */

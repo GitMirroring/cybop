@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-01-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Refactor file sender and receiver into multiple files
+        * Update serialiser/ deserialiser and sender/ receiver
+
 2012-01-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Update selector, deserialiser, serialiser

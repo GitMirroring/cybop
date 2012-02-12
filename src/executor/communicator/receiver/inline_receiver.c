@@ -37,7 +37,7 @@
 void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
- * Receives the inline stream and writes it into an array.
+ * Receives inline into the destination.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -56,7 +56,7 @@ void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Therefore, data do NOT have to be decoded once more when being
     // evaluated as inline wide character array.
 
-    // Decode data array according to given document type.
+    // Decode source data according to given type.
     deserialise(p0, p1, p2, p3, p4);
 }
 

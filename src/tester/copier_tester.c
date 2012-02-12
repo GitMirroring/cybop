@@ -29,7 +29,7 @@
 #include <wchar.h>
 
 #include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../executor/communicator/sender/file_system_sender.c"
+#include "../executor/communicator/sender/file/stream_file_sender.c"
 #include "../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../executor/memoriser/allocator/part_allocator.c"

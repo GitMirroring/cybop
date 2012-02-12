@@ -31,13 +31,14 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/communicator/sender/file/file_sender.c"
 #include "../../executor/communicator/sender/signal_sender.c"
 #include "../../executor/communicator/sender/standard_output_sender.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
 /**
- * Sends data via the given channel.
+ * Sends the source via the given channel.
  *
  * CAUTION! Do NOT rename this function to "send",
  * as that name is already used by low-level socket functionality.
@@ -46,22 +47,26 @@
  * as that name is already used for glibc library's output.
  *
  * @param p0 the destination item
- * @param p1 the source message part
- * @param p2 the type
- * @param p3 the encoding
- * @param p4 the internal memory array
- * @param p5 the channel
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ * @param p5 the type
+ * @param p6 the encoding
+ * @param p7 the internal memory array
+ * @param p8 the source part
+ * @param p9 the channel
  */
-void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send data.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) CYBOI_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) CYBOI_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,7 +95,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -128,7 +133,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -136,13 +141,13 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             //
             // CAUTION! The properties are handed over as well,
             // since the model might also contain meta data.
-//??            send_inline(p0, p1, p2, p3, p4);
+            send_inline(p0, p1, p2, p3, p4, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) STANDARD_OUTPUT_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) STANDARD_OUTPUT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -152,17 +157,17 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SIGNAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) SIGNAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_signal(p4, p1);
+            send_signal(p7, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -184,7 +189,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) WWW_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) WWW_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -198,7 +203,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -208,7 +213,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive data. The channel is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send. The channel is unknown.");
     }
 }
 

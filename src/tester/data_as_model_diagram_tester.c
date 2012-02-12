@@ -28,7 +28,7 @@
 
 #include <wchar.h>
 
-#include "../executor/communicator/sender/file_system_sender.c"
+#include "../executor/communicator/sender/file/stream_file_sender.c"
 #include "../executor/representer/serialiser/model_diagram/node_model_diagram_serialiser.c"
 #include "../logger/logger.c"
 
@@ -90,7 +90,7 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Write multibyte character stream to file system.
-    send_file(p0, (void*) &fc, (void*) &fs, bd, bc);
+    send_file_stream(p0, (void*) &fc, (void*) &fs, bd, bc);
 
     // Deallocate model diagram item.
     deallocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

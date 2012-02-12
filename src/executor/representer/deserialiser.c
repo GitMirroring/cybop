@@ -90,7 +90,7 @@
  */
 void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise.");
 
     // CAUTION! CYBOL operations have an EMPTY model.
     // Hence, they do NOT have to be considered here.
