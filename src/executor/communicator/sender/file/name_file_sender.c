@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_FILE_SENDER_SOURCE
-#define CHARACTER_FILE_SENDER_SOURCE
+#ifndef NAME_FILE_SENDER_SOURCE
+#define NAME_FILE_SENDER_SOURCE
 
 #include <stdio.h>
 
@@ -34,37 +34,35 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/communicator/sender/file/stream_file_sender.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/reallocation_factor.c"
 
 /**
- * Sends the source as character.
+ * Sends source to file with given name.
  *
- * @param p0 the destination character file stream
- * @param p1 the source character
- * @param p2 the break flag
+ * @param p0 the destination file name item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void send_file_character(void* p0, void* p1, void* p2) {
+void send_file_name(void* p0, void* p1, void* p2) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file name.");
 
-        // Write character to character file stream.
-        int e = fputc(*((int*) p1), (FILE*) p0);
+    // The file name item data, count.
+    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Test error value.
-        if (e == EOF) {
+    // Get file name item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &nd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &nc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-            // Set break flag, so that the loop can be left in the next cycle.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file character. The source character is null.");
-    }
+    send_file_stream(nd, nc, p1, p2);
 }
 
-/* CHARACTER_FILE_SENDER_SOURCE */
+/* NAME_FILE_SENDER_SOURCE */
 #endif

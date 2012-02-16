@@ -96,6 +96,10 @@ void apply_send(void* p0, void* p1, void* p2) {
     void* mp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver part model.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The clean part model.
+    void* clm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The new line part model.
+    void* nlm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model data, count.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -111,6 +115,10 @@ void apply_send(void* p0, void* p1, void* p2) {
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mpd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mpc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The clean part model data.
+    void* clmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The new line part model data.
+    void* nlmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_name_array((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -146,6 +154,10 @@ void apply_send(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &mp, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get receiver part model.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get clean part model.
+    copy_array_forward((void*) &clm, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get new line part model.
+    copy_array_forward((void*) &nlm, nl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -161,6 +173,10 @@ void apply_send(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mpd, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mpc, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get clean part model data.
+    copy_array_forward((void*) &clmd, clm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get new line part model data.
+    copy_array_forward((void*) &nlmd, nlm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     //
     // Convert some cybol source data (strings) into cyboi destination data (integer).
@@ -182,7 +198,7 @@ void apply_send(void* p0, void* p1, void* p2) {
     deserialise_cybol_type((void*) &dtc, tmd, tmc);
 
     // Send data.
-    send_data(rm, mmd, mmc, mpd, mpc, (void*) &dtc, (void*) &de, p2, m, (void*) &dc);
+    send_data(rm, mmd, mmc, mpd, mpc, (void*) &dtc, (void*) &de, p2, m, clmd, nlmd, (void*) &dc);
 }
 
 /* SEND_SOURCE */

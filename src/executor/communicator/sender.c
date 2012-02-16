@@ -33,7 +33,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/sender/file/file_sender.c"
 #include "../../executor/communicator/sender/signal_sender.c"
-#include "../../executor/communicator/sender/standard_output_sender.c"
+#include "../../executor/communicator/sender/terminal_sender.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -55,9 +55,11 @@
  * @param p6 the encoding
  * @param p7 the internal memory array
  * @param p8 the source part
- * @param p9 the channel
+ * @param p9 the clean flag
+ * @param p10 the new line flag
+ * @param p11 the channel
  */
-void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send.");
 
@@ -66,7 +68,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) CYBOI_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p11, (void*) CYBOI_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -95,45 +97,17 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p11, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-/*??
-            // Receive model by reading message data.
-            //
-            // CAUTION! The properties are handed over as well, since sometimes,
-            // they are read from the message together with the model, for
-            // example when converting from a file in xdt format.
-            send_file_system(p0, p1, p2, p3, p4, p5);
-
-            // Receive properties by reading meta message data.
-            //
-            // CAUTION! Sometimes, the properties are read from a different source than the
-            // model, for example the html attributes of an html table when creating a wui.
-            //
-            // Example:
-            // <part name="receive_table_row" channel="inline" type="operation" model="receive">
-            //     <property name="channel" channel="inline" type="character" model="file"/>
-            //     <property name="language" channel="inline" type="character" model="compound"/>
-            //     <property name="message" channel="inline" type="character" model="residenz/wui/address_table_row.cybol"/>
-            //     <property name="meta" channel="inline" type="character" model="residenz/wui/address_table_row_properties.cybol"/>
-            //     <property name="model" channel="inline" type="encapsulated" model=".residenz.temporary.translation.translate_record_to_wui.wui_patient_row"/>
-            // </part>
-//??            send_file_system(p1, *NULL_POINTER_STATE_CYBOI_MODEL, mmd, mmc, lmd, lmc);
-
-            //?? CAUTION! The function call above was commented out ON PURPOSE, since it caused a runtime error!
-            //?? TODO: Figure out what happens inside, before uncommenting it again!
-            //?? For the "inline" channel, this function call was commented out as well, as it is never needed.
-            //?? For the "file" channel, however, it will be needed sometimes, for example for
-            //?? xdt or html or http (if remembered correctly). Just figure this out later, when needed.
-*/
+            send_file(p0, p1, p2, p3, p4, p5, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p11, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -147,17 +121,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) STANDARD_OUTPUT_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??            send_standard_output(p0, p7, p8, p9, p10, p11, p12);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p9, (void*) SIGNAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p11, (void*) SIGNAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -167,29 +131,17 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p11, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-/*??
-            // The terminal mutex.
-            void** mt = NULL_POINTER_STATE_CYBOI_MODEL;
-            // The terminal input stream.
-            void** is = NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get terminal mutex.
-            get((void*) &mt, p0, (void*) TERMINAL_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
-            // Get terminal input stream.
-            get((void*) &is, p0, (void*) TERMINAL_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
-
-            send_terminal(p0, p1, *is, p12, p13, p1, p2, *mt);
-*/
+            send_terminal(p0, p1, p2, p3, p4);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) WWW_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p11, (void*) WWW_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -203,7 +155,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p11, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

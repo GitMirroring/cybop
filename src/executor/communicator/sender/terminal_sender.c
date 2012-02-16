@@ -45,19 +45,23 @@
 /**
  * Sends the terminal control sequences into a terminal.
  *
- * @param p0 the destination terminal (pointer reference)
- * @param p1 the destination terminal count
- * @param p2 the destination terminal size
- * @param p3 the source terminal control sequences as utf-8 encoded multibyte characters
- * @param p4 the source terminal control sequences as utf-8 encoded multibyte characters count
+ * @param p0 the source model data
+ * @param p1 the source model count
+ * @param p2 the source properties data
+ * @param p3 the source properties count
+ * @param p4 the type
+ * @param p5 the encoding
+ * @param p6 the internal memory array
+ * @param p7 the clean flag
+ * @param p8 the new line flag
  */
-void send_terminal_sequence(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void send_terminal_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         FILE** d = (FILE**) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to terminal.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal sequence.");
 
         // The terminated control sequences.
         void* tsd = *NULL_POINTER_STATE_CYBOI_MODEL;

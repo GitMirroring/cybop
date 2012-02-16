@@ -29,15 +29,10 @@
 #include <stdio.h>
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/sender/file/character_file_sender.c"
-#include "../../../../executor/communicator/sender/file/wide_character_file_sender.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/reallocation_factor.c"
 
@@ -45,30 +40,40 @@
  * Sends the source element to file.
  *
  * @param p0 the destination file stream
- * @param p1 the source array
- * @param p2 the source array index
+ * @param p1 the source data
+ * @param p2 the source index
  * @param p3 the break flag
- * @param p4 the wide character flag (FALSE_BOOLEAN_STATE_CYBOI_MODEL - char; TRUE_BOOLEAN_STATE_CYBOI_MODEL - wchar_t)
  */
-void send_file_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void send_file_element(void* p0, void* p1, void* p2, void* p3) {
 
-    // The character.
-    char c = *NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Read character from source array.
-    copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+        // The character.
+        int c = *NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL;
 
-    compare_integer_equal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Read character from source array.
+        copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (c != *NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL) {
 
-        send_file_character(p0, (void*) &c, p3);
+            // Write character to character file stream.
+            int e = fputc(c, (FILE*) p0);
+
+            // Test error value.
+            if (e == EOF) {
+
+                // Set break flag, so that the loop can be left in the next cycle.
+                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file element. The character is null.");
+        }
 
     } else {
 
-        send_file_wide_character(p0, (void*) &c, p3);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file element. The file stream is null.");
     }
 }
 

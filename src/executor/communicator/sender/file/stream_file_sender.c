@@ -36,144 +36,77 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/communicator/sender/file/content_file_sender.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/reallocation_factor.c"
 
 /**
- * Sends source into file stream.
+ * Sends source to file with given name.
  *
  * @param p0 the destination file name data
  * @param p1 the destination file name count
- * @param p2 the destination file name size
- * @param p3 the source byte array
- * @param p4 the source byte array count
+ * @param p2 the source data
+ * @param p3 the source count
  */
-void send_file_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file stream.");
 
-        int* dc = (int*) p1;
+    // The terminated file name item.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminated file name item data.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file stream.");
+    // Allocate terminated file name item.
+    allocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        // The file.
-        void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // Encode wide character file name into multibyte character data.
+    encode_utf_8(t, p0, p1);
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Add null termination character to terminated file name.
+    append_item_element(t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-            compare_all_array((void*) &r, p0, (void*) STANDARD_OUTPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) STANDARD_OUTPUT_STREAM_TERMINAL_MODEL_COUNT);
+    // Get terminated file name item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // The file.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-                // The given string is not a file name, but specifies the "standard_output".
-                f = (void*) stdout;
+    // Open file.
+    // CAUTION! The file name cannot be handed over as is.
+    // CYBOI strings are NOT terminated with the null character '\0'.
+    // Since 'fopen' expects a null terminated string, the termination character
+    // must be added to the string before that is used to open the file.
+    f = (void*) fopen((char*) td, "w");
 
-                send_file_content(f, p3, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                // Flush any buffered output on the stream to the file.
-                //
-                // If this was not done here, the buffered output on the
-                // stream would only get flushed automatically when either:
-                // - one tried to do output and the output buffer is full
-                // - the stream was closed
-                // - the program terminated by calling exit
-                // - a newline was written with the stream being line buffered
-                // - an input operation on any stream actually read data from its file
-                fflush((FILE*) f);
-            }
-        }
+        send_file_content((void*) f, p1, p2);
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // Flush any buffered output on the stream to the file.
+        //
+        // If this was not done here, the buffered output on the
+        // stream would only get flushed automatically when either:
+        // - one tried to do output and the output buffer is full
+        // - the stream was closed
+        // - the program terminated by calling exit
+        // - a newline was written with the stream being line buffered
+        // - an input operation on any stream actually read data from its file
+        fflush((FILE*) f);
 
-            compare_all_array((void*) &r, p0, (void*) STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) STANDARD_ERROR_OUTPUT_STREAM_TERMINAL_MODEL_COUNT);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // The given string is not a file name, but specifies the "standard_error_output".
-                f = (void*) stderr;
-
-                send_file_content(f, p3, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                // Flush any buffered output on the stream to the file.
-                //
-                // If this was not done here, the buffered output on the
-                // stream would only get flushed automatically when either:
-                // - one tried to do output and the output buffer is full
-                // - the stream was closed
-                // - the program terminated by calling exit
-                // - a newline was written with the stream being line buffered
-                // - an input operation on any stream actually read data from its file
-                fflush((FILE*) f);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // If the given name does neither match the standard output
-            // nor the standard error output, then interpret it as file name.
-
-            // The terminated file name item.
-            void* tn = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The terminated file name item data, count.
-            void* tnd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Allocate terminated file name item.
-            allocate_item((void*) &tn, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-            // Encode wide character option into multibyte character array.
-            encode_utf_8(tn, p0, p1);
-
-            // Add null termination character to terminated file name.
-            append_item_element(tn, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-            // Get terminated file name item data, count.
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            copy_array_forward((void*) &tnd, tn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            // Open file.
-            // CAUTION! The file name cannot be handed over as is.
-            // CYBOI strings are NOT terminated with the null character '\0'.
-            // Since 'fopen' expects a null terminated string, the termination character
-            // must be added to the string before that is used to open the file.
-            f = (void*) fopen((char*) tnd, "w");
-
-            if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                send_file_content((void*) f, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                // Flush any buffered output on the stream to the file.
-                //
-                // If this was not done here, the buffered output on the
-                // stream would only get flushed automatically when either:
-                // - one tried to do output and the output buffer is full
-                // - the stream was closed
-                // - the program terminated by calling exit
-                // - a newline was written with the stream being line buffered
-                // - an input operation on any stream actually read data from its file
-                fflush((FILE*) f);
-
-                // Close file.
-                // CAUTION! Check file for null pointer to avoid a segmentation fault!
-                fclose(f);
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file. The file is null.");
-            }
-
-            // Deallocate terminated file name item.
-            deallocate_item((void*) &tn, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-        }
+        // Close file.
+        // CAUTION! Check file for null pointer to avoid a segmentation fault!
+        fclose(f);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file. The destination count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file stream file. The file is null.");
     }
+
+    // Deallocate terminated file name item.
+    deallocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* STREAM_FILE_SENDER_SOURCE */

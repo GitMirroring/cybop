@@ -47,7 +47,7 @@
  * @param p3 the source properties data
  * @param p4 the source properties count
  * @param p5 the indentation level
- * @param p6 the source type
+ * @param p6 the type
  */
 void serialise_html_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 

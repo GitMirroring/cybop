@@ -35,8 +35,10 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
  */
-void serialise_cybol(void* p0, void* p1, void* p2) {
+void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol.");
 }

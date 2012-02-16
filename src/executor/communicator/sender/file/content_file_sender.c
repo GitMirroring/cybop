@@ -28,15 +28,12 @@
 
 #include <stdio.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/communicator/sender/file/element_file_sender.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/reallocation_factor.c"
 
@@ -46,48 +43,40 @@
  * @param p0 the destination file stream
  * @param p1 the source data
  * @param p2 the source count
- * @param p3 the wide character flag (FALSE_BOOLEAN_STATE_CYBOI_MODEL - char; TRUE_BOOLEAN_STATE_CYBOI_MODEL - wchar_t)
  */
-void send_file_content(void* p0, void* p1, void* p2, void* p3) {
+void send_file_content(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file content.");
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file content.");
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // The loop variable.
-        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The break flag.
-        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
-            // CAUTION! If the loop count handed over as parametre is NULL,
-            // then the break flag will NEVER be set to true, because the loop
-            // variable comparison does (correctly) not consider null values.
-            // Therefore, in this case, the break flag is set to true already here.
-            // Initialising the break flag with true will NOT work either, since it:
-            // a) will be left untouched if a comparison operand is null;
-            // b) would have to be reset to true in each loop cycle.
-            copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
         }
 
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        send_file_element(p0, p1, (void*) &j, (void*) &b);
 
-            compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
-
-            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                break;
-            }
-
-            send_file_element(p0, p1, (void*) &j, (void*) &b, p3);
-
-            j++;
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send file content. The file stream is null.");
+        j++;
     }
 }
 
