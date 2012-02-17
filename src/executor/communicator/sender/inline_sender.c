@@ -52,7 +52,7 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // CAUTION! Do NOT try to encode into UTF-8 or other formats here!
     //
     // The reason is that each cybol file is encoded from a wide character
-    // array into a multibyte character at once array when being written.
+    // array into a multibyte character array at once when being written.
     // Therefore, data do NOT have to be encoded once more already here.
 
     // Encode source data according to given type.

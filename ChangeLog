@@ -16,12 +16,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2012-01-16  Christian Heller  <christian.heller@tuxtax.de>
+2012-02-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug terminal sender
+        * Introduce new directory "serialiser/user_interface/" for tui, gui, wui
+
+2012-02-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug file sender
         * Eliminate "standard_output" channel since "terminal" may be used instead
 
-2012-01-12  Christian Heller  <christian.heller@tuxtax.de>
+2012-02-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Refactor file sender and receiver into multiple files
         * Update serialiser/ deserialiser and sender/ receiver

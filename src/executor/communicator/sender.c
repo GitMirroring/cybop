@@ -32,8 +32,9 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/sender/file/file_sender.c"
+#include "../../executor/communicator/sender/terminal/terminal_sender.c"
+#include "../../executor/communicator/sender/inline_sender.c"
 #include "../../executor/communicator/sender/signal_sender.c"
-#include "../../executor/communicator/sender/terminal_sender.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -135,7 +136,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_terminal(p0, p1, p2, p3, p4);
+            send_terminal(p1, p2, p3, p4, p5, p6, p7, p9, p10);
         }
     }
 

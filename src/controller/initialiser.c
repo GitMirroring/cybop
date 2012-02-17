@@ -34,7 +34,7 @@
 #include "../constant/type/cybol/state/text_state_cybol_type.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../controller/checker.c"
-#include "../executor/communicator/receiver/file_receiver.c"
+#include "../executor/communicator/receiver/file/file_receiver.c"
 #include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/memoriser/deallocator/part_deallocator.c"
 #include "../executor/modifier/appender/item_appender.c"

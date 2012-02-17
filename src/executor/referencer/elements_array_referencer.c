@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ARRAY_REFERENCER_SOURCE
-#define ARRAY_REFERENCER_SOURCE
+#ifndef ELEMENTS_ARRAY_REFERENCER_SOURCE
+#define ELEMENTS_ARRAY_REFERENCER_SOURCE
 
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -76,5 +76,5 @@ void reference_array_elements(void* p0, void* p1, void* p2) {
     }
 }
 
-/* ARRAY_REFERENCER_SOURCE */
+/* ELEMENTS_ARRAY_REFERENCER_SOURCE */
 #endif
