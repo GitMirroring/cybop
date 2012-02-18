@@ -63,12 +63,12 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoded character item.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoded character item data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serialised wide character item data, count.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded character item data, count.
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -103,9 +103,6 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         append_item_element(s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 
-    // Append null termination to make data interpretable as string.
-    append_item_element(s, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
     // Get serialised wide character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -115,6 +112,16 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     // Encode serialised wide character array into encoded character array.
     encode(e, sd, sc, p5);
+
+    // Add null termination character.
+    // CAUTION! Appending a wide character null termination to the
+    // serialised wide character item above does NOT make sense,
+    // since it WON'T get converted into an ascii character null
+    // termination of the resulting multibyte character sequence.
+    // The encode function above only converts the actual characters
+    // whose count is given, but NOT a null termination character.
+    // Therefore, the null termination is only added here, as ascii character.
+    append_item_element(e, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Get encoded character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

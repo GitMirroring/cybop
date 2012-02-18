@@ -10,7 +10,7 @@
 
 <!--
     This example reads text from a file and prints it onto the screen.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -36,4 +36,4 @@
     @version CYBOP 0.11.0 2012-01-01
     @author Andy Röhr <andy_roehr@gmx.de>
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

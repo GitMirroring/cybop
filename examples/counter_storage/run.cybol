@@ -48,7 +48,7 @@
 <!--
     This example reads a previously set count value from a text file,
     increments the count by one and writes the result back into the text file.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -74,4 +74,4 @@
     @version CYBOP 0.11.0 2012-01-01
     @author Andy Röhr <andy_roehr@gmx.de>
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

@@ -47,7 +47,7 @@
 <!--
     This example creates and initialises three integer values dynamically.
     Afterwards, the two summands are added and the sum is printed on screen.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -72,4 +72,4 @@
 
     @version CYBOP 0.11.0 2012-01-01
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

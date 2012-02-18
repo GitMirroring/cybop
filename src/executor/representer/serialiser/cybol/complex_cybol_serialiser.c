@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COMPLEX_SERIALISER_SOURCE
-#define COMPLEX_SERIALISER_SOURCE
+#ifndef COMPLEX_CYBOL_SERIALISER_SOURCE
+#define COMPLEX_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -38,7 +38,7 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_complex(void* p0, void* p1, void* p2) {
+void serialise_cybol_complex(void* p0, void* p1, void* p2) {
 
 /*??
     //??    log_message((void*) &INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) &"Finalise complex.");
@@ -60,5 +60,5 @@ void serialise_complex(void* p0, void* p1, void* p2) {
 */
 }
 
-/* COMPLEX_SERIALISER_SOURCE */
+/* COMPLEX_CYBOL_SERIALISER_SOURCE */
 #endif

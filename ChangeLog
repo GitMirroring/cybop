@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-02-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug terminal sender
+        * Make cybol example "shell_output" for terminal output work again
+
 2012-02-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug terminal sender

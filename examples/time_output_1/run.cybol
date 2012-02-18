@@ -59,7 +59,7 @@
 <!--
     This example uses a loop to repeatedly print the current time.
     A shell command is applied to achieve this.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -86,4 +86,4 @@
     @author Patrick Sperl
     @author Jens Rudek
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

@@ -50,9 +50,9 @@
  * - mode (optional, only if channel is http): the mode of communication
  * - namespace (optional, only if channel is http): the namespace of the socket
  * - style (optional, only if channel is http): the style of communication
- * - area (optional, only if language is tui or gui): the user interface area to be repainted
- * - clean (optional, only if language is tui): the flag indicating whether or not to clear the screen before painting a user interface
- * - new_line (optional, only if channel is standard_output/ shell): the flag indicating whether or not to add a new line after having printed the message on screen
+ * - area (optional, only if type is tui or gui): the user interface area to be repainted
+ * - clean (optional, only if type is terminal or tui): the flag indicating whether or not to clear the screen before painting a user interface
+ * - new_line (optional, only if channel is terminal): the flag indicating whether or not to add a new line after having printed the message on screen
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -189,6 +189,9 @@ void apply_send(void* p0, void* p1, void* p2) {
     // The destination type cybol form.
     // CAUTION! This is a cyboi integer representing a cybol mime type.
     int dtc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination type cyboi form.
+    // CAUTION! This is a cyboi integer representing a cyboi-internal type.
+    int dt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Decode cybol source channel into cyboi destination channel.
     deserialise_cybol_channel((void*) &dc, cmd, cmc);
@@ -196,9 +199,15 @@ void apply_send(void* p0, void* p1, void* p2) {
     deserialise_cybol_encoding((void*) &de, emd, emc);
     // Decode cybol source type into cybol cyboi destination type.
     deserialise_cybol_type((void*) &dtc, tmd, tmc);
+    // Decode cybol cyboi destination type into cyboi destination type.
+    // CAUTION! A cybol type is of type "wchar_t"; a cyboi-internal type of type "int".
+    // Both are not always equal in their meaning.
+    // For example, an "xdt" file is converted into a cyboi "part".
+    // Therefore, the type has to be converted here.
+    deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
 
     // Send data.
-    send_data(rm, mmd, mmc, mpd, mpc, (void*) &dtc, (void*) &de, p2, m, clmd, nlmd, (void*) &dc);
+    send_data(rm, mmd, mmc, mpd, mpc, (void*) &dt, (void*) &de, p2, m, clmd, nlmd, (void*) &dc);
 }
 
 /* SEND_SOURCE */

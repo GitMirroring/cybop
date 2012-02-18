@@ -32,7 +32,7 @@
     It gets created and added to the runtime knowledge tree automatically,
     when using the "receive" operation and specifying "text/cybol" as data format.
     Then follows the addition and result printing on screen.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -57,4 +57,4 @@
 
     @version CYBOP 0.11.0 2012-01-01
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

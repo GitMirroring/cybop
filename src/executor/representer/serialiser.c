@@ -30,6 +30,9 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+//?? #include "../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
+#include "../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
+#include "../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
 #include "../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
 #include "../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
 #include "../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
@@ -43,7 +46,6 @@
 #include "../../executor/representer/serialiser/http_response/http_response_serialiser.c"
 #include "../../executor/representer/serialiser/latex/latex_serialiser.c"
 #include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
-#include "../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
 #include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
 #include "../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
@@ -113,7 +115,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_boolean(p0, p1, p2);
+            serialise_cybol_boolean(p0, p1, p2);
         }
     }
 
@@ -151,7 +153,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_complex(p0, p1, p2);
+            serialise_cybol_complex(p0, p1, p2);
         }
     }
 
@@ -161,7 +163,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_double_vector(p0, p1, p2);
+            serialise_cybol_double(p0, p1, p2);
         }
     }
 
@@ -171,7 +173,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_integer_vector(p0, p1, p2);
+            serialise_cybol_integer(p0, p1, p2);
         }
     }
 
@@ -230,16 +232,6 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_model_diagram(p0, p1, p2, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 

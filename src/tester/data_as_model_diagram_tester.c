@@ -36,10 +36,10 @@
  * Writes the data as model diagram into a file with the given name.
  *
  * @param p0 the destination file name
- * @param p1 the source model item data
- * @param p2 the source model item count
- * @param p3 the source properties item data
- * @param p4 the source properties item count
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
  */
 void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

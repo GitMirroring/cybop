@@ -16,7 +16,7 @@
     This example prints the famous "Hello, World!" string on the shell (standard output device).
     It calls one of two external models, depending on a condition, and executes its commands.
     Finally, an "exit" operation shuts down the application.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -41,4 +41,4 @@
 
     @version CYBOP 0.11.0 2012-01-01
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

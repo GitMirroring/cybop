@@ -60,7 +60,7 @@
     This example uses a loop to repeatedly print the current time.
     A shell command is applied to store the current time in a file.
     Afterwards, the file content is printed on the shell.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -87,4 +87,4 @@
     @author Patrick Sperl
     @author Jens Rudek
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

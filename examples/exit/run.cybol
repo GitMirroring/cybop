@@ -6,7 +6,7 @@
     This example contains just one "exit" operation.
     It shuts down the application, right after startup.
     That's all.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -31,4 +31,4 @@
 
     @version CYBOP 0.11.0 2012-01-01
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

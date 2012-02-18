@@ -19,7 +19,7 @@
 
 <!--
     This example uses a loop to print the numbers 1 to 10 to screen.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -44,4 +44,4 @@
 
     @version CYBOP 0.11.0 2012-01-01
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

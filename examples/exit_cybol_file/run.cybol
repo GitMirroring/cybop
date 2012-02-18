@@ -17,7 +17,7 @@
 
     The file is called "exit.cybol" and contains only one operation "exit",
     encoded in CYBOL/XML format.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -42,4 +42,4 @@
 
     @version CYBOP 0.11.0 2012-01-01
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

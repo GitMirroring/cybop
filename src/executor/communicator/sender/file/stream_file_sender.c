@@ -83,7 +83,7 @@ void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
     if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        send_file_content((void*) f, p1, p2);
+        send_file_content((void*) f, p2, p3);
 
         // Flush any buffered output on the stream to the file.
         //

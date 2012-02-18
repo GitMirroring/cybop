@@ -32,9 +32,7 @@
 #include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
 #include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 
 /**

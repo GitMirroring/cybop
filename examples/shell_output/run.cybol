@@ -1,17 +1,19 @@
 <model>
     <part name="print" channel="inline" encoding="utf-8" type="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="standard_output"/>
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" type="text/plain" model="utf-8"/>
         <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="text/plain"/>
         <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="Hello, World!"/>
+        <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+        <property name="clean" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>
     <part name="shutdown" channel="inline" encoding="utf-8" type="live/exit" model=""/>
 </model>
 
 <!--
-    This example prints the famous "Hello, World!" string on the shell (standard output device).
+    This example prints the famous "Hello, World!" string on the terminal.
     Finally, an "exit" operation shuts down the application.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -36,4 +38,4 @@
 
     @version CYBOP 0.11.0 2012-01-01
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

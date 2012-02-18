@@ -51,7 +51,7 @@
     This example demonstrates the usage of if-then-else statements.
     It creates both, the "true" and the "false" model as nodes of the runtime knowledge tree,
     before accessing them in the "branch" operation.
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -77,4 +77,4 @@
     @version CYBOP 0.11.0 2012-01-01
     @author Andy Röhr <andy_roehr@gmx.de>
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

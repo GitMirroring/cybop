@@ -326,8 +326,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Deallocate temporary model, properties item.
             deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
             deallocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-            test_items_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL.txt", p0, p1);
         }
     }
 

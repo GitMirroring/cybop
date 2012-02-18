@@ -56,7 +56,7 @@
     This example is identical to the "addition_dynamic_model" example,
     only that a root node named "addition_application" is created first,
     to which all other values are added (by using the "whole" property).
-/-->
+-->
 
 <!--
     Copyright (C) 1999-2012. Christian Heller.
@@ -81,4 +81,4 @@
 
     @version CYBOP 0.11.0 2012-01-01
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->

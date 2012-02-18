@@ -40,7 +40,7 @@
 /**
  * Deserialises the boolean wide character data into an integer.
  *
- * @param p0 the destination data
+ * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  */
@@ -58,18 +58,26 @@ void deserialise_cybol_boolean(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set value to "true", i.e. the integer value to "one".
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // CAUTION! Do NOT use a simple "copy_integer" function here,
+            // since that does NOT resize the destination item.
+            // The "overwrite_item_element" function would be possible, too,
+            // but "append_item_element" is just more convenient.
+            append_item_element(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set value to "false", i.e. the integer value to "zero".
-            copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            // CAUTION! Do NOT use a simple "copy_integer" function here,
+            // since that does NOT resize the destination item.
+            // The "overwrite_item_element" function would be possible, too,
+            // but "append_item_element" is just more convenient.
+            append_item_element(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
