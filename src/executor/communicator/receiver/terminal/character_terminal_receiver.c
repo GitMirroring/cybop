@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TERMINAL_RECEIVER_SOURCE
-#define TERMINAL_RECEIVER_SOURCE
+#ifndef CHARACTER_TERMINAL_RECEIVER_SOURCE
+#define CHARACTER_TERMINAL_RECEIVER_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
@@ -46,17 +46,15 @@
 /**
  * Receives a terminal character.
  *
- * @param p0 the destination wide character array (pointer reference)
- * @param p1 the destination wide character array count
- * @param p2 the destination wide character array size
+ * @param p0 the destination data item
+ * @param p1 the source terminal file descriptor
+ * @param p2 the source terminal mutex
  * @param p3 the loop break flag
- * @param p4 the input character
- * @param p5 the escape character mode
- * @param p6 the escape control sequence mode
- * @param p7 the source input stream
- * @param p8 the mutex
+ * @param p4 the escape character mode
+ * @param p5 the ansi escape code mode
+ * @param p6 the input character
  */
-void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -64,7 +62,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* csi = (int*) p6;
+            int* aec = (int*) p6;
 
             if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -93,9 +91,11 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
 
                         // Receive character from source input stream of terminal.
                         //
-                        // CAUTION! The multibyte- is converted to a wide character internally,
-                        // so that the return value of type "wint_t" may be casted to "wchar_t".
-                        // Function calls to "decode_utf_8" are therefore NOT necessary here!
+                        // CAUTION! The multibyte character is converted to a
+                        // wide character internally (in glibc function "fgetwc").
+                        // The return value of type "wint_t" MAY BE CASTED to "wchar_t".
+                        // Calling the "decode" or "decode_utf_8" function
+                        // is therefore NOT necessary here!
                         *c = fgetwc(s);
 
                         // Unlock terminal mutex.
@@ -103,10 +103,10 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
 
                         if (errno != EILSEQ) {
 
-                            if (*csi == *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
+                            if (*aec == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                                // Reset escape control sequence flag.
-                                *csi = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                // Reset ansi escape code flag.
+                                *aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
                                 overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -117,10 +117,10 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                 // Since all values have been received, the loop can be left now.
                                 *b = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                            } else if (*esc == *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
+                            } else if (*esc == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                                 // Reset escape character flag.
-                                *esc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                *esc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
                                 // An escape character was received before.
 
@@ -129,8 +129,8 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                     // The escape character received before is followed by an opening square bracket,
                                     // which means that this is the start of an escape control sequence.
 
-                                    // Set escape control sequence flag.
-                                    *csi = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                                    // Set ansi escape code flag.
+                                    *aec = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                                     // Copy source character to destination character array.
                                     overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -157,16 +157,18 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                             } else if (*c == *((wint_t*) ESCAPE_CONTROL_UNICODE_CHARACTER_CODE_MODEL)) {
 
                                 // Set escape character flag.
-                                *esc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                                *esc = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                                 // Copy source character to destination character array.
                                 overwrite_array(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                             } else if (*c == WEOF) {
 
-                                // The function "communicate_sensing_terminal_message" filters out
-                                // invalid (non-existing) characters recognised by the return value WEOF (-1).
-                                // However, to be on the safe side, they are filtered out here once more.
+                                // The function "sense_terminal" filters out
+                                // invalid (non-existing) characters recognised
+                                // by the return value WEOF (-1).
+                                // However, to be on the safe side, they are
+                                // filtered out here once more.
 
                                 // Set loop break flag.
                                 *b = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -205,7 +207,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The escape control sequence is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The ansi escape code is null.");
         }
 
     } else {
@@ -214,92 +216,8 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
     }
 }
 
-/**
- * Receives from terminal.
- *
- * @param p0 the destination wide character array (pointer reference)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source input stream
- * @param p4 the mutex
- */
-void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
-
-    // The loop break flag.
-    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The input character.
-    wint_t c = *((wint_t*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL);
-    // The escape character mode.
-    int esc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The escape control sequence mode.
-    int csi = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        receive_terminal_character(p0, p1, p2, (void*) &b, (void*) &c, (void*) &esc, (void*) &csi, p3, p4);
-    }
-}
-
-/**
- * Receives textual user interface (tui) message via terminal.
- *
- * @param p0 the command name (pointer reference)
- * @param p1 the command name count (pointer reference)
- * @param p2 the command name size (pointer reference)
- * @param p3 the command type (pointer reference)
- * @param p4 the command type count (pointer reference)
- * @param p5 the command type size (pointer reference)
- * @param p6 the command model (pointer reference)
- * @param p7 the command model count (pointer reference)
- * @param p8 the command model size (pointer reference)
- * @param p9 the command properties (pointer reference)
- * @param p10 the command properties count (pointer reference)
- * @param p11 the command properties size (pointer reference)
- * @param p12 the terminal input stream
- * @param p13 the commands
- * @param p14 the commands count
- * @param p15 the knowledge memory
- * @param p16 the knowledge memory count
- * @param p17 the mutex
- */
-/*??
-void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
-    void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
-    void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
-
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
-
-    // The character array read from the terminal.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate character array.
-    allocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Read pressed keyboard keys as message from terminal.
-    receive_terminal((void*) &a, (void*) &ac, (void*) &as, p12, p17);
-
-    // CAUTION! The multibyte- is converted to a wide character internally (in glibc function "fgetwc").
-    // Function calls to "decode_utf_8" are therefore NOT necessary here!
-
-    // Decode character array into command.
-    deserialise(p6, p7, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, a, (void*) &ac, p15, p16, (void*) TERMINAL_CYBOL_CHANNEL, (void*) TERMINAL_CYBOL_CHANNEL_COUNT);
-
-    // Deallocate character array.
-    deallocate((void*) &a, (void*) &as, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-}
-*/
-
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* TERMINAL_RECEIVER_SOURCE */
+/* CHARACTER_TERMINAL_RECEIVER_SOURCE */
 #endif

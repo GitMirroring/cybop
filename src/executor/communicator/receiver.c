@@ -33,9 +33,9 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/receiver/file/file_receiver.c"
+#include "../../executor/communicator/receiver/terminal/terminal_receiver.c"
 #include "../../executor/communicator/receiver/inline_receiver.c"
 #include "../../executor/communicator/receiver/socket_receiver.c"
-#include "../../executor/communicator/receiver/terminal_receiver.c"
 #include "../../executor/communicator/receiver/x_window_system_receiver.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
@@ -105,55 +105,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Receive model by reading message data.
-            //
-            // CAUTION! The properties are handed over as well, since sometimes,
-            // they are read from the message together with the model, for
-            // example when converting from a file in xdt format.
             receive_file(p0, p1, p2, p3, p4, p5);
-
-            // Receive properties by reading meta message data.
-            //
-            // CAUTION! Sometimes, the properties are read from a different source than the
-            // model, for example the html attributes of an html table when creating a wui.
-            //
-            // Example:
-            // <part name="receive_table_row" channel="inline" type="operation" model="receive">
-            //     <property name="channel" channel="inline" type="character" model="file"/>
-            //     <property name="language" channel="inline" type="character" model="compound"/>
-            //     <property name="message" channel="inline" type="character" model="residenz/wui/address_table_row.cybol"/>
-            //     <property name="meta" channel="inline" type="character" model="residenz/wui/address_table_row_properties.cybol"/>
-            //     <property name="model" channel="inline" type="encapsulated" model=".residenz.temporary.translation.translate_record_to_wui.wui_patient_row"/>
-            // </part>
-//??            receive_file_system(p1, *NULL_POINTER_STATE_CYBOI_MODEL, mmd, mmc, lmd, lmc);
-
-            //?? CAUTION! The function call above was commented out ON PURPOSE, since it caused a runtime error!
-            //?? TODO: Figure out what happens inside, before uncommenting it again!
-            //?? For the "inline" channel, this function call was commented out as well, as it is never needed.
-            //?? For the "file" channel, however, it will be needed sometimes, for example for
-            //?? xdt or html or http (if remembered correctly). Just figure this out later, when needed.
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-/*??
-            // The terminal mutex.
-            void** mt = NULL_POINTER_STATE_CYBOI_MODEL;
-            // The terminal input stream.
-            void** is = NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get terminal mutex.
-            get((void*) &mt, p0, (void*) TERMINAL_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
-            // Get terminal input stream.
-            get((void*) &is, p0, (void*) TERMINAL_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
-
-            receive_terminal(p0, p1, *is, p12, p13, p1, p2, *mt);
-*/
         }
     }
 
@@ -163,11 +115,17 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Receive model by reading message data.
-            //
-            // CAUTION! The properties are handed over as well,
-            // since the model might also contain meta data.
             receive_inline(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) TERMINAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            receive_terminal(p0, p1, p4, p5, p6);
         }
     }
 
@@ -177,10 +135,6 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Receive model by reading http request or response.
-            //
-            // CAUTION! The properties are handed over as well,
-            // since they will store http headers as meta data.
 //??            receive_socket(p0, p1, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) &receive_socket_www, p1, p2, p3, p4, p5, p6, p10, p11, p17, p18, p19, p20);
         }
     }

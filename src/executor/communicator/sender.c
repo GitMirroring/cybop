@@ -47,6 +47,9 @@
  * CAUTION! Do NOT rename this function to "write",
  * as that name is already used for glibc library's output.
  *
+ * CAUTION! The properties are handed over as well,
+ * since the model might also contain meta data.
+ *
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
@@ -112,10 +115,6 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Receive model by reading message data.
-            //
-            // CAUTION! The properties are handed over as well,
-            // since the model might also contain meta data.
             send_inline(p0, p1, p2, p3, p4, p5);
         }
     }
@@ -146,10 +145,6 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Receive model by reading http request or response.
-            //
-            // CAUTION! The properties are handed over as well,
-            // since they will store http headers as meta data.
 //??            send_socket(p0, p1, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) &send_socket_www, p1, p2, p3, p4, p5, p6, p10, p11, p17, p18, p19, p20);
         }
     }

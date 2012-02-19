@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-02-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Restructure terminal receiver
+
 2012-02-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug terminal sender

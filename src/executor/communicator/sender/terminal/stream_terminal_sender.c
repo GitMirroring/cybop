@@ -50,7 +50,20 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal stream.");
 
+    // Check destination terminal output since it is
+    // used directly by the "fwprintf" function below.
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // The character data are printed out at once,
+        // using the "fwprintf" function, for two reasons:
+        //
+        // (1) This is more efficient than using a loop and
+        //     writing each single character as done in
+        //     "element_file_sender.c".
+        //
+        // (2) The ansi escape codes are interpreted correctly.
+        //
 
         // Send to terminal.
         //
