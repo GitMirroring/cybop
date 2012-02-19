@@ -1,7 +1,7 @@
 <model>
-    <part name="summand_1" channel="inline" type="number/integer" model="4"/>
-    <part name="summand_2" channel="inline" type="number/integer" model="5"/>
-    <part name="sum" channel="inline" type="number/integer" model="0"/>
+    <part name="summand_1" channel="inline" encoding="utf-8" type="number/integer" model="4"/>
+    <part name="summand_2" channel="inline" encoding="utf-8" type="number/integer" model="5"/>
+    <part name="sum" channel="inline" encoding="utf-8" type="number/integer" model="0"/>
 </model>
 
 <!--

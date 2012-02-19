@@ -1,8 +1,8 @@
 <model>
-    <part name="test" channel="inline" type="operation/plain" model="run">
-        <property name="program" channel="inline" type="text/plain" model="mc"/>
+    <part name="test" channel="inline" encoding="utf-8" type="operation/plain" model="run">
+        <property name="program" channel="inline" encoding="utf-8" type="text/plain" model="mc"/>
     </part>
-    <part name="exit" channel="inline" type="operation/plain" model="exit"/>
+    <part name="exit" channel="inline" encoding="utf-8" type="operation/plain" model="exit"/>
 </model>
 
 <!--

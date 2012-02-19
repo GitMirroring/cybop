@@ -31,18 +31,18 @@
 #include <errno.h>
 #include <wchar.h>
 
-#include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/communicator/receiver/terminal/character_terminal_receiver.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../executor/converter/decoder/utf/utf_8_decoder.c"
-#include "../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/communicator/receiver/terminal/character_terminal_receiver.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
+#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Receives data stream from terminal.
@@ -57,11 +57,11 @@ void receive_terminal_stream(void* p0, void* p1, void* p2) {
 
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The escape character mode.
+    // The escape character flag.
     // CAUTION! This variable HAS TO BE defined here,
     // since it is used across many loop cycles.
     int esc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The ansi escape code mode.
+    // The ansi escape code flag.
     // CAUTION! This variable HAS TO BE defined here,
     // since it is used across many loop cycles.
     int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

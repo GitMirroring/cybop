@@ -1,55 +1,55 @@
 <model>
-    <part name="create_addition_application" channel="inline" type="operation/plain" model="create">
-        <property name="name" channel="inline" type="text/plain" model="addition_application"/>
-        <property name="abstraction" channel="inline" type="text/plain" model="compound"/>
-        <property name="element" channel="inline" type="text/plain" model="part"/>
+    <part name="create_addition_application" channel="inline" encoding="utf-8" type="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="addition_application"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="compound"/>
+        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
     </part>
-    <part name="create_summand_1" channel="inline" type="operation/plain" model="create">
-        <property name="name" channel="inline" type="text/plain" model="summand_1"/>
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="element" channel="inline" type="text/plain" model="part"/>
-        <property name="whole" channel="inline" type="path/knowledge" model=".addition_application"/>
+    <part name="create_summand_1" channel="inline" encoding="utf-8" type="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="summand_1"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application"/>
     </part>
-    <part name="create_summand_2" channel="inline" type="operation/plain" model="create">
-        <property name="name" channel="inline" type="text/plain" model="summand_2"/>
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="element" channel="inline" type="text/plain" model="part"/>
-        <property name="whole" channel="inline" type="path/knowledge" model=".addition_application"/>
+    <part name="create_summand_2" channel="inline" encoding="utf-8" type="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="summand_2"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application"/>
     </part>
-    <part name="create_sum" channel="inline" type="operation/plain" model="create">
-        <property name="name" channel="inline" type="text/plain" model="sum"/>
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="element" channel="inline" type="text/plain" model="part"/>
-        <property name="whole" channel="inline" type="path/knowledge" model=".addition_application"/>
+    <part name="create_sum" channel="inline" encoding="utf-8" type="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="sum"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application"/>
     </part>
-    <part name="initialise_summand_1" channel="inline" type="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="source" channel="inline" type="number/integer" model="3"/>
-        <property name="destination" channel="inline" type="path/knowledge" model=".addition_application.summand_1"/>
+    <part name="initialise_summand_1" channel="inline" encoding="utf-8" type="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="source" channel="inline" encoding="utf-8" type="number/integer" model="3"/>
+        <property name="destination" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application.summand_1"/>
     </part>
-    <part name="initialise_summand_2" channel="inline" type="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="source" channel="inline" type="number/integer" model="4"/>
-        <property name="destination" channel="inline" type="path/knowledge" model=".addition_application.summand_2"/>
+    <part name="initialise_summand_2" channel="inline" encoding="utf-8" type="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="source" channel="inline" encoding="utf-8" type="number/integer" model="4"/>
+        <property name="destination" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application.summand_2"/>
     </part>
-    <part name="initialise_sum" channel="inline" type="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="source" channel="inline" type="number/integer" model="0"/>
-        <property name="destination" channel="inline" type="path/knowledge" model=".addition_application.sum"/>
+    <part name="initialise_sum" channel="inline" encoding="utf-8" type="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="source" channel="inline" encoding="utf-8" type="number/integer" model="0"/>
+        <property name="destination" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application.sum"/>
     </part>
-    <part name="add" channel="inline" type="operation/plain" model="add">
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" type="path/knowledge" model=".addition_application.summand_1"/>
-        <property name="summand_2" channel="inline" type="path/knowledge" model=".addition_application.summand_2"/>
-        <property name="sum" channel="inline" type="path/knowledge" model=".addition_application.sum"/>
+    <part name="add" channel="inline" encoding="utf-8" type="operation/plain" model="add">
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="summand_1" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application.summand_1"/>
+        <property name="summand_2" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application.summand_2"/>
+        <property name="sum" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application.sum"/>
     </part>
-    <part name="print_result" channel="inline" type="operation/plain" model="send">
-        <property name="channel" channel="inline" type="text/plain" model="shell"/>
-        <property name="language" channel="inline" type="text/plain" model="integer"/>
-        <property name="message" channel="inline" type="path/knowledge" model=".addition_application.sum"/>
-        <property name="new_line" channel="inline" type="logicvalue/boolean" model="true"/>
+    <part name="print_result" channel="inline" encoding="utf-8" type="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="shell"/>
+        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".addition_application.sum"/>
+        <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" type="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" type="operation/plain" model="exit"/>
 </model>
 
 <!--

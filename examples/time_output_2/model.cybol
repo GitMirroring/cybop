@@ -1,22 +1,22 @@
 <model>
-    <part name="compare_count" channel="inline" type="operation/plain" model="greater_or_equal">
-        <property name="left" channel="inline" type="path/knowledge" model=".counter.count"/>
-        <property name="right" channel="inline" type="path/knowledge" model=".counter.maximum"/>
-        <property name="result" channel="inline" type="path/knowledge" model=".counter.break"/>
+    <part name="compare_count" channel="inline" encoding="utf-8" type="operation/plain" model="greater_or_equal">
+        <property name="left" channel="inline" encoding="utf-8" type="path/knowledge" model=".counter.count"/>
+        <property name="right" channel="inline" encoding="utf-8" type="path/knowledge" model=".counter.maximum"/>
+        <property name="result" channel="inline" encoding="utf-8" type="path/knowledge" model=".counter.break"/>
     </part>
-    <part name="increment_loop_count" channel="inline" type="operation/plain" model="add">
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" type="path/knowledge" model=".counter.count"/>
-        <property name="summand_2" channel="inline" type="number/integer" model="1"/>
-        <property name="sum" channel="inline" type="path/knowledge" model=".counter.count"/>
+    <part name="increment_loop_count" channel="inline" encoding="utf-8" type="operation/plain" model="add">
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="summand_1" channel="inline" encoding="utf-8" type="path/knowledge" model=".counter.count"/>
+        <property name="summand_2" channel="inline" encoding="utf-8" type="number/integer" model="1"/>
+        <property name="sum" channel="inline" encoding="utf-8" type="path/knowledge" model=".counter.count"/>
     </part>
-    <part name="save_current_time_in_file" channel="inline" type="operation/plain" model="run">
-        <property name="program" channel="inline" type="text/plain" model="date +%X > time_output_2/time.txt"/>
+    <part name="save_current_time_in_file" channel="inline" encoding="utf-8" type="operation/plain" model="run">
+        <property name="program" channel="inline" encoding="utf-8" type="text/plain" model="date +%X > time_output_2/time.txt"/>
     </part>
-    <part name="print_stored_time_on_shell" channel="inline" type="operation/plain" model="send">
-        <property name="channel" channel="inline" type="text/plain" model="shell"/>
-        <property name="language" channel="inline" type="text/plain" model="text/plain"/>
-        <property name="message" channel="file" type="text/plain" model="time_output_2/time.txt"/>
+    <part name="print_stored_time_on_shell" channel="inline" encoding="utf-8" type="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="shell"/>
+        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="text/plain"/>
+        <property name="message" channel="file" encoding="utf-8" type="text/plain" model="time_output_2/time.txt"/>
     </part>
 </model>
 

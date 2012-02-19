@@ -9,9 +9,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Update ansi escape code serialiser files
-
         * Adapt cybol example applications to new cybol mime types and operations
+            CONTINUE WITH: addition
+        * Uncomment further operations in file "operation_handler.c"
+
+        * Update ansi escape code serialiser files
 
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
             in file "socket_starter.c" to new model constants

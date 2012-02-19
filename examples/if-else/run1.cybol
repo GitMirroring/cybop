@@ -1,26 +1,26 @@
 <model>
-    <part name="create_domain" channel="inline" type="operation/plain" model="create">
-        <property name="name" channel="inline" type="text/plain" model="domain"/>
-        <property name="abstraction" channel="inline" type="text/plain" model="compound"/>
-        <property name="element" channel="inline" type="text/plain" model="part"/>
+    <part name="create_domain" channel="inline" encoding="utf-8" type="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="domain"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="compound"/>
+        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
     </part>
-    <part name="create_flag" channel="inline" type="operation/plain" model="create">
-        <property name="name" channel="inline" type="text/plain" model="flag"/>
-        <property name="abstraction" channel="inline" type="text/plain" model="boolean"/>
-        <property name="element" channel="inline" type="text/plain" model="part"/>
-        <property name="whole" channel="inline" type="path/knowledge" model=".domain"/>
+    <part name="create_flag" channel="inline" encoding="utf-8" type="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="flag"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="boolean"/>
+        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain"/>
     </part>
-   <part name="initialise_flag" channel="inline" type="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="source" channel="inline" type="logicvalue/boolean" model="false"/>
-        <property name="destination" channel="inline" type="path/knowledge" model=".domain.flag"/>
+   <part name="initialise_flag" channel="inline" encoding="utf-8" type="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="source" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="false"/>
+        <property name="destination" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.flag"/>
     </part>
-    <part name="if-then-else" channel="inline" type="operation/plain" model="branch">
-        <property name="criterion" channel="inline" type="path/knowledge" model=".domain.flag"/>
-        <property name="true" channel="file" type="text/cybol" model="if-else/true.cybol"/>
-        <property name="false" channel="file" type="text/cybol" model="if-else/false.cybol"/>
+    <part name="if-then-else" channel="inline" encoding="utf-8" type="operation/plain" model="branch">
+        <property name="criterion" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.flag"/>
+        <property name="true" channel="file" encoding="utf-8" type="text/cybol" model="if-else/true.cybol"/>
+        <property name="false" channel="file" encoding="utf-8" type="text/cybol" model="if-else/false.cybol"/>
     </part>
-    <part name="exit_application" channel="inline" type="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" type="operation/plain" model="exit"/>
 </model>
 
 <!--

@@ -1,5 +1,5 @@
 <model>
-    <part name="font_size" channel="file" type="cybol" model="document_generator/styles/title/font_size.cybol"/>
+    <part name="font_size" channel="file" encoding="utf-8" type="cybol" model="document_generator/styles/title/font_size.cybol"/>
 </model>
 
 <!--

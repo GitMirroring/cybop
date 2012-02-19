@@ -1,20 +1,20 @@
 <model>
-    <part name="compare_count" channel="inline" type="operation/plain" model="greater_or_equal">
-        <property name="left" channel="inline" type="path/knowledge" model=".domain.count"/>
-        <property name="right" channel="inline" type="path/knowledge" model=".domain.maximum"/>
-        <property name="result" channel="inline" type="path/knowledge" model=".domain.break"/>
+    <part name="compare_count" channel="inline" encoding="utf-8" type="operation/plain" model="greater_or_equal">
+        <property name="left" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.count"/>
+        <property name="right" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.maximum"/>
+        <property name="result" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.break"/>
     </part>
-    <part name="print_number" channel="inline" type="operation/plain" model="send">
-        <property name="channel" channel="inline" type="text/plain" model="shell"/>
-        <property name="language" channel="inline" type="text/plain" model="integer"/>
-        <property name="message" channel="inline" type="path/knowledge" model=".domain.count"/>
-        <property name="new_line" channel="inline" type="logicvalue/boolean" model="true"/>
+    <part name="print_number" channel="inline" encoding="utf-8" type="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="shell"/>
+        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.count"/>
+        <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>
-    <part name="increment_loop_count" channel="inline" type="operation/plain" model="add">
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" type="path/knowledge" model=".domain.count"/>
-        <property name="summand_2" channel="inline" type="number/integer" model="1"/>
-        <property name="sum" channel="inline" type="path/knowledge" model=".domain.count"/>
+    <part name="increment_loop_count" channel="inline" encoding="utf-8" type="operation/plain" model="add">
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="summand_1" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.count"/>
+        <property name="summand_2" channel="inline" encoding="utf-8" type="number/integer" model="1"/>
+        <property name="sum" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.count"/>
     </part>
 </model>
 

@@ -1,20 +1,20 @@
 <model>
-    <part name="create_counter" channel="inline" type="operation/plain" model="create">
-        <property name="name" channel="inline" type="text/plain" model="domain"/>
-        <property name="abstraction" channel="inline" type="text/plain" model="compound"/>
-        <property name="element" channel="inline" type="text/plain" model="part"/>
+    <part name="create_counter" channel="inline" encoding="utf-8" type="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="domain"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="compound"/>
+        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
     </part>
-    <part name="initialise_model" channel="inline" type="operation/plain" model="receive">
-        <property name="channel" channel="inline" type="text/plain" model="file"/>
-        <property name="language" channel="inline" type="text/plain" model="text/cybol"/>
-        <property name="message" channel="inline" type="text/plain" model="counter_static_model/domain.cybol"/>
-        <property name="model" channel="inline" type="path/knowledge" model=".domain"/>
+    <part name="initialise_model" channel="inline" encoding="utf-8" type="operation/plain" model="receive">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="file"/>
+        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="text/cybol"/>
+        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="counter_static_model/domain.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain"/>
     </part>
-    <part name="print_numbers" channel="inline" type="operation/plain" model="loop">
-        <property name="break" channel="inline" type="path/knowledge" model=".domain.break"/>
-        <property name="model" channel="inline" type="path/knowledge" model=".domain.model"/>
+    <part name="print_numbers" channel="inline" encoding="utf-8" type="operation/plain" model="loop">
+        <property name="break" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.break"/>
+        <property name="model" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.model"/>
     </part>
-    <part name="exit_application" channel="inline" type="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" type="operation/plain" model="exit"/>
 </model>
 
 <!--

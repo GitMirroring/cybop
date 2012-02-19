@@ -1,28 +1,28 @@
 <model>
-    <part name="create_domain" channel="inline" type="operation/plain" model="create">
-        <property name="name" channel="inline" type="text/plain" model="domain"/>
-        <property name="abstraction" channel="inline" type="text/plain" model="compound"/>
-        <property name="element" channel="inline" type="text/plain" model="part"/>
+    <part name="create_domain" channel="inline" encoding="utf-8" type="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="domain"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="compound"/>
+        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
     </part>
-    <part name="initialise_domain" channel="inline" type="operation/plain" model="receive">
-        <property name="channel" channel="inline" type="text/plain" model="file"/>
-        <property name="language" channel="inline" type="text/plain" model="text/cybol"/>
-        <property name="message" channel="inline" type="text/plain" model="addition_static_model/domain.cybol"/>
-        <property name="model" channel="inline" type="path/knowledge" model=".domain"/>
+    <part name="initialise_domain" channel="inline" encoding="utf-8" type="operation/plain" model="receive">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="file"/>
+        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="text/cybol"/>
+        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="addition_static_model/domain.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain"/>
     </part>
-    <part name="add" channel="inline" type="operation/plain" model="add">
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" type="path/knowledge" model=".domain.summand_1"/>
-        <property name="summand_2" channel="inline" type="path/knowledge" model=".domain.summand_2"/>
-        <property name="sum" channel="inline" type="path/knowledge" model=".domain.sum"/>
+    <part name="add" channel="inline" encoding="utf-8" type="operation/plain" model="add">
+        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="summand_1" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.summand_1"/>
+        <property name="summand_2" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.summand_2"/>
+        <property name="sum" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.sum"/>
     </part>
-    <part name="print_result" channel="inline" type="operation/plain" model="send">
-        <property name="channel" channel="inline" type="text/plain" model="shell"/>
-        <property name="language" channel="inline" type="text/plain" model="integer"/>
-        <property name="message" channel="inline" type="path/knowledge" model=".domain.sum"/>
-        <property name="new_line" channel="inline" type="logicvalue/boolean" model="true"/>
+    <part name="print_result" channel="inline" encoding="utf-8" type="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="shell"/>
+        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.sum"/>
+        <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" type="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" type="operation/plain" model="exit"/>
 </model>
 
 <!--

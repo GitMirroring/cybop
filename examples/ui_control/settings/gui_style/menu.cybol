@@ -1,9 +1,9 @@
 <model>
-    <part name="width" channel="inline" type="number/integer" model="50"/>
-    <part name="height" channel="inline" type="number/integer" model="20"/>
-    <part name="left_border" channel="inline" type="text/plain" model="">
-        <property name="colour" channel="inline" type="number/integer" model="0,0,0"/>
-        <property name="colour_style" channel="inline" type="text/plain" model="rgb"/>
+    <part name="width" channel="inline" encoding="utf-8" type="number/integer" model="50"/>
+    <part name="height" channel="inline" encoding="utf-8" type="number/integer" model="20"/>
+    <part name="left_border" channel="inline" encoding="utf-8" type="text/plain" model="">
+        <property name="colour" channel="inline" encoding="utf-8" type="number/integer" model="0,0,0"/>
+        <property name="colour_style" channel="inline" encoding="utf-8" type="text/plain" model="rgb"/>
     </part>
 </model>
 

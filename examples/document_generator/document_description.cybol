@@ -1,9 +1,9 @@
 <model>
-    <part name="document" channel="file" type="cybol" model="document_generator/document.cybol">
-        <property name="font_size" channel="file" type="cybol" model="document_generator/document/meta/font_size.cybol"/>
-        <property name="paper_size" channel="inline" type="string" model="dina4"/>
-        <property name="page_style" channel="inline" type="string" model="twoside"/>
-        <property name="type" channel="inline" type="string" model="book"/>
+    <part name="document" channel="file" encoding="utf-8" type="cybol" model="document_generator/document.cybol">
+        <property name="font_size" channel="file" encoding="utf-8" type="cybol" model="document_generator/document/meta/font_size.cybol"/>
+        <property name="paper_size" channel="inline" encoding="utf-8" type="string" model="dina4"/>
+        <property name="page_style" channel="inline" encoding="utf-8" type="string" model="twoside"/>
+        <property name="type" channel="inline" encoding="utf-8" type="string" model="book"/>
     </part>
 </model>
 

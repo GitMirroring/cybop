@@ -36,11 +36,10 @@
  * Calculates a result by applying the given operation to the given operands.
  *
  * Expected parametres:
- * - result (required): the knowledge model, in which the result is stored (of type boolean)
+ * - result (required): the knowledge model, in which the result is stored
  * - left (required): the left operand
  * - right (required): the right operand
- * - operation (required): the kind of calculation (equal, greater, greater_or_equal, smaller, smaller_or_equal, unequal)
- * - type (required): the operand type (left- and right parametre have to have the same type)
+ * - type (required): the operand type which is equal for left- and right parametre
  *
  * CAUTION! Do NOT use the "add" operation for characters!
  * They may be concatenated by using the "append" operation.
@@ -97,55 +96,43 @@ void apply_calculate(void* p0, int* p1, void* p2) {
     // The result part.
     void* res = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left operand part.
-    void* lo = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right operand part.
-    void* ro = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operation part.
-    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand type part.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The result part model.
     void* resm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operation part model.
-    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand type part model.
-    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The result part model data, count.
     void* resmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operation part model data, count.
-    void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand type part model data, count.
-    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
     get_name_array((void*) &res, p0, (void*) RESULT_COMPARE_OPERATION_CYBOL_NAME, (void*) RESULT_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get left operand part.
-    get_name_array((void*) &lo, p0, (void*) LEFT_OPERAND_COMPARE_OPERATION_CYBOL_NAME, (void*) LEFT_OPERAND_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_name_array((void*) &l, p0, (void*) LEFT_OPERAND_COMPARE_OPERATION_CYBOL_NAME, (void*) LEFT_OPERAND_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get right operand part.
-    get_name_array((void*) &ro, p0, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
-    // Get operation part.
-    get_name_array((void*) &o, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_name_array((void*) &r, p0, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get operand type part.
-    get_name_array((void*) &a, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) TYPE_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_name_array((void*) &t, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) TYPE_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get result part model.
     copy_array_forward((void*) &resm, res, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get operation part model.
-    copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get operand type part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get result part model data, count.
     copy_array_forward((void*) &resmd, resm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get operation part model data, count.
-    copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get operand type part model data, count.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Calculate result by applying operation to operands.
-    calculate_all_part(resmd, lo, ro, omd, amd);
+    calculate_all_part(resmd, l, r, tmd);
 }
 
 /* CALCULATE_SOURCE */

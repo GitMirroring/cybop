@@ -1,11 +1,11 @@
 <model>
-    <part name="title" channel="file" type="cybol" model="document_generator/styles/title.cybol"/>
-    <part name="sub_title" channel="file" type="cybol" model="document_generator/styles/sub_title.cybol"/>
-    <part name="author" channel="file" type="cybol" model="document_generator/styles/author.cybol"/>
-    <part name="date" channel="file" type="cybol" model="document_generator/styles/date.cybol"/>
-    <part name="chapter_heading" channel="file" type="cybol" model="document_generator/styles/chapter_heading.cybol"/>
-    <part name="section_heading" channel="file" type="cybol" model="document_generator/styles/section_heading.cybol"/>
-    <part name="paragraph" channel="file" type="cybol" model="document_generator/styles/paragraph.cybol"/>
+    <part name="title" channel="file" encoding="utf-8" type="cybol" model="document_generator/styles/title.cybol"/>
+    <part name="sub_title" channel="file" encoding="utf-8" type="cybol" model="document_generator/styles/sub_title.cybol"/>
+    <part name="author" channel="file" encoding="utf-8" type="cybol" model="document_generator/styles/author.cybol"/>
+    <part name="date" channel="file" encoding="utf-8" type="cybol" model="document_generator/styles/date.cybol"/>
+    <part name="chapter_heading" channel="file" encoding="utf-8" type="cybol" model="document_generator/styles/chapter_heading.cybol"/>
+    <part name="section_heading" channel="file" encoding="utf-8" type="cybol" model="document_generator/styles/section_heading.cybol"/>
+    <part name="paragraph" channel="file" encoding="utf-8" type="cybol" model="document_generator/styles/paragraph.cybol"/>
 </model>
 
 <!--

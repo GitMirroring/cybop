@@ -1,8 +1,8 @@
 <model>
-    <part name="title" channel="inline" type="text/plain" model="CYBOI Example -- Text User Interface (TUI) Application">
-        <property name="super" channel="inline" type="path/knowledge" model=".ui_control.settings.tui.menu_header"/>
-        <property name="position" channel="inline" type="number/integer" model="10,0,0"/>
-        <property name="size" channel="inline" type="number/integer" model="58,1,1"/>
+    <part name="title" channel="inline" encoding="utf-8" type="text/plain" model="CYBOI Example -- Text User Interface (TUI) Application">
+        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.menu_header"/>
+        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="10,0,0"/>
+        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="58,1,1"/>
     </part>
 </model>
 

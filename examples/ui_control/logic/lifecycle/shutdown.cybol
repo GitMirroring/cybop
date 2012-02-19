@@ -1,22 +1,22 @@
 <model>
 <!--
-    <part name="interrupt_x_window_system" channel="inline" type="operation/plain" model="interrupt">
-        <property name="service" channel="inline" type="text/plain" model="x-window-system"/>
+    <part name="interrupt_x_window_system" channel="inline" encoding="utf-8" type="operation/plain" model="interrupt">
+        <property name="service" channel="inline" encoding="utf-8" type="text/plain" model="x-window-system"/>
     </part>
 -->
 <!--
-    <part name="interrupt_gnu_linux_console" channel="inline" type="operation/plain" model="interrupt">
-        <property name="service" channel="inline" type="text/plain" model="gnu-linux-console"/>
+    <part name="interrupt_gnu_linux_console" channel="inline" encoding="utf-8" type="operation/plain" model="interrupt">
+        <property name="service" channel="inline" encoding="utf-8" type="text/plain" model="gnu-linux-console"/>
     </part>
 -->
 <!--
-    <part name="shutdown_x_window_system" channel="inline" type="operation/plain" model="shutdown">
-        <property name="service" channel="inline" type="text/plain" model="x-window-system"/>
+    <part name="shutdown_x_window_system" channel="inline" encoding="utf-8" type="operation/plain" model="shutdown">
+        <property name="service" channel="inline" encoding="utf-8" type="text/plain" model="x-window-system"/>
     </part>
 -->
 <!--
-    <part name="shutdown_gnu_linux_console" channel="inline" type="operation/plain" model="shutdown">
-        <property name="service" channel="inline" type="text/plain" model="gnu-linux-console"/>
+    <part name="shutdown_gnu_linux_console" channel="inline" encoding="utf-8" type="operation/plain" model="shutdown">
+        <property name="service" channel="inline" encoding="utf-8" type="text/plain" model="gnu-linux-console"/>
     </part>
 -->
 <!--
@@ -29,15 +29,15 @@
     instances of the Res Medicinae application. But as long as CYBOI does not run as
     operating system and each application is started with its own instance of CYBOI,
     the exit operation is the last one to be called. It cleans up all memory, too.
-    <part name="destroy_ui_control" channel="inline" type="operation/plain" model="destroy_part">
-        <property name="name" channel="inline" type="path/knowledge" model=".ui_control"/>
+    <part name="destroy_ui_control" channel="inline" encoding="utf-8" type="operation/plain" model="destroy_part">
+        <property name="name" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control"/>
     </part>
 -->
-    <part name="clean_tui" channel="inline" type="operation/plain" model="send">
-        <property name="channel" channel="inline" type="text/plain" model="gnu-linux-console"/>
-        <property name="clean" channel="inline" type="logicvalue/boolean" model="true"/>
+    <part name="clean_tui" channel="inline" encoding="utf-8" type="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="gnu-linux-console"/>
+        <property name="clean" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" type="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" type="operation/plain" model="exit"/>
 </model>
 
 <!--

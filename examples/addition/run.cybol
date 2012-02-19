@@ -1,22 +1,23 @@
 <model>
-    <part name="create_result" channel="inline" type="operation/plain" model="create">
-        <property name="name" channel="inline" type="text/plain" model="result"/>
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="element" channel="inline" type="text/plain" model="part"/>
+    <part name="create_result" channel="inline" encoding="utf-8" type="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="result"/>
+        <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
     </part>
-    <part name="add" channel="inline" type="operation/plain" model="add">
-        <property name="abstraction" channel="inline" type="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" type="number/integer" model="1"/>
-        <property name="summand_2" channel="inline" type="number/integer" model="2"/>
-        <property name="sum" channel="inline" type="path/knowledge" model=".result"/>
+    <part name="add" channel="inline" encoding="utf-8" type="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
+        <property name="left" channel="inline" encoding="utf-8" type="number/integer" model="1"/>
+        <property name="right" channel="inline" encoding="utf-8" type="number/integer" model="2"/>
+        <property name="type" channel="inline" encoding="utf-8" type="text/type" model="number/integer"/>
     </part>
-    <part name="print_result" channel="inline" type="operation/plain" model="send">
-        <property name="channel" channel="inline" type="text/plain" model="shell"/>
-        <property name="language" channel="inline" type="text/plain" model="integer"/>
-        <property name="message" channel="inline" type="path/knowledge" model=".result"/>
-        <property name="new_line" channel="inline" type="logicvalue/boolean" model="true"/>
+    <part name="print_result" channel="inline" encoding="utf-8" type="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" type="text/plain" model="utf-8"/>
+        <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
+        <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" type="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" type="live/exit" model=""/>
 </model>
 
 <!--

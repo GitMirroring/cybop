@@ -36,7 +36,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/sender/terminal/stream_terminal_sender.c"
+#include "../../../../executor/communicator/receiver/terminal/stream_terminal_receiver.c"
 #include "../../../../logger/logger.c"
 
 /**

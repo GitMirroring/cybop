@@ -1,9 +1,9 @@
 <model>
-    <part name="output" channel="inline" type="operation/plain" model="send">
-        <property name="channel" channel="inline" type="text/plain" model="shell"/>
-        <property name="language" channel="inline" type="text/plain" model="text/plain"/>
-        <property name="message" channel="inline" type="text/plain" model="Hello, B World!"/>
-        <property name="new_line" channel="inline" type="logicvalue/boolean" model="true"/>
+    <part name="output" channel="inline" encoding="utf-8" type="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="shell"/>
+        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="Hello, B World!"/>
+        <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>
 </model>
 
