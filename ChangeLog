@@ -19,6 +19,7 @@
 2012-02-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Restructure terminal receiver
+        * Add "encoding" xml attribute to all cybol files
 
 2012-02-18  Christian Heller  <christian.heller@tuxtax.de>
 
