@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-02-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Restructure and add new modules for "create" and "destroy"
+
 2012-02-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Restructure terminal receiver

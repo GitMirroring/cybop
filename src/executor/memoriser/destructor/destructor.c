@@ -23,50 +23,62 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DESTROY_SOURCE
-#define DESTROY_SOURCE
+#ifndef DESTRUCTOR_SOURCE
+#define DESTRUCTOR_SOURCE
 
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/memoriser/destructor.c"
 #include "../../logger/logger.c"
 
 /**
  * Destroys a part and removes it from the knowledge model.
  *
- * Primitive models need a different creation than compound models.
- *
- * Expected parametres:
- * - part (required): the part to be destroyed
- *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
- * @param p2 the knowledge memory part
+ * @param p0 the whole name data
+ * @param p0 the whole name count
+ * @param p1 the part name data
+ * @param p2 the part name count
+ * @param p3 the knowledge memory part
  */
-void apply_destroy(void* p0, void* p1, void* p2) {
+void destroy(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply destroy.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Destroy.");
 
+    // The whole.
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part index.
+    int i = NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type.
-    void* pa = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type data.
-    void* pad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
     get_name_array((void*) &p, p0, (void*) PART_DESTROY_OPERATION_CYBOL_NAME, (void*) PART_DESTROY_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get part type.
-    copy_array_forward((void*) &pa, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Get part type data.
-    copy_array_forward((void*) &pad, pa, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ptd, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Deallocate part.
-    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, pad);
+    // Get whole.
+    get_part_knowledge((void*) &w, p1, p2, p3);
+
+    // Find part by name in whole.
+    find_name_part_element();
+
+    if (i > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+
+        // Remove part from whole.
+        remove_part(part, type, count of elements to remove, start index);
+
+        // Deallocate part.
+        deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, ptd);
+    }
 }
 
-/* DESTROY_SOURCE */
+/* DESTRUCTOR_SOURCE */
 #endif

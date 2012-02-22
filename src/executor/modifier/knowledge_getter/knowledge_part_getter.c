@@ -55,8 +55,8 @@
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
- * @param p2 the hierarchical part name
- * @param p3 the hierarchical part name count
+ * @param p2 the hierarchical name data
+ * @param p3 the hierarchical name count
  * @param p4 the knowledge memory part
  */
 void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {

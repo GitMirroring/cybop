@@ -9,6 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * CONTINUE WITH: destroy() --> By which functions to identify the part to be destroyed?
         * Adapt cybol example applications to new cybol mime types and operations
             CONTINUE WITH: addition
         * Uncomment further operations in file "operation_handler.c"

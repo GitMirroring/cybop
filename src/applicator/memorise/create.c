@@ -31,32 +31,33 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/memoriser/creator.c"
 #include "../../logger/logger.c"
 
 /**
  * Creates an empty part consisting of name and type only.
  *
- * The model and properties may get filled with data using a "decode" operation,
- * which is called when a "receive" logic operation is found in cybol.
+ * The model and properties may get filled with data using a
+ * "deserialise" operation, which is called when a "receive"
+ * logic operation is found in cybol.
  *
  * The new knowledge model gets added to either of:
  * - whole model's part hierarchy
- * - whole model's meta hierarchy
- * - knowledge memory's root directly, if no whole element is given
+ *   (or knowledge memory's root, if no whole is given)
+ * - whole model's properties hierarchy
+ *   (or knowledge memory's root, if no whole is given)
  *
  * Expected parametres:
  * - name (required): the name of the part to be created
  * - type (required): the type (type) of the part to be created
- * - element (optional; if null, the new part will be added to the whole- or knowledge memory MODEL and NOT properties):
- *   the kind of element (knowledge model) to be created (part, meta);
+ * - element (required): the kind of element to be created (part, property);
  *   a part element will be added to the whole model's part hierarchy;
- *   a property element to the whole model's properties hierarchy;
- *   this parametre is optional, but recommended for faster processing
+ *   a property element to the whole model's properties hierarchy
  * - whole (optional; if null, the new part will be added to the knowledge memory root):
  *   the compound to which to add to the new part
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
 void apply_create(void* p0, void* p1, void* p2) {
@@ -85,8 +86,9 @@ void apply_create(void* p0, void* p1, void* p2) {
     // The type part model data, count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The element part model data.
+    // The element part model data, count.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get name part.
     get_name_array((void*) &n, p0, (void*) NAME_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) NAME_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
@@ -110,8 +112,9 @@ void apply_create(void* p0, void* p1, void* p2) {
     // Get type part model data, count.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get element part model data.
+    // Get element part model data, count.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // The destination type cybol form.
     // CAUTION! This is a cyboi integer representing a cybol mime type.
@@ -129,130 +132,7 @@ void apply_create(void* p0, void* p1, void* p2) {
     // Therefore, the type has to be converted here.
     deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
 
-    // The part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Allocate part.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &dt);
-
-    // Fill part.
-    overwrite_part_element(p, nmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nmc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p, amd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer((void*) &r, emd, (void*) PART_COMPOUND_ELEMENT_CYBOL_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                // A whole part exists.
-
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
-
-                // Append part (handed over as array reference) to whole model (being a part itself).
-                // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
-                // The reason is that deep copying would be used to assign the part inside,
-                // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(w, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-            } else {
-
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root model.");
-
-                // The whole part is null.
-                //
-                // CAUTION! The new part allocated above HAS TO BE added to the
-                // knowledge memory tree, so that it can be deallocated properly at
-                // system shutdown and is not lost somewhere in Random Access Memory (RAM).
-                // Therefore, if the whole part is null, the knowledge memory is used instead.
-
-                // Append part (handed over as array reference) to knowledge memory root model (being a part itself).
-                // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
-                // The reason is that deep copying would be used to assign the part inside,
-                // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(p2, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            }
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer((void*) &r, emd, (void*) META_COMPOUND_ELEMENT_CYBOL_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                // A whole part exists.
-
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole properties.");
-
-                // Append part (handed over as array reference) to whole properties (being a part itself).
-                // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
-                // The reason is that deep copying would be used to assign the part inside,
-                // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(w, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-
-            } else {
-
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root properties.");
-
-                // The whole part is null.
-                //
-                // CAUTION! The new part allocated above HAS TO BE added to the
-                // knowledge memory tree, so that it can be deallocated properly at
-                // system shutdown and is not lost somewhere in Random Access Memory (RAM).
-                // Therefore, if the whole part is null, the knowledge memory is used instead.
-
-                // Append part (handed over as array reference) to knowledge memory root properties (being a part itself).
-                // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
-                // The reason is that deep copying would be used to assign the part inside,
-                // instead of just assigning the part reference in a shallow copying manner.
-                append_part_element(p2, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-            }
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // The kind of element is null, i.e. it was NOT given as parametre.
-        // Therefore, add part to whole- or knowledge memory MODEL, by default.
-
-        if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            // A whole part exists.
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to whole model.");
-
-            // Append part (handed over as array reference) to whole model (being a part itself).
-            // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
-            // The reason is that deep copying would be used to assign the part inside,
-            // instead of just assigning the part reference in a shallow copying manner.
-            append_part_element(w, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-        } else {
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add part to knowledge memory root.");
-
-            // The whole part is null.
-            //
-            // CAUTION! The new part allocated above HAS TO BE added to the
-            // knowledge memory tree, so that it can be deallocated properly at
-            // system shutdown and is not lost somewhere in Random Access Memory (RAM).
-            // Therefore, if the whole part is null, the knowledge memory is used instead.
-
-            // Append part (handed over as array reference) to knowledge memory root model (being a part itself).
-            // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
-            // The reason is that deep copying would be used to assign the part inside,
-            // instead of just assigning the part reference in a shallow copying manner.
-            append_part_element(p2, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-        }
-    }
+    create(w, p2, nmd, nmc, (void*) &dt, emd, emc);
 }
 
 /* CREATE_SOURCE */

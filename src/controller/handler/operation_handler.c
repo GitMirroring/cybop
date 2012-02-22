@@ -501,18 +501,17 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            create(p0, p1);
+            create(p0, p1, p4);
         }
     }
 
-/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) DESTROY_MEMORISE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            destroy(p0, p1);
+            destroy(p0, p1, p4);
         }
     }
 
@@ -520,6 +519,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
     // modify
     //
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) APPEND_MODIFY_LOGIC_CYBOI_TYPE);
