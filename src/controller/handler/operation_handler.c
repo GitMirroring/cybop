@@ -57,11 +57,11 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-/*??
     //
     // calculate
     //
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) ABSOLUTE_CALCULATE_LOGIC_CYBOI_TYPE);
@@ -71,6 +71,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
             absolute(p0, p1);
         }
     }
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,6 +83,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
         }
     }
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) DIVIDE_CALCULATE_LOGIC_CYBOI_TYPE);
@@ -487,6 +489,8 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
             startup(p0, p1);
         }
     }
+*/
+
     //
     // memorise
     //
@@ -501,6 +505,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
         }
     }
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) DESTROY_MEMORISE_LOGIC_CYBOI_TYPE);

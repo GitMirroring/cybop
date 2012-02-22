@@ -1,7 +1,7 @@
 <model>
     <part name="create_result" channel="inline" encoding="utf-8" type="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="result"/>
-        <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="type" channel="inline" encoding="utf-8" type="text/type" model="number/integer"/>
         <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
     </part>
     <part name="add" channel="inline" encoding="utf-8" type="calculate/add" model="">

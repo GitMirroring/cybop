@@ -50,7 +50,7 @@
  * - element (optional; if null, the new part will be added to the whole- or knowledge memory MODEL and NOT properties):
  *   the kind of element (knowledge model) to be created (part, meta);
  *   a part element will be added to the whole model's part hierarchy;
- *   a meta element to the whole model's properties hierarchy;
+ *   a property element to the whole model's properties hierarchy;
  *   this parametre is optional, but recommended for faster processing
  * - whole (optional; if null, the new part will be added to the knowledge memory root):
  *   the compound to which to add to the new part
@@ -66,7 +66,7 @@ void apply_create(void* p0, void* p1, void* p2) {
     // The name part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole part.
@@ -75,7 +75,7 @@ void apply_create(void* p0, void* p1, void* p2) {
     // The name part model.
     void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model.
-    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element part model.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -83,14 +83,15 @@ void apply_create(void* p0, void* p1, void* p2) {
     void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* nmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model data, count.
-    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The element part model data, count.
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The element part model data.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get name part.
     get_name_array((void*) &n, p0, (void*) NAME_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) NAME_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get type part.
-    get_name_array((void*) &a, p0, (void*) TYPE_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) TYPE_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_name_array((void*) &t, p0, (void*) TYPE_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) TYPE_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get element part.
     get_name_array((void*) &e, p0, (void*) ELEMENT_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) ELEMENT_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get whole part.
@@ -99,7 +100,7 @@ void apply_create(void* p0, void* p1, void* p2) {
     // Get name part model.
     copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get type part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get element part model.
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
@@ -107,15 +108,32 @@ void apply_create(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get type part model data, count.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get element part model data, count.
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get element part model data.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    // The destination type cybol form.
+    // CAUTION! This is a cyboi integer representing a cybol mime type.
+    int dtc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination type cyboi form.
+    // CAUTION! This is a cyboi integer representing a cyboi-internal type.
+    int dt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+    // Decode cybol source type into cybol cyboi destination type.
+    deserialise_cybol_type((void*) &dtc, tmd, tmc);
+    // Decode cybol cyboi destination type into cyboi destination type.
+    // CAUTION! A cybol type is of type "wchar_t"; a cyboi-internal type of type "int".
+    // Both are not always equal in their meaning.
+    // For example, an "xdt" file is converted into a cyboi "part".
+    // Therefore, the type has to be converted here.
+    deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, amd);
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &dt);
 
     // Fill part.
     overwrite_part_element(p, nmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nmc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
