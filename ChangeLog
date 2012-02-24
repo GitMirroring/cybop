@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-02-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare "apply_calculate" function
+
 2012-02-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Restructure and add new modules for "create" and "destroy"

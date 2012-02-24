@@ -26,8 +26,11 @@
 #ifndef OPERATION_HANDLER_SOURCE
 #define OPERATION_HANDLER_SOURCE
 
+#include "../../applicator/calculate/calculate.c"
 #include "../../applicator/communicate/receive.c"
 #include "../../applicator/communicate/send.c"
+#include "../../applicator/memorise/create.c"
+#include "../../applicator/memorise/destroy.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../logger/logger.c"
@@ -79,7 +82,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            add(p0, p1);
+            apply_calculate(p0, p1, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE);
         }
     }
 
@@ -501,7 +504,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            create(p0, p1, p4);
+            apply_create(p0, p1, p4);
         }
     }
 
@@ -511,7 +514,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            destroy(p0, p1, p4);
+            apply_destroy(p0, p1, p4);
         }
     }
 

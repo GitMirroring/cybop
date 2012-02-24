@@ -29,7 +29,11 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/arithmetic_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/calculator/all/part_all_calculator.c"
+#include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/modifier/name_getter/array_name_getter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -48,48 +52,48 @@
  *
  * Example 1: Unary Operator
  *
- * sum: .knowledge.sum
- * summand_1: .knowledge.summand_1
- * summand_2: 0
+ * result: .knowledge.sum
+ * left: .knowledge.summand_1
+ * right: 0
  *
  * If only one summand is to be added to the sum,
  * then the second summand should be SET TO ZERO.
  *
- * CAUTION! The two operands (sum, summand_1)
- * MAY reference the same cybol knowledge model.
- * Since only one addition takes place and summand_2
+ * CAUTION! The two operands (result, left) ARE ALLOWED
+ * to reference the same cybol knowledge model.
+ * Since only one addition takes place and right
  * is expected to have been set to zero,
  * wrong operand values CANNOT occur.
  * So, the following operands would be fine, too:
  *
- * sum: .knowledge.same_model
- * summand_1: .knowledge.same_model
- * summand_2: 0
+ * result: .knowledge.same_model
+ * left: .knowledge.same_model
+ * right: 0
  *
  * Example 2: Binary Operator
  *
- * sum: .knowledge.sum
- * summand_1: .knowledge.summand_1
- * summand_2: .knowledge.summand_2
+ * result: .knowledge.sum
+ * left: .knowledge.summand_1
+ * right: .knowledge.summand_2
  *
  * This is the standard case. Both summands are added,
- * one after the other, to the sum.
+ * one after the other, to the result.
  *
- * CAUTION! All three operands (sum, summand_1, summand_2)
+ * CAUTION! All three operands (result, left, right)
  * HAVE TO point to DIFFERENT cybol knowledge models.
  * Otherwise, when writing the result into the output sum,
  * one input operand would be OVERWRITTEN at the same time,
  * as both are pointing to the same operand.
  *
- * If the sum and summand_2 referenced the same knowledge model,
- * then after having added summand_1 to the sum,
- * summand_2 would have a FALSIFIED value.
+ * If the result and right referenced the same knowledge model,
+ * then after having added left to the result,
+ * right would have a FALSIFIED value.
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
- * @param p2 the knowledge memory part
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the operation type
  */
-void apply_calculate(void* p0, int* p1, void* p2) {
+void apply_calculate(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
 
@@ -113,13 +117,13 @@ void apply_calculate(void* p0, int* p1, void* p2) {
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
-    get_name_array((void*) &res, p0, (void*) RESULT_COMPARE_OPERATION_CYBOL_NAME, (void*) RESULT_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_name_array((void*) &res, p0, (void*) RESULT_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) RESULT_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get left operand part.
-    get_name_array((void*) &l, p0, (void*) LEFT_OPERAND_COMPARE_OPERATION_CYBOL_NAME, (void*) LEFT_OPERAND_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_name_array((void*) &l, p0, (void*) OPERAND_1_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) OPERAND_1_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get right operand part.
-    get_name_array((void*) &r, p0, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_name_array((void*) &r, p0, (void*) OPERAND_2_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) OPERAND_2_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get operand type part.
-    get_name_array((void*) &t, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) TYPE_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_name_array((void*) &t, p0, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
 
     // Get result part model.
     copy_array_forward((void*) &resm, res, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -132,7 +136,7 @@ void apply_calculate(void* p0, int* p1, void* p2) {
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Calculate result by applying operation to operands.
-    calculate_all_part(resmd, l, r, tmd);
+    calculate_all_part(resmd, l, r, p2, tmd);
 }
 
 /* CALCULATE_SOURCE */
