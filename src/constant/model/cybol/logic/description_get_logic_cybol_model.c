@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The name description get logic cybol model. */
 static wchar_t NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_ARRAY[] = {L'n', L'a', L'm', L'e'};

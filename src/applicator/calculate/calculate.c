@@ -106,13 +106,9 @@ void apply_calculate(void* p0, void* p1, void* p2) {
     // The operand type part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The result part model.
-    void* resm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand type part model.
     void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The result part model data, count.
-    void* resmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand type part model data, count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -125,13 +121,9 @@ void apply_calculate(void* p0, void* p1, void* p2) {
     // Get operand type part.
     get_name_array((void*) &t, p0, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
 
-    // Get result part model.
-    copy_array_forward((void*) &resm, res, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get operand type part model.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get result part model data, count.
-    copy_array_forward((void*) &resmd, resm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get operand type part model data, count.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 

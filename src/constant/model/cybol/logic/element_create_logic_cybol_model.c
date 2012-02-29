@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The part element create logic cybol model. */
 static wchar_t PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_ARRAY[] = {L'p', L'a', L'r', L't'};

@@ -46,6 +46,7 @@ void destroy(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Destroy.");
 
+/*??
     // The whole.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part index.
@@ -78,6 +79,7 @@ void destroy(void* p0, void* p1, void* p2, void* p3) {
         // Deallocate part.
         deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, ptd);
     }
+*/
 }
 
 /* DESTRUCTOR_SOURCE */

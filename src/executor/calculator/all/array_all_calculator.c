@@ -28,39 +28,39 @@
 
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../executor/comparator/basic/array_comparator.c"
-#include "../../../executor/comparator/basic/integer_comparator.c"
+#include "../../../executor/calculator/basic/array_calculator.c"
+#include "../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../logger/logger.c"
 
 /**
  * Calculates all elements of the left- with those of the right array.
  *
- * @param p0 the result (left unchanged in case of an error)
- * @param p1 the left array
- * @param p2 the right array
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the left array count
- * @param p6 the right array count
+ * @param p0 the result array, which contains the operands BEFORE the operation
+ * @param p1 the operand array
+ * @param p2 the operation type
+ * @param p3 the operand type
+ * @param p4 the result array count
+ * @param p5 the operand array count
  */
-void calculate_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void calculate_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all array.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p5, p6);
+    // Compare if integer vectors have the same length.
+    compare_integer_equal((void*) &r, p4, p5);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! Both, the left- or the right array count may be
+        // CAUTION! Both, the result- or the operand array count may be
         // handed over alternatively as count parametre, since they are equal.
-        calculate_array(p0, p1, p2, p3, p4, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        calculate_array(p0, p1, p2, p3, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate all array. The left array count is not equal to the right array count.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate all array. The result array count is not equal to the operand array count.");
     }
 }
 

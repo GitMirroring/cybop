@@ -30,6 +30,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/memory/destroy_memory_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/destructor/destructor.c"
 #include "../../logger/logger.c"
@@ -58,7 +59,7 @@ void apply_destroy(void* p0, void* p1, void* p2) {
     void* pad = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
-    get_name_array((void*) &p, p0, (void*) PART_DESTROY_OPERATION_CYBOL_NAME, (void*) PART_DESTROY_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_name_array((void*) &p, p0, (void*) MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME, (void*) MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get part type.
     copy_array_forward((void*) &pa, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Get part type data.
