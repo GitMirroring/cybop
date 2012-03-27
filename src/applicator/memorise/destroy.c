@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/memory/destroy_memory_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/memoriser/destructor/destructor.c"
+#include "../../executor/memoriser/deallocator/part_deallocator.c"
 #include "../../logger/logger.c"
 
 /**
@@ -43,8 +43,8 @@
  * Expected parametres:
  * - part (required): the part to be destroyed
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
 void apply_destroy(void* p0, void* p1, void* p2) {
@@ -54,19 +54,23 @@ void apply_destroy(void* p0, void* p1, void* p2) {
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type.
-    void* pa = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part type data.
-    void* pad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
     get_name_array((void*) &p, p0, (void*) MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME, (void*) MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get part type.
-    copy_array_forward((void*) &pa, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Get part type data.
-    copy_array_forward((void*) &pad, pa, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ptd, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Deallocate part.
-    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, pad);
+    // CAUTION! The reference counters of those parts referenced by this part
+    // get decremented and, if zero, the (child) parts deallocated automatically inside.
+    // Calling a special "destructor" here is therefore NOT necessary
+    // (as opposed to the "creator" called by the "apply_create" function).
+    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, ptd);
 }
 
 /* DESTROY_SOURCE */

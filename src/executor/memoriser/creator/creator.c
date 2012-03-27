@@ -31,8 +31,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/memoriser/creator/part_creator.c"
-#include "../../../executor/memoriser/creator/property_creator.c"
+#include "../../../executor/memoriser/creator/element_creator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -59,7 +58,7 @@ void create(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            create_part(p0, p1, p2, p3, p4);
+            create_element(p0, p1, p2, p3, p4, (void*) MODEL_PART_STATE_CYBOI_NAME);
         }
     }
 
@@ -69,7 +68,7 @@ void create(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            create_property(p0, p1, p2, p3, p4);
+            create_element(p0, p1, p2, p3, p4, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
         }
     }
 

@@ -128,7 +128,10 @@ void apply_calculate(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Calculate result by applying operation to operands.
-    calculate_all_part(resmd, l, r, p2, tmd);
+    calculate_all_part(res, l, p2, tmd);
+
+    //?? TODO: Also use second operand "r" here!
+    //?? Create temporary result to which to add the first operand to?
 }
 
 /* CALCULATE_SOURCE */

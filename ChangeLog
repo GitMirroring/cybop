@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-03-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue "apply_calculate" function
+        * Delete file "destructor.c" which is not needed in function "apply_destroy" due to rubbish (garbage) collection
+
 2012-02-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare "apply_calculate" function

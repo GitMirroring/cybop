@@ -9,10 +9,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: destroy() --> By which functions to identify the part to be destroyed?;
-            do models have to be destroyed at all, since the GC cares about that if references are zero?
-        * Adapt cybol example applications to new cybol mime types and operations
-            CONTINUE WITH: addition
+        * CONTINUE WITH: "calculate.c"; How to change binary into unary operation (result used as one of two operands)?
+            Consider that operations may be applied to many elements of an array in a loop!
+
+        * Adapt cybol example applications to new cybol mime types and operations; CONTINUE WITH: addition
         * Uncomment further operations in file "operation_handler.c"
 
         * Update ansi escape code serialiser files
