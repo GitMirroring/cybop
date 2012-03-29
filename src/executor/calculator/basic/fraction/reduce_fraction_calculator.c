@@ -26,10 +26,10 @@
 #ifndef REDUCE_FRACTION_CALCULATOR_SOURCE
 #define REDUCE_FRACTION_CALCULATOR_SOURCE
 
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Reduces the fraction.
@@ -93,8 +93,8 @@ void calculate_fraction_reduce(void* p0) {
                 // - least common factor (LCF) [kleinster gemeinsamer Teiler]
                 //
 
-                rn = int(rn / i);
-                rd = int(rd / i);
+                rn = (int) (rn / i);
+                rd = (int) (rd / i);
             }
 
             // Decrement loop variable.
@@ -111,18 +111,18 @@ void calculate_fraction_reduce(void* p0) {
     //
 
     // The comparison results.
-    int r1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int r2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r1 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int r2 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     compare_integer_smaller((void*) &r1, n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     compare_integer_smaller((void*) &r2, d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    if (r1 != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r1 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         calculate_integer_negate((void*) &rn, (void*) &rn);
     }
 
-    if (r2 != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         calculate_integer_negate((void*) &rd, (void*) &rd);
     }

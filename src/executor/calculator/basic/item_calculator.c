@@ -26,52 +26,39 @@
 #ifndef ITEM_CALCULATOR_SOURCE
 #define ITEM_CALCULATOR_SOURCE
 
-#include "../../../constant/type/operation/operation_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/basic/integer/add_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/divide_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/multiply_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/subtract_integer_calculator.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../executor/calculator/basic/array_calculator.c"
 #include "../../../logger/logger.c"
 
 /**
  * Calculates left- with right item.
  *
- * @param p0 the result (left unchanged in case of an error)
- * @param p1 the left item
- * @param p2 the right item
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the count
- * @param p6 the left index
- * @param p7 the right index
+ * @param p0 the result item, which contains the operands BEFORE the operation
+ * @param p1 the operand item
+ * @param p2 the operation type
+ * @param p3 the operand type
+ * @param p4 the count
+ * @param p5 the result index
+ * @param p6 the operand index
  */
-void calculate_item(void* p0, void* p1, void* p2) {
+void calculate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate item.");
 
-    // CAUTION! The sizes do NOT have to be identical,
-    // since they just represent allocated memory.
-    // For calculation, only the count (actual number of elements)
-    // is of interest.
-
-    // The left data, count.
-    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The right data, count.
+    // The result data.
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The operand data.
+    void* od = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get left data, count.
-    copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &lc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get right data, count.
-    copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &rc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get result data.
+    copy_array_forward((void*) &rd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get operand data.
+    copy_array_forward((void*) &od, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    calculate_array(p0, ld, rd, p3, p4, lc, rc, p6, p7);
+    calculate_array(rd, od, p2, p3, p4, p5, p6);
 }
 
 /* ITEM_CALCULATOR_SOURCE */

@@ -26,17 +26,23 @@
 #ifndef VALUE_CALCULATOR_SOURCE
 #define VALUE_CALCULATOR_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/basic/double_comparator.c"
-#include "../../../executor/comparator/basic/fraction_comparator.c"
-#include "../../../executor/comparator/basic/integer_comparator.c"
-#include "../../../executor/comparator/basic/part_comparator.c"
-#include "../../../executor/comparator/basic/pointer_comparator.c"
-#include "../../../executor/comparator/basic/unsigned_long_comparator.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/basic/double_calculator.c"
+#include "../../../executor/calculator/basic/fraction_calculator.c"
+#include "../../../executor/calculator/basic/integer_calculator.c"
+#include "../../../executor/calculator/basic/part_calculator.c"
+#include "../../../executor/calculator/basic/pointer_calculator.c"
+#include "../../../executor/calculator/basic/unsigned_long_calculator.c"
 #include "../../../logger/logger.c"
+
+//
+// Forward declarations.
+//
+
+void calculate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 //
 // Models of type "complex" or "fraction" are not
@@ -84,7 +90,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            calculate_item(p0, p1, p2);
+//??            calculate_item(p0, p1, p2);
         }
     }
 

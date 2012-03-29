@@ -26,14 +26,9 @@
 #ifndef PART_CALCULATOR_SOURCE
 #define PART_CALCULATOR_SOURCE
 
-#include "../../../constant/type/operation/operation_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/basic/integer/add_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/divide_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/multiply_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/subtract_integer_calculator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -44,10 +39,9 @@
  *
  * This is DEEP CALCULATION, i.e. all child nodes will be calculated as well.
  *
- * @param p0 the result (left unchanged in case of an error)
- * @param p1 the left value
- * @param p2 the right value
- * @param p3 the operation type
+ * @param p0 the result part, which contains the operands BEFORE the operation
+ * @param p1 the operand part
+ * @param p2 the operation type
  */
 void calculate_part(void* p0, void* p1, void* p2) {
 
@@ -59,7 +53,7 @@ void calculate_part(void* p0, void* p1, void* p2) {
     // This is necessary when processing knowledge tree hierarchies.
     //
 
-    calculate_all_part_model(p0, p1, p2, p3);
+//??    calculate_all_part_all(p0, p1, p2);
 }
 
 /* PART_CALCULATOR_SOURCE */

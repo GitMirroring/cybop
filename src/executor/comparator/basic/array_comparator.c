@@ -46,55 +46,62 @@
  */
 void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array elements.");
 
-        int* c = (int*) p5;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The value comparison result.
+    int vr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array elements.");
+    if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // The loop variable.
-        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The value comparison result.
-        int vr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (j >= *c) {
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p5);
 
-                // All elements have been compared successfully.
-                // The comparison of all element pairs delivered "true".
-                //
-                // CAUTION! The arrays are expected to be EQUAL, even if
-                // the count is zero. This is important, because the PROPERTIES
-                // (meta properties) of many otherwise equal models are empty.
-                copy_integer(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                break;
-            }
+            // All elements have been compared successfully.
+            // The comparison of all element pairs delivered "true".
+            //
+            // CAUTION! The arrays are expected to be EQUAL, even if
+            // the count is zero. This is important, because the PROPERTIES
+            // (meta properties) of many otherwise equal models are empty.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            // Reset value comparison result.
-            vr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            // CAUTION! This function does not change the result flag, if unequal.
-            // Therefore, the result flag ALWAYS has to be initialised with zero before!
-            compare_value_offset((void*) &vr, p1, p2, p3, p4, (void*) &j);
-
-            if (vr == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // Stop comparison if two elements do not match the
-                // criteria, i.e. the comparison delivered "false".
-                // Because then, the comparison of the two arrays is "false".
-                // The final comparison result r is left as is,
-                // since it was not touched.
-                break;
-            }
-
-            j++;
+            break;
         }
 
-    } else {
+        // Reset value comparison result.
+        vr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array elements. The count is null.");
+        // CAUTION! This function does not change the result flag, if unequal.
+        // Therefore, the result flag ALWAYS has to be initialised with FALSE before!
+        compare_value_offset((void*) &vr, p1, p2, p3, p4, (void*) &j);
+
+        if (vr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Stop comparison if two elements do not match the
+            // criteria, i.e. the comparison delivered "false".
+            // Because then, the comparison of the two arrays is "false".
+            // The final comparison result r is left as is,
+            // since it was not touched.
+            break;
+        }
+
+        j++;
     }
 }
 

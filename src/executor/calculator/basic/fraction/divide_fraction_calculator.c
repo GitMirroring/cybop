@@ -29,6 +29,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/calculator/basic/fraction/reduce_fraction_calculator.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -59,7 +60,7 @@ void calculate_fraction_divide(void* p0, void* p1) {
     calculate_integer_multiply(dn, sd);
     calculate_integer_multiply(dd, sn);
 
-    reduce_fraction(p0);
+    calculate_fraction_reduce(p0);
 }
 
 /* DIVIDE_FRACTION_CALCULATOR_SOURCE */

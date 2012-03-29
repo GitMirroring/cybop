@@ -29,6 +29,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/calculator/basic/fraction/reduce_fraction_calculator.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -66,10 +67,10 @@ void calculate_fraction_add(void* p0, void* p1) {
     calculate_integer_multiply((void*) &tsn, dd);
 
     // Add numerators and multiply denominators.
-    calculate_integer_add(*dn, *tsn);
-    calculate_integer_multiply(*dd, *sd);
+    calculate_integer_add(dn, (void*) &tsn);
+    calculate_integer_multiply(dd, sd);
 
-    reduce_fraction(p0);
+    calculate_fraction_reduce(p0);
 }
 
 /* ADD_FRACTION_CALCULATOR_SOURCE */

@@ -31,7 +31,7 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/basic/value_comparator.c"
+#include "../../../executor/calculator/basic/value_calculator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -45,30 +45,37 @@
  */
 void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array elements.");
 
-        int* c = (int*) p4;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array elements.");
+    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // The loop variable.
-        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (j >= *c) {
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
 
-                break;
-            }
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            calculate_value_offset(p0, p1, p2, p3, (void*) &j);
-
-            j++;
+            break;
         }
 
-    } else {
+        calculate_value_offset(p0, p1, p2, p3, (void*) &j);
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array elements. The count is null.");
+        j++;
     }
 }
 

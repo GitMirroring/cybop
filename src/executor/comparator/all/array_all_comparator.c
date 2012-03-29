@@ -51,15 +51,20 @@ void compare_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare all array.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer((void*) &r, p5, p6, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
+    // CAUTION! The sizes do NOT have to be identical,
+    // since they just represent allocated memory.
+    // Only the count (actual number of elements) is of interest.
 
-    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    // Compare if integer vectors have the same length.
+    compare_integer_equal((void*) &r, p5, p6);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // CAUTION! Both, the left- or the right array count may be
         // handed over alternatively as count parametre, since they are equal.
-        compare_array(p0, p1, p2, p3, p4, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_array(p0, p1, p2, p3, p4, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     } else {
 

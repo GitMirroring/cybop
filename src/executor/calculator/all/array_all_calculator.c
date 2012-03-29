@@ -49,6 +49,10 @@ void calculate_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    // CAUTION! The sizes do NOT have to be identical,
+    // since they just represent allocated memory.
+    // Only the count (actual number of elements) is of interest.
+
     // Compare if integer vectors have the same length.
     compare_integer_equal((void*) &r, p4, p5);
 

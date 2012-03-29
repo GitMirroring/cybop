@@ -100,7 +100,7 @@ void calculate_all_part(void* p0, void* p1, void* p2, void* p3) {
  * @param p2 the operation type
  */
 /*?? TODO: not sure if this function is needed at all?
-void calculate_all_part_model(void* p0, void* p1, void* p2) {
+void calculate_all_part_all(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

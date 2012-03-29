@@ -26,14 +26,15 @@
 #ifndef FRACTION_CALCULATOR_SOURCE
 #define FRACTION_CALCULATOR_SOURCE
 
-#include "../../../constant/type/operation/operation_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/basic/integer/add_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/divide_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/multiply_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/subtract_integer_calculator.c"
+#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../executor/calculator/basic/fraction/add_fraction_calculator.c"
+#include "../../../executor/calculator/basic/fraction/divide_fraction_calculator.c"
+#include "../../../executor/calculator/basic/fraction/multiply_fraction_calculator.c"
+#include "../../../executor/calculator/basic/fraction/reduce_fraction_calculator.c"
+#include "../../../executor/calculator/basic/fraction/subtract_fraction_calculator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -106,11 +107,11 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) REDUCE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) REDUCE_CALCULATE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            calculate_fraction_reduce(p0, p1);
+            calculate_fraction_reduce(p0);
         }
     }
 
