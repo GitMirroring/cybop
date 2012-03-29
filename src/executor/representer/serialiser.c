@@ -147,6 +147,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // meta
     //
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p5, (void*) CHANNEL_META_STATE_CYBOI_TYPE);
@@ -176,6 +177,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             serialise_cybol_type(p0, p1);
         }
     }
+*/
 
     //
     // number

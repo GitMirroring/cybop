@@ -184,7 +184,7 @@ void apply_send(void* p0, void* p1, void* p2) {
     //
 
     // The destination channel.
-    int dc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+//??    int dc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The destination encoding.
     int de = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The destination type cybol form.
@@ -195,7 +195,7 @@ void apply_send(void* p0, void* p1, void* p2) {
     int dt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Decode cybol source channel into cyboi destination channel.
-    deserialise_cybol_channel((void*) &dc, cmd, cmc);
+//??    deserialise_cybol_channel((void*) &dc, cmd, cmc);
     // Decode cybol source encoding into cyboi destination encoding.
     deserialise_cybol_encoding((void*) &de, emd, emc);
     // Decode cybol source type into cybol cyboi destination type.
@@ -207,8 +207,12 @@ void apply_send(void* p0, void* p1, void* p2) {
     // Therefore, the type has to be converted here.
     deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
 
+fwprintf(stdout, L"TEST cmd: %i\n", cmd);
+fwprintf(stdout, L"TEST *cmd: %i\n", *((int*) cmd));
+
     // Send data.
-    send_data(rm, mmd, mmc, mpd, mpc, (void*) &dt, (void*) &de, p2, m, clmd, nlmd, (void*) &dc);
+//??    send_data(rm, mmd, mmc, mpd, mpc, (void*) &dt, (void*) &de, p2, m, clmd, nlmd, (void*) &dc);
+    send_data(rm, mmd, mmc, mpd, mpc, (void*) &dt, (void*) &de, p2, m, clmd, nlmd, cmd);
 }
 
 /* SEND_SOURCE */

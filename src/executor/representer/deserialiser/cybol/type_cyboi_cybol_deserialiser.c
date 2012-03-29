@@ -104,7 +104,8 @@ void deserialise_cybol_cyboi_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) CHANNEL_META_STATE_CYBOI_TYPE);
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+//??            copy_integer(p0, (void*) CHANNEL_META_STATE_CYBOI_TYPE);
         }
     }
 
@@ -114,7 +115,8 @@ void deserialise_cybol_cyboi_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) ENCODING_META_STATE_CYBOI_TYPE);
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+//??            copy_integer(p0, (void*) ENCODING_META_STATE_CYBOI_TYPE);
         }
     }
 
@@ -124,7 +126,8 @@ void deserialise_cybol_cyboi_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) TYPE_META_STATE_CYBOI_TYPE);
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+//??            copy_integer(p0, (void*) TYPE_META_STATE_CYBOI_TYPE);
         }
     }
 
