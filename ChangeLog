@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-03-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug calculation functions
+        * Introduce new constants for meta data "channel", "encoding", "type"
+            (to be used as properties in cybol) and adapt source code
+
 2012-03-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue "apply_calculate" function

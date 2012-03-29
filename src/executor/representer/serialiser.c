@@ -144,6 +144,40 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     }
 
     //
+    // meta
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) CHANNEL_META_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            serialise_cybol_channel(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) ENCODING_META_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            serialise_cybol_encoding(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) TYPE_META_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_type(p0, p1);
+        }
+    }
+
+    //
     // number
     //
 
@@ -232,16 +266,6 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_model_diagram(p0, p1, p2, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) TYPE_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_type(p0, p1);
         }
     }
 

@@ -1,4 +1,5 @@
 <model>
+<!--
     <part name="create_result" channel="inline" encoding="utf-8" type="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="result"/>
         <property name="type" channel="inline" encoding="utf-8" type="text/type" model="number/integer"/>
@@ -10,11 +11,16 @@
         <property name="right" channel="inline" encoding="utf-8" type="number/integer" model="2"/>
         <property name="type" channel="inline" encoding="utf-8" type="text/type" model="number/integer"/>
     </part>
+-->
     <part name="print_result" channel="inline" encoding="utf-8" type="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" type="text/plain" model="utf-8"/>
-        <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+        <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="number/integer"/>
+<!--
+        <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="text/plain"/>
         <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
+-->
+        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="3"/>
         <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" encoding="utf-8" type="live/exit" model=""/>

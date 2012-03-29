@@ -201,6 +201,45 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     }
 
     //
+    // meta
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) CHANNEL_META_STATE_CYBOL_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_cybol_channel(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) ENCODING_META_STATE_CYBOL_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_cybol_encoding(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) TYPE_META_STATE_CYBOL_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! Decode cybol- into cybol cyboi type.
+            // This should be sufficient for sending and receiving messages.
+            // If the type is needed to allocate memory,
+            // then ONE MORE conversion has to be done,
+            // using the "deserialise_cybol_cyboi_type" function.
+            deserialise_cybol_type(p0, p2, p3);
+        }
+    }
+
+    //
     // number
     //
 
@@ -349,20 +388,27 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
+/*?? TODO:
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TYPE_TEXT_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_CYBOL_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Decode cybol- into cybol cyboi type.
-            // This should be sufficient for sending and receiving messages.
-            // If the type is needed to allocate memory,
-            // then ONE MORE conversion has to be done,
-            // using the "deserialise_cybol_cyboi_type" function.
-            deserialise_cybol_type(p0, p2, p3);
+            deserialise_terminal_background(p0, p2, p3);
         }
     }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_CYBOL_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_terminal_foreground(p0, p2, p3);
+        }
+    }
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -385,28 +431,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
             deserialise_xdt(p0, p1, p2, p3);
         }
     }
-
-/*?? TODO:
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_CYBOL_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_terminal_background(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_CYBOL_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_terminal_foreground(p0, p2, p3);
-        }
-    }
-*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

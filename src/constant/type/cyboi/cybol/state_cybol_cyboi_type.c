@@ -216,18 +216,31 @@ static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_CYBOI_TYPE = NUMBER_322_INTEGER_ST
 static int* NEWS_MESSAGE_STATE_CYBOL_CYBOI_TYPE = NUMBER_323_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// meta
+//
+
+/** The channel meta state cybol cyboi type. */
+static int* CHANNEL_META_STATE_CYBOL_CYBOI_TYPE = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The encoding meta state cybol cyboi type. */
+static int* ENCODING_META_STATE_CYBOL_CYBOI_TYPE = NUMBER_331_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The type meta state cybol cyboi type. */
+static int* TYPE_META_STATE_CYBOL_CYBOI_TYPE = NUMBER_332_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // model
 //
 
 /** The vrml model state cybol cyboi type. */
-static int* VRML_MODEL_STATE_CYBOL_CYBOI_TYPE = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* VRML_MODEL_STATE_CYBOL_CYBOI_TYPE = NUMBER_340_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // multipart
 //
 
 /** The mixed multipart state cybol cyboi type. */
-static int* MIXED_MULTIPART_STATE_CYBOL_CYBOI_TYPE = NUMBER_340_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* MIXED_MULTIPART_STATE_CYBOL_CYBOI_TYPE = NUMBER_345_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // number
@@ -292,9 +305,6 @@ static int* MODEL_DIAGRAM_TEXT_STATE_CYBOL_CYBOI_TYPE = NUMBER_427_INTEGER_STATE
 
 /** The plain text state cybol cyboi type. */
 static int* PLAIN_TEXT_STATE_CYBOL_CYBOI_TYPE = NUMBER_428_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The type text state cybol cyboi type. */
-static int* TYPE_TEXT_STATE_CYBOL_CYBOI_TYPE = NUMBER_429_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The uri text state cybol cyboi type. */
 static int* URI_TEXT_STATE_CYBOL_CYBOI_TYPE = NUMBER_430_INTEGER_STATE_CYBOI_MODEL_ARRAY;

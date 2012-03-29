@@ -149,16 +149,6 @@ static wchar_t* PLAIN_TEXT_STATE_CYBOL_TYPE = PLAIN_TEXT_STATE_CYBOL_TYPE_ARRAY;
 static int* PLAIN_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/type cybol type.
- *
- * This constant is necessary to translate cybol- into cyboi
- * runtime types, because both are not always identical.
- */
-static wchar_t TYPE_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L't', L'y', L'p', L'e'};
-static wchar_t* TYPE_TEXT_STATE_CYBOL_TYPE = TYPE_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* TYPE_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The text/uri cybol type.
  *
  * CYBOL (XML) format.

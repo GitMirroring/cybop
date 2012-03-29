@@ -59,6 +59,7 @@
 #include "../../../../constant/type/cybol/state/logicvalue_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/media_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/message_state_cybol_type.c"
+#include "../../../../constant/type/cybol/state/meta_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/model_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/multipart_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/number_state_cybol_type.c"
@@ -126,6 +127,40 @@ void deserialise_cybol_type(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOL_CYBOI_TYPE);
+        }
+    }
+
+    //
+    // meta
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) CHANNEL_META_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CHANNEL_META_STATE_CYBOL_TYPE_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) CHANNEL_META_STATE_CYBOL_CYBOI_TYPE);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) ENCODING_META_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ENCODING_META_STATE_CYBOL_TYPE_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) ENCODING_META_STATE_CYBOL_CYBOI_TYPE);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) TYPE_META_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TYPE_META_STATE_CYBOL_TYPE_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) TYPE_META_STATE_CYBOL_CYBOI_TYPE);
         }
     }
 
@@ -238,16 +273,6 @@ void deserialise_cybol_type(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOL_CYBOI_TYPE);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p1, (void*) TYPE_TEXT_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TYPE_TEXT_STATE_CYBOL_TYPE_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) TYPE_TEXT_STATE_CYBOL_CYBOI_TYPE);
         }
     }
 
