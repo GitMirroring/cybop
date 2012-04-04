@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new part meta data "channel", "encoding", "abstraction", in order to
+            avoid repeated deserialisation of properties at runtime, e.g. in "send" operation
+
 2012-03-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug calculation functions

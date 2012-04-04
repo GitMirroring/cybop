@@ -9,7 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: "send.c"; How to use: channel, encoding, type meta data? extra *_CYBOI_TYPE constant necessary or not?
+        * CONTINUE WITH: "content_node_cybol_deserialiser.c"; deserialise additional part meta data
+        * CONTINUE WITH: "send.c"; Eliminate deserialisation of: channel, encoding, type meta data? extra *_CYBOI_TYPE constant necessary or not?
         * CONTINUE WITH: "calculate.c"; How to change binary into unary operation (result used as one of two operands)?
             Consider that operations may be applied to many elements of an array in a loop!
 

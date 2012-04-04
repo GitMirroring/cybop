@@ -83,6 +83,11 @@ void deserialise_cybol_type(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol type.");
 
+    // CAUTION! Do NOT use the "append" function here!
+    // The type of each part has been given a size of ONE,
+    // so that reallocation is not necessary for adding an element.
+    // Therefore, the "overwrite" function has to be used instead.
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

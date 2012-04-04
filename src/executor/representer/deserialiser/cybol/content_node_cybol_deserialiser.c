@@ -131,39 +131,8 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
     copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smmc, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    //
-    // Convert some cybol source data (strings) into cyboi destination data (integer).
-    //
-
-    // The destination channel.
-    int dc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The destination encoding.
-    int de = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The destination type cybol form.
-    // CAUTION! This is a cyboi integer representing a cybol mime type.
-    int dtc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The destination type.
-    // CAUTION! It is needed e.g. to retrieve the type of the part to be created.
-    // Otherwise, it would not be known which part model to create.
-    // CAUTION! The source type CANNOT be converted directly into the part's type,
-    // because the part model has not been allocated yet when reading
-    // the type for the first time.
-    int dt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The root flag.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Decode cybol source channel into cyboi destination channel.
-    deserialise_cybol_channel((void*) &dc, scmd, scmc);
-    // Decode cybol source encoding into cyboi destination encoding.
-    deserialise_cybol_encoding((void*) &de, semd, semc);
-    // Decode cybol source type into cybol cyboi destination type.
-    deserialise_cybol_type((void*) &dtc, stmd, stmc);
-    // Decode cybol cyboi destination type into cyboi destination type.
-    // CAUTION! A cybol type is of type "wchar_t"; a cyboi-internal type of type "int".
-    // Both are not always equal in their meaning.
-    // For example, an "xdt" file is converted into a cyboi "part".
-    // Therefore, the type has to be converted here.
-    deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
 
     // CAUTION! This test is IMPORTANT!
     // If a source type attribute is NOT given, then this
@@ -195,15 +164,38 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part name, type, model, properties.
+    // The part name, channel, encoding, type, abstraction, model, properties.
     void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pe = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pa = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // This is a standard node.
+
+//?? TODO: Determine type above at FIRST; create local item for this since overwrite/ append are used inside conversion!
+//?? Only then creating the part is possible.
+//?? Do extract the single model items from new part.
+//?? Fill items using the following deserialise functions:
+
+/*??
+    // Decode cybol source channel into cyboi destination channel.
+    deserialise_cybol_channel((void*) &dc, scmd, scmc);
+    // Decode cybol source encoding into cyboi destination encoding.
+    deserialise_cybol_encoding((void*) &de, semd, semc);
+    // Decode cybol source type into cybol cyboi destination type.
+    deserialise_cybol_type((void*) &dtc, stmd, stmc);
+    // Decode cybol cyboi destination type into cyboi destination type.
+    // CAUTION! A cybol type is of type "wchar_t"; a cyboi-internal type of type "int".
+    // Both are not always equal in their meaning.
+    // For example, an "xdt" file is converted into a cyboi "part".
+    // Therefore, the type has to be converted here.
+    deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
+*/
 
         // Allocate part.
         // CAUTION! Use the CYBOI destination type determined above
@@ -215,17 +207,26 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &pe, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENCODING_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &pa, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ABSTRACTION_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
         // Fill part name.
         overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Fill part channel.
+//?? DELETE        overwrite_item_element(pc, (void*) &scmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Fill part encoding.
+//?? DELETE        overwrite_item_element(pe, (void*) &semd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Fill part type.
+        overwrite_item_element(pt, (void*) &stmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Fill part abstraction.
         // CAUTION! Use the CYBOI destination type determined above
         // (and NOT the CYBOL cyboi destination type)!
         // CAUTION! Do NOT use a simple "copy" function here, since this is an item.
-        overwrite_item_element(pt, (void*) &dt, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        overwrite_item_element(pa, (void*) &dt, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Fill part model taken from cybol source part properties.
         // CAUTION! What is the properties in a parsed xml/cybol file,
         // becomes the model in the cyboi-internal knowledge tree.
