@@ -2,14 +2,14 @@
     <part name="print" channel="inline" encoding="utf-8" type="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" type="text/plain" model="utf-8"/>
-<!--
-        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="terminal"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="text/plain"/>
--->
         <property name="type" channel="inline" encoding="utf-8" type="text/plain" model="text/plain"/>
         <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="Hello, World!"/>
         <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
         <property name="clean" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+<!--
+        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="terminal"/>
+        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="text/plain"/>
+-->
     </part>
     <part name="shutdown" channel="inline" encoding="utf-8" type="live/exit" model=""/>
 </model>
