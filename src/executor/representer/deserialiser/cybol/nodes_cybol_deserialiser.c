@@ -45,8 +45,10 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
+ * @param p3 the temporary type item
+ * @param p4 the temporary format item
  */
-void deserialise_cybol_nodes(void* p0, void* p1, void* p2) {
+void deserialise_cybol_nodes(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -74,7 +76,7 @@ void deserialise_cybol_nodes(void* p0, void* p1, void* p2) {
             break;
         }
 
-        deserialise_cybol_node(p0, p1, (void*) &j);
+        deserialise_cybol_node(p0, p1, (void*) &j, p3, p4);
 
         // Increment loop variable.
         j++;

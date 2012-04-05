@@ -9,7 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: "content_node_cybol_deserialiser.c"; deserialise additional part meta data
+        * CONTINUE WITH: adapt constants to new "_FORMAT_TYPE" used in cybol deserialisation
+        * Optimise function "deserialise_cybol_node_content" at bottom (move call "append_item_element" to end of first "if" above; delete second "if" at bottom)?
         * CONTINUE WITH: "send.c"; Eliminate deserialisation of: channel, encoding, type meta data? extra *_CYBOI_TYPE constant necessary or not?
         * CONTINUE WITH: "calculate.c"; How to change binary into unary operation (result used as one of two operands)?
             Consider that operations may be applied to many elements of an array in a loop!

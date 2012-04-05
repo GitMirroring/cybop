@@ -40,11 +40,11 @@ static int* CHANNEL_PART_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_A
 /** The encoding part state cyboi name. */
 static int* ENCODING_PART_STATE_CYBOI_NAME = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The type part state cyboi name. */
-static int* TYPE_PART_STATE_CYBOI_NAME = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The format part state cyboi name. */
+static int* FORMAT_PART_STATE_CYBOI_NAME = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The abstraction part state cyboi name. */
-static int* ABSTRACTION_PART_STATE_CYBOI_NAME = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The type part state cyboi name. */
+static int* TYPE_PART_STATE_CYBOI_NAME = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The model part state cyboi name. */
 static int* MODEL_PART_STATE_CYBOI_NAME = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;

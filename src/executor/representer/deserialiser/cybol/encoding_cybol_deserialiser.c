@@ -43,7 +43,7 @@
 /**
  * Deserialises the cybol encoding into a cyboi encoding.
  *
- * @param p0 the destination data
+ * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  */
@@ -55,6 +55,11 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
     // The encoding of each part has been given a size of ONE,
     // so that reallocation is not necessary for adding an element.
     // Therefore, the "overwrite" function has to be used instead.
+    //
+    // CAUTION! The "true" flag has to be set for the "overwrite" function
+    // since an encoding may be handed over not only as cybol attribute
+    // (for which a default size of one has been set when allocating a part),
+    // but also as cybol model (which gets assigned a default size of zero).
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -65,7 +70,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) UTF_8_CYBOI_ENCODING);
+            overwrite_item_element(p0, (void*) UTF_8_CYBOI_ENCODING, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
