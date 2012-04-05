@@ -85,7 +85,7 @@ void initialise(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &mc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Receive startup signal model, properties.
-    receive_file(sm, sp, md, mc, (void*) CYBOL_TEXT_STATE_CYBOL_CYBOI_TYPE, (void*) UTF_8_CYBOI_ENCODING);
+    receive_file(sm, sp, md, mc, (void*) CYBOL_TEXT_STATE_FORMAT_TYPE, (void*) UTF_8_CYBOI_ENCODING);
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add startup signal to signal memory.");

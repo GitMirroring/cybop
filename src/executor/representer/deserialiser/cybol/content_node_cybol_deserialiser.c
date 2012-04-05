@@ -35,8 +35,8 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/encoding_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/nodes_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/type_cyboi_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/modifier/name_getter/array_name_getter.c"
@@ -211,8 +211,8 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pe = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* pa = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The part channel, encoding data.

@@ -28,8 +28,8 @@
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/cybol/logic_cybol_cyboi_type.c"
-#include "../../constant/type/cyboi/cybol/state_cybol_cyboi_type.c"
+#include "../../constant/type/format/logic_format_type.c"
+#include "../../constant/type/format/state_format_type.c"
 #include "../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/boolean_cybol_deserialiser.c"
@@ -107,7 +107,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) HH_MM_SS_DATETIME_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) HH_MM_SS_DATETIME_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -118,7 +118,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) YYYY_MM_DD_DATETIME_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -132,7 +132,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) BOOLEAN_LOGICVALUE_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -146,7 +146,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) HTTP_REQUEST_MESSAGE_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -158,7 +158,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) HTTP_RESPONSE_MESSAGE_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -215,7 +215,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) CHANNEL_META_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) CHANNEL_META_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -225,7 +225,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) ENCODING_META_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) ENCODING_META_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -235,16 +235,48 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TYPE_META_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) FORMAT_META_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Decode cybol- into cybol cyboi type.
-            // This should be sufficient for sending and receiving messages.
-            // If the type is needed to allocate memory,
-            // then ONE MORE conversion has to be done,
-            // using the "deserialise_cybol_cyboi_type" function.
-            deserialise_cybol_type(p0, p2, p3);
+            // Decode cybol source format (mime type as string) into cyboi-internal type (an integer).
+            deserialise_cybol_format(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) TYPE_META_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The temporary format item.
+            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The temporary format item data.
+            void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Allocate temporary format item.
+            // CAUTION! Initialise integer items with a size of ONE,
+            // in order to avoid later reallocation when overwriting
+            // the element and to thus increase efficiency.
+            allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+            // Decode cybol source format (mime type as string) into cyboi-internal type (an integer).
+            deserialise_cybol_format(f, p2, p3);
+            // Get temporary format item data.
+            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+            // Inside the structure, arrays may have been reallocated,
+            // with elements pointing to different memory areas now.
+            copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            // Decode cyboi-internal type into cyboi runtime type.
+            // CAUTION! Both are not always equal in their meaning.
+            // For example, an "xdt" file is converted into a cyboi "part".
+            // Therefore, a runtime type has to be figured out here.
+            // The latter is needed for allocating the new part.
+            deserialise_cybol_type(p0, fd);
+
+            // Deallocate temporary format item.
+            deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         }
     }
 
@@ -254,7 +286,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -265,7 +297,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -277,7 +309,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) FRACTION_VULGAR_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -288,7 +320,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) INTEGER_NUMBER_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) INTEGER_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -302,7 +334,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) ENCAPSULATED_PATH_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) ENCAPSULATED_PATH_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -312,7 +344,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) KNOWLEDGE_PATH_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) KNOWLEDGE_PATH_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -326,7 +358,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) AUTHORITY_TEXT_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) AUTHORITY_TEXT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -336,7 +368,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) CYBOL_TEXT_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) CYBOL_TEXT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -388,7 +420,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) HTML_TEXT_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) HTML_TEXT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -398,7 +430,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) PLAIN_TEXT_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) PLAIN_TEXT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -409,7 +441,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 /*?? TODO:
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -419,7 +451,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -430,7 +462,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) URI_TEXT_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) URI_TEXT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -442,7 +474,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) XDT_TEXT_STATE_CYBOL_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) XDT_TEXT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -104,13 +104,10 @@ void apply_send(void* p0, void* p1, void* p2) {
 
     // The channel part model data, count.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* cmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part model data, count.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model data, count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model, properties data, count.
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -162,13 +159,10 @@ void apply_send(void* p0, void* p1, void* p2) {
 
     // Get channel part model data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-//??    copy_array_forward((void*) &cmc, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get encoding part model data.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-//??    copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get type part model data.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-//??    copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get message part model, properties data, count.
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -179,41 +173,6 @@ void apply_send(void* p0, void* p1, void* p2) {
     // Get new line part model data.
     copy_array_forward((void*) &nlmd, nlm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-/*??
-    //
-    // Convert some cybol source data (strings) into cyboi destination data (integer).
-    //
-
-    // The destination channel.
-    int dc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The destination encoding.
-    int de = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The destination type cybol form.
-    // CAUTION! This is a cyboi integer representing a cybol mime type.
-    int dtc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The destination type cyboi form.
-    // CAUTION! This is a cyboi integer representing a cyboi-internal type.
-    int dt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-    // Decode cybol source channel into cyboi destination channel.
-//??    deserialise_cybol_channel((void*) &dc, cmd, cmc);
-    // Decode cybol source encoding into cyboi destination encoding.
-    deserialise_cybol_encoding((void*) &de, emd, emc);
-    // Decode cybol source type into cybol cyboi destination type.
-    deserialise_cybol_type((void*) &dtc, tmd, tmc);
-    // Decode cybol cyboi destination type into cyboi destination type.
-    // CAUTION! A cybol type is of type "wchar_t"; a cyboi-internal type of type "int".
-    // Both are not always equal in their meaning.
-    // For example, an "xdt" file is converted into a cyboi "part".
-    // Therefore, the type has to be converted here.
-    deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
-
-fwprintf(stdout, L"TEST cmd: %i\n", cmd);
-fwprintf(stdout, L"TEST *cmd: %i\n", *((int*) cmd));
-*/
-
-    // Send data.
-//??    send_data(rm, mmd, mmc, mpd, mpc, (void*) &dt, (void*) &de, p2, m, clmd, nlmd, (void*) &dc);
     send_data(rm, mmd, mmc, mpd, mpc, tmd, emd, p2, m, clmd, nlmd, cmd);
 }
 

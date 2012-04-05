@@ -111,28 +111,11 @@ void apply_create(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get type part model data, count.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get element part model data, count.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // The destination type cybol form.
-    // CAUTION! This is a cyboi integer representing a cybol mime type.
-    int dtc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The destination type cyboi form.
-    // CAUTION! This is a cyboi integer representing a cyboi-internal type.
-    int dt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-    // Decode cybol source type into cybol cyboi destination type.
-    deserialise_cybol_type((void*) &dtc, tmd, tmc);
-    // Decode cybol cyboi destination type into cyboi destination type.
-    // CAUTION! A cybol type is of type "wchar_t"; a cyboi-internal type of type "int".
-    // Both are not always equal in their meaning.
-    // For example, an "xdt" file is converted into a cyboi "part".
-    // Therefore, the type has to be converted here.
-    deserialise_cybol_cyboi_type((void*) &dt, (void*) &dtc);
-
-    create(w, p2, nmd, nmc, (void*) &dt, emd, emc);
+    create(w, p2, nmd, nmc, tmd, emd, emc);
 }
 
 /* CREATE_SOURCE */
