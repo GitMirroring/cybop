@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt module "content_node_cybol_deserialiser.c" to new part meta data
+            and use externally allocated item for type deserialisation
+
 2012-04-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new part meta data "channel", "encoding", "abstraction", in order to
