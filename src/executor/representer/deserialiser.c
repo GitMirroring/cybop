@@ -32,6 +32,7 @@
 #include "../../constant/type/format/state_format_type.c"
 #include "../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../executor/representer/deserialiser/authority/authority_deserialiser.c"
+#include "../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/boolean_cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/complex_cybol_deserialiser.c"
@@ -39,7 +40,6 @@
 #include "../../executor/representer/deserialiser/cybol/date_time_cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/double_vector_cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
-#include "../../executor/representer/deserialiser/cybol/integer_vector_cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/html/html_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_request/http_request_deserialiser.c"
@@ -51,7 +51,7 @@
 
 //?? TEMPORARY FOR TESTING! DELETE LATER!
 #include "../../tester/data_as_model_diagram_tester.c"
-#include "../../tester/items_as_model_diagram_tester.c"
+#include "../../tester/item_as_model_diagram_tester.c"
 
 //
 // Sometimes, a cybol model represents a type, e.g. when creating a part.
@@ -152,7 +152,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             deserialise_http_request(p0, p1, p2, p3);
 
-            test_items_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_REQUEST.txt", p0, p1);
+            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_REQUEST.txt", p0, p1);
         }
     }
 
@@ -185,7 +185,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Decode source message into temporary model, properties item.
             deserialise_xml(m, p, p2, p3);
 
-            test_items_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", m, p);
+            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", m, p);
 
             // Get temporary model, properties item data, count.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -205,7 +205,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
             deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
             deallocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-//??            test_items_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", m, p);
+//??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", m, p);
         }
     }
 
@@ -324,7 +324,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            deserialise_cybol_integer_vector(p0, p2, p3);
+            deserialise_cybol_integer(p0, p2, p3);
         }
     }
 
@@ -410,6 +410,8 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
             deserialise_cybol_node_content(p0, md, mc, pd, pc, t, f);
 
+            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL.txt", p0, p1);
+
             // Deallocate temporary format, type, model, properties item.
             deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
@@ -468,7 +470,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             deserialise_uri(p0, p1, p2, p3);
 
-            test_items_as_model_diagram((void*) L"TEST_DESERIALISE_URI.txt", p0, p1);
+            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_URI.txt", p0, p1);
         }
     }
 

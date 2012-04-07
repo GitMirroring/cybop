@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt integer deserialisation to usage of destination item
+
 2012-04-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt module "content_node_cybol_deserialiser.c" to using externally allocated item for type deserialisation

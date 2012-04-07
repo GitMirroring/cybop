@@ -37,11 +37,11 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Serialises the integer values into comma-separated wide character values.
+ * Serialises the integer values into comma-separated wide character data.
  *
  * @param p0 the destination item
- * @param p1 the source integer data
- * @param p2 the source integer count
+ * @param p1 the source data
+ * @param p2 the source count
  */
 void serialise_cybol_integer(void* p0, void* p1, void* p2) {
 

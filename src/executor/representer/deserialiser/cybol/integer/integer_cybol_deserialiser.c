@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INTEGER_VECTOR_DESERIALISER_SOURCE
-#define INTEGER_VECTOR_DESERIALISER_SOURCE
+#ifndef INTEGER_CYBOL_DESERIALISER_SOURCE
+#define INTEGER_CYBOL_DESERIALISER_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -35,31 +35,27 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../../executor/representer/deserialiser/cybol/integer_cybol_deserialiser.c"
-#include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
+#include "../../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
+#include "../../../../../logger/logger.c"
+#include "../../../../../variable/type_size/integral_type_size.c"
 
 /**
- * Deserialises the wide character data into an integer vector.
+ * Deserialises the comma-separated wide character data into integer values.
  *
- * CAUTION! Do not mix up "integer" and "integer_vector"!
- * The latter is an array storing one or many integer numbers at different indexes.
- *
- * @param p0 the destination data (pointer reference)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source data
- * @param p4 the source count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_integer(void* p0, void* p1, void* p2) {
 
+/*??
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* sc = (int*) p4;
@@ -83,7 +79,6 @@ void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2, void* p3, vo
                     // that actually does not belong to the array.
                     if (*sc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-/*??
                         // The comma index.
                         int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
                         // The first element count.
@@ -147,7 +142,6 @@ void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2, void* p3, vo
                             // Recursively call this function.
                             deserialise_cybol_integer_vector(p0, p1, p2, e, (void*) &ec);
                         }
-*/
 
                     } else {
 
@@ -173,7 +167,8 @@ void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2, void* p3, vo
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise integer vector. The source count is null.");
     }
+*/
 }
 
-/* INTEGER_VECTOR_DESERIALISER_SOURCE */
+/* INTEGER_CYBOL_DESERIALISER_SOURCE */
 #endif

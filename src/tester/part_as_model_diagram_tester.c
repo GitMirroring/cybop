@@ -27,7 +27,7 @@
 #define PART_AS_MODEL_DIAGRAM_TESTER
 
 #include "../logger/logger.c"
-#include "../tester/items_as_model_diagram_tester.c"
+#include "../tester/item_as_model_diagram_tester.c"
 
 /**
  * Writes the part as model diagram into a file with the given name.
@@ -47,7 +47,7 @@ void test_part_as_model_diagram(void* p0, void* p1) {
     copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-    test_items_as_model_diagram(p0, m, p);
+    test_item_as_model_diagram(p0, m, p);
 }
 
 /* PART_AS_MODEL_DIAGRAM_TESTER */

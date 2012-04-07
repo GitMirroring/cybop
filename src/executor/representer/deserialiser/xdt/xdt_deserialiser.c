@@ -31,12 +31,12 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/xdt/field_xdt_name.c"
-#include "../../../../constant/name/xdt/package_xdt_name.c"
-#include "../../../../constant/name/xdt/record_xdt_name.c"
 #include "../../../../constant/name/cyboi/xdt/field_xdt_cyboi_name.c"
 #include "../../../../constant/name/cyboi/xdt/record_xdt_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/name/xdt/field_xdt_name.c"
+#include "../../../../constant/name/xdt/package_xdt_name.c"
+#include "../../../../constant/name/xdt/record_xdt_name.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/integral_type_size.c"
@@ -168,7 +168,7 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             if (rem >= (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
                                 // Decode xdt field size.
-                                deserialise_integer(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *s, (void*) XDT_FIELD_SIZE_COUNT);
+//??                                deserialise_cybol_integer(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *s, (void*) XDT_FIELD_SIZE_COUNT);
 
                                 // Increment source xdt byte array index.
                                 *s = *s + (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
@@ -178,7 +178,7 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             if (rem >= (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
                                 // Decode xdt field identification.
-                                deserialise_integer(p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *s, (void*) XDT_FIELD_IDENTIFICATION_COUNT);
+//??                                deserialise_cybol_integer(p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *s, (void*) XDT_FIELD_IDENTIFICATION_COUNT);
 
                                 // Increment source xdt byte array index.
                                 *s = *s + (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
@@ -441,7 +441,7 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                                         m = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                                         // Decode xdt record identification.
-                                        deserialise_integer(p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fc, (void*) &fcc);
+//??                                        deserialise_cybol_integer(p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fc, (void*) &fcc);
 
                                     } else {
 
@@ -484,7 +484,7 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
                                     // Decode xdt record size.
                                     //
                                     // CAUTION! Do NOT use the following line:
-                                    // deserialise_integer(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fc, (void*) &fcc);
+                                    // deserialise_cybol_integer(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fc, (void*) &fcc);
                                     //
                                     // This is because the record content size is
                                     // counted using the loop variable j.

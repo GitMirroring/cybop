@@ -9,15 +9,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: cybol addition example which prints "Hello, World!", but not an integer number
-        * "send.c": extra *_CYBOI_TYPE constant necessary or not for meta type?
+        * Adapt file "integer_cybol_deserialiser.c" (file "value_integer_cybol_deserialiser.c" already done)
+        * CONTINUE WITH: cybol "addition" example which prints "Hello, World!", but not an integer number
         * CONTINUE WITH: "calculate.c"; How to change binary into unary operation (result used as one of two operands)?
             Consider that operations may be applied to many elements of an array in a loop!
 
-        * Adapt cybol example applications to new cybol mime types and operations; CONTINUE WITH: addition
+        * Adapt cybol example applications to new cybol mime types and operations
         * Uncomment further operations in file "operation_handler.c"
-
-        * Update ansi escape code serialiser files
+        * Update ansi escape code serialiser files for terminal tui application
 
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
             in file "socket_starter.c" to new model constants

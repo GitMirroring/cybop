@@ -41,21 +41,22 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Serialises the integer value into a wide character value.
+ * Serialises the integer value into wide character data.
  *
  * @param p0 the destination item
- * @param p1 the source integer data
- * @param p2 the source integer index
+ * @param p1 the source data
+ * @param p2 the source index
  */
 void serialise_cybol_integer_value(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol integer value.");
 
     // The value.
-    void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // unsigned long long int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get value from vector at index.
-    copy_array_forward((void*) &v, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward((void*) &v, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     //
     // The temporary array.
@@ -87,10 +88,10 @@ void serialise_cybol_integer_value(void* p0, void* p1, void* p2) {
     // If not all output fits into the provided buffer,
     // a negative value is returned.
 #ifdef CYGWIN_ENVIRONMENT
-    tc = wsprintfW(td, L"%i", *((unsigned long long int*) v));
+    tc = wsprintfW(td, L"%i", v);
 /* CYGWIN_ENVIRONMENT */
 #else
-    tc = swprintf(td, ts, L"%i", *((unsigned long long int*) v));
+    tc = swprintf(td, ts, L"%i", v);
 /* CYGWIN_ENVIRONMENT */
 #endif
 

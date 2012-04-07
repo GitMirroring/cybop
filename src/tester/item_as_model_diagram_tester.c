@@ -23,22 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ITEMS_AS_MODEL_DIAGRAM_TESTER
-#define ITEMS_AS_MODEL_DIAGRAM_TESTER
+#ifndef ITEM_AS_MODEL_DIAGRAM_TESTER
+#define ITEM_AS_MODEL_DIAGRAM_TESTER
 
 #include "../logger/logger.c"
 #include "../tester/data_as_model_diagram_tester.c"
 
 /**
- * Writes the items as model diagram into a file with the given name.
+ * Writes the item as model diagram into a file with the given name.
  *
  * @param p0 the destination file name
  * @param p1 the source model item
  * @param p2 the source properties item
  */
-void test_items_as_model_diagram(void* p0, void* p1, void* p2) {
+void test_item_as_model_diagram(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test items as model diagram.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test item as model diagram.");
 
     // The source model, properties item data, count.
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -58,5 +58,5 @@ void test_items_as_model_diagram(void* p0, void* p1, void* p2) {
     test_data_as_model_diagram(p0, md, mc, pd, pc);
 }
 
-/* ITEMS_AS_MODEL_DIAGRAM_TESTER */
+/* ITEM_AS_MODEL_DIAGRAM_TESTER */
 #endif

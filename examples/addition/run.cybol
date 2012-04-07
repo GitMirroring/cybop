@@ -15,8 +15,12 @@
     <part name="print_result" channel="inline" encoding="utf-8" type="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
+        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
+        <property name="message" channel="inline" encoding="utf-8" type="number/integer" model="3"/>
+<!-- TEST:
         <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="text/plain"/>
         <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="Hello, World!"/>
+-->
 <!-- TODO:
         <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
         <property name="message" channel="inline" encoding="utf-8" type="number/integer" model="3"/>
