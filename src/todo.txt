@@ -9,10 +9,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Adapt file "integer_cybol_deserialiser.c" (file "value_integer_cybol_deserialiser.c" already done)
-        * CONTINUE WITH: cybol "addition" example which prints "Hello, World!", but not an integer number
-        * CONTINUE WITH: "calculate.c"; How to change binary into unary operation (result used as one of two operands)?
-            Consider that operations may be applied to many elements of an array in a loop!
+        * CONTINUE WITH:
+            in cybol example "addition", ".result" is printed as numbers on screen,
+            instead of getting message of type "path/knowledge" correctly; Check this out!
 
         * Adapt cybol example applications to new cybol mime types and operations
         * Uncomment further operations in file "operation_handler.c"

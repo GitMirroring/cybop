@@ -35,25 +35,23 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/cybol/integer/vector_integer_cybol_deserialiser.c"
 #include "../../../../../logger/logger.c"
-#include "../../../../../variable/type_size/integral_type_size.c"
 
 /**
- * Deserialises the comma-separated wide character data into integer values.
+ * Deserialises the wide character data into an integer item.
  *
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  */
 void deserialise_cybol_integer(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol integer.");
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -71,121 +69,7 @@ void deserialise_cybol_integer(void* p0, void* p1, void* p2) {
     // since the parametre that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
-    deserialise_authority_userinfo(p0, (void*) &d, (void*) &c);
-
-/*??
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        int* sc = (int*) p4;
-
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* ds = (int*) p2;
-
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                int* dc = (int*) p1;
-
-                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    void** d = (void**) p0;
-
-                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise integer vector.");
-
-                    // CAUTION! This check is necessary since otherwise,
-                    // the array border gets crossed and a comma might be found
-                    // that actually does not belong to the array.
-                    if (*sc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                        // The comma index.
-                        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-                        // The first element count.
-                        int fec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                        // The integer value.
-                        int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                        // Find comma character index.
-                        get_array_elements_index((void*) &i, p3, p4, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-                        if (i > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                            // Set first element count to comma index only if a comma
-                            // was found at a position greater than the zero index.
-                            fec = i;
-
-                        } else {
-
-                            // Set first element count to source count,
-                            // if no comma was found (i == -1)
-                            // or if the string started with a comma (i == 0).
-                            fec = *sc;
-                        }
-
-                        // The variable fec is in any case greater than zero.
-                        // Either, it is equal to the source count, which was checked
-                        // to be greater than zero above, or it is the comma index,
-                        // in which case it is also greater than zero.
-
-                        // Decode integer.
-                        //
-                        // Example:
-                        // Vector elements: "200,300,400"
-                        // The number 200 character array length is 3.
-                        // Index of first comma: 3
-                        // Handed over as first element source count fec: index i
-                        // (which is 3, as needed for the length)
-                        deserialise_integer((void*) &v, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, (void*) &fec);
-
-                        overwrite_array(p0, (void*) &v, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                        if (i > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                            // If a comma (at a later than the first position) was found,
-                            // then process the remaining integer vector elements.
-
-                            // The next vector element.
-                            //
-                            // Example:
-                            // Character vector elements: "200,300,400"
-                            // The number 200 character array length is 3.
-                            // Index of first comma: 3
-                            // Next vector element starts at index: 4
-                            // (which is the comma index plus 1)
-                            //
-                            // CAUTION! Do ONLY multiply the summand for the element pointer with the type size,
-                            // but NOT the subtrahend for the element count!
-                            void* e = p3 + ((i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                            int ec = *sc - (i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-
-                            // Recursively call this function.
-                            deserialise_cybol_integer_vector(p0, p1, p2, e, (void*) &ec);
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise integer vector. The source count is zero (or smaller).");
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise integer vector. The destination is null.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise integer vector. The destination count is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise integer vector. The destination size is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise integer vector. The source count is null.");
-    }
-*/
+    deserialise_cybol_integer_vector(p0, (void*) &d, (void*) &c);
 }
 
 /* INTEGER_CYBOL_DESERIALISER_SOURCE */

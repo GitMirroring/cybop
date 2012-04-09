@@ -23,31 +23,35 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NUMBER_CYBOL_SELECTOR_SOURCE
-#define NUMBER_CYBOL_SELECTOR_SOURCE
+#ifndef INTEGER_CYBOL_SELECTOR_SOURCE
+#define INTEGER_CYBOL_SELECTOR_SOURCE
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/separator_number_cybol_name.c"
-#include "../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
+
+//
+// Forward declarations.
+//
+
+void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2);
 
 /**
- * Selects the cybol number.
+ * Selects the cybol integer.
  *
  * @param p0 the destination item
  * @param p1 the break flag
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
  */
-void select_cybol_number(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_cybol_integer(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select cybol number.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select cybol integer.");
 
     //
     // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
@@ -62,7 +66,7 @@ void select_cybol_number(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_integer(p0, p2, p3);
+            deserialise_cybol_integer_vector(p0, p2, p3);
 
             // Set break flag.
             copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -75,5 +79,5 @@ void select_cybol_number(void* p0, void* p1, void* p2, void* p3, void* p4) {
     }
 }
 
-/* NUMBER_CYBOL_SELECTOR_SOURCE */
+/* INTEGER_CYBOL_SELECTOR_SOURCE */
 #endif
