@@ -23,16 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef OPERATION_CYBOL_NAME_CONSTANT_SOURCE
-#define OPERATION_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef SEPARATOR_NUMBER_CYBOL_NAME_CONSTANT_SOURCE
+#define SEPARATOR_NUMBER_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
+#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The type operation cybol name. */
-static wchar_t TYPE_OPERATION_CYBOL_NAME_ARRAY[] = {L't', L'y', L'p', L'e'};
-static wchar_t* TYPE_OPERATION_CYBOL_NAME = TYPE_OPERATION_CYBOL_NAME_ARRAY;
-static int* TYPE_OPERATION_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The separator number cybol name. */
+static wchar_t* SEPARATOR_NUMBER_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* SEPARATOR_NUMBER_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
+/* SEPARATOR_NUMBER_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

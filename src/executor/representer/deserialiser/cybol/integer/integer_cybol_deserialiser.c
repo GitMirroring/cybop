@@ -55,6 +55,24 @@
  */
 void deserialise_cybol_integer(void* p0, void* p1, void* p2) {
 
+    // The source data position.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p1);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p2);
+
+    // CAUTION! A copy of source count remaining is forwarded here,
+    // so that the original source value does not get changed.
+    // CAUTION! The source data position does NOT have to be copied,
+    // since the parametre that was handed over is already a copy.
+    // A local copy was made anyway, not to risk parametre falsification.
+    // Its reference is forwarded, as it gets incremented by sub routines inside.
+    deserialise_authority_userinfo(p0, (void*) &d, (void*) &c);
+
 /*??
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
