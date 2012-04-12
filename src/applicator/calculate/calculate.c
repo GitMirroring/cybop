@@ -91,9 +91,10 @@
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
- * @param p2 the operation type
+ * @param p2 the knowledge memory part
+ * @param p3 the operation type
  */
-void apply_calculate(void* p0, void* p1, void* p2) {
+void apply_calculate(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
 
@@ -120,6 +121,7 @@ void apply_calculate(void* p0, void* p1, void* p2) {
     get_name_array((void*) &r, p0, (void*) OPERAND_2_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) OPERAND_2_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
     // Get operand type part.
     get_name_array((void*) &t, p0, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
+//??    get_part_knowledge((void*) &t, TODO: source_part instead of p0, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, TODO: DELETE?? p2);
 
     // Get operand type part model.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -130,8 +132,8 @@ void apply_calculate(void* p0, void* p1, void* p2) {
     // Calculate result by applying operation.
     // The left operands are added first.
     // Then the right operands.
-    calculate_all_part(res, l, p2, tmd);
-    calculate_all_part(res, r, p2, tmd);
+    calculate_all_part(res, l, p3, tmd);
+    calculate_all_part(res, r, p3, tmd);
 }
 
 /* CALCULATE_SOURCE */

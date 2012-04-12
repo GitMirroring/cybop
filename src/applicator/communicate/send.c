@@ -57,9 +57,10 @@
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
- * @param p2 the internal memory array
+ * @param p2 the knowledge memory part
+ * @param p3 the internal memory array
  */
-void apply_send(void* p0, void* p1, void* p2) {
+void apply_send(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send.");
 
@@ -173,7 +174,7 @@ void apply_send(void* p0, void* p1, void* p2) {
     // Get new line part model data.
     copy_array_forward((void*) &nlmd, nlm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    send_data(rm, mmd, mmc, mpd, mpc, tmd, emd, p2, m, clmd, nlmd, cmd);
+    send_data(rm, mmd, mmc, mpd, mpc, tmd, emd, p3, m, clmd, nlmd, cmd);
 }
 
 /* SEND_SOURCE */

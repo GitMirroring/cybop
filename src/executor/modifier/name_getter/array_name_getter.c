@@ -48,8 +48,6 @@ void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The index of the searched part.
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Determine index of searched part.
     find_name_array((void*) &i, p1, p2, p3, p4);

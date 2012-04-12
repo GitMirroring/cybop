@@ -71,7 +71,7 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 void* e = *pos;
                 int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                 // The break flag.
-                int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -109,11 +109,11 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                     select_knowledge_name((void*) &b, p2, p3);
 
-                    if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         // CAUTION! Do NOT relate this comparison with the
                         // remaining count comparison from above in the following way:
-                        // if ((b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) || (*rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
+                        // if ((b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (*rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
                         //
                         // If they were related using the boolean OR operator,
                         // then the element count ec would always be ONE TOO SMALL,

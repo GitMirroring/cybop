@@ -59,9 +59,10 @@
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
- * @param p2 the internal memory array
+ * @param p2 the knowledge memory part
+ * @param p3 the internal memory array
  */
-void apply_receive(void* p0, void* p1, void* p2) {
+void apply_receive(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply receive.");
 
@@ -174,7 +175,7 @@ void apply_receive(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &stmd, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &stmc, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    receive_data(mom, mop, mmd, mmc, tmd, emd, p2, cmd);
+    receive_data(mom, mop, mmd, mmc, tmd, emd, p3, cmd);
 }
 
 /* RECEIVE_SOURCE */

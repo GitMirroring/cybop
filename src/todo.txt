@@ -9,7 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH:
+        * CONTINUE WITH: retrieve parts via knowledge or encapsulated in "applicator" functions
             in cybol example "addition", ".result" is printed as numbers on screen,
             instead of getting message of type "path/knowledge" correctly; Check this out!
 

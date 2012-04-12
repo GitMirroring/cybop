@@ -82,7 +82,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_calculate(p0, p1, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE);
+            apply_calculate(p0, p1, p4, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE);
         }
     }
 
@@ -158,7 +158,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_receive(p0, p1, p5);
+            apply_receive(p0, p1, p4, p5);
         }
     }
 
@@ -168,7 +168,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", p9);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_send(p0, p1, p5);
+            apply_send(p0, p1, p4, p5);
         }
     }
 
