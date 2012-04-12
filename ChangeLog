@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Change minor things while thinking through retrieval of parts via knowledge path or encapsulated path
+
 2012-04-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement processing of comma-separated values in integer deserialisation
