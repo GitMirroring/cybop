@@ -33,6 +33,7 @@
 #include "../../constant/name/cybol/operation/memory/destroy_memory_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/deallocator/part_deallocator.c"
+#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -53,16 +54,16 @@ void apply_destroy(void* p0, void* p1, void* p2) {
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type.
+    // The part type item.
     void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type data.
+    // The part type item data.
     void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
-    get_name_array((void*) &p, p0, (void*) MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME, (void*) MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1);
-    // Get part type.
+    get_part_knowledge((void*) &p, p0, (void*) MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME, (void*) MODEL_DESTROY_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get part type item.
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    // Get part type data.
+    // Get part type item data.
     copy_array_forward((void*) &ptd, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Deallocate part.

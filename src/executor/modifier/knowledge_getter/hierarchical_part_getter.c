@@ -79,34 +79,35 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                         // CAUTION! The function "select_knowledge_name"
                         // may have decremented the remaining count,
-                        // if neither "." nor "#" were found.
-                        // But this is regularly the case if a
-                        // part was the last in the hierarchy,
-                        // having no further child nodes.
-                        // In order to also consider such parts, the
-                        // following function calls are necessary here.
+                        // if neither a . nor a # delimiter were found.
                         //
-                        // In case the remaining count is too small right
-                        // at the beginning, or the name does not exist,
-                        // then the following functions will just return null.
+                        // This is regularly the case if a part was the
+                        // LAST IN THE HIERARCHY, having no further
+                        // child nodes to follow in the name.
+                        //
+                        // In order to also consider such parts, the
+                        // following function calls ARE NECESSARY here.
+
+                        // CAUTION! In case the remaining count is too small
+                        // or zero (name does not exist) right at the beginning,
+                        // then the destination remains UNTOUCHED.
 
                         // Find part by name in whole model or properties
                         // (depending on part element index p4).
                         get_name_part_element(p0, p1, e, (void*) &ec, p4);
 
-                        // Process knowledge hierarchy recursively further down.
-                        //
-                        // CAUTION! The current p0 is the SOURCE AND DESTINATION!
-                        // A part node of the source p1 was assigned to p0 above,
-                        // so that p0 is now the source.
-                        // Its child part will be assigned to the destination again.
-                        //
-                        // CAUTION! Hand over the source as dereferenced parametre!
-                        get_part_branch(p0, *d, p2, p3);
+                        // CAUTION! There is NO USE in processing the knowledge hierarchy
+                        // recursively further down here, since the part was the
+                        // LAST IN THE HIERARCHY, having no further
+                        // child nodes to follow in the name.
+                        // Therefore, the following function is disabled:
+                        // get_part_branch(p0, *d, p2, p3);
 
                         break;
                     }
 
+                    // If a . or # delimiter is found, then the break flag is set to "true".
+                    // Otherwise, the position is just moved by one character forward.
                     select_knowledge_name((void*) &b, p2, p3);
 
                     if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -128,7 +129,8 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // CAUTION! The current p0 is the SOURCE AND DESTINATION!
                         // A part node of the source p1 was assigned to p0 above,
                         // so that p0 is now the source.
-                        // Its child part will be assigned to the destination again.
+                        // If it has a child part, then that will be assigned to the
+                        // destination. Otherwise, the destination remains UNTOUCHED.
                         //
                         // CAUTION! Hand over the source as dereferenced parametre!
                         get_part_branch(p0, *d, p2, p3);
@@ -137,7 +139,9 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                     } else {
 
-                        // Increment request method count.
+                        // Increment element count.
+                        // A . or # delimiter has NOT been found, so that this
+                        // is somewhere in the middle of an element name.
                         ec++;
                     }
                 }

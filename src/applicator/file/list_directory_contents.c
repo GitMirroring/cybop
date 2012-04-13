@@ -34,6 +34,7 @@
 #include "../../constant/name/command_option/unix/list_unix_command_option_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/allocator.c"
+#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 #include "../../variable/reallocation_factor.c"
 
@@ -67,9 +68,9 @@ void apply_list_directory_contents(void* p0, void* p1) {
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get all part.
-    get_name_array((void*) &a, p0, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &a, p0, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get long listing part.
-    get_name_array((void*) &l, p0, (void*) LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME, (void*) LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &l, p0, (void*) LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME, (void*) LONG_LISTING_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
     // Get all part model.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

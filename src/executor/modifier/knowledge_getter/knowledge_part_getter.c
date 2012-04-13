@@ -29,9 +29,9 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/http/http_cyboi_name.c"
 #include "../../../executor/comparator/all/part_all_comparator.c"
-#include "../../../executor/searcher/selector/http_request/method_http_request_selector.c"
+#include "../../../executor/modifier/knowledge_getter/branch_part_getter.c"
+#include "../../../executor/modifier/name_getter/array_name_getter.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -54,56 +54,51 @@
  *   only then, that name can be used to determine the actual compound element
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part
- * @param p2 the hierarchical name data
- * @param p3 the hierarchical name count
- * @param p4 the knowledge memory part
+ * @param p1 the source properties data
+ * @param p2 the part name data
+ * @param p3 the part name count
+ * @param p4 the source properties count
+ * @param p5 the knowledge memory part
  */
-void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part knowledge.");
 
-    // The part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type, model.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type, model data, count.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part type, model item.
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part type, model item data, count.
+    void* std = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encapsulated part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encapsulated part model.
+    // The encapsulated part model item.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encapsulated part model data, count.
+    // The encapsulated part model item data, count.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get part.
-    //
+    // Get source part.
+    get_name_array((void*) &s, p1, p2, p3, p4);
+    // Get source part type, model item.
     // CAUTION! It is necessary to find out about the type and model.
-    // The type may be "encapsulated", "knowledge", or some other.
+    // The type may be "path/encapsulated", "path/knowledge", or some other.
     // The model may contain a knowledge path or encapsulated knowledge path.
-    //
-    // CAUTION! Hand over name as reference!
-    get_part_branch((void*) &p, p1, (void*) &p2, p3);
-
-    // Get part type, model item.
-    copy_array_forward((void*) &t, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &m, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get part type, model data, count array.
-    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &st, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get source part type, model data, count.
+    copy_array_forward((void*) &std, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // The following comparisons do, in this order, get a part as:
+    // The following comparisons do, in this order, get a part model item as:
     // - encapsulated knowledge (a model pointing to another model containing a part name)
     // - knowledge (a model containing a hierarchical part name)
     // - direct model
@@ -111,12 +106,12 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, td, (void*) ENCAPSULATED_PATH_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, std, (void*) ENCAPSULATED_PATH_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Get part as double-encapsulated knowledge.
+            // Get part as encapsulated knowledge.
             //
             // CAUTION! The "type" of an encapsulated name must always be "character"
             // (which is processed as wide character wchar_t inside of cyboi, of course).
@@ -128,28 +123,29 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // model="application.record.name"
             //
 
+            // Get encapsulated part.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &e, p4, (void*) &md, mc);
-
+            get_part_branch((void*) &e, p5, (void*) &smd, smc);
             // Get encapsulated part model item.
             copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            // Get encapsulated part model data, count array.
+            // Get encapsulated part model item data, count.
             copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+            // Get knowledge part.
             // CAUTION! Hand over name as reference!
-            get_part_branch(p0, p4, (void*) &emd, emc);
+            get_part_branch(p0, p5, (void*) &emd, emc);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, td, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, std, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Get part as encapsulated model.
+            // Get part as knowledge model.
             //
             // CAUTION! The "type" of an encapsulated name must always be "character"
             // (which is processed as wide character wchar_t inside of cyboi, of course).
@@ -161,25 +157,24 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // model="application.communication.partners.hostname"
             //
 
+            // Get knowledge part.
             // CAUTION! Hand over name as reference!
-            get_part_branch(p0, p4, (void*) &md, mc);
+            get_part_branch(p0, p5, (void*) &smd, smc);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // Get part as direct model (inline).
+        // Get source part as DIRECT model (inline),
+        // i.e. DO NOT interpret the model as path.
         //
-        // The part was already retrieved above.
+        // The source part was already retrieved above.
         // Therefore, the pointer to it is just copied here.
         //
-        // Another possibility would be to retrieve it again:
-        // get_part_branch((void*) &p, p1, (void*) &p2, p3);
-        // But this would waste performance.
-        //
 
-        copy_pointer(p0, (void*) &p);
+        // Copy source part pointer reference.
+        copy_pointer(p0, (void*) &s);
     }
 }
 

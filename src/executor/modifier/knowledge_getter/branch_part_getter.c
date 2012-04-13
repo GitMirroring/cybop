@@ -66,6 +66,8 @@ void get_part_branch(void* p0, void* p1, void* p2, void* p3) {
 
             select_knowledge_branch((void*) &i, p2, p3);
 
+            // Invalid hierarchical part names not starting with a . or # are just ignored.
+            // In such a case, the destination part remains UNTOUCHED.
             if (i > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Process the actual part name.

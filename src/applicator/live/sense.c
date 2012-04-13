@@ -34,6 +34,7 @@
 #include "../../executor/lifeguard/sensor/terminal_sensor.c"
 #include "../../executor/lifeguard/sensor/socket_sensor.c"
 #include "../../executor/lifeguard/sensor/x_window_system_sensor.c"
+#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -154,9 +155,9 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* hmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_name_array((void*) &c, p0, (void*) CHANNEL_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get handler part.
-    get_name_array((void*) &h, p0, (void*) HANDLER_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) HANDLER_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &h, p0, (void*) HANDLER_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) HANDLER_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
     // Get channel part model.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

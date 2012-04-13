@@ -33,6 +33,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/all/part_all_calculator.c"
 #include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../executor/modifier/name_getter/array_name_getter.c"
 #include "../../logger/logger.c"
 
@@ -107,27 +108,28 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3) {
     // The operand type part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The operand type part model.
+    // The operand type part model item.
     void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The operand type part model data, count.
+    // The operand type part model item data, count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
-    get_name_array((void*) &res, p0, (void*) RESULT_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) RESULT_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &res, p0, (void*) RESULT_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) RESULT_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get left operand part.
-    get_name_array((void*) &l, p0, (void*) OPERAND_1_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) OPERAND_1_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &l, p0, (void*) OPERAND_1_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) OPERAND_1_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get right operand part.
-    get_name_array((void*) &r, p0, (void*) OPERAND_2_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) OPERAND_2_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &r, p0, (void*) OPERAND_2_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) OPERAND_2_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get operand type part.
-    get_name_array((void*) &t, p0, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1);
-//??    get_part_knowledge((void*) &t, TODO: source_part instead of p0, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, TODO: DELETE?? p2);
+    get_part_knowledge((void*) &t, p0, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME, (void*) TYPE_ARITHMETIC_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    // Get operand type part model.
+    // Get operand type part model item.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get operand type part model data, count.
+    // Get operand type part model item data, count.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST calculate tmd: %i\n", tmd);
 
     // Calculate result by applying operation.
     // The left operands are added first.

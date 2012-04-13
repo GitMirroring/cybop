@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt knowledge path handling for retrieval of properties in "apply" functions of directory "applicator"
+
 2012-04-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Change minor things while thinking through retrieval of parts via knowledge path or encapsulated path

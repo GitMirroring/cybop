@@ -9,10 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: retrieve parts via knowledge or encapsulated in "applicator" functions
-            in cybol example "addition", ".result" is printed as numbers on screen,
-            instead of getting message of type "path/knowledge" correctly; Check this out!
-
+        * CONTINUE WITH: cybol example "addition"; ".result" is not printed on screen
         * Adapt cybol example applications to new cybol mime types and operations
         * Uncomment further operations in file "operation_handler.c"
         * Update ansi escape code serialiser files for terminal tui application
