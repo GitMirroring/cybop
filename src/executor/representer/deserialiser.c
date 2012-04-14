@@ -86,11 +86,14 @@
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
- * @param p4 the type
+ * @param p4 the format (cybol type for deserialisation)
  */
 void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise.");
+
+fwprintf(stdout, L"TEST deserialise: %i\n", p4);
+fwprintf(stdout, L"TEST deserialise: %i\n", *((int*) p4));
 
     // CAUTION! CYBOL operations have an EMPTY model.
     // Hence, they do NOT have to be considered here.
