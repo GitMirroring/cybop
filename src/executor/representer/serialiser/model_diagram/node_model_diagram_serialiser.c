@@ -49,20 +49,19 @@
  * @param p1 the source name data
  * @param p2 the source name count
  * @param p3 the source type data
- * @param p4 the source type count
- * @param p5 the source model data
- * @param p6 the source model count
- * @param p7 the source properties data
- * @param p8 the source properties count
- * @param p9 the properties flag
- * @param p10 the tree level
+ * @param p4 the source model data
+ * @param p5 the source model count
+ * @param p6 the source properties data
+ * @param p7 the source properties count
+ * @param p8 the properties flag
+ * @param p9 the tree level
  */
-void serialise_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram node.");
 
     // Append indentation.
-    serialise_model_diagram_indentation(p0, p9, p10);
+    serialise_model_diagram_indentation(p0, p8, p9);
 
     // Append part name.
     append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -74,10 +73,10 @@ void serialise_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* 
     serialise_model_diagram_type(p0, p3);
 
     // Append part model.
-    serialise_model_diagram_model(p0, p5, p6, p10, p3);
+    serialise_model_diagram_model(p0, p4, p5, p9, p3);
 
     // Append part properties.
-    serialise_model_diagram_part(p0, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p10);
+    serialise_model_diagram_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
 }
 
 /* NODE_MODEL_DIAGRAM_SERIALISER_SOURCE */

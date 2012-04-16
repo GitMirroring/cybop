@@ -44,12 +44,15 @@
  * in form of many line feed-separated lines representing a model part each.
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
+ * @param p1 the source name data
+ * @param p2 the source name count
+ * @param p3 the source type data
+ * @param p4 the source model data
+ * @param p5 the source model count
+ * @param p6 the source properties data
+ * @param p7 the source properties count
  */
-void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram.");
 
@@ -59,7 +62,7 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Encode model diagram root node.
-    serialise_model_diagram_node(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+    serialise_model_diagram_node(p0, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
 }
 
 /* MODEL_DIAGRAM_SERIALISER_SOURCE */

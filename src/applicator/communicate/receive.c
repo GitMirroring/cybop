@@ -176,7 +176,10 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &stmd, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &stmc, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+test_item_as_model_diagram((void*) L"TEST_MESSAGE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, tm, mm, mem);
+test_item_as_model_diagram((void*) L"TEST_PRE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, tm, mom, mop);
     receive_data(mom, mop, mmd, mmc, tmd, emd, p3, cmd);
+test_item_as_model_diagram((void*) L"TEST_POST.txt", *NULL_POINTER_STATE_CYBOI_MODEL, tm, mom, mop);
 }
 
 /* RECEIVE_SOURCE */

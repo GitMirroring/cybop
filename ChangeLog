@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-16  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend parametres of test functions printing model diagrams
+
 2012-04-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt knowledge path handling for retrieval of properties in "apply" functions of directory "applicator"

@@ -92,9 +92,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise.");
 
-fwprintf(stdout, L"TEST deserialise: %i\n", p4);
-fwprintf(stdout, L"TEST deserialise: %i\n", *((int*) p4));
-
     // CAUTION! CYBOL operations have an EMPTY model.
     // Hence, they do NOT have to be considered here.
     // They are detected via their "type" xml attribute.
@@ -155,7 +152,7 @@ fwprintf(stdout, L"TEST deserialise: %i\n", *((int*) p4));
 
             deserialise_http_request(p0, p1, p2, p3);
 
-            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_REQUEST.txt", p0, p1);
+//??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_REQUEST.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p0, p1);
         }
     }
 
@@ -188,7 +185,7 @@ fwprintf(stdout, L"TEST deserialise: %i\n", *((int*) p4));
             // Decode source message into temporary model, properties item.
             deserialise_xml(m, p, p2, p3);
 
-            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", m, p);
+            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, t, m, p);
 
             // Get temporary model, properties item data, count.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -208,7 +205,7 @@ fwprintf(stdout, L"TEST deserialise: %i\n", *((int*) p4));
             deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
             deallocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-//??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", m, p);
+//??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, t, m, p);
         }
     }
 
@@ -407,13 +404,13 @@ fwprintf(stdout, L"TEST deserialise: %i\n", *((int*) p4));
             copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-            test_data_as_model_diagram((void*) L"TEST_DESERIALISE_XML.txt", md, mc, pd, pc);
+            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_XML.txt", *NULL_POINTER_STATE_CYBOI_MODEL, t, m, p);
 
             // Decode temporary model, properties item into cyboi model using temporary type, format.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
             deserialise_cybol_node_content(p0, md, mc, pd, pc, t, f);
 
-            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL.txt", p0, p1);
+            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL.txt", *NULL_POINTER_STATE_CYBOI_MODEL, t, p0, p1);
 
             // Deallocate temporary format, type, model, properties item.
             deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
@@ -473,7 +470,7 @@ fwprintf(stdout, L"TEST deserialise: %i\n", *((int*) p4));
 
             deserialise_uri(p0, p1, p2, p3);
 
-            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_URI.txt", p0, p1);
+//??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_URI.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p0, p1);
         }
     }
 

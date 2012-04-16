@@ -8,12 +8,13 @@
         <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="inline"/>
         <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
         <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
-        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="0"/>
+        <property name="message" channel="inline" encoding="utf-8" type="number/integer" model="22,3456"/>
         <property name="model" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
     </part>
     <!-- Write knowledge tree into file. -->
     <part name="test_knowledge_tree" channel="inline" encoding="utf-8" type="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
         <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="text/model-diagram"/>
         <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
         <property name="receiver" channel="inline" encoding="utf-8" type="text/plain" model="TEST_ADDITION.txt"/>
