@@ -69,13 +69,19 @@ ______
 
 - filter(regular expression): matches
 
+representer
+___________
+
++ deserialise: valueOf
++ serialise: toString
+- encode_capitalisation_lower: toLowerCase
+- encode_capitalisation_upper: toUpperCase
+
 converter
 _________
 
-- decode: valueOf
-- encode: toString
-- encode_capitalisation_lower: toLowerCase
-- encode_capitalisation_upper: toUpperCase
++ decode: utf-8
++ encode: utf-8
 
 COMPOSITION
 ___________

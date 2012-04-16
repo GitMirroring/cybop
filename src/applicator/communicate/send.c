@@ -174,6 +174,12 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     // Get new line part model item data.
     copy_array_forward((void*) &nlmd, nlm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST cmd: %i\n", *((int*) cmd));
+fwprintf(stdout, L"TEST tmd: %i\n", *((int*) tmd));
+fwprintf(stdout, L"TEST mmc: %i\n", *((int*) mmc));
+fwprintf(stdout, L"TEST mmd: %i\n", mmd);
+fwprintf(stdout, L"TEST *mmd: %i\n", *((int*) mmd));
+
     send_data(rm, mmd, mmc, mpd, mpc, tmd, emd, p3, m, clmd, nlmd, cmd);
 }
 
