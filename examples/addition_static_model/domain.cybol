@@ -1,11 +1,10 @@
 <model>
-    <part name="summand_1" channel="inline" encoding="utf-8" type="number/integer" model="4"/>
-    <part name="summand_2" channel="inline" encoding="utf-8" type="number/integer" model="5"/>
     <part name="sum" channel="inline" encoding="utf-8" type="number/integer" model="0"/>
+    <part name="summand" channel="inline" encoding="utf-8" type="number/integer" model="4"/>
 </model>
 
 <!--
-    This example uses a loop to print the numbers 1 to 10 to screen.
+    This is a small domain model consisting of just two integer numbers.
 -->
 
 <!--

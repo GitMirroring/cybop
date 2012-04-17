@@ -1,28 +1,31 @@
 <model>
-    <part name="create_domain" channel="inline" encoding="utf-8" type="operation/plain" model="create">
+    <part name="create_domain" channel="inline" encoding="utf-8" type="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="domain"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="compound"/>
+        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="text/cybol"/>
         <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
     </part>
-    <part name="initialise_domain" channel="inline" encoding="utf-8" type="operation/plain" model="receive">
-        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="file"/>
-        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="text/cybol"/>
+    <part name="initialise_domain" channel="inline" encoding="utf-8" type="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
+        <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
+        <property name="format" channel="inline" encoding="utf-8" type="meta/format" model="text/cybol"/>
+        <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "type" property. -->
         <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="addition_static_model/domain.cybol"/>
         <property name="model" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain"/>
     </part>
-    <part name="add" channel="inline" encoding="utf-8" type="operation/plain" model="add">
-        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.summand_1"/>
-        <property name="summand_2" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.summand_2"/>
-        <property name="sum" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.sum"/>
+    <part name="add_operand" channel="inline" encoding="utf-8" type="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.sum"/>
+        <property name="operand" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.summand"/>
+        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
     </part>
-    <part name="print_result" channel="inline" encoding="utf-8" type="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="shell"/>
-        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="integer"/>
+    <part name="print_result" channel="inline" encoding="utf-8" type="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
+        <property name="format" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
         <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.sum"/>
         <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" encoding="utf-8" type="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" type="live/exit" model=""/>
 </model>
 
 <!--
