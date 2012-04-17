@@ -129,8 +129,6 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3) {
     // Get operand type part model item data, count.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST calculate tmd: %i\n", tmd);
-
     // Calculate result by applying operation.
     // The left operands are added first.
     // Then the right operands.

@@ -45,7 +45,7 @@
  * Expected parametres:
  * - channel (required): the channel via which to send the message (e.g. http)
  * - encoding (optional): the encoding to be used, e.g. ascii; the default is utf-8
- * - type (required): the language into which to encode the message before sending it (e.g. html)
+ * - format (required): the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)
  * - message (required): the source message to be sent to another system
  * - receiver (optional): the destination receiving the message
  * - mode (optional, only if channel is http): the mode of communication
@@ -68,8 +68,8 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The format part.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver part.
@@ -91,9 +91,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part model item.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model item.
-    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The message part model, properties item.
+    // The format part model item.
+    void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The message part type, model, properties item.
+    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver part model item.
@@ -107,9 +108,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part model item data, count.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model item data, count.
-    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The message part model, properties item data, count.
+    // The format part model item data, count.
+    void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The message part type, model, properties item data, count.
+    void* mtd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mpd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -123,8 +125,8 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get encoding part.
     get_part_knowledge((void*) &e, p0, (void*) ENCODING_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) ENCODING_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get type part.
-    get_part_knowledge((void*) &t, p0, (void*) TYPE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) TYPE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get format part.
+    get_part_knowledge((void*) &f, p0, (void*) FORMAT_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) FORMAT_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get message part.
     get_part_knowledge((void*) &m, p0, (void*) MESSAGE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) MESSAGE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get receiver part.
@@ -146,9 +148,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get encoding part model item.
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get type part model item.
-    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get message part model, properties item.
+    // Get format part model item.
+    copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get message part type, model, properties item.
+    copy_array_forward((void*) &mt, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mp, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get receiver part model item.
@@ -162,9 +165,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get encoding part model item data.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get type part model item data.
-    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get message part model, properties item data, count.
+    // Get format part model item data.
+    copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get message part type, model, properties item data, count.
+    copy_array_forward((void*) &mtd, mt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mpd, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -174,13 +178,16 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     // Get new line part model item data.
     copy_array_forward((void*) &nlmd, nlm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST cmd: %i\n", *((int*) cmd));
-fwprintf(stdout, L"TEST tmd: %i\n", *((int*) tmd));
-fwprintf(stdout, L"TEST mmc: %i\n", *((int*) mmc));
-fwprintf(stdout, L"TEST mmd: %i\n", mmd);
-fwprintf(stdout, L"TEST *mmd: %i\n", *((int*) mmd));
+/*??
+fwprintf(stdout, L"TEST send cmd: %i\n", *((int*) cmd));
+fwprintf(stdout, L"TEST send fmd: %i\n", *((int*) fmd));
+fwprintf(stdout, L"TEST send mtd: %i\n", *((int*) mtd));
+fwprintf(stdout, L"TEST send mmc: %i\n", *((int*) mmc));
+fwprintf(stdout, L"TEST send mmd*: %i\n", mmd);
+fwprintf(stdout, L"TEST send mmd: %i\n", *((int*) mmd));
+*/
 
-    send_data(rm, mmd, mmc, mpd, mpc, tmd, emd, p3, m, clmd, nlmd, cmd);
+    send_data(rm, mmd, mmc, mpd, mpc, mtd, fmd, emd, p3, m, clmd, nlmd, cmd);
 }
 
 /* SEND_SOURCE */

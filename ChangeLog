@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Correct usage of cybol "format" and "type" property in "apply_send" and "apply_receive"
+        * Hand over both, format and type as parametre to "send" and "serialise" functions
+        * Make cybol example application "addition" work
+
 2012-04-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Extend parametres of test functions printing model diagrams

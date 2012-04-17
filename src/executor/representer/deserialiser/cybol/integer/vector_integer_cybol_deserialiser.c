@@ -54,11 +54,33 @@ void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol integer vector.");
 
+    // The destination item count.
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The old destination item count.
+    // CAUTION! This variable is necessary for inserting
+    // integer values, rather than appending them.
+    // While parsing an integer vector, the programme "dives"
+    // into the vector first, so that last values are added first.
+    // If values were now just appended, the order of
+    // vector values would be swapped, which is not wanted.
+    // On the other hand, inserting values at the beginning of the
+    // destination item is wrong if values are already present.
+    // Therefore, the destination item's "old" element count
+    // is remembered here, so that new values may be inserted
+    // starting from that count used as index, which has the
+    // effect that elements are appended in the correct order.
+    int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Get destination item count.
+    copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Initialise old destination item count.
+    copy_integer((void*) &oc, dc);
 
     // Initialise element.
     copy_pointer((void*) &e, p1);
@@ -94,7 +116,7 @@ void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2) {
     }
 
     // Prepend element to destination.
-    deserialise_cybol_integer_value(p0, e, (void*) &ec, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    deserialise_cybol_integer_value(p0, e, (void*) &ec, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
 }
 
 /* VECTOR_INTEGER_CYBOL_DESERIALISER_SOURCE */

@@ -49,10 +49,11 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the type
- * @param p6 the encoding
+ * @param p5 the source type data
+ * @param p6 the format
+ * @param p7 the encoding
  */
-void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file.");
 
@@ -73,7 +74,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     allocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise source knowledge model into serialised wide character array.
-    serialise(s, p1, p2, p3, p4, p5);
+    serialise(s, p1, p2, p3, p4, p5, p6);
 
     // Get serialised wide character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -83,7 +84,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Encode serialised wide character array into encoded character array.
-    encode(e, sd, sc, p6);
+    encode(e, sd, sc, p7);
 
     // Get encoded character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

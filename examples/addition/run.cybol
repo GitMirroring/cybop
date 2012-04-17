@@ -7,30 +7,30 @@
     <part name="receive_initial_result" channel="inline" encoding="utf-8" type="communicate/receive" model="">
         <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="inline"/>
         <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
-        <property name="message" channel="inline" encoding="utf-8" type="number/integer" model="22,3456"/>
+        <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
+        <property name="format" channel="inline" encoding="utf-8" type="meta/format" model="number/integer"/>
+        <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "type" property. -->
+        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="22,3456"/>
         <property name="model" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
     </part>
     <!-- Write knowledge tree into file. -->
     <part name="test_knowledge_tree" channel="inline" encoding="utf-8" type="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="file"/>
         <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="text/model-diagram"/>
+        <property name="format" channel="inline" encoding="utf-8" type="meta/type" model="text/model-diagram"/>
         <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
         <property name="receiver" channel="inline" encoding="utf-8" type="text/plain" model="TEST_ADDITION.txt"/>
     </part>
-<!--
     <part name="add" channel="inline" encoding="utf-8" type="calculate/add" model="">
         <property name="result" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
-        <property name="left" channel="inline" encoding="utf-8" type="number/integer" model="1"/>
-        <property name="right" channel="inline" encoding="utf-8" type="number/integer" model="2"/>
+        <property name="operand_1" channel="inline" encoding="utf-8" type="number/integer" model="1,5"/>
+        <property name="operand_2" channel="inline" encoding="utf-8" type="number/integer" model="2,2"/>
         <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
     </part>
--->
     <part name="print_result" channel="inline" encoding="utf-8" type="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
+        <property name="format" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
         <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
     </part>

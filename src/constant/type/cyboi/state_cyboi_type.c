@@ -107,8 +107,11 @@ static int* NEWS_MESSAGE_STATE_CYBOI_TYPE = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_
 /** The encoding meta state cyboi type. */
 //?? static int* ENCODING_META_STATE_CYBOI_TYPE = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The format meta state cyboi type. */
+//?? static int* FORMAT_META_STATE_CYBOI_TYPE = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The type meta state cyboi type. */
-//?? static int* TYPE_META_STATE_CYBOI_TYPE = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* TYPE_META_STATE_CYBOI_TYPE = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // number

@@ -58,7 +58,7 @@
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
- * @param p4 the format (cybol type for deserialisation)
+ * @param p4 the format
  * @param p5 the encoding
  * @param p6 the internal memory array
  * @param p7 the channel
