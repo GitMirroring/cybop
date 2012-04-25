@@ -31,6 +31,7 @@
 #include "../../applicator/communicate/send.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
+#include "../../applicator/modify/overwrite.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../logger/logger.c"
@@ -572,6 +573,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p9));
             insert(p0, p1);
         }
     }
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -579,10 +581,11 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite(p0, p1);
+            apply_overwrite(p0, p1, p4);
         }
     }
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) REMOVE_MODIFY_LOGIC_CYBOI_TYPE);

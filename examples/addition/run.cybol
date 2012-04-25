@@ -9,7 +9,7 @@
         <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
         <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
         <property name="format" channel="inline" encoding="utf-8" type="meta/format" model="number/integer"/>
-        <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "type" property. -->
+        <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "format" property. -->
         <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="1,1,1"/>
         <property name="model" channel="inline" encoding="utf-8" type="path/knowledge" model=".result"/>
     </part>

@@ -29,7 +29,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/memory/copy_memory_operation_cybol_name.c"
+#include "../../constant/name/cybol/operation/modification/overwrite_modification_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
 #include "../../logger/logger.c"
@@ -54,11 +54,11 @@
  *   if the number of elements exceeds the destination count, in order to avoid
  *   memory errors caused by crossing array boundaries
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
-void apply_overwrite(void* p0, int* p1, void* p2) {
+void apply_overwrite(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply overwrite.");
 
@@ -67,7 +67,7 @@ void apply_overwrite(void* p0, int* p1, void* p2) {
     // The source part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination index part.
@@ -77,78 +77,78 @@ void apply_overwrite(void* p0, int* p1, void* p2) {
     // The adjust part.
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source part model.
+    // The source part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model.
-    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The count part model.
+    // The type part model item.
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The count part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination index part model.
     void* dim = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source index part model.
+    // The source index part model item.
     void* sim = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The adjust part model.
+    // The adjust part model item.
     void* adm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source part model count.
+    // The source part model item count.
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model data.
-    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The count part model data.
+    // The type part model item data.
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The count part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The destination index part model data.
+    // The destination index part model item data.
     void* dimd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source index part model data.
+    // The source index part model item data.
     void* simd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The adjust part model data.
+    // The adjust part model item data.
     void* admd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part.
-    get_name_array((void*) &d, p0, (void*) DESTINATION_OVERWRITE_OPERATION_CYBOL_NAME, (void*) DESTINATION_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_OVERWRITE_OPERATION_CYBOL_NAME, (void*) DESTINATION_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get source part.
-    get_name_array((void*) &s, p0, (void*) SOURCE_OVERWRITE_OPERATION_CYBOL_NAME, (void*) SOURCE_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &s, p0, (void*) SOURCE_OVERWRITE_OPERATION_CYBOL_NAME, (void*) SOURCE_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get type part.
-    get_name_array((void*) &a, p0, (void*) TYPE_OVERWRITE_OPERATION_CYBOL_NAME, (void*) TYPE_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &t, p0, (void*) TYPE_OVERWRITE_OPERATION_CYBOL_NAME, (void*) TYPE_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get count part.
-    get_name_array((void*) &c, p0, (void*) COUNT_OVERWRITE_OPERATION_CYBOL_NAME, (void*) COUNT_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &c, p0, (void*) COUNT_OVERWRITE_OPERATION_CYBOL_NAME, (void*) COUNT_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get destination index part.
-    get_name_array((void*) &di, p0, (void*) DESTINATION_INDEX_OVERWRITE_OPERATION_CYBOL_NAME, (void*) DESTINATION_INDEX_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &di, p0, (void*) DESTINATION_INDEX_OVERWRITE_OPERATION_CYBOL_NAME, (void*) DESTINATION_INDEX_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get source index part.
-    get_name_array((void*) &si, p0, (void*) SOURCE_INDEX_OVERWRITE_OPERATION_CYBOL_NAME, (void*) SOURCE_INDEX_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &si, p0, (void*) SOURCE_INDEX_OVERWRITE_OPERATION_CYBOL_NAME, (void*) SOURCE_INDEX_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get adjust part.
-    get_name_array((void*) &ad, p0, (void*) ADJUST_OVERWRITE_OPERATION_CYBOL_NAME, (void*) ADJUST_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &ad, p0, (void*) ADJUST_OVERWRITE_OPERATION_CYBOL_NAME, (void*) ADJUST_OVERWRITE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    // Get source part model.
+    // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get type part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get count part model.
+    // Get type part model item.
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get destination index part model.
+    // Get destination index part model item.
     copy_array_forward((void*) &dim, di, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get source index part model.
+    // Get source index part model item.
     copy_array_forward((void*) &sim, si, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get adjust part model.
+    // Get adjust part model item.
     copy_array_forward((void*) &adm, ad, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get source part model count.
+    // Get source part model item count.
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get type part model data.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get count part model data.
+    // Get type part model item data.
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get count part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get destination index part model data.
+    // Get destination index part model item data.
     copy_array_forward((void*) &dimd, dim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get source index part model data.
+    // Get source index part model item data.
     copy_array_forward((void*) &simd, sim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get adjust part model data.
+    // Get adjust part model item data.
     copy_array_forward((void*) &admd, adm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The default values.
     int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int destination_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int source_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int adjust = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int adjust = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
@@ -166,8 +166,50 @@ void apply_overwrite(void* p0, int* p1, void* p2) {
     // Set adjust flag to the value that was given as parametre.
     copy_integer((void*) &adjust, admd);
 
+fwprintf(stdout, L"TEST overwrite d*: %i\n", d);
+fwprintf(stdout, L"TEST overwrite s*: %i\n", s);
+    void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dmc, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST overwrite dmd*: %i\n", dmd);
+fwprintf(stdout, L"TEST overwrite dmd: %i\n", *((int*) dmd));
+fwprintf(stdout, L"TEST overwrite dmc*: %i\n", dmc);
+fwprintf(stdout, L"TEST overwrite dmc: %i\n", *((int*) dmc));
+fwprintf(stdout, L"TEST overwrite smd*: %i\n", smd);
+fwprintf(stdout, L"TEST overwrite smd: %i\n", *((int*) smd));
+fwprintf(stdout, L"TEST overwrite smc*: %i\n", smc);
+fwprintf(stdout, L"TEST overwrite smc: %i\n", *((int*) smc));
+fwprintf(stdout, L"TEST overwrite tmd*: %i\n", tmd);
+fwprintf(stdout, L"TEST overwrite tmd: %i\n", *((int*) tmd));
+fwprintf(stdout, L"TEST overwrite cmd*: %i\n", cmd);
+//?? fwprintf(stdout, L"TEST overwrite cmd: %i\n", *((int*) cmd));
+fwprintf(stdout, L"TEST overwrite dimd*: %i\n", dimd);
+//?? fwprintf(stdout, L"TEST overwrite dimd: %i\n", *((int*) dimd));
+fwprintf(stdout, L"TEST overwrite simd*: %i\n", simd);
+//?? fwprintf(stdout, L"TEST overwrite simd: %i\n", *((int*) simd));
+fwprintf(stdout, L"TEST overwrite admd*: %i\n", admd);
+//?? fwprintf(stdout, L"TEST overwrite admd: %i\n", *((int*) admd));
+fwprintf(stdout, L"TEST overwrite count: %i\n", count);
+fwprintf(stdout, L"TEST overwrite destination_index: %i\n", destination_index);
+fwprintf(stdout, L"TEST overwrite source_index: %i\n", source_index);
+fwprintf(stdout, L"TEST overwrite adjust: %i\n", adjust);
+
     // Overwrite the destination- with the source part.
-    overwrite_part(d, s, amd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
+    overwrite_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
+
+fwprintf(stdout, L"TEST overwrite POST dmd*: %i\n", dmd);
+fwprintf(stdout, L"TEST overwrite POST dmd: %i\n", *((int*) dmd));
+fwprintf(stdout, L"TEST overwrite POST dmc*: %i\n", dmc);
+fwprintf(stdout, L"TEST overwrite POST dmc: %i\n", *((int*) dmc));
+fwprintf(stdout, L"TEST overwrite POST smd*: %i\n", smd);
+fwprintf(stdout, L"TEST overwrite POST smd: %i\n", *((int*) smd));
+fwprintf(stdout, L"TEST overwrite POST smc*: %i\n", smc);
+fwprintf(stdout, L"TEST overwrite POST smc: %i\n", *((int*) smc));
 }
 
 /* OVERWRITE_SOURCE */
