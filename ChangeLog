@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare operation "apply_overwrite" for example application "addition_dynamic_model"
+
 2012-04-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Correct usage of cybol "format" and "type" property in "apply_send" and "apply_receive"
