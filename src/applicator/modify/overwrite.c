@@ -166,6 +166,7 @@ void apply_overwrite(void* p0, void* p1, void* p2) {
     // Set adjust flag to the value that was given as parametre.
     copy_integer((void*) &adjust, admd);
 
+/*??
 fwprintf(stdout, L"TEST overwrite d*: %i\n", d);
 fwprintf(stdout, L"TEST overwrite s*: %i\n", s);
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -198,10 +199,12 @@ fwprintf(stdout, L"TEST overwrite count: %i\n", count);
 fwprintf(stdout, L"TEST overwrite destination_index: %i\n", destination_index);
 fwprintf(stdout, L"TEST overwrite source_index: %i\n", source_index);
 fwprintf(stdout, L"TEST overwrite adjust: %i\n", adjust);
+*/
 
     // Overwrite the destination- with the source part.
     overwrite_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
 
+/*??
 fwprintf(stdout, L"TEST overwrite POST dmd*: %i\n", dmd);
 fwprintf(stdout, L"TEST overwrite POST dmd: %i\n", *((int*) dmd));
 fwprintf(stdout, L"TEST overwrite POST dmc*: %i\n", dmc);
@@ -210,6 +213,7 @@ fwprintf(stdout, L"TEST overwrite POST smd*: %i\n", smd);
 fwprintf(stdout, L"TEST overwrite POST smd: %i\n", *((int*) smd));
 fwprintf(stdout, L"TEST overwrite POST smc*: %i\n", smc);
 fwprintf(stdout, L"TEST overwrite POST smc: %i\n", *((int*) smc));
+*/
 }
 
 /* OVERWRITE_SOURCE */

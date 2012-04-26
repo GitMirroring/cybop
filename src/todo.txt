@@ -9,7 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: check error EILSEQ in function "apply_overwrite" with example application "addition_dynamic_model"
+        * CONTINUE WITH: sometimes, the example application "addition_dynamic_model" works;
+            other times an error EILSEQ occurs; unpredictably
         * Adapt cybol example applications to new cybol mime types and operations:
             DONE ALL: exit
             DOING: 2x addition_dynamic -- CONTINUE WITH "copy" operation for initialise (addition simple and static already done)
