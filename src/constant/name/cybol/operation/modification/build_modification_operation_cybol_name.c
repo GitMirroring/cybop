@@ -27,19 +27,23 @@
 #define BUILD_FLOW_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The base build flow operation cybol name. */
+/*??
 static wchar_t BASE_BUILD_FLOW_OPERATION_CYBOL_NAME_ARRAY[] = {L'b', L'a', L's', L'e'};
 static wchar_t* BASE_BUILD_FLOW_OPERATION_CYBOL_NAME = BASE_BUILD_FLOW_OPERATION_CYBOL_NAME_ARRAY;
 static int* BASE_BUILD_FLOW_OPERATION_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The index build flow operation cybol name. */
+/*??
 static wchar_t INDEX_BUILD_FLOW_OPERATION_CYBOL_NAME_ARRAY[] = {L'i', L'n', L'd', L'e', L'x'};
 static wchar_t* INDEX_BUILD_FLOW_OPERATION_CYBOL_NAME = INDEX_BUILD_FLOW_OPERATION_CYBOL_NAME_ARRAY;
 static int* INDEX_BUILD_FLOW_OPERATION_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The composed build flow operation cybol name. */
+/*??
 static wchar_t COMPOSITION_BUILD_FLOW_OPERATION_CYBOL_NAME_ARRAY[] = {L'c', L'o', L'm', L'p', L'o', L's', L'i', L't', L'i', L'o', L'n'};
 static wchar_t* COMPOSITION_BUILD_FLOW_OPERATION_CYBOL_NAME = COMPOSITION_BUILD_FLOW_OPERATION_CYBOL_NAME_ARRAY;
 static int* COMPOSITION_BUILD_FLOW_OPERATION_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
