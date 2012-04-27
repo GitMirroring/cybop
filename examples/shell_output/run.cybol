@@ -1,13 +1,13 @@
 <model>
-    <part name="print" channel="inline" encoding="utf-8" type="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
-        <property name="format" channel="inline" encoding="utf-8" type="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="Hello, World!"/>
-        <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
-        <property name="clean" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+    <part name="print" channel="inline" encoding="utf-8" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" format="meta/encoding" model="utf-8"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" format="text/plain" model="Hello, World!"/>
+        <property name="new_line" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
+        <property name="clean" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="shutdown" channel="inline" encoding="utf-8" type="live/exit" model=""/>
+    <part name="shutdown" channel="inline" encoding="utf-8" format="live/exit" model=""/>
 </model>
 
 <!--

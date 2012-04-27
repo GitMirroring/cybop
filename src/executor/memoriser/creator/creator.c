@@ -41,7 +41,7 @@
  * @param p1 the knowledge memory part
  * @param p2 the name data
  * @param p3 the name count
- * @param p4 the type data
+ * @param p4 the format data
  * @param p5 the element data
  * @param p6 the element count
  */

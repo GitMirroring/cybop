@@ -49,7 +49,7 @@
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the tree level
- * @param p4 the source type
+ * @param p4 the source format
  */
 void serialise_model_diagram_model(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

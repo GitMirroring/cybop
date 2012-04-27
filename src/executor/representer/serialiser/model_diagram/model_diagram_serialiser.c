@@ -46,7 +46,7 @@
  * @param p0 the destination item
  * @param p1 the source name data
  * @param p2 the source name count
- * @param p3 the source type data
+ * @param p3 the source format data
  * @param p4 the source model data
  * @param p5 the source model count
  * @param p6 the source properties data

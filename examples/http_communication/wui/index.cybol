@@ -1,9 +1,9 @@
 <model>
-    <part name="head" channel="file" encoding="utf-8" type="text/cybol" model="http_communication/wui/index/head.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" type="text/plain" model="head"/>
+    <part name="head" channel="file" encoding="utf-8" format="text/cybol" model="http_communication/wui/index/head.cybol">
+        <property name="tag" channel="inline" encoding="utf-8" format="text/plain" model="head"/>
     </part>
-    <part name="body" channel="file" encoding="utf-8" type="text/cybol" model="http_communication/wui/index/body.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" type="text/plain" model="body"/>
+    <part name="body" channel="file" encoding="utf-8" format="text/cybol" model="http_communication/wui/index/body.cybol">
+        <property name="tag" channel="inline" encoding="utf-8" format="text/plain" model="body"/>
     </part>
 </model>
 

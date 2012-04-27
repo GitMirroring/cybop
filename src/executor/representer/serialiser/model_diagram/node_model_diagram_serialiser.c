@@ -31,15 +31,15 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/modifier/inserter/array_inserter.c"
+#include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../executor/representer/serialiser/model_diagram/indentation_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/line_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/model_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/part_model_diagram_serialiser.c"
-#include "../../../../executor/representer/serialiser/model_diagram/type_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
-#include "../../../../executor/modifier/inserter/array_inserter.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -48,7 +48,7 @@
  * @param p0 the destination model diagram item
  * @param p1 the source name data
  * @param p2 the source name count
- * @param p3 the source type data
+ * @param p3 the source format data
  * @param p4 the source model data
  * @param p5 the source model count
  * @param p6 the source properties data
@@ -70,7 +70,7 @@ void serialise_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* 
     serialise_model_diagram_line(p0);
 
     // Append part type.
-    serialise_model_diagram_type(p0, p3);
+    serialise_cybol_format(p0, p3);
 
     // Append part model.
     serialise_model_diagram_model(p0, p4, p5, p9, p3);

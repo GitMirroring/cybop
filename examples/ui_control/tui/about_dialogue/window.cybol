@@ -1,70 +1,70 @@
 <model>
-    <part name="name" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,1,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="30,1,1"/>
+    <part name="name" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,1,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="30,1,1"/>
     </part>
-    <part name="version" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="40,1,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="10,1,1"/>
+    <part name="version" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="40,1,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="10,1,1"/>
     </part>
-    <part name="date" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="50,1,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="10,1,1"/>
+    <part name="date" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="50,1,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="10,1,1"/>
     </part>
-    <part name="slogan" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,3,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="70,1,1"/>
+    <part name="slogan" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,3,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="70,1,1"/>
     </part>
 <!--
-    <part name="logo" channel="inline" encoding="utf-8" type="image/png" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.graphic"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,3,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="70,1,1"/>
+    <part name="logo" channel="inline" encoding="utf-8" format="image/png" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.graphic"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,3,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="70,1,1"/>
     </part>
 -->
-    <part name="copyright" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,7,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="70,1,1"/>
+    <part name="copyright" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,7,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="70,1,1"/>
     </part>
-    <part name="contact" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,9,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="70,1,1"/>
+    <part name="contact" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,9,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="70,1,1"/>
     </part>
-    <part name="description" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,11,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="70,1,1"/>
+    <part name="description" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,11,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="70,1,1"/>
     </part>
-    <part name="authors_label" channel="inline" encoding="utf-8" type="text/plain" model="Authors:">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,13,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="70,1,1"/>
+    <part name="authors_label" channel="inline" encoding="utf-8" format="text/plain" model="Authors:">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,13,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="70,1,1"/>
     </part>
-    <part name="authors" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,15,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="70,1,1"/>
+    <part name="authors" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,15,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="70,1,1"/>
     </part>
-    <part name="helpers" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,17,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="70,1,1"/>
+    <part name="helpers" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,17,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="70,1,1"/>
     </part>
-    <part name="licence" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="5,19,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="70,1,1"/>
+    <part name="licence" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,19,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="70,1,1"/>
     </part>
-    <part name="close_button" channel="inline" encoding="utf-8" type="text/plain" model="    OK    ">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.button"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="35,22,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="10,1,1"/>
+    <part name="close_button" channel="inline" encoding="utf-8" format="text/plain" model="    OK    ">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.button"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="35,22,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="10,1,1"/>
     </part>
 </model>
 

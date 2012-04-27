@@ -1,7 +1,7 @@
 <model>
-    <part name="startup" channel="inline" encoding="utf-8" type="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="signal"/>
-        <property name="message" channel="file" encoding="utf-8" type="text/cybol" model="helloworld/startup.cybol"/>
+    <part name="startup" channel="inline" encoding="utf-8" format="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" format="text/plain" model="signal"/>
+        <property name="message" channel="file" encoding="utf-8" format="text/cybol" model="helloworld/startup.cybol"/>
     </part>
 </model>
 

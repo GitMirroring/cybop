@@ -50,12 +50,12 @@
  *
  * Expected parametres:
  * - name (required): the name of the part to be created
- * - type (required): the type (type) of the part to be created
+ * - format (required): the format of the part to be created, from which gets determined the type
  * - element (required): the kind of element to be created (part, property);
- *   a part element will be added to the whole model's part hierarchy;
- *   a property element to the whole model's properties hierarchy
+ *       a part element will be added to the whole model's part hierarchy;
+ *       a property element to the whole model's properties hierarchy
  * - whole (optional; if null, the new part will be added to the knowledge memory root):
- *   the compound to which to add to the new part
+ *       the compound to which to add to the new part
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -67,8 +67,8 @@ void apply_create(void* p0, void* p1, void* p2) {
 
     // The name part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The format part.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole part.
@@ -76,24 +76,24 @@ void apply_create(void* p0, void* p1, void* p2) {
 
     // The name part model item.
     void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model item.
-    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The format part model item.
+    void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element part model item.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The name part model item data, count.
     void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* nmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model item data.
-    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The format part model item data.
+    void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element part model item data, count.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get name part.
     get_part_knowledge((void*) &n, p0, (void*) NAME_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) NAME_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get type part.
-    get_part_knowledge((void*) &t, p0, (void*) TYPE_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) TYPE_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get format part.
+    get_part_knowledge((void*) &f, p0, (void*) FORMAT_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) FORMAT_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get element part.
     get_part_knowledge((void*) &e, p0, (void*) ELEMENT_CREATE_MEMORY_OPERATION_CYBOL_NAME, (void*) ELEMENT_CREATE_MEMORY_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get whole part.
@@ -101,21 +101,21 @@ void apply_create(void* p0, void* p1, void* p2) {
 
     // Get name part model item.
     copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get type part model item.
-    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get format part model item.
+    copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get element part model item.
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get name part model item data, count.
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get type part model item data.
-    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get format part model item data.
+    copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get element part model item data, count.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    create(w, p2, nmd, nmc, tmd, emd, emc);
+    create(w, p2, nmd, nmc, fmd, emd, emc);
 }
 
 /* CREATE_SOURCE */

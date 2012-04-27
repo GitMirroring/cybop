@@ -1,62 +1,62 @@
 <model>
-    <part name="create_summand_1" channel="inline" encoding="utf-8" type="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="summand_1"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
-        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
+    <part name="create_summand_1" channel="inline" encoding="utf-8" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="summand_1"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
     </part>
-    <part name="create_summand_2" channel="inline" encoding="utf-8" type="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="summand_2"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
-        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
+    <part name="create_summand_2" channel="inline" encoding="utf-8" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="summand_2"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
     </part>
-    <part name="create_sum" channel="inline" encoding="utf-8" type="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="sum"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
-        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
+    <part name="create_sum" channel="inline" encoding="utf-8" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="sum"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
     </part>
-    <part name="initialise_summand_1" channel="inline" encoding="utf-8" type="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" type="path/knowledge" model=".summand_1"/>
-        <property name="source" channel="inline" encoding="utf-8" type="number/integer" model="2"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
+    <part name="initialise_summand_1" channel="inline" encoding="utf-8" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".summand_1"/>
+        <property name="source" channel="inline" encoding="utf-8" format="number/integer" model="2"/>
+        <property name="type" channel="inline" encoding="utf-8" format="meta/type" model="number/integer"/>
     </part>
-    <part name="initialise_summand_2" channel="inline" encoding="utf-8" type="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" type="path/knowledge" model=".summand_2"/>
-        <property name="source" channel="inline" encoding="utf-8" type="number/integer" model="3"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
+    <part name="initialise_summand_2" channel="inline" encoding="utf-8" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".summand_2"/>
+        <property name="source" channel="inline" encoding="utf-8" format="number/integer" model="3"/>
+        <property name="type" channel="inline" encoding="utf-8" format="meta/type" model="number/integer"/>
     </part>
-    <part name="initialise_sum" channel="inline" encoding="utf-8" type="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" type="path/knowledge" model=".sum"/>
-        <property name="source" channel="inline" encoding="utf-8" type="number/integer" model="0"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
+    <part name="initialise_sum" channel="inline" encoding="utf-8" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".sum"/>
+        <property name="source" channel="inline" encoding="utf-8" format="number/integer" model="0"/>
+        <property name="type" channel="inline" encoding="utf-8" format="meta/type" model="number/integer"/>
     </part>
-    <part name="add_operand_1" channel="inline" encoding="utf-8" type="calculate/add" model="">
-        <property name="result" channel="inline" encoding="utf-8" type="path/knowledge" model=".sum"/>
-        <property name="operand" channel="inline" encoding="utf-8" type="path/knowledge" model=".summand_1"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
+    <part name="add_operand_1" channel="inline" encoding="utf-8" format="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" format="path/knowledge" model=".sum"/>
+        <property name="operand" channel="inline" encoding="utf-8" format="path/knowledge" model=".summand_1"/>
+        <property name="type" channel="inline" encoding="utf-8" format="meta/type" model="number/integer"/>
     </part>
-    <part name="add_operand_2" channel="inline" encoding="utf-8" type="calculate/add" model="">
-        <property name="result" channel="inline" encoding="utf-8" type="path/knowledge" model=".sum"/>
-        <property name="operand" channel="inline" encoding="utf-8" type="path/knowledge" model=".summand_2"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
+    <part name="add_operand_2" channel="inline" encoding="utf-8" format="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" format="path/knowledge" model=".sum"/>
+        <property name="operand" channel="inline" encoding="utf-8" format="path/knowledge" model=".summand_2"/>
+        <property name="type" channel="inline" encoding="utf-8" format="meta/type" model="number/integer"/>
     </part>
     <!-- Write knowledge tree into file. -->
 <!--
-    <part name="test_knowledge_tree" channel="inline" encoding="utf-8" type="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
-        <property name="format" channel="inline" encoding="utf-8" type="meta/type" model="text/model-diagram"/>
-        <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".sum"/>
-        <property name="receiver" channel="inline" encoding="utf-8" type="text/plain" model="test_addition_sum_addition_2.txt"/>
+    <part name="test_knowledge_tree" channel="inline" encoding="utf-8" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" format="meta/encoding" model="utf-8"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="text/model-diagram"/>
+        <property name="message" channel="inline" encoding="utf-8" format="path/knowledge" model=".sum"/>
+        <property name="receiver" channel="inline" encoding="utf-8" format="text/plain" model="test_addition_sum_addition_2.txt"/>
     </part>
 -->
-    <part name="print_result" channel="inline" encoding="utf-8" type="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
-        <property name="format" channel="inline" encoding="utf-8" type="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".sum"/>
-        <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+    <part name="print_result" channel="inline" encoding="utf-8" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" format="meta/encoding" model="utf-8"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" encoding="utf-8" format="path/knowledge" model=".sum"/>
+        <property name="new_line" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" encoding="utf-8" type="live/exit" model=""/>
+    <part name="exit_application" channel="inline" encoding="utf-8" format="live/exit" model=""/>
 </model>
 
 <!--

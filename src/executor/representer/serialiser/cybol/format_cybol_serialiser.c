@@ -23,35 +23,38 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TYPE_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define TYPE_MODEL_DIAGRAM_SERIALISER_SOURCE
+#ifndef FORMAT_CYBOL_SERIALISER_SOURCE
+#define FORMAT_CYBOL_SERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/cybol/logic/calculate_logic_cybol_type.c"
-#include "../../../../constant/type/cybol/state/logicvalue_state_cybol_type.c"
-#include "../../../../constant/type/model_diagram/model_diagram_type.c"
+#include "../../../../constant/type/format/logic_format_type.c"
+#include "../../../../constant/type/format/state_format_type.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the cyboi type into a model diagram type.
+ * Serialises the cyboi runtime format into a cybol format.
  *
- * @param p0 the destination model diagram item
- * @param p1 the source type
+ * @param p0 the destination item
+ * @param p1 the source data
  */
-void serialise_model_diagram_type(void* p0, void* p1) {
+void serialise_cybol_format(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram type.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol format.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    // ======================================================================
     //
-    // ========== State types. ==========
+    // State.
     //
+    // ======================================================================
 
     //
     // datetime
@@ -59,25 +62,21 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) DATETIME_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) HH_MM_SS_DATETIME_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) HH_MM_SS_DATETIME_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) YYYY_MM_DD_DATETIME_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_element(p0, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    //
-    // element
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) PART_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PART_MODEL_DIAGRAM_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -87,11 +86,55 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) BOOLEAN_LOGICVALUE_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_element(p0, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    //
+    // meta
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) CHANNEL_META_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) CHANNEL_META_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHANNEL_META_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) ENCODING_META_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) ENCODING_META_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ENCODING_META_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) FORMAT_META_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) FORMAT_META_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORMAT_META_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) TYPE_META_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) TYPE_META_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TYPE_META_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -101,7 +144,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -111,7 +154,17 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) COMPLEX_POLAR_NUMBER_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) FRACTION_DECIMAL_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -121,7 +174,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) FRACTION_VULGAR_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -131,17 +184,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) INTEGER_NUMBER_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) INTEGER_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -155,7 +198,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) ENCAPSULATED_PATH_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) ENCAPSULATED_PATH_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -165,25 +208,11 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) KNOWLEDGE_PATH_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_element(p0, (void*) KNOWLEDGE_PATH_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KNOWLEDGE_PATH_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    //
-    // pointer
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) POINTER_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) POINTER_MODEL_DIAGRAM_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) POINTER_MODEL_DIAGRAM_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -193,7 +222,27 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) ASCII_TEXT_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) ASCII_TEXT_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ASCII_TEXT_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) CYBOL_TEXT_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) PLAIN_TEXT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -203,17 +252,29 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) MODEL_DIAGRAM_TEXT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) PLAIN_TEXT_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PLAIN_TEXT_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(p0, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) XDT_TEXT_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) XDT_TEXT_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XDT_TEXT_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    // ======================================================================
     //
-    // ========== Logic types. ==========
+    // Logic.
     //
+    // ======================================================================
 
     //
     // calculate
@@ -221,7 +282,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) ABSOLUTE_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) ABSOLUTE_CALCULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -231,7 +292,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) ADD_CALCULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -241,7 +302,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) DIVIDE_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) DIVIDE_CALCULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -251,7 +312,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) MULTIPLY_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) MULTIPLY_CALCULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -261,7 +322,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NEGATE_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) NEGATE_CALCULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -271,7 +332,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) REDUCE_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) REDUCE_CALCULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -281,7 +342,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) REMAINDER_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) REMAINDER_CALCULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -291,7 +352,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SUBTRACT_CALCULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -305,7 +366,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) RECEIVE_COMMUNICATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) RECEIVE_COMMUNICATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -315,7 +376,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SEND_COMMUNICATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SEND_COMMUNICATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -329,7 +390,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -339,7 +400,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) EQUAL_PART_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) EQUAL_PART_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -349,7 +410,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) EQUAL_PREFIX_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) EQUAL_PREFIX_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -359,7 +420,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) EQUAL_SUFFIX_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) EQUAL_SUFFIX_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -369,7 +430,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) GREATER_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) GREATER_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -379,7 +440,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -389,7 +450,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SMALLER_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SMALLER_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -399,7 +460,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -409,7 +470,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) UNEQUAL_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -423,7 +484,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) DECODE_CONVERT_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) DECODE_CONVERT_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -433,7 +494,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) ENCODE_CONVERT_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) ENCODE_CONVERT_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -447,7 +508,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) ARCHIVE_FILE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) ARCHIVE_FILE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -457,7 +518,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) COPY_FILE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) COPY_FILE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -467,7 +528,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) LIST_DIRECTORY_CONTENTS_FILE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -481,7 +542,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) BRANCH_FLOW_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) BRANCH_FLOW_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -491,7 +552,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) LOOP_FLOW_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) LOOP_FLOW_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -501,7 +562,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SEQUENCE_FLOW_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SEQUENCE_FLOW_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -515,7 +576,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) EXIT_LIVE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) EXIT_LIVE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -525,7 +586,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) INTERRUPT_LIVE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) INTERRUPT_LIVE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -535,7 +596,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SENSE_LIVE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SENSE_LIVE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -549,7 +610,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) AND_LOGIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) AND_LOGIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -559,7 +620,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NAND_LOGIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) NAND_LOGIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -569,7 +630,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NEG_LOGIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) NEG_LOGIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -579,7 +640,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NOR_LOGIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) NOR_LOGIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -589,7 +650,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NOT_LOGIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) NOT_LOGIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -599,7 +660,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) OR_LOGIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) OR_LOGIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -609,7 +670,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) XNOR_LOGIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) XNOR_LOGIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -619,7 +680,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) XOR_LOGIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) XOR_LOGIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -633,7 +694,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SHUTDOWN_MAINTAIN_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SHUTDOWN_MAINTAIN_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -643,7 +704,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) STARTUP_MAINTAIN_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) STARTUP_MAINTAIN_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -657,7 +718,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) GET_MANIPULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) GET_MANIPULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -667,7 +728,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) RESET_MANIPULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) RESET_MANIPULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -677,7 +738,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) ROTATE_LEFT_MANIPULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) ROTATE_LEFT_MANIPULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -687,7 +748,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) ROTATE_RIGHT_MANIPULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -697,7 +758,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SET_MANIPULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SET_MANIPULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -707,7 +768,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SHIFT_LEFT_MANIPULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SHIFT_LEFT_MANIPULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -717,7 +778,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) SHIFT_RIGHT_MANIPULATE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -731,7 +792,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) CREATE_MEMORISE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) CREATE_MEMORISE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -741,7 +802,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) DESTROY_MEMORISE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) DESTROY_MEMORISE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -755,7 +816,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) APPEND_MODIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) APPEND_MODIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -765,7 +826,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) BUILD_MODIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) BUILD_MODIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -775,7 +836,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) COUNT_MODIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) COUNT_MODIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -785,7 +846,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) GET_MODIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) GET_MODIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -795,7 +856,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) INSERT_MODIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) INSERT_MODIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -805,7 +866,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) OVERWRITE_MODIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -815,7 +876,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) REMOVE_MODIFY_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) REMOVE_MODIFY_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -829,7 +890,7 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) RUN_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) RUN_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -839,9 +900,9 @@ void serialise_model_diagram_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise type. The type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol format. The cyboi format is unknown.");
     }
 }
 
-/* TYPE_MODEL_DIAGRAM_SERIALISER_SOURCE */
+/* FORMAT_CYBOL_SERIALISER_SOURCE */
 #endif

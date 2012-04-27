@@ -1,7 +1,7 @@
 <model>
-    <part name="left_border" channel="inline" encoding="utf-8" type="text/plain" model="">
-        <property name="colour" channel="inline" encoding="utf-8" type="number/integer" model="0,0,0"/>
-        <property name="colour_style" channel="inline" encoding="utf-8" type="text/plain" model="rgb"/>
+    <part name="left_border" channel="inline" encoding="utf-8" format="text/plain" model="">
+        <property name="colour" channel="inline" encoding="utf-8" format="number/integer" model="0,0,0"/>
+        <property name="colour_style" channel="inline" encoding="utf-8" format="text/plain" model="rgb"/>
     </part>
 </model>
 

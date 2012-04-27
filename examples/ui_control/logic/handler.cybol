@@ -1,11 +1,11 @@
 <model>
-    <part name="handle_gnu_linux_console" channel="file" encoding="utf-8" type="text/cybol" model="ui_control/logic/handler/handle_gnu_linux_console.cybol"/>
-    <part name="handle_about_dialog" channel="file" encoding="utf-8" type="text/cybol" model="ui_control/logic/handler/handle_about_dialog.cybol"/>
-    <part name="handle_x_window_system" channel="file" encoding="utf-8" type="text/cybol" model="ui_control/logic/handler/handle_x_window_system.cybol"/>
-    <part name="handle_www_service" channel="file" encoding="utf-8" type="text/cybol" model="ui_control/logic/handler/handle_www_service.cybol"/>
-    <part name="handle_cyboi_service" channel="file" encoding="utf-8" type="text/cybol" model="ui_control/logic/handler/handle_cyboi_service.cybol"/>
-    <part name="gnu_linux_console_command" channel="inline" encoding="utf-8" type="text/plain" model=""/>
-    <part name="gnu_linux_console_command_model" channel="inline" encoding="utf-8" type="text/plain" model=""/>
+    <part name="handle_gnu_linux_console" channel="file" encoding="utf-8" format="text/cybol" model="ui_control/logic/handler/handle_gnu_linux_console.cybol"/>
+    <part name="handle_about_dialog" channel="file" encoding="utf-8" format="text/cybol" model="ui_control/logic/handler/handle_about_dialog.cybol"/>
+    <part name="handle_x_window_system" channel="file" encoding="utf-8" format="text/cybol" model="ui_control/logic/handler/handle_x_window_system.cybol"/>
+    <part name="handle_www_service" channel="file" encoding="utf-8" format="text/cybol" model="ui_control/logic/handler/handle_www_service.cybol"/>
+    <part name="handle_cyboi_service" channel="file" encoding="utf-8" format="text/cybol" model="ui_control/logic/handler/handle_cyboi_service.cybol"/>
+    <part name="gnu_linux_console_command" channel="inline" encoding="utf-8" format="text/plain" model=""/>
+    <part name="gnu_linux_console_command_model" channel="inline" encoding="utf-8" format="text/plain" model=""/>
 </model>
 
 <!--

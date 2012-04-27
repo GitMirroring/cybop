@@ -1,18 +1,18 @@
 <model>
-    <part name="get_command_of_current_element" channel="inline" encoding="utf-8" type="operation/plain" model="add">
-        <property name="summand_1" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
-        <property name="summand_2" channel="inline" encoding="utf-8" type="text/plain" model="#button_press_action"/>
-        <property name="sum" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="wide_character"/>
+    <part name="get_command_of_current_element" channel="inline" encoding="utf-8" format="operation/plain" model="add">
+        <property name="summand_1" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
+        <property name="summand_2" channel="inline" encoding="utf-8" format="text/plain" model="#button_press_action"/>
+        <property name="sum" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="wide_character"/>
     </part>
-    <part name="determine_real_command" channel="inline" encoding="utf-8" type="operation/plain" model="copy">
-        <property name="source" channel="inline" encoding="utf-8" type="path/encapsulated" model=".ui_control.temporary.character"/>
-        <property name="destination" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" type="text/plain" model="wide_character"/>
+    <part name="determine_real_command" channel="inline" encoding="utf-8" format="operation/plain" model="copy">
+        <property name="source" channel="inline" encoding="utf-8" format="path/encapsulated" model=".ui_control.temporary.character"/>
+        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="wide_character"/>
     </part>
-    <part name="send_command_as_signal" channel="inline" encoding="utf-8" type="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="signal"/>
-        <property name="message" channel="inline" encoding="utf-8" type="path/encapsulated" model=".ui_control.temporary.character"/>
+    <part name="send_command_as_signal" channel="inline" encoding="utf-8" format="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" format="text/plain" model="signal"/>
+        <property name="message" channel="inline" encoding="utf-8" format="path/encapsulated" model=".ui_control.temporary.character"/>
     </part>
 </model>
 

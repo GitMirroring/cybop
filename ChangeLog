@@ -16,6 +16,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Hand over "format" instead of "type" property to function "apply_create",
+            so that model diagram output displays all values correctly
+            and the error EILSEQ which occured unpredictably disappears
+        * Optimise model diagram serialisation using cybol serialiser files
+        * Make cybol example applications "addition_dynamic_model" and "addition_dynamic_model_with_root" work
+        * Rename cybol "type" attribute into "format" in all example applications
+
 2012-04-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Change "type" constants in "serialiser.c" into "format" constants

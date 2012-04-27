@@ -1,31 +1,47 @@
 <model>
-    <part name="create_domain" channel="inline" encoding="utf-8" type="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" type="text/plain" model="domain"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="text/cybol"/>
-        <property name="element" channel="inline" encoding="utf-8" type="text/plain" model="part"/>
+    <part name="create_domain" channel="inline" encoding="utf-8" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="domain"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="text/cybol"/>
+        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
     </part>
-    <part name="initialise_domain" channel="inline" encoding="utf-8" type="communicate/receive" model="">
-        <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
+    <part name="initialise_domain" channel="inline" encoding="utf-8" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" format="meta/encoding" model="utf-8"/>
         <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
-        <property name="format" channel="inline" encoding="utf-8" type="meta/format" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="text/cybol"/>
         <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "type" property. -->
-        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="addition_static_model/domain.cybol"/>
-        <property name="model" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain"/>
+        <property name="message" channel="inline" encoding="utf-8" format="text/plain" model="addition_static_model/domain.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain"/>
     </part>
-    <part name="add_operand" channel="inline" encoding="utf-8" type="calculate/add" model="">
-        <property name="result" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.sum"/>
-        <property name="operand" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.summand"/>
-        <property name="type" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree" channel="inline" encoding="utf-8" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" format="meta/encoding" model="utf-8"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="text/model-diagram"/>
+        <property name="message" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain"/>
+        <property name="receiver" channel="inline" encoding="utf-8" format="text/plain" model="test_addition_static.txt"/>
     </part>
-    <part name="print_result" channel="inline" encoding="utf-8" type="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" type="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" type="meta/encoding" model="utf-8"/>
-        <property name="format" channel="inline" encoding="utf-8" type="meta/type" model="number/integer"/>
-        <property name="message" channel="inline" encoding="utf-8" type="path/knowledge" model=".domain.sum"/>
-        <property name="new_line" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+    <part name="add_operand" channel="inline" encoding="utf-8" format="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain.sum"/>
+        <property name="operand" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain.summand"/>
+        <property name="type" channel="inline" encoding="utf-8" format="meta/type" model="number/integer"/>
     </part>
-    <part name="exit_application" channel="inline" encoding="utf-8" type="live/exit" model=""/>
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree" channel="inline" encoding="utf-8" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" format="meta/encoding" model="utf-8"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="text/model-diagram"/>
+        <property name="message" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain"/>
+        <property name="receiver" channel="inline" encoding="utf-8" format="text/plain" model="test_addition_static_2.txt"/>
+    </part>
+    <part name="print_result" channel="inline" encoding="utf-8" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" format="meta/encoding" model="utf-8"/>
+        <property name="format" channel="inline" encoding="utf-8" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain.sum"/>
+        <property name="new_line" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="exit_application" channel="inline" encoding="utf-8" format="live/exit" model=""/>
 </model>
 
 <!--

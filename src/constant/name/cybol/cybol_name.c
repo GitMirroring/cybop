@@ -45,10 +45,10 @@ static wchar_t ENCODING_CYBOL_NAME_ARRAY[] = {L'e', L'n', L'c', L'o', L'd', L'i'
 static wchar_t* ENCODING_CYBOL_NAME = ENCODING_CYBOL_NAME_ARRAY;
 static int* ENCODING_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The type cybol name. */
-static wchar_t TYPE_CYBOL_NAME_ARRAY[] = {L't', L'y', L'p', L'e'};
-static wchar_t* TYPE_CYBOL_NAME = TYPE_CYBOL_NAME_ARRAY;
-static int* TYPE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The format cybol name. */
+static wchar_t FORMAT_CYBOL_NAME_ARRAY[] = {L'f', L'o', L'r', L'm', L'a', L't'};
+static wchar_t* FORMAT_CYBOL_NAME = FORMAT_CYBOL_NAME_ARRAY;
+static int* FORMAT_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The model cybol name. */
 static wchar_t MODEL_CYBOL_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};

@@ -40,31 +40,42 @@
  * @param p1 the knowledge memory part
  * @param p2 the name data
  * @param p3 the name count
- * @param p4 the type data
+ * @param p4 the format data
  * @param p5 the destination part element index
  */
 void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Create element.");
 
+    // The type item.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type item data.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element (part or property).
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate element (part or property).
-    allocate_part((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p4);
+    // Allocate type item.
+    // CAUTION! Initialise integer items with a size of ONE,
+    // in order to avoid later reallocation when overwriting
+    // the element and to thus increase efficiency.
+    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    // Deserialise format type into cyboi runtime type.
+    deserialise_cybol_type(t, p4);
+    // Get type item data.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    // Allocate element (part or property).
+    allocate_part((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
     // Fill element (part or property).
     overwrite_part_element(e, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(e, p4, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(e, p4, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(e, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
-/*??
-    //?? TEST, DELETE LATER!
-    overwrite_part_element(e, (void*) NUMBER_444_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(e, (void*) NUMBER_55_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-fwprintf(stdout, L"TEST create: %i\n", p4);
-fwprintf(stdout, L"TEST create: %i\n", *((int*) p4));
-*/
+    // Deallocate type item.
+    deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

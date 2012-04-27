@@ -1,8 +1,8 @@
 <model>
-    <part name="output" channel="inline" encoding="utf-8" type="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" type="text/plain" model="shell"/>
-        <property name="language" channel="inline" encoding="utf-8" type="text/plain" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" type="text/plain" model="Hello, World!"/>
+    <part name="output" channel="inline" encoding="utf-8" format="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" format="text/plain" model="shell"/>
+        <property name="language" channel="inline" encoding="utf-8" format="text/plain" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" format="text/plain" model="Hello, World!"/>
     </part>
 </model>
 

@@ -92,11 +92,11 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise.");
 
-    // CAUTION! CYBOL operations have an EMPTY model.
+    // The functions below are for STATE models only.
+    // CAUTION! CYBOL LOGIC operations have an EMPTY model.
     // Hence, they do NOT have to be considered here.
-    // They are detected via their "type" xml attribute.
-    // Their parametres were already converted into
-    // properties while being decoded from cybol.
+    // They are detected via their "format" xml attribute.
+    // Their parametres were converted from cybol properties.
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

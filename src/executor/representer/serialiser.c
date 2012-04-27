@@ -39,8 +39,8 @@
 #include "../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
 #include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
+#include "../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
-#include "../../executor/representer/serialiser/cybol/type_cybol_serialiser.c"
 #include "../../executor/representer/serialiser/html/html_serialiser.c"
 #include "../../executor/representer/serialiser/http_request/http_request_serialiser.c"
 #include "../../executor/representer/serialiser/http_response/http_response_serialiser.c"
@@ -58,12 +58,18 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the source type data
+ * @param p5 the source format data
  * @param p6 the format
  */
 void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise.");
+
+    // The functions below are for STATE models only.
+    // CAUTION! CYBOL LOGIC operations have an EMPTY model.
+    // Hence, they do NOT have to be considered here.
+    // They are detected via their "format" xml attribute.
+    // Their parametres were converted from cybol properties.
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -95,6 +101,16 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     // datetime
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) HH_MM_SS_DATETIME_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) HH_MM_SS_DATETIME_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

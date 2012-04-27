@@ -1,63 +1,63 @@
 <model>
-    <part name="title" channel="inline" encoding="utf-8" type="text/plain" model="Menu">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.menu_title"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="30,1,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="4,1,1"/>
+    <part name="title" channel="inline" encoding="utf-8" format="text/plain" model="Menu">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.menu_title"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="30,1,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="4,1,1"/>
     </part>
-    <part name="mc_item" channel="inline" encoding="utf-8" type="text/plain" model="m - Start Midnight Commander (MC)">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="1,3,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="68,1,1"/>
-        <property name="previous" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.exit_item"/>
-        <property name="next" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.dosemu_item"/>
-        <property name="button_press_action" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.logic.functionality.start_mc"/>
-        <property name="background" channel="inline" encoding="utf-8" type="text/plain" model="blue"/>
-        <property name="foreground" channel="inline" encoding="utf-8" type="text/plain" model="white"/>
-        <property name="bold" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+    <part name="mc_item" channel="inline" encoding="utf-8" format="text/plain" model="m - Start Midnight Commander (MC)">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="1,3,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="68,1,1"/>
+        <property name="previous" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.exit_item"/>
+        <property name="next" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.dosemu_item"/>
+        <property name="button_press_action" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.logic.functionality.start_mc"/>
+        <property name="background" channel="inline" encoding="utf-8" format="text/plain" model="blue"/>
+        <property name="foreground" channel="inline" encoding="utf-8" format="text/plain" model="white"/>
+        <property name="bold" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="dosemu_item" channel="inline" encoding="utf-8" type="text/plain" model="d - Start DOS Emulator (DOSemu)">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="1,4,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="68,1,1"/>
-        <property name="previous" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.mc_item"/>
-        <property name="next" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.x_window_item"/>
-        <property name="button_press_action" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.logic.functionality.start_dosemu"/>
-        <property name="background" channel="inline" encoding="utf-8" type="text/plain" model="blue"/>
-        <property name="foreground" channel="inline" encoding="utf-8" type="text/plain" model="white"/>
-        <property name="bold" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+    <part name="dosemu_item" channel="inline" encoding="utf-8" format="text/plain" model="d - Start DOS Emulator (DOSemu)">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="1,4,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="68,1,1"/>
+        <property name="previous" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.mc_item"/>
+        <property name="next" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.x_window_item"/>
+        <property name="button_press_action" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.logic.functionality.start_dosemu"/>
+        <property name="background" channel="inline" encoding="utf-8" format="text/plain" model="blue"/>
+        <property name="foreground" channel="inline" encoding="utf-8" format="text/plain" model="white"/>
+        <property name="bold" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="x_window_item" channel="inline" encoding="utf-8" type="text/plain" model="x - Open an X Window">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="1,5,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="60,1,1"/>
-        <property name="previous" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.dosemu_item"/>
-        <property name="next" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.about_item"/>
-        <property name="button_press_action" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.logic.functionality.show_x_window"/>
-        <property name="background" channel="inline" encoding="utf-8" type="text/plain" model="blue"/>
-        <property name="foreground" channel="inline" encoding="utf-8" type="text/plain" model="white"/>
-        <property name="bold" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+    <part name="x_window_item" channel="inline" encoding="utf-8" format="text/plain" model="x - Open an X Window">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="1,5,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="60,1,1"/>
+        <property name="previous" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.dosemu_item"/>
+        <property name="next" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.about_item"/>
+        <property name="button_press_action" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.logic.functionality.show_x_window"/>
+        <property name="background" channel="inline" encoding="utf-8" format="text/plain" model="blue"/>
+        <property name="foreground" channel="inline" encoding="utf-8" format="text/plain" model="white"/>
+        <property name="bold" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="about_item" channel="inline" encoding="utf-8" type="text/plain" model="a - Show About Information">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="1,7,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="60,1,1"/>
-        <property name="previous" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.x_window_item"/>
-        <property name="next" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.exit_item"/>
-        <property name="button_press_action" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.logic.user_interface.show_about_information"/>
-        <property name="background" channel="inline" encoding="utf-8" type="text/plain" model="blue"/>
-        <property name="foreground" channel="inline" encoding="utf-8" type="text/plain" model="white"/>
-        <property name="bold" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+    <part name="about_item" channel="inline" encoding="utf-8" format="text/plain" model="a - Show About Information">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="1,7,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="60,1,1"/>
+        <property name="previous" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.x_window_item"/>
+        <property name="next" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.exit_item"/>
+        <property name="button_press_action" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.logic.user_interface.show_about_information"/>
+        <property name="background" channel="inline" encoding="utf-8" format="text/plain" model="blue"/>
+        <property name="foreground" channel="inline" encoding="utf-8" format="text/plain" model="white"/>
+        <property name="bold" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_item" channel="inline" encoding="utf-8" type="text/plain" model="e - Exit Programme">
-        <property name="super" channel="inline" encoding="utf-8" type="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
-        <property name="position" channel="inline" encoding="utf-8" type="number/integer" model="1,8,0"/>
-        <property name="size" channel="inline" encoding="utf-8" type="number/integer" model="60,1,1"/>
-        <property name="previous" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.about_item"/>
-        <property name="next" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.tui.main_window.menu.mc_item"/>
-        <property name="button_press_action" channel="inline" encoding="utf-8" type="text/plain" model=".ui_control.logic.lifecycle.exit_program"/>
-        <property name="background" channel="inline" encoding="utf-8" type="text/plain" model="blue"/>
-        <property name="foreground" channel="inline" encoding="utf-8" type="text/plain" model="white"/>
-        <property name="bold" channel="inline" encoding="utf-8" type="logicvalue/boolean" model="true"/>
+    <part name="exit_item" channel="inline" encoding="utf-8" format="text/plain" model="e - Exit Programme">
+        <property name="super" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.settings.tui.menu_item"/>
+        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="1,8,0"/>
+        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="60,1,1"/>
+        <property name="previous" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.about_item"/>
+        <property name="next" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.tui.main_window.menu.mc_item"/>
+        <property name="button_press_action" channel="inline" encoding="utf-8" format="text/plain" model=".ui_control.logic.lifecycle.exit_program"/>
+        <property name="background" channel="inline" encoding="utf-8" format="text/plain" model="blue"/>
+        <property name="foreground" channel="inline" encoding="utf-8" format="text/plain" model="white"/>
+        <property name="bold" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
     </part>
     <!--??
         Delete the "background", "foreground" and "bold" properties later, since they are already part of the standard setting!
