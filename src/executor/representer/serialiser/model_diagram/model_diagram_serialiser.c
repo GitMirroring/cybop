@@ -51,18 +51,18 @@
  * @param p5 the source model count
  * @param p6 the source properties data
  * @param p7 the source properties count
+ * @param p8 the tree level
  */
-void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram.");
 
-    // The tree level.
-    // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
-    // since the tree level value gets changed in the following functions!
-    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+fwprintf(stdout, L"TEST diagram p8: %i\n", *((int*) p8));
 
     // Encode model diagram root node.
-    serialise_model_diagram_node(p0, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+    serialise_model_diagram_node(p0, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
+
+fwprintf(stdout, L"TEST diagram POST p8: %i\n", *((int*) p8));
 }
 
 /* MODEL_DIAGRAM_SERIALISER_SOURCE */

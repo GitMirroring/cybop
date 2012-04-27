@@ -49,7 +49,7 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the source type data
+ * @param p5 the source format data
  * @param p6 the format
  * @param p7 the encoding
  */
@@ -61,12 +61,16 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoded character item.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoded character item data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serialised wide character item data, count.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded character item data, count.
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The tree level.
+    // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
+    // since the tree level value gets changed in the following functions!
+    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
     allocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -74,7 +78,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     allocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise source knowledge model into serialised wide character array.
-    serialise(s, p1, p2, p3, p4, p5, p6);
+    serialise(s, p1, p2, p3, p4, p5, (void*) &l, p6);
 
     // Get serialised wide character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

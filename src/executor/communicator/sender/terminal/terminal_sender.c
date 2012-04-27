@@ -49,7 +49,7 @@
  * @param p1 the source model count
  * @param p2 the source properties data
  * @param p3 the source properties count
- * @param p4 the source type data
+ * @param p4 the source format data
  * @param p5 the format
  * @param p6 the encoding
  * @param p7 the internal memory
@@ -72,6 +72,10 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The tree level.
+    // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
+    // since the tree level value gets changed in the following functions!
+    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate serialised wide character array.
     allocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -91,7 +95,7 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     }
 
     // Serialise source knowledge model into serialised wide character array.
-    serialise(s, p0, p1, p2, p3, p4, p5);
+    serialise(s, p0, p1, p2, p3, p4, (void*) &l, p5);
 
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

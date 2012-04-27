@@ -43,7 +43,7 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the source type data
+ * @param p5 the source format data
  * @param p6 the format
  */
 void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
@@ -56,8 +56,13 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // array into a multibyte character array at once when being written.
     // Therefore, data do NOT have to be encoded once more already here.
 
+    // The tree level.
+    // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
+    // since the tree level value gets changed in the following functions!
+    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
     // Encode source data according to given type.
-    serialise(p0, p1, p2, p3, p4, p5, p6);
+    serialise(p0, p1, p2, p3, p4, p5, (void*) &l, p6);
 }
 
 /* INLINE_SENDER_SOURCE */

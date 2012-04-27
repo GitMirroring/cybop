@@ -80,7 +80,7 @@
 //
 
 /**
- * Deserialises the source into the destination, according to the given cybol cyboi type.
+ * Deserialises the source into the destination, according to the given format.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -100,6 +100,30 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // colour
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_terminal_background(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_terminal_foreground(p0, p2, p3);
+        }
+    }
 
     //
     // datetime
@@ -439,28 +463,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
             overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
-
-/*?? TODO:
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_terminal_background(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_terminal_foreground(p0, p2, p3);
-        }
-    }
-*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

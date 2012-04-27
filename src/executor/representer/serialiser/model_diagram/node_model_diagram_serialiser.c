@@ -35,12 +35,17 @@
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../executor/representer/serialiser/model_diagram/indentation_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/line_model_diagram_serialiser.c"
-#include "../../../../executor/representer/serialiser/model_diagram/model_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/part_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
+
+//
+// Forward declarations.
+//
+
+void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Serialises the model diagram node.
@@ -69,11 +74,14 @@ void serialise_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* 
     // Append line.
     serialise_model_diagram_line(p0);
 
-    // Append part type.
+    // Append part format.
     serialise_cybol_format(p0, p3);
 
+    // Append line.
+    serialise_model_diagram_line(p0);
+
     // Append part model.
-    serialise_model_diagram_model(p0, p4, p5, p9, p3);
+    serialise(p0, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p9, (void*) MODEL_DIAGRAM_TEXT_STATE_FORMAT_TYPE);
 
     // Append part properties.
     serialise_model_diagram_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
