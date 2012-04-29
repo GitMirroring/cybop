@@ -9,7 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: think through and check into svn "constant/language/"
+        * CONTINUE WITH: "serialiser.c" and "model_diagram_serialiser.c" (move the latter one directory level up)
         * Debug endless loop in "serialiser.c" (CYBOL and MODEL_DIAGRAM) and "model_diagram_serialiser.c"
         * Adapt cybol example applications to new cybol mime types and operations:
             DONE: exit, addition*

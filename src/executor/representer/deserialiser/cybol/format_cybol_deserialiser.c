@@ -49,6 +49,7 @@
 #include "../../../../constant/type/cybol/state/bluetooth_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/colour_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/datetime_state_cybol_type.c"
+#include "../../../../constant/type/cybol/state/element_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/example_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/fonts_state_cybol_type.c"
 #include "../../../../constant/type/cybol/state/image_state_cybol_type.c"
@@ -73,7 +74,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the cybol mime type into cyboi format type.
+ * Deserialises the cybol format mime type into cyboi-internal format (integer).
  *
  * @param p0 the destination item
  * @param p1 the source data
@@ -88,10 +89,11 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
     // so that reallocation is not necessary for adding an element.
     // Therefore, the "overwrite" function has to be used instead.
     //
-    // CAUTION! The "true" flag has to be set for the "overwrite" function
-    // since a type may be handed over not only as cybol attribute
+    // CAUTION! The "true" flag HAS TO BE SET for the "overwrite" function
+    // since a type may be handed over not only as cybol xml attribute
     // (for which a default size of one has been set when allocating a part),
-    // but also as cybol model (which gets assigned a default size of zero).
+    // but also as model of a cybol property
+    // (which gets assigned a default size of zero).
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -123,6 +125,20 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             overwrite_item_element(p0, (void*) YYYY_MM_DD_DATETIME_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        }
+    }
+
+    //
+    // element
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) PART_ELEMENT_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) PART_ELEMENT_STATE_CYBOL_TYPE_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) PART_ELEMENT_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
@@ -161,6 +177,16 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             overwrite_item_element(p0, (void*) ENCODING_META_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) LANGUAGE_META_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LANGUAGE_META_STATE_CYBOL_TYPE_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) LANGUAGE_META_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
@@ -278,41 +304,11 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            overwrite_item_element(p0, (void*) CYBOL_TEXT_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p1, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            overwrite_item_element(p0, (void*) MODEL_DIAGRAM_TEXT_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_all_array((void*) &r, p1, (void*) PLAIN_TEXT_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) PLAIN_TEXT_STATE_CYBOL_TYPE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             overwrite_item_element(p0, (void*) PLAIN_TEXT_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p1, (void*) XDT_TEXT_STATE_CYBOL_TYPE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) XDT_TEXT_STATE_CYBOL_TYPE_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            overwrite_item_element(p0, (void*) XDT_TEXT_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
@@ -946,7 +942,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol type. The type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol format. The format is unknown.");
     }
 }
 

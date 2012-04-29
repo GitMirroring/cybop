@@ -74,6 +74,15 @@ static wchar_t* ENCODING_META_STATE_CYBOL_TYPE = ENCODING_META_STATE_CYBOL_TYPE_
 static int* ENCODING_META_STATE_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The meta/language cybol type.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t LANGUAGE_META_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'l', L'a', L'n', L'g', L'u', L'a', L'g', L'e'};
+static wchar_t* LANGUAGE_META_STATE_CYBOL_TYPE = LANGUAGE_META_STATE_CYBOL_TYPE_ARRAY;
+static int* LANGUAGE_META_STATE_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The meta/format cybol type.
  *
  * This is a CYBOL extension.

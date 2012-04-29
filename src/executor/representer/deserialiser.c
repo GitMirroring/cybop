@@ -41,6 +41,7 @@
 #include "../../executor/representer/deserialiser/cybol/double_vector_cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
+#include "../../executor/representer/deserialiser/cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/html/html_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_request/http_request_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
@@ -80,7 +81,7 @@
 //
 
 /**
- * Deserialises the source into the destination, according to the given format.
+ * Deserialises the source into the destination, according to the given language.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -101,69 +102,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    //
-    // colour
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??            deserialise_terminal_background(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??            deserialise_terminal_foreground(p0, p2, p3);
-        }
-    }
-
-    //
-    // datetime
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) HH_MM_SS_DATETIME_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? TODO: Rename into "deserialise_hhmmss_date_time"!
-//??            deserialise_date_time(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) YYYY_MM_DD_DATETIME_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??            deserialise_ddmmyyyy_date_time(p0, p2, p3);
-        }
-    }
-
-    //
-    // logicvalue
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) BOOLEAN_LOGICVALUE_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_cybol_boolean(p0, p2, p3);
-        }
-    }
 
     //
     // message
@@ -235,149 +173,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     }
 
     //
-    // meta
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) CHANNEL_META_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_cybol_channel(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) ENCODING_META_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_cybol_encoding(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) FORMAT_META_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Decode cybol source format (mime type as string) into cyboi-internal type (an integer).
-            deserialise_cybol_format(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) TYPE_META_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // The temporary format item.
-            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The temporary format item data.
-            void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Allocate temporary format item.
-            // CAUTION! Initialise integer items with a size of ONE,
-            // in order to avoid later reallocation when overwriting
-            // the element and to thus increase efficiency.
-            allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-            // Decode cybol source format (mime type as string) into cyboi-internal type (an integer).
-            deserialise_cybol_format(f, p2, p3);
-            // Get temporary format item data.
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            // Decode cyboi-internal type into cyboi runtime type.
-            // CAUTION! Both are not always equal in their meaning.
-            // For example, an "xdt" file is converted into a cyboi "part".
-            // Therefore, a runtime type has to be figured out here.
-            // The latter is needed for allocating the new part.
-            deserialise_cybol_type(p0, fd);
-
-            // Deallocate temporary format item.
-            deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        }
-    }
-
-    //
-    // number
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? TODO: Implement the following function!
-//??            deserialise_cartesian_complex(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) FRACTION_DECIMAL_NUMBER_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? TEMPORARY solution!
-            //?? TODO: Replace with something like "deserialise_decimal_fraction".
-//??            deserialise_double_vector(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) FRACTION_VULGAR_NUMBER_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? TODO: Rename into "deserialise_vulgar_fraction"!
-//??            deserialise_fraction(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) INTEGER_NUMBER_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_cybol_integer(p0, p2, p3);
-        }
-    }
-
-    //
-    // path
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) ENCAPSULATED_PATH_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) KNOWLEDGE_PATH_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        }
-    }
-
-    //
     // text
     //
 
@@ -397,51 +192,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The temporary format, type, model, properties item.
-            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The temporary model, properties data, count.
-            void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Allocate temporary format, type, model, properties item.
-            // CAUTION! Initialise integer items with a size of ONE,
-            // in order to avoid later reallocation when overwriting
-            // the element and to thus increase efficiency.
-            allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            allocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-            allocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-            // Decode source message (cybol file) into temporary model, properties item.
-            deserialise_xml(m, p, p2, p3);
-
-            // Get temporary model, properties data, count.
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_XML.txt", *NULL_POINTER_STATE_CYBOI_MODEL, t, m, p);
-
-            // Decode temporary model, properties item into cyboi model using temporary type, format.
-            // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            deserialise_cybol_node_content(p0, md, mc, pd, pc, t, f);
-
-            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL.txt", *NULL_POINTER_STATE_CYBOI_MODEL, t, p0, p1);
-
-            // Deallocate temporary format, type, model, properties item.
-            deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            deserialise_cybol(p0, p1, p2, p3, p4);
         }
     }
 
@@ -452,16 +203,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_html(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) PLAIN_TEXT_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            overwrite_item_element(p0, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
@@ -489,7 +230,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise. The format is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise. The language is unknown.");
     }
 }
 

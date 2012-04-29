@@ -45,7 +45,7 @@
 // Forward declarations.
 //
 
-void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Serialises the model diagram node.
@@ -81,7 +81,7 @@ void serialise_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* 
     serialise_model_diagram_line(p0);
 
     // Append part model.
-    serialise(p0, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p9, (void*) MODEL_DIAGRAM_TEXT_STATE_FORMAT_TYPE);
+//??    serialise_model_diagram(p0, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p9);
 
     // Append part properties.
     serialise_model_diagram_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
