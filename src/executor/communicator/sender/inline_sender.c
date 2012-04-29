@@ -43,8 +43,8 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the source format data
- * @param p6 the format
+ * @param p5 the format
+ * @param p6 the language
  */
 void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 

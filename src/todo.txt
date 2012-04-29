@@ -9,7 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: debug endless loop in "serialiser.c" (CYBOL and MODEL_DIAGRAM) and "model_diagram_serialiser.c"
+        * CONTINUE WITH: think through and check into svn "constant/language/"
+        * Debug endless loop in "serialiser.c" (CYBOL and MODEL_DIAGRAM) and "model_diagram_serialiser.c"
         * Adapt cybol example applications to new cybol mime types and operations:
             DONE: exit, addition*
             TODO: all other

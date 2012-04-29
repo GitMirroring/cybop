@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare language/format/type transformation
+
 2012-04-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Hand over "format" instead of "type" property to function "apply_create",

@@ -68,9 +68,6 @@ static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY
 // element
 //
 
-/** The item element state cyboi type. */
-static int* ITEM_ELEMENT_STATE_CYBOI_TYPE = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The part element state cyboi type. */
 static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

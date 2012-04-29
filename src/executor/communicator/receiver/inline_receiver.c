@@ -44,8 +44,9 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4);
  * @param p2 the source data
  * @param p3 the source count
  * @param p4 the format
+ * @param p5 the language
  */
-void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive inline.");
 
@@ -57,7 +58,7 @@ void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // evaluated as inline wide character array.
 
     // Decode source data according to given type.
-    deserialise(p0, p1, p2, p3, p4);
+    deserialise(p0, p1, p2, p3, p4, p5);
 }
 
 /* INLINE_RECEIVER_SOURCE */

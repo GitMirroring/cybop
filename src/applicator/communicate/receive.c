@@ -49,7 +49,8 @@
  * Expected parametres:
  * - channel (required): the channel via which to receive the message (terminal, www, x_window_system etc.)
  * - encoding (required): the encoding (utf-8, utf-32 for inline channel etc.)
- * - type (required): the language (type, type, structure) of the data received (http_request, xdt, boolean, character etc.)
+ * - language (required): the language of the data received (cybol, http_request, xdt etc.)
+ * - format (required): the format of the data received (boolean, character, integer etc.)
  * - message (required): the source (knowledge template) from where to receive data
  * - meta message (optional): the source (knowledge template) from where to receive meta data (properties)
  * - model (required): the model to be filled with the data received
@@ -70,6 +71,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language part.
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part.
@@ -88,6 +91,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part model item.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language part model item.
+    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part model item.
     void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model item.
@@ -103,10 +108,12 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     // The socket communication style part model item.
     void* stm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The channel part model item data, count.
+    // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoding part model item data, count.
+    // The encoding part model item data.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language part model item data.
+    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part model item data.
     void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model item data, count.
@@ -128,6 +135,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     get_part_knowledge((void*) &c, p0, (void*) CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get encoding part.
     get_part_knowledge((void*) &e, p0, (void*) ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get language part.
+    get_part_knowledge((void*) &l, p0, (void*) LANGUAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) LANGUAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get format part.
     get_part_knowledge((void*) &f, p0, (void*) FORMAT_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) FORMAT_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get message part.
@@ -145,6 +154,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get encoding part model item.
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get language part model item.
+    copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get format part model item.
     copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get message part model item.
@@ -164,6 +175,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get encoding part model item data.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get language part model item data.
+    copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get format part model item data.
     copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get message part model item data, count.
@@ -183,6 +196,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
 
 /*??
 fwprintf(stdout, L"TEST receive cmd: %i\n", *((int*) cmd));
+fwprintf(stdout, L"TEST receive lmd: %i\n", *((int*) lmd));
 fwprintf(stdout, L"TEST receive fmd: %i\n", *((int*) fmd));
 fwprintf(stdout, L"TEST receive motd: %i\n", *((int*) motd));
 fwprintf(stdout, L"TEST receive INTEGER_NUMBER_STATE_FORMAT_TYPE: %i\n", *INTEGER_NUMBER_STATE_FORMAT_TYPE);
@@ -195,7 +209,7 @@ fwprintf(stdout, L"TEST receive mmd: %i\n", *((int*) mmd));
 test_item_as_model_diagram((void*) L"TEST_MESSAGE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, mot, mm, mem);
 test_item_as_model_diagram((void*) L"TEST_PRE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, mot, mom, mop);
 */
-    receive_data(mom, mop, mmd, mmc, fmd, emd, p3, cmd);
+    receive_data(mom, mop, mmd, mmc, fmd, lmd, emd, p3, cmd);
 /*??
 test_item_as_model_diagram((void*) L"TEST_POST.txt", *NULL_POINTER_STATE_CYBOI_MODEL, mot, mom, mop);
 */

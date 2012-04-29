@@ -48,11 +48,12 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the type
- * @param p3 the encoding
- * @param p4 the internal memory array
+ * @param p2 the format
+ * @param p3 the language
+ * @param p4 the encoding
+ * @param p5 the internal memory array
  */
-void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
 
@@ -66,7 +67,7 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Receive byte data via channel.
-    receive_terminal_file(d, p4);
+    receive_terminal_file(d, p5);
 
     // CAUTION! The multibyte character sequence is converted to
     // wide character internally (in glibc function "fgetwc").
@@ -81,7 +82,7 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Deserialise data.
-    deserialise(p0, p1, dd, dc, p2);
+    deserialise(p0, p1, dd, dc, p2, p3);
 
     // Deallocate decoded message item.
     deallocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

@@ -49,8 +49,8 @@
  * @param p1 the source model count
  * @param p2 the source properties data
  * @param p3 the source properties count
- * @param p4 the source format data
- * @param p5 the format
+ * @param p4 the format
+ * @param p5 the language
  * @param p6 the encoding
  * @param p7 the internal memory
  * @param p8 the clean flag

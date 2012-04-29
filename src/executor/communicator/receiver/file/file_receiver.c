@@ -52,10 +52,11 @@
  * @param p1 the destination properties item
  * @param p2 the source data (file name)
  * @param p3 the source count
- * @param p4 the type
- * @param p5 the encoding
+ * @param p4 the format
+ * @param p5 the language
+ * @param p6 the encoding
  */
-void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive file.");
 
@@ -86,7 +87,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Decode data via encoding.
-    decode(d, ed, ec, p5);
+    decode(d, ed, ec, p6);
 
     // Get decoded message item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -96,7 +97,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Deserialise data via type (language).
-    deserialise(p0, p1, dd, dc, p4);
+    deserialise(p0, p1, dd, dc, p4, p5);
 
     // Deallocate byte message item.
     deallocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

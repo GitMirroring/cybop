@@ -55,8 +55,8 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the source type data
- * @param p6 the format
+ * @param p5 the format
+ * @param p6 the language
  * @param p7 the encoding
  * @param p8 the internal memory array
  * @param p9 the source part

@@ -288,7 +288,7 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         // When reading cybol, the only possible two channels are "inline" and "file",
         // but the internal memory (second-last parametre) is only necessary for
         // "terminal", "x_window_system" and similar channels.
-        receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL /*??pp*/, smmd, smmc, fd, ped, *NULL_POINTER_STATE_CYBOI_MODEL, pcd);
+        receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, fd, (void*) CYBOL_TEXT_STATE_FORMAT_TYPE, ped, *NULL_POINTER_STATE_CYBOI_MODEL, pcd);
         // Fill part properties taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
@@ -306,17 +306,6 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
         deserialise_cybol_nodes(p0, p1, p2, p5, p6);
     }
-
-/*?? DELETE LATER! This block was copied to above (into "if not root node").
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        //
-        // Add part to destination, if this is NOT the root node.
-        //
-
-        append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    }
-*/
 }
 
 /* CONTENT_NODE_CYBOL_DESERIALISER_SOURCE */
