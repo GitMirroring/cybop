@@ -22,6 +22,8 @@
         * Add "language" xml attribute to all cybol example applications
         * Rename some "cybol" deserialiser files
         * Make serialisation work for "cybol" parts and boolean values
+        * Debug error in compound signal processing by deserialising (forgotten) "element/part" format into type
+            (appeared e.g. in example application "exit_cybol_file")
 
 2012-04-29  Christian Heller  <christian.heller@tuxtax.de>
 
