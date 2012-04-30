@@ -19,7 +19,9 @@
 2012-04-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Make serialisation work for "model_diagram" parts
-        * Add language xml attribute to all cybol example applications
+        * Add "language" xml attribute to all cybol example applications
+        * Rename some "cybol" deserialiser files
+        * Make serialisation work for "cybol" parts and boolean values
 
 2012-04-29  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -79,7 +79,7 @@ void serialise_model_diagram_part_element_content(void* p0, void* p1, void* p2, 
     serialise_model_diagram_line(p0);
 
     // Append part model.
-    serialise_model_diagram(p0, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p9, p3);
+    serialise_model_diagram(p0, p4, p5, p6, p7, p9, p3);
 
     // Append part properties.
     serialise_model_diagram_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);

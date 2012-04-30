@@ -33,25 +33,25 @@
 #include "../../../../constant/name/cybol/cybol_name.c"
 #include "../../../../constant/type/cyboi/cyboi_type.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/name_getter/array_name_getter.c"
+#include "../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/encoding_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/nodes_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
-#include "../../../../executor/modifier/appender/item_appender.c"
-#include "../../../../executor/modifier/name_getter/array_name_getter.c"
-#include "../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../logger/logger.c"
 
 //
 // Forward declaration.
 //
 
+void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4);
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
- * Deserialises the cybol node content.
+ * Deserialises the cybol part element content.
  *
  * The source properties handed over contain one node each for
  * name, channel, encoding, format, model.
@@ -103,9 +103,9 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * @param p5 the temporary type item
  * @param p6 the temporary format item
  */
-void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part element content.");
 
     //
     // Identify source node part properties parametres.
@@ -314,7 +314,7 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         // Fill part properties taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-        deserialise_cybol_nodes(pp, p1, p2, p5, p6);
+        deserialise_cybol_part(pp, p1, p2, p5, p6);
 
         // Add part to destination.
         append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -326,7 +326,7 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         // Fill part properties taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-        deserialise_cybol_nodes(p0, p1, p2, p5, p6);
+        deserialise_cybol_part(p0, p1, p2, p5, p6);
     }
 }
 

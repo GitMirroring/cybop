@@ -151,7 +151,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             // Decode temporary model, properties item into cyboi model using temporary type, format.
-            deserialise_cybol_node_content(p0, md, mc, pd, pc, t, f);
+            deserialise_cybol_part_element_content(p0, md, mc, pd, pc, t, f);
 
             // Deallocate temporary format, type, model, properties item.
             deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

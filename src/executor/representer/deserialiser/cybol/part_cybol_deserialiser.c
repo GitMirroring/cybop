@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NODES_CYBOL_DESERIALISER_SOURCE
-#define NODES_CYBOL_DESERIALISER_SOURCE
+#ifndef PART_CYBOL_DESERIALISER_SOURCE
+#define PART_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/representer/deserialiser/cybol/node_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/element_part_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the cybol nodes.
+ * Deserialises the array containing part elements.
  *
  * CAUTION! What is the properties in a parsed xml/cybol file
  * becomes the model in the cyboi-internal knowledge tree;
@@ -48,7 +48,7 @@
  * @param p3 the temporary type item
  * @param p4 the temporary format item
  */
-void deserialise_cybol_nodes(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -76,12 +76,12 @@ void deserialise_cybol_nodes(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-        deserialise_cybol_node(p0, p1, (void*) &j, p3, p4);
+        deserialise_cybol_part_element(p0, p1, (void*) &j, p3, p4);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* NODES_CYBOL_DESERIALISER_SOURCE */
+/* PART_CYBOL_DESERIALISER_SOURCE */
 #endif

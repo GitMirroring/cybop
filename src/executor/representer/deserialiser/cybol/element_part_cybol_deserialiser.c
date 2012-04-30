@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NODE_CYBOL_DESERIALISER_SOURCE
-#define NODE_CYBOL_DESERIALISER_SOURCE
+#ifndef ELEMENT_PART_CYBOL_DESERIALISER_SOURCE
+#define ELEMENT_PART_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -36,16 +36,11 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/modifier/getter/part_getter.c"
+#include "../../../../executor/representer/deserialiser/cybol/content_element_part_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
-//
-// Forward declarations.
-//
-
-void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
-
 /**
- * Deserialises the cybol node.
+ * Deserialises the cybol part element.
  *
  * @param p0 the destination item
  * @param p1 the source model data
@@ -53,7 +48,7 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
  * @param p3 the temporary type item
  * @param p4 the temporary format item
  */
-void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The source part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -77,8 +72,8 @@ void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &ppd, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ppc, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    deserialise_cybol_node_content(p0, pmd, pmc, ppd, ppc, p3, p4);
+    deserialise_cybol_part_element_content(p0, pmd, pmc, ppd, ppc, p3, p4);
 }
 
-/* NODE_CYBOL_DESERIALISER_SOURCE */
+/* ELEMENT_PART_CYBOL_DESERIALISER_SOURCE */
 #endif
