@@ -31,16 +31,7 @@
 #include "../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 //?? #include "../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
-#include "../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
-#include "../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
-#include "../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
-#include "../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
-#include "../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
-#include "../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
-#include "../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
-#include "../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
-#include "../../executor/representer/serialiser/cybol_serialiser.c"
+#include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../executor/representer/serialiser/html/html_serialiser.c"
 #include "../../executor/representer/serialiser/http_request/http_request_serialiser.c"
 #include "../../executor/representer/serialiser/http_response/http_response_serialiser.c"
@@ -143,8 +134,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // since the tree level value gets changed in the following functions!
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            //?? Hand over: (void*) &l,
-//??            serialise_model_diagram(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p1, p2, p3, p4);
+            serialise_model_diagram_part_element_content(p0, L"root", (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, p5, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
         }
     }
 

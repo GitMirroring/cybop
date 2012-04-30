@@ -1,9 +1,9 @@
 <model>
-    <part name="shape" channel="inline" encoding="utf-8" format="text/plain" model="rectangle"/>
-    <part name="layout" channel="inline" encoding="utf-8" format="text/plain" model="coordinates"/>
-    <part name="background" channel="inline" encoding="utf-8" format="text/plain" model="green"/>
-    <part name="foreground" channel="inline" encoding="utf-8" format="text/plain" model="yellow"/>
-    <part name="bold" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
+    <part name="shape" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="rectangle"/>
+    <part name="layout" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="coordinates"/>
+    <part name="background" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="green"/>
+    <part name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="yellow"/>
+    <part name="bold" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
 </model>
 
 <!--

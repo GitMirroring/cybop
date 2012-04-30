@@ -1,9 +1,9 @@
 <model>
-    <part name="status_panel" channel="inline" encoding="utf-8" format="text/plain" model="Ready.">
-        <property name="layout" channel="inline" encoding="utf-8" format="text/plain" model="compass"/>
-        <property name="cell" channel="inline" encoding="utf-8" format="text/plain" model="west"/>
-        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="0,0,0"/>
-        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="0,0,0"/>
+    <part name="status_panel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Ready.">
+        <property name="layout" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="compass"/>
+        <property name="cell" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="west"/>
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0,0"/>
+        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0,0"/>
     </part>
 </model>
 

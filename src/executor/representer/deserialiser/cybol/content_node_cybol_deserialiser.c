@@ -36,6 +36,7 @@
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/encoding_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/nodes_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
@@ -110,44 +111,50 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
     // Identify source node part properties parametres.
     //
 
-    // The source name, channel, encoding, format, model part.
+    // The source name, channel, encoding, language, format, model part.
     void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source name, channel, encoding, format, model part model item.
+    // The source name, channel, encoding, language, format, model part model item.
     void* snm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* scm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sem = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* slm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sfm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source name, channel, encoding, format, model part model item data, count.
+    // The source name, channel, encoding, language, format, model part model item data, count.
     void* snmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* snmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* scmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* scmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* semd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* semc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* slmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* slmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sfmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sfmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get source name, channel, encoding, format, model part.
+    // Get source name, channel, encoding, language, format, model part.
     get_name_array((void*) &sn, p3, (void*) NAME_CYBOL_NAME, (void*) NAME_CYBOL_NAME_COUNT, p4);
     get_name_array((void*) &sc, p3, (void*) CHANNEL_CYBOL_NAME, (void*) CHANNEL_CYBOL_NAME_COUNT, p4);
     get_name_array((void*) &se, p3, (void*) ENCODING_CYBOL_NAME, (void*) ENCODING_CYBOL_NAME_COUNT, p4);
+    get_name_array((void*) &sl, p3, (void*) LANGUAGE_CYBOL_NAME, (void*) LANGUAGE_CYBOL_NAME_COUNT, p4);
     get_name_array((void*) &sf, p3, (void*) FORMAT_CYBOL_NAME, (void*) FORMAT_CYBOL_NAME_COUNT, p4);
     get_name_array((void*) &sm, p3, (void*) MODEL_CYBOL_NAME, (void*) MODEL_CYBOL_NAME_COUNT, p4);
 
     //
-    // Get source name, channel, encoding, format, model item.
+    // Get source name, channel, encoding, language, format, model item.
     //
     // CAUTION! Do NOT use the following names here:
     // - NAME_PART_STATE_CYBOI_NAME
     // - CHANNEL_PART_STATE_CYBOI_NAME
     // - ENCODING_PART_STATE_CYBOI_NAME
+    // - LANGUAGE_PART_STATE_CYBOI_NAME
     // - FORMAT_PART_STATE_CYBOI_NAME
     // - MODEL_PART_STATE_CYBOI_NAME
     //
@@ -161,15 +168,18 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
     copy_array_forward((void*) &snm, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scm, sc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sem, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &slm, sl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sfm, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smm, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get source name, channel, encoding, format, model data, count.
+    // Get source name, channel, encoding, language, format, model data, count.
     copy_array_forward((void*) &snmd, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &snmc, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scmd, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scmc, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &semd, sem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &semc, sem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &slmd, slm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &slmc, slm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sfmd, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sfmc, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -181,19 +191,21 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
     // CAUTION! This test is IMPORTANT!
     // If a source type attribute is NOT given, then this
     // is (hopefully) the cybol ROOT NODE and a part is allocated.
+    //
     // CAUTION! It is true, a root flag was set initially when starting
     // to deserialise the cybol source, and forwarded as parametre.
     // However, that flag was only used to call the correct
     // function, but source data were just forwarded to it.
-    // Another test (guess) for root node IS necessary here,
-    // i.e. no given type means root node.
+    // Another test (guess) for root node IS necessary here.
+    // If not type is given, then this is a root node.
+    //
     // CAUTION! If the cybol developer FORGOT to specify a format,
     // then the "part" type is used here by default, since it
     // does no real harm to create a node with (possibly) wrong type.
     // In the end, the CYBOL DEVELOPER has to care about that.
     if ((sn == *NULL_POINTER_STATE_CYBOI_MODEL) && (sc == *NULL_POINTER_STATE_CYBOI_MODEL)
-        && (se == *NULL_POINTER_STATE_CYBOI_MODEL) && (sf == *NULL_POINTER_STATE_CYBOI_MODEL)
-        && (sm == *NULL_POINTER_STATE_CYBOI_MODEL)) {
+        && (se == *NULL_POINTER_STATE_CYBOI_MODEL) && (sl == *NULL_POINTER_STATE_CYBOI_MODEL)
+        && (sf == *NULL_POINTER_STATE_CYBOI_MODEL) && (sm == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
         copy_integer((void*) &r, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
@@ -207,17 +219,19 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The part.
         void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The part name, channel, encoding, format, type, model, properties item.
+        // The part name, channel, encoding, language, format, type, model, properties item.
         void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pe = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* pl = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The part channel, encoding data.
+        // The part channel, encoding, language data.
         void* pcd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* ped = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* pld = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Reset temporary format item.
         overwrite_item_element(p6, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -247,13 +261,14 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         // (NOT the mime type format)!
         allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
 
-        // Get part name, channel, encoding, format, type, model, properties.
+        // Get part name, channel, encoding, language, format, type, model, properties.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pe, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENCODING_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &pl, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pf, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -265,6 +280,8 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         deserialise_cybol_channel(pc, scmd, scmc);
         // Fill part encoding.
         deserialise_cybol_encoding(pe, semd, semc);
+        // Fill part language.
+        deserialise_cybol_language(pl, slmd, slmc);
         // Fill part format.
         overwrite_item_element(pf, fd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Fill part type.
@@ -279,6 +296,11 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &ped, pe, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Get part language item data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &pld, pl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Fill part model taken from cybol source part properties.
         // CAUTION! What is the properties in a parsed xml/cybol file,
         // becomes the model in the cyboi-internal knowledge tree.
@@ -288,7 +310,7 @@ void deserialise_cybol_node_content(void* p0, void* p1, void* p2, void* p3, void
         // When reading cybol, the only possible two channels are "inline" and "file",
         // but the internal memory (second-last parametre) is only necessary for
         // "terminal", "x_window_system" and similar channels.
-        receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, fd, (void*) CYBOL_TEXT_STATE_FORMAT_TYPE, ped, *NULL_POINTER_STATE_CYBOI_MODEL, pcd);
+        receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, fd, pld, ped, *NULL_POINTER_STATE_CYBOI_MODEL, pcd);
         // Fill part properties taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.

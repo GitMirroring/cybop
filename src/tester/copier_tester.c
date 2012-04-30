@@ -39,7 +39,6 @@
 #include "../executor/modifier/getter/part_getter.c"
 #include "../executor/modifier/inserter/part_inserter.c"
 #include "../executor/modifier/overwriter/part_overwriter.c"
-#include "../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../logger/logger.c"
 
 /**

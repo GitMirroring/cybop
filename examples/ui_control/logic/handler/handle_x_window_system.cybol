@@ -1,9 +1,9 @@
 <model>
 <!--
-    <part name="copy_name" channel="inline" encoding="utf-8" format="operation/plain" model="copy">
-        <property name="source" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.application_information.name"/>
-        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".ui_control.tui.about_dialogue.name"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="wide_character"/>
+    <part name="copy_name" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.application_information.name"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.about_dialogue.name"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
     </part>
 -->
 </model>

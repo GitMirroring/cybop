@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-04-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Make serialisation work for "model_diagram" parts
+        * Add language xml attribute to all cybol example applications
+
 2012-04-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare language/format/type transformation

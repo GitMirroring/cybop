@@ -28,7 +28,6 @@
 
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../executor/communicator/sender/file/stream_file_sender.c"
-#include "../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../executor/modifier/knowledge_getter/branch_part_getter.c"
 #include "../executor/modifier/name_getter/part_name_getter.c"

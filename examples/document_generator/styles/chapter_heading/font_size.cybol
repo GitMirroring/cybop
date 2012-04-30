@@ -1,6 +1,6 @@
 <model>
-    <part name="value" channel="inline" encoding="utf-8" format="integer" model="9"/>
-    <part name="unit" channel="inline" encoding="utf-8" format="string" model="pt"/>
+    <part name="value" channel="inline" encoding="utf-8" language="text/cybol" format="integer" model="9"/>
+    <part name="unit" channel="inline" encoding="utf-8" language="text/cybol" format="string" model="pt"/>
 </model>
 
 <!--

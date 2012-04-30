@@ -1,36 +1,36 @@
 <model>
-    <part name="create_application" channel="inline" encoding="utf-8" format="operation/plain" model="create">
-        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="shell_output_loop"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="compound"/>
-        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
+    <part name="create_application" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="shell_output_loop"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="compound"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
     </part>
-    <part name="create_break" channel="inline" encoding="utf-8" format="operation/plain" model="create">
-        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="break"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" format="path/knowledge" model=".shell_output_loop"/>
+    <part name="create_break" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="break"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop"/>
     </part>
-    <part name="create_count" channel="inline" encoding="utf-8" format="operation/plain" model="create">
-        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="count"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" format="path/knowledge" model=".shell_output_loop"/>
+    <part name="create_count" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="count"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop"/>
     </part>
-    <part name="initialise_break" channel="inline" encoding="utf-8" format="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="source" channel="inline" encoding="utf-8" format="number/integer" model="0"/>
-        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".shell_output_loop.break"/>
+    <part name="initialise_break" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.break"/>
     </part>
-    <part name="initialise_count" channel="inline" encoding="utf-8" format="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="source" channel="inline" encoding="utf-8" format="number/integer" model="0"/>
-        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".shell_output_loop.count"/>
+    <part name="initialise_count" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.count"/>
     </part>
-    <part name="startup" channel="inline" encoding="utf-8" format="operation/plain" model="loop">
-        <property name="break" channel="inline" encoding="utf-8" format="path/knowledge" model=".shell_output_loop.break"/>
-        <property name="model" channel="file" encoding="utf-8" format="text/cybol" model="shell_output_loop/model.cybol"/>
+    <part name="startup" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="loop">
+        <property name="break" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.break"/>
+        <property name="model" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="shell_output_loop/model.cybol"/>
     </part>
-    <part name="shutdown" channel="inline" encoding="utf-8" format="operation/plain" model="exit"/>
+    <part name="shutdown" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="exit"/>
 </model>
 
 <!--

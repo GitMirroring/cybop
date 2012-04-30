@@ -9,8 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: "serialiser.c" and "model_diagram_serialiser.c" (move the latter one directory level up)
-        * Debug endless loop in "serialiser.c" (CYBOL and MODEL_DIAGRAM) and "model_diagram_serialiser.c"
+        * CONTINUE WITH: check why cybol example application "addition_static_model" produces incomplete test xml- and test cybol file
+        * Check error in cybol example application "exit_cybol_file"
         * Adapt cybol example applications to new cybol mime types and operations:
             DONE: exit, addition*
             TODO: all other

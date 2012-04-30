@@ -26,28 +26,20 @@
 #ifndef CYBOL_SERIALISER_SOURCE
 #define CYBOL_SERIALISER_SOURCE
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-//?? #include "../../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
-#include "../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
-#include "../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
-#include "../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
-#include "../../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
-#include "../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
-#include "../../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
-#include "../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
-#include "../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
-#include "../../../executor/representer/serialiser/html/html_serialiser.c"
-#include "../../../executor/representer/serialiser/http_request/http_request_serialiser.c"
-#include "../../../executor/representer/serialiser/http_response/http_response_serialiser.c"
-#include "../../../executor/representer/serialiser/latex/latex_serialiser.c"
-#include "../../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
-#include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
-#include "../../../executor/representer/serialiser/xml/xml_serialiser.c"
-#include "../../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//?? #include "../../../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
 
 /**
  * Serialises the source into the destination, according to the given format.
@@ -276,7 +268,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise. The language is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol. The format is unknown.");
     }
 }
 

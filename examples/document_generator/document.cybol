@@ -1,19 +1,19 @@
 <model>
-    <part name="title_page" channel="file" encoding="utf-8" format="cybol" model="document_generator/document/title_page.cybol">
-        <property name="type" channel="inline" encoding="utf-8" format="string" model="title_page"/>
-        <property name="position" channel="inline" encoding="utf-8" format="integer" model="1"/>
+    <part name="title_page" channel="file" encoding="utf-8" language="text/cybol" format="cybol" model="document_generator/document/title_page.cybol">
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="string" model="title_page"/>
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="integer" model="1"/>
     </part>
-    <part name="introduction" channel="file" encoding="utf-8" format="cybol" model="document_generator/document/introduction.cybol">
-        <property name="type" channel="inline" encoding="utf-8" format="string" model="chapter"/>
-        <property name="position" channel="inline" encoding="utf-8" format="integer" model="2"/>
+    <part name="introduction" channel="file" encoding="utf-8" language="text/cybol" format="cybol" model="document_generator/document/introduction.cybol">
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="string" model="chapter"/>
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="integer" model="2"/>
     </part>
-    <part name="basics" channel="file" encoding="utf-8" format="cybol" model="document_generator/document/basics.cybol">
-        <property name="type" channel="inline" encoding="utf-8" format="string" model="chapter"/>
-        <property name="position" channel="inline" encoding="utf-8" format="integer" model="3"/>
+    <part name="basics" channel="file" encoding="utf-8" language="text/cybol" format="cybol" model="document_generator/document/basics.cybol">
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="string" model="chapter"/>
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="integer" model="3"/>
     </part>
-    <part name="appendices" channel="file" encoding="utf-8" format="cybol" model="document_generator/document/appendices.cybol">
-        <property name="type" channel="inline" encoding="utf-8" format="string" model="chapter"/>
-        <property name="position" channel="inline" encoding="utf-8" format="integer" model="4"/>
+    <part name="appendices" channel="file" encoding="utf-8" language="text/cybol" format="cybol" model="document_generator/document/appendices.cybol">
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="string" model="chapter"/>
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="integer" model="4"/>
     </part>
 </model>
 

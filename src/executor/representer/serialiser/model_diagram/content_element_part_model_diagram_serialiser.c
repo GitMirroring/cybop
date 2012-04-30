@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NODE_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define NODE_MODEL_DIAGRAM_SERIALISER_SOURCE
+#ifndef CONTENT_ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE
+#define CONTENT_ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,22 +33,20 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/inserter/array_inserter.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/indentation_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/line_model_diagram_serialiser.c"
-#include "../../../../executor/representer/serialiser/model_diagram/part_model_diagram_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 //
 // Forward declarations.
 //
 
-void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
- * Serialises the model diagram node.
+ * Serialises the model diagram part element content.
  *
  * @param p0 the destination model diagram item
  * @param p1 the source name data
@@ -61,9 +59,9 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
  * @param p8 the properties flag
  * @param p9 the tree level
  */
-void serialise_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_model_diagram_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram node.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram part element content.");
 
     // Append indentation.
     serialise_model_diagram_indentation(p0, p8, p9);
@@ -81,11 +79,11 @@ void serialise_model_diagram_node(void* p0, void* p1, void* p2, void* p3, void* 
     serialise_model_diagram_line(p0);
 
     // Append part model.
-//??    serialise_model_diagram(p0, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p9);
+    serialise_model_diagram(p0, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p9, p3);
 
     // Append part properties.
     serialise_model_diagram_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
 }
 
-/* NODE_MODEL_DIAGRAM_SERIALISER_SOURCE */
+/* CONTENT_ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE */
 #endif

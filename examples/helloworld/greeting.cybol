@@ -1,12 +1,12 @@
 <model>
-    <part name="string" channel="inline" encoding="utf-8" format="text/plain" model="Hello, World!">
-        <property name="position" channel="inline" encoding="utf-8" format="number/integer" model="5,2,0"/>
-        <property name="size" channel="inline" encoding="utf-8" format="number/integer" model="60,4,1"/>
-        <property name="shape" channel="inline" encoding="utf-8" format="text/plain" model="rectangle"/>
-        <property name="layout" channel="inline" encoding="utf-8" format="text/plain" model="coordinates"/>
-        <property name="foreground" channel="inline" encoding="utf-8" format="text/plain" model="green"/>
-        <property name="background" channel="inline" encoding="utf-8" format="text/plain" model="blue"/>
-        <property name="underline" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
+    <part name="string" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Hello, World!">
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,2,0"/>
+        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="60,4,1"/>
+        <property name="shape" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="rectangle"/>
+        <property name="layout" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="coordinates"/>
+        <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="green"/>
+        <property name="background" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="blue"/>
+        <property name="underline" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
 </model>
 

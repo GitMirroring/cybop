@@ -1,65 +1,65 @@
 <model>
-    <part name="print_text" channel="inline" encoding="utf-8" format="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" format="text/plain" model="shell"/>
-        <property name="language" channel="inline" encoding="utf-8" format="text/plain" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" format="text/plain" model="Current time:"/>
-	<property name="new_line" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
+    <part name="print_text" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="shell"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Current time:"/>
+	<property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="create_counter" channel="inline" encoding="utf-8" format="operation/plain" model="create">
-        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="counter"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="compound"/>
-        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
+    <part name="create_counter" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="counter"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="compound"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
     </part>
-    <part name="create_break" channel="inline" encoding="utf-8" format="operation/plain" model="create">
-        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="break"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter"/>
+    <part name="create_break" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="break"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter"/>
     </part>
-    <part name="create_count" channel="inline" encoding="utf-8" format="operation/plain" model="create">
-        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="count"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter"/>
+    <part name="create_count" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="count"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter"/>
     </part>
-    <part name="create_maximum" channel="inline" encoding="utf-8" format="operation/plain" model="create">
-        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="maximum"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter"/>
+    <part name="create_maximum" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="maximum"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter"/>
     </part>
-    <part name="create_model" channel="inline" encoding="utf-8" format="operation/plain" model="create">
-        <property name="name" channel="inline" encoding="utf-8" format="text/plain" model="model"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="compound"/>
-        <property name="element" channel="inline" encoding="utf-8" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter"/>
+    <part name="create_model" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="model"/>
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="compound"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter"/>
     </part>
-    <part name="initialise_break" channel="inline" encoding="utf-8" format="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="source" channel="inline" encoding="utf-8" format="number/integer" model="0"/>
-        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter.break"/>
+    <part name="initialise_break" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.break"/>
     </part>
-    <part name="initialise_count" channel="inline" encoding="utf-8" format="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="source" channel="inline" encoding="utf-8" format="number/integer" model="1"/>
-        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter.count"/>
+    <part name="initialise_count" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.count"/>
     </part>
-    <part name="initialise_maximum" channel="inline" encoding="utf-8" format="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="source" channel="inline" encoding="utf-8" format="number/integer" model="10"/>
-        <property name="destination" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter.maximum"/>
+    <part name="initialise_maximum" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="10"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.maximum"/>
     </part>
-    <part name="initialise_model" channel="inline" encoding="utf-8" format="operation/plain" model="receive">
-        <property name="channel" channel="inline" encoding="utf-8" format="text/plain" model="file"/>
-        <property name="language" channel="inline" encoding="utf-8" format="text/plain" model="text/cybol"/>
-        <property name="message" channel="inline" encoding="utf-8" format="text/plain" model="time_output_3/model.cybol"/>
-        <property name="model" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter.model"/>
+    <part name="initialise_model" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="receive">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="file"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="text/cybol"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="time_output_3/model.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.model"/>
     </part>
-    <part name="call_loop" channel="inline" encoding="utf-8" format="operation/plain" model="loop">
-        <property name="break" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter.break"/>
-        <property name="model" channel="inline" encoding="utf-8" format="path/knowledge" model=".counter.model"/>
+    <part name="call_loop" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="loop">
+        <property name="break" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.break"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.model"/>
     </part>
-    <part name="exit_application" channel="inline" encoding="utf-8" format="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="exit"/>
 </model>
 
 <!--

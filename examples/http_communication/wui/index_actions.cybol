@@ -1,6 +1,6 @@
 <model>
-    <part name="index" channel="inline" encoding="utf-8" format="path/knowledge" model=".http_communication.logic.send_wui_index"/>
-    <part name="shutdown" channel="inline" encoding="utf-8" format="path/knowledge" model=".http_communication.logic.exit_programme"/>
+    <part name="index" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".http_communication.logic.send_wui_index"/>
+    <part name="shutdown" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".http_communication.logic.exit_programme"/>
 </model>
 
 <!--

@@ -1,20 +1,20 @@
 <model>
-    <part name="compare_count" channel="inline" encoding="utf-8" format="operation/plain" model="greater_or_equal">
-        <property name="left" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain.count"/>
-        <property name="right" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain.maximum"/>
-        <property name="result" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain.break"/>
+    <part name="compare_count" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="greater_or_equal">
+        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.count"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.maximum"/>
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.break"/>
     </part>
-    <part name="print_number" channel="inline" encoding="utf-8" format="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" format="text/plain" model="shell"/>
-        <property name="language" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="message" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain.count"/>
-        <property name="new_line" channel="inline" encoding="utf-8" format="logicvalue/boolean" model="true"/>
+    <part name="print_number" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="send">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="shell"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.count"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="increment_loop_count" channel="inline" encoding="utf-8" format="operation/plain" model="add">
-        <property name="abstraction" channel="inline" encoding="utf-8" format="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain.count"/>
-        <property name="summand_2" channel="inline" encoding="utf-8" format="number/integer" model="1"/>
-        <property name="sum" channel="inline" encoding="utf-8" format="path/knowledge" model=".domain.count"/>
+    <part name="increment_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="add">
+        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
+        <property name="summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.count"/>
+        <property name="summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
+        <property name="sum" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.count"/>
     </part>
 </model>
 

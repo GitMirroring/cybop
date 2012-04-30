@@ -29,7 +29,7 @@
 #include <wchar.h>
 
 #include "../executor/communicator/sender/file/stream_file_sender.c"
-#include "../executor/representer/serialiser/model_diagram/node_model_diagram_serialiser.c"
+#include "../executor/representer/serialiser/model_diagram/content_element_part_model_diagram_serialiser.c"
 #include "../logger/logger.c"
 
 /**
@@ -38,7 +38,7 @@
  * @param p0 the destination file name
  * @param p1 the source name data
  * @param p2 the source name count
- * @param p3 the source type data
+ * @param p3 the source format data
  * @param p4 the source model data
  * @param p5 the source model count
  * @param p6 the source properties data
@@ -62,6 +62,8 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The tree level.
+    // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
+    // since the tree level value gets changed in the following functions!
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate model diagram item.
@@ -72,7 +74,7 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     // Serialise model into model diagram item.
     // CAUTION! Do NOT forward NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
     // since the tree level value gets changed in the following functions!
-    serialise_model_diagram_node(d, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+    serialise_model_diagram_part_element_content(d, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
 
     // Get model diagram item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

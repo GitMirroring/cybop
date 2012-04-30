@@ -1,5 +1,5 @@
 <model>
-    <part name="translate_application_information_to_about_dialogue" channel="file" encoding="utf-8" format="text/cybol" model="ui_control/logic/translation/translate_application_information_to_about_dialogue.cybol"/>
+    <part name="translate_application_information_to_about_dialogue" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/logic/translation/translate_application_information_to_about_dialogue.cybol"/>
 </model>
 
 <!--
