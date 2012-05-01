@@ -19,6 +19,8 @@
 2012-05-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Enable and complete serialisation of channel, encoding, language, format, type
+        * Enable "compare" and "loop" operations
+        * Update "counter" cybol example application
 
 2012-04-30  Christian Heller  <christian.heller@tuxtax.de>
 

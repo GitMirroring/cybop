@@ -26,18 +26,15 @@
 #ifndef PART_SUFFIX_COMPARATOR_SOURCE
 #define PART_SUFFIX_COMPARATOR_SOURCE
 
-#include "../../../constant/type/cybol/number_cybol_type.c"
-#include "../../../constant/type/cybol/path_cybol_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cybol/separator_cybol_name.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
-#include "../../../executor/modifier/overwriter/item_overwriter.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/suffix/item_suffix_comparator.c"
+#include "../../../executor/modifier/copier/array_copier.c"
+#include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/reallocation_factor.c"
 
 /**
  * Compares if the right array is a suffix of the left part.

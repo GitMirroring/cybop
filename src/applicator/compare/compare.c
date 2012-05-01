@@ -27,10 +27,12 @@
 #define COMPARE_SOURCE
 
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/comparison_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/comparator/comparator.c"
+#include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
@@ -41,133 +43,76 @@
  * - result (required): the knowledge model, in which the result is stored (of type boolean)
  * - left (required): the left operand
  * - right (required): the right operand
- * - operation (required): the kind of comparison (equal, greater, greater_or_equal, smaller, smaller_or_equal, unequal)
- * - type (required): the operand type (left- and right parametre have to have the same type)
+ * - type (required): the operand type which is equal for both operands
  * - selection (required): the part of two text strings to be compared (all, prefix, suffix, subsequence)
  *
- * The "selection" parametre is actually only needed
- * for comparing models of type "character".
- * However, this function relies on it, also if numbers are
- * to be compared, for finding the right comparison function to call.
+ * The "selection" parametre is mostly needed for comparing models of type "character".
+ * But also numbers may be given as vectors, e.g. the integer sequence "1,2,3".
+ * However, this function relies on it, for finding the right comparison function to call.
  * Therefore, that parametre IS REQUIRED.
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the operation type
  */
-void apply_compare(void* p0, void* p1, void* p2) {
+void apply_compare(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare.");
 
     // The result part.
-    void* res = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The left operand part.
+    void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The left part.
     void* lo = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The right operand part.
+    // The right part.
     void* ro = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operation part.
-    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operand type part.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The selection part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The result part model.
-    void* resm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operation part model.
-    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operand type part model.
-    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The selection part model.
+    // The result part model item.
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part model item.
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The selection part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The result part model data, count.
-    void* resmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operation part model data, count.
-    void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operand type part model data, count.
-    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The selection part model data, count.
+    // The result part model item data.
+    void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part model item data.
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The selection part model item data, count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
-    get_part_knowledge((void*) &res, p0, (void*) RESULT_COMPARE_OPERATION_CYBOL_NAME, (void*) RESULT_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get left operand part.
-    get_part_knowledge((void*) &lo, p0, (void*) LEFT_OPERAND_COMPARE_OPERATION_CYBOL_NAME, (void*) LEFT_OPERAND_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get right operand part.
-    get_part_knowledge((void*) &ro, p0, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME, (void*) RIGHT_OPERAND_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get operation part.
-    get_part_knowledge((void*) &o, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get operand type part.
-    get_part_knowledge((void*) &a, p0, (void*) OPERATOR_COMPARE_OPERATION_CYBOL_NAME, (void*) TYPE_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &r, p0, (void*) RESULT_COMPARISON_OPERATION_CYBOL_NAME, (void*) RESULT_COMPARISON_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get left part.
+    get_part_knowledge((void*) &lo, p0, (void*) LEFT_COMPARISON_OPERATION_CYBOL_NAME, (void*) LEFT_COMPARISON_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get right part.
+    get_part_knowledge((void*) &ro, p0, (void*) RIGHT_COMPARISON_OPERATION_CYBOL_NAME, (void*) RIGHT_COMPARISON_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get type part.
+    get_part_knowledge((void*) &t, p0, (void*) TYPE_COMPARISON_OPERATION_CYBOL_NAME, (void*) TYPE_COMPARISON_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get selection part.
-    get_part_knowledge((void*) &s, p0, (void*) SELECTION_COMPARE_OPERATION_CYBOL_NAME, (void*) SELECTION_COMPARE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &s, p0, (void*) SELECTION_COMPARISON_OPERATION_CYBOL_NAME, (void*) SELECTION_COMPARISON_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    // Get result part model.
-    copy_array_forward((void*) &resm, res, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get operation part model.
-    copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get operand type part model.
-    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get selection part model.
+    // Get result part model item.
+    copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get type part model item.
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get selection part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get result part model data, count.
-    copy_array_forward((void*) &resmd, resm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get operation part model data, count.
-    copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get operand type part model data, count.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get selection part model data, count.
+    // Get result part model item data.
+    copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get type part model item data.
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get selection part model item data, count.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer((void*) &r, smd, (void*) ALL_COMPARISON_SELECTION_CYBOL_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_all_part(resmd, lo, ro, omd, amd);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer((void*) &r, smd, (void*) PREFIX_COMPARISON_SELECTION_CYBOL_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_prefix_part(resmd, lo, ro, omd, amd);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer((void*) &r, smd, (void*) SUFFIX_COMPARISON_SELECTION_CYBOL_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_suffix_part(resmd, lo, ro, omd, amd);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer((void*) &r, smd, (void*) SUBSEQUENCE_COMPARISON_SELECTION_CYBOL_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_subsequence_part(resmd, lo, ro, omd, amd);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply compare. The selection parametre model is unknown.");
-    }
+    compare(rmd, lo, ro, p3, tmd, smd, smc);
 }
 
 /* COMPARE_SOURCE */

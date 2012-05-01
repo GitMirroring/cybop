@@ -45,13 +45,13 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * Loops the programme flow endlessly, until the break flag is set.
  *
  * Expected parametres:
- * - model (required): the knowledge model to be executed repeatedly by the loop
  * - break (required): the break flag; once set, the loop will be left (exited)
+ * - model (required): the knowledge model to be executed repeatedly by the loop
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the internal memory array
+ * @param p3 the internal memory data
  * @param p4 the signal memory item
  * @param p5 the signal memory interrupt request flag
  * @param p6 the signal memory mutex
@@ -59,16 +59,15 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  */
 void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop.");
 
     // The model part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break part.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The break part model.
+    // The break part model item.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The break part model data.
+    // The break part model item data.
     void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get model part.
@@ -76,13 +75,13 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // Get break part.
     get_part_knowledge((void*) &b, p0, (void*) BREAK_LOOP_FLOW_OPERATION_CYBOL_NAME, (void*) BREAK_LOOP_FLOW_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    // Get break part model.
+    // Get break part model item.
     copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get break part model data.
+    // Get break part model item data.
     copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int br = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The direct execution flag.
     // CAUTION! The flag has to be set to true, because otherwise,
     // each loop cycle places a new signal in signal memory so that
@@ -100,15 +99,15 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer((void*) &br, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Check if break flag is set to true.
-        compare_integer_unequal((void*) &b, bmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_unequal((void*) &br, bmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (br != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Leave the loop if the break flag is true.
             break;

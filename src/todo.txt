@@ -9,7 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: adapt "addition" example applications to new language/format separation
+        * CONTINUE WITH: cybol example application "counter"; loop is not exited; does comparison work?
         * Adapt cybol example applications to new cybol mime types and operations:
             DONE: exit, addition*
             TODO: all other

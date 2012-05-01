@@ -26,15 +26,12 @@
 #ifndef ITEM_SUFFIX_COMPARATOR_SOURCE
 #define ITEM_SUFFIX_COMPARATOR_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
-#include "../../../executor/memoriser/reallocator/item_reallocator.c"
-#include "../../../executor/memoriser/size_determiner.c"
-#include "../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/suffix/array_suffix_comparator.c"
+#include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
 /**
