@@ -30,16 +30,19 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-//?? #include "../../../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/type_cybol_serialiser.c"
 
 /**
  * Serialises the source into the destination, according to the given format.
@@ -150,7 +153,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_channel(p0, p1);
+            serialise_cybol_channel(p0, p1);
         }
     }
 
@@ -160,7 +163,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_encoding(p0, p1);
+            serialise_cybol_encoding(p0, p1);
         }
     }
 
@@ -170,7 +173,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_language(p0, p1);
+            serialise_cybol_language(p0, p1);
         }
     }
 
@@ -180,7 +183,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_format(p0, p1);
+            serialise_cybol_format(p0, p1);
         }
     }
 
@@ -190,7 +193,32 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_type(p0, p1);
+            // The temporary format item.
+            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The temporary format item data.
+            void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Allocate temporary format item.
+            // CAUTION! Initialise integer items with a size of ONE,
+            // in order to avoid later reallocation when overwriting
+            // the element and to thus increase efficiency.
+            allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+            // Decode cyboi runtime type into cyboi format.
+            // CAUTION! For one cyboi runtime type, many formats may exist (1:n).
+            // For example, a complex number may be given in cartesian or polar coordinates.
+            // Since this is ambiguous, a DEFAULT FORMAT is assigned to each type.
+            serialise_cybol_type(f, p1);
+            // Get temporary format item data.
+            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+            // Inside the structure, arrays may have been reallocated,
+            // with elements pointing to different memory areas now.
+            copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            // Decode cybol source format (mime type as string) into cyboi-internal type (an integer).
+            serialise_cybol_format(p0, fd);
+
+            // Deallocate temporary format item.
+            deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         }
     }
 

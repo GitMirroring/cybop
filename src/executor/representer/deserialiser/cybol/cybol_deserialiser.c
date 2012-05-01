@@ -265,7 +265,6 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Decode cybol source language (mime type as string) into cyboi-internal language (an integer).
             deserialise_cybol_language(p0, p2, p3);
         }
     }
@@ -276,7 +275,6 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Decode cybol source format (mime type as string) into cyboi-internal format (an integer).
             deserialise_cybol_format(p0, p2, p3);
         }
     }
