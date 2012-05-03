@@ -54,10 +54,10 @@
  *   only then, that name can be used to determine the actual compound element
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source properties data
+ * @param p1 the source data
  * @param p2 the part name data
  * @param p3 the part name count
- * @param p4 the source properties count
+ * @param p4 the source count
  * @param p5 the knowledge memory part
  */
 void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
@@ -93,6 +93,12 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     copy_array_forward((void*) &std, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST get part knowledge s: %i\n", s);
+fwprintf(stdout, L"TEST get part knowledge std: %i\n", std);
+if (std != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    fwprintf(stdout, L"TEST get part knowledge *std: %i\n", *((int*) std));
+}
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -157,6 +163,15 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // model="application.communication.partners.hostname"
             //
 
+    void* stc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    copy_array_forward((void*) &stc, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST get part knowledge stc: %i\n", stc);
+fwprintf(stdout, L"TEST get part knowledge *stc: %i\n", *((int*) stc));
+fwprintf(stdout, L"TEST get part knowledge smd: %i\n", smd);
+fwprintf(stdout, L"TEST get part knowledge *smd: %ls\n", (wchar_t*) smd);
+fwprintf(stdout, L"TEST get part knowledge smc: %i\n", smc);
+fwprintf(stdout, L"TEST get part knowledge *smc: %i\n", *((int*) smc));
+
             // Get knowledge part.
             // CAUTION! Hand over name as reference!
             get_part_branch(p0, p5, (void*) &smd, smc);
@@ -165,12 +180,23 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST get part knowledge smd: %i\n", smd);
+fwprintf(stdout, L"TEST get part knowledge *smd: %ls\n", (wchar_t*) smd);
+fwprintf(stdout, L"TEST get part knowledge smc: %i\n", smc);
+if ((std != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) std) == 33)) {
+    fwprintf(stdout, L"TEST get part knowledge *smc: %i\n", *((int*) smc));
+}
+
         //
         // Get source part as DIRECT model (inline),
         // i.e. DO NOT interpret the model as path.
         //
-        // The source part was already retrieved above.
+        // CAUTION! The source part was already retrieved above.
         // Therefore, the pointer to it is just copied here.
+        //
+        // CAUTION! The pointer handed over has a size of one
+        // and thus does NOT need to be resized,
+        // i.e. using the "overwrite" function is NOT necessary here.
         //
 
         // Copy source part pointer reference.

@@ -39,6 +39,8 @@
  *
  * It may be "." for a model part or "#" for a meta property.
  *
+ * If a wrong name is given, the destination part remains untouched.
+ *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
  * @param p2 the hierarchical part name current position (pointer reference)

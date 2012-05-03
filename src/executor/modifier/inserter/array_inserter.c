@@ -166,6 +166,8 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             // Inserting elements outside the current array
             // boundaries is equivalent to just overwriting
             // elements, since none have to be moved.
+            //
+            // CAUTION! Don't forget to set the "adjust count" flag!
             overwrite_array(p0, p1, p2, p3, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }

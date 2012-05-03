@@ -9,10 +9,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: cybol example application "counter"; loop is not exited; does comparison work?
+        * CONTINUE WITH: cybol example application "counter"; loop is not exited;
+            comparison works, but knowledge paths arrive with zero count in function "get_part_knowledge";
+            Wandelt er knowledge_path gleich bei receive um von cybol in integer zahl?
+            Probiere aus, nicht .counter.model zu verwenden, sondern eine einzige Operation in .counter für loop!
         * Adapt cybol example applications to new cybol mime types and operations:
             DONE: exit, addition*
-            TODO: all other
+            TODO: count, all other
         * Uncomment further operations in file "operation_handler.c"
         * Update ansi escape code serialiser files for terminal tui application
 

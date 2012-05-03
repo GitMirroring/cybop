@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-03  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Search bug appearing with "counter" cybol example application and function "apply_loop"
+
 2012-05-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Enable and complete serialisation of channel, encoding, language, format, type

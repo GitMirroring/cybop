@@ -57,7 +57,13 @@ void compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+/*??
+fwprintf(stdout, L"\n");
+fwprintf(stdout, L"\n");
+fwprintf(stdout, L"TEST compare p5: %ls\n", (wchar_t*) p5);
+fwprintf(stdout, L"TEST compare p6: %i\n", *((int*) p6));
 fwprintf(stdout, L"TEST compare: %i\n", r);
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -65,6 +71,11 @@ fwprintf(stdout, L"TEST compare: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+/*??
+fwprintf(stdout, L"TEST compare p0: %i\n", p0);
+fwprintf(stdout, L"TEST compare p1: %i\n", p1);
+fwprintf(stdout, L"TEST compare p2: %i\n", p2);
+*/
             compare_all_part(p0, p1, p2, p3, p4);
         }
     }

@@ -51,6 +51,16 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="counter/model.cybol"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.model"/>
     </part>
+    <!-- TEST. -->
+<!--
+    <part name="compare_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.break"/>
+        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.count"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.maximum"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
+    </part>
+-->
     <!-- Write knowledge tree into file. -->
     <part name="test_knowledge_tree" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>

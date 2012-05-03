@@ -47,7 +47,7 @@
  *   the destination index from which to start copying elements to
  * - source_index (optional; if null, an index of zero will be used instead):
  *   the source index from which to start copying elements from
- * - adjust (optional; if null, the destination will NOT be adjusted):
+ * - adjust (optional; the default is "true"; if null, the destination count WILL BE adjusted):
  *   the flag indicating whether or not the destination shall be adjusted to
  *   destination_index + count_of_elements_to_be_copied;
  *   otherwise, the destination count either remains as is or gets extended,
@@ -148,6 +148,8 @@ void apply_overwrite(void* p0, void* p1, void* p2) {
     int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int destination_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int source_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // CAUTION! Set adjust count flag to "true" by default,
+    // to avoid memory errors.
     int adjust = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // CAUTION! The following values are ONLY copied,

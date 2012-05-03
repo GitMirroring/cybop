@@ -57,6 +57,19 @@ void compare_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     // since they just represent allocated memory.
     // Only the count (actual number of elements) is of interest.
 
+/*??
+fwprintf(stdout, L"TEST compare all array p4: %i\n", *((int*) p4));
+if (*((int*) p4) == 33) {
+fwprintf(stdout, L"TEST compare all array p0: %i\n", p0);
+fwprintf(stdout, L"TEST compare all array p1: %i\n", p1);
+fwprintf(stdout, L"TEST compare all array p2: %i\n", p2);
+fwprintf(stdout, L"TEST compare all array p3: %i\n", *((int*) p3));
+fwprintf(stdout, L"TEST compare all array p4: %i\n", *((int*) p4));
+fwprintf(stdout, L"TEST compare all array p5: %i\n", *((int*) p5));
+fwprintf(stdout, L"TEST compare all array p6: %i\n", *((int*) p6));
+}
+*/
+
     // Compare if integer vectors have the same length.
     compare_integer_equal((void*) &r, p5, p6);
 
