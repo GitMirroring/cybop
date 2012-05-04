@@ -16,6 +16,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug in file "knowledge_part_getter.c" where original pointers were forwarded
+            as parametres and "count" accidentally decreased to zero, so that knowledge paths
+            could be accessed correctly only once and not anymore afterwards
+        * Make cybol example application "counter_static_model" work
+
 2012-05-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Search bug appearing with "counter" cybol example application and function "apply_loop"

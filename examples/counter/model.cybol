@@ -3,10 +3,6 @@
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.break"/>
         <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.count"/>
         <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.maximum"/>
-<!-- TEST:
-        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="50"/>
-        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.maximum"/>
--->
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
     </part>
