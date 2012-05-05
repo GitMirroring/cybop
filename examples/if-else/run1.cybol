@@ -1,26 +1,26 @@
 <model>
-    <part name="create_domain" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+    <part name="create_domain" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="domain"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="compound"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
     </part>
-    <part name="create_flag" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="create">
+    <part name="create_flag" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="flag"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="boolean"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="logicvalue/boolean"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
         <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain"/>
     </part>
-   <part name="initialise_flag" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+    <part name="initialise_flag" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.flag"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
-    <part name="if-then-else" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="branch">
+    <part name="if-then-else" channel="inline" encoding="utf-8" language="text/cybol" format="flow/branch" model="">
         <property name="criterion" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.flag"/>
-        <property name="true" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="if-else/true.cybol"/>
-        <property name="false" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="if-else/false.cybol"/>
+        <property name="true" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="if-else/true.cybol"/>
+        <property name="false" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="if-else/false.cybol"/>
     </part>
-    <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
 </model>
 
 <!--

@@ -46,7 +46,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  *
  * Expected parametres:
  * - break (required): the break flag; once set, the loop will be left (exited)
- * - model (required): the knowledge model to be executed repeatedly by the loop
+ * - model (required): the logic knowledge model to be executed repeatedly by the loop
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -59,6 +59,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  */
 void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop.");
 
     // The model part.

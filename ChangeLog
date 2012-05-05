@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Enable "branch" and "sequence" operations
+        * Make cybol example applications "if-else", "signal" work
+
 2012-05-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug in file "knowledge_part_getter.c" where original pointers were forwarded

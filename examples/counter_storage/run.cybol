@@ -13,10 +13,6 @@
     <part name="initialise_count" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.count"/>
         <property name="source" channel="file" encoding="utf-8" language="text/cybol" format="number/integer" model="counter_storage/count.txt"/>
-<!--
-        <property name="source" channel="file" encoding="utf-8" language="text/cybol" format="number/integer" model="counter_storage/count.txt"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1,2"/>
--->
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
     <part name="print_count" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
@@ -29,7 +25,7 @@
     </part>
     <part name="increment_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.count"/>
-        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2"/>
+        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
     <part name="store_count" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">

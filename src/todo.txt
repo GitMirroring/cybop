@@ -9,12 +9,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: "counter_storage";
-            parsed correctly: single one-digit integer and arbitrary integer vectors;
-            problems with: single many-digit integer numbers --> error EILSEQ
+        * CONTINUE WITH: *
         * Adapt cybol example applications to new cybol mime types and operations:
-            DONE: exit, addition*, count* (excluding "counter_storage")
-            TODO: count*, all other
+            DONE: exit, addition*, count*, signal
+            TODO: all other
         * Uncomment further operations in file "operation_handler.c"
         * Update ansi escape code serialiser files for terminal tui application
 

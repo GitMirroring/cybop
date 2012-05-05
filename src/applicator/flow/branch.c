@@ -30,6 +30,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/flow/branch_flow_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
@@ -41,17 +42,17 @@
 void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
- * Branches the programme flow, depending on a flag.
+ * Branches the programme flow, depending on the criterion flag.
  *
  * Expected parametres:
  * - criterion (required): the flag specifying which of the two models to execute
  * - true (required): the logic knowledge model to be executed if the condition is true
  * - false (required): the logic knowledge model to be executed if the condition is false
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the internal memory array
+ * @param p3 the internal memory data
  * @param p4 the signal memory item
  * @param p5 the signal memory interrupt request flag
  * @param p6 the signal memory mutex
@@ -64,9 +65,9 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // The criterion part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The criterion part model.
+    // The criterion part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The criterion part model data.
+    // The criterion part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The true part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -80,19 +81,25 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Get false part.
     get_part_knowledge((void*) &f, p0, (void*) FALSE_BRANCH_FLOW_OPERATION_CYBOL_NAME, (void*) FALSE_BRANCH_FLOW_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    // Get criterion part model.
+    // Get criterion part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get criterion part model data.
+    // Get criterion part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The direct execution flag.
+    // CAUTION! The flag has to be set to true, because otherwise,
+    // a new signal would be placed in signal memory and only
+    // be processed with a delay.
+    // But this is not desirable here, since the branch
+    // is expected to be executed directly.
+    // Further, follow-up signals may rely on its full execution.
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal(&r, cmd, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, cmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The criterion is true. Handle true model.
         handle(t, (void*) &x, p7, p2, p3, p4, p5, p6);

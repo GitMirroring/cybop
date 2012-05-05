@@ -30,7 +30,9 @@
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/communicate/receive.c"
 #include "../../applicator/communicate/send.c"
+#include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
+#include "../../applicator/flow/sequence.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
 #include "../../applicator/modify/overwrite.c"
@@ -293,6 +295,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p9));
             list_directory_contents(p0, p1);
         }
     }
+*/
 
     //
     // flow
@@ -304,10 +307,9 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            branch(p0, p1);
+            apply_branch(p0, p1, p4, p5, p6, p7, p8, p3);
         }
     }
-*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -319,17 +321,15 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p9));
         }
     }
 
-/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) SEQUENCE_FLOW_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sequence(p0, p1);
+            apply_sequence(p0, p1, p4, p5, p6, p7, p8, p3);
         }
     }
-*/
 
     //
     // live
