@@ -1,5 +1,6 @@
 <model>
-    <part name="compare_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
+    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested BEFORE incrementing the loop count. -->
+    <part name="compare_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.break"/>
         <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.count"/>
         <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.maximum"/>

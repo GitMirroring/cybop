@@ -9,10 +9,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE WITH: *
-        * Adapt cybol example applications to new cybol mime types and operations:
-            DONE: exit, addition*, count*, signal
-            TODO: all other
+        * CONTINUE WITH:
+            * correct loop condition testing in all example applications;
+            * change break variables to boolean values (they are still integers right now);
+            * complete "time_output" example applications
+        * Adapt cybol example applications using TUI and HTTP
         * Uncomment further operations in file "operation_handler.c"
         * Update ansi escape code serialiser files for terminal tui application
 

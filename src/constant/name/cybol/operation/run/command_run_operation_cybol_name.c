@@ -27,6 +27,7 @@
 #define COMMAND_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The command run operation cybol name. */

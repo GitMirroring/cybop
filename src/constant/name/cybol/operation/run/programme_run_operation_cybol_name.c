@@ -23,16 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PROGRAM_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
-#define PROGRAM_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef PROGRAMME_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
+#define PROGRAMME_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The program run operation cybol name. */
-static wchar_t PROGRAM_RUN_OPERATION_CYBOL_NAME_ARRAY[] = {L'p', L'r', L'o', L'g', L'r', L'a', L'm'};
-static wchar_t* PROGRAM_RUN_OPERATION_CYBOL_NAME = PROGRAM_RUN_OPERATION_CYBOL_NAME_ARRAY;
-static int* PROGRAM_RUN_OPERATION_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The programme run operation cybol name. */
+static wchar_t PROGRAMME_RUN_OPERATION_CYBOL_NAME_ARRAY[] = {L'p', L'r', L'o', L'g', L'r', L'a', L'm', L'm', L'e'};
+static wchar_t* PROGRAMME_RUN_OPERATION_CYBOL_NAME = PROGRAMME_RUN_OPERATION_CYBOL_NAME_ARRAY;
+static int* PROGRAMME_RUN_OPERATION_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* PROGRAM_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
+/* PROGRAMME_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

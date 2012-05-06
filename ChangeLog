@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-06  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Enable "run" ("execute") operations
+        * Make cybol example applications "shell_output*", "programme_execution" work
+
 2012-05-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Enable "branch" and "sequence" operations

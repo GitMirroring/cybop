@@ -52,43 +52,42 @@ void apply_execute(void* p0, void* p1) {
     //?? TODO: Figure out if assembling a shell command line is necessary at all!
     //?? The "system" function call further below does search programmes internally
     //?? and by default uses the "sh" to execute commands.
-    //?? Therefore, the prefix "sh" and the rest assembled below might be superfluous.
+    //?? Therefore, the prefix "sh" and the rest assembled below MIGHT be superfluous.
 
     // The shell command line item.
-    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoded shell command line item.
-    void* ecl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The shell command line item data, count.
-    void* cld = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* clc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoded shell command line item data, count.
-    void* ecld = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* eclc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded shell command line item data.
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate shell command line item.
-    allocate_item((void*) &cl, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Allocate encoded shell command line item.
-    allocate_item((void*) &ecl, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append shell command.
-    append_item_element(cl, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(c, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Append shell command.
-    append_item_element(cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(cl, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(c, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(c, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Append user command.
-    append_item_element(cl, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(cl, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(cl, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(c, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(c, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(c, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    append_item_element(c, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Append null character as string termination.
-    append_item_element(cl, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(c, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Get shell command line item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &cld, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &clc, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &cd, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &cc, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
 /*??
     fwprintf(stdout, L"TEST dir: %ls\n", (wchar_t*) cld);
@@ -96,32 +95,38 @@ void apply_execute(void* p0, void* p1) {
 */
 
     // Encode encoded shell command line.
-    encode_utf_8(ecl, cld, clc);
+    encode_utf_8(e, cd, cc);
+
+    // Get encoded shell command line item data.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Initialise error number.
     // It is a global variable/ function and other operations
     // may have set some value that is not wanted here.
     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Run a command/ program as shell command in an own process.
+    // Run a programme as shell command in an own process.
     //
     // The "system" function provides a simple, portable mechanism for running
-    // another program; it does all three steps (fork/execv/wait) automatically.
-    // The function does all the work of running a subprogram, but it doesn't
-    // give much control over the properties. One has to wait until the subprogram
+    // another programme; it does all three steps (fork/execv/wait) automatically.
+    // The function does all the work of running a subprogramme, but it doesn't
+    // give much control over the properties. One has to wait until the subprogramme
     // terminates before being able to do anything else.
     // In the GNU C library, it always uses the default shell "sh" to run the command.
-    // In particular, it searches the directories in "PATH" to find programs to execute.
+    // In particular, it searches the directories in "PATH" to find programmes to execute.
     // The return value is -1 if it wasn't possible to create the shell process,
     // and otherwise is the status of the shell process.
     //
     // CAUTION! The command line MUST NOT be given as wide character array!
     // This is just because the "system" function call expects an ASCII string.
-    int r = system(ecl);
+    int r = system(ed);
 
     if (r == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command/ program as process. A negative value was returned.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute programme as process. A negative value was returned.");
 
         if (errno == EINTR) {
 
@@ -142,13 +147,13 @@ void apply_execute(void* p0, void* p1) {
 
     } else {
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully executed command/ program as process. The child process was left; the parent process continues.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully executed programme as process. The child process was left; the parent process continues.");
     }
 
     // Deallocate shell command line item.
-    deallocate_item((void*) &cl, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate encoded shell command line item.
-    deallocate_item((void*) &ecl, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
 /*??
     //?? The following block implements the same three primitive functions
@@ -181,9 +186,9 @@ void apply_execute(void* p0, void* p1) {
         // Do therefore NOT USE logging functionality of the parent here!
 
         // There are two reasons why POSIX programmers call "fork":
-        // 1 Create a new thread of control within the same program
+        // 1 Create a new thread of control within the same programme
         //   (which was originally only possible in POSIX by creating a new process)
-        // 2 Create a new process running a different program.
+        // 2 Create a new process running a different programme.
         //   In this case, the call to "fork" is soon followed by a call
         //   to one of the "exec" functions.
         //
@@ -199,7 +204,7 @@ void apply_execute(void* p0, void* p1) {
         //   If a thread that is not calling "fork" holds a resource, that resource
         //   is NEVER RELEASED in the child process because the thread whose job
         //   it is to release the resource does not exist in the child process.
-        //   The "fork" function is used only to run new programs, and the
+        //   The "fork" function is used only to run new programmes, and the
         //   effects of calling functions that require certain resources between
         //   the call to "fork" and the call to an "exec" function are undefined.
         //   In other words, the "fork" child is only allowed to call
@@ -239,10 +244,10 @@ void apply_execute(void* p0, void* p1) {
         // Execute file (given as first parametre) as new process image.
         //
         // The "exec" function may be used to make a child process
-        // execute a new program after it has been forked.
+        // execute a new programme after it has been forked.
         // By the call to "exec", the child replaces itself with the code
-        // of a different program (specified by the file to be executed).
-        // In other words, the new program overlays the existing program, so one
+        // of a different programme (specified by the file to be executed).
+        // In other words, the new programme overlays the existing programme, so one
         // can never return to the original code unless the call to "exec" fails.
         // The new child process will have the same files open as the parent,
         // except those whose close-on-exec flag was set with fcntl.
@@ -251,12 +256,12 @@ void apply_execute(void* p0, void* p1) {
         // but is at some point before the child process exits
         // or before another child process image is executed.
         //
-        // Since the program to be executed cannot be predicted, a system shell
-        // is executed instead, and the program (as its command) within the shell.
+        // Since the programme to be executed cannot be predicted, a system shell
+        // is executed instead, and the programme (as its command) within the shell.
         // Arguments are specified individually and handed over as strings.
-        // The first argument represents the name of the program being executed.
+        // The first argument represents the name of the programme being executed.
         // That is why the SHELL_SYSTEM_EXECUTABLE constant is supplied once to name
-        // the program to execute and a second time to supply a value for argv[0].
+        // the programme to execute and a second time to supply a value for argv[0].
         // A null pointer must be passed as the last such argument, to indicate the end!
         //
         // Example:
@@ -324,7 +329,7 @@ void apply_execute(void* p0, void* p1) {
 
         fwprintf(stdout, L"TEST E2BIG errno: %i\n", errno);
 
-                // The combined size of the new program's argument list and
+                // The combined size of the new programme's argument list and
                 // environment list is larger than ARG_MAX bytes.
                 // The GNU system has no specific limit on the argument list size,
                 // so this error code cannot result, but one may get ENOMEM
@@ -363,7 +368,7 @@ void apply_execute(void* p0, void* p1) {
             // So the following call to "_exit" should NORMALLY NOT be reached.
             // If "exec" fails, something must be done to make the child process terminate.
             // Just returning a bad status code with "return" would leave TWO PROCESSES
-            // running the original program. Instead, the right behavior is for the
+            // running the original programme. Instead, the right behavior is for the
             // child process to report failure to its parent process.
             //
             // CAUTION! Call "_exit" to accomplish this!

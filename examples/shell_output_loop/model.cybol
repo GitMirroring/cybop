@@ -1,20 +1,33 @@
 <model>
-    <part name="compare_count" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="greater_or_equal">
+    <!--
+        CAUTION! The count was initialised with zero.
+        If the break flag is set, it gets only considered in the NEXT loop cycle,
+        since this model gets executed fully anyway.
+        In other words, the maximum to compare with has to be the LAST count
+        to be CONSIDERED but NOT the first count after the last.
+        Example: If a string is to be printed five times,
+        the count will run from 0 to 4.
+        The maximum to compare with here is NOT 5, but 4!
+    -->
+    <part name="compare_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.break"/>
         <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.count"/>
         <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="4"/>
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.break"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
     </part>
-    <part name="output" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="shell"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="text/plain"/>
+    <part name="print" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Hello, World!"/>
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="increment_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="add">
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
-        <property name="summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.count"/>
-        <property name="summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
-        <property name="sum" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.count"/>
+    <part name="increment_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.count"/>
+        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
 </model>
 

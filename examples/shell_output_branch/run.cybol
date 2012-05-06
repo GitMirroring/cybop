@@ -1,15 +1,15 @@
 <model>
-    <part name="simulate_first_case" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="branch">
+    <part name="simulate_first_case" channel="inline" encoding="utf-8" language="text/cybol" format="flow/branch" model="">
         <property name="criterion" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-        <property name="true" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="shell_output_branch/model_a.cybol"/>
-        <property name="false" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="shell_output_branch/model_b.cybol"/>
+        <property name="true" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="shell_output_branch/model_a.cybol"/>
+        <property name="false" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="shell_output_branch/model_b.cybol"/>
     </part>
-    <part name="simulate_second_case" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="branch">
+    <part name="simulate_second_case" channel="inline" encoding="utf-8" language="text/cybol" format="flow/branch" model="">
         <property name="criterion" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-        <property name="true" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="shell_output_branch/model_a.cybol"/>
-        <property name="false" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="shell_output_branch/model_b.cybol"/>
+        <property name="true" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="shell_output_branch/model_a.cybol"/>
+        <property name="false" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="shell_output_branch/model_b.cybol"/>
     </part>
-    <part name="shutdown" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="exit"/>
+    <part name="shutdown" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
 </model>
 
 <!--

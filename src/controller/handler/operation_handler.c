@@ -36,6 +36,7 @@
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
 #include "../../applicator/modify/overwrite.c"
+#include "../../applicator/run/run.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../logger/logger.c"
@@ -565,6 +566,7 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p9));
             remove(p0, p1);
         }
     }
+*/
 
     //
     // run
@@ -576,10 +578,9 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            run(p0, p1);
+            apply_run(p0, p1, p4);
         }
     }
-*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
