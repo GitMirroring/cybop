@@ -13,7 +13,7 @@
     <part name="initialise_flag" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.flag"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="logicvalue/boolean"/>
     </part>
     <part name="if-then-else" channel="inline" encoding="utf-8" language="text/cybol" format="flow/branch" model="">
         <property name="criterion" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.flag"/>

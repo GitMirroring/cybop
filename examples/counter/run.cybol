@@ -1,5 +1,5 @@
 <model>
-    <part name="create_counter_application" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+    <part name="create_application" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="counter"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>

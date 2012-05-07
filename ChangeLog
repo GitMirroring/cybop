@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Correct conditions for post-test loops in all cybol example applications
+        * Use "logicvalue/boolean" instead of "number/integer" format for "break" properties in all cybol example applications
+        * Complete cybol example applications "time_output_*"
+
 2012-05-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Enable "run" ("execute") operations

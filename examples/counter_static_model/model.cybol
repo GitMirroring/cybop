@@ -12,7 +12,7 @@
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
-    <!-- The break condition has to be GREATER-tested AFTER incrementing the loop count, since this is a post-test loop. -->
+    <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <part name="compare_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.break"/>
         <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".domain.count"/>

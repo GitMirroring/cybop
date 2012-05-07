@@ -1,21 +1,4 @@
 <model>
-    <!--
-        CAUTION! The count was initialised with zero.
-        If the break flag is set, it gets only considered in the NEXT loop cycle,
-        since this model gets executed fully anyway.
-        In other words, the maximum to compare with has to be the LAST count
-        to be CONSIDERED but NOT the first count after the last.
-        Example: If a string is to be printed five times,
-        the count will run from 0 to 4.
-        The maximum to compare with here is NOT 5, but 4!
-    -->
-    <part name="compare_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.break"/>
-        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.count"/>
-        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="4"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
-    </part>
     <part name="print" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -28,6 +11,14 @@
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.count"/>
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    </part>
+    <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <part name="compare_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.break"/>
+        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".shell_output_loop.count"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="4"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
     </part>
 </model>
 

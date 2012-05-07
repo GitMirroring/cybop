@@ -1,9 +1,9 @@
 <model>
-    <part name="test" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="list_directory_contents">
+    <part name="test" channel="inline" encoding="utf-8" language="text/cybol" format="file/list_directory_contents" model="">
         <property name="all" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
         <property name="long_listing" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="exit"/>
+    <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
 </model>
 
 <!--
