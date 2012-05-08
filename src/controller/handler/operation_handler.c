@@ -30,6 +30,9 @@
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/communicate/receive.c"
 #include "../../applicator/communicate/send.c"
+#include "../../applicator/file/archive_file.c"
+#include "../../applicator/file/copy_file.c"
+#include "../../applicator/file/list_directory_contents.c"
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
@@ -262,6 +265,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             serialise(p0, p1);
         }
     }
+*/
 
     //
     // file
@@ -273,7 +277,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            archive(p0, p1);
+            apply_archive_file(p0, p1, p4);
         }
     }
 
@@ -283,7 +287,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy(p0, p1);
+            apply_copy_file(p0, p1, p4);
         }
     }
 
@@ -293,10 +297,9 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            list_directory_contents(p0, p1);
+            apply_list_directory_contents(p0, p1, p4);
         }
     }
-*/
 
     //
     // flow
@@ -583,6 +586,9 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+    fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown p9: %i\n", p9);
+    fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown *p9: %i\n", *((int*) p9));
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, "Could not handle operation. The operation is unknown.");
     }

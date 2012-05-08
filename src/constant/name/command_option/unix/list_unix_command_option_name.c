@@ -27,6 +27,7 @@
 #define LIST_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The all list unix command option name. */
@@ -34,10 +35,10 @@ static wchar_t ALL_LIST_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'-', L'a', L'
 static wchar_t* ALL_LIST_UNIX_COMMAND_OPTION_NAME = ALL_LIST_UNIX_COMMAND_OPTION_NAME_ARRAY;
 static int* ALL_LIST_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The long listing list unix command option name. */
-static wchar_t LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'l'};
-static wchar_t* LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME = LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME_ARRAY;
-static int* LONG_LISTING_LIST_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The long list unix command option name. */
+static wchar_t LONG_LIST_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'l'};
+static wchar_t* LONG_LIST_UNIX_COMMAND_OPTION_NAME = LONG_LIST_UNIX_COMMAND_OPTION_NAME_ARRAY;
+static int* LONG_LIST_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LIST_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif

@@ -27,6 +27,7 @@
 #define SHELL_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The character shell unix command option name. */

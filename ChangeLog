@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt cybol example application "shell_command_execution" using file operations
+
 2012-05-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Correct conditions for post-test loops in all cybol example applications

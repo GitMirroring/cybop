@@ -9,7 +9,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Adapt cybol example application "shell_command_execution" using file operations
         * Adapt cybol example application "helloworld" and "ui_control" using TUI
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
         * Uncomment further operations in file "operation_handler.c"
