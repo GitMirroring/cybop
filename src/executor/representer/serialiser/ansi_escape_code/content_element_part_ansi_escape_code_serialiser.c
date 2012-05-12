@@ -23,47 +23,42 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NODE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define NODE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef CONTENT_ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#define CONTENT_ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/properties_ansi_escape_code_serialiser.c"
 #include "../../../../logger/logger.c"
 
+//
+// Forward declarations.
+//
+
+void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+
 /**
- * Serialises the part into ansi escape code.
+ * Serialises the part element content into ansi escape code.
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
- * @param p5 the indentation level
- * @param p6 the type
+ * @param p1 the source properties data
+ * @param p2 the source properties count
+ * @param p3 the source model data
+ * @param p4 the source model count
+ * @param p5 the source format data
  */
-void serialise_ansi_escape_code_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_ansi_escape_code_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code part element content.");
 
-    serialise_ansi_escape_code_properties(p0, p3, p4);
+    // Append properties.
+    serialise_ansi_escape_code_properties(p0, p1, p2);
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_ansi_escape_code_compound(p0, p1, p2);
-        }
-    }
+    // Append model.
+    serialise_ansi_escape_code(p0, p3, p4, p5);
 }
 
-/* NODE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* CONTENT_ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
 #endif

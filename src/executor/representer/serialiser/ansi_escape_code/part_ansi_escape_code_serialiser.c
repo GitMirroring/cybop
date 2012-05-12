@@ -27,57 +27,71 @@
 #define PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/element_part_ansi_escape_code_serialiser.c"
 #include "../../../../logger/logger.c"
-
-//
-// Forward declarations.
-//
-
-void serialise_ansi_escape_code_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Serialises the part into ansi escape code.
  *
- * @param p0 the destination item
+ * @param p0 the destination ansi escape code item
  * @param p1 the source model data
- * @param p2 the source model index
+ * @param p2 the source model count
+ * @param p3 the properties flag
+ * @param p4 the tree level
  */
-void serialise_ansi_escape_code_part(void* p0, void* p1, void* p2) {
+void serialise_ansi_escape_code_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code part.");
 
-    // The part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type, model, properties.
-    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type, model, properties data, count.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The new tree level.
+    //
+    // It gets initialised with the current tree level incremented by one.
+    //
+    // CAUTION! Do NOT manipulate the original tree level that was handed over as parametre!
+    // Otherwise, it would never be decremented anymore leading to wrong results.
+    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get part at index.
-    copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
-    // Get part type, model, properties.
-    copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-    // Get part type, model, properties data, count.
-    copy_array_forward((void*) &td, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &md, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pd, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pc, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Initialise new tree level with current tree level.
+    copy_integer((void*) &l, p4);
 
-    // Call function recursively.
-    serialise_html_node(p0, md, mc, pd, pc, p3, td);
+    // Increment new tree level.
+    calculate_integer_add((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
+        }
+
+        serialise_ansi_escape_code_part_element(p0, p1, (void*) &j, p3, (void*) &l);
+
+        // Increment loop variable.
+        j++;
+    }
 }
 
 /* PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

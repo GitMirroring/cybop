@@ -29,10 +29,10 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/format/logic_format_type.c"
-#include "../../../../constant/type/format/state_format_type.c"
+#include "../../../../constant/language/cyboi/state_cyboi_language.c"
+#include "../../../../constant/language/cybol/state/interface_state_cybol_language.c"
+#include "../../../../constant/language/cybol/state/message_state_cybol_language.c"
+#include "../../../../constant/language/cybol/state/text_state_cybol_language.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
@@ -57,36 +57,54 @@ void serialise_cybol_language(void* p0, void* p1) {
     // ======================================================================
 
     //
+    // interface
+    //
+
+    //
+    // message
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    //
     // text
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) CYBOL_TEXT_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(p0, (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) MODEL_DIAGRAM_TEXT_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(p0, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) XDT_TEXT_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) XDT_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) XDT_TEXT_STATE_CYBOL_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XDT_TEXT_STATE_CYBOL_TYPE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(p0, (void*) XDT_TEXT_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

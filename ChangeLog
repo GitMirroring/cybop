@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move "language" constants out of "type" and "format" files into own directory
+        * Update file "ansi_escape_code_serialiser.c" for text user interface on terminal
+
 2012-05-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt cybol example application "shell_command_execution" using file operations

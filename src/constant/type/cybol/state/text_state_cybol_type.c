@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CYBOL_TEXT_LANGUAGE_CONSTANTS_SOURCE
-#define CYBOL_TEXT_LANGUAGE_CONSTANTS_SOURCE
+#ifndef TEXT_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#define TEXT_STATE_CYBOL_TYPE_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -66,76 +66,6 @@ static wchar_t* ASCII_TEXT_STATE_CYBOL_TYPE = ASCII_TEXT_STATE_CYBOL_TYPE_ARRAY;
 static int* ASCII_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/authority cybol type.
- *
- * CYBOL (XML) format.
- * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
- */
-static wchar_t AUTHORITY_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {'t', L'e', L'x', L't', L'/', L'a', L'u', L't', L'h', L'o', L'r', L'i', L't', L'y'};
-static wchar_t* AUTHORITY_TEXT_STATE_CYBOL_TYPE = AUTHORITY_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* AUTHORITY_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The text/css cybol type.
- *
- * Cascading Style Sheets.
- * Defined in RFC 2318.
- * Suffixes: css
- */
-static wchar_t CSS_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'c', L's', L's'};
-static wchar_t* CSS_TEXT_STATE_CYBOL_TYPE = CSS_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* CSS_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The text/cybol cybol type.
- *
- * CYBOL (XML) format.
- * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
- * Suffixes: cybol
- */
-static wchar_t CYBOL_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'c', L'y', L'b', L'o', L'l'};
-static wchar_t* CYBOL_TEXT_STATE_CYBOL_TYPE = CYBOL_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* CYBOL_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The text/html cybol type.
- *
- * Hypertext Markup Language (HTML) format.
- * Defined in RFC 2854.
- * Suffixes: html, htm, shtml
- */
-static wchar_t HTML_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'h', L't', L'm', L'l'};
-static wchar_t* HTML_TEXT_STATE_CYBOL_TYPE = HTML_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* HTML_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The text/hxp cybol type.
- *
- * Healthcare Exchange Protocol (HXP) format.
- * An XML-based standard for medical data exchange.
- *
- * It was defined by a group of open source projects at:
- * http://hxp.sourceforge.net/
- * Suffixes: hxp (?? only assumed, not verified!)
- */
-static wchar_t HXP_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'h', L'x', L'p'};
-static wchar_t* HXP_TEXT_STATE_CYBOL_TYPE = HXP_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* HXP_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The text/model-diagram cybol type.
- *
- * CYBOL (XML) format.
- * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
- */
-static wchar_t MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'm', L'o', L'd', L'e', L'l', L'-', L'd', L'i', L'a', L'g', L'r', L'a', L'm'};
-static wchar_t* MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE = MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* MODEL_DIAGRAM_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The text/plain cybol type.
  *
  * Textual data.
@@ -148,41 +78,5 @@ static wchar_t PLAIN_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'
 static wchar_t* PLAIN_TEXT_STATE_CYBOL_TYPE = PLAIN_TEXT_STATE_CYBOL_TYPE_ARRAY;
 static int* PLAIN_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The text/uri cybol type.
- *
- * CYBOL (XML) format.
- * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
- */
-static wchar_t URI_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {'t', L'e', L'x', L't', L'/', L'u', L'r', L'i'};
-static wchar_t* URI_TEXT_STATE_CYBOL_TYPE = URI_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* URI_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The text/xdt cybol type.
- *
- * x Daten Transfer (xDT) format.
- * A group of compatible formats for medical data exchange in Germany.
- *
- * Schnittstellen - Datensatzbeschreibungen - Specification:
- * http://www.kbv.de/ita/4201.html
- * Suffixes: xdt, adt, bdt, gdt, ldt
- */
-static wchar_t XDT_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'x', L'd', L't'};
-static wchar_t* XDT_TEXT_STATE_CYBOL_TYPE = XDT_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* XDT_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The text/xml cybol type.
- *
- * Extensible Markup Language.
- * Defined in RFC 3023.
- * Suffixes: xml
- */
-static wchar_t XML_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'x', L'm', L'l'};
-static wchar_t* XML_TEXT_STATE_CYBOL_TYPE = XML_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* XML_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/* CYBOL_TEXT_LANGUAGE_CONSTANTS_SOURCE */
+/* TEXT_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

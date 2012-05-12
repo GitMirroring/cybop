@@ -14,7 +14,7 @@
         * Uncomment further operations in file "operation_handler.c"
         * Update ansi escape code serialiser files for terminal tui application
 
-        * Find bug (probably only on 64 Bit machines/ pointer-integer?) with cybol example application "counter_storage" which brings error when two-digit integer numbers are standing in the storage file "count.txt":
+        * Find bug (appearing only on 64 Bit machines --> pointer-integer-problem?) with cybol example application "counter_storage" which brings error when two-digit integer numbers are standing in the storage file "count.txt":
 
 christian@deneb:/home/project/cybop/examples$ ../src/controller/cyboi --knowledge counter_storage/run.cybol
 TEST ERROR EILSEQ errno: 84
@@ -23,7 +23,7 @@ TEST signal checker s: 20275632
 
 0
 
-        * Find bug (probably only on 64 Bit machines/ pointer-integer?) with cybol example application "shell_output_sequence" which brings error:
+        * Find bug (appearing only on 64 Bit machines --> pointer-integer-problem?) with cybol example application "shell_output_sequence" which brings error:
 
 christian@deneb:/home/project/cybop/examples$ ../src/controller/cyboi --knowledge shell_output_sequence/run.cybol
 cyboi: malloc.c:3096: sYSMALLOc: Assertion `(old_top == (((mbinptr) (((char *) &((av)->bins[((1) - 1) * 2])) - __builtin_offsetof (struct malloc_chunk, fd)))) && old_size == 0) || ((unsigned long) (old_size) >= (unsigned long)((((__builtin_offsetof (struct malloc_chunk, fd_nextsize))+((2 * (sizeof(size_t))) - 1)) & ~((2 * (sizeof(size_t))) - 1))) && ((old_top)->size & 0x1) && ((unsigned long)old_end & pagemask) == 0)' failed.

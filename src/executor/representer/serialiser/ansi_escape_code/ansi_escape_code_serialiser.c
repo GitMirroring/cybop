@@ -34,57 +34,152 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
-#include "../../../../constant/name/cybol/super_cybol_name.c"
-#include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/node_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/part_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Serialises a part into ansi escape code.
  *
  * @param p0 the destination item
- * @param p1 the source part
- * @param p2 the source whole part containing the source part
- * @param p3 the repainted area name
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source format data
  */
 void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code.");
 
-    // The tree level.
-    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The part type, model, properties.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type, model, properties data, count.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Get part type, model, properties.
-    copy_array_forward((void*) &t, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-    // Get part type, model, properties data, count.
-    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    //
+    // datetime
+    //
 
-    // Encode ansi escape code root node.
-    serialise_ansi_escape_code_node(p0, md, mc, pd, pc, (void*) &l, td);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) HH_MM_SS_DATETIME_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            serialise_hhmmss_date_time(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) YYYY_MM_DD_DATETIME_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_ddmmyyyy_date_time(p0, p1, p2);
+        }
+    }
+
+    //
+    // element
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) PART_ELEMENT_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_ansi_escape_code_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p5);
+        }
+    }
+
+    //
+    // logicvalue
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) BOOLEAN_LOGICVALUE_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_boolean(p0, p1, p2);
+        }
+    }
+
+    //
+    // number
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_complex(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) FRACTION_DECIMAL_NUMBER_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_double(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) FRACTION_VULGAR_NUMBER_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            serialise_vulgar_fraction(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) INTEGER_NUMBER_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_integer(p0, p1, p2);
+        }
+    }
+
+    //
+    // text
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) PLAIN_TEXT_STATE_FORMAT_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Encode wide character array into character array.
+            append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise ansi escape code. The source format is unknown.");
+    }
 }
 
 /* ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

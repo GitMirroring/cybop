@@ -186,13 +186,6 @@ static int* TIFF_IMAGE_STATE_FORMAT_TYPE = NUMBER_273_INTEGER_STATE_CYBOI_MODEL_
 static int* SOCKET_INODE_STATE_FORMAT_TYPE = NUMBER_280_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// interface
-//
-
-/** The x-winamp-skin interface state format type. */
-static int* X_WINAMP_SKIN_INTERFACE_STATE_FORMAT_TYPE = NUMBER_290_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // logicvalue
 //
 
@@ -205,22 +198,6 @@ static int* BOOLEAN_LOGICVALUE_STATE_FORMAT_TYPE = NUMBER_300_INTEGER_STATE_CYBO
 
 /** The vcd media state format type. */
 static int* VCD_MEDIA_STATE_FORMAT_TYPE = NUMBER_310_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// message
-//
-
-/** The http message state format type. */
-static int* HTTP_MESSAGE_STATE_FORMAT_TYPE = NUMBER_320_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The http-request message state format type. */
-static int* HTTP_REQUEST_MESSAGE_STATE_FORMAT_TYPE = NUMBER_321_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The http-response message state format type. */
-static int* HTTP_RESPONSE_MESSAGE_STATE_FORMAT_TYPE = NUMBER_322_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The news message state format type. */
-static int* NEWS_MESSAGE_STATE_FORMAT_TYPE = NUMBER_323_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // meta
@@ -298,35 +275,8 @@ static int* JOBS_PRINT_STATE_FORMAT_TYPE = NUMBER_410_INTEGER_STATE_CYBOI_MODEL_
 /** The ascii text state format type. */
 static int* ASCII_TEXT_STATE_FORMAT_TYPE = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The authority text state format type. */
-static int* AUTHORITY_TEXT_STATE_FORMAT_TYPE = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The css text state format type. */
-static int* CSS_TEXT_STATE_FORMAT_TYPE = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The cybol text state format type. */
-static int* CYBOL_TEXT_STATE_FORMAT_TYPE = NUMBER_423_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The html text state format type. */
-static int* HTML_TEXT_STATE_FORMAT_TYPE = NUMBER_425_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The hxp text state format type. */
-static int* HXP_TEXT_STATE_FORMAT_TYPE = NUMBER_426_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The model-diagram text state format type. */
-static int* MODEL_DIAGRAM_TEXT_STATE_FORMAT_TYPE = NUMBER_427_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The plain text state format type. */
 static int* PLAIN_TEXT_STATE_FORMAT_TYPE = NUMBER_428_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The uri text state format type. */
-static int* URI_TEXT_STATE_FORMAT_TYPE = NUMBER_430_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xdt text state format type. */
-static int* XDT_TEXT_STATE_FORMAT_TYPE = NUMBER_431_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xml text state format type. */
-static int* XML_TEXT_STATE_FORMAT_TYPE = NUMBER_432_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // uri
