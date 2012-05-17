@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RECTANGLE_BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define RECTANGLE_BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#define BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -60,7 +60,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the rectangle border into ansi escape code.
+ * Serialises the border into ansi escape code.
  *
  * @param p0 the horizontal character
  * @param p1 the vertical character
@@ -68,21 +68,12 @@
  * @param p3 the right top
  * @param p4 the left bottom
  * @param p5 the right bottom
- * @param p6 the border
+ * @param p6 the border data
+ * @param p7 the border count
  */
-void serialise_ansi_escape_code_rectangle_border(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_ansi_escape_code_border(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code rectangle border.");
-
-    // The part type, model, properties.
-    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type, model, properties data, count.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get part type, model, properties.
-    copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    // Get part type, model, properties data, count.
-    copy_array_forward((void*) &td, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code border.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -146,7 +137,12 @@ void serialise_ansi_escape_code_rectangle_border(void* p0, void* p1, void* p2, v
             copy_wide_character(p5, (void*) BOX_DRAWINGS_LIGHT_UP_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL);
         }
     }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise ansi escape code border. The border model is unknown.");
+    }
 }
 
-/* RECTANGLE_BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
 #endif

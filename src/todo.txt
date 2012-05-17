@@ -9,6 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue ansi escape code serialiser in file "rectangle_ansi_escape_code_serialiser.c"
         * Adapt cybol example application "helloworld" and "ui_control" using TUI
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
         * Uncomment further operations in file "operation_handler.c"

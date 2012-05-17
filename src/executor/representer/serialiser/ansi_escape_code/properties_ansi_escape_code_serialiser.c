@@ -103,7 +103,7 @@ void serialise_ansi_escape_code_properties(void* p0, void* p1, void* p2, void* p
     // The whole size part model item.
     void* wsm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The super part model item data.
+    // The super part model item data, count.
     void* supermd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* supermc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The position part model item data.
@@ -151,8 +151,6 @@ void serialise_ansi_escape_code_properties(void* p0, void* p1, void* p2, void* p
     copy_array_forward((void*) &supermd, superm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &supermc, superm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    //
-    // Get default property parts from super part.
     //
     // If a standard property does NOT exist (and ONLY then),
     // the default property value of the super part is used.
@@ -209,17 +207,27 @@ void serialise_ansi_escape_code_properties(void* p0, void* p1, void* p2, void* p
     }
 
     // Get property parts from whole part.
-    get_part_knowledge((void*) &wp, p3, (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p4);
-    get_part_knowledge((void*) &ws, p3, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p4);
+    get_part_knowledge((void*) &wp, p4, (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p5, p3);
+    get_part_knowledge((void*) &ws, p4, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p5, p3);
 
-    // Get position part model item.
+    // Get part model items.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get position part model item data.
+    // Get part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Serialise rectangle.
-    serialise_ansi_escape_code_rectangle(p0, h, i, bl, u, b, bg, fg, p, s, wp, ws, bo, c, l, sh);
+    serialise_ansi_escape_code_background(p0, bgmd);
+    serialise_ansi_escape_code_foreground(p0, fgmd);
+    serialise_ansi_escape_code_property(p0, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL_COUNT, hmd);
+    serialise_ansi_escape_code_property(p0, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL_COUNT, imd);
+    serialise_ansi_escape_code_property(p0, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL_COUNT, blmd);
+    serialise_ansi_escape_code_property(p0, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL_COUNT, umd);
+    serialise_ansi_escape_code_property(p0, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL_COUNT, bmd);
+    serialise_ansi_escape_code_rectangle(p0, pmd, smd, wpmd, wsmd, bomd, c, l, sh);
+    append_item_element(p0, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* PROPERTIES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

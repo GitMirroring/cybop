@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue ansi escape code serialiser (colour, property, position)
+
 2012-05-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue ansi escape code serialiser for text user interface on terminal

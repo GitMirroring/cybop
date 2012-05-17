@@ -77,26 +77,15 @@ static wchar_t* RGB_COLOUR_STATE_CYBOL_TYPE = RGB_COLOUR_STATE_CYBOL_TYPE_ARRAY;
 static int* RGB_COLOUR_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The colour/terminal-background cybol type.
+ * The colour/terminal cybol type.
  *
- * Terminal background colour name as written word.
- *
- * This is a CYBOL extension.
- */
-static wchar_t TERMINAL_BACKGROUND_COLOUR_STATE_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'l', L'o', L'u', L'r', L'/', L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l', L'-', L'b', L'a', L'c', L'k', L'g', L'r', L'o', L'u', L'n', L'd'};
-static wchar_t* TERMINAL_BACKGROUND_COLOUR_STATE_CYBOL_TYPE = TERMINAL_BACKGROUND_COLOUR_STATE_CYBOL_TYPE_ARRAY;
-static int* TERMINAL_BACKGROUND_COLOUR_STATE_CYBOL_TYPE_COUNT = NUMBER_26_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The colour/terminal-foreground cybol type.
- *
- * Terminal foreground colour name as written word.
+ * Terminal colour name as written word.
  *
  * This is a CYBOL extension.
  */
-static wchar_t TERMINAL_FOREGROUND_COLOUR_STATE_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'l', L'o', L'u', L'r', L'/', L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l', L'-', L'f', L'o', L'r', L'e', L'g', L'r', L'o', L'u', L'n', L'd'};
-static wchar_t* TERMINAL_FOREGROUND_COLOUR_STATE_CYBOL_TYPE = TERMINAL_FOREGROUND_COLOUR_STATE_CYBOL_TYPE_ARRAY;
-static int* TERMINAL_FOREGROUND_COLOUR_STATE_CYBOL_TYPE_COUNT = NUMBER_26_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t TERMINAL_COLOUR_STATE_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'l', L'o', L'u', L'r', L'/', L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l'};
+static wchar_t* TERMINAL_COLOUR_STATE_CYBOL_TYPE = TERMINAL_COLOUR_STATE_CYBOL_TYPE_ARRAY;
+static int* TERMINAL_COLOUR_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COLOUR_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
 #endif

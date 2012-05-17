@@ -98,11 +98,8 @@ static int* CMYK_COLOUR_STATE_FORMAT_TYPE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL
 /** The rgb colour state format type. */
 static int* RGB_COLOUR_STATE_FORMAT_TYPE = NUMBER_181_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The terminal-background colour state format type. */
-static int* TERMINAL_BACKGROUND_COLOUR_STATE_FORMAT_TYPE = NUMBER_182_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The terminal-foreground colour state format type. */
-static int* TERMINAL_FOREGROUND_COLOUR_STATE_FORMAT_TYPE = NUMBER_183_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The terminal colour state format type. */
+static int* TERMINAL_COLOUR_STATE_FORMAT_TYPE = NUMBER_182_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // datetime

@@ -51,11 +51,8 @@ static int* CMYK_COLOUR_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_AR
 /** The rgb colour state cyboi type. */
 static int* RGB_COLOUR_STATE_CYBOI_TYPE = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The terminal-background colour state cyboi type. */
-static int* TERMINAL_BACKGROUND_COLOUR_STATE_CYBOI_TYPE = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The terminal-foreground colour state cyboi type. */
-static int* TERMINAL_FOREGROUND_COLOUR_STATE_CYBOI_TYPE = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The terminal colour state cyboi type. */
+static int* TERMINAL_COLOUR_STATE_CYBOI_TYPE = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // datetime

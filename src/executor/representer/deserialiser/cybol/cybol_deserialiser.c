@@ -41,6 +41,7 @@
 #include "../../../../executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/terminal_colour_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 
 //?? TEMPORARY FOR TESTING! DELETE LATER!
@@ -108,21 +109,11 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_COLOUR_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            deserialise_terminal_background(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??            deserialise_terminal_foreground(p0, p2, p3);
+            deserialise_cybol_colour_terminal(p0, p2, p3);
         }
     }
 
