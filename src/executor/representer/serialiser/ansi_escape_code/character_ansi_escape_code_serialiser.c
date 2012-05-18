@@ -39,6 +39,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/logifier/and_boolean_logifier.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -67,7 +68,7 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_and((void*) &r, p7, p10);
+        logify_boolean_and((void*) &r, p7, p10);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -77,7 +78,7 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_and((void*) &r, p9, p10);
+        logify_boolean_and((void*) &r, p9, p10);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,7 +88,7 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_and((void*) &r, p8, p10);
+        logify_boolean_and((void*) &r, p8, p10);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -97,7 +98,7 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_and((void*) &r, p7, p12);
+        logify_boolean_and((void*) &r, p7, p12);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -107,7 +108,7 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_and((void*) &r, p9, p12);
+        logify_boolean_and((void*) &r, p9, p12);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -117,7 +118,7 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_and((void*) &r, p8, p12);
+        logify_boolean_and((void*) &r, p8, p12);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -127,7 +128,7 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_and((void*) &r, p7, p11);
+        logify_boolean_and((void*) &r, p7, p11);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -137,7 +138,7 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_and((void*) &r, p9, p11);
+        logify_boolean_and((void*) &r, p9, p11);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -147,7 +148,7 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_and((void*) &r, p8, p11);
+        logify_boolean_and((void*) &r, p8, p11);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

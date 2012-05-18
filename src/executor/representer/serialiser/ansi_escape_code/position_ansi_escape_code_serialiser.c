@@ -34,28 +34,11 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
-#include "../../../../constant/model/cybol/border_cybol_model.c"
-#include "../../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../../constant/model/cybol/layout_cybol_model.c"
-#include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
-#include "../../../../constant/name/cybol/super_cybol_name.c"
-#include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
-#include "../../../../constant/name/memory/vector_memory_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter/compound_getter.c"
-#include "../../../../executor/accessor/getter.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/terminal_background_serialiser.c"
-#include "../../../../executor/representer/serialiser/terminal_foreground_serialiser.c"
-#include "../../../../executor/modifier/overwriter/appender/item_appender.c"
+#include "../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**

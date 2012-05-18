@@ -39,6 +39,9 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/horizontal_position_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
