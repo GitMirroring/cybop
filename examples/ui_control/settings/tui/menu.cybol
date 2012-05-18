@@ -1,9 +1,7 @@
 <model>
-    <part name="shape" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="rectangle"/>
     <part name="border" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="ascii"/>
-    <part name="layout" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="coordinates"/>
-    <part name="background" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="blue"/>
-    <part name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="yellow"/>
+    <part name="background" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="blue"/>
+    <part name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="yellow"/>
     <part name="bold" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
 </model>
 

@@ -1,13 +1,13 @@
 <model>
-    <part name="window" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/settings/tui/window.cybol"/>
-    <part name="menu" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/settings/tui/menu.cybol"/>
-    <part name="menu_header" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/settings/tui/menu_header.cybol"/>
-    <part name="menu_title" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/settings/tui/menu_title.cybol"/>
-    <part name="menu_item" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/settings/tui/menu_item.cybol"/>
-    <part name="menu_footer" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/settings/tui/menu_footer.cybol"/>
-    <part name="label" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/settings/tui/label.cybol"/>
-    <part name="button" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/settings/tui/button.cybol"/>
-    <part name="selection" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="ui_control/settings/tui/selection.cybol"/>
+    <part name="window" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/window.cybol"/>
+    <part name="menu" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu.cybol"/>
+    <part name="menu_header" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu_header.cybol"/>
+    <part name="menu_title" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu_title.cybol"/>
+    <part name="menu_item" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu_item.cybol"/>
+    <part name="menu_footer" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu_footer.cybol"/>
+    <part name="label" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/label.cybol"/>
+    <part name="button" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/button.cybol"/>
+    <part name="selection" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/selection.cybol"/>
 <!--
     <part name="tab_order" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
     <part name="tab_stop" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>

@@ -73,8 +73,8 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3);
 // Example 2 (see "background" property's "type" and "model" attribute):
 //
 // <part name="mc_item" channel="inline" type="text/plain" model="m - Start Midnight Commander (MC)">
-//     <property name="position" channel="inline" type="number/integer" model="1,3,0"/>
-//     <property name="size" channel="inline" type="number/integer" model="68,1,1"/>
+//     <property name="position" channel="inline" type="number/integer" model="1,3"/>
+//     <property name="size" channel="inline" type="number/integer" model="68,1"/>
 //     <property name="background" channel="inline" type="colour/terminal" model="blue"/>
 //     <property name="foreground" channel="inline" type="colour/terminal" model="white"/>
 //     <property name="bold" channel="inline" type="logicvalue/boolean" model="true"/>

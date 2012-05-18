@@ -42,19 +42,6 @@
 //
 
 //
-// colour
-//
-
-/** The cmyk colour state cyboi type. */
-static int* CMYK_COLOUR_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The rgb colour state cyboi type. */
-static int* RGB_COLOUR_STATE_CYBOI_TYPE = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The terminal colour state cyboi type. */
-static int* TERMINAL_COLOUR_STATE_CYBOI_TYPE = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // datetime
 //
 
@@ -74,41 +61,6 @@ static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_
 
 /** The boolean logicvalue state cyboi type. */
 static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// message
-//
-
-/** The http message state cyboi type. */
-static int* HTTP_MESSAGE_STATE_CYBOI_TYPE = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The http-request message state cyboi type. */
-static int* HTTP_REQUEST_MESSAGE_STATE_CYBOI_TYPE = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The http-response message state cyboi type. */
-static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOI_TYPE = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The news message state cyboi type. */
-static int* NEWS_MESSAGE_STATE_CYBOI_TYPE = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// meta
-//
-
-/** The channel meta state cyboi type. */
-//?? static int* CHANNEL_META_STATE_CYBOI_TYPE = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The encoding meta state cyboi type. */
-//?? static int* ENCODING_META_STATE_CYBOI_TYPE = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The language meta state cyboi type. */
-//?? static int* LANGUAGE_META_STATE_CYBOI_TYPE = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The format meta state cyboi type. */
-//?? static int* FORMAT_META_STATE_CYBOI_TYPE = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The type meta state cyboi type. */
-//?? static int* TYPE_META_STATE_CYBOI_TYPE = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // number
@@ -153,20 +105,8 @@ static int* POINTER_STATE_CYBOI_TYPE = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY
 /** The character text state cyboi type. */
 static int* CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The cybol text state cyboi type. */
-static int* CYBOL_TEXT_STATE_CYBOI_TYPE = NUMBER_61_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The html text state cyboi type. */
-static int* HTML_TEXT_STATE_CYBOI_TYPE = NUMBER_62_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The model-diagram text state cyboi type. */
-static int* MODEL_DIAGRAM_TEXT_STATE_CYBOI_TYPE = NUMBER_63_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The wide character text state cyboi type. */
 static int* WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_65_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xdt text state cyboi type. */
-static int* XDT_TEXT_STATE_CYBOI_TYPE = NUMBER_66_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STATE_CYBOI_TYPE_CONSTANT_SOURCE */
 #endif

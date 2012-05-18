@@ -22,29 +22,15 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".greeting"/>
         <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_HELLO_WORLD.txt"/>
     </part>
-<!--
-    <part name="startup_gnu_linux_console" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="startup">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="gnu-linux-console"/>
-    </part>
--->
     <part name="print_greeting" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-<!--
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
--->
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".greeting.string"/>
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-<!--
-    <part name="shutdown_gnu_linux_console" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="shutdown">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="gnu-linux-console"/>
-    </part>
--->
 <!--
     <part name="destroy_greeting" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="destroy">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".greeting"/>

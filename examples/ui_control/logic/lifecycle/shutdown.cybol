@@ -37,7 +37,7 @@
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="gnu-linux-console"/>
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="exit"/>
+    <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
 </model>
 
 <!--

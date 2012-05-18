@@ -9,8 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Adapt cybol example application "helloworld" using TUI
-        * Adapt cybol example application "ui_control" using TUI
+        * Adapt cybol example application "ui_control" using text user interface based on ansi escape code
+            --> all done except sub directory "ui_control/logic/"
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
         * Uncomment further operations in file "operation_handler.c"
         * Update ansi escape code serialiser files for terminal tui application

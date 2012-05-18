@@ -79,7 +79,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_ansi_escape_code(p0, p1, p2, p3, p4, p5, p6);
+            serialise_ansi_escape_code_part_element_content(p0, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6);
         }
     }
 

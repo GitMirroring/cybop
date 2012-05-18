@@ -1,6 +1,6 @@
 <model>
-    <part name="menu_bar" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="gui_style/menu_bar.cybol"/>
-    <part name="menu" channel="file" encoding="utf-8" language="text/cybol" format="text/cybol" model="gui_style/menu.cybol"/>
+    <part name="menu_bar" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="gui_style/menu_bar.cybol"/>
+    <part name="menu" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="gui_style/menu.cybol"/>
 </model>
 
 <!--

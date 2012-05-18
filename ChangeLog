@@ -20,6 +20,7 @@
 
         * Continue ansi escape code serialiser (properties, rectangle, border characters)
         * Add boolean operations in directory "executor/logifier/"
+        * Adapt cybol example application "helloworld" using text user interface based on ansi escape code
 
 2012-05-17  Christian Heller  <christian.heller@tuxtax.de>
 
