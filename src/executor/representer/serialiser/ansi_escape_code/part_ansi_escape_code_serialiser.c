@@ -37,29 +37,16 @@
 /**
  * Serialises the part into ansi escape code.
  *
- * @param p0 the destination ansi escape code item
+ * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the properties flag
- * @param p4 the tree level
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ * @param p5 the knowledge memory part
  */
-void serialise_ansi_escape_code_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_ansi_escape_code_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code part.");
-
-    // The new tree level.
-    //
-    // It gets initialised with the current tree level incremented by one.
-    //
-    // CAUTION! Do NOT manipulate the original tree level that was handed over as parametre!
-    // Otherwise, it would never be decremented anymore leading to wrong results.
-    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Initialise new tree level with current tree level.
-    copy_integer((void*) &l, p4);
-
-    // Increment new tree level.
-    calculate_integer_add((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -87,7 +74,7 @@ void serialise_ansi_escape_code_part(void* p0, void* p1, void* p2, void* p3, voi
             break;
         }
 
-        serialise_ansi_escape_code_part_element(p0, p1, (void*) &j, p3, (void*) &l);
+        serialise_ansi_escape_code_part_element(p0, p1, (void*) &j, p3, p4, p5);
 
         // Increment loop variable.
         j++;

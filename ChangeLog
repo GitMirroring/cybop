@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue ansi escape code serialiser (properties, rectangle, border characters)
+
 2012-05-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue ansi escape code serialiser (colour, property, position)

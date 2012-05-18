@@ -39,6 +39,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/format/state_format_type.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/part_ansi_escape_code_serialiser.c"
@@ -56,9 +57,12 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the source format data
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ * @param p5 the knowledge memory part
+ * @param p6 the format data
  */
-void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
+void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code.");
 
@@ -71,7 +75,7 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) HH_MM_SS_DATETIME_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) HH_MM_SS_DATETIME_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,7 +85,7 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) YYYY_MM_DD_DATETIME_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) YYYY_MM_DD_DATETIME_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -95,11 +99,11 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) PART_ELEMENT_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_ansi_escape_code_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p5);
+            serialise_ansi_escape_code_part(p0, p1, p2, p3, p4, p5);
         }
     }
 
@@ -109,7 +113,7 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) BOOLEAN_LOGICVALUE_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) BOOLEAN_LOGICVALUE_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -123,7 +127,7 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -133,7 +137,7 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) FRACTION_DECIMAL_NUMBER_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) FRACTION_DECIMAL_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -143,7 +147,7 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) FRACTION_VULGAR_NUMBER_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) FRACTION_VULGAR_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -153,7 +157,7 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) INTEGER_NUMBER_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) INTEGER_NUMBER_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -167,7 +171,7 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) PLAIN_TEXT_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) PLAIN_TEXT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

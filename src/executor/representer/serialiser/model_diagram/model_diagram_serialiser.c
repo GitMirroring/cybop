@@ -81,21 +81,11 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) TERMINAL_COLOUR_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_ansi_escape_code_background(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_ansi_escape_code_foreground(p0, p1, p2);
+            serialise_cybol_colour_terminal(p0, p1);
         }
     }
 

@@ -27,6 +27,7 @@
 #define FOREGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"

@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/type/format/state_format_type.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
@@ -42,6 +43,7 @@
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/terminal_colour_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/type_cybol_serialiser.c"
 
 /**
@@ -73,21 +75,11 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_BACKGROUND_COLOUR_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_COLOUR_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_ansi_escape_code_background(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_FOREGROUND_COLOUR_STATE_FORMAT_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_ansi_escape_code_foreground(p0, p1, p2);
+            serialise_cybol_colour_terminal(p0, p1);
         }
     }
 

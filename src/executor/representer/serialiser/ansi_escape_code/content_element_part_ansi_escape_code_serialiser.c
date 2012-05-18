@@ -43,21 +43,24 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3, void* p4
  * Serialises the part element content into ansi escape code.
  *
  * @param p0 the destination item
- * @param p1 the source properties data
- * @param p2 the source properties count
- * @param p3 the source model data
- * @param p4 the source model count
- * @param p5 the source format data
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ * @param p5 the source whole properties data
+ * @param p6 the source whole properties count
+ * @param p7 the knowledge memory part
+ * @param p8 the format data
  */
-void serialise_ansi_escape_code_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_ansi_escape_code_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code part element content.");
 
     // Append properties.
-    serialise_ansi_escape_code_properties(p0, p1, p2);
+    serialise_ansi_escape_code_properties(p0, p3, p4, p5, p6, p7);
 
     // Append model.
-    serialise_ansi_escape_code(p0, p3, p4, p5);
+    serialise_ansi_escape_code(p0, p1, p2, p3, p4, p7, p8);
 }
 
 /* CONTENT_ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

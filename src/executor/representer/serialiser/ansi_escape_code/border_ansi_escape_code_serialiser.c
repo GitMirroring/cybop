@@ -35,39 +35,24 @@
 #include <wchar.h>
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cybol/layout/compass_layout_cybol_model.c"
-#include "../../../../constant/model/cybol/border_cybol_model.c"
-#include "../../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../../constant/model/cybol/layout_cybol_model.c"
-#include "../../../../constant/model/cybol/shape_cybol_model.c"
-#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
-#include "../../../../constant/name/cybol/super_cybol_name.c"
-#include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
-#include "../../../../constant/name/memory/vector_memory_name.c"
+#include "../../../../constant/model/cybol/border/border_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter/compound_getter.c"
-#include "../../../../executor/accessor/getter.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/terminal_background_serialiser.c"
-#include "../../../../executor/representer/serialiser/terminal_foreground_serialiser.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../executor/modifier/copier/wide_character_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the border into ansi escape code.
+ * Determines the border characters depending on the given border model.
  *
  * @param p0 the horizontal character
  * @param p1 the vertical character
- * @param p2 the left top
- * @param p3 the right top
- * @param p4 the left bottom
- * @param p5 the right bottom
+ * @param p2 the left top character
+ * @param p3 the right top character
+ * @param p4 the left bottom character
+ * @param p5 the right bottom character
  * @param p6 the border data
  * @param p7 the border count
  */

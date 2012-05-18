@@ -48,10 +48,11 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the format
- * @param p6 the language
+ * @param p5 the knowledge memory part
+ * @param p6 the format
+ * @param p7 the language
  */
-void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise.");
 
@@ -74,17 +75,17 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p7, (void*) ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_ansi_escape_code(p0, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5);
+            serialise_ansi_escape_code(p0, p1, p2, p3, p4, p5, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p7, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -94,7 +95,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p7, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -108,7 +109,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) AUTHORITY_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p7, (void*) AUTHORITY_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -118,17 +119,17 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p7, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol(p0, p1, p2, p3, p4, p5);
+            serialise_cybol(p0, p1, p2, p3, p4, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) HTML_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p7, (void*) HTML_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -138,7 +139,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p7, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -147,13 +148,13 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // since the tree level value gets changed in the following functions!
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            serialise_model_diagram_part_element_content(p0, (void*) L"root", (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, p5, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+            serialise_model_diagram_part_element_content(p0, (void*) L"root", (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, p6, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) URI_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p7, (void*) URI_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -163,7 +164,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) XDT_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p7, (void*) XDT_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

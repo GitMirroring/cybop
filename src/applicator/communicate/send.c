@@ -195,7 +195,7 @@ fwprintf(stdout, L"TEST send mmd*: %i\n", mmd);
 fwprintf(stdout, L"TEST send mmd: %i\n", *((int*) mmd));
 */
 
-    send_data(rm, mmd, mmc, mpd, mpc, fmd, lmd, emd, p3, m, clmd, nlmd, cmd);
+    send_data(rm, mmd, mmc, mpd, mpc, p2, fmd, lmd, emd, p3, m, clmd, nlmd, cmd);
 }
 
 /* SEND_SOURCE */

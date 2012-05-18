@@ -65,8 +65,8 @@
  * printf("\033[%d;%dH", y_row, x_column)
  *
  * @param p0 the destination item
- * @param p1 the x coordinate
- * @param p2 the y coordinate
+ * @param p1 the source x coordinate
+ * @param p2 the source y coordinate
  */
 void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
 
