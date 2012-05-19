@@ -54,7 +54,7 @@
         <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="60,1"/>
         <property name="previous" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.tui.main_window.menu.about_item"/>
         <property name="next" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.tui.main_window.menu.mc_item"/>
-        <property name="button_press_action" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.logic.lifecycle.exit_program"/>
+        <property name="button_press_action" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.logic.lifecycle.exit_programme"/>
         <property name="background" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="white"/>
         <property name="bold" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>

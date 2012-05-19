@@ -38,6 +38,7 @@
 #include "../../applicator/flow/sequence.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
+#include "../../applicator/modify/append.c"
 #include "../../applicator/modify/overwrite.c"
 #include "../../applicator/run/run.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -497,17 +498,17 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // modify
     //
 
-/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) APPEND_MODIFY_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append(p0, p1);
+            apply_append(p0, p1, p4);
         }
     }
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) BUILD_MODIFY_LOGIC_CYBOI_TYPE);

@@ -29,6 +29,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/modification/append_modification_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
@@ -39,14 +40,14 @@
  * Expected parametres:
  * - destination (required): the destination part
  * - source (required): the source part
- * - type (required): the type of data
+ * - type (required): the operand type which is equal for both operands
  * - count (optional; if null, the source part model count will be used instead):
  *   the number of elements to be appended
  * - index (optional; if null, an index of zero will be used instead):
  *   the source index from which to start copying elements from
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
 void apply_append(void* p0, int* p1, void* p2) {

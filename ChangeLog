@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt cybol example application "ui_control" using text user interface based on ansi escape code
+
 2012-05-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue ansi escape code serialiser (properties, rectangle, border characters)

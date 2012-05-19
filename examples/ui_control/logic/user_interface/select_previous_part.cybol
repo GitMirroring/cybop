@@ -1,62 +1,80 @@
 <model>
-    <part name="assemble_current_element_background" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="add">
-        <property name="summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
-        <property name="summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#background"/>
-        <property name="sum" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
+    <part name="assemble_current_element_background_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
     </part>
-    <part name="unfocus_background" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
+    <part name="assemble_current_element_background_2" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#background"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+    </part>
+    <part name="unfocus_background" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.temporary.character"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.menu_item.background"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+    </part>
+    <part name="assemble_current_element_foreground_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+    </part>
+    <part name="assemble_current_element_foreground_2" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#foreground"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+    </part>
+    <part name="unfocus_foreground" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
-    </part>
-    <part name="assemble_current_element_foreground" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="add">
-        <property name="summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
-        <property name="summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#foreground"/>
-        <property name="sum" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
-    </part>
-    <part name="unfocus_foreground" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.menu_item.foreground"/>
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
     </part>
-    <part name="assemble_previous_element_name" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="add">
-        <property name="summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
-        <property name="summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#previous"/>
-        <property name="sum" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
+    <part name="assemble_previous_element_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#previous"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
     </part>
     <!-- The element name assembled before is now used to get the real element that the name points to. -->
-    <part name="determine_real_element_name" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.tui.main_window.menu#focus"/>
+    <part name="determine_real_element_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
     </part>
-    <part name="assemble_previous_element_background" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="add">
-        <property name="summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
-        <property name="summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#background"/>
-        <property name="sum" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
+    <part name="assemble_previous_element_background_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
     </part>
-    <part name="focus_background" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
+    <part name="assemble_previous_element_background_2" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#background"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+    </part>
+    <part name="focus_background" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.temporary.character"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.selection.background"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+    </part>
+    <part name="assemble_previous_element_foreground_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+    </part>
+    <part name="assemble_previous_element_foreground_2" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#foreground"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+    </part>
+    <part name="focus_foreground" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
-    </part>
-    <part name="assemble_previous_element_foreground" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="add">
-        <property name="summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
-        <property name="summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#foreground"/>
-        <property name="sum" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
-    </part>
-    <part name="focus_foreground" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="copy">
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.selection.foreground"/>
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.temporary.character"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
     </part>
-    <part name="send_tui" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="gnu-linux-console"/>
+    <part name="send_tui" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui"/>
         <property name="area" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".main_window.menu"/>
     </part>

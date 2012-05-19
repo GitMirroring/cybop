@@ -5,7 +5,7 @@
     <part name="slogan" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="-- Cybernetics Oriented Programming --"/>
     <part name="logo" channel="inline" encoding="utf-8" language="text/cybol" format="image/png" model=""/>
     <part name="copyright" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Copyright (c) 1999-2012. Christian Heller."/>
-    <part name="contact" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="http://www.cybop.org"/>
+    <part name="contact" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="http://www.cybop.org/"/>
     <part name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Text User Interface (TUI) Application"/>
     <part name="authors" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Christian Heller (christian.heller@tuxtax.de)"/>
     <part name="helpers" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>

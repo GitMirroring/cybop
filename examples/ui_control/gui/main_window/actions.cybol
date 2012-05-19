@@ -1,6 +1,6 @@
 <model>
     <part name="expose" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.user_interface.refresh_gui"/>
-    <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.lifecycle.exit_program"/>
+    <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.lifecycle.exit_programme"/>
 </model>
 
 <!--

@@ -1,22 +1,22 @@
 <model>
 <!--
-    <part name="interrupt_x_window_system" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="interrupt">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="x-window-system"/>
+    <part name="interrupt_x_window_system" channel="inline" encoding="utf-8" language="text/cybol" format="live/interrupt" model="">
+        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="x-window-system"/>
     </part>
 -->
 <!--
-    <part name="interrupt_gnu_linux_console" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="interrupt">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="gnu-linux-console"/>
+    <part name="interrupt_gnu_linux_console" channel="inline" encoding="utf-8" language="text/cybol" format="live/interrupt" model="">
+        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
     </part>
 -->
 <!--
-    <part name="shutdown_x_window_system" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="shutdown">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="x-window-system"/>
+    <part name="shutdown_x_window_system" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/shutdown" model="">
+        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="x-window-system"/>
     </part>
 -->
 <!--
-    <part name="shutdown_gnu_linux_console" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="shutdown">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="gnu-linux-console"/>
+    <part name="shutdown_gnu_linux_console" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/shutdown" model="">
+        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
     </part>
 -->
 <!--
@@ -29,12 +29,12 @@
     instances of the Res Medicinae application. But as long as CYBOI does not run as
     operating system and each application is started with its own instance of CYBOI,
     the exit operation is the last one to be called. It cleans up all memory, too.
-    <part name="destroy_ui_control" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="destroy_part">
+    <part name="destroy_ui_control" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/destroy" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control"/>
     </part>
 -->
-    <part name="clean_tui" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="gnu-linux-console"/>
+    <part name="clean_tui" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
