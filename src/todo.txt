@@ -9,7 +9,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Debug cybol example application "ui_control"
+        * Enable operations "startup" and "shutdown"
+        * Enable operations "sense" and "interrupt"
+        * Adapt cybol example application "ui_control"
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
         * Uncomment further operations in file "operation_handler.c"
         * Update ansi escape code serialiser files for terminal tui application

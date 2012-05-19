@@ -148,10 +148,10 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control"/>
         <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_UI_CONTROL.txt"/>
     </part>
-<!--
     <part name="startup_tui" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/startup" model="">
         <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
     </part>
+<!--
     <part name="startup_gui" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/startup" model="">
         <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="x-window-system"/>
     </part>

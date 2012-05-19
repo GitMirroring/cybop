@@ -29,6 +29,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/maintenance/shutdown_maintenance_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
@@ -39,12 +40,12 @@
  * Shuts down a service.
  *
  * Expected parametres:
- * - service (required): the service to be shut down (terminal, www, x_window_system, ...)
+ * - service (required): the service to be shut down (terminal, www, x-window-system, ...)
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the internal memory array
+ * @param p3 the internal memory data
  */
 void apply_shutdown(void* p0, void* p1, void* p2, void* p3) {
 
@@ -52,62 +53,62 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3) {
 
     // The service part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The service part model.
+    // The service part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The service part model data.
+    // The service part model item data.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get service part.
-    get_part_knowledge((void*) &s, p0, (void*) SERVICE_LIFECYCLE_OPERATION_CYBOL_NAME, (void*) SERVICE_LIFECYCLE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get service part model.
+    get_part_knowledge((void*) &s, p0, (void*) SERVICE_SHUTDOWN_MAINTENANCE_OPERATION_CYBOL_NAME, (void*) SERVICE_SHUTDOWN_MAINTENANCE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get service part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get service part model data.
+    // Get service part model item data.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, smd, (void*) TERMINAL_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             shutdown_terminal(p3, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, smd, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             shutdown_x_window_system(p3, (void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, smd, (void*) WWW_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             shutdown_socket(p3, (void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, smd, (void*) CYBOI_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             shutdown_socket(p3, (void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply shutdown. The service is unknown.");
     }

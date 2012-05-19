@@ -91,9 +91,6 @@ void serialise_ansi_escape_code_row(void* p0, void* p1, void* p2, void* p3, void
     copy_integer((void*) &ri, (void*) &c);
     calculate_integer_subtract((void*) &ri, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    // Determine horizontal position of x coordinate.
-    serialise_ansi_escape_code_position_horizontal((void*) &lp, (void*) &cp, (void*) &rp, (void*) &x, (void*) &li, (void*) &ri);
-
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &x, (void*) &c);
@@ -103,6 +100,8 @@ void serialise_ansi_escape_code_row(void* p0, void* p1, void* p2, void* p3, void
             break;
         }
 
+        // Determine horizontal position of x coordinate.
+        serialise_ansi_escape_code_position_horizontal((void*) &lp, (void*) &cp, (void*) &rp, (void*) &x, (void*) &li, (void*) &ri);
         serialise_ansi_escape_code_position(p0, (void*) &x, p9);
         serialise_ansi_escape_code_character(p0, p1, p2, p3, p4, p5, p6, (void*) &lp, (void*) &cp, (void*) &rp, p10, p11, p12);
 

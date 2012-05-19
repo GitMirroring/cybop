@@ -88,9 +88,6 @@ void serialise_ansi_escape_code_rows(void* p0, void* p1, void* p2, void* p3, voi
     copy_integer((void*) &bi, (void*) &c);
     calculate_integer_subtract((void*) &bi, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    // Determine vertical position of y coordinate.
-    serialise_ansi_escape_code_position_vertical((void*) &tp, (void*) &mp, (void*) &bp, (void*) &y, (void*) &ti, (void*) &bi);
-
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &y, (void*) &c);
@@ -100,6 +97,8 @@ void serialise_ansi_escape_code_rows(void* p0, void* p1, void* p2, void* p3, voi
             break;
         }
 
+        // Determine vertical position of y coordinate.
+        serialise_ansi_escape_code_position_vertical((void*) &tp, (void*) &mp, (void*) &bp, (void*) &y, (void*) &ti, (void*) &bi);
         serialise_ansi_escape_code_row(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) &y, (void*) &tp, (void*) &mp, (void*) &bp);
 
         // Increment loop variable.

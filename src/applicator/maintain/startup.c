@@ -29,6 +29,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/maintenance/startup_maintenance_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
@@ -39,13 +40,13 @@
  * Expected parametres:
  * - service (required): the service to be started up (terminal, tcp_socket, unix_socket, x_window_system, ...)
  * - namespace (optional, only if service is www, cyboi or similar): the namespace of the socket
- * - style (optional, only if service is www, cyboi or similar): the namespace of the socket
- * - style (optional, only if service is www, cyboi or similar): the address of hosts communicating with this system via socket
+ * - style (optional, only if service is www or similar): the namespace of the socket
+ * - address (optional, only if service is www or similar): the address of hosts communicating with this system via socket
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the internal memory array
+ * @param p3 the internal memory data
  */
 void apply_startup(void* p0, void* p1, void* p2, void* p3) {
 
@@ -60,59 +61,59 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3) {
     // The host address part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The service part model.
+    // The service part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The service part model data.
+    // The service part model item data.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get service part.
-    get_part_knowledge((void*) &s, p0, (void*) SERVICE_LIFECYCLE_OPERATION_CYBOL_NAME, (void*) SERVICE_LIFECYCLE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &s, p0, (void*) SERVICE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME, (void*) SERVICE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get socket namespace.
-        (void*) NAMESPACE_LIFECYCLE_OPERATION_CYBOL_NAME, (void*) NAMESPACE_LIFECYCLE_OPERATION_CYBOL_NAME_COUNT,
+    get_part_knowledge((void*) &s, p0, (void*) NAMESPACE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME, (void*) NAMESPACE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get communication style.
-        (void*) STYLE_LIFECYCLE_OPERATION_CYBOL_NAME, (void*) STYLE_LIFECYCLE_OPERATION_CYBOL_NAME_COUNT,
+    get_part_knowledge((void*) &s, p0, (void*) STYLE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME, (void*) STYLE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get host address.
-        (void*) ADDRESS_LIFECYCLE_OPERATION_CYBOL_NAME, (void*) ADDRESS_LIFECYCLE_OPERATION_CYBOL_NAME_COUNT,
+    get_part_knowledge((void*) &s, p0, (void*) ADDRESS_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME, (void*) ADDRESS_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    // Get service part model.
+    // Get service part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get service part model data.
+    // Get service part model item data.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The internal memory index.
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The server socket internal.
     int** s = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, smd, (void*) TERMINAL_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             startup_terminal(p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, smd, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             startup_x_window_system(p3);
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, smd, (void*) WWW_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Get server socket internal.
             i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
@@ -125,16 +126,16 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3) {
 
             } else {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up service. The www service is already running.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The www service is already running.");
             }
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, smd, (void*) CYBOI_CYBOL_CHANNEL);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Get server socket internal.
             i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
@@ -147,12 +148,12 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3) {
 
             } else {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not start up service. The cyboi service is already running.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The cyboi service is already running.");
             }
         }
     }
 
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The service is unknown.");
     }
