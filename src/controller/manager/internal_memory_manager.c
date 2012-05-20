@@ -56,7 +56,7 @@
  * Therefore, the knowledge memory and signal memory NEED TO BE ADDED
  * to the internal memory, in order to be forwardable to threads.
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  * @param p1 the knowledge memory part (pointer reference)
  * @param p2 the signal memory item (pointer reference)
  * @param p3 the signal memory interrupt request flag (pointer reference)

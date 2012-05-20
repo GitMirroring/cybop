@@ -47,7 +47,7 @@
  * - type (required): the operand type which is equal for both operands
  *
  * CAUTION! Do NOT use the "add" operation for characters!
- * They may be concatenated by using the "append" operation.
+ * They may be concatenated by using the "append" or "overwrite" operation.
  *
  * CAUTION! There are several ways to use addition, with unary or binary operators.
  * This function works like an UNARY operator.

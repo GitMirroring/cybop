@@ -26,22 +26,24 @@
 #ifndef SHUTDOWN_SOURCE
 #define SHUTDOWN_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/maintenance/shutdown_maintenance_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../executor/maintainer/shutter.c"
+#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 #include "../../variable/service_interrupt.c"
 #include "../../variable/thread_identification.c"
 
 /**
- * Shuts down a service.
+ * Shuts down the service running on the given channel.
  *
  * Expected parametres:
- * - service (required): the service to be shut down (terminal, www, x-window-system, ...)
+ * - channel (required): the channel on which to shutdown a service (terminal, www, x-window-system, ...)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -52,21 +54,21 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply shutdown.");
 
-    // The service part.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The service part model item.
-    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The service part model item data.
-    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The channel part.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The channel part model item.
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The channel part model item data.
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get service part.
-    get_part_knowledge((void*) &s, p0, (void*) SERVICE_SHUTDOWN_MAINTENANCE_OPERATION_CYBOL_NAME, (void*) SERVICE_SHUTDOWN_MAINTENANCE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get service part model item.
-    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get service part model item data.
-    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get channel part.
+    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_OPERATION_CYBOL_NAME, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get channel part model item.
+    copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get channel part model item data.
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    shutdown_service(p3, smd);
+    shutdown_service(p3, cmd);
 }
 
 /* SHUTDOWN_SOURCE */

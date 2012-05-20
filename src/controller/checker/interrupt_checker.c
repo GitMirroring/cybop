@@ -50,7 +50,7 @@
  * @param p0 the interrupt request (pointer reference)
  * @param p1 the mutex (pointer reference)
  * @param p2 the handler (pointer reference)
- * @param p3 the internal memory array
+ * @param p3 the internal memory data
  */
 void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
 

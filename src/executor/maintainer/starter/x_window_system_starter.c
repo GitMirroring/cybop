@@ -53,7 +53,7 @@
 /**
  * Starts up the x window system.
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  */
 void startup_x_window_system(void* p0) {
 

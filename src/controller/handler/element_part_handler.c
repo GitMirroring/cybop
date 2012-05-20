@@ -53,7 +53,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p4 the direct execution flag
  * @param p5 the shutdown flag
  * @param p6 the knowledge memory part
- * @param p7 the internal memory array
+ * @param p7 the internal memory data
  * @param p8 the signal memory item
  * @param p9 the signal memory interrupt request flag
  * @param p10 the signal memory mutex

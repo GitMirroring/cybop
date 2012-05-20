@@ -78,7 +78,7 @@ void manage(void* p0) {
     // Variable declaration.
     //
 
-    // The internal memory array.
+    // The internal memory data.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The knowledge memory part.
     void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -188,7 +188,7 @@ void manage(void* p0) {
     // Variable allocation.
     //
 
-    // Allocate internal memory array.
+    // Allocate internal memory data.
     // CAUTION! The internal memory has a pre-defined count/size,
     // given by the constant INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT.
     allocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
@@ -392,7 +392,7 @@ void manage(void* p0) {
     deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     // Deallocate knowledge memory part.
     deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    // Deallocate internal memory array.
+    // Deallocate internal memory data.
     deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 

@@ -40,7 +40,7 @@
 /**
  * Checks the signal memory for signals.
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  */
 void check(void* p0) {
 

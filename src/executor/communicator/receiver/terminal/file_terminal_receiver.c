@@ -43,7 +43,7 @@
  * Receives the destination from terminal.
  *
  * @param p0 the destination data item
- * @param p1 the internal memory array
+ * @param p1 the internal memory data
  */
 void receive_terminal_file(void* p0, void* p1) {
 

@@ -61,7 +61,7 @@
  * @param p4 the format
  * @param p5 the language
  * @param p6 the encoding
- * @param p7 the internal memory array
+ * @param p7 the internal memory data
  * @param p8 the channel
  */
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {

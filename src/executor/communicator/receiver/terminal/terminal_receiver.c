@@ -51,7 +51,7 @@
  * @param p2 the format
  * @param p3 the language
  * @param p4 the encoding
- * @param p5 the internal memory array
+ * @param p5 the internal memory data
  */
 void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 

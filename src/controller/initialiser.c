@@ -47,7 +47,7 @@
  *
  * @param p0 the signal memory item
  * @param p1 the run source item
- * @param p2 the internal memory array
+ * @param p2 the internal memory data
  */
 void initialise(void* p0, void* p1, void* p2) {
 

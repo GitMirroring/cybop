@@ -294,7 +294,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
 /**
  * Senses socket messages.
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  * @param p1 the base internal
  */
 void sense_socket(void* p0, void* p1) {

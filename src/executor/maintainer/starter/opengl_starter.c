@@ -36,7 +36,7 @@
 /**
  * Starts up the opengl system.
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  */
 void startup_opengl(void* p0) {
 

@@ -30,10 +30,10 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The service startup maintenance operation cybol name. */
-static wchar_t SERVICE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_ARRAY[] = {L's', L'e', L'r', L'v', L'i', L'c', L'e'};
-static wchar_t* SERVICE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME = SERVICE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_ARRAY;
-static int* SERVICE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The channel startup maintenance operation cybol name. */
+static wchar_t CHANNEL_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
+static wchar_t* CHANNEL_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME = CHANNEL_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_ARRAY;
+static int* CHANNEL_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The namespace startup maintenance operation cybol name. */
 static wchar_t NAMESPACE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_ARRAY[] = {L'n', L'a', L'm', L'e', L's', L'p', L'a', L'c', L'e'};

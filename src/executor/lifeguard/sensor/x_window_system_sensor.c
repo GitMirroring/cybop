@@ -215,7 +215,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
 /**
  * Senses x window system messages.
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  */
 void sense_x_window_system(void* p0) {
 

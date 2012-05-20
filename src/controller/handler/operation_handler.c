@@ -36,6 +36,8 @@
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
+#include "../../applicator/live/interrupt.c"
+#include "../../applicator/live/sense.c"
 #include "../../applicator/maintain/shutdown.c"
 #include "../../applicator/maintain/startup.c"
 #include "../../applicator/memorise/create.c"
@@ -55,7 +57,7 @@
  * @param p2 the direct execution flag
  * @param p3 the shutdown flag
  * @param p4 the knowledge memory part
- * @param p5 the internal memory array
+ * @param p5 the internal memory data
  * @param p6 the signal memory item
  * @param p7 the signal memory interrupt request flag
  * @param p8 the signal memory mutex
@@ -352,14 +354,13 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
-/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p9, (void*) INTERRUPT_LIVE_LOGIC_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            interrupt(p0, p1);
+            apply_interrupt(p0, p1, p4);
         }
     }
 
@@ -369,10 +370,11 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense(p0, p1);
+            apply_sense(p0, p1, p4, p5);
         }
     }
 
+/*??
     //
     // logify
     //

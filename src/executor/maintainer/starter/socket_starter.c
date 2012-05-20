@@ -562,7 +562,7 @@ void startup_socket_initialise_ipv6_socket_address(void* p0, void* p1, void* p2)
 /**
  * Starts up the socket.
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  * @param p1 the namespace model
  * @param p2 the namespace model count
  * @param p3 the style model

@@ -37,7 +37,7 @@
 /**
  * Sends a message as signal to the cyboi system (this system itself).
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  * @param p1 the source part
  */
 void send_signal(void* p0, void* p1) {

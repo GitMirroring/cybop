@@ -9,7 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Enable operations "sense" and "interrupt"
+        * Adapt internal memory constants which contain only one "handler" part any longer and file "sense.c"
         * Receive user input in cybol example application "ui_control"
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
         * Uncomment further operations in file "operation_handler.c"

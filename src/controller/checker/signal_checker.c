@@ -74,7 +74,7 @@
  * @param p1 the signal memory item
  * @param p2 the signal memory sleep time
  * @param p3 the knowledge memory part
- * @param p4 the internal memory array
+ * @param p4 the internal memory data
  */
 void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

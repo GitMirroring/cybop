@@ -27,89 +27,18 @@
 #define SENSE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../constant/name/cybol/operation/life/sense_life_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/lifeguard/sensor/terminal_sensor.c"
-#include "../../executor/lifeguard/sensor/socket_sensor.c"
-#include "../../executor/lifeguard/sensor/x_window_system_sensor.c"
+#include "../../executor/lifeguard/sensor.c"
 #include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
-#include "../../variable/thread_identification.c"
-
-//
-// Forward declarations.
-//
-// The following functions HAVE TO BE declared here since
-// otherwise, the compiler will report errors like:
-//
-// error: 'sense_terminal' undeclared
-//
-// The reason is (probably) that the functions are forwarded
-// as reference (function pointer), for example:
-//
-// &sense_terminal
-//
-// The compiler does not seem to be able to recognise them
-// as functions that way. Therefore, the following explicit
-// declarations of the functions are necessary.
-//
-
-void sense_terminal(void* p0);
-void sense_cyboi_socket(void* p0);
-void sense_www_socket(void* p0);
-void sense_x_window_system(void* p0);
 
 /**
- * Senses message.
- *
- * @param p0 the internal memory
- * @param p1 the service thread
- * @param p2 the thread procedure
- */
-void apply_sense_message(void* p0, void* p1, void* p2) {
-
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        int* t = (int*) p1;
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense message.");
-
-        // Only create thread, if not existent.
-        // CAUTION! The "pthread_t" type is an integer, so both can be compared.
-        if (*t == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Create sense message thread.");
-
-            // Create thread.
-            //
-            // CAUTION! Do NOT allocate any resources within the thread procedure!
-            // The reason is that this main process thread gets forked when executing
-            // external programs. A "fork" duplicates ALL resources of the parent process,
-            // including ALL resources of any threads running within the parent process.
-            // However, since the created child process does not have those threads running,
-            // their duplicated resources will never be deallocated, which eats up memory.
-            // See source code file: applicator/run/run_execute.c
-            //
-            // Any dynamically allocated resources needed within the thread have to be:
-            // - allocated at service startup
-            // - added to the internal memory
-            // - handed over to the thread procedure HERE
-            // - deallocated at service shutdown
-            //
-            // The third parametre is the procedure to be called.
-            pthread_create((pthread_t*) p1, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p0);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply sense message. The service thread is null.");
-    }
-}
-
-/**
- * Senses an interrupt request happening on the given device channel.
+ * Senses an interrupt request happening on the given channel.
  *
  * In order to sense interrupt requests of various devices, special mechanisms
  * for interrupt detection have to be started. To these mechanisms belong:
@@ -125,16 +54,15 @@ void apply_sense_message(void* p0, void* p1, void* p2) {
  * corresponding message via the channel the interrupt belongs to.
  *
  * Expected parametres:
- * - channel (required): the channel via which to receive the message (terminal, www, x_window_system etc.)
+ * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
  * - handler (optional): the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the internal memory array
- * @param p4 the signal memory array
+ * @param p3 the internal memory data
  */
-void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_sense(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense.");
 
@@ -143,133 +71,24 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The handler part.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The channel part model.
+    // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler part model.
-    void* hm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The channel part model data.
+    // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler part model data, count.
-    void* hmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* hmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SENSE_LIFE_OPERATION_CYBOL_NAME, (void*) CHANNEL_SENSE_LIFE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get handler part.
-    get_part_knowledge((void*) &h, p0, (void*) HANDLER_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) HANDLER_SENSE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &h, p0, (void*) HANDLER_SENSE_LIFE_OPERATION_CYBOL_NAME, (void*) HANDLER_SENSE_LIFE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    // Get channel part model.
+    // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get handler part model.
-    copy_array_forward((void*) &hm, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get channel part model data.
+    // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get handler part model data, count.
-    copy_array_forward((void*) &hmd, hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &hmc, hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, cmd, (void*) CYBOI_CYBOL_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-    fwprintf(stdout, L"TEST sense cyboi service hac: %i\n", *hac);
-    fwprintf(stdout, L"TEST sense cyboi service ha: %i\n", *ha);
-
-            // Set handler type, model, properties.
-            i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_TYPE_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) ha, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hac, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_MODEL_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hmc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_PROPERTIES_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hdc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-            // Sense incoming message (http request or response).
-            apply_sense_message(p2, (void*) CYBOI_SERVICE_THREAD, (void*) &sense_cyboi_socket);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, cmd, (void*) TERMINAL_CYBOL_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Set handler type, model, properties.
-            copy_array_forward(p2, (void*) ha, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_TYPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hac, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_MODEL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hmc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_PROPERTIES_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hdc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-            // Sense incoming message.
-            apply_sense_message(p2, (void*) TERMINAL_THREAD, (void*) &sense_terminal);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, cmd, (void*) WWW_CYBOL_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Set handler type, model, properties.
-            i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_TYPE_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) ha, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hac, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_MODEL_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hmc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_PROPERTIES_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            copy_array_forward(p2, (void*) hdc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-            // Sense incoming message (http request or response).
-            apply_sense_message(p2, (void*) WWW_SERVICE_THREAD, (void*) &sense_www_socket);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, cmd, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Set handler type, model, properties.
-            copy_array_forward(p2, (void*) ha, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_TYPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hac, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_TYPE_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_MODEL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hmc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_MODEL_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_PROPERTIES_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            copy_array_forward(p2, (void*) hdc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_PROPERTIES_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-            // Sense incoming message.
-            apply_sense_message(p2, (void*) X_WINDOW_SYSTEM_THREAD, (void*) &sense_x_window_system);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply sense interrupt request. The channel is unknown.");
-    }
+    sense(p3, h, cmd);
 }
 
 /* SENSE_SOURCE */

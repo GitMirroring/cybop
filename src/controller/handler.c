@@ -49,7 +49,7 @@
  * @param p1 the direct execution flag
  * @param p2 the shutdown flag
  * @param p3 the knowledge memory part
- * @param p4 the internal memory array
+ * @param p4 the internal memory data
  * @param p5 the signal memory item
  * @param p6 the signal memory interrupt request flag
  * @param p7 the signal memory mutex

@@ -23,36 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef OPENGL_SHUTTER_SOURCE
-#define OPENGL_SHUTTER_SOURCE
+#ifndef INTERRUPT_LIFE_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
+#define INTERRUPT_LIFE_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/maintainer/shutter/x_window_system_shutter.c"
-#include "../../../logger/logger.c"
+#include <stddef.h>
 
-/**
- * Shuts down the opengl system.
- *
- * This is done in the reverse order that the opengl system was started up.
- *
- * @param p0 the internal memory data
- * @param p1 the service thread
- * @param p2 the service thread interrupt
- */
-void shutdown_opengl(void* p0, void* p1, void* p2, void* p3) {
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown opengl.");
+/** The channel interrupt life operation cybol name. */
+static wchar_t CHANNEL_INTERRUPT_LIFE_OPERATION_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
+static wchar_t* CHANNEL_INTERRUPT_LIFE_OPERATION_CYBOL_NAME = CHANNEL_INTERRUPT_LIFE_OPERATION_CYBOL_NAME_ARRAY;
+static int* CHANNEL_INTERRUPT_LIFE_OPERATION_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
-    // Shutdown x window system AT LAST.
-    // The opengl environment needed its windows to have something to paint on.
-    shutdown_x_window_system(p0, p1, p2);
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
-}
-
-/* OPENGL_SHUTTER_SOURCE */
+/* INTERRUPT_LIFE_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

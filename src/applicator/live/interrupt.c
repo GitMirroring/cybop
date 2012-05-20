@@ -26,14 +26,15 @@
 #ifndef INTERRUPT_SOURCE
 #define INTERRUPT_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/life/interrupt_life_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/lifeguard/interrupter.c"
 #include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
-#include "../../variable/service_interrupt.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Interrupts a service.
@@ -41,74 +42,29 @@
  * Expected parametres:
  * - service (required): the service to be interrupted (terminal, www, x_window_system etc.)
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
  */
-void apply_interrupt(void* p0, void* p1) {
+void apply_interrupt(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply interrupt.");
 
-    // The service part.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The service part model.
-    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The service part model data.
-    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The channel part.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The channel part model item.
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The channel part model item data.
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get service part.
-    get_part_knowledge((void*) &s, p0, (void*) SERVICE_LIFECYCLE_OPERATION_CYBOL_NAME, (void*) SERVICE_LIFECYCLE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get service part model.
-    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get service part model data.
-    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get channel part.
+    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_INTERRUPT_LIFE_OPERATION_CYBOL_NAME, (void*) CHANNEL_INTERRUPT_LIFE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get channel part model item.
+    copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get channel part model item data.
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, (void*) *smd, (void*) TERMINAL_CYBOL_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            interrupt_thread((void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, (void*) *smd, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            interrupt_thread((void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, (void*) *smd, (void*) WWW_CYBOL_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            interrupt_thread((void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, (void*) *smd, (void*) CYBOI_CYBOL_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            interrupt_thread((void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply interrupt. The service is unknown.");
-    }
+    interrupt(cmd);
 }
 
 /* INTERRUPT_SOURCE */
