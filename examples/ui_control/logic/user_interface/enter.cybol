@@ -2,17 +2,17 @@
     <part name="get_command_of_current_element_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.tui.main_window.menu#focus"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="get_command_of_current_element_2" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#button_press_action"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="determine_real_command" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.temporary.character"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="send_command_as_signal" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="signal"/>

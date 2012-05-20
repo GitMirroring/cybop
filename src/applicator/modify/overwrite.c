@@ -169,6 +169,7 @@ void apply_overwrite(void* p0, void* p1, void* p2) {
     copy_integer((void*) &adjust, admd);
 
 /*??
+//?? TEST BEGIN
 fwprintf(stdout, L"TEST overwrite d*: %i\n", d);
 fwprintf(stdout, L"TEST overwrite s*: %i\n", s);
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -179,42 +180,50 @@ fwprintf(stdout, L"TEST overwrite s*: %i\n", s);
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dmc, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST overwrite dmd*: %i\n", dmd);
-fwprintf(stdout, L"TEST overwrite dmd: %i\n", *((int*) dmd));
-fwprintf(stdout, L"TEST overwrite dmc*: %i\n", dmc);
-fwprintf(stdout, L"TEST overwrite dmc: %i\n", *((int*) dmc));
-fwprintf(stdout, L"TEST overwrite smd*: %i\n", smd);
-fwprintf(stdout, L"TEST overwrite smd: %i\n", *((int*) smd));
-fwprintf(stdout, L"TEST overwrite smc*: %i\n", smc);
-fwprintf(stdout, L"TEST overwrite smc: %i\n", *((int*) smc));
-fwprintf(stdout, L"TEST overwrite tmd*: %i\n", tmd);
-fwprintf(stdout, L"TEST overwrite tmd: %i\n", *((int*) tmd));
-fwprintf(stdout, L"TEST overwrite cmd*: %i\n", cmd);
+fwprintf(stdout, L"TEST overwrite dmd: %i\n", dmd);
+fwprintf(stdout, L"TEST overwrite *dmd: %i\n", *((int*) dmd));
+fwprintf(stdout, L"TEST overwrite dmc: %i\n", dmc);
+fwprintf(stdout, L"TEST overwrite *dmc: %i\n", *((int*) dmc));
+fwprintf(stdout, L"TEST overwrite s: %i\n", s);
+fwprintf(stdout, L"TEST overwrite sm: %i\n", sm);
+fwprintf(stdout, L"TEST overwrite smd: %i\n", smd);
+fwprintf(stdout, L"TEST overwrite smd als wchar_t: %ls\n", (wchar_t*) smd);
+fwprintf(stdout, L"TEST overwrite smd als char: %s\n", (char*) smd);
+fwprintf(stdout, L"\n");
+fwprintf(stdout, L"TEST overwrite *smd: %i\n", *((int*) smd));
+fwprintf(stdout, L"TEST overwrite smc: %i\n", smc);
+fwprintf(stdout, L"TEST overwrite *smc: %i\n", *((int*) smc));
+fwprintf(stdout, L"TEST overwrite tmd: %i\n", tmd);
+fwprintf(stdout, L"TEST overwrite *tmd: %i\n", *((int*) tmd));
+fwprintf(stdout, L"TEST overwrite *cmd: %i\n", cmd);
 //?? fwprintf(stdout, L"TEST overwrite cmd: %i\n", *((int*) cmd));
-fwprintf(stdout, L"TEST overwrite dimd*: %i\n", dimd);
+fwprintf(stdout, L"TEST overwrite dimd: %i\n", dimd);
 //?? fwprintf(stdout, L"TEST overwrite dimd: %i\n", *((int*) dimd));
-fwprintf(stdout, L"TEST overwrite simd*: %i\n", simd);
+fwprintf(stdout, L"TEST overwrite simd: %i\n", simd);
 //?? fwprintf(stdout, L"TEST overwrite simd: %i\n", *((int*) simd));
-fwprintf(stdout, L"TEST overwrite admd*: %i\n", admd);
+fwprintf(stdout, L"TEST overwrite admd: %i\n", admd);
 //?? fwprintf(stdout, L"TEST overwrite admd: %i\n", *((int*) admd));
 fwprintf(stdout, L"TEST overwrite count: %i\n", count);
 fwprintf(stdout, L"TEST overwrite destination_index: %i\n", destination_index);
 fwprintf(stdout, L"TEST overwrite source_index: %i\n", source_index);
 fwprintf(stdout, L"TEST overwrite adjust: %i\n", adjust);
+//?? TEST END
 */
 
     // Overwrite the destination- with the source part.
     overwrite_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
 
 /*??
-fwprintf(stdout, L"TEST overwrite POST dmd*: %i\n", dmd);
-fwprintf(stdout, L"TEST overwrite POST dmd: %i\n", *((int*) dmd));
-fwprintf(stdout, L"TEST overwrite POST dmc*: %i\n", dmc);
-fwprintf(stdout, L"TEST overwrite POST dmc: %i\n", *((int*) dmc));
-fwprintf(stdout, L"TEST overwrite POST smd*: %i\n", smd);
-fwprintf(stdout, L"TEST overwrite POST smd: %i\n", *((int*) smd));
-fwprintf(stdout, L"TEST overwrite POST smc*: %i\n", smc);
-fwprintf(stdout, L"TEST overwrite POST smc: %i\n", *((int*) smc));
+//?? TEST BEGIN
+fwprintf(stdout, L"TEST overwrite POST dmd: %i\n", dmd);
+fwprintf(stdout, L"TEST overwrite POST *dmd: %i\n", *((int*) dmd));
+fwprintf(stdout, L"TEST overwrite POST dmc: %i\n", dmc);
+fwprintf(stdout, L"TEST overwrite POST *dmc: %i\n", *((int*) dmc));
+fwprintf(stdout, L"TEST overwrite POST smd: %i\n", smd);
+fwprintf(stdout, L"TEST overwrite POST *smd: %i\n", *((int*) smd));
+fwprintf(stdout, L"TEST overwrite POST smc: %i\n", smc);
+fwprintf(stdout, L"TEST overwrite POST *smc: %i\n", *((int*) smc));
+//?? TEST END
 */
 }
 

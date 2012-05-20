@@ -6,12 +6,12 @@
     <part name="append_command_part_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command_model"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.logic.user_interface.main_window_actions."/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_command_part_2" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command_model"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="plain/text"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="send_command" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="signal"/>

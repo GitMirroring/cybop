@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix missing selection bar in menu of cybol example application "ui_control"
+            (used wrong type "plain/text" instead of "text/plain" in cybol)
+
 2012-05-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt cybol example application "ui_control" using text user interface based on ansi escape code
