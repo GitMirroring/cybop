@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The service startup maintenance operation cybol name. */
 static wchar_t SERVICE_STARTUP_MAINTENANCE_OPERATION_CYBOL_NAME_ARRAY[] = {L's', L'e', L'r', L'v', L'i', L'c', L'e'};

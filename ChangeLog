@@ -20,6 +20,7 @@
 
         * Fix missing selection bar in menu of cybol example application "ui_control"
             (used wrong type "plain/text" instead of "text/plain" in cybol)
+        * Enable operations "startup" and "shutdown"
 
 2012-05-19  Christian Heller  <christian.heller@tuxtax.de>
 

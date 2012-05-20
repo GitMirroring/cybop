@@ -41,7 +41,7 @@
 /**
  * Starts up the terminal.
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  */
 void startup_terminal(void* p0) {
 
@@ -153,19 +153,19 @@ void startup_terminal(void* p0) {
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal. The termios settings could not be stored.\n");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal. The termios settings could not be stored.");
 
             if (errno == EBADF) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal. The filedes argument is not a valid file descriptor.\n");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal. The filedes argument is not a valid file descriptor.");
 
             } else if (errno == ENOTTY) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal. The filedes is not associated with a terminal.\n");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal. The filedes is not associated with a terminal.");
 
             } else {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal. An unknown error occured.\n");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal. An unknown error occured.");
             }
         }
 

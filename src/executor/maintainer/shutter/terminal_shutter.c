@@ -42,7 +42,7 @@
  *
  * This is done in the reverse order the service was started up.
  *
- * @param p0 the internal memory array
+ * @param p0 the internal memory data
  * @param p1 the service thread
  * @param p2 the service thread interrupt
  */
