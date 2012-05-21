@@ -18,7 +18,7 @@
 
 2012-05-21  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt internal memory constants and file "sense.c" which uses only one "handler" part now
+        * Adapt internal memory constants and file "sensor.c" which uses only one "handler" part now
 
 2012-05-20  Christian Heller  <christian.heller@tuxtax.de>
 
