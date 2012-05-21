@@ -9,12 +9,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Adapt internal memory constants which contain only one "handler" part any longer and file "sense.c"
-        * Receive user input in cybol example application "ui_control"
-        * Adapt cybol example applications "http_communication" and "presence" using HTTP
-        * Uncomment further operations in file "operation_handler.c"
-        * Update ansi escape code serialiser files for terminal tui application
-
+        * IMPORTANT HINT! Bugs below only seem to appear if the "live/exit"
+            cybol operation IS called to end a cybol application,
+            which means that the bug might be caused at shutdown
+            (e.g. freeing memory, mixing int and void* or the like)
         * Find bug (appearing only on 64 Bit machines --> pointer-integer-problem?) with cybol example application "counter_storage" which brings error when two-digit integer numbers are standing in the storage file "count.txt":
 
 christian@deneb:/home/project/cybop/examples$ ../src/controller/cyboi --knowledge counter_storage/run.cybol
@@ -29,6 +27,11 @@ TEST signal checker s: 20275632
 christian@deneb:/home/project/cybop/examples$ ../src/controller/cyboi --knowledge shell_output_sequence/run.cybol
 cyboi: malloc.c:3096: sYSMALLOc: Assertion `(old_top == (((mbinptr) (((char *) &((av)->bins[((1) - 1) * 2])) - __builtin_offsetof (struct malloc_chunk, fd)))) && old_size == 0) || ((unsigned long) (old_size) >= (unsigned long)((((__builtin_offsetof (struct malloc_chunk, fd_nextsize))+((2 * (sizeof(size_t))) - 1)) & ~((2 * (sizeof(size_t))) - 1))) && ((old_top)->size & 0x1) && ((unsigned long)old_end & pagemask) == 0)' failed.
 Aborted
+
+        * Receive user input in cybol example application "ui_control"
+        * Adapt cybol example applications "http_communication" and "presence" using HTTP
+        * Uncomment further operations in file "operation_handler.c"
+        * Update ansi escape code serialiser files for terminal tui application
 
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
             in file "socket_starter.c" to new model constants

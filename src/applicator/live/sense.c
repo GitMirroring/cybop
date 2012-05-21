@@ -88,7 +88,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3) {
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    sense(p3, h, cmd);
+    sense(p3, (void*) &h, cmd);
 }
 
 /* SENSE_SOURCE */
