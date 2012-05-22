@@ -9,10 +9,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * IMPORTANT HINT! Bugs below only seem to appear if the "live/exit"
-            cybol operation IS called to end a cybol application,
-            which means that the bug might be caused at shutdown
-            (e.g. freeing memory, mixing int and void* or the like)
+        * Search memory allocation bug occuring on 64 Bit machines,
+            probably caused by mixing pointer and integer which have different sizes;
+            --> see file "offset_adder.c";
+            --> check type sizes set in file "integral_globaliser.c" and perhaps better use default types, e.g. "int" instead of "signed int"
         * Find bug (appearing only on 64 Bit machines --> pointer-integer-problem?) with cybol example application "counter_storage" which brings error when two-digit integer numbers are standing in the storage file "count.txt":
 
 christian@deneb:/home/project/cybop/examples$ ../src/controller/cyboi --knowledge counter_storage/run.cybol
