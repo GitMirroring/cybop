@@ -9,8 +9,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Remove constants ENCAPSULATED_PATH_STATE_CYBOI_TYPE and KNOWLEDGE_PATH_STATE_CYBOI_TYPE,
+            since paths do not represent primitives
+
         * Search memory allocation bug occuring on 64 Bit machines,
             probably caused by mixing pointer and integer which have different sizes;
+            --> use cybol example application file "exit_cybol_file"
             --> see file "offset_adder.c";
             --> check type sizes set in file "integral_globaliser.c" and perhaps better use default types, e.g. "int" instead of "signed int"
         * Find bug (appearing only on 64 Bit machines --> pointer-integer-problem?) with cybol example application "counter_storage" which brings error when two-digit integer numbers are standing in the storage file "count.txt":

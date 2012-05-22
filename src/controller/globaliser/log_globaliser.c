@@ -38,15 +38,15 @@
 void globalise_log() {
 
     // Allocate and initialise log level.
-    LOG_LEVEL = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    LOG_LEVEL = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
     *LOG_LEVEL = *OFF_LEVEL_LOG_CYBOI_MODEL;
 
     // Allocate and initialise log message count.
-    LOG_MESSAGE_COUNT = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    LOG_MESSAGE_COUNT = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
     *LOG_MESSAGE_COUNT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise log message size.
-    LOG_MESSAGE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    LOG_MESSAGE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
     *LOG_MESSAGE_SIZE = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate log message.

@@ -40,26 +40,26 @@ void globalise_integral() {
     // so that it may be used as size for all other types.
     //
     // CAUTION! The "sizeof" operator must be used TWICE here,
-    // because SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE cannot
+    // because SIGNED_INTEGER_INTEGRAL_TYPE_SIZE cannot
     // be used before having been initialised itself.
-    SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = (int*) malloc(sizeof(int));
-    *SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = sizeof(signed int);
+    SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = (int*) malloc(sizeof(int));
+    *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed int);
 
     // Allocate and initialise signed char integral type size.
-    SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
     *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(signed char);
 
     // Allocate and initialise unsigned char integral type size.
-    UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
     *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(unsigned char);
 
     // Allocate and initialise signed short int integral type size.
-    SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
-    *SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = sizeof(signed short int);
+    SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed short int);
 
     // Allocate and initialise unsigned short int integral type size.
-    UNSIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
-    *UNSIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = sizeof(unsigned short int);
+    UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned short int);
 
     // CAUTION! This is the place where "signed int" would
     // actually belong, when sorting types after their size.
@@ -67,27 +67,27 @@ void globalise_integral() {
     // since it is used as size for all other types.
 
     // Allocate and initialise unsigned int integral type size.
-    UNSIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
-    *UNSIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = sizeof(unsigned int);
+    UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned int);
 
     // Allocate and initialise signed long int integral type size.
-    SIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
-    *SIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = sizeof(signed long int);
+    SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed long int);
 
     // Allocate and initialise unsigned long int integral type size.
-    UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
-    *UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = sizeof(unsigned long int);
+    UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned long int);
 
     // Allocate and initialise signed long long int integral type size.
-    SIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
-    *SIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = sizeof(signed long long int);
+    SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed long long int);
 
     // Allocate and initialise unsigned long long int integral type size.
-    UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
-    *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE = sizeof(unsigned long long int);
+    UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned long long int);
 
     // Allocate and initialise wchar_t integral type size.
-    WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
     *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(wchar_t);
 }
 

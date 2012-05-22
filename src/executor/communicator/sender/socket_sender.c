@@ -354,7 +354,7 @@ void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
                     // With the known type "short int" of the "sun_family" field and
                     // a fixed size "108" of the "sun_path" field, the overall size of
                     // the "sockaddr_un" structure can be calculated as sum.
-                    *as = *SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE + *NUMBER_108_INTEGER_STATE_CYBOI_MODEL;
+                    *as = *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE + *NUMBER_108_INTEGER_STATE_CYBOI_MODEL;
 
                     // Allocate socket address.
                     *a = malloc(*as);

@@ -33,7 +33,7 @@
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../constant/type/cybol/state/text_state_cybol_type.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../constant/type/format/state_format_type.c"
 #include "../controller/checker.c"
 #include "../executor/communicator/receiver/file/file_receiver.c"
 #include "../executor/memoriser/allocator/part_allocator.c"
@@ -66,11 +66,11 @@ void initialise(void* p0, void* p1, void* p2) {
     // Allocate startup signal part.
     allocate_part((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-    // Copy startup signal part type.
+    // Copy startup signal part format.
     // CAUTION! A name is not necessary, since only
     // the actual model and properties are of interest.
     // CAUTION! The model and properties are received below.
-    overwrite_part_element(s, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(s, (void*) PART_ELEMENT_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
 
     // Get startup signal part model, properties.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

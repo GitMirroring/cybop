@@ -401,7 +401,7 @@ void startup_socket_initialise_local_socket_address(void* p0, void* p1, void* p2
                     // the unknown size of its "sun_path" field (a character array),
                     // is considered an incomplete type, so that the compiler
                     // brings an error.
-                    void* path = (void*) (*a + *SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+                    void* path = (void*) (*a + *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
 
                     // Set terminated file name by first copying the actual name
                     // and then adding the null termination character.
@@ -671,9 +671,9 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
             // With the known type "short int" of the "sun_family" field and
             // a fixed size "108" of the "sun_path" field, the overall size of
             // the "sockaddr_un" structure can be calculated as sum.
-            calculate_integer_add(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+            calculate_integer_add(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
             calculate_integer_add(as, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
-            calculate_integer_add(pas, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+            calculate_integer_add(pas, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
             calculate_integer_add(pas, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
 
         } else if (an == AF_INET) {

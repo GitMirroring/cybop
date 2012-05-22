@@ -52,7 +52,12 @@ static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY
 // element
 //
 
-/** The part element state cyboi type. */
+/**
+ * The part element state cyboi type.
+ *
+ * CAUTION! The part constant has to be defined as primitive type here,
+ * in order to be able to distinguish cyboi runtime parts from other pointers.
+ */
 static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
@@ -80,16 +85,6 @@ static int* INTEGER_NUMBER_STATE_CYBOI_TYPE = NUMBER_33_INTEGER_STATE_CYBOI_MODE
 
 /** The unsigned long number state cyboi type. */
 static int* UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE = NUMBER_34_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// path
-//
-
-/** The encapsulated path state cyboi type. */
-static int* ENCAPSULATED_PATH_STATE_CYBOI_TYPE = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The knowledge path state cyboi type. */
-static int* KNOWLEDGE_PATH_STATE_CYBOI_TYPE = NUMBER_41_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // pointer

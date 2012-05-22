@@ -36,7 +36,7 @@
 void globalise_terminal() {
 
     // Allocate and initialise struct termios terminal type size.
-    INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
     *INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE = sizeof(struct termios);
 }
 

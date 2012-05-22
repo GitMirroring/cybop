@@ -40,28 +40,28 @@ void unglobalise_integral() {
     free((void*) UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
     // Free signed short int integral type size.
-    free((void*) SIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    free((void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
 
     // Free unsigned short int integral type size.
-    free((void*) UNSIGNED_SHORT_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    free((void*) UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
 
     // Free signed int integral type size.
-    free((void*) SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    free((void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
     // Free unsigned int integral type size.
-    free((void*) UNSIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    free((void*) UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
     // Free signed long int integral type size.
-    free((void*) SIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    free((void*) SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
     // Free unsigned long int integral type size.
-    free((void*) UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    free((void*) UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
     // Free signed long long int integral type size.
-    free((void*) SIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    free((void*) SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
     // Free unsigned long long int integral type size.
-    free((void*) UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+    free((void*) UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
     // Free wchar_t integral type size.
     free((void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);

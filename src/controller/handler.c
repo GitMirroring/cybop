@@ -58,12 +58,12 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle signal.");
 
-    // The signal part type, model, properties.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The signal part format, model, properties.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The signal part elements data, count.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The signal part format, model, properties data, count.
+    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -78,31 +78,31 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get signal part type, model, properties.
-    copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    // Get signal part format, model, properties.
+    copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-    // Get signal part elements data, count.
-    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get signal part format, model, properties data, count.
+    copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST handle td: %i\n", td);
-//?? fwprintf(stdout, L"TEST handle *td: %i\n", *((int*) td));
+//?? fwprintf(stdout, L"TEST handle fd: %i\n", fd);
+//?? fwprintf(stdout, L"TEST handle *fd: %i\n", *((int*) fd));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! Do NOT remove this section with "PART_ELEMENT_STATE_CYBOI_TYPE"!
+        // CAUTION! Do NOT remove this section with "PART_ELEMENT_STATE_FORMAT_TYPE"!
         // It is needed for at least initial startup logic residing in CYBOL
         // files only, before any logic is created and contained as runtime
         // knowledge models in the knowledge memory.
-        compare_integer_equal((void*) &r, td, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, fd, (void*) PART_ELEMENT_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -115,7 +115,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, td, (void*) ENCAPSULATED_PATH_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, fd, (void*) ENCAPSULATED_PATH_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -142,7 +142,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, td, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, fd, (void*) KNOWLEDGE_PATH_STATE_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -160,7 +160,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Handle primitive operation signal.
-        handle_operation(pd, pc, p1, p2, p3, p4, p5, p6, p7, td);
+        handle_operation(pd, pc, p1, p2, p3, p4, p5, p6, p7, fd);
     }
 }
 

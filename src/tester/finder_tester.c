@@ -35,6 +35,7 @@
 #include "../executor/searcher/finder/item_finder.c"
 #include "../executor/searcher/finder/part_finder.c"
 #include "../logger/logger.c"
+#include "../tester/part_as_model_diagram_tester.c"
 
 /**
  * Tests the part by hierarchical name finder.
@@ -153,37 +154,7 @@ void test_finder_part_hierarchical() {
     // Output knowledge tree as model diagram.
     //
 
-/*??
-    // The model diagram.
-    void* mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int mdis = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The multibyte character stream.
-    void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The file name.
-    void* fn = L"TEST_FINDER_GET.txt";
-    int fnc = *NUMBER_19_INTEGER_STATE_CYBOI_MODEL;
-    int fns = *NUMBER_20_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate model diagram.
-    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate multibyte character stream.
-    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Encode model into model diagram.
-    serialise_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, application);
-    // Encode model diagram into multibyte character stream.
-    encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
-    // Write multibyte character stream as message to file system.
-    send_file_system((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
-
-    // Deallocate model diagram.
-    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate multibyte character stream.
-    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-*/
+    test_part_as_model_diagram((void*) L"TEST_FINDER_GET.txt", application);
 
     //
     // Get parts by hierarchical knowledge path name.

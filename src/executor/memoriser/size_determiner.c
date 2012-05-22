@@ -55,9 +55,48 @@ void determine_size(void* p0, void* p1) {
         // It uses functions causing circular references.
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Determine size.");
 
-        if (*t == *CHARACTER_TEXT_STATE_CYBOI_TYPE) {
+        //
+        // datetime
+        //
 
-            copy_integer(p0, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+        if (*t == *DATETIME_STATE_CYBOI_TYPE) {
+
+            // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part.
+            // It is actually a pointer array, of which each
+            // pointer references a structure element.
+            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+
+        //
+        // element
+        //
+
+        } else if (*t == *PART_ELEMENT_STATE_CYBOI_TYPE) {
+
+            // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part
+            // or when setting the references of a part
+            // for rubbish (garbage) collection.
+            // It is actually a pointer array, of which each
+            // pointer references a structure element.
+            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+
+        //
+        // logicvalue
+        //
+
+        } else if (*t == *BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+
+        //
+        // number
+        //
+
+        } else if (*t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE) {
+
+            // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part.
+            // It is actually a pointer array, of which each
+            // pointer references a structure element.
+            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         } else if (*t == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {
 
@@ -65,34 +104,34 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *FRACTION_NUMBER_STATE_CYBOI_TYPE) {
 
-            // CAUTION! This "fraction" type IS NEEDED,
-            // e.g. when DEEP copying a part. Do NOT delete!
+            // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part.
             // It is actually a pointer array, of which each
-            // pointer references a fraction structure.
+            // pointer references a structure element.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         } else if (*t == *INTEGER_NUMBER_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+            copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        } else if (*t == *PART_ELEMENT_STATE_CYBOI_TYPE) {
+        } else if (*t == *UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE) {
 
-            // CAUTION! Do NOT delete!
-            // This "part" type IS NEEDED,
-            // e.g. when deep copying a part
-            // or when setting the references of a part
-            // for rubbish (garbage) collection.
-            // It is actually a pointer array, of which each
-            // pointer references a part structure.
-            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+            copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+
+        //
+        // pointer
+        //
 
         } else if (*t == *POINTER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
-        } else if (*t == *UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE) {
+        //
+        // text
+        //
 
-            copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_PRIMITIVE_TYPE_SIZE);
+        } else if (*t == *CHARACTER_TEXT_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
         } else if (*t == *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 

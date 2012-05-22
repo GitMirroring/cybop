@@ -29,12 +29,12 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
+//?? #include "../../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/type/format/logic_format_type.c"
+//?? #include "../../../../constant/type/format/logic_format_type.c"
 #include "../../../../constant/type/format/state_format_type.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -250,7 +250,7 @@ void deserialise_cybol_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) ENCAPSULATED_PATH_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            overwrite_item_element(p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
@@ -260,7 +260,7 @@ void deserialise_cybol_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) KNOWLEDGE_PATH_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            overwrite_item_element(p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
@@ -287,6 +287,8 @@ void deserialise_cybol_type(void* p0, void* p1) {
             overwrite_item_element(p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
+
+/*??
 
     // ======================================================================
     //
@@ -915,6 +917,7 @@ void deserialise_cybol_type(void* p0, void* p1) {
             overwrite_item_element(p0, (void*) RUN_LOGIC_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

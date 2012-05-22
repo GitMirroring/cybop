@@ -39,6 +39,7 @@
 #include "../executor/modifier/overwriter/part_overwriter.c"
 #include "../executor/modifier/remover/array_remover.c"
 #include "../logger/logger.c"
+#include "../tester/part_as_model_diagram_tester.c"
 
 /**
  * Tests part modification on compound part.
@@ -46,7 +47,7 @@
 void test_modifier_part_compound() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier part compound.");
-    fwprintf(stdout, L"Output gets written into files with prefix: %ls\n", L"TEST");
+    fwprintf(stdout, L"Output gets written into file with prefix: %ls\n", L"TEST_");
 
     //
     // Declare parts.
@@ -142,109 +143,19 @@ void test_modifier_part_compound() {
     // Output whole one as model diagram.
     //
 
-/*??
-    // The model diagram.
-    void* mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int mdis = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The multibyte character stream.
-    void* mb = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The file name.
-    void* fn = L"TEST_MODIFIER_TESTER_WHOLE_ONE.txt";
-    int fnc = *NUMBER_34_INTEGER_STATE_CYBOI_MODEL;
-    int fns = *NUMBER_35_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate model diagram.
-    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate multibyte character stream.
-    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Encode model into model diagram.
-    serialise_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w1);
-    // Encode model diagram into multibyte character stream.
-    encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
-    // Write multibyte character stream as message to file system.
-    send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
-
-    // Deallocate model diagram.
-    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate multibyte character stream.
-    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-*/
+    test_part_as_model_diagram((void*) L"TEST_MODIFIER_TESTER_WHOLE_ONE.txt", w1);
 
     //
     // Output whole two as model diagram.
     //
 
-/*??
-    // The model diagram.
-    mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
-    mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    mdis = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The multibyte character stream.
-    mb = *NULL_POINTER_STATE_CYBOI_MODEL;
-    mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The file name.
-    fn = L"TEST_MODIFIER_TESTER_WHOLE_TWO.txt";
-    fnc = *NUMBER_34_INTEGER_STATE_CYBOI_MODEL;
-    fns = *NUMBER_35_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate model diagram.
-    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate multibyte character stream.
-    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Encode model into model diagram.
-    serialise_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w2);
-    // Encode model diagram into multibyte character stream.
-    encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
-    // Write multibyte character stream as message to file system.
-    send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
-
-    // Deallocate model diagram.
-    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate multibyte character stream.
-    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-*/
+    test_part_as_model_diagram((void*) L"TEST_MODIFIER_TESTER_WHOLE_TWO.txt", w2);
 
     //
     // Output whole three as model diagram.
     //
 
-/*??
-    // The model diagram.
-    mdi = *NULL_POINTER_STATE_CYBOI_MODEL;
-    mdic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    mdis = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The multibyte character stream.
-    mb = *NULL_POINTER_STATE_CYBOI_MODEL;
-    mbc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    mbs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The file name.
-    fn = L"TEST_MODIFIER_TESTER_WHOLE_THREE.txt";
-    fnc = *NUMBER_36_INTEGER_STATE_CYBOI_MODEL;
-    fns = *NUMBER_37_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate model diagram.
-    allocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate multibyte character stream.
-    allocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Encode model into model diagram.
-    serialise_model_diagram((void*) &mdi, (void*) &mdic, (void*) &mdis, w3);
-    // Encode model diagram into multibyte character stream.
-    encode_utf_8((void*) &mb, (void*) &mbc, (void*) &mbs, mdi, (void*) &mdic);
-    // Write multibyte character stream as message to file system.
-    send_file((void*) &fn, (void*) &fnc, (void*) &fns, mb, (void*) &mbc);
-
-    // Deallocate model diagram.
-    deallocate_array((void*) &mdi, (void*) &mdis, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate multibyte character stream.
-    deallocate_array((void*) &mb, (void*) &mbs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-*/
+    test_part_as_model_diagram((void*) L"TEST_MODIFIER_TESTER_WHOLE_THREE.txt", w3);
 
     //
     // Deallocate parts.
