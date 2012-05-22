@@ -1,5 +1,10 @@
 <model>
     <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
+<!-- ERROR: The memory allocation error does NOT happen, if this comment block is added.
+    <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model="">
+        <property name="test" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="empty"/>
+    </part>
+-->
 </model>
 
 <!--

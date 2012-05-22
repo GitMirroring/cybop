@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename cybol example application directory "signal/" into "exit_signal/"
+
 2012-05-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt internal memory constants and file "sensor.c" which uses only one "handler" part now

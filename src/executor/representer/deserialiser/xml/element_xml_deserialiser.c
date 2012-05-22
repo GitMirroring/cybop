@@ -51,6 +51,8 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml element.");
 
+fwprintf(stdout, L"TEST deserialise xml element 0: %i\n", p0);
+
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part model, properties.
@@ -59,6 +61,8 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
 
     // Allocate part.
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+fwprintf(stdout, L"TEST deserialise xml element 1: %i\n", p0);
 
     // Fill part.
     // CAUTION! The pre-defined constant "part" is used as name here!
@@ -98,6 +102,8 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
         // Decode the element's content.
         deserialise_xml_element_content(pm, pp, p1, p2);
     }
+
+fwprintf(stdout, L"TEST deserialise xml element 2: %i\n", p0);
 
     // Append part to destination model.
     // Storing many parts with identical tag name is not a problem,

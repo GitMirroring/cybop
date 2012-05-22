@@ -133,6 +133,8 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
         }
     }
 
+fwprintf(stdout, L"TEST select xml element content 1: %i\n", r);
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         detect_array((void*) &r, p3, p4, (void*) START_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) START_TAG_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -143,6 +145,8 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
             deserialise_xml_element(p0, p3, p4);
         }
     }
+
+fwprintf(stdout, L"TEST select xml element content 2: %i\n", r);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -45,6 +45,7 @@
  * @param p1 the type
  * @param p2 the index
  */
+/*??
 void add_offset(void* p0, void* p1, void* p2) {
 
     // CAUTION! Do NOT call the logger here.
@@ -67,6 +68,7 @@ void add_offset(void* p0, void* p1, void* p2) {
     // since p0 is a pointer to which the offset is added.
     calculate_pointer_add(p0, (void*) &o);
 }
+*/
 
 /* OFFSET_ADDER_SOURCE */
 #endif

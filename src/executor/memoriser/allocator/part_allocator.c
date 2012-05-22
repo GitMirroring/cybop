@@ -75,15 +75,25 @@ void allocate_part(void* p0, void* p1, void* p2) {
         // CAUTION! Initialise integer items with a size of ONE,
         // in order to avoid later reallocation when overwriting
         // the element and to thus increase efficiency.
+fwprintf(stdout, L"TEST allocate part 0: %i\n", p0);
         allocate_item((void*) &r, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST allocate part 1: %i\n", p0);
         allocate_item((void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST allocate part 2: %i\n", p0);
         allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST allocate part 3: %i\n", p0);
         allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST allocate part 4: %i\n", p0);
         allocate_item((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST allocate part 5: %i\n", p0);
         allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST allocate part 6: %i\n", p0);
         allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST allocate part 7: %i\n", p0);
         allocate_item((void*) &m, p1, p2);
+fwprintf(stdout, L"TEST allocate part 8: %i\n", p0);
         allocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST allocate part 9: %i\n", p0);
 
         // Set references, name, channel, encoding, language, format, type, model, properties.
         copy_array_forward(*part, (void*) &r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) REFERENCES_PART_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
