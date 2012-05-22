@@ -67,60 +67,60 @@ void test_comparator_array() {
 
     // All.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_all_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello, World!", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
+    compare_all_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello, World!", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST all true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_all_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello World!", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
+    compare_all_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello World!", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST all false r: %i\n", r);
 
     // Prefix.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_prefix_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hell", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+    compare_prefix_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hell", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST prefix true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_prefix_array((void*) &r, (void*) L"Hello, World!", (void*) L"ello", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+    compare_prefix_array((void*) &r, (void*) L"Hello, World!", (void*) L"ello", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST prefix false r: %i\n", r);
 
     // Suffix.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_suffix_array((void*) &r, (void*) L"Hello, World!", (void*) L"World!", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
+    compare_suffix_array((void*) &r, (void*) L"Hello, World!", (void*) L"World!", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST suffix true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_suffix_array((void*) &r, (void*) L"Hello, World!", (void*) L"World", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
+    compare_suffix_array((void*) &r, (void*) L"Hello, World!", (void*) L"World", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST suffix false r: %i\n", r);
 
     // Subsequence.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello, World!", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello, World!", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence complete word true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o, Wor", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o, Wor", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence letters middle true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence one letter true r: %i\n", r);
     // The following is a crash test.
     // The right array "o" count is too high (100).
     // But since the counts are compared inside,
     // the array boundaries are not crossed and errors prevented.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_100_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_100_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence count false r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"blubla", (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"blubla", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence different words false r: %i\n", r);
 
     // Integer equal, smaller or equal, greater.
     int i1 = *NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
     int* i2 = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST integer equal false r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST integer smaller or equal true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) GREATER_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST integer greater false r: %i\n", r);
 }
 
@@ -159,29 +159,29 @@ void test_comparator_part() {
 
     // Fill whole one.
     overwrite_part_element(w1, (void*) L"one", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(w1, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w1, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Fill whole two.
     overwrite_part_element(w2, (void*) L"two", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(w2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Fill whole three.
     overwrite_part_element(w3, (void*) L"three", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(w3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Fill whole four.
     overwrite_part_element(w4, (void*) L"four", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(w4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(w4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Fill part one.
     overwrite_part_element(p1, (void*) L"blu", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p1, (void*) L"Hello, ", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Fill part two.
     overwrite_part_element(p2, (void*) L"bla", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p2, (void*) L"World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Fill part three.
     // CAUTION! This part differs from part two only in its model,
     // which is "World" (WITHOUT exclamation mark) and not "World!"
     overwrite_part_element(p3, (void*) L"bla", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p3, (void*) L"World", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     //
@@ -254,9 +254,9 @@ void test_comparator_part() {
     // - one (or two) and four differ in their model
     //   (wide character array of a contained part)
     //
-    compare_all_part((void*) &r1, w1, w2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    compare_all_part((void*) &r2, w1, w3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    compare_all_part((void*) &r3, w1, w4, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    compare_all_part((void*) &r1, w1, w2, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    compare_all_part((void*) &r2, w1, w3, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    compare_all_part((void*) &r3, w1, w4, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"TEST r1: %i\n", r1);
     fwprintf(stdout, L"TEST r2: %i\n", r2);

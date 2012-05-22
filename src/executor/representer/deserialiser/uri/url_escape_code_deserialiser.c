@@ -73,7 +73,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) SPACE_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) SPACE_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) SPACE_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) SPACE_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -85,7 +85,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) NUMBER_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) NUMBER_SIGN_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) NUMBER_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) NUMBER_SIGN_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -97,7 +97,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) DOLLAR_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) DOLLAR_SIGN_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) DOLLAR_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) DOLLAR_SIGN_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -109,7 +109,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) PERCENT_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) PERCENT_SIGN_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) PERCENT_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) PERCENT_SIGN_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -121,7 +121,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) AMPERSAND_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) AMPERSAND_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) AMPERSAND_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) AMPERSAND_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -133,7 +133,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) SOLIDUS_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) SOLIDUS_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) SOLIDUS_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) SOLIDUS_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -145,7 +145,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) COLON_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) COLON_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) COLON_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) COLON_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -157,7 +157,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) SEMICOLON_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) SEMICOLON_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) SEMICOLON_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) SEMICOLON_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -169,7 +169,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) LESS_THAN_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) LESS_THAN_SIGN_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) LESS_THAN_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) LESS_THAN_SIGN_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -181,7 +181,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) EQUALS_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) EQUALS_SIGN_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) EQUALS_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) EQUALS_SIGN_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -193,7 +193,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) GREATER_THAN_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) GREATER_THAN_SIGN_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) GREATER_THAN_SIGN_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) GREATER_THAN_SIGN_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -205,7 +205,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) QUESTION_MARK_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) QUESTION_MARK_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) QUESTION_MARK_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) QUESTION_MARK_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -217,7 +217,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) COMMERCIAL_AT_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) COMMERCIAL_AT_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) COMMERCIAL_AT_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) COMMERCIAL_AT_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -229,7 +229,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) LEFT_SQUARE_BRACKET_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) LEFT_SQUARE_BRACKET_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) LEFT_SQUARE_BRACKET_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) LEFT_SQUARE_BRACKET_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -241,7 +241,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) REVERSE_SOLIDUS_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) REVERSE_SOLIDUS_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) REVERSE_SOLIDUS_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) REVERSE_SOLIDUS_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -253,7 +253,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) RIGHT_SQUARE_BRACKET_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) RIGHT_SQUARE_BRACKET_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) RIGHT_SQUARE_BRACKET_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) RIGHT_SQUARE_BRACKET_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -265,7 +265,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) CARET_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) CARET_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) CARET_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) CARET_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -277,7 +277,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) GRAVE_ACCENT_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) GRAVE_ACCENT_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) GRAVE_ACCENT_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) GRAVE_ACCENT_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -289,7 +289,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) LEFT_CURLY_BRACE_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) LEFT_CURLY_BRACE_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) LEFT_CURLY_BRACE_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) LEFT_CURLY_BRACE_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -301,7 +301,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) VERTICAL_BAR_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) VERTICAL_BAR_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) VERTICAL_BAR_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) VERTICAL_BAR_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -313,7 +313,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) RIGHT_CURLY_BRACE_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) RIGHT_CURLY_BRACE_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) RIGHT_CURLY_BRACE_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) RIGHT_CURLY_BRACE_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -325,7 +325,7 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p3, (void*) TILDE_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) TILDE_URL_ESCAPE_CODE_COUNT);
+        compare_all_array((void*) &r, p3, (void*) TILDE_URL_ESCAPE_CODE, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) TILDE_URL_ESCAPE_CODE_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

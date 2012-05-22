@@ -140,8 +140,8 @@ void calculate_all_part_all(void* p0, void* p1, void* p2) {
             // Compare left- with right part model item.
             // CAUTION! Do NOT use the basic function "compare_item" here,
             // since it does not compare the item counts.
-            compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-            compare_all_item((void*) &ar, la, ra, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            compare_all_item((void*) &ar, la, ra, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
                 && (ar == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {

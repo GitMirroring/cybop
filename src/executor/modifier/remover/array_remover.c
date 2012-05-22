@@ -28,7 +28,7 @@
 
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
@@ -91,7 +91,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         calculate_integer_subtract((void*) &n, p2);
 
         // Decrement reference count of removed parts for rubbish (garbage) collection.
-        reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_TYPE, p2, p3, p1);
+        reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, p2, p3, p1);
 
         // Move current elements behind area to be removed towards the beginning of the array.
         // CAUTION! Move array elements starting from the FIRST since otherwise,
@@ -143,7 +143,7 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p3, p4, (void*) SMALLER_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, p3, p4, (void*) SMALLER_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

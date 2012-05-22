@@ -87,7 +87,7 @@ void startup_service(void* p0, void* p1) {
 /*??
             // Get server socket internal.
             i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            get((void*) &s, p3, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+            get((void*) &s, p3, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
             if (*s == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -111,7 +111,7 @@ void startup_service(void* p0, void* p1) {
 /*??
             // Get server socket internal.
             i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            get((void*) &s, p3, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+            get((void*) &s, p3, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
             if (*s == *NULL_POINTER_STATE_CYBOI_MODEL) {
 

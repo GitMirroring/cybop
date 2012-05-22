@@ -29,7 +29,7 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../executor/calculator/basic/fraction/add_fraction_calculator.c"
 #include "../../../executor/calculator/basic/fraction/divide_fraction_calculator.c"
 #include "../../../executor/calculator/basic/fraction/multiply_fraction_calculator.c"
@@ -54,7 +54,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ABSOLUTE_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) ABSOLUTE_CALCULATE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -65,7 +65,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -75,7 +75,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) DIVIDE_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) DIVIDE_CALCULATE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -85,7 +85,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) MULTIPLY_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) MULTIPLY_CALCULATE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -96,7 +96,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) NEGATE_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) NEGATE_CALCULATE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -107,7 +107,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) REDUCE_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) REDUCE_CALCULATE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -117,7 +117,7 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

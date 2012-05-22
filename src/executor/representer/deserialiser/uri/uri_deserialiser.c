@@ -221,7 +221,7 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
             // The scheme is handed over as http request "protocol" header.
             // Add scheme as uri part here, because the authority does not contain one.
             append_item_allocate_part(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT,
-                (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT,
+                (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
@@ -239,7 +239,7 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
             // The scheme is handed over as http request "protocol" header.
             // Add scheme as uri part here, because the path does not contain one.
             append_item_allocate_part(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT,
-                (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CYBOI_TYPE_COUNT,
+                (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT,
                 *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 

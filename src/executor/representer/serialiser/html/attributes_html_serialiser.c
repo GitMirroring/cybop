@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"

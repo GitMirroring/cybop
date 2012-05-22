@@ -26,8 +26,6 @@
 #ifndef LOOP_SOURCE
 #define LOOP_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/logic_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"

@@ -209,7 +209,7 @@ void deserialise_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void
                             *ds = *ds * *ARRAY_REALLOCATION_FACTOR + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                             // Reallocate date time.
-                            reallocate(p0, p1, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE_COUNT);
+                            reallocate(p0, p1, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
                         }
 
 /*?? TODO!

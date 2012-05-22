@@ -85,7 +85,7 @@ void deallocate_part(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
         // Decrement reference count of child parts for rubbish (garbage) collection.
-        reference(md, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_TYPE, mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
+        reference(md, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
 
         // Deallocate references, name, type, model, properties.
         deallocate_item((void*) &r, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

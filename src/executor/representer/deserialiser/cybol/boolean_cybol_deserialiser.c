@@ -53,7 +53,7 @@ void deserialise_cybol_boolean(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -68,7 +68,7 @@ void deserialise_cybol_boolean(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

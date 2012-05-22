@@ -27,7 +27,7 @@
 #define ARRAY_INSERTER_SOURCE
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
@@ -98,7 +98,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -129,7 +129,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         copy_integer(p6, (void*) &n);
 
         // Increment reference count of inserted parts for rubbish (garbage) collection.
-        reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE, p3, p4, p2);
+        reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
 
     } else {
 
@@ -159,7 +159,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_FORMAT_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -174,7 +174,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) SMALLER_COMPARE_LOGIC_CYBOI_TYPE);
+        compare_integer((void*) &r, p4, p6, (void*) SMALLER_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

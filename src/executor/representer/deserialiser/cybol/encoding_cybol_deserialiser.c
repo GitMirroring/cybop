@@ -35,7 +35,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../logger/logger.c"
@@ -66,7 +66,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) UTF_8_UNICODE_CYBOL_ENCODING, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) UTF_8_UNICODE_CYBOL_ENCODING_COUNT);
+        compare_all_array((void*) &r, p1, (void*) UTF_8_UNICODE_CYBOL_ENCODING, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) UTF_8_UNICODE_CYBOL_ENCODING_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

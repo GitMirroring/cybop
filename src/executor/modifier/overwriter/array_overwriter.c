@@ -134,13 +134,13 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         }
 
         // Decrement reference count of overwritten parts for rubbish (garbage) collection.
-        reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_TYPE, p3, p4, p2);
+        reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
 
         // Copy source to destination.
         copy_array_forward(*d, p1, p2, p3, p4, p5);
 
         // Increment reference count of new parts for rubbish (garbage) collection.
-        reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_TYPE, p3, p4, p2);
+        reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
 
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

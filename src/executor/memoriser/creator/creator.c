@@ -54,7 +54,7 @@ void create(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -64,7 +64,7 @@ void create(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) PROPERTY_ELEMENT_CREATE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) PROPERTY_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) PROPERTY_ELEMENT_CREATE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) PROPERTY_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

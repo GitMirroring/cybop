@@ -91,11 +91,11 @@ void serialise_character_entity_reference(void* p0, void* p1, void* p2, void* p3
                         *ds = (*ARRAY_REALLOCATION_FACTOR * (*dc)) + tc;
 
                         // Reallocate destination.
-                        reallocate(p0, p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+                        reallocate(p0, p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
                     }
 
                     // Add temporary value to destination.
-                    overwrite_array(*d, p1, (void*) t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE_COUNT);
+                    overwrite_array(*d, p1, (void*) t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
                     // Increase destination count.
                     *dc = *dc + tc;

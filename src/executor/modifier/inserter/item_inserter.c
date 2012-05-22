@@ -63,7 +63,7 @@ void insert_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    compare_integer((void*) &r, p6, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE);
+    compare_integer((void*) &r, p6, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE);
 
     if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

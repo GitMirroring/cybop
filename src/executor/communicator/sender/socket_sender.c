@@ -69,7 +69,7 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
 
         // Get communication partner socket.
         i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-        get(p0, p1, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+        get(p0, p1, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
 /*??
         ONLY necessary when writing or deleting a socket from internal memory.
@@ -80,7 +80,7 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
 
         // Get socket mutex.
         i = *base + *SOCKET_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-        get((void*) &mt, p1, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_CYBOI_TYPE_COUNT);
+        get((void*) &mt, p1, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 */
 
     } else {
@@ -201,7 +201,7 @@ void apply_send_socket_get_socket(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) SERVER_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -211,7 +211,7 @@ void apply_send_socket_get_socket(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) CLIENT_COMMUNICATION_MODE_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

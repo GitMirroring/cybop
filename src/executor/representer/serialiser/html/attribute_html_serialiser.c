@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
-#include "../../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
@@ -74,7 +74,7 @@ void serialise_html_attribute(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_all_array((void*) &r, nd, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT);
+    compare_all_array((void*) &r, nd, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -88,7 +88,7 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // CAUTION! Hand over SEARCHED (right) array count as count,
         // since it is shorter or equal to that of the left array.
         // CAUTION! Use loop variable as INVESTIGATED (left) array index.
-        compare_array((void*) &b, p1, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_TYPE, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_array((void*) &b, p1, p2, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

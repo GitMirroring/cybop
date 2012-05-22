@@ -29,7 +29,7 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/logic_cyboi_type.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../executor/calculator/basic/array_calculator.c"
 #include "../../../logger/logger.c"
 
