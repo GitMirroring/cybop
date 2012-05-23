@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MULTIPART_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define MULTIPART_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef MULTIPART_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define MULTIPART_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -52,13 +52,13 @@
 //
 
 /**
- * The multipart/mixed cybol type.
+ * The multipart/mixed state cybol type.
  *
  * multipart/mixed: MIME E-mail; Defined in RFC 2045 and RFC 2046
  */
-static wchar_t MIXED_MULTIPART_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'u', L'l', L't', L'i', L'p', L'a', L'r', L't', L'/', L'm', L'i', L'x', L'e', L'd'};
-static wchar_t* MIXED_MULTIPART_STATE_CYBOL_TYPE = MIXED_MULTIPART_STATE_CYBOL_TYPE_ARRAY;
-static int* MIXED_MULTIPART_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t MIXED_MULTIPART_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'u', L'l', L't', L'i', L'p', L'a', L'r', L't', L'/', L'm', L'i', L'x', L'e', L'd'};
+static wchar_t* MIXED_MULTIPART_STATE_CYBOL_FORMAT = MIXED_MULTIPART_STATE_CYBOL_FORMAT_ARRAY;
+static int* MIXED_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 multipart/alternative: MIME E-mail; Defined in RFC 2045 and RFC 2046
@@ -66,5 +66,5 @@ multipart/related: MIME E-mail; Defined in RFC 2387 and used by MHTML (HTML mail
 multipart/form-data: MIME Webform; Defined in RFC 2388
 */
 
-/* MULTIPART_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* MULTIPART_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

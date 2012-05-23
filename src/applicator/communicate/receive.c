@@ -193,7 +193,7 @@ fwprintf(stdout, L"TEST receive cmd: %i\n", *((int*) cmd));
 fwprintf(stdout, L"TEST receive lmd: %i\n", *((int*) lmd));
 fwprintf(stdout, L"TEST receive fmd: %i\n", *((int*) fmd));
 fwprintf(stdout, L"TEST receive motd: %i\n", *((int*) motd));
-fwprintf(stdout, L"TEST receive INTEGER_NUMBER_STATE_FORMAT_TYPE: %i\n", *INTEGER_NUMBER_STATE_FORMAT_TYPE);
+fwprintf(stdout, L"TEST receive INTEGER_NUMBER_STATE_CYBOI_FORMAT: %i\n", *INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 fwprintf(stdout, L"TEST receive mmc: %i\n", *((int*) mmc));
 fwprintf(stdout, L"TEST receive mmd*: %i\n", mmd);
 fwprintf(stdout, L"TEST receive mmd: %i\n", *((int*) mmd));

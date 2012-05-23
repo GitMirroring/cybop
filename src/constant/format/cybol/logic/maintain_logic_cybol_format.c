@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MAINTAIN_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
-#define MAINTAIN_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef MAINTAIN_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define MAINTAIN_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,26 +55,26 @@
 //
 
 /**
- * The maintain/shutdown cybol type.
+ * The maintain/shutdown logic cybol format.
  *
  * Shutdown sensing service.
  *
  * This is a CYBOL extension.
  */
-static wchar_t SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'i', L'n', L't', L'a', L'i', L'n', L'/', L's', L'h', L'u', L't', L'd', L'o', L'w', L'n'};
-static wchar_t* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE = SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'i', L'n', L't', L'a', L'i', L'n', L'/', L's', L'h', L'u', L't', L'd', L'o', L'w', L'n'};
+static wchar_t* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT = SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The maintain/startup cybol type.
+ * The maintain/startup logic cybol format.
  *
  * Startup sensing service.
  *
  * This is a CYBOL extension.
  */
-static wchar_t STARTUP_MAINTAIN_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'a', L'i', L'n', L't', L'a', L'i', L'n', L'/', L's', L't', L'a', L'r', L't', L'u', L'p'};
-static wchar_t* STARTUP_MAINTAIN_LOGIC_CYBOL_TYPE = STARTUP_MAINTAIN_LOGIC_CYBOL_TYPE_ARRAY;
-static int* STARTUP_MAINTAIN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t STARTUP_MAINTAIN_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'i', L'n', L't', L'a', L'i', L'n', L'/', L's', L't', L'a', L'r', L't', L'u', L'p'};
+static wchar_t* STARTUP_MAINTAIN_LOGIC_CYBOL_FORMAT = STARTUP_MAINTAIN_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* STARTUP_MAINTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* MAINTAIN_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
+/* MAINTAIN_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

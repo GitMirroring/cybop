@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef IMAGE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define IMAGE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef IMAGE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define IMAGE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -52,48 +52,48 @@
 //
 
 /**
- * The image/gif cybol type.
+ * The image/gif state cybol type.
  *
  * GIF image.
  * Defined in RFC 2045 and RFC 2046.
  * Suffixes: gif
  */
-static wchar_t GIF_IMAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'g', L'i', L'f'};
-static wchar_t* GIF_IMAGE_STATE_CYBOL_TYPE = GIF_IMAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* GIF_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t GIF_IMAGE_STATE_CYBOL_FORMAT_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'g', L'i', L'f'};
+static wchar_t* GIF_IMAGE_STATE_CYBOL_FORMAT = GIF_IMAGE_STATE_CYBOL_FORMAT_ARRAY;
+static int* GIF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/jpeg cybol type.
+ * The image/jpeg state cybol type.
  *
  * JPEG JFIF image.
  * Defined in RFC 2045 and RFC 2046.
  * Suffixes: jpeg, jpg, jpe
  */
-static wchar_t JPEG_IMAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'j', L'p', L'e', L'g'};
-static wchar_t* JPEG_IMAGE_STATE_CYBOL_TYPE = JPEG_IMAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* JPEG_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t JPEG_IMAGE_STATE_CYBOL_FORMAT_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'j', L'p', L'e', L'g'};
+static wchar_t* JPEG_IMAGE_STATE_CYBOL_FORMAT = JPEG_IMAGE_STATE_CYBOL_FORMAT_ARRAY;
+static int* JPEG_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/png cybol type.
+ * The image/png state cybol type.
  *
  * Portable Network Graphics.
  * Registered.
  * Suffixes: png
  */
-static wchar_t PNG_IMAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'p', L'n', L'g'};
-static wchar_t* PNG_IMAGE_STATE_CYBOL_TYPE = PNG_IMAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* PNG_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t PNG_IMAGE_STATE_CYBOL_FORMAT_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L'p', L'n', L'g'};
+static wchar_t* PNG_IMAGE_STATE_CYBOL_FORMAT = PNG_IMAGE_STATE_CYBOL_FORMAT_ARRAY;
+static int* PNG_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/tiff cybol type.
+ * The image/tiff state cybol type.
  *
  * Tag Image File Format.
  * Defined in RFC 3302.
  * Suffixes: tiff, tif
  */
-static wchar_t TIFF_IMAGE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L't', L'i', L'f', L'f'};
-static wchar_t* TIFF_IMAGE_STATE_CYBOL_TYPE = TIFF_IMAGE_STATE_CYBOL_TYPE_ARRAY;
-static int* TIFF_IMAGE_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t TIFF_IMAGE_STATE_CYBOL_FORMAT_ARRAY[] = {L'i', L'm', L'a', L'g', L'e', L'/', L't', L'i', L'f', L'f'};
+static wchar_t* TIFF_IMAGE_STATE_CYBOL_FORMAT = TIFF_IMAGE_STATE_CYBOL_FORMAT_ARRAY;
+static int* TIFF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 The image/vnd.microsoft.icon language.
@@ -101,5 +101,5 @@ ICO image.
 Registered.
 */
 
-/* IMAGE_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* IMAGE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

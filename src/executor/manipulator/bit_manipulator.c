@@ -27,7 +27,7 @@
 #define BIT_MANIPULATOR_SOURCE
 
 // Add Bit operations like NOT, AND, OR, EXCLUSIVE OR, SHIFT LEFT, SHIFT RIGHT.
-// See file "constant/type/cybol/logic/manipulate_logic_cybol_type.c"!
+// See file "constant/format/cybol/logic/manipulate_logic_cybol_format.c"!
 
 /* BIT_MANIPULATOR_SOURCE */
 #endif

@@ -80,7 +80,7 @@ void detect_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
                 // CAUTION! The remaining count may NOT be handed over as position count,
                 // since it might be greater than the array count and would thus differ.
-                compare_all_array(p0, *((void**) p1), p3, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, p4, p5, p5);
+                compare_all_array(p0, *((void**) p1), p3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, p4, p5, p5);
 
                 if (*r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

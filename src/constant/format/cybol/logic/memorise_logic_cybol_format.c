@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MEMORISE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
-#define MEMORISE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef MEMORISE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define MEMORISE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,26 +55,26 @@
 //
 
 /**
- * The memorise/create cybol type.
+ * The memorise/create logic cybol format.
  *
  * Create / allocate / reserve memory for data of the given type.
  *
  * This is a CYBOL extension.
  */
-static wchar_t CREATE_MEMORISE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'c', L'r', L'e', L'a', L't', L'e'};
-static wchar_t* CREATE_MEMORISE_LOGIC_CYBOL_TYPE = CREATE_MEMORISE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* CREATE_MEMORISE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'c', L'r', L'e', L'a', L't', L'e'};
+static wchar_t* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT = CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The memorise/destroy cybol type.
+ * The memorise/destroy logic cybol format.
  *
  * Destroy / deallocate / free memory of the given data.
  *
  * This is a CYBOL extension.
  */
-static wchar_t DESTROY_MEMORISE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'd', L'e', L's', L't', L'r', L'o', L'y'};
-static wchar_t* DESTROY_MEMORISE_LOGIC_CYBOL_TYPE = DESTROY_MEMORISE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* DESTROY_MEMORISE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'd', L'e', L's', L't', L'r', L'o', L'y'};
+static wchar_t* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT = DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* MEMORISE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
+/* MEMORISE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

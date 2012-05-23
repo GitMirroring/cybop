@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STATE_FORMAT_TYPE_CONSTANT_SOURCE
-#define STATE_FORMAT_TYPE_CONSTANT_SOURCE
+#ifndef STATE_CYBOI_FORMAT_CONSTANT_SOURCE
+#define STATE_CYBOI_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -45,261 +45,261 @@
 // application
 //
 
-/** The pdf application state format type. */
-static int* PDF_APPLICATION_STATE_FORMAT_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The pdf application state cyboi format. */
+static int* PDF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The zip application state format type. */
-static int* ZIP_APPLICATION_STATE_FORMAT_TYPE = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The zip application state cyboi format. */
+static int* ZIP_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xhtml+xml application state format type. */
-static int* XHTML_XML_APPLICATION_STATE_FORMAT_TYPE = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xhtml+xml application state cyboi format. */
+static int* XHTML_XML_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // application vnd
 //
 
-/** The vnd.ms-excel application state format type. */
-static int* VND_MS_EXCEL_APPLICATION_STATE_FORMAT_TYPE = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The vnd.ms-excel application state cyboi format. */
+static int* VND_MS_EXCEL_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // application x
 //
 
-/** The x-latex application state format type. */
-static int* X_LATEX_APPLICATION_STATE_FORMAT_TYPE = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The x-latex application state cyboi format. */
+static int* X_LATEX_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The x-tar application state format type. */
-static int* X_TAR_APPLICATION_STATE_FORMAT_TYPE = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The x-tar application state cyboi format. */
+static int* X_TAR_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // audio
 //
 
-/** The mpeg audio state format type. */
-static int* MPEG_AUDIO_STATE_FORMAT_TYPE = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The mpeg audio state cyboi format. */
+static int* MPEG_AUDIO_STATE_CYBOI_FORMAT = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The vorbis audio state format type. */
-static int* VORBIS_AUDIO_STATE_FORMAT_TYPE = NUMBER_101_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The vorbis audio state cyboi format. */
+static int* VORBIS_AUDIO_STATE_CYBOI_FORMAT = NUMBER_101_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // bluetooth
 //
 
-/** The synchronisation-profile bluetooth state format type. */
-static int* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_FORMAT_TYPE = NUMBER_150_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The synchronisation-profile bluetooth state cyboi format. */
+static int* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOI_FORMAT = NUMBER_150_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // colour
 //
 
-/** The cmyk colour state format type. */
-static int* CMYK_COLOUR_STATE_FORMAT_TYPE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The cmyk colour state cyboi format. */
+static int* CMYK_COLOUR_STATE_CYBOI_FORMAT = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The rgb colour state format type. */
-static int* RGB_COLOUR_STATE_FORMAT_TYPE = NUMBER_181_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The rgb colour state cyboi format. */
+static int* RGB_COLOUR_STATE_CYBOI_FORMAT = NUMBER_181_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The terminal colour state format type. */
-static int* TERMINAL_COLOUR_STATE_FORMAT_TYPE = NUMBER_182_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The terminal colour state cyboi format. */
+static int* TERMINAL_COLOUR_STATE_CYBOI_FORMAT = NUMBER_182_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // datetime
 //
 
-/** The yyyy-mm-dd datetime state format type. */
-static int* YYYY_MM_DD_DATETIME_STATE_FORMAT_TYPE = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The yyyy-mm-dd datetime state cyboi format. */
+static int* YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The hh-mm-ss datetime state format type. */
-static int* HH_MM_SS_DATETIME_STATE_FORMAT_TYPE = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The hh-mm-ss datetime state cyboi format. */
+static int* HH_MM_SS_DATETIME_STATE_CYBOI_FORMAT = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The yyyymmddthhmmss datetime state format type. */
-static int* YYYYMMDDTHHMMSS_DATETIME_STATE_FORMAT_TYPE = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The yyyymmddthhmmss datetime state cyboi format. */
+static int* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOI_FORMAT = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-date-hhmm datetime state format type. */
-static int* XDT_DATE_HHMM_DATETIME_STATE_FORMAT_TYPE = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xdt-date-hhmm datetime state cyboi format. */
+static int* XDT_DATE_HHMM_DATETIME_STATE_CYBOI_FORMAT = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-date-hhmmhhmm datetime state format type. */
-static int* XDT_DATE_HHMMHHMM_DATETIME_STATE_FORMAT_TYPE = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xdt-date-hhmmhhmm datetime state cyboi format. */
+static int* XDT_DATE_HHMMHHMM_DATETIME_STATE_CYBOI_FORMAT = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-date-yymmnnn datetime state format type. */
-static int* XDT_DATE_YYMMNNN_DATETIME_STATE_FORMAT_TYPE = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xdt-date-yymmnnn datetime state cyboi format. */
+static int* XDT_DATE_YYMMNNN_DATETIME_STATE_CYBOI_FORMAT = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-date-ddmmyyyy datetime state format type. */
-static int* XDT_DATE_DDMMYYYY_DATETIME_STATE_FORMAT_TYPE = NUMBER_206_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xdt-date-ddmmyyyy datetime state cyboi format. */
+static int* XDT_DATE_DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_206_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-date-mmyy datetime state format type. */
-static int* XDT_DATE_MMYY_DATETIME_STATE_FORMAT_TYPE = NUMBER_207_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xdt-date-mmyy datetime state cyboi format. */
+static int* XDT_DATE_MMYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_207_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-date-ddmmyyyyddmmyyyy datetime state format type. */
-static int* XDT_DATE_DDMMYYYYDDMMYYYY_DATETIME_STATE_FORMAT_TYPE = NUMBER_208_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xdt-date-ddmmyyyyddmmyyyy datetime state cyboi format. */
+static int* XDT_DATE_DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_208_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-time-hhmmss datetime state format type. */
-static int* XDT_TIME_HHMMSS_DATETIME_STATE_FORMAT_TYPE = NUMBER_209_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xdt-time-hhmmss datetime state cyboi format. */
+static int* XDT_TIME_HHMMSS_DATETIME_STATE_CYBOI_FORMAT = NUMBER_209_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-time-hhmm datetime state format type. */
-static int* XDT_TIME_HHMM_DATETIME_STATE_FORMAT_TYPE = NUMBER_210_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xdt-time-hhmm datetime state cyboi format. */
+static int* XDT_TIME_HHMM_DATETIME_STATE_CYBOI_FORMAT = NUMBER_210_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // element
 //
 
-/** The part element state format type. */
-static int* PART_ELEMENT_STATE_FORMAT_TYPE = NUMBER_220_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The part element state cyboi format. */
+static int* PART_ELEMENT_STATE_CYBOI_FORMAT = NUMBER_220_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // example
 //
 
-/** The example state format type. */
-static int* EXAMPLE_STATE_FORMAT_TYPE = NUMBER_230_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The example state cyboi format. */
+static int* EXAMPLE_STATE_CYBOI_FORMAT = NUMBER_230_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // fonts
 //
 
-/** The package fonts state format type. */
-static int* PACKAGE_FONTS_STATE_FORMAT_TYPE = NUMBER_250_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The package fonts state cyboi format. */
+static int* PACKAGE_FONTS_STATE_CYBOI_FORMAT = NUMBER_250_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // image
 //
 
-/** The gif image state format type. */
-static int* GIF_IMAGE_STATE_FORMAT_TYPE = NUMBER_270_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The gif image state cyboi format. */
+static int* GIF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_270_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The jpeg image state format type. */
-static int* JPEG_IMAGE_STATE_FORMAT_TYPE = NUMBER_271_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The jpeg image state cyboi format. */
+static int* JPEG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_271_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The png image state format type. */
-static int* PNG_IMAGE_STATE_FORMAT_TYPE = NUMBER_272_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The png image state cyboi format. */
+static int* PNG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_272_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The tiff image state format type. */
-static int* TIFF_IMAGE_STATE_FORMAT_TYPE = NUMBER_273_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The tiff image state cyboi format. */
+static int* TIFF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_273_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // inode
 //
 
-/** The socket inode state format type. */
-static int* SOCKET_INODE_STATE_FORMAT_TYPE = NUMBER_280_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The socket inode state cyboi format. */
+static int* SOCKET_INODE_STATE_CYBOI_FORMAT = NUMBER_280_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // logicvalue
 //
 
-/** The boolean logicvalue state format type. */
-static int* BOOLEAN_LOGICVALUE_STATE_FORMAT_TYPE = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The boolean logicvalue state cyboi format. */
+static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // media
 //
 
-/** The vcd media state format type. */
-static int* VCD_MEDIA_STATE_FORMAT_TYPE = NUMBER_310_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The vcd media state cyboi format. */
+static int* VCD_MEDIA_STATE_CYBOI_FORMAT = NUMBER_310_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // meta
 //
 
-/** The channel meta state format type. */
-static int* CHANNEL_META_STATE_FORMAT_TYPE = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The channel meta state cyboi format. */
+static int* CHANNEL_META_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The encoding meta state format type. */
-static int* ENCODING_META_STATE_FORMAT_TYPE = NUMBER_331_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The encoding meta state cyboi format. */
+static int* ENCODING_META_STATE_CYBOI_FORMAT = NUMBER_331_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The language meta state format type. */
-static int* LANGUAGE_META_STATE_FORMAT_TYPE = NUMBER_332_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The language meta state cyboi format. */
+static int* LANGUAGE_META_STATE_CYBOI_FORMAT = NUMBER_332_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The format meta state format type. */
-static int* FORMAT_META_STATE_FORMAT_TYPE = NUMBER_333_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The format meta state cyboi format. */
+static int* FORMAT_META_STATE_CYBOI_FORMAT = NUMBER_333_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The type meta state format type. */
-static int* TYPE_META_STATE_FORMAT_TYPE = NUMBER_334_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The type meta state cyboi format. */
+static int* TYPE_META_STATE_CYBOI_FORMAT = NUMBER_334_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // model
 //
 
-/** The vrml model state format type. */
-static int* VRML_MODEL_STATE_FORMAT_TYPE = NUMBER_340_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The vrml model state cyboi format. */
+static int* VRML_MODEL_STATE_CYBOI_FORMAT = NUMBER_340_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // multipart
 //
 
-/** The mixed multipart state format type. */
-static int* MIXED_MULTIPART_STATE_FORMAT_TYPE = NUMBER_345_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The mixed multipart state cyboi format. */
+static int* MIXED_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_345_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // number
 //
 
-/** The complex-cartesian number state format type. */
-static int* COMPLEX_CARTESIAN_NUMBER_STATE_FORMAT_TYPE = NUMBER_350_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The complex-cartesian number state cyboi format. */
+static int* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT = NUMBER_350_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The complex-polar number state format type. */
-static int* COMPLEX_POLAR_NUMBER_STATE_FORMAT_TYPE = NUMBER_353_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The complex-polar number state cyboi format. */
+static int* COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT = NUMBER_353_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The fraction-decimal number state format type. */
-static int* FRACTION_DECIMAL_NUMBER_STATE_FORMAT_TYPE = NUMBER_351_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The fraction-decimal number state cyboi format. */
+static int* FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT = NUMBER_351_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The fraction-vulgar number state format type. */
-static int* FRACTION_VULGAR_NUMBER_STATE_FORMAT_TYPE = NUMBER_354_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The fraction-vulgar number state cyboi format. */
+static int* FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT = NUMBER_354_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The integer number state format type. */
-static int* INTEGER_NUMBER_STATE_FORMAT_TYPE = NUMBER_352_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The integer number state cyboi format. */
+static int* INTEGER_NUMBER_STATE_CYBOI_FORMAT = NUMBER_352_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // path
 //
 
-/** The encapsulated path state format type. */
-static int* ENCAPSULATED_PATH_STATE_FORMAT_TYPE = NUMBER_400_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The encapsulated path state cyboi format. */
+static int* ENCAPSULATED_PATH_STATE_CYBOI_FORMAT = NUMBER_400_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The knowledge path state format type. */
-static int* KNOWLEDGE_PATH_STATE_FORMAT_TYPE = NUMBER_401_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The knowledge path state cyboi format. */
+static int* KNOWLEDGE_PATH_STATE_CYBOI_FORMAT = NUMBER_401_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // print
 //
 
-/** The jobs print state format type. */
-static int* JOBS_PRINT_STATE_FORMAT_TYPE = NUMBER_410_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The jobs print state cyboi format. */
+static int* JOBS_PRINT_STATE_CYBOI_FORMAT = NUMBER_410_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // text
 //
 
-/** The ascii text state format type. */
-static int* ASCII_TEXT_STATE_FORMAT_TYPE = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The ascii text state cyboi format. */
+static int* ASCII_TEXT_STATE_CYBOI_FORMAT = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The plain text state format type. */
-static int* PLAIN_TEXT_STATE_FORMAT_TYPE = NUMBER_428_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The plain text state cyboi format. */
+static int* PLAIN_TEXT_STATE_CYBOI_FORMAT = NUMBER_428_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // uri
 //
 
-/** The mms uri state format type. */
-static int* MMS_URI_STATE_FORMAT_TYPE = NUMBER_440_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The mms uri state cyboi format. */
+static int* MMS_URI_STATE_CYBOI_FORMAT = NUMBER_440_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // video
 //
 
-/** The avi video state format type. */
-static int* AVI_VIDEO_STATE_FORMAT_TYPE = NUMBER_450_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The avi video state cyboi format. */
+static int* AVI_VIDEO_STATE_CYBOI_FORMAT = NUMBER_450_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The mp4 video state format type. */
-static int* MP4_VIDEO_STATE_FORMAT_TYPE = NUMBER_451_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The mp4 video state cyboi format. */
+static int* MP4_VIDEO_STATE_CYBOI_FORMAT = NUMBER_451_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The mpeg video state format type. */
-static int* MPEG_VIDEO_STATE_FORMAT_TYPE = NUMBER_452_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The mpeg video state cyboi format. */
+static int* MPEG_VIDEO_STATE_CYBOI_FORMAT = NUMBER_452_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The quicktime video state format type. */
-static int* QUICKTIME_VIDEO_STATE_FORMAT_TYPE = NUMBER_453_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The quicktime video state cyboi format. */
+static int* QUICKTIME_VIDEO_STATE_CYBOI_FORMAT = NUMBER_453_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The x-ms-wmv video state format type. */
-static int* X_MS_WMV_VIDEO_STATE_FORMAT_TYPE = NUMBER_454_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The x-ms-wmv video state cyboi format. */
+static int* X_MS_WMV_VIDEO_STATE_CYBOI_FORMAT = NUMBER_454_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* STATE_FORMAT_TYPE_CONSTANT_SOURCE */
+/* STATE_CYBOI_FORMAT_CONSTANT_SOURCE */
 #endif

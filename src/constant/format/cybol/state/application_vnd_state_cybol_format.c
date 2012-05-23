@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef APPLICATION_VND_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define APPLICATION_VND_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef APPLICATION_VND_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define APPLICATION_VND_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -52,14 +52,14 @@
 //
 
 /**
- * The application/vnd.ms-excel cybol type.
+ * The application/vnd.ms-excel state cybol type.
  *
  * Microsoft Excel files.
  * Suffixes: xls, xla
  */
-static wchar_t VND_MS_EXCEL_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'v', L'n', L'd', L'.', L'm', L's', L'-', L'e', L'x', L'c', L'e', L'l'};
-static wchar_t* VND_MS_EXCEL_APPLICATION_STATE_CYBOL_TYPE = VND_MS_EXCEL_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
-static int* VND_MS_EXCEL_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t VND_MS_EXCEL_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'v', L'n', L'd', L'.', L'm', L's', L'-', L'e', L'x', L'c', L'e', L'l'};
+static wchar_t* VND_MS_EXCEL_APPLICATION_STATE_CYBOL_FORMAT = VND_MS_EXCEL_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* VND_MS_EXCEL_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 application/vnd.ms-powerpoint: Microsoft Powerpoint files
@@ -67,5 +67,5 @@ application/msword: Microsoft Word files
 application/vnd.mozilla.xul+xml: Mozilla XUL files
 */
 
-/* APPLICATION_VND_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* APPLICATION_VND_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

@@ -29,7 +29,7 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/format/state_format_type.c"
+#include "../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../executor/comparator/all/part_all_comparator.c"
 #include "../../../executor/modifier/knowledge_getter/branch_part_getter.c"
 #include "../../../executor/modifier/name_getter/array_name_getter.c"
@@ -111,7 +111,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, sfd, (void*) ENCAPSULATED_PATH_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, sfd, (void*) ENCAPSULATED_PATH_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -176,7 +176,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, sfd, (void*) KNOWLEDGE_PATH_STATE_FORMAT_TYPE);
+        compare_integer_equal((void*) &r, sfd, (void*) KNOWLEDGE_PATH_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

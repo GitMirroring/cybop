@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATETIME_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define DATETIME_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef DATETIME_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define DATETIME_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,7 +55,7 @@
 //
 
 /**
- * The datetime/yyyy-mm-dd cybol type.
+ * The datetime/yyyy-mm-dd state cybol type.
  *
  * The international standard date notation is:
  * YYYY-MM-DD
@@ -70,12 +70,12 @@
  *
  * Defined in ISO 8601.
  */
-static wchar_t YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'y', L'y', L'y', L'y', L'-', L'm', L'm', L'-', L'd', L'd'};
-static wchar_t* YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE = YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t YYYY_MM_DD_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'y', L'y', L'y', L'y', L'-', L'm', L'm', L'-', L'd', L'd'};
+static wchar_t* YYYY_MM_DD_DATETIME_STATE_CYBOL_FORMAT = YYYY_MM_DD_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* YYYY_MM_DD_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The datetime/hh-mm-ss cybol type.
+ * The datetime/hh-mm-ss state cybol type.
  *
  * The international standard time of day notation is:
  * hh:mm:ss
@@ -92,12 +92,12 @@ static int* YYYY_MM_DD_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_STATE
  *
  * Defined in ISO 8601.
  */
-static wchar_t HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'h', L'h', L'-', L'm', L'm', L'-', L's', L's'};
-static wchar_t* HH_MM_SS_DATETIME_STATE_CYBOL_TYPE = HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t HH_MM_SS_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'h', L'h', L'-', L'm', L'm', L'-', L's', L's'};
+static wchar_t* HH_MM_SS_DATETIME_STATE_CYBOL_FORMAT = HH_MM_SS_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* HH_MM_SS_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The datetime/yyyymmddthhmmss cybol type.
+ * The datetime/yyyymmddthhmmss state cybol type.
  *
  * If a date and a time are displayed on the same line,
  * then the date is always written in front of the time.
@@ -110,9 +110,9 @@ static int* HH_MM_SS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_C
  *
  * Defined in ISO 8601.
  */
-static wchar_t YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'y', L'y', L'y', L'y', L'm', L'm', L'd', L'd', L't', L'h', L'h', L'm', L'm', L's', L's'};
-static wchar_t* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE = YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE_ARRAY;
-static int* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_TYPE_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'y', L'y', L'y', L'y', L'm', L'm', L'd', L'd', L't', L'h', L'h', L'm', L'm', L's', L's'};
+static wchar_t* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_FORMAT = YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* DATETIME_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* DATETIME_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

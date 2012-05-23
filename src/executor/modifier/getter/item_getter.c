@@ -87,7 +87,7 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer((void*) &r, p6, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE);
+    compare_integer((void*) &r, p6, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef APPLICATION_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define APPLICATION_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef APPLICATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define APPLICATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -62,37 +62,37 @@ application/ogg: Ogg, a multimedia bitstream container format; Defined in RFC 35
 */
 
 /**
- * The application/pdf cybol type.
+ * The application/pdf state cybol type.
  */
-static wchar_t PDF_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'p', L'd', L'f'};
-static wchar_t* PDF_APPLICATION_STATE_CYBOL_TYPE = PDF_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
-static int* PDF_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t PDF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'p', L'd', L'f'};
+static wchar_t* PDF_APPLICATION_STATE_CYBOL_FORMAT = PDF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* PDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/zip cybol type.
+ * The application/zip state cybol type.
  *
  * ZIP archive files.
  * Registered.
  * Suffixes: zip
  */
-static wchar_t ZIP_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'z', L'i', L'p'};
-static wchar_t* ZIP_APPLICATION_STATE_CYBOL_TYPE = ZIP_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
-static int* ZIP_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t ZIP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'z', L'i', L'p'};
+static wchar_t* ZIP_APPLICATION_STATE_CYBOL_FORMAT = ZIP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* ZIP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/xhtml+xml cybol type.
+ * The application/xhtml+xml state cybol type.
  *
  * XHTML archive files. Defined by RFC 3236.
  * Registered.
  * Suffixes: xhtml
  */
-static wchar_t XHTML_APPLICATION_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'h', L't', L'm', L'l'};
-static wchar_t* XHTML_APPLICATION_STATE_CYBOL_TYPE = XHTML_APPLICATION_STATE_CYBOL_TYPE_ARRAY;
-static int* XHTML_APPLICATION_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t XHTML_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'h', L't', L'm', L'l'};
+static wchar_t* XHTML_APPLICATION_STATE_CYBOL_FORMAT = XHTML_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* XHTML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 application/xml-dtd: DTD files; Defined by RFC 3023
 */
 
-/* APPLICATION_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* APPLICATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

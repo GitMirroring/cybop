@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FLOW_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
-#define FLOW_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef FLOW_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define FLOW_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,37 +55,37 @@
 //
 
 /**
- * The flow/branch cybol type.
+ * The flow/branch logic cybol format.
  *
  * Branch control flow according to a given criterion.
  *
  * This is a CYBOL extension.
  */
-static wchar_t BRANCH_FLOW_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'b', L'r', L'a', L'n', L'c', L'h'};
-static wchar_t* BRANCH_FLOW_LOGIC_CYBOL_TYPE = BRANCH_FLOW_LOGIC_CYBOL_TYPE_ARRAY;
-static int* BRANCH_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t BRANCH_FLOW_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'b', L'r', L'a', L'n', L'c', L'h'};
+static wchar_t* BRANCH_FLOW_LOGIC_CYBOL_FORMAT = BRANCH_FLOW_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* BRANCH_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The flow/loop cybol type.
+ * The flow/loop logic cybol format.
  *
  * Loop control flow until break flag is set.
  *
  * This is a CYBOL extension.
  */
-static wchar_t LOOP_FLOW_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'l', L'o', L'o', L'p'};
-static wchar_t* LOOP_FLOW_LOGIC_CYBOL_TYPE = LOOP_FLOW_LOGIC_CYBOL_TYPE_ARRAY;
-static int* LOOP_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t LOOP_FLOW_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'l', L'o', L'o', L'p'};
+static wchar_t* LOOP_FLOW_LOGIC_CYBOL_FORMAT = LOOP_FLOW_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* LOOP_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The flow/sequence cybol type.
+ * The flow/sequence logic cybol format.
  *
  * Process commands as sequence.
  *
  * This is a CYBOL extension.
  */
-static wchar_t SEQUENCE_FLOW_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L's', L'e', L'q', L'u', L'e', L'n', L'c', L'e'};
-static wchar_t* SEQUENCE_FLOW_LOGIC_CYBOL_TYPE = SEQUENCE_FLOW_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SEQUENCE_FLOW_LOGIC_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L's', L'e', L'q', L'u', L'e', L'n', L'c', L'e'};
+static wchar_t* SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT = SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* FLOW_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
+/* FLOW_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

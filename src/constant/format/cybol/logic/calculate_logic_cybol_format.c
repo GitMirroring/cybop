@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CALCULATE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
-#define CALCULATE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef CALCULATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define CALCULATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,7 +55,7 @@
 //
 
 /**
- * The calculate/absolute cybol type.
+ * The calculate/absolute logic cybol format.
  *
  * Determine the absolute value of a number.
  *
@@ -63,12 +63,12 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t ABSOLUTE_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'a', L'b', L's', L'o', L'l', L'u', L't', L'e'};
-static wchar_t* ABSOLUTE_CALCULATE_LOGIC_CYBOL_TYPE = ABSOLUTE_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'a', L'b', L's', L'o', L'l', L'u', L't', L'e'};
+static wchar_t* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT = ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The calculate/add cybol type.
+ * The calculate/add logic cybol format.
  *
  * Add two numbers.
  *
@@ -76,12 +76,12 @@ static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_
  *
  * This is a CYBOL extension.
  */
-static wchar_t ADD_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'a', L'd', L'd'};
-static wchar_t* ADD_CALCULATE_LOGIC_CYBOL_TYPE = ADD_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* ADD_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t ADD_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'a', L'd', L'd'};
+static wchar_t* ADD_CALCULATE_LOGIC_CYBOL_FORMAT = ADD_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The calculate/divide cybol type.
+ * The calculate/divide logic cybol format.
  *
  * Divide a number by another.
  *
@@ -89,12 +89,12 @@ static int* ADD_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI
  *
  * This is a CYBOL extension.
  */
-static wchar_t DIVIDE_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'd', L'i', L'v', L'i', L'd', L'e'};
-static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_TYPE = DIVIDE_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* DIVIDE_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'd', L'i', L'v', L'i', L'd', L'e'};
+static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT = DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The calculate/multiply cybol type.
+ * The calculate/multiply logic cybol format.
  *
  * Multiply two numbers.
  *
@@ -102,12 +102,12 @@ static int* DIVIDE_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CY
  *
  * This is a CYBOL extension.
  */
-static wchar_t MULTIPLY_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'm', L'u', L'l', L't', L'i', L'p', L'l', L'y'};
-static wchar_t* MULTIPLY_CALCULATE_LOGIC_CYBOL_TYPE = MULTIPLY_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'm', L'u', L'l', L't', L'i', L'p', L'l', L'y'};
+static wchar_t* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT = MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The calculate/negate cybol type.
+ * The calculate/negate logic cybol format.
  *
  * Negate a number (altering the sign).
  *
@@ -115,12 +115,12 @@ static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_
  *
  * This is a CYBOL extension.
  */
-static wchar_t NEGATE_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'n', L'e', L'g', L'a', L't', L'e'};
-static wchar_t* NEGATE_CALCULATE_LOGIC_CYBOL_TYPE = NEGATE_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* NEGATE_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'n', L'e', L'g', L'a', L't', L'e'};
+static wchar_t* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT = NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The calculate/reduce cybol type.
+ * The calculate/reduce logic cybol format.
  *
  * Reduce a fraction to the lowest common denominator.
  *
@@ -128,12 +128,12 @@ static int* NEGATE_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CY
  *
  * This is a CYBOL extension.
  */
-static wchar_t REDUCE_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L'd', L'u', L'c', L'e'};
-static wchar_t* REDUCE_CALCULATE_LOGIC_CYBOL_TYPE = REDUCE_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* REDUCE_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L'd', L'u', L'c', L'e'};
+static wchar_t* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT = REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The calculate/remainder cybol type.
+ * The calculate/remainder logic cybol format.
  *
  * Calculate the remainder of the division of two numbers.
  *
@@ -141,12 +141,12 @@ static int* REDUCE_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CY
  *
  * This is a CYBOL extension.
  */
-static wchar_t REMAINDER_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L'm', L'a', L'i', L'n', L'd', L'e', L'r'};
-static wchar_t* REMAINDER_CALCULATE_LOGIC_CYBOL_TYPE = REMAINDER_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* REMAINDER_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t REMAINDER_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L'm', L'a', L'i', L'n', L'd', L'e', L'r'};
+static wchar_t* REMAINDER_CALCULATE_LOGIC_CYBOL_FORMAT = REMAINDER_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* REMAINDER_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The calculate/subtract cybol type.
+ * The calculate/subtract logic cybol format.
  *
  * Subtract a number from another.
  *
@@ -154,9 +154,9 @@ static int* REMAINDER_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_STATE
  *
  * This is a CYBOL extension.
  */
-static wchar_t SUBTRACT_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L's', L'u', L'b', L't', L'r', L'a', L'c', L't'};
-static wchar_t* SUBTRACT_CALCULATE_LOGIC_CYBOL_TYPE = SUBTRACT_CALCULATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SUBTRACT_CALCULATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L's', L'u', L'b', L't', L'r', L'a', L'c', L't'};
+static wchar_t* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT = SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* CALCULATE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
+/* CALCULATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

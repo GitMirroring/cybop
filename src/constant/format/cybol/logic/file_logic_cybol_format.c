@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FILE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
-#define FILE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef FILE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define FILE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,37 +55,37 @@
 //
 
 /**
- * The file/archive cybol type.
+ * The file/archive logic cybol format.
  *
  * Archive the given files into a packed format.
  *
  * This is a CYBOL extension.
  */
-static wchar_t ARCHIVE_FILE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'a', L'r', L'c', L'h', L'i', L'v', L'e'};
-static wchar_t* ARCHIVE_FILE_LOGIC_CYBOL_TYPE = ARCHIVE_FILE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* ARCHIVE_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t ARCHIVE_FILE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'a', L'r', L'c', L'h', L'i', L'v', L'e'};
+static wchar_t* ARCHIVE_FILE_LOGIC_CYBOL_FORMAT = ARCHIVE_FILE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* ARCHIVE_FILE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The file/copy cybol type.
+ * The file/copy logic cybol format.
  *
  * Copy the given file into another.
  *
  * This is a CYBOL extension.
  */
-static wchar_t COPY_FILE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'c', L'o', L'p', L'y'};
-static wchar_t* COPY_FILE_LOGIC_CYBOL_TYPE = COPY_FILE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* COPY_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t COPY_FILE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'c', L'o', L'p', L'y'};
+static wchar_t* COPY_FILE_LOGIC_CYBOL_FORMAT = COPY_FILE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* COPY_FILE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The file/list-directory-contents cybol type.
+ * The file/list-directory-contents logic cybol format.
  *
  * List contents of the given directory.
  *
  * This is a CYBOL extension.
  */
-static wchar_t LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'l', L'i', L's', L't', L'-', L'd', L'i', L'r', L'e', L'c', L't', L'o', L'r', L'y', L'-', L'c', L'o', L'n', L't', L'e', L'n', L't', L's'};
-static wchar_t* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_TYPE = LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_28_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'f', L'i', L'l', L'e', L'/', L'l', L'i', L's', L't', L'-', L'd', L'i', L'r', L'e', L'c', L't', L'o', L'r', L'y', L'-', L'c', L'o', L'n', L't', L'e', L'n', L't', L's'};
+static wchar_t* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_FORMAT = LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_28_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* FILE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
+/* FILE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

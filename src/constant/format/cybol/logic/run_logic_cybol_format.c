@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RUN_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
-#define RUN_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef RUN_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define RUN_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,15 +55,15 @@
 //
 
 /**
- * The run/run cybol type.
+ * The run/run logic cybol format.
  *
  * Run the given programme.
  *
  * This is a CYBOL extension.
  */
-static wchar_t RUN_LOGIC_CYBOL_TYPE_ARRAY[] = {L'r', L'u', L'n', L'/', L'r', L'u', L'n'};
-static wchar_t* RUN_LOGIC_CYBOL_TYPE = RUN_LOGIC_CYBOL_TYPE_ARRAY;
-static int* RUN_LOGIC_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t RUN_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'r', L'u', L'n', L'/', L'r', L'u', L'n'};
+static wchar_t* RUN_LOGIC_CYBOL_FORMAT = RUN_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* RUN_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
+/* RUN_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

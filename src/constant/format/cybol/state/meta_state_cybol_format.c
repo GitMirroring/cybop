@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef META_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define META_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef META_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define META_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -56,49 +56,49 @@
 //
 
 /**
- * The meta/channel cybol type.
+ * The meta/channel state cybol type.
  *
  * This is a CYBOL extension.
  */
-static wchar_t CHANNEL_META_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
-static wchar_t* CHANNEL_META_STATE_CYBOL_TYPE = CHANNEL_META_STATE_CYBOL_TYPE_ARRAY;
-static int* CHANNEL_META_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t CHANNEL_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
+static wchar_t* CHANNEL_META_STATE_CYBOL_FORMAT = CHANNEL_META_STATE_CYBOL_FORMAT_ARRAY;
+static int* CHANNEL_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The meta/encoding cybol type.
+ * The meta/encoding state cybol type.
  *
  * This is a CYBOL extension.
  */
-static wchar_t ENCODING_META_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'e', L'n', L'c', L'o', L'd', L'i', L'n', L'g'};
-static wchar_t* ENCODING_META_STATE_CYBOL_TYPE = ENCODING_META_STATE_CYBOL_TYPE_ARRAY;
-static int* ENCODING_META_STATE_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t ENCODING_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'e', L'n', L'c', L'o', L'd', L'i', L'n', L'g'};
+static wchar_t* ENCODING_META_STATE_CYBOL_FORMAT = ENCODING_META_STATE_CYBOL_FORMAT_ARRAY;
+static int* ENCODING_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The meta/language cybol type.
+ * The meta/language state cybol type.
  *
  * This is a CYBOL extension.
  */
-static wchar_t LANGUAGE_META_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'l', L'a', L'n', L'g', L'u', L'a', L'g', L'e'};
-static wchar_t* LANGUAGE_META_STATE_CYBOL_TYPE = LANGUAGE_META_STATE_CYBOL_TYPE_ARRAY;
-static int* LANGUAGE_META_STATE_CYBOL_TYPE_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t LANGUAGE_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'l', L'a', L'n', L'g', L'u', L'a', L'g', L'e'};
+static wchar_t* LANGUAGE_META_STATE_CYBOL_FORMAT = LANGUAGE_META_STATE_CYBOL_FORMAT_ARRAY;
+static int* LANGUAGE_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The meta/format cybol type.
+ * The meta/format state cybol type.
  *
  * This is a CYBOL extension.
  */
-static wchar_t FORMAT_META_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'f', L'o', L'r', L'm', L'a', L't'};
-static wchar_t* FORMAT_META_STATE_CYBOL_TYPE = FORMAT_META_STATE_CYBOL_TYPE_ARRAY;
-static int* FORMAT_META_STATE_CYBOL_TYPE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t FORMAT_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'f', L'o', L'r', L'm', L'a', L't'};
+static wchar_t* FORMAT_META_STATE_CYBOL_FORMAT = FORMAT_META_STATE_CYBOL_FORMAT_ARRAY;
+static int* FORMAT_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The meta/type cybol type.
+ * The meta/type state cybol type.
  *
  * This is a CYBOL extension.
  */
-static wchar_t TYPE_META_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L't', L'y', L'p', L'e'};
-static wchar_t* TYPE_META_STATE_CYBOL_TYPE = TYPE_META_STATE_CYBOL_TYPE_ARRAY;
-static int* TYPE_META_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t TYPE_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L't', L'y', L'p', L'e'};
+static wchar_t* TYPE_META_STATE_CYBOL_FORMAT = TYPE_META_STATE_CYBOL_FORMAT_ARRAY;
+static int* TYPE_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* META_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* META_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

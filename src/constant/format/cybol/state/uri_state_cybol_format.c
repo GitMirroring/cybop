@@ -35,11 +35,11 @@
 //
 
 /**
- * The uri/mms cybol type.
+ * The uri/mms state cybol type.
  */
-static wchar_t MMS_URI_STATE_CYBOL_TYPE_ARRAY[] = {L'u', L'r', L'i', L'/', L'm', L'm', L's'};
-static wchar_t* MMS_URI_STATE_CYBOL_TYPE = MMS_URI_STATE_CYBOL_TYPE_ARRAY;
-static int* MMS_URI_STATE_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t MMS_URI_STATE_CYBOL_FORMAT_ARRAY[] = {L'u', L'r', L'i', L'/', L'm', L'm', L's'};
+static wchar_t* MMS_URI_STATE_CYBOL_FORMAT = MMS_URI_STATE_CYBOL_FORMAT_ARRAY;
+static int* MMS_URI_STATE_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* URI_MIME_TYPE_CONSTANTS_SOURCE */
 #endif

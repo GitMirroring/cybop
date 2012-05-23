@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EXAMPLE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define EXAMPLE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef EXAMPLE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define EXAMPLE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -52,13 +52,13 @@
 //
 
 /**
- * The example cybol type.
+ * The example state cybol type.
  *
  * This is just offered by IANA for testing reasons.
  */
-static wchar_t EXAMPLE_STATE_CYBOL_TYPE_ARRAY[] = {L'e', L'x', L'a', L'm', L'p', L'l', L'e'};
-static wchar_t* EXAMPLE_STATE_CYBOL_TYPE = EXAMPLE_STATE_CYBOL_TYPE_ARRAY;
-static int* EXAMPLE_STATE_CYBOL_TYPE_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t EXAMPLE_STATE_CYBOL_FORMAT_ARRAY[] = {L'e', L'x', L'a', L'm', L'p', L'l', L'e'};
+static wchar_t* EXAMPLE_STATE_CYBOL_FORMAT = EXAMPLE_STATE_CYBOL_FORMAT_ARRAY;
+static int* EXAMPLE_STATE_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* EXAMPLE_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* EXAMPLE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

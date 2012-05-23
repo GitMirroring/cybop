@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TEXT_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define TEXT_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef TEXT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define TEXT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -53,7 +53,7 @@
 //
 
 /**
- * The text/ascii cybol type.
+ * The text/ascii state cybol type.
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
@@ -61,12 +61,12 @@
  *
  * It is used for single-byte-characters in CYBOL.
  */
-static wchar_t ASCII_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'a', L's', L'c', L'i', L'i'};
-static wchar_t* ASCII_TEXT_STATE_CYBOL_TYPE = ASCII_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* ASCII_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t ASCII_TEXT_STATE_CYBOL_FORMAT_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'a', L's', L'c', L'i', L'i'};
+static wchar_t* ASCII_TEXT_STATE_CYBOL_FORMAT = ASCII_TEXT_STATE_CYBOL_FORMAT_ARRAY;
+static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/plain cybol type.
+ * The text/plain state cybol type.
  *
  * Textual data.
  * Defined in RFC 2046 and RFC 3676.
@@ -74,9 +74,9 @@ static int* ASCII_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MO
  *
  * This language (media type) is also used for strings (character vectors) in CYBOL.
  */
-static wchar_t PLAIN_TEXT_STATE_CYBOL_TYPE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'p', L'l', L'a', L'i', L'n'};
-static wchar_t* PLAIN_TEXT_STATE_CYBOL_TYPE = PLAIN_TEXT_STATE_CYBOL_TYPE_ARRAY;
-static int* PLAIN_TEXT_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t PLAIN_TEXT_STATE_CYBOL_FORMAT_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'p', L'l', L'a', L'i', L'n'};
+static wchar_t* PLAIN_TEXT_STATE_CYBOL_FORMAT = PLAIN_TEXT_STATE_CYBOL_FORMAT_ARRAY;
+static int* PLAIN_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* TEXT_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* TEXT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

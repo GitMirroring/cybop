@@ -143,10 +143,10 @@ void compare_all_part_all(void* p0, void* p1, void* p2, void* p3) {
     // Overwrite left- with right part model item.
     // CAUTION! Do NOT use the basic function "compare_item" here,
     // since it does not compare the item counts.
-    compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    compare_all_item((void*) &ar, la, ra, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    compare_all_item((void*) &ar, la, ra, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     compare_all_item((void*) &mr, lm, rm, p3, rad);
-    compare_all_item((void*) &dr, ld, rd, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    compare_all_item((void*) &dr, ld, rd, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
         && (ar == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)

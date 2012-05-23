@@ -26,7 +26,7 @@
 #ifndef COMPARATOR_TESTER
 #define COMPARATOR_TESTER
 
-#include "../constant/type/cyboi/cyboi_type.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/comparator/all/array_all_comparator.c"
 #include "../executor/comparator/all/part_all_comparator.c"
 #include "../executor/comparator/prefix/array_prefix_comparator.c"
@@ -67,57 +67,57 @@ void test_comparator_array() {
 
     // All.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_all_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello, World!", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
+    compare_all_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello, World!", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST all true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_all_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello World!", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
+    compare_all_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello World!", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST all false r: %i\n", r);
 
     // Prefix.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_prefix_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hell", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+    compare_prefix_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hell", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST prefix true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_prefix_array((void*) &r, (void*) L"Hello, World!", (void*) L"ello", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+    compare_prefix_array((void*) &r, (void*) L"Hello, World!", (void*) L"ello", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST prefix false r: %i\n", r);
 
     // Suffix.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_suffix_array((void*) &r, (void*) L"Hello, World!", (void*) L"World!", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
+    compare_suffix_array((void*) &r, (void*) L"Hello, World!", (void*) L"World!", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST suffix true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_suffix_array((void*) &r, (void*) L"Hello, World!", (void*) L"World", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
+    compare_suffix_array((void*) &r, (void*) L"Hello, World!", (void*) L"World", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST suffix false r: %i\n", r);
 
     // Subsequence.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello, World!", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"Hello, World!", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence complete word true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o, Wor", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o, Wor", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence letters middle true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence one letter true r: %i\n", r);
     // The following is a crash test.
     // The right array "o" count is too high (100).
     // But since the counts are compared inside,
     // the array boundaries are not crossed and errors prevented.
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_100_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"o", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_100_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence count false r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"blubla", (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
+    compare_subsequence_array((void*) &r, (void*) L"Hello, World!", (void*) L"blubla", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST subsequence different words false r: %i\n", r);
 
     // Integer equal, smaller or equal, greater.
     int i1 = *NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
     int* i2 = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST integer equal false r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST integer smaller or equal true r: %i\n", r);
     r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     compare_all_array((void*) &r, (void*) &i1, (void*) i2, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -254,9 +254,9 @@ void test_comparator_part() {
     // - one (or two) and four differ in their model
     //   (wide character array of a contained part)
     //
-    compare_all_part((void*) &r1, w1, w2, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    compare_all_part((void*) &r2, w1, w3, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    compare_all_part((void*) &r3, w1, w4, (void*) EQUAL_COMPARE_LOGIC_FORMAT_TYPE, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    compare_all_part((void*) &r1, w1, w2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    compare_all_part((void*) &r2, w1, w3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    compare_all_part((void*) &r3, w1, w4, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"TEST r1: %i\n", r1);
     fwprintf(stdout, L"TEST r2: %i\n", r2);

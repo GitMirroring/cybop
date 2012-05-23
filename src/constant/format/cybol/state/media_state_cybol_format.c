@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MEDIA_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define MEDIA_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef MEDIA_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define MEDIA_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -35,11 +35,11 @@
 //
 
 /**
- * The media/vcd cybol type.
+ * The media/vcd state cybol type.
  */
-static wchar_t VCD_MEDIA_STATE_CYBOL_TYPE_ARRAY[] = {L'm', L'e', L'd', L'i', L'a', L'/', L'v', L'c', L'd'};
-static wchar_t* VCD_MEDIA_STATE_CYBOL_TYPE = VCD_MEDIA_STATE_CYBOL_TYPE_ARRAY;
-static int* VCD_MEDIA_STATE_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t VCD_MEDIA_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L'd', L'i', L'a', L'/', L'v', L'c', L'd'};
+static wchar_t* VCD_MEDIA_STATE_CYBOL_FORMAT = VCD_MEDIA_STATE_CYBOL_FORMAT_ARRAY;
+static int* VCD_MEDIA_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* MEDIA_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* MEDIA_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

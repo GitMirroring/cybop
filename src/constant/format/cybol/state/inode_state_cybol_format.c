@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INODE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define INODE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef INODE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define INODE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -35,11 +35,11 @@
 //
 
 /**
- * The inode/socket cybol type.
+ * The inode/socket state cybol type.
  */
-static wchar_t SOCKET_INODE_STATE_CYBOL_TYPE_ARRAY[] = {L'i', L'n', L'o', L'd', L'e', L'/', L's', L'o', L'c', L'k', L'e', L't'};
-static wchar_t* SOCKET_INODE_STATE_CYBOL_TYPE = SOCKET_INODE_STATE_CYBOL_TYPE_ARRAY;
-static int* SOCKET_INODE_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t SOCKET_INODE_STATE_CYBOL_FORMAT_ARRAY[] = {L'i', L'n', L'o', L'd', L'e', L'/', L's', L'o', L'c', L'k', L'e', L't'};
+static wchar_t* SOCKET_INODE_STATE_CYBOL_FORMAT = SOCKET_INODE_STATE_CYBOL_FORMAT_ARRAY;
+static int* SOCKET_INODE_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* INODE_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* INODE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

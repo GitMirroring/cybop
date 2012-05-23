@@ -27,13 +27,12 @@
 #define INITIALISER_SOURCE
 
 #include "../constant/encoding/cyboi/cyboi_encoding.c"
-#include "../constant/language/cybol/state/text_state_cybol_language.c"
+#include "../constant/language/cyboi/state_cyboi_language.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/type/cybol/state/text_state_cybol_type.c"
-#include "../constant/type/format/state_format_type.c"
+#include "../constant/format/cyboi/state_cyboi_format.c"
 #include "../controller/checker.c"
 #include "../executor/communicator/receiver/file/file_receiver.c"
 #include "../executor/memoriser/allocator/part_allocator.c"
@@ -70,7 +69,7 @@ void initialise(void* p0, void* p1, void* p2) {
     // CAUTION! A name is not necessary, since only
     // the actual model and properties are of interest.
     // CAUTION! The model and properties are received below.
-    overwrite_part_element(s, (void*) PART_ELEMENT_STATE_FORMAT_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(s, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
 
     // Get startup signal part model, properties.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -86,7 +85,7 @@ void initialise(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &mc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Receive startup signal model, properties.
-    receive_file(sm, sp, md, mc, (void*) PART_ELEMENT_STATE_FORMAT_TYPE, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING);
+    receive_file(sm, sp, md, mc, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING);
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add startup signal to signal memory.");

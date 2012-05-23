@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
-#include "../../../../constant/type/cybol/state/text_state_cybol_type.c"
+#include "../../../../constant/format/cybol/state/text_state_cybol_format.c"
 #include "../../../../executor/communicator/receiver/inline_receiver.c"
 #include "../../../../executor/representer/deserialiser/uri/percent_encoding_vector_deserialiser.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
@@ -96,7 +96,7 @@ void deserialise_http_request_uri_content(void* p0, void* p1, void* p2) {
     // Fill uri part.
     overwrite_part_element(p, (void*) URI_HTTP_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) URI_HTTP_CYBOI_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-//??    receive_inline(pm, pd, cd, (void*) &cc, (void*) URI_TEXT_STATE_CYBOL_TYPE);
+//??    receive_inline(pm, pd, cd, (void*) &cc, (void*) URI_TEXT_STATE_CYBOL_FORMAT);
 
     // Deallocate character data.
     deallocate_array((void*) &cd, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

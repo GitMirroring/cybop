@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LOGICVALUE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define LOGICVALUE_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef LOGICVALUE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define LOGICVALUE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -54,20 +54,20 @@
 //
 
 /**
- * The logicvalue/boolean cybol type.
+ * The logicvalue/boolean state cybol type.
  *
  * Classical logic with the only possible truth values "true" and "false".
  *
  * This is a CYBOL extension.
  */
-static wchar_t BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE_ARRAY[] = {L'l', L'o', L'g', L'i', L'c', L'v', L'a', L'l', L'u', L'e', L'/', L'b', L'o', L'o', L'l', L'e', L'a', L'n'};
-static wchar_t* BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE = BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE_ARRAY;
-static int* BOOLEAN_LOGICVALUE_STATE_CYBOL_TYPE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'c', L'v', L'a', L'l', L'u', L'e', L'/', L'b', L'o', L'o', L'l', L'e', L'a', L'n'};
+static wchar_t* BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT = BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT_ARRAY;
+static int* BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 three-valued logic
 fuzzy logic
 */
 
-/* LOGICVALUE_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* LOGICVALUE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ELEMENT_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define ELEMENT_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef ELEMENT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define ELEMENT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,14 +55,14 @@
 //
 
 /**
- * The element/part cybol type.
+ * The element/part state cybol type.
  *
  * Defined in CYBOL specification:
  * http://cybop.berlios.de/books/cybol/cybol.pdf
  */
-static wchar_t PART_ELEMENT_STATE_CYBOL_TYPE_ARRAY[] = {L'e', L'l', L'e', L'm', L'e', L'n', L't', L'/', L'p', L'a', L'r', L't'};
-static wchar_t* PART_ELEMENT_STATE_CYBOL_TYPE = PART_ELEMENT_STATE_CYBOL_TYPE_ARRAY;
-static int* PART_ELEMENT_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t PART_ELEMENT_STATE_CYBOL_FORMAT_ARRAY[] = {L'e', L'l', L'e', L'm', L'e', L'n', L't', L'/', L'p', L'a', L'r', L't'};
+static wchar_t* PART_ELEMENT_STATE_CYBOL_FORMAT = PART_ELEMENT_STATE_CYBOL_FORMAT_ARRAY;
+static int* PART_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* ELEMENT_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* ELEMENT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

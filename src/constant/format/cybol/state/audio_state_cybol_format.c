@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef AUDIO_STATE_CYBOL_TYPE_CONSTANT_SOURCE
-#define AUDIO_STATE_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef AUDIO_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define AUDIO_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -53,15 +53,15 @@
 //
 
 /**
- * The audio/mpeg cybol type.
+ * The audio/mpeg state cybol type.
  *
  * MP3 or other MPEG audio.
  * Defined in RFC 3003.
  * Suffixes: mpeg
  */
-static wchar_t MPEG_AUDIO_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'm', L'p', L'e', L'g'};
-static wchar_t* MPEG_AUDIO_STATE_CYBOL_TYPE = MPEG_AUDIO_STATE_CYBOL_TYPE_ARRAY;
-static int* MPEG_AUDIO_STATE_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t MPEG_AUDIO_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'm', L'p', L'e', L'g'};
+static wchar_t* MPEG_AUDIO_STATE_CYBOL_FORMAT = MPEG_AUDIO_STATE_CYBOL_FORMAT_ARRAY;
+static int* MPEG_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 audio/x-ms-wma: Windows Media Audio; Documented in Microsoft KB 288102
@@ -70,11 +70,11 @@ audio/x-wav: WAV audio
 */
 
 /**
- * The audio/vorbis cybol type.
+ * The audio/vorbis state cybol type.
  */
-static wchar_t VORBIS_AUDIO_STATE_CYBOL_TYPE_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'v', L'o', L'r', L'b', L'i', L's'};
-static wchar_t* VORBIS_AUDIO_STATE_CYBOL_TYPE = VORBIS_AUDIO_STATE_CYBOL_TYPE_ARRAY;
-static int* VORBIS_AUDIO_STATE_CYBOL_TYPE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t VORBIS_AUDIO_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'v', L'o', L'r', L'b', L'i', L's'};
+static wchar_t* VORBIS_AUDIO_STATE_CYBOL_FORMAT = VORBIS_AUDIO_STATE_CYBOL_FORMAT_ARRAY;
+static int* VORBIS_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* AUDIO_STATE_CYBOL_TYPE_CONSTANT_SOURCE */
+/* AUDIO_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

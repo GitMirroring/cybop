@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LIVE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
-#define LIVE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef LIVE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define LIVE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,37 +55,37 @@
 //
 
 /**
- * The live/exit cybol type.
+ * The live/exit logic cybol format.
  *
  * Exit the cyboi system.
  *
  * This is a CYBOL extension.
  */
-static wchar_t EXIT_LIVE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L'e', L'x', L'i', L't'};
-static wchar_t* EXIT_LIVE_LOGIC_CYBOL_TYPE = EXIT_LIVE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* EXIT_LIVE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t EXIT_LIVE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L'e', L'x', L'i', L't'};
+static wchar_t* EXIT_LIVE_LOGIC_CYBOL_FORMAT = EXIT_LIVE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* EXIT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The live/interrupt cybol type.
+ * The live/interrupt logic cybol format.
  *
  * Interrupt a sensing operation.
  *
  * This is a CYBOL extension.
  */
-static wchar_t INTERRUPT_LIVE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L'i', L'n', L't', L'e', L'r', L'r', L'u', L'p', L't'};
-static wchar_t* INTERRUPT_LIVE_LOGIC_CYBOL_TYPE = INTERRUPT_LIVE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* INTERRUPT_LIVE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L'i', L'n', L't', L'e', L'r', L'r', L'u', L'p', L't'};
+static wchar_t* INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT = INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The live/sense cybol type.
+ * The live/sense logic cybol format.
  *
  * Wait for and sense input signals.
  *
  * This is a CYBOL extension.
  */
-static wchar_t SENSE_LIVE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L's', L'e', L'n', L's', L'e'};
-static wchar_t* SENSE_LIVE_LOGIC_CYBOL_TYPE = SENSE_LIVE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SENSE_LIVE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t SENSE_LIVE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L's', L'e', L'n', L's', L'e'};
+static wchar_t* SENSE_LIVE_LOGIC_CYBOL_FORMAT = SENSE_LIVE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* SENSE_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* LIVE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
+/* LIVE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

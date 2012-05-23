@@ -54,7 +54,7 @@
 //
 
 /**
- * The path/encapsulated cybol type.
+ * The path/encapsulated state cybol type.
  *
  * A knowledge path pointing to an item of a knowledge tree,
  * that contains a knowledge path.
@@ -66,12 +66,12 @@
  *
  * The same rules as for the "path/knowledge" language apply here.
  */
-static wchar_t ENCAPSULATED_PATH_STATE_CYBOL_TYPE_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd'};
-static wchar_t* ENCAPSULATED_PATH_STATE_CYBOL_TYPE = ENCAPSULATED_PATH_STATE_CYBOL_TYPE_ARRAY;
-static int* ENCAPSULATED_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t ENCAPSULATED_PATH_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd'};
+static wchar_t* ENCAPSULATED_PATH_STATE_CYBOL_FORMAT = ENCAPSULATED_PATH_STATE_CYBOL_FORMAT_ARRAY;
+static int* ENCAPSULATED_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The path/knowledge cybol type.
+ * The path/knowledge state cybol type.
  *
  * A knowledge path pointing to an item of a knowledge tree, whereby:
  * - "part" tree node names are dot (.) separated
@@ -85,9 +85,9 @@ static int* ENCAPSULATED_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_17_INTEGER_STATE_C
  * points to the meta property "background colour" of the
  * knowledge tree item ".application.gui.menu_bar.file_menu"
  */
-static wchar_t KNOWLEDGE_PATH_STATE_CYBOL_TYPE_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'k', L'n', L'o', L'w', L'l', L'e', L'd', L'g', L'e'};
-static wchar_t* KNOWLEDGE_PATH_STATE_CYBOL_TYPE = KNOWLEDGE_PATH_STATE_CYBOL_TYPE_ARRAY;
-static int* KNOWLEDGE_PATH_STATE_CYBOL_TYPE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'k', L'n', L'o', L'w', L'l', L'e', L'd', L'g', L'e'};
+static wchar_t* KNOWLEDGE_PATH_STATE_CYBOL_FORMAT = KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_ARRAY;
+static int* KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CYBOL_PATH_LANGUAGE_CONSTANTS_SOURCE */
 #endif

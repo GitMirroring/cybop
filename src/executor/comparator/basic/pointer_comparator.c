@@ -69,7 +69,7 @@ void compare_pointer(void* p0, void* p1, void* p2, void* p3) {
 
                     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        if (*a == *EQUAL_COMPARE_LOGIC_FORMAT_TYPE) {
+                        if (*a == *EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                             r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -108,7 +108,7 @@ void compare_pointer(void* p0, void* p1, void* p2, void* p3) {
 
                     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_FORMAT_TYPE) {
+                        if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                             r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -121,7 +121,7 @@ void compare_pointer(void* p0, void* p1, void* p2, void* p3) {
 
                     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_FORMAT_TYPE) {
+                        if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                             r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COMMUNICATE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
-#define COMMUNICATE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE
+#ifndef COMMUNICATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define COMMUNICATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -55,26 +55,26 @@
 //
 
 /**
- * The communicate/receive cybol type.
+ * The communicate/receive logic cybol format.
  *
  * Receive data via a communication channel.
  *
  * This is a CYBOL extension.
  */
-static wchar_t RECEIVE_COMMUNICATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'm', L'm', L'u', L'n', L'i', L'c', L'a', L't', L'e', L'/', L'r', L'e', L'c', L'e', L'i', L'v', L'e'};
-static wchar_t* RECEIVE_COMMUNICATE_LOGIC_CYBOL_TYPE = RECEIVE_COMMUNICATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'u', L'n', L'i', L'c', L'a', L't', L'e', L'/', L'r', L'e', L'c', L'e', L'i', L'v', L'e'};
+static wchar_t* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT = RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The communicate/send cybol type.
+ * The communicate/send logic cybol format.
  *
  * Send data via a communication channel.
  *
  * This is a CYBOL extension.
  */
-static wchar_t SEND_COMMUNICATE_LOGIC_CYBOL_TYPE_ARRAY[] = {L'c', L'o', L'm', L'm', L'u', L'n', L'i', L'c', L'a', L't', L'e', L'/', L's', L'e', L'n', L'd'};
-static wchar_t* SEND_COMMUNICATE_LOGIC_CYBOL_TYPE = SEND_COMMUNICATE_LOGIC_CYBOL_TYPE_ARRAY;
-static int* SEND_COMMUNICATE_LOGIC_CYBOL_TYPE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t SEND_COMMUNICATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'u', L'n', L'i', L'c', L'a', L't', L'e', L'/', L's', L'e', L'n', L'd'};
+static wchar_t* SEND_COMMUNICATE_LOGIC_CYBOL_FORMAT = SEND_COMMUNICATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* SEND_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* COMMUNICATE_LOGIC_CYBOL_TYPE_CONSTANT_SOURCE */
+/* COMMUNICATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif
