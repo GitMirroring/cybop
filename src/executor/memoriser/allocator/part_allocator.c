@@ -80,6 +80,8 @@ fwprintf(stdout, L"TEST allocate part 0: %i\n", p0);
 fwprintf(stdout, L"TEST allocate part 1: %i\n", p0);
         allocate_item((void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 fwprintf(stdout, L"TEST allocate part 2: %i\n", p0);
+fwprintf(stdout, L"TEST allocate part 2 &c: %i\n", &c);
+fwprintf(stdout, L"TEST allocate part 2 c: %i\n", c);
         allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 fwprintf(stdout, L"TEST allocate part 3: %i\n", p0);
         allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

@@ -59,13 +59,9 @@ fwprintf(stdout, L"TEST allocate item 1: %i\n", p0);
         void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate data, count, size.
-fwprintf(stdout, L"TEST allocate item 2: %i\n", p0);
         allocate_array((void*) &d, p1, p2);
-fwprintf(stdout, L"TEST allocate item 3: %i\n", p0);
         allocate_array((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST allocate item 4: %i\n", p0);
         allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST allocate item 5: %i\n", p0);
 
         // Initialise count, size.
         // The data does NOT have to be initialised and remains empty.

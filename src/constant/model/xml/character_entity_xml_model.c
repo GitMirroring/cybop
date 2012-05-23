@@ -21,6 +21,8 @@
  *
  * @version CYBOP 0.11.0 2012-01-01
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Thomas Thiele
+ * @author Friedemann Simon
  */
 
 #ifndef CHARACTER_ENTITY_XML_MODEL_CONSTANT_SOURCE
@@ -55,10 +57,11 @@ static wchar_t GREATER_THAN_SIGN_CHARACTER_ENTITY_XML_MODEL_ARRAY[] = {L'g', L't
 static wchar_t* GREATER_THAN_SIGN_CHARACTER_ENTITY_XML_MODEL = GREATER_THAN_SIGN_CHARACTER_ENTITY_XML_MODEL_ARRAY;
 static int* GREATER_THAN_SIGN_CHARACTER_ENTITY_XML_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* Begin Thiele, Thomas and Simon, Friedemann */
-/* Greek Letters */
+//
+// Greek letters
+//
 
-/** The	small alpha character entity xml model. */
+/** The small alpha character entity xml model. */
 static wchar_t SMALL_ALPHA_CHARACTER_ENTITY_XML_MODEL_ARRAY[] = {L'a', L'g', L'r'};
 static wchar_t* SMALL_ALPHA_CHARACTER_ENTITY_XML_MODEL = SMALL_ALPHA_CHARACTER_ENTITY_XML_MODEL_ARRAY;
 static int* SMALL_ALPHA_CHARACTER_ENTITY_XML_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -303,7 +306,9 @@ static wchar_t CAPITAL_OMEGA_CHARACTER_ENTITY_XML_MODEL_ARRAY[] = {L'O', L'H', L
 static wchar_t* CAPITAL_OMEGA_CHARACTER_ENTITY_XML_MODEL = CAPITAL_OMEGA_CHARACTER_ENTITY_XML_MODEL_ARRAY;
 static int* CAPITAL_OMEGA_CHARACTER_ENTITY_XML_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* Russian Cyrillic */
+//
+// Russian cyrillic
+//
 
 /** The small a character entity xml model. */
 static wchar_t SMALL_A_CHARACTER_ENTITY_XML_MODEL_ARRAY[] = {L'a', L'c', L'y'};
@@ -640,7 +645,9 @@ static wchar_t NUMERO_SIGN_CHARACTER_ENTITY_XML_MODEL_ARRAY[] = {L'n', L'u', L'm
 static wchar_t* NUMERO_SIGN_CHARACTER_ENTITY_XML_MODEL = NUMERO_SIGN_CHARACTER_ENTITY_XML_MODEL_ARRAY;
 static int* NUMERO_SIGN_CHARACTER_ENTITY_XML_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* Added Math Symbols: Delimiters */
+//
+// Math symbols: delimiters
+//
 
 /** The right ceiling character entity xml model. */
 static wchar_t RIGHT_CEILING_CHARACTER_ENTITY_XML_MODEL_ARRAY[] = {L'r', L'c', L'e', L'i', L'l'};
@@ -691,9 +698,6 @@ static int* UPPER_LEFT_CORNER_CHARACTER_ENTITY_XML_MODEL_COUNT = NUMBER_6_INTEGE
 static wchar_t DOWNWARD_LEFT_CORNER_CHARACTER_ENTITY_XML_MODEL_ARRAY[] = {L'd', L'l', L'c', L'o', L'r', L'n'};
 static wchar_t* DOWNWARD_LEFT_CORNER_CHARACTER_ENTITY_XML_MODEL = DOWNWARD_LEFT_CORNER_CHARACTER_ENTITY_XML_MODEL_ARRAY;
 static int* DOWNWARD_LEFT_CORNER_CHARACTER_ENTITY_XML_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-
-/* End Thiele, Thomas and Simon, Friedemann */
 
 /* CHARACTER_ENTITY_XML_MODEL_CONSTANT_SOURCE */
 #endif

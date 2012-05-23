@@ -31,14 +31,8 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// CAUTION! These constants have been put into just ONE file,
-// because they have to be assigned a unique identification integer,
-// which is easier to verify having they here altogether.
-//
-// CAUTION! However, STATE and LOGIC constants have been split into TWO files.
-// Mind the following ranges and DO NOT MIX them:
-// - state constants: 0..499
-// - logic constants: 500..999
+// CAUTION! These constants represent fundamental types close to the machine,
+// e.g. numbers, which are used for fast processing of data internally to cyboi.
 //
 
 //
@@ -46,7 +40,7 @@
 //
 
 /** The datetime state cyboi type. */
-static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // element
@@ -58,14 +52,14 @@ static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY
  * CAUTION! The part constant has to be defined as primitive type here,
  * in order to be able to distinguish cyboi runtime parts from other pointers.
  */
-static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // logicvalue
 //
 
 /** The boolean logicvalue state cyboi type. */
-static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // number
@@ -101,7 +95,7 @@ static int* POINTER_STATE_CYBOI_TYPE = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY
 static int* CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The wide character text state cyboi type. */
-static int* WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_65_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_61_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STATE_CYBOI_TYPE_CONSTANT_SOURCE */
 #endif

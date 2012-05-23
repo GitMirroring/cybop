@@ -61,16 +61,31 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // Calculate memory area.
         calculate_integer_multiply((void*) &ma, p1);
 
+fwprintf(stdout, L"TEST allocate array p2: %i\n", p2);
+fwprintf(stdout, L"TEST allocate array *p2: %i\n", *((int*) p2));
+fwprintf(stdout, L"TEST allocate array p1: %i\n", p1);
+fwprintf(stdout, L"TEST allocate array *p1: %i\n", *((int*) p1));
+fwprintf(stdout, L"TEST allocate array ma: %i\n", ma);
+fwprintf(stdout, L"TEST allocate array p0: %i\n", p0);
+fwprintf(stdout, L"TEST allocate array a: %i\n", a);
+fwprintf(stdout, L"TEST allocate array *a: %i\n", *a);
+
         // A minimal space in memory is always allocated,
         // even if the requested size is zero.
         // In other words, a handle to the new instance is always returned.
         *a = (void*) malloc((size_t) ma);
+
+fwprintf(stdout, L"TEST allocate array post malloc ma: %i\n", ma);
+fwprintf(stdout, L"TEST allocate array post malloc *a: %i\n", *a);
 
         // Initialise array elements with null pointer.
         //
         // CAUTION! Initialising with zero is essential, since cyboi
         // frequently tests variables for null pointer values.
         memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, ma);
+
+fwprintf(stdout, L"TEST allocate array post memset ma: %i\n", ma);
+fwprintf(stdout, L"TEST allocate array post memset *a: %i\n", *a);
 
     } else {
 
