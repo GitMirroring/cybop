@@ -34,13 +34,20 @@
 //
 
 /** The cyboi service exit flag. */
-static int* CYBOI_SERVICE_EXIT;
+static int CYBOI_SERVICE_EXIT_ARRAY[] = {0};
+static int* CYBOI_SERVICE_EXIT = CYBOI_SERVICE_EXIT_ARRAY;
+
 /** The gnu linux console exit flag. */
-static int* TERMINAL_EXIT;
+static int TERMINAL_EXIT_ARRAY[] = {0};
+static int* TERMINAL_EXIT = TERMINAL_EXIT_ARRAY;
+
 /** The www service exit flag. */
-static int* WWW_SERVICE_EXIT;
+static int WWW_SERVICE_EXIT_ARRAY[] = {0};
+static int* WWW_SERVICE_EXIT = WWW_SERVICE_EXIT_ARRAY;
+
 /** The x window system exit flag. */
-static int* X_WINDOW_SYSTEM_EXIT;
+static int X_WINDOW_SYSTEM_EXIT_ARRAY[] = {0};
+static int* X_WINDOW_SYSTEM_EXIT = X_WINDOW_SYSTEM_EXIT_ARRAY;
 
 /* SERVICE_INTERRUPT_SOURCE */
 #endif

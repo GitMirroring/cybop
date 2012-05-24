@@ -27,6 +27,7 @@
 #define SIGNAL_GLOBALISER_SOURCE
 
 #include <signal.h>
+
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/type_size/signal_type_size.c"
 
@@ -36,11 +37,9 @@
 void globalise_signal() {
 
     // Allocate and initialise sig_atomic_t signal type size.
-    ATOMIC_SIGNAL_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *ATOMIC_SIGNAL_TYPE_SIZE = sizeof(sig_atomic_t);
 
     // Allocate and initialise volatile sig_atomic_t signal type size.
-    VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE = sizeof(volatile sig_atomic_t);
 }
 

@@ -34,13 +34,13 @@
 void unglobalise_reallocation_factor() {
 
     // Free array reallocation factor.
-    free((void*) ARRAY_REALLOCATION_FACTOR);
+//??    free((void*) ARRAY_REALLOCATION_FACTOR);
 
     // Free compound reallocation factor.
-    free((void*) COMPOUND_REALLOCATION_FACTOR);
+//??    free((void*) COMPOUND_REALLOCATION_FACTOR);
 
     // Free cybol file reallocation factor.
-    free((void*) CYBOL_FILE_REALLOCATION_FACTOR);
+//??    free((void*) CYBOL_FILE_REALLOCATION_FACTOR);
 }
 
 /* REALLOCATION_FACTOR_UNGLOBALISER_SOURCE */

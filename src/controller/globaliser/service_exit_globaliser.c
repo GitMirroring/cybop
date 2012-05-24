@@ -26,7 +26,7 @@
 #ifndef SERVICE_EXIT_GLOBALISER_SOURCE
 #define SERVICE_EXIT_GLOBALISER_SOURCE
 
-#include "../../variable/type_size/integral_type_size.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../variable/service_interrupt.c"
 
 /**
@@ -45,20 +45,16 @@ void globalise_service_exit() {
     //
 
     // Allocate and initialise cyboi service thread exit flag.
-    CYBOI_SERVICE_EXIT = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *CYBOI_SERVICE_EXIT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    *CYBOI_SERVICE_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Allocate and initialise terminal thread exit flag.
-    TERMINAL_EXIT = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *TERMINAL_EXIT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    *TERMINAL_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Allocate and initialise www service thread exit flag.
-    WWW_SERVICE_EXIT = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *WWW_SERVICE_EXIT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    *WWW_SERVICE_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Allocate and initialise x window system thread exit flag.
-    X_WINDOW_SYSTEM_EXIT = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    *X_WINDOW_SYSTEM_EXIT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    *X_WINDOW_SYSTEM_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 }
 
 /* SERVICE_EXIT_GLOBALISER_SOURCE */

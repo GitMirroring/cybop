@@ -34,10 +34,12 @@
 //
 
 /** The sig_atomic_t signal type size. */
-static int* ATOMIC_SIGNAL_TYPE_SIZE;
+static int ATOMIC_SIGNAL_TYPE_SIZE_ARRAY[] = {0};
+static int* ATOMIC_SIGNAL_TYPE_SIZE = ATOMIC_SIGNAL_TYPE_SIZE_ARRAY;
 
 /** The volatile sig_atomic_t signal type size. */
-static int* VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE;
+static int VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE_ARRAY[] = {0};
+static int* VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE = VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE_ARRAY;
 
 /* SIGNAL_TYPE_SIZE_SOURCE */
 #endif

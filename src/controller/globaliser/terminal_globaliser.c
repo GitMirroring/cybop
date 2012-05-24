@@ -27,6 +27,7 @@
 #define TERMINAL_GLOBALISER_SOURCE
 
 #include <termios.h>
+
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/type_size/terminal_type_size.c"
 
@@ -36,7 +37,6 @@
 void globalise_terminal() {
 
     // Allocate and initialise struct termios terminal type size.
-    INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
     *INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE = sizeof(struct termios);
 }
 

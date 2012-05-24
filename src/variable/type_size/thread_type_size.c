@@ -34,10 +34,12 @@
 //
 
 /** The pthread_t thread type size. */
-static int* THREAD_TYPE_SIZE;
+static int THREAD_TYPE_SIZE_ARRAY[] = {0};
+static int* THREAD_TYPE_SIZE = THREAD_TYPE_SIZE_ARRAY;
 
 /** The pthread_mutex_t thread type size. */
-static int* MUTEX_THREAD_TYPE_SIZE;
+static int MUTEX_THREAD_TYPE_SIZE_ARRAY[] = {0};
+static int* MUTEX_THREAD_TYPE_SIZE = MUTEX_THREAD_TYPE_SIZE_ARRAY;
 
 /* THREAD_TYPE_SIZE_SOURCE */
 #endif

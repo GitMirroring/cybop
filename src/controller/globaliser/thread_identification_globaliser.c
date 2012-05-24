@@ -37,19 +37,15 @@
 void globalise_thread_identification() {
 
     // Allocate cyboi service thread identification.
-    CYBOI_SERVICE_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
     *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate and initialise terminal thread identification.
-    TERMINAL_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
     *TERMINAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate www service thread identification.
-    WWW_SERVICE_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
     *WWW_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate x window system thread identification.
-    X_WINDOW_SYSTEM_THREAD = (pthread_t*) malloc(*THREAD_TYPE_SIZE);
     *X_WINDOW_SYSTEM_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 }
 

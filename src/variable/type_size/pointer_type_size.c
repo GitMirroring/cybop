@@ -34,7 +34,8 @@
 //
 
 /** The void* pointer type size. */
-static int* POINTER_TYPE_SIZE;
+static int POINTER_TYPE_SIZE_ARRAY[] = {0};
+static int* POINTER_TYPE_SIZE = POINTER_TYPE_SIZE_ARRAY;
 
 /* POINTER_TYPE_SIZE_SOURCE */
 #endif

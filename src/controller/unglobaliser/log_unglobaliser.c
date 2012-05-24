@@ -34,16 +34,16 @@
 void unglobalise_log() {
 
     // Free log level.
-    free((void*) LOG_LEVEL);
+//??    free((void*) LOG_LEVEL);
 
     // Free log message count.
-    free((void*) LOG_MESSAGE_COUNT);
+//??    free((void*) LOG_MESSAGE_COUNT);
 
     // Free log message size.
-    free((void*) LOG_MESSAGE_SIZE);
+//??    free((void*) LOG_MESSAGE_SIZE);
 
     // Free log message.
-    free((void*) LOG_MESSAGE);
+//??    free((void*) LOG_MESSAGE);
 
     // CAUTION! Do NOT try to free the log output of type FILE!
     // It was already closed in module "optionaliser.c".

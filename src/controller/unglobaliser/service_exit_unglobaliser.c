@@ -34,16 +34,16 @@
 void unglobalise_service_exit() {
 
     // Free cyboi service thread exit flag.
-    free((void*) CYBOI_SERVICE_EXIT);
+//??    free((void*) CYBOI_SERVICE_EXIT);
 
     // Free terminal thread exit flag.
-    free((void*) TERMINAL_EXIT);
+//??    free((void*) TERMINAL_EXIT);
 
     // Free www service thread exit flag.
-    free((void*) WWW_SERVICE_EXIT);
+//??    free((void*) WWW_SERVICE_EXIT);
 
     // Free x window system thread exit flag.
-    free((void*) X_WINDOW_SYSTEM_EXIT);
+//??    free((void*) X_WINDOW_SYSTEM_EXIT);
 }
 
 /* SERVICE_EXIT_UNGLOBALISER_SOURCE */

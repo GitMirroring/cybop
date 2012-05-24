@@ -34,10 +34,10 @@
 void unglobalise_thread() {
 
     // Free pthread_t thread type size.
-    free((void*) THREAD_TYPE_SIZE);
+//??    free((void*) THREAD_TYPE_SIZE);
 
     // Free pthread_mutex_t thread type size.
-    free((void*) MUTEX_THREAD_TYPE_SIZE);
+//??    free((void*) MUTEX_THREAD_TYPE_SIZE);
 }
 
 /* THREAD_UNGLOBALISER_SOURCE */

@@ -53,7 +53,7 @@ void test_type_sizes() {
     fwprintf(stdout, L"signed long long int type size: %i\n", *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
     fwprintf(stdout, L"unsigned long long int type size: %i\n", *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
     fwprintf(stdout, L"wchar_t type size: %i\n", *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"float type size: %i\n", *FLOAT_REAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"float type size: %i\n", *FLOAT_REAL_TYPE_SIZE);
     fwprintf(stdout, L"double type size: %i\n", *DOUBLE_REAL_TYPE_SIZE);
     fwprintf(stdout, L"long double type size: %i\n", *LONG_DOUBLE_REAL_TYPE_SIZE);
 }

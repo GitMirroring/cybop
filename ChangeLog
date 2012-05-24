@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix memory allocation bug occuring on 64 Bit machines (thanks to the "valgrind" software),
+            caused by wrong definition and initialisation of global variables,
+            which lead to mixing pointer (8 Byte) and integer (4 Byte)
+
 2012-05-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete optimising usage of type constants

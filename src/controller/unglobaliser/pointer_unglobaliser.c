@@ -34,7 +34,7 @@
 void unglobalise_pointer() {
 
     // Free void* pointer type size.
-    free((void*) POINTER_TYPE_SIZE);
+//??    free((void*) POINTER_TYPE_SIZE);
 }
 
 /* POINTER_UNGLOBALISER_SOURCE */

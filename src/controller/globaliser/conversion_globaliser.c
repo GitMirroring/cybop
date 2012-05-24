@@ -27,6 +27,7 @@
 #define CONVERSION_GLOBALISER_SOURCE
 
 #include <wchar.h>
+
 #include "../../variable/type_size/conversion_type_size.c"
 #include "../../variable/type_size/integral_type_size.c"
 
@@ -35,8 +36,6 @@
  */
 void globalise_conversion() {
 
-    // Allocate and initialise struct mbstate_t conversion type size.
-    MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     // CAUTION! Do NOT use "struct mbstate_t" but ONLY "mbstate_t".
     // Otherwise, the compiler brings the error:
     // "invalid application of 'sizeof' to incomplete type 'struct mbstate_t'"

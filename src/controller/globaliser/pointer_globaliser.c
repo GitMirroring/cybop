@@ -35,7 +35,6 @@
 void globalise_pointer() {
 
     // Allocate and initialise void* pointer type size.
-    POINTER_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *POINTER_TYPE_SIZE = sizeof(void*);
 }
 

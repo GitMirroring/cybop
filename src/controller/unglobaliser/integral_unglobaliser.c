@@ -33,6 +33,7 @@
  */
 void unglobalise_integral() {
 
+/*??
     // Free signed char integral type size.
     free((void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
@@ -65,6 +66,7 @@ void unglobalise_integral() {
 
     // Free wchar_t integral type size.
     free((void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+*/
 }
 
 /* INTEGRAL_UNGLOBALISER_SOURCE */

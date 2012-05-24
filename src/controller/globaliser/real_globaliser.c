@@ -35,15 +35,12 @@
 void globalise_real() {
 
     // Allocate and initialise float real type size.
-    FLOAT_REAL_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *FLOAT_REAL_TYPE_SIZE = sizeof(float);
 
     // Allocate and initialise double real type size.
-    DOUBLE_REAL_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *DOUBLE_REAL_TYPE_SIZE = sizeof(double);
 
     // Allocate and initialise long double real type size.
-    LONG_DOUBLE_REAL_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *LONG_DOUBLE_REAL_TYPE_SIZE = sizeof(long double);
 }
 

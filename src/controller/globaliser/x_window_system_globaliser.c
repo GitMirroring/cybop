@@ -35,8 +35,6 @@
  */
 void globalise_x_window_system() {
 
-    // Allocate and initialise struct XGCValues x window system type size.
-    XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE = (int*) malloc(*SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
     // CAUTION! Do NOT use "struct XGCValues" but ONLY "XGCValues".
     // Otherwise, the compiler brings the error:
     // "invalid application of 'sizeof' to incomplete type 'struct XGCValues'"

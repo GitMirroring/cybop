@@ -34,7 +34,7 @@
 void unglobalise_process() {
 
     // Free pid_t process type size.
-    free((void*) IDENTIFICATION_PROCESS_TYPE_SIZE);
+//??    free((void*) IDENTIFICATION_PROCESS_TYPE_SIZE);
 }
 
 /* PROCESS_UNGLOBALISER_SOURCE */

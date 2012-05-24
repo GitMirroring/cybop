@@ -34,22 +34,22 @@
 void unglobalise_socket() {
 
     // Free in_addr socket type size.
-    free((void*) INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE);
+//??    free((void*) INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE);
 
     // Free sockaddr_in socket type size.
-    free((void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+//??    free((void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
     // Free in6_addr socket type size.
-    free((void*) INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE);
+//??    free((void*) INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE);
 
     // Free sockaddr_in6 socket type size.
-    free((void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+//??    free((void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
     // Free sockaddr_un socket type size.
-    free((void*) LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+//??    free((void*) LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
     // Free sockaddr socket type size.
-    free((void*) SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+//??    free((void*) SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 }
 
 /* SOCKET_UNGLOBALISER_SOURCE */

@@ -29,30 +29,29 @@
 #include <stdio.h>
 
 //
-// CAUTION! Do NOT use types like "unsigned short int*" here!
-// Otherwise, wrong values will occur when casting to "int*"
-// and back later in the programme, e.g. in:
-// | logger | overwrite_array | reallocate_array
-// Therefore, the standard "int*" type is used.
+// The global variables.
 //
-
-//
-// CAUTION! Do NOT try to assign any values here!
-// Otherwise, the compiler shows the following error:
-// "error: initializer element is not constant"
-// Therefore, the variables are only initialised in module "globaliser.c".
+// CAUTION! This is just the variable definition, specifying a size.
+// They are initialised in directory "controller/globaliser/".
 //
 
 /** The log level. */
-static int* LOG_LEVEL;
+static int LOG_LEVEL_ARRAY[1];
+static int* LOG_LEVEL = LOG_LEVEL_ARRAY;
 
 /** The log message. */
-static wchar_t* LOG_MESSAGE;
-static int* LOG_MESSAGE_COUNT;
-static int* LOG_MESSAGE_SIZE;
+static wchar_t LOG_MESSAGE_ARRAY[1000];
+static wchar_t* LOG_MESSAGE = LOG_MESSAGE_ARRAY;
+
+static int LOG_MESSAGE_COUNT_ARRAY[1];
+static int* LOG_MESSAGE_COUNT = LOG_MESSAGE_COUNT_ARRAY;
+
+static int LOG_MESSAGE_SIZE_ARRAY[1];
+static int* LOG_MESSAGE_SIZE = LOG_MESSAGE_SIZE_ARRAY;
 
 /** The log output. */
-static FILE* LOG_OUTPUT;
+static FILE LOG_OUTPUT_ARRAY[1];
+static FILE* LOG_OUTPUT = LOG_OUTPUT_ARRAY;
 
 /* LOG_SETTING_SOURCE */
 #endif

@@ -34,7 +34,7 @@
 void unglobalise_x_window_system() {
 
     // Free XGCValues x window system type size.
-    free((void*) XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE);
+//??    free((void*) XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE);
 }
 
 /* X_WINDOW_SYSTEM_UNGLOBALISER_SOURCE */

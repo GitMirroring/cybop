@@ -99,7 +99,8 @@
  * Typical size [Byte]: 1
  * Typical size [Bit]: 8
  */
-static int* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
+static int SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The unsigned char integral type size.
@@ -109,7 +110,8 @@ static int* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 1
  * Typical size [Bit]: 8
  */
-static int* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
+static int UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The signed short int integral type size.
@@ -119,7 +121,8 @@ static int* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static int* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE;
+static int SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The unsigned short int integral type size.
@@ -129,7 +132,8 @@ static int* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static int* UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE;
+static int UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The signed int integral type size.
@@ -139,7 +143,8 @@ static int* UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 2 (antique systems) or 4
  * Typical size [Bit]: 16 (antique systems) or 32
  */
-static int* SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+static int SIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The unsigned int integral type size.
@@ -149,7 +154,8 @@ static int* SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 2 (antique systems) or 4
  * Typical size [Bit]: 16 (antique systems) or 32
  */
-static int* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+static int UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The signed long int integral type size.
@@ -159,7 +165,8 @@ static int* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static int* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
+static int SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The unsigned long int integral type size.
@@ -169,7 +176,8 @@ static int* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static int* UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
+static int UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The signed long long int integral type size.
@@ -179,7 +187,8 @@ static int* UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static int* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
+static int SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The unsigned long long int integral type size.
@@ -189,7 +198,8 @@ static int* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static int* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
+static int UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The wchar_t integral type size.
@@ -202,7 +212,8 @@ static int* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
  * Typical size [Byte]: 1 (some embedded systems) or 2 (some Unix systems, Java, Win32, Win64, .NET) or 4 (GNU systems)
  * Typical size [Bit]: 8 (some embedded systems) or 16 (some Unix systems, Java, Win32, Win64, .NET) or 32 (GNU systems)
  */
-static int* WIDE_CHARACTER_INTEGRAL_TYPE_SIZE;
+static int WIDE_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int* WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = WIDE_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /* INTEGRAL_TYPE_SIZE_SOURCE */
 #endif

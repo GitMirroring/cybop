@@ -27,6 +27,7 @@
 #define THREAD_GLOBALISER_SOURCE
 
 #include <pthread.h>
+
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/type_size/thread_type_size.c"
 
@@ -36,11 +37,9 @@
 void globalise_thread() {
 
     // Allocate and initialise pthread_t thread type size.
-    THREAD_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *THREAD_TYPE_SIZE = sizeof(pthread_t);
 
     // Allocate and initialise pthread_mutex_t thread type size.
-    MUTEX_THREAD_TYPE_SIZE = (int*) malloc(*SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     *MUTEX_THREAD_TYPE_SIZE = sizeof(pthread_mutex_t);
 }
 

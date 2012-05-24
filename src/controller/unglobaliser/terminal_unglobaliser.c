@@ -34,7 +34,7 @@
 void unglobalise_terminal() {
 
     // Free termios terminal type size.
-    free((void*) INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
+//??    free((void*) INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
 }
 
 /* TERMINAL_UNGLOBALISER_SOURCE */
