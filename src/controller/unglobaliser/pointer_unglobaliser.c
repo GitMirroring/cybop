@@ -29,12 +29,9 @@
 #include <stdlib.h>
 
 /**
- * Deallocates pointer global variables.
+ * Finalises pointer global variables.
  */
 void unglobalise_pointer() {
-
-    // Free void* pointer type size.
-//??    free((void*) POINTER_TYPE_SIZE);
 }
 
 /* POINTER_UNGLOBALISER_SOURCE */

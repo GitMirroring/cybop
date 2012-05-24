@@ -27,10 +27,10 @@
 #define REAL_TYPE_SIZE_SOURCE
 
 //
-// CAUTION! Do NOT try to assign any values here!
-// Otherwise, the compiler shows the following error:
-// "error: initializer element is not constant"
-// Therefore, the variables are only initialised in module "globaliser.c".
+// The global variables.
+//
+// CAUTION! This is just the variable definition, specifying a size.
+// Initialisation happens in directory "controller/globaliser/".
 //
 
 //
@@ -81,7 +81,7 @@
  * Typical size [Byte]: 4
  * Typical size [Bit]: 32
  */
-static int FLOAT_REAL_TYPE_SIZE_ARRAY[] = {0};
+static int FLOAT_REAL_TYPE_SIZE_ARRAY[1];
 static int* FLOAT_REAL_TYPE_SIZE = FLOAT_REAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -94,7 +94,7 @@ static int* FLOAT_REAL_TYPE_SIZE = FLOAT_REAL_TYPE_SIZE_ARRAY;
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static int DOUBLE_REAL_TYPE_SIZE_ARRAY[] = {0};
+static int DOUBLE_REAL_TYPE_SIZE_ARRAY[1];
 static int* DOUBLE_REAL_TYPE_SIZE = DOUBLE_REAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -107,7 +107,7 @@ static int* DOUBLE_REAL_TYPE_SIZE = DOUBLE_REAL_TYPE_SIZE_ARRAY;
  * Typical size [Byte]: 8 or 12
  * Typical size [Bit]: 64 or 96
  */
-static int LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY[] = {0};
+static int LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY[1];
 static int* LONG_DOUBLE_REAL_TYPE_SIZE = LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY;
 
 /* REAL_TYPE_SIZE_SOURCE */

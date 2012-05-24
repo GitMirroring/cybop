@@ -29,7 +29,7 @@
 #include "../../variable/type_size/integral_type_size.c"
 
 /**
- * Allocates and initialises integral global variables.
+ * Initialises integral global variables.
  */
 void globalise_integral() {
 

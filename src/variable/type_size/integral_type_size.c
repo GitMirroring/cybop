@@ -27,10 +27,10 @@
 #define INTEGRAL_TYPE_SIZE_SOURCE
 
 //
-// CAUTION! Do NOT try to assign any values here!
-// Otherwise, the compiler shows the following error:
-// "error: initializer element is not constant"
-// Therefore, the variables are only initialised in module "globaliser.c".
+// The global variables.
+//
+// CAUTION! This is just the variable definition, specifying a size.
+// Initialisation happens in directory "controller/globaliser/".
 //
 
 //
@@ -99,7 +99,7 @@
  * Typical size [Byte]: 1
  * Typical size [Bit]: 8
  */
-static int SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -110,7 +110,7 @@ static int* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = SIGNED_CHARACTER_INTEGRAL_TYPE
  * Typical size [Byte]: 1
  * Typical size [Bit]: 8
  */
-static int UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -121,7 +121,7 @@ static int* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = UNSIGNED_CHARACTER_INTEGRAL_
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static int SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -132,7 +132,7 @@ static int* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_SHORT_INTEGER_INTEG
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static int UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -143,7 +143,7 @@ static int* UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_SHORT_INTEGER_I
  * Typical size [Byte]: 2 (antique systems) or 4
  * Typical size [Bit]: 16 (antique systems) or 32
  */
-static int SIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int SIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -154,7 +154,7 @@ static int* SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_INTEGER_INTEGRAL_TYPE_SIZ
  * Typical size [Byte]: 2 (antique systems) or 4
  * Typical size [Bit]: 16 (antique systems) or 32
  */
-static int UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -165,7 +165,7 @@ static int* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_INTEGER_INTEGRAL_TYPE
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static int SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -176,7 +176,7 @@ static int* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_INTEGER_INTEGRA
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static int UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -187,7 +187,7 @@ static int* UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_INTEGER_INT
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static int SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -198,7 +198,7 @@ static int* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_LONG_INTEG
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static int UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
@@ -212,7 +212,7 @@ static int* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_LONG_I
  * Typical size [Byte]: 1 (some embedded systems) or 2 (some Unix systems, Java, Win32, Win64, .NET) or 4 (GNU systems)
  * Typical size [Bit]: 8 (some embedded systems) or 16 (some Unix systems, Java, Win32, Win64, .NET) or 32 (GNU systems)
  */
-static int WIDE_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[] = {0};
+static int WIDE_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = WIDE_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /* INTEGRAL_TYPE_SIZE_SOURCE */

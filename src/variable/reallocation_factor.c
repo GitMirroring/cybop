@@ -27,23 +27,15 @@
 #define REALLOCATION_FACTOR_SOURCE
 
 //
-// CAUTION! Do NOT try to assign any values here!
-// Otherwise, the compiler shows the following error:
-// "error: initializer element is not constant"
-// Therefore, the variables are only initialised in module "globaliser.c".
+// The global variables.
+//
+// CAUTION! This is just the variable definition, specifying a size.
+// Initialisation happens in directory "controller/globaliser/".
 //
 
 /** The array reallocation factor. */
-static int ARRAY_REALLOCATION_FACTOR_ARRAY[] = {2};
+static int ARRAY_REALLOCATION_FACTOR_ARRAY[1];
 static int* ARRAY_REALLOCATION_FACTOR = ARRAY_REALLOCATION_FACTOR_ARRAY;
-
-/** The cybol file reallocation factor. */
-static int CYBOL_FILE_REALLOCATION_FACTOR_ARRAY[] = {2};
-static int* CYBOL_FILE_REALLOCATION_FACTOR = CYBOL_FILE_REALLOCATION_FACTOR_ARRAY;
-
-/** The compound reallocation factor. */
-static int COMPOUND_REALLOCATION_FACTOR_ARRAY[] = {2};
-static int* COMPOUND_REALLOCATION_FACTOR = COMPOUND_REALLOCATION_FACTOR_ARRAY;
 
 /* REALLOCATION_FACTOR_SOURCE */
 #endif

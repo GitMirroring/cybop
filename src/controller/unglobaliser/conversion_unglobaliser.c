@@ -29,12 +29,9 @@
 #include <stdlib.h>
 
 /**
- * Deallocates conversion global variables.
+ * Finalises conversion global variables.
  */
 void unglobalise_conversion() {
-
-    // Free mbstate_t conversion type size.
-//??    free((void*) MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE);
 }
 
 /* CONVERSION_UNGLOBALISER_SOURCE */

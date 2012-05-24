@@ -47,8 +47,17 @@
 void globalise() {
 
     //
-    // CAUTION! These global variables MUST NOT be initialised in the files
-    // "variable/*.c" because then, constant values are expected!
+    // CAUTION! These global variables are initialised here,
+    // because not all of them represent primitive values.
+    //
+    // The latter might be assigned using {} right at definition, e.g.:
+    // static int LOG_LEVEL_ARRAY[] = {0};
+    // static int* LOG_LEVEL = LOG_LEVEL_ARRAY;
+    //
+    // But there are also other types like pthread_t or FILE,
+    // for which only an array variable using a size was defined,
+    // because initial values are more complex and should be
+    // initialised here.
     //
 
     //
@@ -74,28 +83,20 @@ void globalise() {
     // no need to work with type "sizt_t" in cyboi source code.
     //
 
-    //
-    // CAUTION! The SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE variable needs to be
-    // initialised FIRST, BEFORE all other initialisations,
-    // because all other assignments below make use of it.
-    //
-    // Therefore, the "globalise_integral" function HAS TO BE CALLED FIRST!
-    //
-
-    globalise_integral();
-    globalise_real();
-    globalise_pointer();
     globalise_conversion();
+    globalise_integral();
+    globalise_log();
+    globalise_pointer();
     globalise_process();
+    globalise_real();
+    globalise_reallocation_factor();
+    globalise_service_exit();
     globalise_signal();
     globalise_socket();
     globalise_terminal();
     globalise_thread();
-    globalise_x_window_system();
-    globalise_log();
     globalise_thread_identification();
-    globalise_service_exit();
-    globalise_reallocation_factor();
+    globalise_x_window_system();
 }
 
 /* GLOBALISER_SOURCE */

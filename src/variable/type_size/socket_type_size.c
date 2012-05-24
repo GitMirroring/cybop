@@ -27,34 +27,34 @@
 #define SOCKET_TYPE_SIZE_SOURCE
 
 //
-// CAUTION! Do NOT try to assign any values here!
-// Otherwise, the compiler shows the following error:
-// "error: initializer element is not constant"
-// Therefore, the variables are only initialised in module "globaliser.c".
+// The global variables.
+//
+// CAUTION! This is just the variable definition, specifying a size.
+// Initialisation happens in directory "controller/globaliser/".
 //
 
 /** The in_addr socket type size. */
-static int INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[] = {0};
+static int INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[1];
 static int* INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE = INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE_ARRAY;
 
 /** The sockaddr_in socket type size. */
-static int INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[] = {0};
+static int INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[1];
 static int* INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY;
 
 /** The in6_addr socket type size. */
-static int INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[] = {0};
+static int INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[1];
 static int* INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE_ARRAY;
 
 /** The sockaddr_in6 socket type size. */
-static int INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[] = {0};
+static int INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[1];
 static int* INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY;
 
 /** The sockaddr_un socket type size. */
-static int LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[] = {0};
+static int LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[1];
 static int* LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY;
 
 /** The sockaddr socket type size. */
-static int SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[] = {0};
+static int SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY[1];
 static int* SOCKET_ADDRESS_SOCKET_TYPE_SIZE = SOCKET_ADDRESS_SOCKET_TYPE_SIZE_ARRAY;
 
 /* SOCKET_TYPE_SIZE_SOURCE */

@@ -32,14 +32,14 @@
 #include "../../variable/type_size/integral_type_size.c"
 
 /**
- * Allocates and initialises conversion global variables.
+ * Initialises conversion global variables.
  */
 void globalise_conversion() {
 
     // CAUTION! Do NOT use "struct mbstate_t" but ONLY "mbstate_t".
     // Otherwise, the compiler brings the error:
     // "invalid application of 'sizeof' to incomplete type 'struct mbstate_t'"
-    *MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE = sizeof(mbstate_t);
+    *MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE = sizeof(struct mbstate_t);
 }
 
 /* CONVERSION_GLOBALISER_SOURCE */

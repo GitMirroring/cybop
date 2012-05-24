@@ -29,21 +29,9 @@
 #include <stdlib.h>
 
 /**
- * Deallocates thread identification global variables.
+ * Finalises thread identification global variables.
  */
 void unglobalise_thread_identification() {
-
-    // Free cyboi service thread.
-//??    free((void*) CYBOI_SERVICE_THREAD);
-
-    // Free terminal thread.
-//??    free((void*) TERMINAL_THREAD);
-
-    // Free www service thread.
-//??    free((void*) WWW_SERVICE_THREAD);
-
-    // Free x window system thread.
-//??    free((void*) X_WINDOW_SYSTEM_THREAD);
 }
 
 /* THREAD_IDENTIFICATION_UNGLOBALISER_SOURCE */

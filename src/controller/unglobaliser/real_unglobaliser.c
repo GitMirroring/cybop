@@ -29,18 +29,9 @@
 #include <stdlib.h>
 
 /**
- * Deallocates real global variables.
+ * Finalises real global variables.
  */
 void unglobalise_real() {
-
-    // Free float real type size.
-//??    free((void*) FLOAT_REAL_TYPE_SIZE);
-
-    // Free double real type size.
-//??    free((void*) DOUBLE_REAL_TYPE_SIZE);
-
-    // Free long double real type size.
-//??    free((void*) LONG_DOUBLE_REAL_TYPE_SIZE);
 }
 
 /* REAL_UNGLOBALISER_SOURCE */

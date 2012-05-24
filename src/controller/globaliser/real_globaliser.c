@@ -30,17 +30,12 @@
 #include "../../variable/type_size/real_type_size.c"
 
 /**
- * Allocates and initialises real global variables.
+ * Initialises real global variables.
  */
 void globalise_real() {
 
-    // Allocate and initialise float real type size.
     *FLOAT_REAL_TYPE_SIZE = sizeof(float);
-
-    // Allocate and initialise double real type size.
     *DOUBLE_REAL_TYPE_SIZE = sizeof(double);
-
-    // Allocate and initialise long double real type size.
     *LONG_DOUBLE_REAL_TYPE_SIZE = sizeof(long double);
 }
 

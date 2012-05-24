@@ -29,12 +29,9 @@
 #include <stdlib.h>
 
 /**
- * Deallocates terminal global variables.
+ * Finalises terminal global variables.
  */
 void unglobalise_terminal() {
-
-    // Free termios terminal type size.
-//??    free((void*) INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE);
 }
 
 /* TERMINAL_UNGLOBALISER_SOURCE */

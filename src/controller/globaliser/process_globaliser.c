@@ -33,11 +33,10 @@
 #include "../../variable/type_size/process_type_size.c"
 
 /**
- * Allocates and initialises process global variables.
+ * Initialises process global variables.
  */
 void globalise_process() {
 
-    // Allocate and initialise pid_t process type size.
     *IDENTIFICATION_PROCESS_TYPE_SIZE = sizeof(pid_t);
 }
 

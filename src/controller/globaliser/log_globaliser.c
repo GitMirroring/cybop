@@ -33,34 +33,34 @@
 #include "../../variable/log_setting.c"
 
 /**
- * Allocates and initialises log global variables.
+ * Initialises log global variables.
  */
 void globalise_log() {
 
-    // Allocate and initialise log level.
-//??    *LOG_LEVEL = *OFF_LEVEL_LOG_CYBOI_MODEL;
+    *LOG_LEVEL = *OFF_LEVEL_LOG_CYBOI_MODEL;
+    *LOG_MESSAGE_COUNT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    *LOG_MESSAGE_SIZE = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
 
-    // Allocate and initialise log message count.
-//??    *LOG_MESSAGE_COUNT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //
+    // The LOG_MESSAGE variable does not receive an initial value
+    // and remains empty here. It gets only filled later, by the logger.
+    //
 
-    // Allocate and initialise log message size.
-//??    *LOG_MESSAGE_SIZE = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate log message.
-//??    LOG_MESSAGE = (wchar_t*) malloc(*LOG_MESSAGE_SIZE);
-
-    // CAUTION! Do NOT try to allocate or initialise the log output of type FILE!
+    //
+    // CAUTION! Do NOT try to initialise the log output of type FILE!
     //
     // FILE objects are allocated and managed internally by the input/ output
     // library functions. The library creates objects of type FILE.
     // Programs should deal only with pointers to these objects (FILE* values),
     // rather than the objects themselves.
     //
-    // See module "optionaliser.c", which cares about log file creation!
-    //
-    // Hence, the following line would not have sense and is FORBIDDEN:
+    // Hence, the following line would NOT have sense and is FORBIDDEN:
     // LOG_OUTPUT = (FILE*) malloc(sizeof(FILE));
-//??    LOG_OUTPUT = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
+    // The LOG_OUTPUT variable does not receive an initial value
+    // and remains empty here. It gets only filled later,
+    // in file "optionaliser.c", which cares about log file creation.
+    //
 }
 
 /* LOG_GLOBALISER_SOURCE */

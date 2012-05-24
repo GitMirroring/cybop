@@ -53,27 +53,20 @@ void unglobalise() {
     // Instead, use malloc, free and similar functions directly!
     //
 
-    //
-    // There seems to be no need to use descending order,
-    // as compared to allocation.
-    // The variables do not depend on each other and
-    // may be freed in the same order as they were allocated.
-    //
-
-    unglobalise_integral();
-    unglobalise_real();
-    unglobalise_pointer();
     unglobalise_conversion();
+    unglobalise_integral();
+    unglobalise_log();
+    unglobalise_pointer();
     unglobalise_process();
+    unglobalise_real();
+    unglobalise_reallocation_factor();
+    unglobalise_service_exit();
     unglobalise_signal();
     unglobalise_socket();
     unglobalise_terminal();
     unglobalise_thread();
-    unglobalise_x_window_system();
-    unglobalise_log();
     unglobalise_thread_identification();
-    unglobalise_service_exit();
-    unglobalise_reallocation_factor();
+    unglobalise_x_window_system();
 }
 
 /* UNGLOBALISER_SOURCE */

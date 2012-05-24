@@ -30,7 +30,7 @@
 #include "../../variable/service_interrupt.c"
 
 /**
- * Allocates and initialises service exit global variables.
+ * Initialises service thread exit global variables.
  */
 void globalise_service_exit() {
 
@@ -44,16 +44,9 @@ void globalise_service_exit() {
     // Therefore, they HAVE TO be defined as GLOBAL variables here.
     //
 
-    // Allocate and initialise cyboi service thread exit flag.
     *CYBOI_SERVICE_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Allocate and initialise terminal thread exit flag.
     *TERMINAL_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Allocate and initialise www service thread exit flag.
     *WWW_SERVICE_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Allocate and initialise x window system thread exit flag.
     *X_WINDOW_SYSTEM_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 }
 

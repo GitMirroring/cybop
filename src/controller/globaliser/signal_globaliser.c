@@ -32,14 +32,11 @@
 #include "../../variable/type_size/signal_type_size.c"
 
 /**
- * Allocates and initialises signal global variables.
+ * Initialises signal global variables.
  */
 void globalise_signal() {
 
-    // Allocate and initialise sig_atomic_t signal type size.
     *ATOMIC_SIGNAL_TYPE_SIZE = sizeof(sig_atomic_t);
-
-    // Allocate and initialise volatile sig_atomic_t signal type size.
     *VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE = sizeof(volatile sig_atomic_t);
 }
 

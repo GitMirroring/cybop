@@ -27,18 +27,19 @@
 #define X_WINDOW_SYSTEM_GLOBALISER_SOURCE
 
 #include <X11/Xlib.h>
+
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/type_size/x_window_system_type_size.c"
 
 /**
- * Allocates and initialises x window system global variables.
+ * Initialises x window system global variables.
  */
 void globalise_x_window_system() {
 
     // CAUTION! Do NOT use "struct XGCValues" but ONLY "XGCValues".
     // Otherwise, the compiler brings the error:
     // "invalid application of 'sizeof' to incomplete type 'struct XGCValues'"
-    *XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE = sizeof(XGCValues);
+    *XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE = sizeof(struct XGCValues);
 }
 
 /* X_WINDOW_SYSTEM_GLOBALISER_SOURCE */

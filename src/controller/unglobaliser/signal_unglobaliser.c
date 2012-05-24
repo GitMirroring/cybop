@@ -29,15 +29,9 @@
 #include <stdlib.h>
 
 /**
- * Deallocates signal global variables.
+ * Finalises signal global variables.
  */
 void unglobalise_signal() {
-
-    // Free sig_atomic_t signal type size.
-//??    free((void*) ATOMIC_SIGNAL_TYPE_SIZE);
-
-    // Free volatile sig_atomic_t signal type size.
-//??    free((void*) VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
 }
 
 /* SIGNAL_UNGLOBALISER_SOURCE */

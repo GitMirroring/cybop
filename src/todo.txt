@@ -9,15 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE in file "log_setting.c" and copy the comment to all other variable definition files
-        * Just define variables with an array size like [1]
-        * Adapt initialisation in globaliser
-        * Fix memory allocation bug occuring on 64 Bit machines; TODO: files:
-            --> log_setting.c
-            --> thread_identification.c
-            --> globaliser and sub dir files
-            --> unglobaliser and sub dir files
-            ==> LOG_MESSAGE, LOG_OUTPUT, pthread
+        * Check for compilation error when using "struct" in "sizeof"
+            of files "conversion_globaliser.c" and "x_window_system_globaliser.c"
 
         * Fix memory bug caused by encode/decode of utf-8 (similar error to variable definition above?)
 

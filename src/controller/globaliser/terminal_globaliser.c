@@ -32,11 +32,10 @@
 #include "../../variable/type_size/terminal_type_size.c"
 
 /**
- * Allocates and initialises terminal global variables.
+ * Initialises terminal global variables.
  */
 void globalise_terminal() {
 
-    // Allocate and initialise struct termios terminal type size.
     *INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE = sizeof(struct termios);
 }
 

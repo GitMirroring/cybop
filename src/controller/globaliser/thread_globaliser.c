@@ -32,14 +32,11 @@
 #include "../../variable/type_size/thread_type_size.c"
 
 /**
- * Allocates and initialises thread global variables.
+ * Initialises thread global variables.
  */
 void globalise_thread() {
 
-    // Allocate and initialise pthread_t thread type size.
     *THREAD_TYPE_SIZE = sizeof(pthread_t);
-
-    // Allocate and initialise pthread_mutex_t thread type size.
     *MUTEX_THREAD_TYPE_SIZE = sizeof(pthread_mutex_t);
 }
 

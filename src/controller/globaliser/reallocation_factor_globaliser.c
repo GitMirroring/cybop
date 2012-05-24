@@ -35,9 +35,6 @@
  */
 void globalise_reallocation_factor() {
 
-    //?? TODO: The following comment and variables are NOT up-to-date anymore!
-    //?? Reallocation handling might change in the future.
-
     //
     // If a source model is to be copied to a destination model, the size of
     // the destination has to be large enough to take on the source's elements.
@@ -67,14 +64,7 @@ void globalise_reallocation_factor() {
     // x - and so on
     //
 
-    // Allocate and initialise array reallocation factor.
     *ARRAY_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate and initialise compound reallocation factor.
-    *COMPOUND_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate and initialise cybol file reallocation factor.
-    *CYBOL_FILE_REALLOCATION_FACTOR = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 }
 
 /* REALLOCATION_FACTOR_GLOBALISER_SOURCE */

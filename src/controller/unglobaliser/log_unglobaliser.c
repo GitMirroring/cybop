@@ -29,24 +29,18 @@
 #include <stdlib.h>
 
 /**
- * Deallocates log global variables.
+ * Finalises log global variables.
  */
 void unglobalise_log() {
 
-    // Free log level.
-//??    free((void*) LOG_LEVEL);
+    //
+    // CAUTION! The LOG_MESSAGE was defined as static global variable.
+    // It thus gets destroyed automatically and does NOT have to be freed here.
+    //
 
-    // Free log message count.
-//??    free((void*) LOG_MESSAGE_COUNT);
-
-    // Free log message size.
-//??    free((void*) LOG_MESSAGE_SIZE);
-
-    // Free log message.
-//??    free((void*) LOG_MESSAGE);
-
+    //
     // CAUTION! Do NOT try to free the log output of type FILE!
-    // It was already closed in module "optionaliser.c".
+    // It was already closed in module "deoptionaliser.c".
     //
     // FILE objects are allocated and managed internally by the input/ output
     // library functions. The library creates objects of type FILE.
@@ -55,6 +49,7 @@ void unglobalise_log() {
     //
     // Hence, the following line would not make sense and is FORBIDDEN:
     // free(LOG_OUTPUT);
+    //
 }
 
 /* LOG_UNGLOBALISER_SOURCE */

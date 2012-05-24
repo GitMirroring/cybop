@@ -27,14 +27,14 @@
 #define CONVERSION_TYPE_SIZE_SOURCE
 
 //
-// CAUTION! Do NOT try to assign any values here!
-// Otherwise, the compiler shows the following error:
-// "error: initializer element is not constant"
-// Therefore, the variables are only initialised in module "globaliser.c".
+// The global variables.
+//
+// CAUTION! This is just the variable definition, specifying a size.
+// Initialisation happens in directory "controller/globaliser/".
 //
 
 /** The mbstate_t conversion type size. */
-static int MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE_ARRAY[] = {0};
+static int MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE_ARRAY[1];
 static int* MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE = MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE_ARRAY;
 
 /* CONVERSION_TYPE_SIZE_SOURCE */

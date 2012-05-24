@@ -30,11 +30,10 @@
 #include "../../variable/type_size/pointer_type_size.c"
 
 /**
- * Allocates and initialises pointer global variables.
+ * Initialises pointer global variables.
  */
 void globalise_pointer() {
 
-    // Allocate and initialise void* pointer type size.
     *POINTER_TYPE_SIZE = sizeof(void*);
 }
 

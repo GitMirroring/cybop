@@ -27,18 +27,18 @@
 #define THREAD_TYPE_SIZE_SOURCE
 
 //
-// CAUTION! Do NOT try to assign any values here!
-// Otherwise, the compiler shows the following error:
-// "error: initializer element is not constant"
-// Therefore, the variables are only initialised in module "globaliser.c".
+// The global variables.
+//
+// CAUTION! This is just the variable definition, specifying a size.
+// Initialisation happens in directory "controller/globaliser/".
 //
 
 /** The pthread_t thread type size. */
-static int THREAD_TYPE_SIZE_ARRAY[] = {0};
+static int THREAD_TYPE_SIZE_ARRAY[1];
 static int* THREAD_TYPE_SIZE = THREAD_TYPE_SIZE_ARRAY;
 
 /** The pthread_mutex_t thread type size. */
-static int MUTEX_THREAD_TYPE_SIZE_ARRAY[] = {0};
+static int MUTEX_THREAD_TYPE_SIZE_ARRAY[1];
 static int* MUTEX_THREAD_TYPE_SIZE = MUTEX_THREAD_TYPE_SIZE_ARRAY;
 
 /* THREAD_TYPE_SIZE_SOURCE */

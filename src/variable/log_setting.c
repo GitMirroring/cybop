@@ -32,7 +32,7 @@
 // The global variables.
 //
 // CAUTION! This is just the variable definition, specifying a size.
-// They are initialised in directory "controller/globaliser/".
+// Initialisation happens in directory "controller/globaliser/".
 //
 
 /** The log level. */
