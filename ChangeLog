@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix memory allocation bug occuring on 64 Bit machines (thanks to the "valgrind" software),
+            caused by wrong definition of variable "LOG_OUTPUT"
+
 2012-05-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix memory allocation bug occuring on 64 Bit machines (thanks to the "valgrind" software),

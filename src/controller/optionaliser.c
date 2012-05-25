@@ -134,7 +134,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        FILE** f = (FILE**) p0;
+        void** f = (void**) p0;
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
@@ -171,7 +171,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         // library functions. The library creates objects of type FILE.
         // Programs should deal only with pointers to these objects (FILE* values),
         // rather than the objects themselves.
-        *f = fopen((char*) td, "w");
+        *f = (void*) fopen((char*) td, "w");
 
         if (*f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -218,7 +218,7 @@ void deoptionalise_log_file(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        FILE** f = (FILE**) p0;
+        void** f = (void**) p0;
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
@@ -232,7 +232,7 @@ void deoptionalise_log_file(void* p0) {
         if (*f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Close log file.
-            fclose(*f);
+            fclose((FILE*) *f);
 
             // Reset log file pointer.
             // CAUTION! Hand over the log file stream AS REFERENCE!

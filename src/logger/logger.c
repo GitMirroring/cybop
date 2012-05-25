@@ -252,7 +252,7 @@ void log_message(void* p0, void* p1, void* p2) {
         overwrite_array((void*) &LOG_MESSAGE, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Log message.
-        log_write((void*) LOG_OUTPUT, (void*) LOG_MESSAGE);
+        log_write(*LOG_OUTPUT, (void*) LOG_MESSAGE);
 
     } else {
 

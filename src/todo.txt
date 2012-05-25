@@ -9,10 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Check for compilation error when using "struct" in "sizeof"
-            of files "conversion_globaliser.c" and "x_window_system_globaliser.c"
-
-        * Fix memory bug caused by encode/decode of utf-8 (similar error to variable definition above?)
+        * Fix memory bug in file "utf_8_decoder.c", line 287
+        * Fix memory bug in file "utf_8_encoder.c", line 286
 
         * Receive user input in cybol example application "ui_control"
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
