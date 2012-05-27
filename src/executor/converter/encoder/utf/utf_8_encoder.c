@@ -213,7 +213,7 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             // CAUTION! The old destination count is added so that new
             // elements are just appended but do not overwrite existing data.
             calculate_integer_add((void*) &nds, p2);
-            calculate_integer_multiply((void*) &nds, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+            calculate_integer_multiply((void*) &nds, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
             calculate_integer_add((void*) &nds, dc);
 
             // Reallocate destination item.
@@ -253,7 +253,7 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             //
             // A variable of type mbstate_t can contain all the
             // information about the shift state needed from one call
-            // to a conversion function to another.
+            // of a conversion function to another.
             mbstate_t st;
 
             // Clear the whole conversion state variable.

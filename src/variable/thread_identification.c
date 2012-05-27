@@ -31,7 +31,7 @@
 //
 // The global variables.
 //
-// CAUTION! This is just the variable definition, specifying a size.
+// CAUTION! This is just the variable definition.
 // Initialisation happens in directory "controller/globaliser/".
 //
 

@@ -1,0 +1,130 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.11.0 2012-01-01
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef LOG_FILE_OPTIONALISER_SOURCE
+#define LOG_FILE_OPTIONALISER_SOURCE
+
+#include <stdio.h>
+/*??
+#include <sys/stat.h>
+#include <fcntl.h>
+*/
+
+#include "../../constant/model/character_code/ascii/ascii_character_code_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../controller/optionaliser/option_optionaliser.c"
+#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../logger/logger.c"
+
+/**
+ * Optionalises the log file option.
+ *
+ * @param p0 the log file (pointer reference)
+ * @param p1 the log file name data
+ * @param p2 the log file name count
+ */
+void optionalise_log_file(void* p0, void* p1, void* p2) {
+
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        void** f = (void**) p0;
+
+        // CAUTION! DO NOT use logging functionality here!
+        // The logger will not work before its options are set.
+        // Comment out this function call to avoid disturbing messages at system startup!
+        // log_write((void*) stdout, L"Debug: Optionalise log file.\n");
+
+        // The terminated file name item.
+        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The terminated file name item data.
+        void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Allocate terminated file name item.
+        // CAUTION! Do NOT use a wide character array here!
+        // The glibc file stream functions below expect standard (multibyte) character arrays.
+        allocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Encode wide character option into multibyte character array.
+        encode_utf_8(t, p1, p2);
+
+        // Add null termination character to terminated file name.
+        append_item_element(t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+        // Get terminated file name item data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+        // Open log file for writing only.
+        // If the file already exists, it is truncated to zero length.
+        // Otherwise a new file is created.
+        //
+        // FILE objects are allocated and managed internally by the input/ output
+        // library functions. The library creates objects of type FILE.
+        // Programs should deal only with pointers to these objects (FILE* values),
+        // rather than the objects themselves.
+        *f = (void*) fopen((char*) td, "w");
+
+        if (*f != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // The file owner.
+            int o = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            // The file group.
+            int g = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+            // Set file owner.
+            chown((char*) td, o, g);
+
+            // The file access rights.
+            //?? TODO: When trying to cross-compile cyboi for windows,
+            //?? the two S_IRGRP and S_IWGRP were not recognised by mingw.
+            int r = S_IRUSR | S_IWUSR; //?? | S_IRGRP | S_IWGRP;
+
+            // Set file access rights.
+            chmod((char*) td, r);
+
+        } else {
+
+            // CAUTION! DO NOT use logging functionality here!
+            // The logger will not work before its options are set.
+            log_write((void*) stdout, L"Error: Could not optionalise log file. An error occured when trying to open or create the file for writing.\n");
+        }
+
+        // Deallocate terminated file name item.
+        deallocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    } else {
+
+        // CAUTION! DO NOT use logging functionality here!
+        // The logger will not work before its options are set.
+        log_write((void*) stdout, L"Error: Could not optionalise log file. The file descriptor is null.\n");
+    }
+}
+
+/* LOG_FILE_OPTIONALISER_SOURCE */
+#endif

@@ -23,19 +23,26 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TERMINAL_TYPE_SIZE_SOURCE
-#define TERMINAL_TYPE_SIZE_SOURCE
+#ifndef DEOPTIONALISER_SOURCE
+#define DEOPTIONALISER_SOURCE
 
-//
-// The global variables.
-//
-// CAUTION! This is just the variable definition.
-// Initialisation happens in directory "controller/globaliser/".
-//
+#include "../controller/deoptionaliser/log_file_deoptionaliser.c"
 
-/** The termios terminal type size. */
-static int INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE_ARRAY[1];
-static int* INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE = INPUT_OUTPUT_SYSTEM_TERMINAL_TYPE_SIZE_ARRAY;
+/**
+ * Deoptionalises the given command line argument options.
+ *
+ * @param p0 the log file stream
+ */
+void deoptionalise(void* p0) {
 
-/* TERMINAL_TYPE_SIZE_SOURCE */
+    // CAUTION! DO NOT use logging functionality here!
+    // The logger will not work before its options are set.
+    // Do NOT show the following message, as it would only disturb the user!
+    // log_write((void*) stdout, L"Information: Deoptionalise command line argument options.\n");
+
+    // Deoptionalise log file.
+    deoptionalise_log_file(p0);
+}
+
+/* DEOPTIONALISER_SOURCE */
 #endif

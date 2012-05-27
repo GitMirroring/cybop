@@ -9,14 +9,21 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Fix memory bug in file "utf_8_decoder.c", line 287
+        VERIFY changes made (with compiler running on other box):
+        * Use "WIDE_CHARACTER_INTEGRAL_TYPE_SIZE" and "SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE"
+            instead of integer constants in "utf_8_decoder.c", line 286 and "utf_8_encoder.c", line 286
+        * Split "controller/optionaliser.c"
+
+        TODO:
+        * Reactivate "mbstate_t" in "utf_8_decoder.c", line 286 ??
+        * ERROR: probably is in "(const char**) &sd" in:
+        * Fix memory bug in file "utf_8_decoder.c", line 286
         * Fix memory bug in file "utf_8_encoder.c", line 286
 
         * Receive user input in cybol example application "ui_control"
-        * Adapt cybol example applications "http_communication" and "presence" using HTTP
-        * Uncomment further operations in file "operation_handler.c"
         * Update ansi escape code serialiser files for terminal tui application
 
+        * Adapt cybol example applications "http_communication" and "presence" using HTTP
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
             in file "socket_starter.c" to new model constants
         * Adapt file "http_request_selector.c" or delete if not needed anymore
