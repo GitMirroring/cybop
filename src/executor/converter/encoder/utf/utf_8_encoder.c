@@ -199,21 +199,26 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             //
             // CAUTION! The "worst case" is assumed, i.e. that each source wide character
             // represents a non-ascii character encoded by utf-8 with FOUR single bytes.
-            // Therefore, the destination size is adjusted accordingly.
+            // (This may change one day, since UTF-8 may use even more than just
+            // four bytes to encode one character.)
+            // Therefore, the destination size is adjusted accordingly, so that
+            // the source character count is multiplicated with four,
+            // to determine the destination character count.
+            //
             // In case some source wide characters are ascii characters -- even better,
             // since then less than four destination characters are used for encoding,
             // and the destination character array will have LESS entries (count)
-            // than the destination size that was set before.
-            // In this case, the destination size will be too big,
-            // but that doesn't matter.
+            // than the destination size that was set before. In this case,
+            // the destination size will be too big, but that doesn't matter.
             //
             // CAUTION! Do NOT easily change the order of function calls.
             // The source count multiplication has to be done BEFORE
             // adding the old destination count value.
+            //
             // CAUTION! The old destination count is added so that new
             // elements are just appended but do not overwrite existing data.
             calculate_integer_add((void*) &nds, p2);
-            calculate_integer_multiply((void*) &nds, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+            calculate_integer_multiply((void*) &nds, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
             calculate_integer_add((void*) &nds, dc);
 
             // Reallocate destination item.

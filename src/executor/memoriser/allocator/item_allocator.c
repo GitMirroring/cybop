@@ -49,9 +49,7 @@ void allocate_item(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate item.");
 
         // Allocate item.
-fwprintf(stdout, L"TEST allocate item 0: %i\n", p0);
         allocate_array(p0, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST allocate item 1: %i\n", p0);
 
         // The data, count, size.
         void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

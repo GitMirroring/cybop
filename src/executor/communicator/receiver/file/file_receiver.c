@@ -76,9 +76,6 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Allocate decoded message item.
     allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-fwprintf(stdout, L"TEST receive file p2: %i\n", p2);
-fwprintf(stdout, L"TEST receive file p2 as wchar_t: %ls\n", (wchar_t*) p2);
-
     // Receive byte data via channel.
     receive_file_stream(e, p2, p3);
 
@@ -99,12 +96,8 @@ fwprintf(stdout, L"TEST receive file p2 as wchar_t: %ls\n", (wchar_t*) p2);
     copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST receive file 0: %i\n", p0);
-
     // Deserialise data via type (language).
     deserialise(p0, p1, dd, dc, p4, p5);
-
-fwprintf(stdout, L"TEST receive file 1: %i\n", p0);
 
     // Deallocate byte message item.
     deallocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

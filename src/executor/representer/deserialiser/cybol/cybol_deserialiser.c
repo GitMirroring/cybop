@@ -103,9 +103,6 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST deserialise p4: %i\n", p4);
-fwprintf(stdout, L"TEST deserialise *p4: %i\n", *((int*) p4));
-
     //
     // colour
     //
@@ -175,12 +172,8 @@ fwprintf(stdout, L"TEST deserialise *p4: %i\n", *((int*) p4));
             allocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
             allocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-fwprintf(stdout, L"TEST deserialise part element 1: %i\n", p4);
-
             // Decode source message (cybol file) into temporary model, properties item.
             deserialise_xml(m, p, p2, p3);
-
-fwprintf(stdout, L"TEST deserialise part element 2: %i\n", p4);
 
             // Get temporary model, properties data, count.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!

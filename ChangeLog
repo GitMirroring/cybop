@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-05-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix memory allocation bug occuring on 64 Bit machines (thanks to the "valgrind" software),
+            caused by wrong reallocation size in files "utf_8_decoder.c" and "utf_8_encoder.c"
+
 2012-05-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Split file "controller/optionaliser.c" into several of sub directories "optionaliser/" and "deoptionaliser/"

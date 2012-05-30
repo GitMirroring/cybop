@@ -9,16 +9,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        VERIFY changes made (with compiler running on other box):
-        * Use "WIDE_CHARACTER_INTEGRAL_TYPE_SIZE" and "SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE"
-            instead of integer constants in "utf_8_decoder.c", line 286 and "utf_8_encoder.c", line 286
-        * Split "controller/optionaliser.c"
-
-        TODO:
-        * Reactivate "mbstate_t" in "utf_8_decoder.c", line 286 ??
-        * ERROR: probably is in "(const char**) &sd" in:
-        * Fix memory bug in file "utf_8_decoder.c", line 286
-        * Fix memory bug in file "utf_8_encoder.c", line 286
+        * Fix memory allocation bug occuring on 64 Bit machines (thanks to the "valgrind" software),
+            caused by wrong determination of argument end in file "argument_optionaliser.c"
+            (space has to be detected instead of null termination character using function "strlen")
 
         * Receive user input in cybol example application "ui_control"
         * Update ansi escape code serialiser files for terminal tui application

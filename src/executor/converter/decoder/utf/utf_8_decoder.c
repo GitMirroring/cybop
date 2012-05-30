@@ -199,21 +199,23 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             //
             // CAUTION! The "worst case" is assumed, i.e. that each source character
             // represents an ascii character encoded by utf-8 with ONE single byte.
-            // Therefore, the destination size is adjusted accordingly.
+            // Therefore, the destination size is adjusted accordingly, so that
+            // the source character count determines the destination character count.
+            //
             // In case not all source characters are ascii characters -- even better,
             // since then more than just one source character were used for encoding,
             // and the destination wide character array will have LESS entries (count)
-            // than the destination size that was set before.
-            // In this case, the destination size will be too big,
-            // but that doesn't matter.
+            // than the destination size that was set before. In this case,
+            // the destination size will be too big, but that doesn't matter.
             //
             // CAUTION! Do NOT easily change the order of function calls.
             // The source count multiplication has to be done BEFORE
             // adding the old destination count value.
+            //
             // CAUTION! The old destination count is added so that new
             // elements are just appended but do not overwrite existing data.
             calculate_integer_add((void*) &nds, p2);
-            calculate_integer_multiply((void*) &nds, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+            calculate_integer_multiply((void*) &nds, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
             calculate_integer_add((void*) &nds, dc);
 
             // Reallocate destination item.
