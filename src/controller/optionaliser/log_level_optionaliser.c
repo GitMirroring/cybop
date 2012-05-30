@@ -27,6 +27,7 @@
 #define LOG_LEVEL_OPTIONALISER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/option/log_level_option_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/comparator/all/array_all_comparator.c"

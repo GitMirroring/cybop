@@ -27,10 +27,6 @@
 #define LOG_FILE_OPTIONALISER_SOURCE
 
 #include <stdio.h>
-/*??
-#include <sys/stat.h>
-#include <fcntl.h>
-*/
 
 #include "../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"

@@ -31,6 +31,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../controller/optionaliser/option_optionaliser.c"
 #include "../../executor/comparator/basic/integer/smaller_integer_comparator.c"
 #include "../../executor/converter/decoder/utf/utf_8_decoder.c"
 
