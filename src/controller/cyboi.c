@@ -54,33 +54,42 @@
 /**
  * The main entry function.
  *
- * @param p0 the arguments count (argc)
- * @param p1 the arguments vector (argv), the first argument being the command;
- *           the pointer array p1 contains strings, i.e. character arrays/ pointers;
+ * @param p0 the arguments count (argc) which also counts the name of the programme being run
+ * @param p1 the arguments vector (argv), the first argument being the file name of the programme being run;
+ *           the pointer array p1 contains null-terminated C strings;
+ *           a string is a character array, i.e. pointer to the first array element;
  *           since cyboi uses wide characters everywhere possible,
  *           and also for standard input- and output streams,
  *           it can be expected that argv contains multibyte strings which
  *           have to be converted into wide character strings before being processed;
- *           this is done in module "optionaliser.c"
+ *           this is done in the "optionaliser" module
  * @return the return value (0 for normal shutdown; 1 for error)
  */
 int main(int p0, char** p1) {
 
+    //
     // One note about dynamic memory allocation:
     // There is no point in freeing blocks at the end of an application programme,
     // because all of the programme's space is given back to the operating system
     // when the process terminates.
+    //
     // Of course, all dynamically allocated memory should also be freed properly.
     // However, if some memory to be freed is forgotten accidentally, it will
     // not harm the operating system, as the memory occupied by the application
     // will be freed automatically on process shutdown.
     //
+
+    //
     //?? TODO: YET TO ANSWER: How is that with forgotten threads?
     //?? Are they killed automatically when a process is shut down?
+    //
 
     // Return 1 to indicate an error, by default.
     int r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
+    // There is NO use to test the parametre p0, because it
+    // always has at least the value 1, since it also
+    // counts the name of the programme being run.
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // log_write(stdout, L"Information: Execute cyboi.\n");
@@ -164,6 +173,7 @@ int main(int p0, char** p1) {
         // since one of the options determines the log output file name.
         orient(*LOG_OUTPUT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Begin log.");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Run cyboi.");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Globalised global variables already.");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Optionalised log file already.");
@@ -190,6 +200,7 @@ int main(int p0, char** p1) {
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deoptionalise log file yet.");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Unglobalise global variables yet.");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Exit cyboi normally afterwards.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"End log.");
 
         // Deoptionalise command line argument options.
         // CAUTION! Hand over the LOG_OUTPUT variable AS REFERENCE!

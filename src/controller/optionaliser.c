@@ -65,7 +65,7 @@
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
  * @param p3 the log file stream (pointer reference)
- * @param p4 the arguments (pointer reference)
+ * @param p4 the arguments data (pointer reference)
  * @param p5 the arguments count
  */
 void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {

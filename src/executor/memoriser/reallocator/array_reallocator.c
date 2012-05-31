@@ -106,7 +106,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         // outside the smaller size area are just lost.
 
                         // The NEW memory area to be initialised.
-                        int nma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                        size_t nma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                         // Calculate extra array size, which is the given array size
                         // reduced by the existing element count.
@@ -122,10 +122,13 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         void* na = *a + (ma - nma);
 
                         // Initialise ONLY NEW array elements (new memory area)
-                        // with null pointer. Leave existing elements untouched.
+                        // with zero. Leave existing elements untouched.
                         //
                         // CAUTION! Initialising with zero is essential, since cyboi
                         // frequently tests variables for null pointer values.
+                        //
+                        // CAUTION! Do NOT use large values, since the zero value gets
+                        // converted to an unsigned char inside the "memset" function.
                         memset(na, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, nma);
                     }
 

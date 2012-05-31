@@ -184,6 +184,8 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-8.");
 
+fwprintf(stdout, L"TEST decoder *sc: %i\n", *sc);
+
             // The destination item data, count, size.
             void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -194,6 +196,9 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             // Get destination item count, size.
             copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &ds, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST decoder *dc: %i\n", *((int*) dc));
+fwprintf(stdout, L"TEST decoder *ds: %i\n", *((int*) ds));
 
             // Initialise new destination size.
             //
@@ -211,15 +216,16 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             // CAUTION! Do NOT easily change the order of function calls.
             // The source count multiplication has to be done BEFORE
             // adding the old destination count value.
-            //
-            // CAUTION! The old destination count is added so that new
-            // elements are just appended but do not overwrite existing data.
+fwprintf(stdout, L"TEST decoder nds init: %i\n", nds);
             calculate_integer_add((void*) &nds, p2);
-            calculate_integer_multiply((void*) &nds, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-            calculate_integer_add((void*) &nds, dc);
+fwprintf(stdout, L"TEST decoder nds add source count: %i\n", nds);
+//??             calculate_integer_multiply((void*) &nds, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+//?? fwprintf(stdout, L"TEST decoder nds multiply type size: %i\n", nds);
 
             // Reallocate destination item.
             reallocate_item(p0, (void*) &nds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+fwprintf(stdout, L"TEST decoder *ds post realloc: %i\n", *((int*) ds));
 
             // Set locale.
             //
@@ -277,20 +283,31 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             // Converts the multibyte character string into a wide character string.
             // Returns the number of wide characters
             // successfully converted, except in the case of an encoding error.
+            //
             // CAUTION! The multibyte source character string does NOT need to be
             // null-terminated, since the third parametre already indicates its count.
+            //
             // CAUTION! Hand over the NEW destination size as fourth parametre,
             // since it indicates the maximum number of characters to be converted
             // and conversion would break too early if that parametre was too small.
+            //
             // CAUTION! The fifth parametre may be NULL. In this case, a static
             // anonymous state only known to the function internally is used instead.
             // It just indicates where conversion is started.
+//??            int n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, *((size_t*) sc), *((size_t*) ds), &st);
+fwprintf(stdout, L"TEST decoder *ds pre mbsnrtowcs as size_t: %i\n", *((size_t*) ds));
+
             int n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, *((size_t*) sc), *((size_t*) ds), (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+
+fwprintf(stdout, L"TEST decoder n: %i\n", n);
 
             if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Increment destination count by the number of WIDE characters converted.
-                calculate_integer_add(dc, (void*) &n);
+//??                calculate_integer_add(dc, (void*) &n);
+                copy_integer(dc, (void*) &n);
+
+fwprintf(stdout, L"TEST decoder *dc new: %i\n", *((int*) dc));
 
             } else {
 

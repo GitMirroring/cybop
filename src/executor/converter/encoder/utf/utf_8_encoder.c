@@ -214,12 +214,8 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             // CAUTION! Do NOT easily change the order of function calls.
             // The source count multiplication has to be done BEFORE
             // adding the old destination count value.
-            //
-            // CAUTION! The old destination count is added so that new
-            // elements are just appended but do not overwrite existing data.
             calculate_integer_add((void*) &nds, p2);
             calculate_integer_multiply((void*) &nds, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
-            calculate_integer_add((void*) &nds, dc);
 
             // Reallocate destination item.
             reallocate_item(p0, (void*) &nds, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -259,7 +255,7 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             // A variable of type mbstate_t can contain all the
             // information about the shift state needed from one call
             // of a conversion function to another.
-            mbstate_t st;
+//??            mbstate_t st;
 
             // Clear the whole conversion state variable.
             //
@@ -267,7 +263,7 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             // state object in any specific state. The rules are that
             // the object should always represent the initial state
             // before the first use and this is achieved here.
-            memset((void*) &st, '\0', *MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE);
+//??            memset((void*) &st, '\0', *MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE);
 
             // Initialise error number.
             // It is a global variable/ function and other operations
@@ -280,20 +276,27 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             // Converts the wide character string into a multibyte character string.
             // Returns the number of bytes in all the multibyte character sequences
             // successfully converted, except in the case of an encoding error.
+            //
             // CAUTION! The wide source character string does NOT need to be
             // null-terminated, since the third parametre already indicates its count.
+            //
             // CAUTION! Hand over the NEW destination size as fourth parametre,
             // since it indicates the maximum number of characters to be converted
             // and conversion would break too early if that parametre was too small.
+            //
             // CAUTION! The fifth parametre may be NULL. In this case, a static
             // anonymous state only known to the function internally is used instead.
             // It just indicates where conversion is started.
-            int n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, *((size_t*) sc), *((size_t*) ds), &st);
+//??            int n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, *((size_t*) sc), *((size_t*) ds), &st);
+            int n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, *((size_t*) sc), *((size_t*) ds), (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+
+//?? fwprintf(stdout, L"TEST encoder n: %i\n", n);
 
             if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Increment destination count by the number of MULTIBYTE characters converted.
-                calculate_integer_add(dc, (void*) &n);
+//??                calculate_integer_add(dc, (void*) &n);
+                copy_integer(dc, (void*) &n);
 
             } else {
 

@@ -48,7 +48,7 @@
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
  * @param p3 the log file stream (pointer reference)
- * @param p4 the arguments (pointer reference)
+ * @param p4 the arguments data (pointer reference)
  * @param p5 the arguments count
  * @param p6 the index
  */
@@ -60,8 +60,8 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // log_write((void*) stdout, L"Information: Optionalise command line argument.\n");
 
     // The value index, which is equal to the loop variable increased by one.
-    // CAUTION! Do NOT misuse the index parametre *j handed over to this function!
-    // The parametre j is the loop index and MUST NOT be altered here!
+    // CAUTION! Do NOT misuse the index parametre handed over to this function!
+    // The index parametre is the loop index and MUST NOT be altered here!
     // Therefore, a new local variable i is introduced.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The command line argument option as multibyte character array.
@@ -116,7 +116,8 @@ void optionalise_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void
         log_write((void*) stdout, L"Error: Could not optionalise command line argument. The command line argument option is null.\n");
     }
 
-    // Calculate value index, which is equal to the loop index increased by one.
+    // Calculate "value" index, which is equal to
+    // the "option" loop index increased by one.
     copy_integer((void*) &i, p6);
     calculate_integer_add((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
