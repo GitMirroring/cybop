@@ -10,8 +10,7 @@
 #
 
         * Fix memory allocation bug occuring on 64 Bit machines (thanks to the "valgrind" software),
-            caused by wrong determination of argument end in file "argument_optionaliser.c"
-            (space has to be detected instead of null termination character using function "strlen")
+            caused by ??
 
         * Receive user input in cybol example application "ui_control"
         * Update ansi escape code serialiser files for terminal tui application

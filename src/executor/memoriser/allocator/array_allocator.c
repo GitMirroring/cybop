@@ -27,7 +27,6 @@
 #define ARRAY_ALLOCATOR_SOURCE
 
 #include <stdlib.h>
-#include <string.h>
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -53,7 +52,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate array.");
 
         // The memory area.
-        int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        size_t ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Determine type (type) size.
         determine_size((void*) &ma, p2);
@@ -64,7 +63,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // A minimal space in memory is always allocated,
         // even if the requested size is zero.
         // In other words, a handle to the new instance is always returned.
-        *a = (void*) malloc((size_t) ma);
+        *a = malloc(ma);
 
         // Initialise array elements with null pointer.
         //

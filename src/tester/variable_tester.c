@@ -40,22 +40,22 @@ void test_type_sizes() {
 
     fwprintf(stdout, L"null pointer memory model: %i\n", *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"pointer type size: %i\n", *POINTER_TYPE_SIZE);
+    fwprintf(stdout, L"pointer: %i\n", *POINTER_TYPE_SIZE);
 
-    fwprintf(stdout, L"signed char type size: %i\n", *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"unsigned char type size: %i\n", *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"signed short int type size: %i\n", *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"unsigned short int type size: %i\n", *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"signed int type size: %i\n", *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"unsigned int type size: %i\n", *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"signed long int type size: %i\n", *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"unsigned long int type size: %i\n", *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"signed long long int type size: %i\n", *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"unsigned long long int type size: %i\n", *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"wchar_t type size: %i\n", *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-//??    fwprintf(stdout, L"float type size: %i\n", *FLOAT_REAL_TYPE_SIZE);
-    fwprintf(stdout, L"double type size: %i\n", *DOUBLE_REAL_TYPE_SIZE);
-    fwprintf(stdout, L"long double type size: %i\n", *LONG_DOUBLE_REAL_TYPE_SIZE);
+    fwprintf(stdout, L"signed char: %i\n", *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"unsigned char: %i\n", *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"signed short int: %i\n", *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"unsigned short int: %i\n", *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"signed int: %i\n", *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"unsigned int: %i\n", *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"signed long int: %i\n", *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"unsigned long int: %i\n", *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"signed long long int: %i\n", *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"unsigned long long int: %i\n", *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"wchar_t: %i\n", *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+    fwprintf(stdout, L"float: %i\n", *FLOAT_REAL_TYPE_SIZE);
+    fwprintf(stdout, L"double: %i\n", *DOUBLE_REAL_TYPE_SIZE);
+    fwprintf(stdout, L"long double: %i\n", *LONG_DOUBLE_REAL_TYPE_SIZE);
 }
 
 /**
@@ -68,7 +68,7 @@ void test_variable() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test variable.");
 
-//    test_type_sizes();
+    test_type_sizes();
 }
 
 /* VARIABLE_TESTER */

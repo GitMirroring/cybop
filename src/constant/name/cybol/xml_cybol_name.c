@@ -81,7 +81,7 @@ static int* NODE_XML_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY
  *
  * In order to avoid an ambiguous situation of this kind,
  * the node name representing the tag name does NOT receive ANY name.
- * In other words, it is just left empty.
+ * In other words, it is just left EMPTY.
  * For the example above, this would result in the following cyboi model:
  *
  *  | compound
