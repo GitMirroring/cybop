@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2012-04-16T22:46:54" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2012-06-02T20:50:27" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://uml.sf.net</XMI.exporter>
@@ -12,7 +12,7 @@
   <UML:Model isSpecification="false" isAbstract="false" isLeaf="false" xmi.id="m1" isRoot="false" name="UML Model">
    <UML:Namespace.ownedElement>
     <UML:Stereotype visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="folder" name="folder"/>
-    <UML:Stereotype visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="datatype" name="datatype"/>
+    <UML:Stereotype visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="datatype" name="datatype"/>
     <UML:Model stereotype="folder" visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Logical View" name="Logical View">
      <UML:Namespace.ownedElement>
       <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Datatypes" name="Datatypes">
@@ -36,7 +36,12 @@
       </UML:Package>
       <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="RUu7dGBrJvUC" name="part">
        <UML:Classifier.feature>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="4pgmYtL0hnId" type="yvIYaudLiyEY" name="references"/>
         <UML:Attribute visibility="public" isSpecification="false" xmi.id="fKZmrTypPt1q" type="TvxnizkNJI99" name="name"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="oCt7ONR6WZUi" type="yvIYaudLiyEY" name="channel"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="DQj23gdAMdJQ" type="yvIYaudLiyEY" name="encoding"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="2JZozcH6iZkf" type="yvIYaudLiyEY" name="language"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="xIGdlcksCpEv" type="yvIYaudLiyEY" name="format"/>
         <UML:Attribute visibility="public" isSpecification="false" xmi.id="l5wAzxyMVekY" type="yvIYaudLiyEY" name="type"/>
         <UML:Attribute visibility="public" isSpecification="false" xmi.id="HlH3FzoismVa" type="4f2sGEXCAoji" name="model"/>
         <UML:Attribute visibility="public" isSpecification="false" xmi.id="lEy3W5AHB6P8" type="4f2sGEXCAoji" name="properties"/>
@@ -60,7 +65,8 @@
         <UML:Attribute visibility="public" isSpecification="false" xmi.id="pd1Yl7ObNImJ" type="FXf5w3ajULaJ" name="name"/>
         <UML:Attribute visibility="public" isSpecification="false" xmi.id="VzMLfN2F5R5T" type="FXf5w3ajULaJ" name="channel"/>
         <UML:Attribute visibility="public" isSpecification="false" xmi.id="QJ8nat45sROX" type="FXf5w3ajULaJ" name="encoding"/>
-        <UML:Attribute visibility="public" isSpecification="false" xmi.id="Z0WFcBKPmJxX" type="FXf5w3ajULaJ" name="type"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="t97RUmJHajsr" type="FXf5w3ajULaJ" name="language"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="Z0WFcBKPmJxX" type="FXf5w3ajULaJ" name="format"/>
         <UML:Attribute visibility="public" isSpecification="false" xmi.id="oRkrqoIQopdO" type="FXf5w3ajULaJ" name="model"/>
         <UML:Attribute visibility="public" isSpecification="false" xmi.id="yxnkHiHf2OTc" type="m5TN8AtERJ1I" name="properties"/>
        </UML:Classifier.feature>
@@ -69,44 +75,38 @@
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" isopen="1" showpackage="0" showpubliconly="1" showstereotype="0" name="architecture" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="670" canvaswidth="1323" localid="" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#a0a0a4" backgroundcolor="#c3c3c3" usefillcolor="1" fillcolor="#ffffc0" zoom="100" xmi.id="rtBHrl7hdK9k" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" showpubliconly="1" showpackage="0" showstereotype="0" name="architecture" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="664" canvaswidth="1319" localid="" snapcsgrid="0" showgrid="0" showops="1" usefillcolor="1" fillcolor="#ffffc0" zoom="100" xmi.id="rtBHrl7hdK9k" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
         <widgets>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="none" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="0" x="20" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="166" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="RUu7dGBrJvUC" showscope="1" height="88" showopsigs="601"/>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="none" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="0" x="210" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="8MeugsIa6ZvE" showscope="1" height="72" showopsigs="601"/>
+         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="none" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="0" x="20" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" width="135" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="RUu7dGBrJvUC" showscope="1" height="168" showopsigs="601"/>
+         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="none" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="0" x="190" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="8MeugsIa6ZvE" showscope="1" height="72" showopsigs="601"/>
          <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" usesdiagramusefillcolor="1" showpubliconly="1" showpackage="0" x="330" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="50" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="zwvCQYas2Szd" showscope="1" height="32" showopsigs="601"/>
-         <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" usesdiagramusefillcolor="1" showpubliconly="1" showpackage="0" x="400" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="49" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="j8V04zDCJp4z" showscope="1" height="32" showopsigs="601"/>
-         <notewidget width="723" x="10" noteType="0" y="150" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="284" linecolor="none" xmi.id="iM3PIGx0UNoA" usefillcolor="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="Data structures of the CYBOI interpreter:&#xa;&#xa;part:&#xa;It contains a model which may be primitive data (like a number) or compound data (child parts).&#xa;The part keeps properties (meta information) about the model it points to.&#xa;Properties are always a (compound) part that contains other (property) parts.&#xa;Further, it keeps the type of the model and a unique name for it.&#xa;&#xa;item:&#xa;It ist just a pointer to data (an array) combined with the size (memory) and count (number of elements).&#xa;&#xa;array:&#xa;An allocated area in memory that contains values which may be accessed via indices.&#xa;&#xa;value:&#xa;Some primitive like an integer number, a double number, a void* pointer etc.&#xa;"/>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="none" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="0" x="750" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="223" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="K56AdBVnqiVC" showscope="1" height="121" showopsigs="601"/>
+         <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" usesdiagramusefillcolor="1" showpubliconly="1" showpackage="0" x="410" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="49" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="j8V04zDCJp4z" showscope="1" height="32" showopsigs="601"/>
+         <notewidget width="723" x="20" noteType="0" y="200" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="284" linecolor="none" xmi.id="iM3PIGx0UNoA" usefillcolor="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="Data structures of the CYBOI interpreter:&#xa;&#xa;part:&#xa;It contains a model which may be primitive data (like a number) or compound data (child parts).&#xa;The part keeps properties (meta information) about the model it points to.&#xa;Properties are always a (compound) part that contains other (property) parts.&#xa;Further, it keeps the type of the model and a unique name for it.&#xa;The internal type reflects the format.&#xa;A fraction number can be given in two different formats, a complex number as well.&#xa;But internally, they are mapped to the same type, for easier handling and calculation.&#xa;The references are an attribute that is only used in cyboi for rubbish (garbage) collection.&#xa;&#xa;item:&#xa;It ist just a pointer to data (an array) combined with&#xa;the size (maximum number of elements)&#xa;and count (current number of elements).&#xa;&#xa;array:&#xa;An allocated area in memory that contains values which may be&#xa;accessed via indices (calculated with pointer arithmetics).&#xa;&#xa;value:&#xa;Some primitive like an integer number, a double number, a void* pointer etc.&#xa;"/>
+         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="none" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="0" x="510" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" width="181" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="K56AdBVnqiVC" showscope="1" height="136" showopsigs="601"/>
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" isopen="0" showpackage="0" showpubliconly="1" showstereotype="0" name="test" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="24" canvaswidth="94" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#a0a0a4" backgroundcolor="#c3c3c3" usefillcolor="1" fillcolor="#ffffc0" zoom="100" xmi.id="y0qT9lXlsX7K" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
-        <widgets/>
-        <messages/>
-        <associations/>
-       </diagram>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" isopen="1" showpackage="0" showpubliconly="1" showstereotype="0" name="pipeline" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="934" canvaswidth="1306" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#a0a0a4" backgroundcolor="#c3c3c3" usefillcolor="1" fillcolor="#ffffc0" zoom="100" xmi.id="ObXzVz70lyIL" documentation="" showscope="1" snapgrid="1" showatts="1" type="6">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" showpubliconly="1" showpackage="0" showstereotype="0" name="pipeline" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="664" canvaswidth="1319" localid="-1" snapcsgrid="0" showgrid="0" showops="1" usefillcolor="1" fillcolor="#ffffc0" zoom="100" xmi.id="ObXzVz70lyIL" documentation="" showscope="1" snapgrid="1" showatts="1" type="6">
         <widgets>
          <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="80" y="30" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="30" isinstance="0" usefillcolor="1" fillcolor="none" activityname="" xmi.id="yR8EltiMaOq0" postcondition="" documentation="" activitytype="0" height="30" precondition=""/>
          <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="60" y="120" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="73" isinstance="0" usefillcolor="1" fillcolor="none" activityname="decode" xmi.id="U8grghDHCClB" postcondition="" documentation="" activitytype="1" height="25" precondition=""/>
-         <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="60" y="220" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="88" isinstance="0" usefillcolor="1" fillcolor="none" activityname="deserialise" xmi.id="KlvG4G32hCER" postcondition="" documentation="" activitytype="1" height="25" precondition=""/>
-         <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="60" y="310" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="79" isinstance="0" usefillcolor="1" fillcolor="none" activityname="deformat" xmi.id="5wneIdenmIeQ" postcondition="" documentation="" activitytype="1" height="25" precondition=""/>
-         <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="460" y="110" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="72" isinstance="0" usefillcolor="1" fillcolor="none" activityname="serialise" xmi.id="zrgA4RJMAEcE" postcondition="" documentation="" activitytype="1" height="25" precondition=""/>
-         <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="470" y="220" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="63" isinstance="0" usefillcolor="1" fillcolor="none" activityname="format" xmi.id="UeEAqSbtOOXf" postcondition="" documentation="" activitytype="1" height="25" precondition=""/>
-         <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="470" y="320" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="67" isinstance="0" usefillcolor="1" fillcolor="none" activityname="encode" xmi.id="0CSkS48Stoav" postcondition="" documentation="" activitytype="1" height="25" precondition=""/>
+         <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="40" y="220" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="118" isinstance="0" usefillcolor="1" fillcolor="none" activityname="deserialise_xml" xmi.id="KlvG4G32hCER" postcondition="" documentation="" activitytype="1" height="26" precondition=""/>
+         <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="40" y="310" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="128" isinstance="0" usefillcolor="1" fillcolor="none" activityname="deserialise_cybol" xmi.id="5wneIdenmIeQ" postcondition="" documentation="" activitytype="1" height="26" precondition=""/>
+         <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="460" y="120" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="79" isinstance="0" usefillcolor="1" fillcolor="none" activityname="serialise" xmi.id="zrgA4RJMAEcE" postcondition="" documentation="" activitytype="1" height="26" precondition=""/>
+         <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="460" y="320" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="80" isinstance="0" usefillcolor="1" fillcolor="none" activityname="encode" xmi.id="0CSkS48Stoav" postcondition="" documentation="" activitytype="1" height="26" precondition=""/>
          <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="480" y="20" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="32" isinstance="0" usefillcolor="1" fillcolor="none" activityname="" xmi.id="tHO6saaWpiKF" postcondition="" documentation="" activitytype="0" height="32" precondition=""/>
          <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="80" y="430" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="32" isinstance="0" usefillcolor="1" fillcolor="none" activityname="" xmi.id="JDcglHgvhONj" postcondition="" documentation="" activitytype="2" height="32" precondition=""/>
          <activitywidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" usesdiagramusefillcolor="1" x="480" y="430" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="32" isinstance="0" usefillcolor="1" fillcolor="none" activityname="" xmi.id="WncJLYWFnsLf" postcondition="" documentation="" activitytype="2" height="32" precondition=""/>
-         <objectnodewidget width="124" x="160" objectnodestate="" y="150" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="45" linecolor="none" xmi.id="LPqzxoDr4f4I" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="Data (e.g. String)"/>
-         <objectnodewidget width="124" x="160" objectnodestate="" y="60" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="45" linecolor="none" xmi.id="gwFpDUPGbuKO" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="File (e.g. CYBOL)"/>
-         <objectnodewidget width="142" x="160" objectnodestate="" y="360" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="45" linecolor="none" xmi.id="CfTgDzcWPSVK" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="CYBOI (runtime tree)"/>
-         <objectnodewidget width="124" x="170" objectnodestate="" y="260" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="45" linecolor="none" xmi.id="EhAGKEZ08mpM" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="Model (e.g. XML)"/>
-         <objectnodewidget width="128" x="580" objectnodestate="" y="160" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="45" linecolor="none" xmi.id="EEap6uBIXexi" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="Data (e.g. integer)"/>
-         <objectnodewidget width="142" x="580" objectnodestate="" y="60" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="45" linecolor="none" xmi.id="eZE1ziJDPTRj" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="CYBOI (runtime tree)"/>
-         <objectnodewidget width="187" x="580" objectnodestate="" y="260" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="45" linecolor="none" xmi.id="g0jokW8xkjmq" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="Model (e.g. Model Diagram)"/>
-         <objectnodewidget width="201" x="580" objectnodestate="" y="360" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="45" linecolor="none" xmi.id="by79a4rCb4DY" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="File (e.g. UTF-8-encoded *.txt)"/>
-         <notewidget width="633" x="70" noteType="0" y="500" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="89" linecolor="none" xmi.id="3ZqnIbbuXi17" usefillcolor="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="Deserialisation: n:1 easy, since less CYBOI-internal types exist than CYBOL formats&#xa;&#xa;Serialisation: 1:n difficult, because the source type has to be given TOGETHER with the desired destination format, in order to be able to convert everything correctly&#xa;"/>
+         <objectnodewidget width="227" x="180" objectnodestate="" y="150" usesdiagramusefillcolor="0" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="47" linecolor="#ff0000" xmi.id="LPqzxoDr4f4I" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="xml serialised wide character data"/>
+         <objectnodewidget width="157" x="210" objectnodestate="" y="50" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="47" linecolor="none" xmi.id="gwFpDUPGbuKO" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="utf-8 encoded cybol file"/>
+         <objectnodewidget width="188" x="190" objectnodestate="" y="360" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="47" linecolor="none" xmi.id="CfTgDzcWPSVK" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="cyboi knowledge tree model"/>
+         <objectnodewidget width="135" x="220" objectnodestate="" y="260" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="47" linecolor="none" xmi.id="EhAGKEZ08mpM" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="xml tree model"/>
+         <objectnodewidget width="188" x="620" objectnodestate="" y="50" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="47" linecolor="none" xmi.id="eZE1ziJDPTRj" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="cyboi knowledge tree model"/>
+         <objectnodewidget width="200" x="610" objectnodestate="" y="150" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="47" linecolor="none" xmi.id="g0jokW8xkjmq" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="serialised wide character data"/>
+         <objectnodewidget width="165" x="620" objectnodestate="" y="360" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="47" linecolor="none" xmi.id="by79a4rCb4DY" usefillcolor="1" documentation="" objectnodetype="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodename="utf-8 encoded data"/>
+         <notewidget width="275" x="140" noteType="0" y="490" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="50" linecolor="none" xmi.id="3ZqnIbbuXi17" usefillcolor="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="The left side shows how cybol files&#xa;are read into the cyboi system."/>
+         <notewidget width="279" x="570" noteType="0" y="490" usesdiagramusefillcolor="1" usesdiagramfillcolor="1" isinstance="0" fillcolor="none" height="50" linecolor="none" xmi.id="3ZqnIbbuXi17" usefillcolor="1" linewidth="none" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="The right side shows how some data&#xa;may be written to become persistent."/>
         </widgets>
         <messages/>
         <associations>
@@ -124,38 +124,32 @@
          </assocwidget>
          <assocwidget indexa="1" indexb="1" visibilityA="0" widgetaid="5wneIdenmIeQ" visibilityB="0" roleBdoc="" roleAdoc="" linecolor="none" changeabilityA="900" totalcounta="2" changeabilityB="900" widgetbid="JDcglHgvhONj" totalcountb="2" type="515" documentation="" linewidth="none">
           <linepath>
-           <startpoint startx="100" starty="335"/>
+           <startpoint startx="100" starty="336"/>
            <endpoint endx="100" endy="430"/>
           </linepath>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" visibilityA="0" widgetaid="tHO6saaWpiKF" visibilityB="0" roleBdoc="" roleAdoc="" linecolor="none" changeabilityA="900" totalcounta="2" changeabilityB="900" widgetbid="zrgA4RJMAEcE" totalcountb="2" type="515" documentation="" linewidth="none">
           <linepath>
            <startpoint startx="500" starty="52"/>
-           <endpoint endx="500" endy="110"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" visibilityA="0" widgetaid="zrgA4RJMAEcE" visibilityB="0" roleBdoc="" roleAdoc="" linecolor="none" changeabilityA="900" totalcounta="2" changeabilityB="900" widgetbid="UeEAqSbtOOXf" totalcountb="2" type="515" documentation="" linewidth="none">
-          <linepath>
-           <startpoint startx="500" starty="135"/>
-           <endpoint endx="500" endy="220"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" visibilityA="0" widgetaid="UeEAqSbtOOXf" visibilityB="0" roleBdoc="" roleAdoc="" linecolor="none" changeabilityA="900" totalcounta="2" changeabilityB="900" widgetbid="0CSkS48Stoav" totalcountb="2" type="515" documentation="" linewidth="none">
-          <linepath>
-           <startpoint startx="500" starty="245"/>
-           <endpoint endx="500" endy="320"/>
+           <endpoint endx="500" endy="120"/>
           </linepath>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" visibilityA="0" widgetaid="0CSkS48Stoav" visibilityB="0" roleBdoc="" roleAdoc="" linecolor="none" changeabilityA="900" totalcounta="2" changeabilityB="900" widgetbid="WncJLYWFnsLf" totalcountb="2" type="515" documentation="" linewidth="none">
           <linepath>
-           <startpoint startx="500" starty="345"/>
+           <startpoint startx="500" starty="346"/>
            <endpoint endx="500" endy="430"/>
           </linepath>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" visibilityA="0" widgetaid="KlvG4G32hCER" visibilityB="0" roleBdoc="" roleAdoc="" linecolor="none" changeabilityA="900" totalcounta="2" changeabilityB="900" widgetbid="5wneIdenmIeQ" totalcountb="2" type="515" documentation="" linewidth="none">
           <linepath>
-           <startpoint startx="100" starty="245"/>
+           <startpoint startx="100" starty="246"/>
            <endpoint endx="100" endy="310"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget indexa="1" indexb="1" visibilityA="0" widgetaid="zrgA4RJMAEcE" visibilityB="0" roleBdoc="" roleAdoc="" linecolor="none" changeabilityA="900" totalcounta="2" changeabilityB="900" widgetbid="0CSkS48Stoav" totalcountb="2" type="515" documentation="" linewidth="none">
+          <linepath>
+           <startpoint startx="500" starty="146"/>
+           <endpoint endx="500" endy="320"/>
           </linepath>
          </assocwidget>
         </associations>
@@ -179,18 +173,18 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="rtBHrl7hdK9k" uniqueid="3ZqnIbbuXi17" documentation=""/>
+  <docsettings viewid="rtBHrl7hdK9k" uniqueid="t97RUmJHajsr" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="801" id="Logical View">
      <listitem open="0" type="807" id="rtBHrl7hdK9k" label="architecture"/>
-     <listitem open="0" type="807" id="y0qT9lXlsX7K" label="test"/>
      <listitem open="0" type="809" id="ObXzVz70lyIL" label="pipeline"/>
      <listitem open="1" type="813" id="zwvCQYas2Szd"/>
      <listitem open="1" type="813" id="K56AdBVnqiVC">
       <listitem open="0" type="814" id="pd1Yl7ObNImJ"/>
       <listitem open="0" type="814" id="VzMLfN2F5R5T"/>
       <listitem open="0" type="814" id="QJ8nat45sROX"/>
+      <listitem open="0" type="814" id="t97RUmJHajsr"/>
       <listitem open="0" type="814" id="Z0WFcBKPmJxX"/>
       <listitem open="0" type="814" id="oRkrqoIQopdO"/>
       <listitem open="0" type="814" id="yxnkHiHf2OTc"/>
@@ -201,7 +195,12 @@
       <listitem open="0" type="814" id="jESqioyKGLu0"/>
      </listitem>
      <listitem open="1" type="813" id="RUu7dGBrJvUC">
+      <listitem open="0" type="814" id="4pgmYtL0hnId"/>
       <listitem open="0" type="814" id="fKZmrTypPt1q"/>
+      <listitem open="0" type="814" id="oCt7ONR6WZUi"/>
+      <listitem open="0" type="814" id="DQj23gdAMdJQ"/>
+      <listitem open="0" type="814" id="2JZozcH6iZkf"/>
+      <listitem open="0" type="814" id="xIGdlcksCpEv"/>
       <listitem open="0" type="814" id="l5wAzxyMVekY"/>
       <listitem open="0" type="814" id="HlH3FzoismVa"/>
       <listitem open="0" type="814" id="lEy3W5AHB6P8"/>
