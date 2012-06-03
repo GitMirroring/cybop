@@ -61,7 +61,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reallocate array.");
 
                 // The memory area.
-                size_t ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Determine type (type) size.
                 determine_size((void*) &ma, p3);
@@ -81,6 +81,22 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                     // Therefore, that case is excluded by this condition.
                     //
 
+                    // The temporary size_t variable.
+                    //
+                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                    // the "size_t" type has a size of 8 Byte,
+                    // whereas the "int" type has the usual size of 4 Byte.
+                    // When trying to cast between the two, memory errors
+                    // will occur and the valgrind memcheck tool report:
+                    // "Invalid read of size 8".
+                    //
+                    // CAUTION! Initialise temporary size_t variable with final int value
+                    // JUST BEFORE handing that over to the glibc function requiring it.
+                    //
+                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                    // because values are casted to int* internally again.
+                    size_t tma = ma;
+
                     // Create a new array with extended size.
                     //
                     // Since the space after the end of the block may be in use,
@@ -91,7 +107,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                     //
                     // CAUTION! The "ma" variable MAY NOT be casted to "size_t",
                     // because it is NOT a pointer, but an integer value!
-                    *a = realloc(*a, ma);
+                    *a = realloc(*a, tma);
 
                     if (*s > *c) {
 
@@ -105,7 +121,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         // outside the smaller size area are just lost.
 
                         // The NEW memory area to be initialised.
-                        size_t nma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                        int nma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                         // Calculate extra array size, which is the given array size
                         // reduced by the existing element count.
@@ -120,6 +136,22 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         // The new array elements.
                         void* na = *a + (ma - nma);
 
+                        // The temporary size_t variable.
+                        //
+                        // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                        // the "size_t" type has a size of 8 Byte,
+                        // whereas the "int" type has the usual size of 4 Byte.
+                        // When trying to cast between the two, memory errors
+                        // will occur and the valgrind memcheck tool report:
+                        // "Invalid read of size 8".
+                        //
+                        // CAUTION! Initialise temporary size_t variable with final int value
+                        // JUST BEFORE handing that over to the glibc function requiring it.
+                        //
+                        // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                        // because values are casted to int* internally again.
+                        size_t tnma = nma;
+
                         // Initialise ONLY NEW array elements (new memory area)
                         // with zero. Leave existing elements untouched.
                         //
@@ -128,7 +160,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         //
                         // CAUTION! Do NOT use large values, since the zero value gets
                         // converted to an unsigned char inside the "memset" function.
-                        memset(na, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, nma);
+                        memset(na, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tnma);
                     }
 
                 } else {

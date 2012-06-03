@@ -42,14 +42,30 @@ void test_converter_integer_to_wide_character_conversion() {
 
     log_write((void*) stdout, L"Test integer-to-wide character conversion:\n");
 
-    // The test wide character array.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The test wide character data.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // One byte for the wide character and another for the trailing null.
-    size_t ts = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
+    int s = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
-    // Allocate test wide character array.
-    allocate_array((void*) &t, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate test wide character data.
+    allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // The temporary size_t variable.
+    //
+    // CAUTION! It IS NECESSARY because on 64 Bit machines,
+    // the "size_t" type has a size of 8 Byte,
+    // whereas the "int" type has the usual size of 4 Byte.
+    // When trying to cast between the two, memory errors
+    // will occur and the valgrind memcheck tool report:
+    // "Invalid read of size 8".
+    //
+    // CAUTION! Initialise temporary size_t variable with final int value
+    // JUST BEFORE handing that over to the glibc function requiring it.
+    //
+    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+    // because values are casted to int* internally again.
+    size_t ts = s;
 
     // Transform source integer to destination string.
     // A null wide character is written to mark the end of the string.
@@ -58,19 +74,19 @@ void test_converter_integer_to_wide_character_conversion() {
     // If not all output fits into the provided buffer,
     // a negative value is returned.
 #ifdef CYGWIN_ENVIRONMENT
-    tc = wsprintfW((wchar_t*) t, L"%i", *NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
+    c = wsprintfW((wchar_t*) d, L"%i", *NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
 /* CYGWIN_ENVIRONMENT */
 #else
-    tc = swprintf((wchar_t*) t, ts, L"%i", *NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
+    c = swprintf((wchar_t*) d, ts, L"%i", *NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
 /* CYGWIN_ENVIRONMENT */
 #endif
 
-    fwprintf(stdout, L"TEST ts: %i\n", ts);
-    fwprintf(stdout, L"TEST tc: %i\n", tc);
-    fwprintf(stdout, L"TEST t: %ls\n", (wchar_t*) t);
+    fwprintf(stdout, L"TEST ts: %i\n", s);
+    fwprintf(stdout, L"TEST tc: %i\n", c);
+    fwprintf(stdout, L"TEST t: %ls\n", (wchar_t*) d);
 
-    // Deallocate test wide character array.
-    deallocate_array((void*) &t, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate test wide character data.
+    deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

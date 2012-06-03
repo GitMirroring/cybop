@@ -20,6 +20,10 @@
 
         * Prepare release CYBOP 0.11.0
         * Update project website
+        * Fix memory allocation bugs occuring on 64 Bit machines (thanks to the "valgrind" software
+            and hint from the developers of the stackoverflow.com web forum),
+            caused by casting int* to size_t* and then dereferencing it in file "utf_8_decoder.c"
+            and some other places (size_t is 8 Byte whereas int is only 4 Byte)
 
 2012-05-30  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -82,6 +82,13 @@ void globalise() {
     // As long as these global integer variables are used, there is
     // no need to work with type "sizt_t" in cyboi source code.
     //
+    // But do NOT forget to introduce a local variable of type "size_t"
+    // and to assign the value of the cyboi-internal int variable to it!
+    // Otherwise, memory errors will occur and valgrind memcheck report
+    // something like "Invalid read of size 8", at least on 64 Bit machines.
+    // On such systems, "size_t" has a size of 8 Byte (unsigned long int),
+    // whereas an "int" has the usual size of 4 Byte.
+    //
 
     globalise_conversion();
     globalise_integral();

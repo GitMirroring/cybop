@@ -67,6 +67,22 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
 
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive stream socket.");
 
+                    // The temporary size_t variable.
+                    //
+                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                    // the "size_t" type has a size of 8 Byte,
+                    // whereas the "int" type has the usual size of 4 Byte.
+                    // When trying to cast between the two, memory errors
+                    // will occur and the valgrind memcheck tool report:
+                    // "Invalid read of size 8".
+                    //
+                    // CAUTION! Initialise temporary size_t variable with final int value
+                    // JUST BEFORE handing that over to the glibc function requiring it.
+                    //
+                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                    // because values are casted to int* internally again.
+                    size_t tbs = *bs;
+
                     // Initialise error number.
                     // It is a global variable/ function and other operations
                     // may have set some value that is not wanted here.
@@ -82,7 +98,7 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
                     // Normally, "recv" blocks until there is input available to be read.
                     //
                     // CAUTION! A message MUST NOT be longer than the given buffer size!
-                    *bc = recv(*ps, *b, *((size_t*) bs), *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    *bc = recv(*ps, *b, tbs, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                     if (*bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

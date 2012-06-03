@@ -52,7 +52,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate array.");
 
         // The memory area.
-        size_t ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Determine type (type) size.
         determine_size((void*) &ma, p2);
@@ -60,16 +60,32 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // Calculate memory area.
         calculate_integer_multiply((void*) &ma, p1);
 
+        // The temporary size_t variable.
+        //
+        // CAUTION! It IS NECESSARY because on 64 Bit machines,
+        // the "size_t" type has a size of 8 Byte,
+        // whereas the "int" type has the usual size of 4 Byte.
+        // When trying to cast between the two, memory errors
+        // will occur and the valgrind memcheck tool report:
+        // "Invalid read of size 8".
+        //
+        // CAUTION! Initialise temporary size_t variable with final int value
+        // JUST BEFORE handing that over to the glibc function requiring it.
+        //
+        // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+        // because values are casted to int* internally again.
+        size_t tma = ma;
+
         // A minimal space in memory is always allocated,
         // even if the requested size is zero.
         // In other words, a handle to the new instance is always returned.
-        *a = malloc(ma);
+        *a = malloc(tma);
 
         // Initialise array elements with null pointer.
         //
         // CAUTION! Initialising with zero is essential, since cyboi
         // frequently tests variables for null pointer values.
-        memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, ma);
+        memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tma);
 
     } else {
 
