@@ -10,7 +10,7 @@
 #
 
         * Fix memory allocation bug occuring on 64 Bit machines (thanks to the "valgrind" software),
-            caused by ??
+            caused by casting from int (4 Byte) to size_t (8 Byte) in file "utf_8_decoder.c" and elsewhere
 
         * Receive user input in cybol example application "ui_control"
         * Update ansi escape code serialiser files for terminal tui application

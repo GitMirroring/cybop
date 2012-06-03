@@ -61,6 +61,10 @@ of gcc and other binutils. Native 32 bits Linux and Windows was not tested, howe
 CYBOL Application Execution
 ___________________________
 
+- Set the executable flag for the cyboi binary file, e.g.:
+
+    chmod ugo+x /home/cybop/src/controller/cyboi
+
 - Change into the base directory of your cybol applications, e.g.:
 
     cd /home/cybop/examples
@@ -68,20 +72,30 @@ ___________________________
 - Execute cyboi and give the "run.cybol" file of an application as argument, e.g.:
 
     /home/cybop/src/controller/cyboi --knowledge exit/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge signal/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge exit_text_file/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge exit_signal/run.cybol
     /home/cybop/src/controller/cyboi --knowledge exit_cybol_file/run.cybol
     /home/cybop/src/controller/cyboi --knowledge shell_output/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge shell_output_file/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge shell_output_sequence/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge if-else/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge shell_output_branch/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge shell_output_loop/run.cybol
     /home/cybop/src/controller/cyboi --knowledge shell_command_execution/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge program_execution/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge programme_execution/run.cybol
     /home/cybop/src/controller/cyboi --knowledge addition/run.cybol
     /home/cybop/src/controller/cyboi --knowledge addition_dynamic_model/run.cybol
     /home/cybop/src/controller/cyboi --knowledge addition_dynamic_model_with_root/run.cybol
     /home/cybop/src/controller/cyboi --knowledge addition_static_model/run.cybol
     /home/cybop/src/controller/cyboi --knowledge counter/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge counter_static_model/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge counter_storage/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge time_output_1/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge time_output_2/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge time_output_3/run.cybol
     /home/cybop/src/controller/cyboi --knowledge helloworld/run.cybol
     /home/cybop/src/controller/cyboi --knowledge ui_control/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge http_communication/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi --knowledge http_communication/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi --knowledge presence/run.cybol
 
 To make the client-server communication work in the "http_communication" example,
 type the following URL into a web browser after having started the application:
@@ -145,4 +159,4 @@ The root node of the trunk/ directory is just copied.
 The graphical kdesvn application does not provide this functionality.
 Therefore, adapt and use the following command line:
 
-svn copy https://christian@svn.berlios.de/svnroot/repos/cybop/trunk https://christian@svn.berlios.de/svnroot/repos/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"
+svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"

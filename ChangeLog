@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-03  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare release CYBOP 0.11.0
+        * Update project website
+
 2012-05-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix memory allocation bug occuring on 64 Bit machines (thanks to the "valgrind" software),

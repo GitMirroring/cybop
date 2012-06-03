@@ -19,21 +19,18 @@ _________
 + reallocate: trimToSize
 + deallocate: free, delete, destructor, destroy, DDL DROP TABLE
 
-copier
-______
-
-+ copy: assign, place, copy, duplicate, copyValueOf, clone, SQL UPDATE
-
 modifier
 ________
 
-+ get_element: element, elementAt, charAt, codePointAt, retrieve, getChildAt, firstElement, lastElement, peek, first, lowest, last, highest, SQL SELECT
++ copy: assign, place, copy, duplicate, copyValueOf, clone, SQL UPDATE
 
-+ insert
-+ insert_element: SQL INSERT, DDL ALTER TABLE
++ get_element: element, elementAt, charAt, codePointAt, retrieve, getChildAt, firstElement, lastElement, peek, first, lowest, last, highest, SQL SELECT
 
 + overwrite: set, append, add, push, put, offer, concat, appendAll, putAll, replace
 + overwrite_element: set
+
++ insert
++ insert_element: SQL INSERT, DDL ALTER TABLE
 
 + remove: delete, SQL DELETE, DDL ALTER TABLE, clear, empty
 
@@ -46,8 +43,7 @@ ________
 --> meta elements are accessed via overwrite_element and insert_element
 --> cyboi works with references/pointers only
 --> even for primitive values an array with just one element exists
---> if a reference is to be retrieved (get), then the pointer array abstraction
-    is used, so that not the actual values, but only a reference to them is returned
+--> only references, but not actual values are retrieved (get)
 
 comparator
 __________
