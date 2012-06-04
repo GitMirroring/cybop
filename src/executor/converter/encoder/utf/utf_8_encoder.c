@@ -242,29 +242,6 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             // with elements pointing to different memory areas now.
             copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-            // The state of the conversion.
-            //
-            // Certain character sets use a stateful encoding.
-            // That is, the encoded values depend in some way
-            // on the previous bytes in the text.
-            //
-            // Since the conversion functions allow converting a text
-            // in more than one step, there must be a way to pass this
-            // information from one call of the functions to another.
-            //
-            // A variable of type mbstate_t can contain all the
-            // information about the shift state needed from one call
-            // of a conversion function to another.
-//??            mbstate_t st;
-
-            // Clear the whole conversion state variable.
-            //
-            // There is no specific function or initializer to put the
-            // state object in any specific state. The rules are that
-            // the object should always represent the initial state
-            // before the first use and this is achieved here.
-//??            memset((void*) &st, '\0', *MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE);
-
             // The temporary size_t variable.
             //
             // CAUTION! It IS NECESSARY because on 64 Bit machines,
@@ -306,15 +283,11 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                 // CAUTION! The fifth parametre may be NULL. In this case, a static
                 // anonymous state only known to the function internally is used instead.
                 // It just indicates where conversion is started.
-//??                int n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, *((size_t*) sc), *((size_t*) ds), &st);
                 int n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-
-//?? fwprintf(stdout, L"TEST encoder n: %i\n", n);
 
                 if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                // Increment destination count by the number of MULTIBYTE characters converted.
-//??                    calculate_integer_add(dc, (void*) &n);
+                    // Set destination count to the number of MULTIBYTE characters converted.
                     copy_integer(dc, (void*) &n);
 
                 } else {

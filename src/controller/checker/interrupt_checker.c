@@ -26,12 +26,12 @@
 #ifndef INTERRUPT_CHECKER_SOURCE
 #define INTERRUPT_CHECKER_SOURCE
 
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -71,17 +71,16 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // In both cases, this interrupt is retrieved and checked.
         // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
         // this and further interrupts are NOT checked.
-        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
+        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected signal memory interrupt.");
 
-            // Get signal memory interrupt request.
-            copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            // Get signal memory mutex.
-            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            // Get signal memory interrupt request, mutex, handler.
             // A handler is NOT set in the case of a signal memory interrupt.
+            copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-//??    fwprintf(stdout, L"TEST detected signal memory irq: %i\n", *((int*) *irq));
+fwprintf(stdout, L"TEST detected signal memory irq: %i\n", *((int*) *irq));
         }
 
         // CAUTION! The boolean logic expression is necessary, because:
@@ -92,18 +91,16 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // In both cases, this interrupt is retrieved and checked.
         // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
         // this and further interrupts are NOT checked.
-        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
+        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected terminal interrupt.");
 
-            // Get terminal interrupt request.
+            // Get terminal interrupt request, mutex, handler.
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            // Get terminal mutex.
             copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            // Get terminal handler.
             copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-//??    fwprintf(stdout, L"TEST detected terminal irq: %i\n", *((int*) *irq));
+fwprintf(stdout, L"TEST detected terminal irq: %i\n", *((int*) *irq));
         }
 
         // CAUTION! The boolean logic expression is necessary, because:
@@ -114,18 +111,16 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // In both cases, this interrupt is retrieved and checked.
         // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
         // this and further interrupts are NOT checked.
-        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
+        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected x window system interrupt.");
 
-            // Get x window system interrupt request.
+            // Get x window system interrupt request, mutex, handler.
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            // Get x window system mutex.
             copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            // Get x window system handler.
             copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-//??    fwprintf(stdout, L"TEST detected x window system irq: %i\n", *((int*) *irq));
+fwprintf(stdout, L"TEST detected x window system irq: %i\n", *((int*) *irq));
         }
 
         // CAUTION! The boolean logic expression is necessary, because:
@@ -136,7 +131,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // In both cases, this interrupt is retrieved and checked.
         // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
         // this and further interrupts are NOT checked.
-        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
+        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected www service interrupt.");
 
@@ -153,7 +148,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
             calculate_integer_add((void*) &i, (void*) SOCKET_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-//??    fwprintf(stdout, L"TEST detected www service irq: %i\n", *((int*) *irq));
+fwprintf(stdout, L"TEST detected www service irq: %i\n", *((int*) *irq));
         }
 
         // CAUTION! The boolean logic expression is necessary, because:
@@ -164,7 +159,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // In both cases, this interrupt is retrieved and checked.
         // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
         // this and further interrupts are NOT checked.
-        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
+        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected cyboi service interrupt.");
 
@@ -192,14 +187,14 @@ fwprintf(stdout, L"TEST detected cyboi service irq: %i\n", *((int*) *irq));
         // In both cases, this interrupt is retrieved and checked.
         // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
         // this and further interrupts are NOT checked.
-        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL))) {
+        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check for interrupt requests. No interrupt request is set.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check for interrupt requests. The interrupt request argument is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check for interrupt requests. The interrupt request is null.");
     }
 }
 

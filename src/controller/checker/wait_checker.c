@@ -42,7 +42,7 @@
  * Waits for an interrupt request.
  *
  * @param p0 the sleep time
- * @param p1 the internal memory
+ * @param p1 the internal memory data
  */
 void check_wait(void* p0, void* p1) {
 

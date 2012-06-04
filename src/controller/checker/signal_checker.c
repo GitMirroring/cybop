@@ -95,8 +95,6 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The direct execution flag.
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-//?? fwprintf(stdout, L"TEST check s: %i\n", s);
-
     // Get next signal to be processed from position index zero.
     // CAUTION! The signal memory item's count is checked inside
     // this function. If it is smaller or equal to the given index
@@ -106,12 +104,12 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
 fwprintf(stdout, L"\nTEST signal checker s: %i\n\n", s);
 
-//?? fwprintf(stdout, L"TEST check s: %i\n", s);
-
     if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // A signal was found and has to be handled.
         // Handling a signal has higher priority than checking for new interrupt requests.
+
+fwprintf(stdout, L"TEST check exists: %i\n", s);
 
         // Get interrupt request.
         copy_array_forward((void*) &irq, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -121,26 +119,31 @@ fwprintf(stdout, L"\nTEST signal checker s: %i\n\n", s);
         // Lock signal memory mutex.
         pthread_mutex_lock(mt);
 
-//?? fwprintf(stdout, L"TEST check 2: %i\n", s);
-
         // Remove signal from signal memory.
         remove_item(p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-//?? fwprintf(stdout, L"TEST check 3: %i\n", s);
+        // Reset interrupt request.
+        //
+        // Whenever a signal is added to the signal memory,
+        // then the signal memory flag is set as well.
+        // It gets reset when detecting the signal memory interrupt (see below).
+        //
+        // CAUTION! However, when other signals happen to be processed right now,
+        // then the signal that was just added is processed as well.
+        // In this case, an interrupt detection (see below) does not take place.
+        // But the signal memory interrupt HAS TO BE RESET ANYWAY,
+        // since otherwise, the system's signal processing might get mixed up.
+        copy_integer(irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Unlock signal memory mutex.
         pthread_mutex_unlock(mt);
 
-//?? fwprintf(stdout, L"TEST check 4: %i\n", s);
-
         // Handle signal.
         handle(s, (void*) &x, p0, p3, p4, p1, irq, mt);
 
-//?? fwprintf(stdout, L"TEST check 5: %i\n", s);
-
     } else {
 
-//?? fwprintf(stdout, L"TEST check empty 0: %i\n", s);
+fwprintf(stdout, L"TEST check empty 0: %i\n", s);
 
         // The signal memory is empty, so that the cyboi system
         // may check for new interrupt requests now.
@@ -151,30 +154,28 @@ fwprintf(stdout, L"\nTEST signal checker s: %i\n\n", s);
         // - handler (the signal to be forwarded to the "handle" function below)
         check_interrupt((void*) &irq, (void*) &mt, (void*) &s, p4);
 
-//?? fwprintf(stdout, L"TEST check empty 1: %i\n", s);
-
         // CAUTION! These conditions HAVE TO BE connected by a boolean AND operator,
         // because otherwise, the "else" branch below would not always be reached.
-        if ((irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irq) != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
+        if ((irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irq) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
             // Lock mutex.
             pthread_mutex_lock(mt);
 
             // Reset interrupt request.
             //
-            // The interrupt is reset to zero here because its purpose
+            // CAUTION! The interrupt is reset to false here because its purpose
             // of receiving data over some device in order to handle
             // the corresponding signal is fulfilled.
             //
             // This is done here, right after checking the interrupt flag
             // and yet BEFORE receiving data and handling the signal below,
             // so that the system may react faster to new interrupt requests.
-            copy_integer(irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            copy_integer(irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Unlock mutex.
             pthread_mutex_unlock(mt);
 
-//?? fwprintf(stdout, L"TEST check empty 2: %i\n", s);
+fwprintf(stdout, L"TEST check empty 2: %i\n", s);
 
             // Handle signal.
             //
@@ -183,7 +184,7 @@ fwprintf(stdout, L"\nTEST signal checker s: %i\n\n", s);
             // For reasons, see the comment block above!
             handle(s, (void*) &x, p0, p3, p4, p1, irq, mt);
 
-//?? fwprintf(stdout, L"TEST check empty 3: %i\n", s);
+fwprintf(stdout, L"TEST check empty 3: %i\n", s);
 
             // CAUTION! An interrupt request was detected and the corresponding data received.
             // It is therefore VERY likely that new signals have been generated while handling the data.
@@ -195,16 +196,15 @@ fwprintf(stdout, L"\nTEST signal checker s: %i\n\n", s);
             // No interrupt request was detected, so that the cyboi system
             // can be sent to sleep now, in order to save cpu time.
 
-//?? fwprintf(stdout, L"TEST check wait: %i\n", s);
+fwprintf(stdout, L"TEST check wait: %i\n", s);
 
             check_wait(p2, p4);
         }
     }
 
     //
-    // CAUTION! Do NOT destroy here the signal or its parts!
-    // A signal ONLY ENCAPSULATES an type and a logic model,
-    // which are stored in the knowledge tree.
+    // CAUTION! Do NOT destroy the signal or its parts here!
+    // A signal represents a logic model stored in the knowledge tree.
     // That knowledge tree and its parts get created at
     // system startup or later and destroyed when processing a
     // corresponding CYBOL operation, or at system shutdown.

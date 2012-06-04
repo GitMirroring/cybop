@@ -38,7 +38,7 @@
  * Sends a message as signal to the cyboi system (this system itself).
  *
  * @param p0 the internal memory data
- * @param p1 the source part
+ * @param p1 the source part (pointer reference)
  */
 void send_signal(void* p0, void* p1) {
 
@@ -62,7 +62,7 @@ void send_signal(void* p0, void* p1) {
     pthread_mutex_lock(mt);
 
     // Add signal part to signal memory.
-    append_item_element(s, (void*) &p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Set interrupt request flag, in order to notify the signal checker
     // that a new signal has been placed in the signal memory.

@@ -184,8 +184,6 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-8.");
 
-fwprintf(stdout, L"TEST decoder *sc: %i\n", *sc);
-
             // The destination item data, count, size.
             void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -196,9 +194,6 @@ fwprintf(stdout, L"TEST decoder *sc: %i\n", *sc);
             // Get destination item count, size.
             copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &ds, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
-
-fwprintf(stdout, L"TEST decoder *dc: %i\n", *((int*) dc));
-fwprintf(stdout, L"TEST decoder *ds: %i\n", *((int*) ds));
 
             // Initialise new destination size.
             //
@@ -216,16 +211,10 @@ fwprintf(stdout, L"TEST decoder *ds: %i\n", *((int*) ds));
             // CAUTION! Do NOT easily change the order of function calls.
             // The source count multiplication has to be done BEFORE
             // adding the old destination count value.
-fwprintf(stdout, L"TEST decoder nds init: %i\n", nds);
             calculate_integer_add((void*) &nds, p2);
-fwprintf(stdout, L"TEST decoder nds add source count: %i\n", nds);
-//??             calculate_integer_multiply((void*) &nds, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-//?? fwprintf(stdout, L"TEST decoder nds multiply type size: %i\n", nds);
 
             // Reallocate destination item.
             reallocate_item(p0, (void*) &nds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-fwprintf(stdout, L"TEST decoder *ds post realloc: %i\n", *((int*) ds));
 
             // Set locale.
             //
@@ -248,29 +237,6 @@ fwprintf(stdout, L"TEST decoder *ds post realloc: %i\n", *((int*) ds));
             // Inside the structure, arrays may have been reallocated,
             // with elements pointing to different memory areas now.
             copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            // The state of the conversion.
-            //
-            // Certain character sets use a stateful encoding.
-            // That is, the encoded values depend in some way
-            // on the previous bytes in the text.
-            //
-            // Since the conversion functions allow converting a text
-            // in more than one step, there must be a way to pass this
-            // information from one call of the functions to another.
-            //
-            // A variable of type mbstate_t can contain all the
-            // information about the shift state needed from one call
-            // of a conversion function to another.
-//??            mbstate_t st;
-
-            // Clear the whole conversion state variable.
-            //
-            // There is no specific function or initializer to put the
-            // state object in any specific state. The rules are that
-            // the object should always represent the initial state
-            // before the first use and this is achieved here.
-//??            memset((void*) &st, '\0', *MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE);
 
             // The temporary size_t variable.
             //
@@ -313,18 +279,12 @@ fwprintf(stdout, L"TEST decoder *ds post realloc: %i\n", *((int*) ds));
                 // CAUTION! The fifth parametre may be NULL. In this case, a static
                 // anonymous state only known to the function internally is used instead.
                 // It just indicates where conversion is started.
-//??                int n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, *((size_t*) sc), *((size_t*) ds), &st);
                 int n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-
-fwprintf(stdout, L"TEST decoder n: %i\n", n);
 
                 if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    // Increment destination count by the number of WIDE characters converted.
-//??                    calculate_integer_add(dc, (void*) &n);
+                    // Set destination count to the number of WIDE characters converted.
                     copy_integer(dc, (void*) &n);
-
-fwprintf(stdout, L"TEST decoder *dc new: %i\n", *((int*) dc));
 
                 } else {
 

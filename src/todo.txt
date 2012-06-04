@@ -9,7 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Test compilation and run after having fixed memory allocation bugs
+        * Split signal_checker into two or more functions
+        * Check wait_checker because cyboi process runs on 100 %
 
         * Receive user input in cybol example application "ui_control"
         * Update ansi escape code serialiser files for terminal tui application

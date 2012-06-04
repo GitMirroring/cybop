@@ -60,7 +60,7 @@
  * @param p7 the language
  * @param p8 the encoding
  * @param p9 the internal memory data
- * @param p10 the source part
+ * @param p10 the source part (pointer reference)
  * @param p11 the clean flag
  * @param p12 the new line flag
  * @param p13 the channel

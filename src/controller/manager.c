@@ -195,6 +195,8 @@ void manage(void* p0) {
     // Allocate knowledge memory part.
     allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     // Allocate signal memory item.
+    // CAUTION! The signal memory is given an initial size of 1000,
+    // in order to avoid steady reallocation, for better performance.
     allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
     // Allocate signal memory interrupt request flag.
@@ -235,15 +237,15 @@ void manage(void* p0) {
     //
 
     // Initialise signal memory interrupt request flag.
-    copy_integer((void*) signal_memory_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    copy_integer((void*) signal_memory_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise terminal interrupt request flag.
-    copy_integer((void*) terminal_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    copy_integer((void*) terminal_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise x window system interrupt request flag.
-    copy_integer((void*) x_window_system_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    copy_integer((void*) x_window_system_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise www service interrupt request flag.
-    copy_integer((void*) www_service_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    copy_integer((void*) www_service_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise cyboi service interrupt request flag.
-    copy_integer((void*) cyboi_service_irq, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    copy_integer((void*) cyboi_service_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
     // In the following mutex initialisation functions, the second parametre

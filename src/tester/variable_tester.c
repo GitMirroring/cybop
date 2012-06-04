@@ -42,6 +42,17 @@ void test_type_sizes() {
 
     fwprintf(stdout, L"pointer: %i\n", *POINTER_TYPE_SIZE);
 
+    //
+    // CAUTION! The "size_t" type is used by glibc functions.
+    // It corresponds to "unsigned int" (4 Byte) on 32 Bit machines
+    // and to "unsigned long int" (8 Byte) on 64 Bit machines.
+    // @see glibc manual at:
+    // http://www.gnu.org/software/libc/manual/html_mono/libc.html#index-size_005ft-3739
+    //
+    fwprintf(stdout, L"size_t: %i\n", sizeof(size_t));
+    fwprintf(stdout, L"unsigned long int: %i\n", sizeof(unsigned long int));
+    fwprintf(stdout, L"unsigned int: %i\n", sizeof(unsigned int));
+
     fwprintf(stdout, L"signed char: %i\n", *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     fwprintf(stdout, L"unsigned char: %i\n", *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     fwprintf(stdout, L"signed short int: %i\n", *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
