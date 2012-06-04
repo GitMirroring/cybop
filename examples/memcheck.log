@@ -1,41 +1,46 @@
-==20072== Memcheck, a memory error detector
-==20072== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
-==20072== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
-==20072== Command: ../src/controller/cyboi --help
-==20072== Parent PID: 18978
-==20072== 
-==20072== Invalid read of size 8
-==20072==    at 0x40AF0E: decode_utf_8 (utf_8_decoder.c:298)
-==20072==    by 0x42A53D: optionalise_argument (argument_optionaliser.c:110)
-==20072==    by 0x42A786: optionalise (optionaliser.c:107)
-==20072==    by 0x401507: main (cyboi.c:168)
-==20072==  Address 0x7a41270 is 0 bytes inside a block of size 4 alloc'd
-==20072==    at 0x402894D: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==20072==    by 0x404C52: allocate_array (array_allocator.c:66)
-==20072==    by 0x40A0FC: allocate_item (item_allocator.c:62)
-==20072==    by 0x42A4D2: optionalise_argument (argument_optionaliser.c:85)
-==20072==    by 0x42A786: optionalise (optionaliser.c:107)
-==20072==    by 0x401507: main (cyboi.c:168)
-==20072== 
-==20072== Invalid read of size 8
-==20072==    at 0x40AF31: decode_utf_8 (utf_8_decoder.c:300)
-==20072==    by 0x42A53D: optionalise_argument (argument_optionaliser.c:110)
-==20072==    by 0x42A786: optionalise (optionaliser.c:107)
-==20072==    by 0x401507: main (cyboi.c:168)
-==20072==  Address 0x7a41270 is 0 bytes inside a block of size 4 alloc'd
-==20072==    at 0x402894D: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==20072==    by 0x404C52: allocate_array (array_allocator.c:66)
-==20072==    by 0x40A0FC: allocate_item (item_allocator.c:62)
-==20072==    by 0x42A4D2: optionalise_argument (argument_optionaliser.c:85)
-==20072==    by 0x42A786: optionalise (optionaliser.c:107)
-==20072==    by 0x401507: main (cyboi.c:168)
-==20072== 
-==20072== 
-==20072== HEAP SUMMARY:
-==20072==     in use at exit: 0 bytes in 0 blocks
-==20072==   total heap usage: 34 allocs, 34 frees, 8,232 bytes allocated
-==20072== 
-==20072== All heap blocks were freed -- no leaks are possible
-==20072== 
-==20072== For counts of detected and suppressed errors, rerun with: -v
-==20072== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 4 from 4)
+==7073== Memcheck, a memory error detector
+==7073== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==7073== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==7073== Command: ../src/controller/cyboi --knowledge ui_control/run.cybol
+==7073== Parent PID: 6848
+==7073== 
+==7073== Invalid read of size 4
+==7073==    at 0x428FE6: handle_operation (operation_handler.c:597)
+==7073==    by 0x428024: handle (handler.c:163)
+==7073==    by 0x429538: check_signal (signal_checker.c:184)
+==7073==    by 0x4296C6: check (checker.c:87)
+==7073==    by 0x429870: initialise (initialiser.c:100)
+==7073==    by 0x429CF7: manage (manager.c:313)
+==7073==    by 0x40162A: main (cyboi.c:197)
+==7073==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==7073== 
+==7073== 
+==7073== Process terminating with default action of signal 11 (SIGSEGV)
+==7073==  Access not within mapped region at address 0x0
+==7073==    at 0x428FE6: handle_operation (operation_handler.c:597)
+==7073==    by 0x428024: handle (handler.c:163)
+==7073==    by 0x429538: check_signal (signal_checker.c:184)
+==7073==    by 0x4296C6: check (checker.c:87)
+==7073==    by 0x429870: initialise (initialiser.c:100)
+==7073==    by 0x429CF7: manage (manager.c:313)
+==7073==    by 0x40162A: main (cyboi.c:197)
+==7073==  If you believe this happened as a result of a stack
+==7073==  overflow in your program's main thread (unlikely but
+==7073==  possible), you can try to increase the size of the
+==7073==  main thread stack using the --main-stacksize= flag.
+==7073==  The main thread stack size used in this run was 8388608.
+==7073== 
+==7073== HEAP SUMMARY:
+==7073==     in use at exit: 3,083,844 bytes in 212,146 blocks
+==7073==   total heap usage: 238,323 allocs, 26,177 frees, 17,430,273 bytes allocated
+==7073== 
+==7073== LEAK SUMMARY:
+==7073==    definitely lost: 126,072 bytes in 44 blocks
+==7073==    indirectly lost: 2,583,512 bytes in 188,435 blocks
+==7073==      possibly lost: 0 bytes in 0 blocks
+==7073==    still reachable: 374,260 bytes in 23,667 blocks
+==7073==         suppressed: 0 bytes in 0 blocks
+==7073== Rerun with --leak-check=full to see details of leaked memory
+==7073== 
+==7073== For counts of detected and suppressed errors, rerun with: -v
+==7073== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 4 from 4)
