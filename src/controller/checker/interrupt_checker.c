@@ -47,7 +47,7 @@
  * The "handler" is an operation encapsulated as part, which is
  * to be forwarded as signal to be processed normally in the system.
  *
- * @param p0 the interrupt request (pointer reference)
+ * @param p0 the interrupt (pointer reference)
  * @param p1 the mutex (pointer reference)
  * @param p2 the handler (pointer reference)
  * @param p3 the internal memory data

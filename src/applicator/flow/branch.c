@@ -102,12 +102,12 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The criterion is true. Handle true model.
-        handle(t, (void*) &x, p7, p2, p3, p4, p5, p6);
+        handle(t, p3, p2, p4, p5, p6, (void*) &x, p7);
 
     } else {
 
         // The criterion is false. Handle false model.
-        handle(f, (void*) &x, p7, p2, p3, p4, p5, p6);
+        handle(f, p3, p2, p4, p5, p6, (void*) &x, p7);
     }
 }
 

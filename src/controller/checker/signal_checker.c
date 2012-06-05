@@ -26,23 +26,18 @@
 #ifndef SIGNAL_CHECKER_SOURCE
 #define SIGNAL_CHECKER_SOURCE
 
-#include <pthread.h>
-
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../controller/checker/interrupt_checker.c"
-#include "../../controller/checker/wait_checker.c"
-#include "../../controller/handler.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../controller/checker/empty_checker.c"
+#include "../../controller/checker/found_checker.c"
 #include "../../executor/modifier/getter/item_getter.c"
-#include "../../executor/modifier/remover/item_remover.c"
 #include "../../logger/logger.c"
 
 /**
- * Checks for a signal.
+ * Checks for a signal and if none exists, for interrupts.
  *
  * There are various possibilities to process signals:
  *
@@ -67,40 +62,29 @@
  * Further alternatives are welcome!
  *
  * The current solution implemented here is number 1.
- * An alternative for the future might be number 2
- * (just exchange the following two if-else blocks of source code).
  *
- * @param p0 the shutdown flag
- * @param p1 the signal memory item
- * @param p2 the signal memory sleep time
- * @param p3 the knowledge memory part
- * @param p4 the internal memory data
+ * @param p0 the internal memory data
+ * @param p1 the knowledge memory part
+ * @param p2 the signal memory item
+ * @param p3 the signal memory interrupt
+ * @param p4 the signal memory mutex
+ * @param p5 the signal memory sleep time
+ * @param p6 the shutdown flag
  */
-void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signal with highest priority and otherwise, for interrupts.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check signal.");
 
     // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt request.
-    // CAUTION! It CANNOT be handed over as parametre, since it
-    // is not always only the signal memory interrupt request.
-    // Other input channels' interrupts may be assigned as well below.
-    sig_atomic_t* irq = (sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mutex.
-    // CAUTION! It CANNOT be handed over as parametre,
-    // just like the interrupt request.
-    pthread_mutex_t* mt = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The direct execution flag.
-    int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get next signal to be processed from position index zero.
     // CAUTION! The signal memory item's count is checked inside
     // this function. If it is smaller or equal to the given index
     // (here: zero), then the signal value s is NOT changed,
     // i.e. it remains NULL if initialised so before.
-    get_item_element((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    get_item_element((void*) &s, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 fwprintf(stdout, L"\nTEST signal checker s: %i\n\n", s);
 
@@ -109,104 +93,11 @@ fwprintf(stdout, L"\nTEST signal checker s: %i\n\n", s);
         // A signal was found and has to be handled.
         // Handling a signal has higher priority than checking for new interrupt requests.
 
-fwprintf(stdout, L"TEST check exists: %i\n", s);
-
-        // Get interrupt request.
-        copy_array_forward((void*) &irq, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        // Get mutex.
-        copy_array_forward((void*) &mt, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-        // Lock signal memory mutex.
-        pthread_mutex_lock(mt);
-
-        // Remove signal from signal memory.
-        remove_item(p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        // Reset interrupt request.
-        //
-        // Whenever a signal is added to the signal memory,
-        // then the signal memory flag is set as well.
-        // It gets reset when detecting the signal memory interrupt (see below).
-        //
-        // CAUTION! However, when other signals happen to be processed right now,
-        // then the signal that was just added is processed as well.
-        // In this case, an interrupt detection (see below) does not take place.
-        // But the signal memory interrupt HAS TO BE RESET ANYWAY,
-        // since otherwise, the system's signal processing might get mixed up.
-        copy_integer(irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        // Unlock signal memory mutex.
-        pthread_mutex_unlock(mt);
-
-        // Handle signal.
-        handle(s, (void*) &x, p0, p3, p4, p1, irq, mt);
+        check_found(s, p0, p1, p2, p3, p4, p6);
 
     } else {
 
-fwprintf(stdout, L"TEST check empty 0: %i\n", s);
-
-        // The signal memory is empty, so that the cyboi system
-        // may check for new interrupt requests now.
-        //
-        // CAUTION! This code section also covers the situation
-        // when a new signal has been placed in signal memory
-        // just after it was checked to be empty.
-        // In such a case, the signal memory flag was set
-        // so that the new signal may be recognised here
-        // and does not get forgotten.
-
-        // Check interrupt requests and get the appropriate:
-        // - interrupt request (to be reset below)
-        // - mutex (to be blocked while resetting the interrupt request below)
-        // - handler (the signal to be forwarded to the "handle" function below)
-        check_interrupt((void*) &irq, (void*) &mt, (void*) &s, p4);
-
-        // CAUTION! These conditions HAVE TO BE connected by a boolean AND operator,
-        // because otherwise, the "else" branch below would not always be reached.
-        if ((irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irq) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
-
-            // Lock mutex.
-            pthread_mutex_lock(mt);
-
-            // Reset interrupt request.
-            //
-            // CAUTION! The interrupt is reset to false here because its purpose
-            // of receiving data over some device in order to handle
-            // the corresponding signal is fulfilled.
-            //
-            // This is done here, right after checking the interrupt flag
-            // and yet BEFORE receiving data and handling the signal below,
-            // so that the system may react faster to new interrupt requests.
-            copy_integer(irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // Unlock mutex.
-            pthread_mutex_unlock(mt);
-
-fwprintf(stdout, L"TEST check empty 2: %i\n", s);
-
-            // Handle signal.
-            //
-            // CAUTION! The "handle" function has to be called DIRECTLY
-            // (with direct execution flag set) here!
-            // For reasons, see the comment block above!
-            handle(s, (void*) &x, p0, p3, p4, p1, irq, mt);
-
-fwprintf(stdout, L"TEST check empty 3: %i\n", s);
-
-            // CAUTION! An interrupt request was detected and the corresponding data received.
-            // It is therefore VERY likely that new signals have been generated while handling the data.
-            // The cyboi system is therefore NOT sent to sleep, so that possibly existing
-            // signals may be handled in the next iteration of the signal checker loop.
-
-        } else {
-
-            // No interrupt request was detected, so that the cyboi system
-            // can be sent to sleep now, in order to save cpu time.
-
-fwprintf(stdout, L"TEST check wait: %i\n", s);
-
-            check_wait(p2, p4);
-        }
+        check_empty(p0, p1, p2, p3, p4, p5, p6);
     }
 
     //

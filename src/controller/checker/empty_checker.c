@@ -1,0 +1,131 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.11.0 2012-01-01
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef EMPTY_CHECKER_SOURCE
+#define EMPTY_CHECKER_SOURCE
+
+#include <pthread.h>
+
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../controller/checker/interrupt_checker.c"
+#include "../../controller/checker/wait_checker.c"
+#include "../../controller/handler.c"
+#include "../../logger/logger.c"
+
+/**
+ * Handles the situation that no signal is available and queries interrupts instead.
+ *
+ * @param p0 the internal memory data
+ * @param p1 the knowledge memory part
+ * @param p2 the signal memory item
+ * @param p3 the signal memory interrupt
+ * @param p4 the signal memory mutex
+ * @param p5 the signal memory sleep time
+ * @param p6 the shutdown flag
+ */
+void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
+
+    // The interrupt.
+    // CAUTION! It CANNOT be handed over as parametre, since it
+    // is not always only the signal memory interrupt request.
+    // Other input channels' interrupts may be assigned as well below.
+    sig_atomic_t* irq = (sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    // CAUTION! It CANNOT be handed over as parametre (like the interrupt).
+    pthread_mutex_t* mt = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The signal part representing the interrupt request handler.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The direct execution flag.
+    int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+fwprintf(stdout, L"TEST check empty: %i\n", irq);
+
+    // The signal memory is empty, so that the cyboi system
+    // may check for new interrupt requests now.
+    //
+    // CAUTION! This code section also covers the situation
+    // when a new signal has been placed in signal memory
+    // just after it was checked to be empty.
+    // In such a case, the signal memory flag was set
+    // so that the new signal may be recognised here
+    // and does not get forgotten.
+
+    // Check interrupt requests and get the appropriate:
+    // - interrupt request (to be reset below)
+    // - mutex (to be blocked while resetting the interrupt request below)
+    // - handler (the signal to be forwarded to the "handle" function below)
+    check_interrupt((void*) &irq, (void*) &mt, (void*) &s, p0);
+
+    // CAUTION! These conditions HAVE TO BE connected by a boolean AND operator,
+    // because otherwise, the "else" branch below would not always be reached.
+    if ((irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irq) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+
+        // Lock mutex.
+        pthread_mutex_lock(mt);
+
+        // Reset interrupt.
+        //
+        // CAUTION! The interrupt is reset to false here because its purpose
+        // of receiving data over some device in order to handle
+        // the corresponding signal is fulfilled.
+        //
+        // This is done here, right after checking the interrupt flag
+        // and yet BEFORE receiving data and handling the signal below,
+        // so that the system may react faster to new interrupt requests.
+        copy_integer(irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Unlock mutex.
+        pthread_mutex_unlock(mt);
+
+        // Handle signal.
+        //
+        // CAUTION! The "handle" function has to be called DIRECTLY
+        // (with direct execution flag set) here!
+        // For reasons, see the comment block above!
+        handle(s, p0, p1, p2, p3, p4, (void*) &x, p6);
+
+        // CAUTION! An interrupt request was detected and the corresponding data received.
+        // It is therefore VERY likely that new signals have been generated while handling the data.
+        // The cyboi system is therefore NOT sent to sleep, so that possibly existing
+        // signals may be handled in the next iteration of the signal checker loop.
+
+    } else {
+
+        // No interrupt request was detected, so that the cyboi system
+        // can be sent to sleep now, in order to save cpu time.
+
+        check_wait(p5, p0);
+    }
+}
+
+/* EMPTY_CHECKER_SOURCE */
+#endif

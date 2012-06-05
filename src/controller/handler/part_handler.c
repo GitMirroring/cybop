@@ -40,15 +40,15 @@
  *
  * @param p0 the signal model data (operation)
  * @param p1 the signal model count
- * @param p2 the signal properties data (parametres)
+ * @param p2 the signal properties data (parametres) [possibly necessary one day for pre- and post conditions etc.]
  * @param p3 the signal properties count
- * @param p4 the direct execution flag
- * @param p5 the shutdown flag
- * @param p6 the knowledge memory part
- * @param p7 the internal memory data
- * @param p8 the signal memory item
- * @param p9 the signal memory interrupt request flag
- * @param p10 the signal memory mutex
+ * @param p4 the internal memory data
+ * @param p5 the knowledge memory part
+ * @param p6 the signal memory item
+ * @param p7 the signal memory interrupt
+ * @param p8 the signal memory mutex
+ * @param p9 the direct execution flag
+ * @param p10 the shutdown flag
  */
 void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 

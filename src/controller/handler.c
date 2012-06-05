@@ -46,13 +46,13 @@
  * - operation signal handler
  *
  * @param p0 the signal part
- * @param p1 the direct execution flag
- * @param p2 the shutdown flag
- * @param p3 the knowledge memory part
- * @param p4 the internal memory data
- * @param p5 the signal memory item
- * @param p6 the signal memory interrupt request flag
- * @param p7 the signal memory mutex
+ * @param p1 the internal memory data
+ * @param p2 the knowledge memory part
+ * @param p3 the signal memory item
+ * @param p4 the signal memory interrupt
+ * @param p5 the signal memory mutex
+ * @param p6 the direct execution flag
+ * @param p7 the shutdown flag
  */
 void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
@@ -109,6 +109,9 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 //?? fwprintf(stdout, L"TEST handle part: %i\n", part);
 
             // Handle compound part signal.
+            //
+            // CAUTION! The signal part properties are possibly
+            // necessary one day for pre- and post conditions etc.
             handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6, p7);
         }
     }
@@ -123,7 +126,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
             // Get encapsulated signal part.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &e, p3, (void*) &md, mc);
+            get_part_branch((void*) &e, p2, (void*) &md, mc);
 
             // Get encapsulated signal part model item.
             copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -133,7 +136,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
             // Get double-encapsulated signal part.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &part, p3, (void*) &emd, emc);
+            get_part_branch((void*) &part, p2, (void*) &emd, emc);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6, p7);
@@ -150,7 +153,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
             // Get signal part referenced by a knowledge path.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &part, p3, (void*) &md, mc);
+            get_part_branch((void*) &part, p2, (void*) &md, mc);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6, p7);
@@ -160,7 +163,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Handle primitive operation signal.
-        handle_operation(pd, pc, p1, p2, p3, p4, p5, p6, p7, fd);
+        handle_operation(pd, pc, p1, p2, p3, p4, p5, p7, fd);
     }
 }
 

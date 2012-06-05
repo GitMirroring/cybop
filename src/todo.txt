@@ -9,7 +9,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Split signal_checker into two or more functions
         * Check wait_checker because cyboi process runs on 100 %
 
         * Receive user input in cybol example application "ui_control"
