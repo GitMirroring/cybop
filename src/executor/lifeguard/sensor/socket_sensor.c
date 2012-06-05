@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SOCKET_SENSER_SOURCE
-#define SOCKET_SENSER_SOURCE
+#ifndef SOCKET_SENSOR_SOURCE
+#define SOCKET_SENSOR_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
@@ -418,5 +418,5 @@ void sense_cyboi_socket(void* p0) {
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* SOCKET_SENSER_SOURCE */
+/* SOCKET_SENSOR_SOURCE */
 #endif

@@ -51,7 +51,9 @@ void copy_integer(void* p0, void* p1) {
 
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
-            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy integer.");
+
+            // CAUTION! Do NOT call the logger here.
+            // This function is used in threads for sensing data input.
 
             // Assign source- to destination.
             *de = *se;

@@ -169,19 +169,17 @@
     </part>
 -->
     <part name="startup_tui" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/startup" model="">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
     </part>
 <!--
     <part name="startup_gui" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/startup" model="">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="x-window-system"/>
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="x-window-system"/>
     </part>
 -->
-<!--
     <part name="sense_tui_commands" channel="inline" encoding="utf-8" language="text/cybol" format="live/sense" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="handler" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.handle_gnu_linux_console"/>
     </part>
--->
 <!--
     <part name="sense_gui_commands" channel="inline" encoding="utf-8" language="text/cybol" format="live/sense" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="x-window-system"/>

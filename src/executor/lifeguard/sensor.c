@@ -71,6 +71,8 @@ void sense(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
+fwprintf(stdout, L"TEST sense: %i\n", p2);
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The internal memory index.
@@ -78,11 +80,11 @@ void sense(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) CYBOI_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) CYBOI_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST sense cyboi service r: %i\n", r);
+fwprintf(stdout, L"TEST sense cyboi service r: %i\n", r);
 
             // Set handler.
             copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -96,11 +98,11 @@ void sense(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST sense terminal service r: %i\n", r);
+fwprintf(stdout, L"TEST sense terminal service r: %i\n", r);
 
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -112,11 +114,11 @@ void sense(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) WWW_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) WWW_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST sense www service r: %i\n", r);
+fwprintf(stdout, L"TEST sense www service r: %i\n", r);
 
             // Set handler.
             i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
@@ -129,11 +131,11 @@ void sense(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST sense x window system service r: %i\n", r);
+fwprintf(stdout, L"TEST sense x window system service r: %i\n", r);
 
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

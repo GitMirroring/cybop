@@ -52,7 +52,7 @@ void interrupt(void* p0) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) TERMINAL_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, p0, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -62,7 +62,7 @@ void interrupt(void* p0) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) X_WINDOW_SYSTEM_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, p0, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -72,7 +72,7 @@ void interrupt(void* p0) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) WWW_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, p0, (void*) WWW_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,7 +82,7 @@ void interrupt(void* p0) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) CYBOI_CYBOL_CHANNEL);
+        compare_integer_equal((void*) &r, p0, (void*) CYBOI_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

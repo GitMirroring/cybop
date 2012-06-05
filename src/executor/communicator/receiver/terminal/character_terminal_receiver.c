@@ -96,6 +96,8 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                         // is therefore NOT necessary here!
                         *c = fgetwc(f);
 
+fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
+
                         // Unlock terminal mutex.
                         pthread_mutex_unlock(p2);
 

@@ -21,6 +21,10 @@
         * Optimise file "manager.c" by using local array variables that do not have to be dynamically allocated with malloc
         * Factor out some code from file "signal_checker.c" into "found_checker.c" and "empty_checker.c"
         * Correct signal checking code that mixed interrupt variables of signal checker and other services
+        * Fix bug that old string-based cybol channel constants were used instead of new integer-based ones,
+            so that not all service functions were invoked, no terminal file descriptor created,
+            therefore (due to null pointer test) no wait function called, so that the cyboi process ran on 100 %
+        * Debug cybol example application "ui_control"
 
 2012-06-03  Christian Heller  <christian.heller@tuxtax.de>
 

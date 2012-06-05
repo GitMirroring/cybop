@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef X_WINDOW_SYSTEM_SENSER_SOURCE
-#define X_WINDOW_SYSTEM_SENSER_SOURCE
+#ifndef X_WINDOW_SYSTEM_SENSOR_SOURCE
+#define X_WINDOW_SYSTEM_SENSOR_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
@@ -268,5 +268,5 @@ void sense_x_window_system(void* p0) {
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* X_WINDOW_SYSTEM_SENSER_SOURCE */
+/* X_WINDOW_SYSTEM_SENSOR_SOURCE */
 #endif
