@@ -9,8 +9,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CHECK THIS FIRST ??: Update ansi escape code serialiser files for terminal tui application
-        * Debug file "character_terminal_receiver.c" (input characters do not arrive properly),
+        * DONE: terminal receive and ansi escape code language etc. TODO:
+        * See files "command_ansi_escape_code_deserialiser.c" and "character_ansi_escape_code_deserialiser.c":
+            Should they be moved to directory "selector" and function "detect_array" be applied instead of "compare_all_array"?
+            CAUTION! Hand over pointer as reference or not??
+            currently, input characters do not arrive properly yet,
             in order to receive user input in cybol example application "ui_control"
 
         * Adapt cybol example applications "http_communication" and "presence" using HTTP

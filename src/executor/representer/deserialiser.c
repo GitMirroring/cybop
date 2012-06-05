@@ -29,6 +29,7 @@
 #include "../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/html/html_deserialiser.c"
@@ -126,7 +127,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            deserialise_ansi_escape_code(p0, p1, p2, p3);
+            deserialise_ansi_escape_code(p0, p2, p3);
         }
     }
 

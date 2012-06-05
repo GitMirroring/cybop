@@ -50,10 +50,9 @@
  * @param p1 the destination properties item
  * @param p2 the format
  * @param p3 the language
- * @param p4 the encoding
- * @param p5 the internal memory data
+ * @param p4 the internal memory data
  */
-void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
 
@@ -67,7 +66,7 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Receive byte data via channel.
-    receive_terminal_file(d, p5);
+    receive_terminal_file(d, p4);
 
     // CAUTION! The multibyte character sequence is converted to
     // wide character internally (in glibc function "fgetwc").
@@ -80,6 +79,8 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST receive terminal d: %i\n", dd);
 
     // Deserialise data.
     deserialise(p0, p1, dd, dc, p2, p3);

@@ -25,6 +25,7 @@
             so that not all service functions were invoked, no terminal file descriptor created,
             therefore (due to null pointer test) no wait function called, so that the cyboi process ran on 100 %
         * Debug cybol example application "ui_control"
+        * Activate terminal receipt and ansi escape code deserialisation
 
 2012-06-03  Christian Heller  <christian.heller@tuxtax.de>
 
