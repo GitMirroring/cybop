@@ -147,6 +147,13 @@ fwprintf(stdout, L"TEST check empty 0: %i\n", s);
 
         // The signal memory is empty, so that the cyboi system
         // may check for new interrupt requests now.
+        //
+        // CAUTION! This code section also covers the situation
+        // when a new signal has been placed in signal memory
+        // just after it was checked to be empty.
+        // In such a case, the signal memory flag was set
+        // so that the new signal may be recognised here
+        // and does not get forgotten.
 
         // Check interrupt requests and get the appropriate:
         // - interrupt request (to be reset below)

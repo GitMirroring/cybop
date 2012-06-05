@@ -56,7 +56,7 @@ void check_wait(void* p0, void* p1) {
         // The signal memory interrupt request.
         void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The terminal interrupt request.
-        void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* lt = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The x window system interrupt request.
         void* xw = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The www service interrupt request.
@@ -65,8 +65,17 @@ void check_wait(void* p0, void* p1) {
         void* cy = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get interrupt requests.
+        //
+        // CAUTION! They actually do not have to be retrieved again each time,
+        // since they were allocated as steady variable at system startup.
+        // That is, it would be possible to retrieve them just once at startup
+        // and forward them as parametres via all function calls.
+        // But this would be tedious, worsen overview and moreover, further services
+        // and interrupt request variables may have to be introduced one day,
+        // which would make it necessary to adapt all function signatures then.
+        // Therefore, these variables are used locally just here.
         copy_array_forward((void*) &sm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &lc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &lt, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         copy_array_forward((void*) &xw, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         calculate_integer_add((void*) &i, (void*) SOCKET_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -87,7 +96,7 @@ void check_wait(void* p0, void* p1) {
 
         if (xw != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (lc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (lt != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         if (sm != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -175,8 +184,11 @@ void check_wait(void* p0, void* p1) {
             // Therefore, the decision fell on the usage of a simple SLEEP
             // procedure, which seems sufficient for the purposes of CYBOI.
             //
+
+fwprintf(stdout, L"TEST wait *sl: %f\n", *((double*) sl));
+
             while ((*((int*) sm) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                && (*((int*) lc) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                && (*((int*) lt) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
                 && (*((int*) xw) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
                 && (*((int*) ww) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
                 && (*((int*) cy) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
@@ -184,20 +196,18 @@ void check_wait(void* p0, void* p1) {
                 sleep(*sl);
             }
 
-/*??
-    fwprintf(stdout, L"TEST wait *signal_memory_irq: %i\n", *((int*) *sm));
-    fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) *lc));
-    fwprintf(stdout, L"TEST wait *x_window_system_irq: %i\n", *((int*) *xw));
-    fwprintf(stdout, L"TEST wait *www_service_irq: %i\n", *((int*) *ww));
-    fwprintf(stdout, L"TEST wait *cyboi_service_irq: %i\n", *((int*) *cy));
-*/
+    fwprintf(stdout, L"TEST wait *signal_memory_irq: %i\n", *((int*) sm));
+    fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) lt));
+    fwprintf(stdout, L"TEST wait *x_window_system_irq: %i\n", *((int*) xw));
+    fwprintf(stdout, L"TEST wait *www_service_irq: %i\n", *((int*) ww));
+    fwprintf(stdout, L"TEST wait *cyboi_service_irq: %i\n", *((int*) cy));
 
             // The sleep loop above is left as soon as at least one of the
-            // interrupt variables is set to a value other than zero.
+            // interrupt variables is set to a value other than false (zero).
             // This may happen if some user action is noted in one of the
             // receive threads, e.g. terminal, x window system, tcp socket.
-            // In this case, a signal is placed in the signal memory and
-            // the corresponding interrupt variable is set to *NUMBER_1_INTEGER_STATE_CYBOI_MODEL.
+            // In this case, probably a signal was placed in the signal memory and
+            // the corresponding interrupt variable set to true (one).
 
         } else {
 

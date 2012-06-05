@@ -66,10 +66,10 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! The boolean logic expression is necessary, because:
         // - first case: irq is null which means that NO OTHER irq has been checked before
         // - second case: irq is not null which means some other irq has been retrieved from
-        //   internal memory and checked before, BUT its value is zero anyway (irq not set)
+        //   internal memory and checked before, BUT its value is false anyway (irq not set)
         //
         // In both cases, this interrupt is retrieved and checked.
-        // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
+        // Otherwise, if an irq was retrieved AND its value is not false (irq is set),
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
@@ -86,10 +86,10 @@ fwprintf(stdout, L"TEST detected signal memory irq: %i\n", *((int*) *irq));
         // CAUTION! The boolean logic expression is necessary, because:
         // - first case: irq is null which means that NO OTHER irq has been checked before
         // - second case: irq is not null which means some other irq has been retrieved from
-        //   internal memory and checked before, BUT its value is zero anyway (irq not set)
+        //   internal memory and checked before, BUT its value is false anyway (irq not set)
         //
         // In both cases, this interrupt is retrieved and checked.
-        // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
+        // Otherwise, if an irq was retrieved AND its value is not false (irq is set),
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
@@ -106,10 +106,10 @@ fwprintf(stdout, L"TEST detected terminal irq: %i\n", *((int*) *irq));
         // CAUTION! The boolean logic expression is necessary, because:
         // - first case: irq is null which means that NO OTHER irq has been checked before
         // - second case: irq is not null which means some other irq has been retrieved from
-        //   internal memory and checked before, BUT its value is zero anyway (irq not set)
+        //   internal memory and checked before, BUT its value is false anyway (irq not set)
         //
         // In both cases, this interrupt is retrieved and checked.
-        // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
+        // Otherwise, if an irq was retrieved AND its value is not false (irq is set),
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
@@ -126,10 +126,10 @@ fwprintf(stdout, L"TEST detected x window system irq: %i\n", *((int*) *irq));
         // CAUTION! The boolean logic expression is necessary, because:
         // - first case: irq is null which means that NO OTHER irq has been checked before
         // - second case: irq is not null which means some other irq has been retrieved from
-        //   internal memory and checked before, BUT its value is zero anyway (irq not set)
+        //   internal memory and checked before, BUT its value is false anyway (irq not set)
         //
         // In both cases, this interrupt is retrieved and checked.
-        // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
+        // Otherwise, if an irq was retrieved AND its value is not false (irq is set),
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
@@ -154,10 +154,10 @@ fwprintf(stdout, L"TEST detected www service irq: %i\n", *((int*) *irq));
         // CAUTION! The boolean logic expression is necessary, because:
         // - first case: irq is null which means that NO OTHER irq has been checked before
         // - second case: irq is not null which means some other irq has been retrieved from
-        //   internal memory and checked before, BUT its value is zero anyway (irq not set)
+        //   internal memory and checked before, BUT its value is false anyway (irq not set)
         //
         // In both cases, this interrupt is retrieved and checked.
-        // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
+        // Otherwise, if an irq was retrieved AND its value is not false (irq is set),
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
@@ -182,10 +182,10 @@ fwprintf(stdout, L"TEST detected cyboi service irq: %i\n", *((int*) *irq));
         // CAUTION! The boolean logic AND expression && is necessary, because:
         // - first case: irq is null which means that NO OTHER irq has been checked before
         // - second case: irq is not null which means some other irq has been retrieved from
-        //   internal memory and checked before, BUT its value is zero anyway (irq not set)
+        //   internal memory and checked before, BUT its value is false anyway (irq not set)
         //
         // In both cases, this interrupt is retrieved and checked.
-        // Otherwise, if an irq was retrieved AND its value is not zero (irq is set),
+        // Otherwise, if an irq was retrieved AND its value is not false (irq is set),
         // this and further interrupts are NOT checked.
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 

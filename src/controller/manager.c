@@ -151,38 +151,52 @@ void manage(void* p0) {
     // With this modification, the loop condition will not be optimised
     // away, and the system will detect the change when it occurs.
     //
-
-    volatile sig_atomic_t* signal_memory_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    volatile sig_atomic_t signal_memory_irq_array[1];
+    volatile sig_atomic_t* signal_memory_irq = signal_memory_irq_array;
     // The terminal interrupt request flag.
-    volatile sig_atomic_t* terminal_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    volatile sig_atomic_t terminal_irq_array[1];
+    volatile sig_atomic_t* terminal_irq = terminal_irq_array;
     // The x window system interrupt request flag.
-    volatile sig_atomic_t* x_window_system_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    volatile sig_atomic_t x_window_system_irq_array[1];
+    volatile sig_atomic_t* x_window_system_irq = x_window_system_irq_array;
     // The www service interrupt request flag.
-    volatile sig_atomic_t* www_service_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    volatile sig_atomic_t www_service_irq_array[1];
+    volatile sig_atomic_t* www_service_irq = www_service_irq_array;
     // The cyboi service interrupt request flag.
-    volatile sig_atomic_t* cyboi_service_irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    volatile sig_atomic_t cyboi_service_irq_array[1];
+    volatile sig_atomic_t* cyboi_service_irq = cyboi_service_irq_array;
 
     // The signal memory mutex.
-    pthread_mutex_t* signal_memory_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    pthread_mutex_t signal_memory_mutex_array[1];
+    pthread_mutex_t* signal_memory_mutex = signal_memory_mutex_array;
     // The terminal mutex.
-    pthread_mutex_t* terminal_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    pthread_mutex_t terminal_mutex_array[1];
+    pthread_mutex_t* terminal_mutex = terminal_mutex_array;
     // The x window system mutex.
-    pthread_mutex_t* x_window_system_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    pthread_mutex_t x_window_system_mutex_array[1];
+    pthread_mutex_t* x_window_system_mutex = x_window_system_mutex_array;
     // The www service mutex.
-    pthread_mutex_t* www_service_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    pthread_mutex_t www_service_mutex_array[1];
+    pthread_mutex_t* www_service_mutex = www_service_mutex_array;
     // The cyboi service mutex.
-    pthread_mutex_t* cyboi_service_mutex = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    pthread_mutex_t cyboi_service_mutex_array[1];
+    pthread_mutex_t* cyboi_service_mutex = cyboi_service_mutex_array;
 
     // The signal memory sleep time.
-    double* signal_memory_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    double signal_memory_sleep_time_array[1];
+    double* signal_memory_sleep_time = signal_memory_sleep_time_array;
     // The gnu linux console sleep time.
-    double* terminal_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    double terminal_sleep_time_array[1];
+    double* terminal_sleep_time = terminal_sleep_time_array;
     // The x window system sleep time.
-    double* x_window_system_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    double x_window_system_sleep_time_array[1];
+    double* x_window_system_sleep_time = x_window_system_sleep_time_array;
     // The www service sleep time.
-    double* www_service_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    double www_service_sleep_time_array[1];
+    double* www_service_sleep_time = www_service_sleep_time_array;
     // The cyboi service sleep time.
-    double* cyboi_service_sleep_time = (double*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    double cyboi_service_sleep_time_array[1];
+    double* cyboi_service_sleep_time = cyboi_service_sleep_time_array;
 
     //
     // Variable allocation.
@@ -198,39 +212,6 @@ void manage(void* p0) {
     // CAUTION! The signal memory is given an initial size of 1000,
     // in order to avoid steady reallocation, for better performance.
     allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-
-    // Allocate signal memory interrupt request flag.
-    signal_memory_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
-    // Allocate terminal interrupt request flag.
-    terminal_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
-    // Allocate x window system interrupt request flag.
-    x_window_system_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
-    // Allocate www service interrupt request flag.
-    www_service_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
-    // Allocate cyboi service interrupt request flag.
-    cyboi_service_irq = (volatile sig_atomic_t*) malloc(*VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE);
-
-    // Allocate signal memory mutex.
-    signal_memory_mutex = (pthread_mutex_t*) malloc(*MUTEX_THREAD_TYPE_SIZE);
-    // Allocate terminal mutex.
-    terminal_mutex = (pthread_mutex_t*) malloc(*MUTEX_THREAD_TYPE_SIZE);
-    // Allocate x window system mutex.
-    x_window_system_mutex = (pthread_mutex_t*) malloc(*MUTEX_THREAD_TYPE_SIZE);
-    // Allocate www service mutex.
-    www_service_mutex = (pthread_mutex_t*) malloc(*MUTEX_THREAD_TYPE_SIZE);
-    // Allocate cyboi service mutex.
-    cyboi_service_mutex = (pthread_mutex_t*) malloc(*MUTEX_THREAD_TYPE_SIZE);
-
-    // Allocate signal memory sleep time.
-    signal_memory_sleep_time = (double*) malloc(*DOUBLE_REAL_TYPE_SIZE);
-    // Allocate gnu linux console sleep time.
-    terminal_sleep_time = (double*) malloc(*DOUBLE_REAL_TYPE_SIZE);
-    // Allocate x window system sleep time.
-    x_window_system_sleep_time = (double*) malloc(*DOUBLE_REAL_TYPE_SIZE);
-    // Allocate www service sleep time.
-    www_service_sleep_time = (double*) malloc(*DOUBLE_REAL_TYPE_SIZE);
-    // Allocate cyboi service sleep time.
-    cyboi_service_sleep_time = (double*) malloc(*DOUBLE_REAL_TYPE_SIZE);
 
     //
     // Variable initialisation.
@@ -356,39 +337,6 @@ void manage(void* p0) {
     //
     // Variable deallocation.
     //
-
-    // Deallocate signal memory interrupt request flag.
-    free((void*) signal_memory_irq);
-    // Deallocate terminal interrupt request flag.
-    free((void*) terminal_irq);
-    // Deallocate x window system interrupt request flag.
-    free((void*) x_window_system_irq);
-    // Deallocate www service interrupt request flag.
-    free((void*) www_service_irq);
-    // Deallocate cyboi service interrupt request flag.
-    free((void*) cyboi_service_irq);
-
-    // Deallocate signal memory mutex.
-    free((void*) signal_memory_mutex);
-    // Deallocate terminal mutex.
-    free((void*) terminal_mutex);
-    // Deallocate x window system mutex.
-    free((void*) x_window_system_mutex);
-    // Deallocate www service mutex.
-    free((void*) www_service_mutex);
-    // Deallocate cyboi service mutex.
-    free((void*) cyboi_service_mutex);
-
-    // Deallocate signal memory sleep time.
-    free((void*) signal_memory_sleep_time);
-    // Deallocate gnu linux console sleep time.
-    free((void*) terminal_sleep_time);
-    // Deallocate x window system sleep time.
-    free((void*) x_window_system_sleep_time);
-    // Deallocate www service sleep time.
-    free((void*) www_service_sleep_time);
-    // Deallocate cyboi service sleep time.
-    free((void*) cyboi_service_sleep_time);
 
     // Deallocate signal memory item.
     deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
