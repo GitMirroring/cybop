@@ -9,6 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Debug lost memory errors (see valgrind memcheck log file)
         * DONE: terminal receive and ansi escape code language etc. TODO:
         * See files "command_ansi_escape_code_deserialiser.c" and "character_ansi_escape_code_deserialiser.c":
             Should they be moved to directory "selector" and function "detect_array" be applied instead of "compare_all_array"?
