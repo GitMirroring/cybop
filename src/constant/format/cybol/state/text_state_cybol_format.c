@@ -57,7 +57,7 @@
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
+ * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  *
  * It is used for single-byte-characters in CYBOL.
  */

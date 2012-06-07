@@ -62,7 +62,7 @@
  * a knowledge path which in turn points to the actual item.
  *
  * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
+ * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  *
  * The same rules as for the "path/knowledge" language apply here.
  */
@@ -78,7 +78,7 @@ static int* ENCAPSULATED_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  * - "meta" tree node names are number sign (#) separated
  *
  * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
+ * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  *
  * Example:
  * .application.gui.menu_bar.file_menu#background_colour

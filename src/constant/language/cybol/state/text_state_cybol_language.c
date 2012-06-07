@@ -57,7 +57,7 @@
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
+ * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
 static wchar_t AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {'t', L'e', L'x', L't', L'/', L'a', L'u', L't', L'h', L'o', L'r', L'i', L't', L'y'};
 static wchar_t* AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE = AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
@@ -79,7 +79,7 @@ static int* CSS_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_M
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
+ * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  * Suffixes: cybol
  */
 static wchar_t CYBOL_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'c', L'y', L'b', L'o', L'l'};
@@ -116,7 +116,7 @@ static int* HXP_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_M
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
+ * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
 static wchar_t MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'm', L'o', L'd', L'e', L'l', L'-', L'd', L'i', L'a', L'g', L'r', L'a', L'm'};
 static wchar_t* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE = MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
@@ -127,7 +127,7 @@ static int* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_18_INTEGER_ST
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
+ * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
 static wchar_t URI_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {'t', L'e', L'x', L't', L'/', L'u', L'r', L'i'};
 static wchar_t* URI_TEXT_STATE_CYBOL_LANGUAGE = URI_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;

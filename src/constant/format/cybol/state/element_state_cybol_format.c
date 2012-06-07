@@ -58,7 +58,7 @@
  * The element/part state cybol type.
  *
  * Defined in CYBOL specification:
- * http://cybop.berlios.de/books/cybol/cybol.pdf
+ * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
 static wchar_t PART_ELEMENT_STATE_CYBOL_FORMAT_ARRAY[] = {L'e', L'l', L'e', L'm', L'e', L'n', L't', L'/', L'p', L'a', L'r', L't'};
 static wchar_t* PART_ELEMENT_STATE_CYBOL_FORMAT = PART_ELEMENT_STATE_CYBOL_FORMAT_ARRAY;

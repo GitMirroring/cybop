@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Changed minor things in preparation of release CYBOP 0.11.0
+
 2012-06-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise file "manager.c" by using local array variables that do not have to be dynamically allocated with malloc

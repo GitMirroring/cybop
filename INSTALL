@@ -133,6 +133,17 @@ source file and that way knows if it has to recompile the executable.
 Another point to use make targets for is the generation of the documentation.
 
 
+Tagging SVN
+___________
+
+Tagging and branching are very simple in SVN.
+The root node of the trunk/ directory is just copied.
+The graphical kdesvn application does not provide this functionality.
+Therefore, adapt and use the following command line:
+
+svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"
+
+
 CYBOP Distribution
 __________________
 
@@ -156,12 +167,15 @@ __________________
 
     make dist
 
-Tagging SVN
-___________
+CYBOP Packaging
+_______________
 
-Tagging and branching are very simple in SVN.
-The root node of the trunk/ directory is just copied.
-The graphical kdesvn application does not provide this functionality.
-Therefore, adapt and use the following command line:
+- Install the checkinstall Debian package:
 
-svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"
+    apt-get install checkinstall
+
+- Execute the checkinstall command with:
+
+    checkinstall
+
+- Configure package answering the checkinstall questions

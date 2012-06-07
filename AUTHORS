@@ -45,6 +45,10 @@ CYBOP Project
         * Mirco Gatz (udp socket tutorial example)
         * Patrick Lorenz (opengl tutorial example)
         * Johannes Meinhardt (opengl tutorial example)
+        * Max Brauer <max.brauer@inqbus.de> (hints on automatic creation of Debian package)
+        * Benjamin Teßmar <benjamin.tessmar@it2009.ba-leipzig.de> (hints on improving project data)
+        * Sebastian Brückner <sebastian.brueckner@live.com> (hints on improving project data)
+        * Falk Müller <falk.mueller@it2009.ba-leipzig.de> (hints on improving project data)
 
 Help and Support
         * Karl Berry <karl@freefriends.org> (feedback on improving project infrastructure and documentation)
