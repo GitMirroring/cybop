@@ -34,7 +34,7 @@
 #include "../tester/constant_tester.c"
 #include "../tester/converter_tester.c"
 #include "../tester/copier_tester.c"
-#include "../tester/empty_tester.c"
+//?? #include "../tester/empty_tester.c"
 #include "../tester/finder_tester.c"
 #include "../tester/logger_tester.c"
 #include "../tester/memoriser_tester.c"
