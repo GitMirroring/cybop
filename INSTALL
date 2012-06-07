@@ -27,10 +27,11 @@ The following (Debian) packages are needed to execute CYBOL applications:
 xorg
 
 The following (Debian) packages are needed to compile CYBOI:
+autotools (autoconf, automake)
 xorg-dev
-xlibs-dev
-glut
-mesa
+xlibs-dev (now possibly contained in xorg-dev)
+glut or freeglut3 or the like
+mesa etc.
 
 CYBOI Compilation
 _________________
@@ -38,6 +39,10 @@ _________________
 - Change into cybop's root directory, e.g.:
 
     cd /home/cybop
+
+- Set the executable flag for the autogen file, e.g.:
+
+    chmod ugo+x /home/cybop/autogen.sh
 
 - Execute the configure files with:
 
@@ -93,7 +98,7 @@ ___________________________
     /home/cybop/src/controller/cyboi --knowledge time_output_2/run.cybol
     /home/cybop/src/controller/cyboi --knowledge time_output_3/run.cybol
     /home/cybop/src/controller/cyboi --knowledge helloworld/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge ui_control/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi --knowledge ui_control/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi --knowledge http_communication/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi --knowledge presence/run.cybol
 
