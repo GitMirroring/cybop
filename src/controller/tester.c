@@ -135,7 +135,7 @@ void test() {
     test_modifier();
 
     // Empty.
-    test_empty();
+//??    test_empty();
 }
 
 /* TESTER_SOURCE */
