@@ -141,7 +141,16 @@ The root node of the trunk/ directory is just copied.
 The graphical kdesvn application does not provide this functionality.
 Therefore, adapt and use the following command line:
 
+svn copy svn+ssh://christian@svn.savannah.nongnu.org/cybop/trunk svn+ssh://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"
+
+The https protocol as in the following example did work with the berliOS portal,
+but it does NOT work with savannah:
+
 svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"
+
+It shows the following error:
+
+svn: OPTIONS of 'https://christian@svn.savannah.nongnu.org/cybop': SSL handshake failed: SSL error: An unexpected TLS packet was received. (https://svn.savannah.nongnu.org)
 
 
 CYBOP Distribution
