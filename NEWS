@@ -11,7 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-CYBOP 0.11.0, 2012-06-??, Christian Heller  <christian.heller@tuxtax.de>
+CYBOP 0.11.0, 2012-06-08, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:
             - Restructure executor directory
             - Redesign modules for comparison, calculation
