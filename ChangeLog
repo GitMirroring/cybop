@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move some ansi escape code serialiser files to directory "selector" and use detector instead of pure comparison
+
 2012-06-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Release CYBOP 0.11.0

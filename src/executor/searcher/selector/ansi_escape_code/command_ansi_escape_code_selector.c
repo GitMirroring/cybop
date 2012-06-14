@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COMMAND_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
-#define COMMAND_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
+#ifndef COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
+#define COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -42,17 +42,17 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the ansi escape code character data into a cyboi command.
+ * Identifies ansi escape code command and deserialises it into a cyboi-internal keyboard constant.
  *
  * This function changes the ansi escape codes into real names as defined by CYBOL.
  * Example: The ARROW_UP_ANSI_ESCAPE_CODE_MODEL (ESC[A sequence) gets converted into the
  * constant ARROW_UP_KEYBOARD_KEY_CYBOL_NAME with the value "arrow_up", which is used so in CYBOL files.
  *
  * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void deserialise_ansi_escape_code_command(void* p0, void* p1, void* p2) {
+void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code command.");
 
@@ -61,7 +61,7 @@ void deserialise_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ARROW_UP_ANSI_ESCAPE_CODE_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ARROW_UP_ANSI_ESCAPE_CODE_MODEL_COUNT);
+        detect_array((void*) &r, p1, p2, (void*) ARROW_UP_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_UP_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -71,7 +71,7 @@ void deserialise_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ARROW_DOWN_ANSI_ESCAPE_CODE_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ARROW_DOWN_ANSI_ESCAPE_CODE_MODEL_COUNT);
+        detect_array((void*) &r, p1, p2, (void*) ARROW_DOWN_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_DOWN_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,7 +81,7 @@ void deserialise_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ARROW_LEFT_ANSI_ESCAPE_CODE_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ARROW_LEFT_ANSI_ESCAPE_CODE_MODEL_COUNT);
+        detect_array((void*) &r, p1, p2, (void*) ARROW_LEFT_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_LEFT_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -91,7 +91,7 @@ void deserialise_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ARROW_RIGHT_ANSI_ESCAPE_CODE_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ARROW_RIGHT_ANSI_ESCAPE_CODE_MODEL_COUNT);
+        detect_array((void*) &r, p1, p2, (void*) ARROW_RIGHT_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_RIGHT_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -105,5 +105,5 @@ void deserialise_ansi_escape_code_command(void* p0, void* p1, void* p2) {
     // So, just ignore this and wait for other, proper sequences and characters to be converted.
 }
 
-/* COMMAND_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE */
+/* COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE */
 #endif

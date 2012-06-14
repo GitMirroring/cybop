@@ -80,7 +80,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST detected signal memory irq: %i\n", *((int*) *irq));
+//?? fwprintf(stdout, L"TEST detected signal memory irq: %i\n", *((int*) *irq));
         }
 
         // CAUTION! The boolean logic expression is necessary, because:
@@ -100,7 +100,7 @@ fwprintf(stdout, L"TEST detected signal memory irq: %i\n", *((int*) *irq));
             copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST detected terminal irq: %i\n", *((int*) *irq));
+//?? fwprintf(stdout, L"TEST detected terminal irq: %i\n", *((int*) *irq));
         }
 
         // CAUTION! The boolean logic expression is necessary, because:
@@ -120,7 +120,7 @@ fwprintf(stdout, L"TEST detected terminal irq: %i\n", *((int*) *irq));
             copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST detected x window system irq: %i\n", *((int*) *irq));
+//?? fwprintf(stdout, L"TEST detected x window system irq: %i\n", *((int*) *irq));
         }
 
         // CAUTION! The boolean logic expression is necessary, because:
@@ -148,7 +148,7 @@ fwprintf(stdout, L"TEST detected x window system irq: %i\n", *((int*) *irq));
             calculate_integer_add((void*) &i, (void*) SOCKET_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-fwprintf(stdout, L"TEST detected www service irq: %i\n", *((int*) *irq));
+//?? fwprintf(stdout, L"TEST detected www service irq: %i\n", *((int*) *irq));
         }
 
         // CAUTION! The boolean logic expression is necessary, because:
@@ -176,7 +176,7 @@ fwprintf(stdout, L"TEST detected www service irq: %i\n", *((int*) *irq));
             calculate_integer_add((void*) &i, (void*) SOCKET_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-fwprintf(stdout, L"TEST detected cyboi service irq: %i\n", *((int*) *irq));
+//?? fwprintf(stdout, L"TEST detected cyboi service irq: %i\n", *((int*) *irq));
         }
 
         // CAUTION! The boolean logic AND expression && is necessary, because:

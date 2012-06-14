@@ -86,7 +86,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // i.e. it remains NULL if initialised so before.
     get_item_element((void*) &s, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"\nTEST signal checker s: %i\n\n", s);
+//?? fwprintf(stdout, L"\nTEST signal checker s: %i\n\n", s);
 
     if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

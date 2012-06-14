@@ -185,7 +185,7 @@ void check_wait(void* p0, void* p1) {
             // procedure, which seems sufficient for the purposes of CYBOI.
             //
 
-fwprintf(stdout, L"TEST wait *sl: %f\n", *((double*) sl));
+//?? fwprintf(stdout, L"TEST wait *sl: %f\n", *((double*) sl));
 
             while ((*((int*) sm) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
                 && (*((int*) lt) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
@@ -196,11 +196,13 @@ fwprintf(stdout, L"TEST wait *sl: %f\n", *((double*) sl));
                 sleep(*sl);
             }
 
+/*??
     fwprintf(stdout, L"TEST wait *signal_memory_irq: %i\n", *((int*) sm));
     fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) lt));
     fwprintf(stdout, L"TEST wait *x_window_system_irq: %i\n", *((int*) xw));
     fwprintf(stdout, L"TEST wait *www_service_irq: %i\n", *((int*) ww));
     fwprintf(stdout, L"TEST wait *cyboi_service_irq: %i\n", *((int*) cy));
+*/
 
             // The sleep loop above is left as soon as at least one of the
             // interrupt variables is set to a value other than false (zero).

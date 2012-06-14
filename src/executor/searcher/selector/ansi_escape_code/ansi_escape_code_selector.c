@@ -39,9 +39,9 @@
 #include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/deserialiser/ansi_escape_code/character_ansi_escape_code_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/ansi_escape_code/command_ansi_escape_code_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
+#include "../../../../executor/searcher/selector/ansi_escape_code/character_ansi_escape_code_selector.c"
+#include "../../../../executor/searcher/selector/ansi_escape_code/command_ansi_escape_code_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -66,7 +66,7 @@ void select_ansi_escape_code(void* p0, void* p1, void* p2) {
 
             // If ESC was pressed, then try to detect control button.
             // Otherwise, just add escape character as is.
-            deserialise_ansi_escape_code_command(p0, p1, p2);
+            select_ansi_escape_code_command(p0, p1, p2);
         }
     }
 
@@ -74,7 +74,7 @@ void select_ansi_escape_code(void* p0, void* p1, void* p2) {
 
         // No ESC character found, that is no control key was pressed.
         // Therefore, just add escape character as is.
-        deserialise_ansi_escape_code_character(p0, p1, p2);
+        select_ansi_escape_code_character(p0, p1, p2);
     }
 }
 
