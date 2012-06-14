@@ -1,8 +1,6 @@
 <model>
-    <part name="reset_command_model" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    <part name="reset_command_model" channel="inline" encoding="utf-8" language="text/cybol" format="modify/empty" model="">
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command"/>
     </part>
     <part name="receive_command" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>

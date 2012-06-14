@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
-#define CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
+#ifndef CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
+#define CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -88,5 +88,5 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
     }
 }
 
-/* CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE */
+/* CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE */
 #endif

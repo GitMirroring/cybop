@@ -9,12 +9,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Check why resetting command model in the beginning of file "handle_gnu_linux_console.cybol"
-            does not work (source has zero size --> problem?)
-        * See files "command_ansi_escape_code_selector.c" and "character_ansi_escape_code_selector.c":
-            CAUTION! Hand over pointer as reference or not??
-            currently, input characters do not arrive properly yet,
-            in order to receive user input in cybol example application "ui_control"
+        * Check if resetting command model in the beginning of file "handle_gnu_linux_console.cybol"
+            does work (uses new "empty" operation), in cybol example application "ui_control"
+        * Check why "arrow up" key delivers not ESC[A but ESC[[A (with two brackets)
+            --> just comment out tui sending in "ui_control" and only receive key presses to test
 
         * Debug lost memory errors (see valgrind memcheck log file)
 

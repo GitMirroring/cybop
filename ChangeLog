@@ -19,6 +19,8 @@
 2012-06-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move some ansi escape code serialiser files to directory "selector" and use detector instead of pure comparison
+        * Add "emptier" functionality (calling "remover" internally) to applicator and executor
+        * Adapt cybol example application "ui_control" using new emptier functionality in file "handle_gnu_linux_console.cybol"
 
 2012-06-08  Christian Heller  <christian.heller@tuxtax.de>
 

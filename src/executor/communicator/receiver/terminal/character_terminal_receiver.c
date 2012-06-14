@@ -85,6 +85,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                         copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                         // Lock terminal mutex.
+                        // CAUTION! This IS necessary to avoid conflicts with terminal sensing.
                         pthread_mutex_lock(p2);
 
                         // Receive character from source input stream of terminal.

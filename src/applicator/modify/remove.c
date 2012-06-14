@@ -31,6 +31,8 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/memory/copy_memory_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/modifier/emptier/part_emptier.c"
+#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -43,8 +45,8 @@
  * - index (optional; if null, the index of the LAST element will be used instead):
  *   the index from where to start removing elements from
  *
- * @param p0 the parametres array (signal/ operation part properties with pointers referencing parts)
- * @param p1 the parametres array count
+ * @param p0 the parametres data
+ * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
 void apply_remove(void* p0, int* p1, void* p2) {
@@ -75,11 +77,11 @@ void apply_remove(void* p0, int* p1, void* p2) {
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
-    get_name_array((void*) &p, p0, (void*) PART_REMOVE_OPERATION_CYBOL_NAME, (void*) PART_REMOVE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &p, p0, (void*) PART_REMOVE_OPERATION_CYBOL_NAME, (void*) PART_REMOVE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get count part.
-    get_name_array((void*) &c, p0, (void*) COUNT_REMOVE_OPERATION_CYBOL_NAME, (void*) COUNT_REMOVE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &c, p0, (void*) COUNT_REMOVE_OPERATION_CYBOL_NAME, (void*) COUNT_REMOVE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get index part.
-    get_name_array((void*) &i, p0, (void*) INDEX_REMOVE_OPERATION_CYBOL_NAME, (void*) INDEX_REMOVE_OPERATION_CYBOL_NAME_COUNT, p1);
+    get_part_knowledge((void*) &i, p0, (void*) INDEX_REMOVE_OPERATION_CYBOL_NAME, (void*) INDEX_REMOVE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
     // Get part type, model.
     copy_array_forward((void*) &pa, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
