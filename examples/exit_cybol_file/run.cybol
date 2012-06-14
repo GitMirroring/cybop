@@ -2,10 +2,6 @@
     <part name="startup" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="signal"/>
         <property name="message" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="exit_cybol_file/exit.cybol"/>
-<!--
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
-        <property name="message" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="exit_cybol_file/exit.cybol"/>
--->
     </part>
 </model>
 
