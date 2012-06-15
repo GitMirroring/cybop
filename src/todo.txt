@@ -9,6 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Insert "empty" operation into "operation_handler.c" and add corresponding cybol constants
+
         * Check if resetting command model in the beginning of file "handle_gnu_linux_console.cybol"
             does work (uses new "empty" operation), in cybol example application "ui_control"
         * Check why "arrow up" key delivers not ESC[A but ESC[[A (with two brackets)
