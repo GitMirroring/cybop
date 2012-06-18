@@ -22,6 +22,9 @@
         * Adapt file "terminal_starter.c" switching off canonical input mode and echo and stripping to seven bits
         * Optimise handling and usage of terminal resources
         * Set original terminal attributes after having shutdown terminal service
+        * Fix bug that terminal input characters were not added by using new file "character_ansi_escape_code_deserialiser.c" and dereferenced data pointer
+        * Prepare x window system service startup and shutdown
+        * Factor out sensor functionality into new files for terminal, x window system, socket
 
 2012-06-14  Christian Heller  <christian.heller@tuxtax.de>
 

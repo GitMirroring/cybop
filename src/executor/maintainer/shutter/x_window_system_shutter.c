@@ -35,15 +35,6 @@
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../executor/lifeguard/interrupter/thread_interrupter.c"
 
-//
-// CAUTION! The x window system uses a number of synonymous types:
-// Display* == struct _XDisplay*
-// GC == struct _XGC*
-// Window == int
-// Colormap == int
-// Font (ID) == int
-//
-
 /**
  * Shuts down the x window system.
  *
@@ -57,10 +48,20 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
 
-/*??
+    //
+    // CAUTION! The x window system uses a number of synonymous types:
+    // Display* == struct _XDisplay*
+    // GC == struct _XGC*
+    // Window == int
+    // Colormap == int
+    // Font (ID) == int
+    //
+    // CYBOI works with the real types, i.e. those on the right-hand side.
+    //
+
     // The display.
     // It is a subsumption of xserver, screens, hardware (input devices etc.).
-    struct _XDisplay* d = (struct _XDisplay*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get display.
     copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -77,41 +78,38 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
         // char* dn = "earth.cybop.org:0.1"
         //?? TODO: This has to be built dynamically, later on!
         //?? For now, it is just an empty string.
-        char* dn = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The screen number.
-        int* sn = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The screen.
-//??        Screen* s = (Screen*) *NULL_POINTER_STATE_CYBOI_MODEL;
+//??        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The default colourmap id for allocation on the specified screen.
         // Most routine allocations of colour should be made out of this colormap.
-        int* cm = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The background pixel values.
-        unsigned long* bg = (unsigned long*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* bg = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The foreground pixel values.
-        unsigned long* fg = (unsigned long*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* fg = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The top-level root window for the given display and screen.
         // This is sometimes called the root window of the window manager.
         // Remember, CYBOI itself IS the window manager.
-        int* r = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The menu border bottom graphic context.
-        struct _XGC* gc_menu_border_bottom = (struct _XGC*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* gc_menu_border_bottom = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The window.
-        int* w = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The value mask for the graphic context.
-        // It specifies which components in the graphic context are to be set
-        // using the information in the specified values structure.
-        // This argument is the bitwise inclusive OR of zero or more of the
-        // valid graphic context component mask bits.
-        unsigned long* vm = (unsigned long*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The values as specified by the value mask.
-        XGCValues* v = (XGCValues*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The value mask for the graphics context.
+        // It defines the attributes for the graphics context.
+        // This argument is the bitwise inclusive OR of zero or more
+        // of the valid graphic context component mask bits.
+        void* vm = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The values for the attributes defined in the value mask.
+        void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The graphic context. Each graphic element needs one.
         // It can be used with any destination drawable (window or pixmap)
         // having the same root and depth as the specified drawable.
         // Use with other drawables results in a BadMatch error.
-        struct _XGC* gc = (struct _XGC*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The interrupt flag.
-        int* ir = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get x window system internals.
         copy_array_forward((void*) &dn, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_DISPLAY_NAME_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -126,45 +124,38 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) &vm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_GRAPHIC_CONTEXT_VALUE_MASK_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         copy_array_forward((void*) &v, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_GRAPHIC_CONTEXT_VALUES_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         copy_array_forward((void*) &gc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_GRAPHIC_CONTEXT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-//??        copy_array_forward((void*) &ir, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_INTERNAL);
 
 /*??
-    XFreeGC(d, gc_menu_font);
-    XFreeGC(d, gc_menu_border_bottom);
-    XFreeGC(d, gc_menu_border_top);
-    XFreeGC(d, gc_menu);
+        XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc_menu_font);
+        XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_bottom);
+        XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_top);
+        XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc_menu);
 */
 
         // Free x window system internals.
-//??        XFreeGC(d, gc);
+//??        XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc);
 
-//??        XDestroyWindow(d, *w);
+//??        XDestroyWindow((struct _XDisplay*) d, *((int*) w));
 
-//??        XCloseDisplay(d);
+//??        XCloseDisplay((struct _XDisplay*) d);
 
-/*??
         // Destroy x window system internals.
         // CAUTION! Use descending order!
         // Example: The values (v) are destroyed BEFORE the value mask (vm)
         // attributes, since v might still reference vm internally.
-        deallocate((void*) &ir, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 //??        free(v);
         deallocate((void*) &vm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
         deallocate((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-//??        deallocate((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         deallocate((void*) &r, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         deallocate((void*) &fg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
         deallocate((void*) &bg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
         deallocate((void*) &cm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         deallocate((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-*/
 
-/*??
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. There is no x window system running.");
     }
-*/
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

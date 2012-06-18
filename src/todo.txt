@@ -11,13 +11,15 @@
 
         * Check why sequences like "arrow up" DO arrive correctly, but NOT simple letters like "e"
             --> just comment out tui sending in "ui_control" and only receive key presses to test
-        * Check if resetting command model in the beginning of file "handle_gnu_linux_console.cybol"
-            does work (uses new "empty" operation), in cybol example application "ui_control"
+            ==> try to compile new file "character_ansi_escape_code_deserialiser.c" -- IS THIS THE BUG FIX?
+
+        * Reactivate x_window_system functionality
 
         * Debug lost memory errors (see valgrind memcheck log file)
 
         * Simplify cyboi command line so that "--knowledge" argument is the default and not necessary
 
+        * Reactivate socket functionality
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
             in file "socket_starter.c" to new model constants

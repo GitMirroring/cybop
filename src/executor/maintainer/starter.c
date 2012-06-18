@@ -31,7 +31,10 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+//?? #include "../../executor/maintainer/starter/opengl_starter.c"
+//?? #include "../../executor/maintainer/starter/socket_starter.c"
 #include "../../executor/maintainer/starter/terminal_starter.c"
+//?? #include "../../executor/maintainer/starter/x_window_system_starter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -74,7 +77,7 @@ void startup_service(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            startup_x_window_system(p3);
+//??            startup_x_window_system(p0);
         }
     }
 
@@ -87,12 +90,12 @@ void startup_service(void* p0, void* p1) {
 /*??
             // Get server socket internal.
             i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            get((void*) &s, p3, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            get((void*) &s, p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
             if (*s == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // Startup server socket if it does not already exist.
-                startup_socket(p3, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_WWW_SERVICE_PORT_MODEL, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
+                startup_socket(p0, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_WWW_SERVICE_PORT_MODEL, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
 
             } else {
 
@@ -111,12 +114,12 @@ void startup_service(void* p0, void* p1) {
 /*??
             // Get server socket internal.
             i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            get((void*) &s, p3, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            get((void*) &s, p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
             if (*s == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // Startup server socket if it does not already exist.
-                startup_socket(p3, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_CYBOI_SERVICE_PORT_MODEL, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
+                startup_socket(p0, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_CYBOI_SERVICE_PORT_MODEL, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
 
             } else {
 

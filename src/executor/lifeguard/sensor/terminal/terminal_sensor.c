@@ -32,14 +32,14 @@
 #include <signal.h>
 #include <wchar.h>
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/lifeguard/sensor/message_terminal_sensor.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/lifeguard/sensor/terminal/message_terminal_sensor.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Senses terminal messages.
@@ -52,7 +52,7 @@ void sense_terminal(void* p0) {
     // This function is executed within a thread, but the
     // logging is not guaranteed to be thread-safe and might
     // cause unpredictable programme behaviour.
-    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense terminal.");
+    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
 
     // The interrupt.
     void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;

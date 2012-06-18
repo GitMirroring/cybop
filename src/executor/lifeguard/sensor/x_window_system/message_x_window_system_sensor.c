@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef X_WINDOW_SYSTEM_SENSOR_SOURCE
-#define X_WINDOW_SYSTEM_SENSOR_SOURCE
+#ifndef MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE
+#define MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
@@ -33,68 +33,11 @@
 #include <pthread.h>
 #include <signal.h>
 
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/accessor/getter.c"
-#include "../../../executor/memoriser/allocator.c"
-#include "../../../variable/thread_identification.c"
-
-/**
- * Checks for x window system messages (events).
- *
- * As an exception to other procedures in CYBOI, parametres are NOT handed over
- * as void* to this procedure, in order to avoid type casts and to gain faster
- * processing results.
- *
- * Another exception is that this procedure is actually a function, since it
- * returns a value, as opposed to other procedures in CYBOI which return
- * nothing (void).
- *
- * @param mt the mutex
- * @param d the display
- */
-int sense_x_window_system_check_events(pthread_mutex_t* mt, struct _XDisplay* d) {
-
-    // The number of events.
-    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    pthread_mutex_lock(mt);
-
-    // Check the number of events in the event queue.
-    // XEventsQueued always returns immediately without
-    // input/ output if there are events already in the queue.
-    //
-    // There are three possible modes:
-    // 1 QueuedAlready: XEventsQueued returns the number of events
-    //   already in the event queue (and never performs a system call).
-    //   XEventsQueued with mode QueuedAlready is identical
-    //   to the XQLength function.
-    // 2 QueuedAfterFlush: XEventsQueued returns the number of events
-    //   already in the queue if the number is nonzero. If there are no
-    //   events in the queue, XEventsQueued flushes the output buffer,
-    //   attempts to read more events out of the applications connection,
-    //   and returns the number read.
-    // 3 QueuedAfterReading: XEventsQueued returns the number of events
-    //   already in the queue if the number is nonzero. If there are no
-    //   events in the queue, XEventsQueued attempts to read more events
-    //   out of the applications connection WITHOUT flushing the output
-    //   buffer and returns the number read.
-    //
-    // The decision fell on mode number 3, because:
-    // - mode number 1 did not display the x window initially, since
-    //   probably no expose events are placed in the queue at startup
-    // - mode number 2 is undesirable, since it would flush the output
-    //   buffer and might thus cause this sense-thread to conflict
-    //   with the send_x_window_system procedure of the main thread
-    n = XEventsQueued(d, QueuedAfterReading);
-
-    pthread_mutex_unlock(mt);
-
-    return n;
-}
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/lifeguard/sensor/x_window_system/check_events_x_window_system_sensor.c"
 
 /**
  * Senses x window system message.
@@ -108,11 +51,11 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        struct _XDisplay* is = (struct _XDisplay*) p3;
+        struct _XDisplay* d = (struct _XDisplay*) p3;
 
         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* st = (int*) p2;
+            double* st = (double*) p2;
 
             if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -130,17 +73,17 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense x window system message.");
 
                     // CAUTION! Do NOT use the following statement directly here:
-                    // while (XEventsQueued(*d, QueuedAfterReading) == 0) { ...}
+                    // while (XEventsQueued(*d, QueuedAfterReading) == 0) { ... }
                     //
                     // The direct call to XEventsQueued causes the following error:
                     // Xlib: sequence lost (0x10025 > 0x36) in reply type 0x7!
                     //
                     // This is because the x window system may process events in the
                     // main thread of CYBOI while XEventsQueued tries to read events.
-                    // As workaround to this problem, an extra function has been defined
+                    // As workaround to this problem, an EXTRA FUNCTION has been defined
                     // that locks the x window system mutex before calling XEventsQueued.
                     //
-                    // There is no alternative to using busy waiting (while + sleep) here.
+                    // There is NO alternative to using busy waiting (while + sleep) here.
                     // If XNextEvent was used already here (to block/ save processing time),
                     // no x windows could ever be painted by send_x_window_system meanwhile,
                     // since the x mutex is set before XNextEvent and denies access to X
@@ -162,7 +105,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                     // Set x window system interrupt request to indicate
                     // that a message has been received via x window system,
                     // which may now be processed in the main thread of this system.
-                    *irq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                     // Unlock x window system mutex.
                     pthread_mutex_unlock(mt);
@@ -170,8 +113,13 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                     while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         // Sleep as long as the x window system interrupt is not handled and reset yet.
+                        //
                         // This is to give the central processing unit (cpu) some
                         // time to breathe, that is to be idle or to process other signals.
+                        //
+                        // Also, many window inputs are processed at once in the main thread
+                        // and only if there are no further inputs to be read, the irq flag is reset,
+                        // so that this endless loop can be left and new inputs detected.
                         sleep(*st);
                     }
 
@@ -212,61 +160,8 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/**
- * Senses x window system messages.
- *
- * @param p0 the internal memory data
- */
-void sense_x_window_system(void* p0) {
-
-    // CAUTION! DO NOT log this function call!
-    // This function is executed within a thread, but the
-    // logging is not guaranteed to be thread-safe and might
-    // cause unpredictable programme behaviour.
-    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense x window system.");
-
-    // The interrupt.
-    void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mutex.
-    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sleep time.
-    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The display.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get interrupt.
-    copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_INTERRUPT_REQUEST_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get mutex.
-    copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get sleep time.
-    copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_SLEEP_TIME_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get display.
-    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // A break condition does not exist here because the loop
-        // is running neverendingly while sensing messages.
-        //
-        // The loop and this thread can only be exited by an external signal
-        // which is sent in the corresponding interrupt service function
-        // (situated in the applicator/interrupt/ directory)
-        // and processed in the system signal handler procedure
-        // (situated in the controller/checker.c module).
-
-        sense_x_window_system_message(irq, mt, st, d);
-    }
-
-    // An implicit call to pthread_exit() is made when this thread
-    // (other than the thread in which main() was first invoked)
-    // returns from the function that was used to create it (this function).
-    // The pthread_exit() function does therefore not have to be called here.
-    // However, since this function runs an endless loop waiting for input, it may
-    // only be left using an external signal (see comment at "break" condition above).
-}
-
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* X_WINDOW_SYSTEM_SENSOR_SOURCE */
+/* MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE */
 #endif
