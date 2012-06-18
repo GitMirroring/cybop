@@ -28,9 +28,11 @@
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
+#include <stdio.h>
 #include <termios.h>
 
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
@@ -50,72 +52,85 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal.");
 
-/*??
     // The terminal input- and output stream.
-    FILE* ip = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    FILE* op = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get terminal input- and output stream.
-    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INPUT_STREAM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_OUTPUT_STREAM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Only deallocate terminal resources if at least one,
-    // the input- OR output stream internal is null.
-    if ((ip != *NULL_POINTER_STATE_CYBOI_MODEL) && (op != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+    // the input- OR output stream internal is NOT null.
+    if ((ip != *NULL_POINTER_STATE_CYBOI_MODEL) || (op != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
         // Interrupt terminal service thread.
         interrupt_thread(p1, p2);
 
-        // The old termios settings.
-        struct termios* to = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The new termios settings.
-        struct termios* tn = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The character buffer used for input in the thread function.
-        void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The original termios settings.
+        void* to = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get terminal internals.
-        copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         copy_array_forward((void*) &to, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_ORIGINAL_ATTRIBUTES_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &tn, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_WORKING_ATTRIBUTES_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        // Get character buffer.
-        copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_THREAD_CHARACTER_BUFFER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &bc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_THREAD_CHARACTER_BUFFER_COUNT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &bs, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_THREAD_CHARACTER_BUFFER_SIZE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
         // Get file descriptor for file stream.
         // CAUTION! The stream "stdin" must be used instead of "stdout" here!
-        int d = fileno(ip);
+        int d = fileno((FILE*) ip);
 
-        // Reset terminal to old settings.
-        tcsetattr(d, TCSANOW, (void*) to);
-
-/*??
-        // Deallocate input- and output stream.
+        // Initialise error number.
+        // It is a global variable/ function and other operations
+        // may have set some value that is not wanted here.
         //
-        // CAUTION! DO NOT deallocate ip and op because they refer to stdin and stdout of the system!
-        // This might be changed at a (much) later point in CYBOI development.
-        deallocate((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-*/
-/*??
+        // CAUTION! Initialise the error number BEFORE calling
+        // the function that might cause an error.
+        copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        // Reset terminal to original attributes.
+        //
+        // The second argument specifies how to deal with
+        // input and output already queued.
+        // It can be one of the following values:
+        // TCSANOW - Make the change immediately.
+        // TCSADRAIN - Make the change after waiting until all queued output has been written. You should usually use this option when changing parameters that affect output.
+        // TCSAFLUSH - This is like TCSADRAIN, but also discards any queued input.
+        // TCSASOFT - This is a flag bit that you can add to any of the above alternatives.
+        //            Its meaning is to inhibit alteration of the state of the terminal hardware.
+        //            It is a BSD extension; it is only supported on BSD systems and the GNU system.
+        //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
+        int e = tcsetattr(d, TCSAFLUSH, (struct termios*) to);
+
+        if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. The termios settings could not be set.");
+
+            if (errno == EBADF) {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. The filedes argument is not a valid file descriptor.");
+
+            } else if (errno == ENOTTY) {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. The filedes is not associated with a terminal.");
+
+            } else if (errno == EINVAL) {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. Either the value of the second argument is not valid, or there is something wrong with the data in the third argument.");
+
+            } else {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. An unknown error occured.");
+            }
+        }
+
         // Deallocate termios settings.
         free(to);
-        free(tn);
 
-        // Deallocate character buffer.
-        deallocate_array((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-        // Deallocate character buffer count, size.
-        deallocate_array((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_array((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // CAUTION! DO NOT deallocate ip and op because they refer to stdin and stdout of the system!
+        // This might be changed at a (much) later point in CYBOI development.
 
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. There is no terminal running.");
     }
-*/
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

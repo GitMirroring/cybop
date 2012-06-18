@@ -57,7 +57,17 @@ void receive_file_content(void* p0, void* p1) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive file content.");
 
         // Read first character.
-        char c = fgetc(p1);
+        //
+        // CAUTION! It is important to store the result in a variable of
+        // type int INSTEAD OF char, even when it is used as character only!
+        // Storing EOF in a char variable TRUNCATES its value to the size
+        // of a character, so that it is no longer distinguishable from
+        // the valid character '(char) -1'.
+        // Therefore, ALWAYS use an int for the result of getc and
+        // check for EOF after the call; once you've verified that
+        // the result is not EOF, you can be sure that it will fit
+        // in a 'char' variable without loss of information.
+        int c = fgetc(p1);
 
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

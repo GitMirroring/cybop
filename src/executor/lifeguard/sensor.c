@@ -84,7 +84,7 @@ fwprintf(stdout, L"TEST sense: %i\n", p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST sense cyboi service r: %i\n", r);
+fwprintf(stdout, L"TEST sense cyboi r: %i\n", r);
 
             // Set handler.
             copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -102,7 +102,7 @@ fwprintf(stdout, L"TEST sense cyboi service r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST sense terminal service r: %i\n", r);
+fwprintf(stdout, L"TEST sense terminal r: %i\n", r);
 
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -118,7 +118,7 @@ fwprintf(stdout, L"TEST sense terminal service r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST sense www service r: %i\n", r);
+fwprintf(stdout, L"TEST sense www r: %i\n", r);
 
             // Set handler.
             i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
@@ -135,7 +135,7 @@ fwprintf(stdout, L"TEST sense www service r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST sense x window system service r: %i\n", r);
+fwprintf(stdout, L"TEST sense x window system r: %i\n", r);
 
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

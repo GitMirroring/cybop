@@ -60,11 +60,14 @@ void send_file_element(void* p0, void* p1, void* p2, void* p3) {
             int e = fputc(c, (FILE*) p0);
 
             // Test error value.
+            //
             // CAUTION! The macro EOF is an integer value that is
             // returned by fputc to indicate an end-of-file
             // condition, or some other error situation.
+            //
             // With the GNU library, EOF is -1. In other libraries,
             // its value may be some other negative number.
+            //
             // Therefore, this test checks for negative values in general.
             // The EOF symbol which is declared in stdio.h then does
             // not have to be considered explicitly here anymore.

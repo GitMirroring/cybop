@@ -36,7 +36,6 @@
 #include "../controller/unglobaliser/service_exit_unglobaliser.c"
 #include "../controller/unglobaliser/signal_unglobaliser.c"
 #include "../controller/unglobaliser/socket_unglobaliser.c"
-#include "../controller/unglobaliser/terminal_unglobaliser.c"
 #include "../controller/unglobaliser/thread_unglobaliser.c"
 #include "../controller/unglobaliser/thread_identification_unglobaliser.c"
 #include "../controller/unglobaliser/x_window_system_unglobaliser.c"
@@ -63,7 +62,6 @@ void unglobalise() {
     unglobalise_service_exit();
     unglobalise_signal();
     unglobalise_socket();
-    unglobalise_terminal();
     unglobalise_thread();
     unglobalise_thread_identification();
     unglobalise_x_window_system();

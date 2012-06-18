@@ -88,6 +88,17 @@ static wchar_t* COUNT_MODIFY_LOGIC_CYBOL_FORMAT = COUNT_MODIFY_LOGIC_CYBOL_FORMA
 static int* COUNT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The modify/empty logic cybol format.
+ *
+ * Empty all data.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t EMPTY_MODIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'o', L'd', L'i', L'f', L'y', L'/', L'e', L'm', L'p', L't', L'y'};
+static wchar_t* EMPTY_MODIFY_LOGIC_CYBOL_FORMAT = EMPTY_MODIFY_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* EMPTY_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The modify/get logic cybol format.
  *
  * Get a reference to data.

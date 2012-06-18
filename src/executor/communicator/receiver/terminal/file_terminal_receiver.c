@@ -57,7 +57,7 @@ void receive_terminal_file(void* p0, void* p1) {
     // Get terminal input file descriptor.
     // Temporary alternative for testing:
     // f = (void*) stdin;
-    copy_array_forward((void*) &f, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &f, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INPUT_STREAM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get terminal mutex.
     copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 

@@ -9,14 +9,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Insert "empty" operation into "operation_handler.c" and add corresponding cybol constants
-
+        * Check why sequences like "arrow up" DO arrive correctly, but NOT simple letters like "e"
+            --> just comment out tui sending in "ui_control" and only receive key presses to test
         * Check if resetting command model in the beginning of file "handle_gnu_linux_console.cybol"
             does work (uses new "empty" operation), in cybol example application "ui_control"
-        * Check why "arrow up" key delivers not ESC[A but ESC[[A (with two brackets)
-            --> just comment out tui sending in "ui_control" and only receive key presses to test
 
         * Debug lost memory errors (see valgrind memcheck log file)
+
+        * Simplify cyboi command line so that "--knowledge" argument is the default and not necessary
 
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",

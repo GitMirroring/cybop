@@ -74,11 +74,14 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
         int e = fwprintf(p0, L"%s", (char*) p1);
 
         // Test error value.
+        //
         // CAUTION! The macro WEOF is an integer value that is
         // returned by fwprintf to indicate an end-of-file
         // condition, or some other error situation.
+        //
         // With the GNU library, WEOF is -1. In other libraries,
         // its value may be some other negative number.
+        //
         // Therefore, this test checks for negative values in general.
         // The WEOF symbol which is declared in wchar.h then does
         // not have to be considered explicitly here anymore.

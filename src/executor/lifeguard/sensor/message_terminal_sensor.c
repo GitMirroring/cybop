@@ -95,8 +95,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                     // 'getwchar()', since that returns 'WEOF' instead of 'EOF'!
                     wint_t c = fgetwc(is);
 
-//?? fwprintf(stdout, L"TEST sense terminal message c: %i\n", c);
-
+                    // The WEOF constant usually corresponds to the value: -1
                     if (c == WEOF) {
 
                         // No valid character was returned.

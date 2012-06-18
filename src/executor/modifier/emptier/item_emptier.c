@@ -32,7 +32,8 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/emptier/array_emptier.c"
+#include "../../../executor/modifier/copier/array_copier.c"
+#include "../../../executor/modifier/remover/array_remover.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -43,7 +44,7 @@
  * @param p0 the item
  * @param p1 the type
  */
-void remove_item(void* p0, void* p1) {
+void empty_item(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Empty item.");
 

@@ -16,6 +16,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Enable "empty" operation in file "operation_handler.c" and add corresponding cybol constants
+        * Adapt file "terminal_starter.c" switching off canonical input mode and echo and stripping to seven bits
+        * Optimise handling and usage of terminal resources
+        * Set original terminal attributes after having shutdown terminal service
+
 2012-06-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move some ansi escape code serialiser files to directory "selector" and use detector instead of pure comparison

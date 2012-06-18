@@ -47,7 +47,7 @@
  * Receives a terminal character.
  *
  * @param p0 the destination item
- * @param p1 the source terminal file descriptor
+ * @param p1 the source terminal file stream
  * @param p2 the source terminal mutex
  * @param p3 the loop break flag
  * @param p4 the escape character flag
@@ -169,7 +169,7 @@ fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
 
                             } else if (*c == WEOF) {
 
-                                // The function "sense_terminal" filters out
+                                // The sense terminal function already filters out
                                 // invalid (non-existing) characters recognised
                                 // by the return value WEOF (-1).
                                 // However, to be on the safe side, they are

@@ -36,7 +36,6 @@
 #include "../controller/globaliser/service_exit_globaliser.c"
 #include "../controller/globaliser/signal_globaliser.c"
 #include "../controller/globaliser/socket_globaliser.c"
-#include "../controller/globaliser/terminal_globaliser.c"
 #include "../controller/globaliser/thread_globaliser.c"
 #include "../controller/globaliser/thread_identification_globaliser.c"
 #include "../controller/globaliser/x_window_system_globaliser.c"
@@ -100,7 +99,6 @@ void globalise() {
     globalise_service_exit();
     globalise_signal();
     globalise_socket();
-    globalise_terminal();
     globalise_thread();
     globalise_thread_identification();
     globalise_x_window_system();
