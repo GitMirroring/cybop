@@ -68,7 +68,7 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
         int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Get communication partner socket.
-        i = *base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        i = *base + *COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         get(p0, p1, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
 /*??
@@ -79,7 +79,7 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
         pthread_mutex_t** mt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get socket mutex.
-        i = *base + *SOCKET_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        i = *base + *MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         get((void*) &mt, p1, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 */
 

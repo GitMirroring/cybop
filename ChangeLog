@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename internal memory constants
+
 2012-06-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Enable "empty" operation in file "operation_handler.c" and add corresponding cybol constants

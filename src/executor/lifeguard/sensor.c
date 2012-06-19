@@ -33,6 +33,9 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+//?? #include "../../executor/lifeguard/sensor/socket/socket_sensor.c"
+#include "../../executor/lifeguard/sensor/terminal/terminal_sensor.c"
+//?? #include "../../executor/lifeguard/sensor/x_window_system/x_window_system_sensor.c"
 #include "../../executor/lifeguard/message_sensor.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
@@ -88,7 +91,7 @@ fwprintf(stdout, L"TEST sense cyboi r: %i\n", r);
 
             // Set handler.
             copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) SOCKET_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) HANDLER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Sense incoming message.
@@ -105,7 +108,7 @@ fwprintf(stdout, L"TEST sense cyboi r: %i\n", r);
 fwprintf(stdout, L"TEST sense terminal r: %i\n", r);
 
             // Set handler.
-            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Sense incoming message.
             sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_terminal);
@@ -121,7 +124,7 @@ fwprintf(stdout, L"TEST sense terminal r: %i\n", r);
 fwprintf(stdout, L"TEST sense www r: %i\n", r);
 
             // Set handler.
-            i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *HANDLER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Sense incoming message.
@@ -138,7 +141,7 @@ fwprintf(stdout, L"TEST sense www r: %i\n", r);
 fwprintf(stdout, L"TEST sense x window system r: %i\n", r);
 
             // Set handler.
-            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_HANDLER_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Sense incoming message.
 //??            sense_message(p0, (void*) X_WINDOW_SYSTEM_THREAD, (void*) &sense_x_window_system);

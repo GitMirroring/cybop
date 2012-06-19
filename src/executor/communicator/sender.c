@@ -87,7 +87,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             void** ps = NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get communication partner-connected socket of this system.
-            i = base + *SOCKET_COMMUNICATION_PARTNER_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            i = base + *COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
             get((void*) &ps, p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
     fwprintf(stdout, L"TEST ps: %i \n", *((int*) *ps));
