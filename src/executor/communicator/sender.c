@@ -32,9 +32,11 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/sender/file/file_sender.c"
+#include "../../executor/communicator/sender/inline/inline_sender.c"
+#include "../../executor/communicator/sender/signal/signal_sender.c"
+//?? #include "../../executor/communicator/sender/socket/socket_sender.c"
 #include "../../executor/communicator/sender/terminal/terminal_sender.c"
-#include "../../executor/communicator/sender/inline_sender.c"
-#include "../../executor/communicator/sender/signal_sender.c"
+#include "../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 

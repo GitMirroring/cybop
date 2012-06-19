@@ -29,6 +29,7 @@
 #include <sys/socket.h>
 #include <errno.h>
 #include <stdio.h>
+
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
@@ -52,7 +53,7 @@
 void send_raw_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     // Not implemented.
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to raw socket.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send raw socket.");
     log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"The raw socket functionality is NOT implemented yet!");
 }
 

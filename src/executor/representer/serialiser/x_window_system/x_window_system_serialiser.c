@@ -514,6 +514,10 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
 /**
  * Serialises the source parts into the x window system.
  *
+ * This means that a hierarchical knowledge model's parts
+ * are drawn as rectangle or other graphical elements
+ * onto the window's graphic context.
+ *
  * @param p0 the internal memory containing all x window system internals
  * @param p1 the source model data
  * @param p2 the source model count

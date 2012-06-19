@@ -29,6 +29,7 @@
 #include <sys/socket.h>
 #include <errno.h>
 #include <stdio.h>
+
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cybol/http_request_cybol_model.c"
@@ -43,8 +44,8 @@
  * @param p0 the destination receiver socket address (pointer reference)
  * @param p1 the destination receiver socket address size
  * @param p2 the destination socket of this system
- * @param p3 the source byte array
- * @param p4 the source byte array count
+ * @param p3 the source data
+ * @param p4 the source count
  */
 void send_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -52,91 +53,98 @@ void send_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         int* sc = (int*) p4;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* s = (int*) p2;
+            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                int* s = (int*) p2;
 
-                socklen_t* as = (socklen_t*) p1;
+                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    socklen_t* as = (socklen_t*) p1;
 
-                    struct sockaddr** a = (struct sockaddr**) p0;
+                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send to datagram socket.");
+                        struct sockaddr** a = (struct sockaddr**) p0;
 
-                    // Send to socket and return result.
-                    int r = sendto(*s, p3, *sc, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *a, *as);
+                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send datagram socket.");
 
-                    if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        // Send to socket and return result.
+                        int r = sendto(*s, p3, *sc, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *a, *as);
 
-                        if (errno == EBADF) {
+                        if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. The socket argument is not a valid file descriptor.");
+                            if (errno == EBADF) {
 
-                        } else if (errno == EINTR) {
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. The socket argument is not a valid file descriptor.");
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. The operation was interrupted by a signal before any data was sent.");
+                            } else if (errno == EINTR) {
 
-                        } else if (errno == ENOTSOCK) {
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. The operation was interrupted by a signal before any data was sent.");
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. The descriptor socket is not a socket.");
+                            } else if (errno == ENOTSOCK) {
 
-                        } else if (errno == EMSGSIZE) {
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. The descriptor socket is not a socket.");
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. The socket type requires that the message be sent atomically, but the message is too large for this to be possible.");
+                            } else if (errno == EMSGSIZE) {
 
-                        } else if (errno == EWOULDBLOCK) {
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. The socket type requires that the message be sent atomically, but the message is too large for this to be possible.");
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. Nonblocking mode has been set on the socket, and the write operation would block.");
+                            } else if (errno == EWOULDBLOCK) {
 
-                            //?? TODO: DELETE the following comment block OR the log message above!
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. Nonblocking mode has been set on the socket, and the write operation would block.");
 
-                            // CAUTION! Do NOT log the following error:
-                            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. Nonblocking mode has been set on the socket, and the write operation would block.");
-                            //
-                            // The reason is that the socket is non-blocking,
-                            // so that the "accept" procedure returns always,
-                            // even if no connection was established,
-                            // which would unnecessarily fill up the log file.
+                                //?? TODO: DELETE the following comment block OR the log message above!
 
-                        } else if (errno == ENOBUFS) {
+                                // CAUTION! Do NOT log the following error:
+                                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. Nonblocking mode has been set on the socket, and the write operation would block.");
+                                //
+                                // The reason is that the socket is non-blocking,
+                                // so that the "accept" procedure returns always,
+                                // even if no connection was established,
+                                // which would unnecessarily fill up the log file.
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. There is not enough internal buffer space available.");
+                            } else if (errno == ENOBUFS) {
 
-                        } else if (errno == ENOTCONN) {
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. There is not enough internal buffer space available.");
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. You never connected this socket.");
+                            } else if (errno == ENOTCONN) {
 
-                        } else if (errno == EPIPE) {
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. You never connected this socket.");
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. This socket was connected but the connection is now broken. In this case, send generates a SIGPIPE signal first; if that signal is ignored or blocked, or if its handler returns, then send fails with EPIPE.");
+                            } else if (errno == EPIPE) {
 
-                        } else {
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. This socket was connected but the connection is now broken. In this case, send generates a SIGPIPE signal first; if that signal is ignored or blocked, or if its handler returns, then send fails with EPIPE.");
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. An unknown error occured.");
+                            } else {
+
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. An unknown error occured.");
+                            }
                         }
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. The receiver socket address is null.");
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. The socket of this system is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. The receiver socket address size is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. The source count is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. The socket of this system is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. The receiver socket address is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. The source data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to datagram socket. The receiver socket address size is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send datagram socket. The source count is null.");
     }
 }
 

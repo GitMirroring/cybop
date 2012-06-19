@@ -9,17 +9,21 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Try to compile new command line deserialiser files to replace optionaliser
+        * Remove temporary solution in file "file_terminal_sender.c"
+        * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input
+
+        * Make new command line deserialiser files compilable, replacing old optionaliser
+        * Simplify cyboi command line so that "--knowledge" argument is the default and not necessary
 
         * Check why sequences like "arrow up" DO arrive correctly, but NOT simple letters like "e"
             --> just comment out tui sending in "ui_control" and only receive key presses to test
             ==> try to compile new file "character_ansi_escape_code_deserialiser.c" -- IS THIS THE BUG FIX?
 
-        * Reactivate x_window_system functionality
+        * Reactivate x_window_system receive functionality
+
+        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts
 
         * Debug lost memory errors (see valgrind memcheck log file)
-
-        * Simplify cyboi command line so that "--knowledge" argument is the default and not necessary
 
         * Reactivate socket functionality
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
