@@ -148,7 +148,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // since the tree level value gets changed in the following functions!
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            serialise_model_diagram_part_element_content(p0, (void*) L"root", (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, p6, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+            serialise_model_diagram_part_element_content(p0, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, p6, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
         }
     }
 

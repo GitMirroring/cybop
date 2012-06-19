@@ -1,0 +1,94 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.11.0 2012-01-01
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef WIDE_ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
+#define WIDE_ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
+
+#ifdef CYGWIN_ENVIRONMENT
+#include <windows.h>
+/* CYGWIN_ENVIRONMENT */
+#endif
+
+#include <stdio.h>
+#include <wchar.h>
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
+#include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
+#include "../../../../executor/representer/deserialiser/command_line/option_command_line_deserialiser.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Deserialises the command line argument given as wide character data.
+ *
+ * @param p0 the operation mode
+ * @param p1 the cybol knowledge file path item
+ * @param p2 the log level
+ * @param p3 the log file stream (pointer reference)
+ * @param p4 the argument data
+ * @param p5 the argument count
+ */
+void deserialise_command_line_argument_wide(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+
+    // CAUTION! DO NOT use logging functionality here!
+    // The logger will not work before its options are set.
+    // Comment out this function call to avoid disturbing messages at system startup!
+    // log_write((void*) stdout, L"Information: Deserialise command line.\n");
+
+    // The argument item.
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The argument item data, count.
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Allocate argument item.
+    allocate_item((void*) &a, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Decode multibyte character into wide character.
+    decode_utf_8(a, p4, p5);
+
+    // Get argument item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &ad, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ac, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Deserialise the option.
+    // CAUTION! The argument item data gets handed over AS REFERENCE,
+    // as it gets manipulated inside the called function.
+    deserialise_command_line_option(p0, p1, p2, p3, (void*) &ad, ac);
+
+    // Deallocate argument item.
+    deallocate_item((void*) &a, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+}
+
+/* WIDE_ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE */
+#endif

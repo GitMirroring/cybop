@@ -9,6 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Try to compile new command line deserialiser files to replace optionaliser
+
         * Check why sequences like "arrow up" DO arrive correctly, but NOT simple letters like "e"
             --> just comment out tui sending in "ui_control" and only receive key presses to test
             ==> try to compile new file "character_ansi_escape_code_deserialiser.c" -- IS THIS THE BUG FIX?

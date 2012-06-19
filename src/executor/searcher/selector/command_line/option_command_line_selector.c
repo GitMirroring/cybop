@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
-#define CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
+#ifndef OPTION_COMMAND_LINE_SELECTOR_SOURCE
+#define OPTION_COMMAND_LINE_SELECTOR_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -36,59 +36,44 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
-#include "../../../../executor/representer/deserialiser/ansi_escape_code/character_ansi_escape_code_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Selects the ansi escape code character.
+ * Selects the command line option.
  *
- * This function changes the key codes into real names as defined by CYBOL.
- * Example: The LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL (<enter> key) gets converted into the
- * constant ENTER_KEYBOARD_KEY_CYBOL_NAME with the value "enter", which is used so in CYBOL files.
- *
- * @param p0 the destination item
+ * @param p0 the break flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
+void select_command_line_option(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ansi escape code character.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select command line option.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) ENTER_KEYBOARD_KEY_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ENTER_KEYBOARD_KEY_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Set break flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) ESCAPE_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) ESCAPE_KEYBOARD_KEY_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_KEYBOARD_KEY_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // None of the control characters above matched.
-        // Pass along character without modification.
-        deserialise_ansi_escape_code_character(p0, p1, p2);
+        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
-/* CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE */
+/* OPTION_COMMAND_LINE_SELECTOR_SOURCE */
 #endif

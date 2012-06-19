@@ -1,0 +1,101 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.11.0 2012-01-01
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
+#define ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
+
+#ifdef CYGWIN_ENVIRONMENT
+#include <windows.h>
+/* CYGWIN_ENVIRONMENT */
+#endif
+
+#include <stdio.h>
+#include <wchar.h>
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
+#include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/deserialiser/command_line/wide_argument_command_line_deserialiser.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Deserialises the command line argument.
+ *
+ * @param p0 the operation mode
+ * @param p1 the cybol knowledge file path item
+ * @param p2 the log level
+ * @param p3 the log file stream (pointer reference)
+ * @param p4 the command line data (pointer reference)
+ * @param p5 the command line index
+ */
+void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+
+    // CAUTION! DO NOT use logging functionality here!
+    // The logger will not work before its options are set.
+    // Comment out this function call to avoid disturbing messages at system startup!
+    // log_write((void*) stdout, L"Information: Deserialise command line.\n");
+
+    // The argument data, count.
+    // It is handed over as multibyte character array.
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Get argument data.
+    // Example: "--loglevel=error"
+    copy_array_forward((void*) &ad, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+
+    if (ad != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // Get command line argument count (number of characters).
+        //
+        // CAUTION! There are two possibilities to determine it:
+        //
+        // 1 Force the user to give it as extra command line parametre
+        //   (this would be proper, but not very user-friendly)
+        //
+        // 2 Rely on the null termination character to determine it
+        //   (this is a rather dirty workaround, but the "strlen" function can be used)
+        //
+        // Possibility 2 is applied here.
+        //
+        ac = strlen((char*) ad);
+
+        deserialise_command_line_argument_wide(p0, p1, p2, p3, ad, (void*) &ac);
+
+    } else {
+
+        // CAUTION! DO NOT use logging functionality here!
+        // The logger will not work before its options are set.
+        log_write((void*) stdout, L"Error: Could not deserialise command line argument. The command line argument is null.\n");
+    }
+}
+
+/* ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE */
+#endif

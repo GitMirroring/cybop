@@ -19,6 +19,8 @@
 2012-06-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename internal memory constants
+        * Prepare command line deserialiser to replace optionaliser functionality
+        * Change root node name of serialised model diagram into "[selected_node]"
 
 2012-06-18  Christian Heller  <christian.heller@tuxtax.de>
 

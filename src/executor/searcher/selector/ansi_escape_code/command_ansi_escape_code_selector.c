@@ -44,7 +44,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Identifies ansi escape code command and deserialises it into a cyboi-internal keyboard constant.
+ * Select ansi escape code command and deserialises it into a cyboi-internal keyboard constant.
  *
  * This function changes the ansi escape codes into real names as defined by CYBOL.
  * Example: The ARROW_UP_ANSI_ESCAPE_CODE_MODEL (ESC[A sequence) gets converted into the
@@ -56,7 +56,7 @@
  */
 void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code command.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ansi escape code command.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
