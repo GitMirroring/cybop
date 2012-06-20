@@ -35,6 +35,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../executor/communicator/sender/x_window_system/window_x_window_system_sender.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -54,10 +55,10 @@ void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, void
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send x window system.");
 
     // Serialise (draw) source knowledge model into window.
-    serialise(p0, p1, p2, p3, p4, p5, p6);
+    serialise(p7, p0, p1, p2, p3, p4, p5, p6);
 
     // Send serialised window (with drawn content) to x window system.
-    send_x_window_system_window(ed, ec, p7);
+    send_x_window_system_window(p7);
 }
 
 /* X_WINDOW_SYSTEM_SENDER_SOURCE */

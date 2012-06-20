@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Make new command line deserialiser files compilable, replacing old optionaliser
+        * Simplify cyboi command line so that "--knowledge" argument is the default and not necessary
+
 2012-06-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename internal memory constants

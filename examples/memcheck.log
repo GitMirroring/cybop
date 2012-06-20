@@ -1,106 +1,21 @@
-==26596== Memcheck, a memory error detector
-==26596== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
-==26596== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
-==26596== Command: ../src/controller/cyboi --knowledge ui_control/run.cybol
-==26596== Parent PID: 26314
-==26596== 
-==26596== 
-==26596== HEAP SUMMARY:
-==26596==     in use at exit: 3,138,692 bytes in 216,131 blocks
-==26596==   total heap usage: 242,542 allocs, 26,411 frees, 17,572,439 bytes allocated
-==26596== 
-==26596== 4 bytes in 1 blocks are possibly lost in loss record 82 of 749
-==26596==    at 0x402894D: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==26596==    by 0x404C3E: allocate_array (array_allocator.c:82)
-==26596==    by 0x40A21C: allocate_item (item_allocator.c:62)
-==26596==    by 0x40A3EE: allocate_part (part_allocator.c:85)
-==26596==    by 0x4181EC: deserialise_xml_attribute (attribute_xml_deserialiser.c:80)
-==26596==    by 0x41834D: deserialise_xml_attribute (attribute_xml_deserialiser.c:119)
-==26596==    by 0x4188B7: deserialise_xml_element (element_xml_deserialiser.c:93)
-==26596==    by 0x418B05: select_xml_element_content (element_content_xml_selector.c:143)
-==26596==    by 0x4186C3: deserialise_xml_element_content (element_content_xml_deserialiser.c:73)
-==26596==    by 0x4188D8: deserialise_xml_element (element_xml_deserialiser.c:99)
-==26596==    by 0x418B05: select_xml_element_content (element_content_xml_selector.c:143)
-==26596==    by 0x4186C3: deserialise_xml_element_content (element_content_xml_deserialiser.c:73)
-==26596== 
-==26596== 320 bytes in 1 blocks are possibly lost in loss record 248 of 749
-==26596==    at 0x4027034: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==26596==    by 0x4010FDE: _dl_allocate_tls (dl-tls.c:300)
-==26596==    by 0x4A29483: pthread_create@@GLIBC_2.2.5 (allocatestack.c:580)
-==26596==    by 0x4262B6: sense_message (message_sensor.c:88)
-==26596==    by 0x42642B: sense (sensor.c:111)
-==26596==    by 0x42660C: apply_sense (sense.c:91)
-==26596==    by 0x428D94: handle_operation (operation_handler.c:373)
-==26596==    by 0x427F77: handle (handler.c:166)
-==26596==    by 0x428059: handle_part_element (element_part_handler.c:82)
-==26596==    by 0x4281BA: handle_part (part_handler.c:84)
-==26596==    by 0x427D75: handle (handler.c:115)
-==26596==    by 0x42956E: check_found (found_checker.c:84)
-==26596== 
-==26596== 12,952 (72 direct, 12,880 indirect) bytes in 1 blocks are definitely lost in loss record 669 of 749
-==26596==    at 0x402894D: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==26596==    by 0x404C3E: allocate_array (array_allocator.c:82)
-==26596==    by 0x40A31E: allocate_part (part_allocator.c:50)
-==26596==    by 0x418779: deserialise_xml_element (element_xml_deserialiser.c:61)
-==26596==    by 0x418B05: select_xml_element_content (element_content_xml_selector.c:143)
-==26596==    by 0x4186C3: deserialise_xml_element_content (element_content_xml_deserialiser.c:73)
-==26596==    by 0x418BBA: deserialise_xml (xml_deserialiser.c:66)
-==26596==    by 0x421DA1: deserialise_cybol (cybol_deserialiser.c:176)
-==26596==    by 0x4226D6: deserialise (deserialiser.c:219)
-==26596==    by 0x4229F7: receive_file (file_receiver.c:100)
-==26596==    by 0x42995D: initialise (initialiser.c:88)
-==26596==    by 0x429DA8: manage (manager.c:296)
-==26596== 
-==26596== 122,976 bytes in 1 blocks are definitely lost in loss record 747 of 749
-==26596==    at 0x402894D: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==26596==    by 0x56E040C: vfwprintf (vfprintf.c:1623)
-==26596==    by 0x56F7C07: fwprintf (fwprintf.c:35)
-==26596==    by 0x42435D: send_terminal_stream (stream_terminal_sender.c:74)
-==26596==    by 0x424638: send_terminal (terminal_sender.c:136)
-==26596==    by 0x424A41: send_data (sender.c:140)
-==26596==    by 0x4250B8: apply_send (send.c:198)
-==26596==    by 0x42897B: handle_operation (operation_handler.c:181)
-==26596==    by 0x427F77: handle (handler.c:166)
-==26596==    by 0x428059: handle_part_element (element_part_handler.c:82)
-==26596==    by 0x4281BA: handle_part (part_handler.c:84)
-==26596==    by 0x427D75: handle (handler.c:115)
-==26596== 
-==26596== 212,112 (504 direct, 211,608 indirect) bytes in 7 blocks are definitely lost in loss record 748 of 749
-==26596==    at 0x402894D: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==26596==    by 0x404C3E: allocate_array (array_allocator.c:82)
-==26596==    by 0x40A31E: allocate_part (part_allocator.c:50)
-==26596==    by 0x418779: deserialise_xml_element (element_xml_deserialiser.c:61)
-==26596==    by 0x418B05: select_xml_element_content (element_content_xml_selector.c:143)
-==26596==    by 0x4186C3: deserialise_xml_element_content (element_content_xml_deserialiser.c:73)
-==26596==    by 0x418BBA: deserialise_xml (xml_deserialiser.c:66)
-==26596==    by 0x421DA1: deserialise_cybol (cybol_deserialiser.c:176)
-==26596==    by 0x4226D6: deserialise (deserialiser.c:219)
-==26596==    by 0x4229F7: receive_file (file_receiver.c:100)
-==26596==    by 0x422B56: receive_data (receiver.c:109)
-==26596==    by 0x423245: apply_receive (receive.c:206)
-==26596== 
-==26596== 2,409,980 (2,520 direct, 2,407,460 indirect) bytes in 35 blocks are definitely lost in loss record 749 of 749
-==26596==    at 0x402894D: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==26596==    by 0x404C3E: allocate_array (array_allocator.c:82)
-==26596==    by 0x40A31E: allocate_part (part_allocator.c:50)
-==26596==    by 0x418779: deserialise_xml_element (element_xml_deserialiser.c:61)
-==26596==    by 0x418B05: select_xml_element_content (element_content_xml_selector.c:143)
-==26596==    by 0x4186C3: deserialise_xml_element_content (element_content_xml_deserialiser.c:73)
-==26596==    by 0x418BBA: deserialise_xml (xml_deserialiser.c:66)
-==26596==    by 0x421DA1: deserialise_cybol (cybol_deserialiser.c:176)
-==26596==    by 0x4226D6: deserialise (deserialiser.c:219)
-==26596==    by 0x4229F7: receive_file (file_receiver.c:100)
-==26596==    by 0x422B56: receive_data (receiver.c:109)
-==26596==    by 0x423B29: deserialise_cybol_part_element_content (content_element_part_cybol_deserialiser.c:313)
-==26596== 
-==26596== LEAK SUMMARY:
-==26596==    definitely lost: 126,072 bytes in 44 blocks
-==26596==    indirectly lost: 2,631,948 bytes in 191,986 blocks
-==26596==      possibly lost: 324 bytes in 2 blocks
-==26596==    still reachable: 380,348 bytes in 24,099 blocks
-==26596==         suppressed: 0 bytes in 0 blocks
-==26596== Reachable blocks (those to which a pointer was found) are not shown.
-==26596== To see them, rerun with: --leak-check=full --show-reachable=yes
-==26596== 
-==26596== For counts of detected and suppressed errors, rerun with: -v
-==26596== ERROR SUMMARY: 6 errors from 6 contexts (suppressed: 4 from 4)
+==16480== Memcheck, a memory error detector
+==16480== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==16480== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==16480== Command: ../src/controller/cyboi --knowledge exit/run.cybol
+==16480== Parent PID: 14221
+==16480== 
+==16480== 
+==16480== HEAP SUMMARY:
+==16480==     in use at exit: 5,160 bytes in 407 blocks
+==16480==   total heap usage: 648 allocs, 241 frees, 44,360 bytes allocated
+==16480== 
+==16480== LEAK SUMMARY:
+==16480==    definitely lost: 144 bytes in 2 blocks
+==16480==    indirectly lost: 5,016 bytes in 405 blocks
+==16480==      possibly lost: 0 bytes in 0 blocks
+==16480==    still reachable: 0 bytes in 0 blocks
+==16480==         suppressed: 0 bytes in 0 blocks
+==16480== Rerun with --leak-check=full to see details of leaked memory
+==16480== 
+==16480== For counts of detected and suppressed errors, rerun with: -v
+==16480== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 4 from 4)

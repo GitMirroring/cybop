@@ -40,13 +40,9 @@
 /**
  * Sends the window to the x window system display.
  *
- * @param p0 the destination display (pointer reference)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the internal memory
- * @param p4 the source count
+ * @param p0 the internal memory
  */
-void send_x_window_system_window(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void send_x_window_system_window(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send x window system window.");
 

@@ -9,19 +9,21 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Use optionaliser again to assign log file and only get log file name through command line deserialiser
+
         * Remove temporary solution in file "file_terminal_sender.c"
         * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input
-
-        * Make new command line deserialiser files compilable, replacing old optionaliser
-        * Simplify cyboi command line so that "--knowledge" argument is the default and not necessary
 
         * Check why sequences like "arrow up" DO arrive correctly, but NOT simple letters like "e"
             --> just comment out tui sending in "ui_control" and only receive key presses to test
             ==> try to compile new file "character_ansi_escape_code_deserialiser.c" -- IS THIS THE BUG FIX?
 
         * Reactivate x_window_system receive functionality
+        * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):
+            deallocate_array((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts
+        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
+            (possibly not necessary for all channels)
 
         * Debug lost memory errors (see valgrind memcheck log file)
 
