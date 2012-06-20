@@ -50,7 +50,15 @@ void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Comment out this function call to avoid disturbing messages at system startup!
     // log_write((void*) stdout, L"Information: Optionalise command line arguments.\n");
 
-    deserialise_command_line(p0, p1, p2, p3, p4, p5);
+    // The log file name data, count.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Get command line options, among others the file name data, count.
+    deserialise_command_line(p0, p1, p2, (void*) &d, (void*) &c, p4, p5);
+
+    // Optionalise log file handing over file name data, count.
+    optionalise_log_file(p3, d, (void*) &c);
 }
 
 /* OPTIONALISER_SOURCE */

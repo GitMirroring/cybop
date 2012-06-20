@@ -83,11 +83,12 @@
  * @param p0 the operation mode
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
- * @param p3 the log file stream (pointer reference)
- * @param p4 the command line data (pointer reference)
- * @param p5 the command line count
+ * @param p3 the log file name data (pointer reference)
+ * @param p4 the log file name count
+ * @param p5 the command line data (pointer reference)
+ * @param p6 the command line count
  */
-void deserialise_command_line(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_command_line(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
@@ -102,7 +103,7 @@ void deserialise_command_line(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p6 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -116,14 +117,14 @@ void deserialise_command_line(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p5);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p6);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        deserialise_command_line_argument(p0, p1, p2, p3, p4, (void*) &j);
+        deserialise_command_line_argument(p0, p1, p2, p3, p4, p5, (void*) &j);
 
         // Increment loop variable.
         j++;

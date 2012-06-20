@@ -23,26 +23,26 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LOG_FILE_COMMAND_LINE_DESERIALISER_SOURCE
-#define LOG_FILE_COMMAND_LINE_DESERIALISER_SOURCE
+#ifndef LOG_FILE_OPTIONALISER_SOURCE
+#define LOG_FILE_OPTIONALISER_SOURCE
 
 #include <stdio.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../../../logger/logger.c"
+#include "../../constant/model/character_code/ascii/ascii_character_code_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../logger/logger.c"
 
 /**
- * Deserialises the log file option.
+ * Optionalises the log file option.
  *
  * @param p0 the log file stream (pointer reference)
  * @param p1 the log file name data
  * @param p2 the log file name count
  */
-void deserialise_command_line_log_file(void* p0, void* p1, void* p2) {
+void optionalise_log_file(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -51,7 +51,7 @@ void deserialise_command_line_log_file(void* p0, void* p1, void* p2) {
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
         // Comment out this function call to avoid disturbing messages at system startup!
-        // log_write((void*) stdout, L"Debug: Deserialise command line log file.\n");
+        // log_write((void*) stdout, L"Debug: Optionalise log file.\n");
 
         // The terminated file name item.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -107,7 +107,7 @@ void deserialise_command_line_log_file(void* p0, void* p1, void* p2) {
 
             // CAUTION! DO NOT use logging functionality here!
             // The logger will not work before its options are set.
-            log_write((void*) stdout, L"Error: Could not deserialise command line log file. An error occured when trying to open or create the file for writing.\n");
+            log_write((void*) stdout, L"Error: Could not optionalise log file. An error occured when trying to open or create the file for writing.\n");
         }
 
         // Deallocate terminated file name item.
@@ -117,9 +117,9 @@ void deserialise_command_line_log_file(void* p0, void* p1, void* p2) {
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
-        log_write((void*) stdout, L"Error: Could not deserialise command line log file. The file descriptor is null.\n");
+        log_write((void*) stdout, L"Error: Could not optionalise log file. The file descriptor is null.\n");
     }
 }
 
-/* LOG_FILE_COMMAND_LINE_DESERIALISER_SOURCE */
+/* LOG_FILE_OPTIONALISER_SOURCE */
 #endif

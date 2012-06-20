@@ -51,11 +51,12 @@
  * @param p0 the operation mode
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
- * @param p3 the log file stream (pointer reference)
- * @param p4 the argument data
- * @param p5 the argument count
+ * @param p3 the log file name data (pointer reference)
+ * @param p4 the log file name count
+ * @param p5 the argument data
+ * @param p6 the argument count
  */
-void deserialise_command_line_argument_wide(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_command_line_argument_wide(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
@@ -72,7 +73,7 @@ void deserialise_command_line_argument_wide(void* p0, void* p1, void* p2, void* 
     allocate_item((void*) &a, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Decode multibyte character into wide character.
-    decode_utf_8(a, p4, p5);
+    decode_utf_8(a, p5, p6);
 
     // Get argument item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -84,7 +85,7 @@ void deserialise_command_line_argument_wide(void* p0, void* p1, void* p2, void* 
     // Deserialise the option.
     // CAUTION! The argument item data gets handed over AS REFERENCE,
     // as it gets manipulated inside the called function.
-    deserialise_command_line_option(p0, p1, p2, p3, (void*) &ad, ac);
+    deserialise_command_line_option(p0, p1, p2, p3, p4, (void*) &ad, ac);
 
     // Deallocate argument item.
     deallocate_item((void*) &a, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

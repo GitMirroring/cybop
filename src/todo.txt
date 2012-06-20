@@ -9,8 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Use optionaliser again to assign log file and only get log file name through command line deserialiser
-
+        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
+            (possibly not necessary for all channels)
         * Remove temporary solution in file "file_terminal_sender.c"
         * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input
 
@@ -21,10 +21,6 @@
         * Reactivate x_window_system receive functionality
         * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):
             deallocate_array((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
-            (possibly not necessary for all channels)
-
         * Debug lost memory errors (see valgrind memcheck log file)
 
         * Reactivate socket functionality

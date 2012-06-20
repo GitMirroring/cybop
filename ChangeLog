@@ -20,6 +20,7 @@
 
         * Make new command line deserialiser files compilable, replacing old optionaliser
         * Simplify cyboi command line so that "--knowledge" argument is the default and not necessary
+        * Use optionaliser again to assign log file (vice versa in deoptionaliser) and only get log file name through command line deserialiser
 
 2012-06-19  Christian Heller  <christian.heller@tuxtax.de>
 
