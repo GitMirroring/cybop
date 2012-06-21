@@ -92,12 +92,17 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                         //
                         // CAUTION! The multibyte character is converted to a
                         // wide character internally (in glibc function "fgetwc").
+                        //
+                        // CAUTION! Use 'wint_t' instead of 'int' as return type for
+                        // 'getwchar()', since that returns 'WEOF' instead of 'EOF'!
+                        //
                         // The return value of type "wint_t" MAY BE CASTED to "wchar_t".
                         // Calling the "decode" or "decode_utf_8" function
                         // is therefore NOT necessary here!
                         *c = fgetwc(f);
 
 fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
+fwprintf(stdout, L"TEST receive terminal character c: %ls\n", (wchar_t*) c);
 
                         // Unlock terminal mutex.
                         pthread_mutex_unlock(p2);
