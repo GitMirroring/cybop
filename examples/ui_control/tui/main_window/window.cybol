@@ -8,7 +8,10 @@
         <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.menu"/>
         <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,5"/>
         <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,15"/>
+<!--
         <property name="focus" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.tui.main_window.menu.mc_item"/>
+-->
+        <property name="focus" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.tui.main_window.menu.about_item"/>
     </part>
     <part name="footer" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/tui/main_window/footer.cybol">
         <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.menu_footer"/>

@@ -19,6 +19,8 @@
 2012-06-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add missing de-/ serialisation code for new "empty" operation
+        * Extend "empty_tester.c" with students
+        * Search bug that some operations are unknown when working with "ui_control" cybol example application
 
 2012-06-20  Christian Heller  <christian.heller@tuxtax.de>
 
