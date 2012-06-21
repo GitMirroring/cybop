@@ -26,10 +26,14 @@
 #ifndef EMPTY_TESTER
 #define EMPTY_TESTER
 
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../executor/memoriser/size_determiner.c"
+#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../executor/memoriser/allocator/array_allocator.c"
+#include "../executor/memoriser/deallocator/array_deallocator.c"
+#include "../executor/modifier/copier/integer_copier.c"
 #include "../logger/logger.c"
 
 //
@@ -53,6 +57,47 @@ void test_empty_1() {
 }
 
 /**
+ * Tests something 2.
+ */
+void test_empty_2() {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test empty 2.");
+
+    char c = 'X';
+    char* s = "ABC";
+    wchar_t* w = L"WIDE";
+
+    fwprintf(stdout, L"TEST blubla: %c\n", c);
+    fwprintf(stdout, L"TEST blubla: %i\n", s);
+    fwprintf(stdout, L"TEST blubla: %s\n", s);
+    fwprintf(stdout, L"TEST blubla: %ls\n", w);
+}
+
+/**
+ * Tests something 3.
+ */
+void test_empty_3() {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test empty 3.");
+
+    int sum = 0;
+//    int summand = 3;
+    void* summand = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    allocate_array((void*) &summand, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+//    *((int*) summand) = 4;
+    copy_integer(summand, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+
+//    calculate_integer_add((void*) &sum, (void*) &summand);
+    calculate_integer_add((void*) &sum, summand);
+
+    fwprintf(stdout, L"TEST sum: %i\n", sum);
+
+    deallocate_array((void*) &summand, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+}
+
+/**
  * Tests something.
  */
 void test_empty() {
@@ -62,9 +107,9 @@ void test_empty() {
     // Uncomment below functions as needed,
     // in order for them to be executed.
 
-    test_empty_1();
+//    test_empty_1();
 //    test_empty_2();
-//    test_empty_3();
+    test_empty_3();
 }
 
 /* EMPTY_TESTER */
