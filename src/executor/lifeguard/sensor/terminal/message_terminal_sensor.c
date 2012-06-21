@@ -87,12 +87,19 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                     // and other inputs like arrow down not to be recognised properly.
                     pthread_mutex_lock(mt);
 
-                    // Get character from terminal input stream,
-                    // just to detect that some (event) character is available.
-                    // This is also called "peeking ahead" at the input.
+                    // Get character from source input stream of terminal.
+                    //
+                    // This is just to detect that some character is available,
+                    // which is also called "peeking ahead" at the input.
+                    //
+                    // CAUTION! The multibyte character is converted to a
+                    // wide character internally in glibc function "fgetwc".
                     //
                     // CAUTION! Use 'wint_t' instead of 'int' as return type for
                     // 'getwchar()', since that returns 'WEOF' instead of 'EOF'!
+                    //
+                    // CAUTION! The return value of type "wint_t"
+                    // MAY BE CASTED to "wchar_t".
                     wint_t c = fgetwc(is);
 
                     // The WEOF constant usually corresponds to the value: -1

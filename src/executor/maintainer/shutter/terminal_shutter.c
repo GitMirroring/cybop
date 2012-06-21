@@ -97,7 +97,7 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
         //            Its meaning is to inhibit alteration of the state of the terminal hardware.
         //            It is a BSD extension; it is only supported on BSD systems and the GNU system.
         //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
-        int e = tcsetattr(d, TCSAFLUSH, (struct termios*) to);
+        int e = tcsetattr(d, TCSANOW, (struct termios*) to);
 
         if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

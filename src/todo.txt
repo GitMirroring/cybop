@@ -10,6 +10,11 @@
 #
 
         * Check why some operations are null and therefore unknown:
+            Warum wird bei Eingabe von <enter> "sense" ein zweites Mal aufgerufen?
+                ... und findet ein Zeichen (terminal irq == 1)?
+                ... obwohl das Zeichen EOF (-1) liefert?
+            "plain_text" (428 in state_cyboi_format.c) arrives as operation format
+            --> error in cybol file where string- instead of operation format is given for signal?
 
 christian@deneb:/home/project/cybop/examples$
 christian@deneb:/home/project/cybop/examples$ ../src/controller/cyboi ui_control/run.cybol

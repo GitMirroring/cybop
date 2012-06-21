@@ -88,26 +88,34 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                         // CAUTION! This IS necessary to avoid conflicts with terminal sensing.
                         pthread_mutex_lock(p2);
 
-                        // Receive character from source input stream of terminal.
+                        // Get character from source input stream of terminal.
                         //
                         // CAUTION! The multibyte character is converted to a
-                        // wide character internally (in glibc function "fgetwc").
+                        // wide character internally in glibc function "fgetwc".
                         //
                         // CAUTION! Use 'wint_t' instead of 'int' as return type for
                         // 'getwchar()', since that returns 'WEOF' instead of 'EOF'!
                         //
-                        // The return value of type "wint_t" MAY BE CASTED to "wchar_t".
-                        // Calling the "decode" or "decode_utf_8" function
-                        // is therefore NOT necessary here!
+                        // CAUTION! The return value of type "wint_t"
+                        // MAY BE CASTED to "wchar_t".
                         *c = fgetwc(f);
-
-fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
-fwprintf(stdout, L"TEST receive terminal character c: %ls\n", (wchar_t*) c);
 
                         // Unlock terminal mutex.
                         pthread_mutex_unlock(p2);
 
-                        if (errno != EILSEQ) {
+fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
+fwprintf(stdout, L"TEST receive terminal character c: %lc\n", *c);
+fwprintf(stdout, L"TEST receive terminal character WEOF: %i\n", WEOF);
+
+                        // Check for end-of-file condition or read error,
+                        // in which case WEOF (the integer -1) is returned.
+                        //
+                        // It is true, the sense terminal function
+                        // already filters out invalid characters
+                        // recognised by the return value WEOF.
+                        // However, to be on the safe side, they are
+                        // filtered out here once more.
+                        if (*c != WEOF) {
 
                             if (*aec == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -171,17 +179,6 @@ fwprintf(stdout, L"TEST receive terminal character c: %ls\n", (wchar_t*) c);
 
                                 // Copy source character to destination character array.
                                 append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-                            } else if (*c == WEOF) {
-
-                                // The sense terminal function already filters out
-                                // invalid (non-existing) characters recognised
-                                // by the return value WEOF (-1).
-                                // However, to be on the safe side, they are
-                                // filtered out here once more.
-
-                                // Set loop break flag.
-                                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                             } else {
 
