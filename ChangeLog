@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add missing de-/ serialisation code for new "empty" operation
+
 2012-06-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Make new command line deserialiser files compilable, replacing old optionaliser

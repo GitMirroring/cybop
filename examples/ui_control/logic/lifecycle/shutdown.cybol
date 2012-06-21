@@ -21,8 +21,9 @@
 -->
 <!--
     CAUTION! The memory MUST NOT be destroyed here!
-    Otherwise, also THIS model is destroyed in memory so that the exit operation below cannot
-    be executed anymore.
+    Otherwise, also THIS model is destroyed in memory so that the exit operation
+    below cannot be executed anymore.
+    The rubbish (garbage) collector cares about destruction evaluating references.
     If CYBOI runs as operating system one day, the exit operation will only be called
     when the whole operating system is shutdown. At this time, the "destroy_ui_control"
     operation HAS TO BE REACTIVATED and called as final operation cleaning up the memory
@@ -35,6 +36,8 @@
 -->
     <part name="clean_tui" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>

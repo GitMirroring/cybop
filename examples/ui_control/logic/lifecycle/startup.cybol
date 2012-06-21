@@ -145,6 +145,7 @@
     </part>
 -->
     <!-- Write knowledge tree into file. -->
+<!--
     <part name="test_knowledge_tree" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -153,12 +154,11 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control"/>
         <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_UI_CONTROL.txt"/>
     </part>
-<!--
+-->
     <part name="select_current_menu_item" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="signal"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.user_interface.select_current_part"/>
     </part>
--->
 <!-- SUPERFLUOUS, since already called within "select_current_menu_item" above!
     <part name="send_tui" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>

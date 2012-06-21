@@ -187,7 +187,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //?? TEST: Delete the following block later!
             // CAUTION! Since the temporary model, properties are of PART_ELEMENT_STATE_CYBOI_TYPE,
             // the PART_ELEMENT_STATE_CYBOI_FORMAT may be used as parametre here.
-            test_data_as_model_diagram((void*) L"TEST_DESERIALISE_XML.txt", (void*) L"root", (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, md, mc, pd, pc);
+            test_data_as_model_diagram((void*) L"TEST_DESERIALISE_XML.txt", (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, md, mc, pd, pc);
 
             // Decode temporary model, properties item into cyboi model using temporary type, format.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
@@ -202,7 +202,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
             copy_array_forward((void*) &p0c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &p1d, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &p1c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            test_data_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL.txt", (void*) L"root", (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, p0d, p0c, p1d, p1c);
+            test_data_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL.txt", (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, p0d, p0c, p1d, p1c);
 
             // Deallocate temporary format, type, model, properties item.
             deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

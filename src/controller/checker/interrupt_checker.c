@@ -76,9 +76,10 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected signal memory interrupt.");
 
             // Get signal memory interrupt request, mutex, handler.
-            // A handler is NOT set in the case of a signal memory interrupt.
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+            // CAUTION! A handler is NOT set in the case of a signal memory interrupt.
 
 //?? fwprintf(stdout, L"TEST detected signal memory irq: %i\n", *((int*) *irq));
         }
