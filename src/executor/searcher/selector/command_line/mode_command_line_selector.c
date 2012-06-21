@@ -34,7 +34,6 @@
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/command_line/log_file_command_line_deserialiser.c"
 #include "../../../../executor/searcher/selector/command_line/log_level_command_line_selector.c"
 
 /**

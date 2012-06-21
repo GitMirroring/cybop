@@ -79,7 +79,7 @@ void test_variable() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test variable.");
 
-    test_type_sizes();
+//    test_type_sizes();
 }
 
 /* VARIABLE_TESTER */

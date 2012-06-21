@@ -26,11 +26,9 @@
 #ifndef OPTIONALISER_SOURCE
 #define OPTIONALISER_SOURCE
 
-#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../executor/modifier/copier/integer_copier.c"
+#include "../controller/optionaliser/log_file_optionaliser.c"
 #include "../executor/representer/deserialiser/command_line/command_line_deserialiser.c"
 
 /**

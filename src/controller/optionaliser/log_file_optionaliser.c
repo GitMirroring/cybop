@@ -107,7 +107,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
 
             // CAUTION! DO NOT use logging functionality here!
             // The logger will not work before its options are set.
-            log_write((void*) stdout, L"Error: Could not optionalise log file. An error occured when trying to open or create the file for writing.\n");
+            // log_write((void*) stdout, L"Error: Could not optionalise log file. An error occured when trying to open or create the file for writing.\n");
         }
 
         // Deallocate terminated file name item.

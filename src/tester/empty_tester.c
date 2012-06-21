@@ -46,6 +46,10 @@ void test_empty_1() {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test empty 1.");
 
     // Add YOUR SOURCE CODE here!
+
+    // Example:
+    int a = 3;
+    fwprintf(stdout, L"TEST a: %i\n", a);
 }
 
 /**
@@ -58,7 +62,7 @@ void test_empty() {
     // Uncomment below functions as needed,
     // in order for them to be executed.
 
-//    test_empty_1();
+    test_empty_1();
 //    test_empty_2();
 //    test_empty_3();
 }
