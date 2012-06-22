@@ -80,11 +80,12 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST receive terminal dc: %i\n", *((int*) dc));
+fwprintf(stdout, L"TEST receive terminal *dc: %i\n", *((int*) dc));
 fwprintf(stdout, L"TEST receive terminal dd: %i\n", dd);
 fwprintf(stdout, L"TEST receive terminal dd: %ls\n", (wchar_t*) dd);
 
-fwprintf(stdout, L"TEST receive terminal language p3: %i\n", *((int*) p3));
+fwprintf(stdout, L"TEST receive terminal language p3: %i\n", p3);
+fwprintf(stdout, L"TEST receive terminal language *p3: %i\n", *((int*) p3));
 
     // Deserialise data.
     deserialise(p0, p1, dd, dc, p2, p3);

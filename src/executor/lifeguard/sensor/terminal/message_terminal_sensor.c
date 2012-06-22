@@ -64,7 +64,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
 
                 if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    sig_atomic_t* irq = (sig_atomic_t*) p0;
+                    volatile sig_atomic_t* irq = (volatile sig_atomic_t*) p0;
 
                     // CAUTION! DO NOT log this function call!
                     // This function is executed within a thread, but the
@@ -119,8 +119,6 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
 
                     } else {
 
-fwprintf(stdout, L"TEST sense terminal message c: %i\n", c);
-
                         // Unread character, that is push it back on the stream to
                         // make it available to be input again from the stream, by the
                         // next call to fgetc or another input function on that stream.
@@ -159,7 +157,12 @@ fwprintf(stdout, L"TEST sense terminal message c: %i\n", c);
                         // Set terminal interrupt request to indicate
                         // that a message has been received via terminal,
                         // which may now be processed in the main thread of this system.
-                        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                        //
+                        // CAUTION! Avoid using the "copy_integer" function,
+                        // since it might use the logger which is not
+                        // guaranteed to be thread-safe and might
+                        // cause unpredictable programme behaviour.
+                        *irq = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
                     }
 
                     // Unlock terminal mutex.
@@ -170,7 +173,6 @@ fwprintf(stdout, L"TEST sense terminal message c: %i\n", c);
                     // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
                     while (*irq) {
 
-fwprintf(stdout, L"TEST sense terminal message sleep enter irq: %i\n", *irq);
                         // Sleep as long as the terminal interrupt is not handled and reset yet.
                         //
                         // This is to give the central processing unit (cpu) some
@@ -180,7 +182,6 @@ fwprintf(stdout, L"TEST sense terminal message sleep enter irq: %i\n", *irq);
                         // and only if there are no further characters to be read, the irq flag is reset,
                         // so that this endless loop can be left and new inputs detected.
                         sleep(*st);
-fwprintf(stdout, L"TEST sense terminal message sleep exit irq: %i\n", *irq);
                     }
 
                 } else {

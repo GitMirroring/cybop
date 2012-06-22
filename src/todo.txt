@@ -9,48 +9,18 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Think through what to return when comparing arrays of unequal size
+            --> add special handling for "equal" and "unequal" functions for type "character" in file "array_all_comparator.c"?
+        * Solve issue with "ui_control" cybol app in "handle_gnu_linux_console_command.cybol" and "handle_gnu_linux_console.cybol"
+        * Split and adapt "handle_about_dialog.cybol" likewise
+
+        * Why does terminal sensing detect input, even if nothing was done on terminal (besides output)?
         * Check why some operations are null and therefore unknown:
             Warum wird bei Eingabe von <enter> "sense" ein zweites Mal aufgerufen?
-                ... und findet ein Zeichen (terminal irq == 1)?
-                ... obwohl das Zeichen EOF (-1) liefert?
-            "plain_text" (428 in state_cyboi_format.c) arrives as operation format
-            --> error in cybol file where string- instead of operation format is given for signal?
-
-christian@deneb:/home/project/cybop/examples$
-christian@deneb:/home/project/cybop/examples$ ../src/controller/cyboi ui_control/run.cybol
-TEST sense: 37573264
-TEST sense terminal r: 1
-TEST receive terminal character c: 10
-TEST receive terminal d: 36080608
-
-TEST receive terminal character c: -1
-TEST receive terminal d: 40235968
-ERROR: Could not handle operation. The operation is unknown p8: 0
-Segmentation fault
-christian@deneb:/home/project/cybop/examples$
-christian@deneb:/home/project/cybop/examples$
-christian@deneb:/home/project/cybop/examples$
-christian@deneb:/home/project/cybop/examples$
-christian@deneb:/home/project/cybop/examples$
-christian@deneb:/home/project/cybop/examples$ ../src/controller/cyboi ui_control/run.cybol
-TEST sense: 37765776
-TEST sense terminal r: 1
-TEST receive terminal character c: 10
-TEST receive terminal d: 36273120
-TEST sense: 43690016
-TEST sense terminal r: 1
-TEST receive terminal character c: -1
-TEST receive terminal d: 39860944
-TEST receive terminal character c: -1
-TEST receive terminal d: 39898240
-ERROR: Could not handle operation. The operation is unknown p8: 40426624
-ERROR: Could not handle operation. The operation is unknown *p8: 428
-ERROR: Could not handle operation. The operation is unknown p8: 40428256
-ERROR: Could not handle operation. The operation is unknown *p8: 428
-ERROR: Could not handle operation. The operation is unknown p8: 0
-Segmentation fault
-christian@deneb:/home/project/cybop/examples$
-christian@deneb:/home/project/cybop/examples$
+            --> weil für about dialog "sense" mit anderen kommandos aufgerufen wird
+        * Check why sequences like "arrow up" DO arrive correctly, but NOT simple letters like "e"
+            --> just comment out tui sending in "ui_control" and only receive key presses to test
+            ==> try to compile new file "character_ansi_escape_code_deserialiser.c" -- IS THIS THE BUG FIX?
 
         * Check if it is possible to serialise cybol files to html
         * Remove obsolete entries in "constant/format/cybol/logic/logic_cybol_format.c' (equal-part, equal-prefix, equal-suffix)
@@ -59,10 +29,6 @@ christian@deneb:/home/project/cybop/examples$
             (possibly not necessary for all channels)
         * Remove temporary solution in file "file_terminal_sender.c"
         * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input
-
-        * Check why sequences like "arrow up" DO arrive correctly, but NOT simple letters like "e"
-            --> just comment out tui sending in "ui_control" and only receive key presses to test
-            ==> try to compile new file "character_ansi_escape_code_deserialiser.c" -- IS THIS THE BUG FIX?
 
         * Reactivate x_window_system receive functionality
         * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):

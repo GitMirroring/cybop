@@ -67,11 +67,7 @@ void sense_message(void* p0, void* p1, void* p2) {
     // which may not check for null and exit the cyboi process.
     compare_integer_equal((void*) &r, p1, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST sense message thread p1: %i\n", *((int*) p1));
-
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-fwprintf(stdout, L"TEST sense message thread create p1: %i\n", *((int*) p1));
 
         // The thread does not exist, i.e. it was not yet created before.
 

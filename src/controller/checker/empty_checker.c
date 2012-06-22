@@ -58,7 +58,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // CAUTION! It CANNOT be handed over as parametre, since it
     // is not always only the signal memory interrupt request.
     // Other input channels' interrupts may be assigned as well below.
-    sig_atomic_t* irq = (sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    volatile sig_atomic_t* irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
     // CAUTION! It CANNOT be handed over as parametre (like the interrupt).
     pthread_mutex_t* mt = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -101,7 +101,11 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // This is done here, right after checking the interrupt flag
         // and yet BEFORE receiving data and handling the signal below,
         // so that the system may react faster to new interrupt requests.
-        copy_integer(irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        //
+        // CAUTION! Avoid using the "copy_integer" function,
+        // since the irq is atomic and casting it to int
+        // might possibly falsify its behaviour.
+        *irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Unlock mutex.
         pthread_mutex_unlock(mt);
