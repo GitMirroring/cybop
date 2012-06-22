@@ -52,8 +52,12 @@ void sense_message(void* p0, void* p1, void* p2) {
 
     // Only create thread, if not existent.
     //
+    // CAUTION! Thread variables were initialised with -1 at system startup.
+    // They are also reset to -1 when being interrupted.
+    // If existent, a thread should therefore be unequal -1.
+    //
     // CAUTION! The "pthread_t" type is an integer,
-    // so both can be compared.
+    // which is why both can be compared.
     //
     // CAUTION! This comparison also covers the case
     // in which the thread parametre is null.
@@ -63,7 +67,13 @@ void sense_message(void* p0, void* p1, void* p2) {
     // which may not check for null and exit the cyboi process.
     compare_integer_equal((void*) &r, p1, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
+fwprintf(stdout, L"TEST sense message thread p1: %i\n", *((int*) p1));
+
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST sense message thread create p1: %i\n", *((int*) p1));
+
+        // The thread does not exist, i.e. it was not yet created before.
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense message -- create thread.");
 

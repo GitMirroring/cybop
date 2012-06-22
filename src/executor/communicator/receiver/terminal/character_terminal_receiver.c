@@ -43,6 +43,32 @@
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 
+//
+// Remark:
+//
+// Why is all this ansi escape code detection done here
+// and not only in the corresponding deserialiser?
+//
+// There are at least two reasons:
+//
+// 1 Endless Input
+//
+// If the system tried to read in all characters arriving at the terminal,
+// there would be the danger of endless input causing an endless loop.
+// Therefore, it makes sense to evaluate characters in between,
+// to have a loop break and to let the system execute signals now and then.
+//
+// 2 Dependent Input
+//
+// If an experienced user knows the application user interface by heart
+// he might blindly press the keys to dive into the menu structure.
+// In this case, the first key press possibly relates to another user interface
+// than the second one, e.g. if the first action opens another dialogue.
+// In other words: The second input depends upon the result of the first.
+// For such cases it is important to evaluate the first input
+// before reading in further inputs.
+//
+
 /**
  * Receives a terminal character.
  *
@@ -85,7 +111,10 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                         copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                         // Lock terminal mutex.
-                        // CAUTION! This IS necessary to avoid conflicts with terminal sensing.
+                        //
+                        // CAUTION! This IS NECESSARY to avoid conflicts with the terminal sensing thread,
+                        // which in parallel is trying to detect that some character is available,
+                        // what is also called "peeking ahead" at the input.
                         pthread_mutex_lock(p2);
 
                         // Get character from source input stream of terminal.
@@ -114,7 +143,6 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                         if (*c != WEOF) {
 
 fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
-fwprintf(stdout, L"TEST receive terminal character c: %lc\n", *c);
 
                             if (*aec == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -162,7 +190,7 @@ fwprintf(stdout, L"TEST receive terminal character c: %lc\n", *c);
 
                                     // Unget this character so that it may be
                                     // processed once more later on.
-                                    ungetwc(*c, p1);
+                                    ungetwc(*c, f);
 
                                     // Unlock terminal mutex.
                                     pthread_mutex_unlock(p2);

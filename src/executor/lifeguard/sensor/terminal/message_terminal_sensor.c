@@ -64,7 +64,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
 
                 if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    int* irq = (int*) p0;
+                    sig_atomic_t* irq = (sig_atomic_t*) p0;
 
                     // CAUTION! DO NOT log this function call!
                     // This function is executed within a thread, but the
@@ -90,7 +90,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                     // Get character from source input stream of terminal.
                     //
                     // This is just to detect that some character is available,
-                    // which is also called "peeking ahead" at the input.
+                    // what is also called "peeking ahead" at the input.
                     //
                     // CAUTION! The multibyte character is converted to a
                     // wide character internally in glibc function "fgetwc".
@@ -103,6 +103,11 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                     wint_t c = fgetwc(is);
 
                     // The WEOF constant usually corresponds to the value: -1
+                    //
+                    // CAUTION! However, do NOT compare like the following:
+                    // if (c < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    // The reason is that wint_t and int comparison might deliver
+                    // wrong results, so that an input is mistakenly assumed below.
                     if (c == WEOF) {
 
                         // No valid character was returned.
@@ -113,6 +118,8 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                         sleep(*st);
 
                     } else {
+
+fwprintf(stdout, L"TEST sense terminal message c: %i\n", c);
 
                         // Unread character, that is push it back on the stream to
                         // make it available to be input again from the stream, by the
@@ -158,8 +165,12 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                     // Unlock terminal mutex.
                     pthread_mutex_unlock(mt);
 
-                    while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                    // Access irq as atomic variable.
+                    // CAUTION! Therefore better don't use the following line:
+                    // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                    while (*irq) {
 
+fwprintf(stdout, L"TEST sense terminal message sleep enter irq: %i\n", *irq);
                         // Sleep as long as the terminal interrupt is not handled and reset yet.
                         //
                         // This is to give the central processing unit (cpu) some
@@ -169,6 +180,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                         // and only if there are no further characters to be read, the irq flag is reset,
                         // so that this endless loop can be left and new inputs detected.
                         sleep(*st);
+fwprintf(stdout, L"TEST sense terminal message sleep exit irq: %i\n", *irq);
                     }
 
                 } else {
