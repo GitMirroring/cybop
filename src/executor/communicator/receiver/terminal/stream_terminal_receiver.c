@@ -66,9 +66,15 @@ void receive_terminal_stream(void* p0, void* p1, void* p2) {
     // since it is used across many loop cycles.
     int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The input character.
+    //
     // CAUTION! This variable HAS TO BE defined here,
     // since it is used across many loop cycles.
-    wint_t c = *((wint_t*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL);
+    //
+    // CAUTION! The initial value is set to WEOF,
+    // since it is returned by the fgetwc function by default.
+    // Hence, do NOT assign the following value:
+    // wint_t c = *((wint_t*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL);
+    wint_t c = WEOF;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

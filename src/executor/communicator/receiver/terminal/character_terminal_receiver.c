@@ -103,10 +103,6 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                         // Unlock terminal mutex.
                         pthread_mutex_unlock(p2);
 
-fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
-fwprintf(stdout, L"TEST receive terminal character c: %lc\n", *c);
-fwprintf(stdout, L"TEST receive terminal character WEOF: %i\n", WEOF);
-
                         // Check for end-of-file condition or read error,
                         // in which case WEOF (the integer -1) is returned.
                         //
@@ -116,6 +112,9 @@ fwprintf(stdout, L"TEST receive terminal character WEOF: %i\n", WEOF);
                         // However, to be on the safe side, they are
                         // filtered out here once more.
                         if (*c != WEOF) {
+
+fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
+fwprintf(stdout, L"TEST receive terminal character c: %lc\n", *c);
 
                             if (*aec == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -191,7 +190,9 @@ fwprintf(stdout, L"TEST receive terminal character WEOF: %i\n", WEOF);
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from terminal. The character reading failed.");
+fwprintf(stdout, L"TEST receive terminal character WEOF: %i\n", WEOF);
+
+                            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from terminal. The character reading failed.");
 
                             // Set loop break flag.
                             copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
