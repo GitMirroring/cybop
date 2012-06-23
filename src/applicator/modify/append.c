@@ -26,6 +26,7 @@
 #ifndef APPEND_SOURCE
 #define APPEND_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -65,22 +66,22 @@ void apply_append(void* p0, int* p1, void* p2) {
     // The index part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source part model.
+    // The source part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model.
+    // The type part model item.
     void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The count part model.
+    // The count part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index part model.
+    // The index part model item.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source part model count.
+    // The source part model item count.
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model data, count.
+    // The type part model item data, count.
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The count part model data, count.
+    // The count part model item data, count.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index part model data, count.
+    // The index part model item data, count.
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part.
@@ -94,22 +95,22 @@ void apply_append(void* p0, int* p1, void* p2) {
     // Get index part.
     get_part_knowledge((void*) &i, p0, (void*) INDEX_APPEND_OPERATION_CYBOL_NAME, (void*) INDEX_APPEND_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    // Get source part model.
+    // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get type part model.
+    // Get type part model item.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get count part model.
+    // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get index part model.
+    // Get index part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get source part model count.
+    // Get source part model item count.
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get type part model data, count.
+    // Get type part model item data, count.
     copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get count part model data, count.
+    // Get count part model item data, count.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get index part model data, count.
+    // Get index part model item data, count.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The default values.

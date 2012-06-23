@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EMPTY_SOURCE
-#define EMPTY_SOURCE
+#ifndef INDICATE_SOURCE
+#define INDICATE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -32,41 +32,50 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/modification/empty_modification_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/modifier/emptier/part_emptier.c"
+#include "../../executor/modifier/indicator/part_indicator.c"
 #include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
- * Empties the part, i.e. removes all of its elements.
+ * Indicates whether or not the part is empty, i.e. its element count is zero.
  *
  * Expected parametres:
+ * - empty (required): the empty flag
  * - part (required): the part
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
-void apply_empty(void* p0, int* p1, void* p2) {
+void apply_indicate(void* p0, int* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply empty.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply indicate.");
 
-    // The part.
+    // The empty part.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type.
-    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type data.
-    void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get part.
-    get_part_knowledge((void*) &p, p0, (void*) PART_EMPTY_OPERATION_CYBOL_NAME, (void*) PART_EMPTY_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get part type.
-    copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    // Get part type data.
-    copy_array_forward((void*) &ptd, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // The empty part model item.
+    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Empty part, i.e. remove all of its elements.
-    empty_part(p, ptd);
+    // The empty part model item data.
+    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get empty part.
+    get_part_knowledge((void*) &e, p0, (void*) EMPTY_INDICATE_OPERATION_CYBOL_NAME, (void*) EMPTY_INDICATE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get part part.
+    get_part_knowledge((void*) &p, p0, (void*) PART_INDICATE_OPERATION_CYBOL_NAME, (void*) PART_INDICATE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+
+    // Get empty part model item.
+    copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+
+    // Get empty part model item data.
+    copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    // Indicate whether or not the part is empty, i.e. its element count is zero.
+    indicate_part(emd, p);
 }
 
-/* EMPTY_SOURCE */
+/* INDICATE_SOURCE */
 #endif

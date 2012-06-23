@@ -23,163 +23,61 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COUNTING_MEMORISER_SOURCE
-#define COUNTING_MEMORISER_SOURCE
+#ifndef COUNT_SOURCE
+#define COUNT_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/operation/modification/count_modification_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/modifier/counter/part_counter.c"
+#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
  * Counts compound parts.
  *
  * Expected parametres:
- * - compound (required): the compound whose parts are to be counted
- * - selection (required): the kind of filter to be applied for counting the compound's parts
- * - filter (required): the filter to compare the compound parts' names with;
- *   only those parts will be counted whose name (full, prefix, suffix, part) matches the filter string
- * - result (required): the knowledge model in which to store the result
+ * - count (required): the knowledge model in which to store the result
+ * - part (required): the part whose elements are to be counted
+ * - selection (optional; if null, then "none" is assumed by default):
+ *   the area of the elements' names to be compared;
+ *   may be one of: none, all, prefix, suffix, subsequence;
+ *   if "none" is given, then the element count is returned without any comparison
+ * - filter (optional; corresponds with "selection" property):
+ *   string to compare the elements' names with;
+ *   only those parts will be counted whose name matches the filter string
  *
- * @param p0 the parametres
+ * @param p0 the parametres data
  * @param p1 the parametres count
- * @param p2 the knowledge memory
- * @param p3 the knowledge memory count
- * @param p4 the knowledge memory size
+ * @param p2 the knowledge memory part
  */
-void memorise_counting(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_count(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Count compound parts.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply count.");
 
-    // The compound name, type, model, properties.
-    void** cn = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cnc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cns = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** ca = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cac = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cas = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cm = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cmc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cms = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cd = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cdc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** cds = NULL_POINTER_STATE_CYBOI_MODEL;
-    // The selection name, type, model, properties.
-    void** sn = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** snc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** sns = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** sa = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** sac = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** sas = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** sm = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** smc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** sms = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** sd = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** sdc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** sds = NULL_POINTER_STATE_CYBOI_MODEL;
-    // The filter name, type, model, properties.
-    void** fn = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fnc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fns = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fa = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fac = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fas = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fm = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fmc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fms = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fd = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fdc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** fds = NULL_POINTER_STATE_CYBOI_MODEL;
-    // The result name, type, model, properties.
-    void** rn = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** rnc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** rns = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** ra = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** rac = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** ras = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** rm = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** rmc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** rms = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** rd = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** rdc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** rds = NULL_POINTER_STATE_CYBOI_MODEL;
+    // The count part.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The selection part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The filter part.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get compound.
-    get_universal_compound_element_by_name(
-        (void*) &cn, (void*) &cnc, (void*) &cns,
-        (void*) &ca, (void*) &cac, (void*) &cas,
-        (void*) &cm, (void*) &cmc, (void*) &cms,
-        (void*) &cd, (void*) &cdc, (void*) &cds,
-        p0, p1,
-        (void*) COMPOUND_STATE_CYBOI_MODEL_COUNT_FLOW_OPERATION_CYBOL_NAME, (void*) COMPOUND_STATE_CYBOI_MODEL_COUNT_FLOW_OPERATION_CYBOL_NAME_COUNT,
-        p2, p3);
-    // Get selection.
-    get_universal_compound_element_by_name(
-        (void*) &sn, (void*) &snc, (void*) &sns,
-        (void*) &sa, (void*) &sac, (void*) &sas,
-        (void*) &sm, (void*) &smc, (void*) &sms,
-        (void*) &sd, (void*) &sdc, (void*) &sds,
-        p0, p1,
-        (void*) SELECTION_COUNT_FLOW_OPERATION_CYBOL_NAME, (void*) SELECTION_COUNT_FLOW_OPERATION_CYBOL_NAME_COUNT,
-        p2, p3);
-    // Get filter.
-    get_universal_compound_element_by_name(
-        (void*) &fn, (void*) &fnc, (void*) &fns,
-        (void*) &fa, (void*) &fac, (void*) &fas,
-        (void*) &fm, (void*) &fmc, (void*) &fms,
-        (void*) &fd, (void*) &fdc, (void*) &fds,
-        p0, p1,
-        (void*) FILTER_COUNT_FLOW_OPERATION_CYBOL_NAME, (void*) FILTER_COUNT_FLOW_OPERATION_CYBOL_NAME_COUNT,
-        p2, p3);
-    // Get result.
-    get_universal_compound_element_by_name(
-        (void*) &rn, (void*) &rnc, (void*) &rns,
-        (void*) &ra, (void*) &rac, (void*) &ras,
-        (void*) &rm, (void*) &rmc, (void*) &rms,
-        (void*) &rd, (void*) &rdc, (void*) &rds,
-        p0, p1,
-        (void*) RESULT_COUNT_FLOW_OPERATION_CYBOL_NAME, (void*) RESULT_COUNT_FLOW_OPERATION_CYBOL_NAME_COUNT,
-        p2, p3);
+    // Get count part.
+    get_part_knowledge((void*) &c, p0, (void*) COUNT_COUNT_OPERATION_CYBOL_NAME, (void*) COUNT_COUNT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get part part.
+    get_part_knowledge((void*) &p, p0, (void*) PART_COUNT_OPERATION_CYBOL_NAME, (void*) PART_COUNT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get selection part.
+    get_part_knowledge((void*) &s, p0, (void*) SELECTION_COUNT_OPERATION_CYBOL_NAME, (void*) SELECTION_COUNT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get filter part.
+    get_part_knowledge((void*) &f, p0, (void*) FILTER_COUNT_OPERATION_CYBOL_NAME, (void*) FILTER_COUNT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, (void*) *sm, (void*) ALL_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) *smc, (void*) ALL_COUNT_SELECTION_CYBOL_MODEL_COUNT);
-
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            memorise_counting_all(rm, *rmc, *rms, *cm, *cmc);
-        }
-    }
-
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, (void*) *sm, (void*) PREFIX_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) *smc, (void*) PREFIX_COUNT_SELECTION_CYBOL_MODEL_COUNT);
-
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            memorise_counting_prefix(rm, *rmc, *rms, *cm, *cmc, *fm, *fmc);
-        }
-    }
-
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, (void*) *sm, (void*) SUFFIX_COUNT_SELECTION_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) *smc, (void*) SUFFIX_COUNT_SELECTION_CYBOL_MODEL_COUNT);
-
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            memorise_counting_suffix(rm, *rmc, *rms, *cm, *cmc, *fm, *fmc);
-        }
-    }
-
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not count compound parts. The selection model is unknown.");
-    }
+    count_part();
 }
 
-/* COUNTING_MEMORISER_SOURCE */
+/* COUNT_SOURCE */
 #endif

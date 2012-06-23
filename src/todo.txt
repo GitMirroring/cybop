@@ -9,6 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Adapt name constants for "count" and "indicate" operation and finish operations
+
         * Think through what to return when comparing arrays of unequal size
             --> add special handling for "equal" and "unequal" functions for type "character" in file "array_all_comparator.c"?
         * Solve issue with "ui_control" cybol app in "handle_gnu_linux_console_command.cybol" and "handle_gnu_linux_console.cybol"

@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Search error that terminal input is sensed without reason -- not solved yet
+        * Enable and update "count" operation filtering parts by their name
+        * Add new "indicate" operation checking if a part's data are empty
+
 2012-06-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add missing de-/ serialisation code for new "empty" operation

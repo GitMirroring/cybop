@@ -44,7 +44,8 @@
  * - left (required): the left operand
  * - right (required): the right operand
  * - type (required): the operand type which is equal for both operands
- * - selection (required): the part of two strings or number vectors to be compared (all, prefix, suffix, subsequence)
+ * - selection (required): the area of two strings or number vectors to be compared;
+ *   may be one of: all, prefix, suffix, subsequence
  *
  * The "selection" parametre is mostly needed for comparing models of type "character".
  * But also numbers may be given as vectors, e.g. the integer sequence "1,2,3".
