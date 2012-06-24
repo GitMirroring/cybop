@@ -40,6 +40,72 @@
 #include "../../logger/logger.c"
 
 /**
+ * Compares the part with the element.
+ *
+ * @param p0 the result
+ * @param p1 the left part
+ * @param p2 the right data
+ * @param p3 the operation type
+ * @param p4 the operand type
+ * @param p5 the right array count
+ * @param p6 the left part element index
+ * @param p7 the selection data
+ * @param p8 the selection count
+ */
+void compare_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare element.");
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_all_part_element(p0, p1, p2, p3, p4, p5, p6);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) PREFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) PREFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_prefix_part_element(p0, p1, p2, p3, p4, p5, p6);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) SUFFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) SUFFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_suffix_part_element(p0, p1, p2, p3, p4, p5, p6);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) SUBSEQUENCE_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) SUBSEQUENCE_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_subsequence_part_element(p0, p1, p2, p3, p4, p5, p6);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare element. The selection is unknown.");
+    }
+}
+
+/**
  * Compares two parts.
  *
  * @param p0 the result
@@ -57,25 +123,12 @@ void compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-/*??
-fwprintf(stdout, L"\n");
-fwprintf(stdout, L"\n");
-fwprintf(stdout, L"TEST compare p5: %ls\n", (wchar_t*) p5);
-fwprintf(stdout, L"TEST compare p6: %i\n", *((int*) p6));
-fwprintf(stdout, L"TEST compare: %i\n", r);
-*/
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-/*??
-fwprintf(stdout, L"TEST compare p0: %i\n", p0);
-fwprintf(stdout, L"TEST compare p1: %i\n", p1);
-fwprintf(stdout, L"TEST compare p2: %i\n", p2);
-*/
             compare_all_part(p0, p1, p2, p3, p4);
         }
     }

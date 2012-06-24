@@ -31,9 +31,9 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The all selection compare logic cybol model. */
-static wchar_t ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_ARRAY[] = {L'a', L'l', L'l'};
-static wchar_t* ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL = ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_ARRAY;
-static int* ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_ARRAY[] = {L'a', L'l', L'l'};
+static wchar_t* FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL = FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_ARRAY;
+static int* FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The prefix selection compare logic cybol model. */
 static wchar_t PREFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_ARRAY[] = {L'p', L'r', L'e', L'f', L'i', L'x'};

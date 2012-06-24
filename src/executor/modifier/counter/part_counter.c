@@ -32,7 +32,7 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/emptier/item_counter.c"
+#include "../../../executor/modifier/counter/item_counter.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -40,10 +40,12 @@
  *
  * @param p0 the destination count
  * @param p1 the source part
- * @param p2 the filter string
- * @param p3 the selection
+ * @param p2 the filter data
+ * @param p3 the filter count
+ * @param p4 the selection data
+ * @param p5 the selection count
  */
-void count_part(void* p0, void* p1, void* p2, void* p3) {
+void count_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Count part.");
 
@@ -51,10 +53,10 @@ void count_part(void* p0, void* p1, void* p2, void* p3) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part model.
-    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Count part model.
-    count_item(p0, m, p2, p3);
+    count_item(p0, m, p2, p3, p4, p5);
 }
 
 /* PART_COUNTER_SOURCE */

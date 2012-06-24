@@ -30,10 +30,10 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The empty indicate operation cybol name. */
-static wchar_t EMPTY_INDICATE_OPERATION_CYBOL_NAME_ARRAY[] = {L'e', L'm', L'p', L't', L'y'};
-static wchar_t* EMPTY_INDICATE_OPERATION_CYBOL_NAME = EMPTY_INDICATE_OPERATION_CYBOL_NAME_ARRAY;
-static int* EMPTY_INDICATE_OPERATION_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The result indicate operation cybol name. */
+static wchar_t RESULT_INDICATE_OPERATION_CYBOL_NAME_ARRAY[] = {L'r', L'e', L's', L'u', L'l', L't'};
+static wchar_t* RESULT_INDICATE_OPERATION_CYBOL_NAME = RESULT_INDICATE_OPERATION_CYBOL_NAME_ARRAY;
+static int* RESULT_INDICATE_OPERATION_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The part indicate operation cybol name. */
 static wchar_t PART_INDICATE_OPERATION_CYBOL_NAME_ARRAY[] = {L'p', L'a', L'r', L't'};

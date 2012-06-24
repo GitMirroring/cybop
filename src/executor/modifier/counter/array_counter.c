@@ -38,35 +38,60 @@
 #include "../../../logger/logger.c"
 
 /**
+ * Counts certain elements of the given data array element.
+ *
+ * @param p0 the destination count
+ * @param p1 the source data
+ * @param p2 the source index
+ * @param p3 the filter data
+ * @param p4 the filter count
+ * @param p5 the selection data
+ * @param p6 the selection count
+ */
+void count_array_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Count array element.");
+
+    // The part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Get part at index from investigated pointer array.
+    copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    // Compare part name item with given filter string.
+    compare_element((void*) &r, p, p3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) NAME_PART_STATE_CYBOI_NAME, p5, p6);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The part name matches the given filter.
+
+        // Increment count.
+        calculate_integer_add(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    }
+}
+
+/**
  * Counts certain elements of the given data array.
  *
  * @param p0 the destination count
  * @param p1 the source data
  * @param p2 the source count
- * @param p3 the filter string
- * @param p4 the selection
+ * @param p3 the filter data
+ * @param p4 the filter count
+ * @param p5 the selection data
+ * @param p6 the selection count
  */
-void count_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void count_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if selection == none then copy count p2 to count p0 else
-    loop elements
-    get name
-    compare name with filter
-    increment count p0
---
-
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Count array.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -80,34 +105,19 @@ void count_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The maximum loop count has been reached.
             // All elements have been compared.
-            // A part with the searched name could not be found.
-            // Leave index untouched.
 
             break;
         }
 
-        // Get part j from investigated pointer array p1.
-        copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
-        // Compare part p name item with given name p2.
-        compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NAME_PART_STATE_CYBOI_NAME);
+        count_array_element(p0, p1, (void*) &j, p3, p4, p5, p6);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            // The part with the searched name has been found.
-
-            // Remember the index.
-            copy_integer(p0, (void*) &j);
-
-            // The loop may be left now.
-            break;
-        }
-
+        // Increment loop variable.
         j++;
     }
 }

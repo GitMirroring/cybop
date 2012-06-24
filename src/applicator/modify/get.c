@@ -54,7 +54,7 @@
  * @param p3 the knowledge memory count
  * @param p4 the knowledge memory size
  */
-void memorise_getting(void* p0, int* p1, void* p2, void* p3, void* p4) {
+void memorise_getting(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get standard meta information.");
 

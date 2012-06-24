@@ -32,8 +32,7 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/remover/array_remover.c"
+#include "../../../executor/modifier/counter/array_counter.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -41,14 +40,16 @@
  *
  * @param p0 the destination count
  * @param p1 the source item
- * @param p2 the filter string
- * @param p3 the selection
+ * @param p2 the filter data
+ * @param p3 the filter count
+ * @param p4 the selection data
+ * @param p5 the selection count
  */
-void count_item(void* p0, void* p1, void* p2, void* p3) {
+void count_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Count item.");
 
-    // The source data, count, size.
+    // The source data, count.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -66,7 +67,7 @@ void count_item(void* p0, void* p1, void* p2, void* p3) {
 
         // Count those elements in source item data array
         // matching the filter string.
-        count_array(p0, sd, sc, p2, p3);
+        count_array(p0, sd, sc, p2, p3, p4, p5);
     }
 }
 

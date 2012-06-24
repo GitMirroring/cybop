@@ -30,10 +30,10 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/memory/copy_memory_operation_cybol_name.c"
+#include "../../constant/name/cybol/operation/modification/remove_modification_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/modifier/emptier/part_emptier.c"
 #include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/modifier/remover/part_remover.c"
 #include "../../logger/logger.c"
 
 /**
@@ -50,7 +50,7 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
-void apply_remove(void* p0, int* p1, void* p2) {
+void apply_remove(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply remove.");
 

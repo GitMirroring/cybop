@@ -110,15 +110,26 @@ static wchar_t* GET_MODIFY_LOGIC_CYBOL_FORMAT = GET_MODIFY_LOGIC_CYBOL_FORMAT_AR
 static int* GET_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The modify/indicate logic cybol format.
+ * The modify/indicate-empty logic cybol format.
  *
  * Indicates if data are empty, i.e. the count is zero.
  *
  * This is a CYBOL extension.
  */
-static wchar_t INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'o', L'd', L'i', L'f', L'y', L'/', L'i', L'n', L'd', L'i', L'c', L'a', L't', L'e'};
-static wchar_t* INDICATE_MODIFY_LOGIC_CYBOL_FORMAT = INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t EMPTY_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'o', L'd', L'i', L'f', L'y', L'/', L'i', L'n', L'd', L'i', L'c', L'a', L't', L'e', L'-', L'e', L'm', L'p', L't', L'y'};
+static wchar_t* EMPTY_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT = EMPTY_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* EMPTY_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The modify/indicate-exists logic cybol format.
+ *
+ * Indicates if data exist, i.e. the count is greater than zero.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t EXISTS_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'o', L'd', L'i', L'f', L'y', L'/', L'i', L'n', L'd', L'i', L'c', L'a', L't', L'e', L'-', L'e', L'x', L'i', L's', L't', L's'};
+static wchar_t* EXISTS_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT = EXISTS_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* EXISTS_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The modify/insert logic cybol format.

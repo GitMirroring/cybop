@@ -46,7 +46,7 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
-void apply_empty(void* p0, int* p1, void* p2) {
+void apply_empty(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply empty.");
 

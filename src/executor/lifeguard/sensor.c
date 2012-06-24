@@ -74,7 +74,7 @@ void sense(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
-fwprintf(stdout, L"TEST sense channel p2: %i\n", *((int*) p2));
+//?? fwprintf(stdout, L"TEST sense channel p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -105,7 +105,7 @@ fwprintf(stdout, L"TEST sense cyboi r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST sense terminal r: %i\n", r);
+//?? fwprintf(stdout, L"TEST sense terminal r: %i\n", r);
 
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

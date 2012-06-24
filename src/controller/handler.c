@@ -90,8 +90,13 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST handle fd: %i\n", fd);
-//?? fwprintf(stdout, L"TEST handle *fd: %i\n", *((int*) fd));
+/*??
+if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST handle *fd: %i\n", *((int*) fd));
+} else {
+fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
+}
+*/
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -106,7 +111,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST handle part: %i\n", part);
+//?? fwprintf(stdout, L"TEST handle part: %i\n", r);
 
             // Handle compound part signal.
             //

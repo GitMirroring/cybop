@@ -75,10 +75,12 @@ void apply_count(void* p0, void* p1, void* p2) {
 
     // The count part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The selection part model item data.
+    // The selection part model item data, count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The filter part model item data.
+    void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The filter part model item data, count.
     void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get count part.
     get_part_knowledge((void*) &c, p0, (void*) COUNT_COUNT_OPERATION_CYBOL_NAME, (void*) COUNT_COUNT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
@@ -98,13 +100,15 @@ void apply_count(void* p0, void* p1, void* p2) {
 
     // Get count part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get selection part model item data.
+    // Get selection part model item data, count.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get filter part model item data.
+    copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get filter part model item data, count.
     copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &fmc, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Count certain elements of the given part.
-    count_part(cmd, p, fmd, smd);
+    count_part(cmd, p, fmd, fmc, smd, smc);
 }
 
 /* COUNT_SOURCE */

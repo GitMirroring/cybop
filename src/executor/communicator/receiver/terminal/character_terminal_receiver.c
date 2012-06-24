@@ -142,7 +142,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                         // filtered out here once more.
                         if (*c != WEOF) {
 
-fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
+//?? fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
 
                             if (*aec == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -212,13 +212,15 @@ fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
                                 // Copy source character to destination character array.
                                 append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-                                // Set loop break flag.
-                                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                // CAUTION! Do NOT set loop break flag here,
+                                // if more than just one character are
+                                // to be received in a sequence.
+                                // In this case, only a WEOF will break the loop.
                             }
 
                         } else {
 
-fwprintf(stdout, L"TEST receive terminal character WEOF: %i\n", WEOF);
+//?? fwprintf(stdout, L"TEST receive terminal character WEOF: %i\n", WEOF);
 
                             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from terminal. The character reading failed.");
 

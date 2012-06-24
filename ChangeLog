@@ -18,7 +18,9 @@
 
 2012-06-24  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Continue "count" and "indicate" operations
+        * Complete "count" and "indicate" operations
+        * Enable and update "insert" and "remove" operations
+        * Search bug causing double input detection in "ui_control" cybol example application
 
 2012-06-23  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -32,16 +32,19 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/emptier/item_indicator.c"
+#include "../../../executor/modifier/indicator/item_indicator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Indicates whether or not the part is empty.
+ * Indicates the fill level of the part.
  *
- * @param p0 the part
- * @param p1 the type
+ * The kind of comparison depends upon the given operation type.
+ *
+ * @param p0 the result flag (1 upon successful comparison; left untouched otherwise)
+ * @param p1 the part
+ * @param p2 the operation type
  */
-void indicate_part(void* p0, void* p1) {
+void indicate_part(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Indicate part.");
 
@@ -49,10 +52,10 @@ void indicate_part(void* p0, void* p1) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part model.
-    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Indicate part model.
-    indicate_item(m, p1);
+    indicate_item(p0, m, p2);
 }
 
 /* PART_INDICATOR_SOURCE */

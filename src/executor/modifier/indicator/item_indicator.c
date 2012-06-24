@@ -32,23 +32,58 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/remover/array_remover.c"
 #include "../../../logger/logger.c"
 
 /**
- * Indicates whether or not the item is empty.
+ * Indicates the fill level of the item.
  *
- * @param p0 the destination count
- * @param p1 the source item
- * @param p2 the type
+ * @param p0 the result flag (1 upon successful comparison; left untouched otherwise)
+ * @param p1 the item
+ * @param p2 the operation type
  */
 void indicate_item(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Indicate item.");
 
+    // The item count.
+    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     // Get item count.
-    copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ic, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) EMPTY_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Check for emptiness.
+            //
+            // CAUTION! Do NOT merge this function with the one above.
+            // The function above passes a pointer REFERENCE and
+            // CANNOT pass p0 as destination integer pointer straightforward.
+            compare_integer_smaller_or_equal(p0, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) EXISTS_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Check for emptiness.
+            //
+            // CAUTION! Do NOT merge this function with the one above.
+            // The function above passes a pointer REFERENCE and
+            // CANNOT pass p0 as destination integer pointer straightforward.
+            compare_integer_greater(p0, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
 }
 
 /* ITEM_INDICATOR_SOURCE */
