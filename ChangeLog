@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue "count" and "indicate" operations
+
 2012-06-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Search error that terminal input is sensed without reason -- not solved yet

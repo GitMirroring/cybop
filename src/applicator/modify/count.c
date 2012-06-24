@@ -42,10 +42,9 @@
  * Expected parametres:
  * - count (required): the knowledge model in which to store the result
  * - part (required): the part whose elements are to be counted
- * - selection (optional; if null, then "none" is assumed by default):
+ * - selection (optional; if null, the element count is returned without any comparison):
  *   the area of the elements' names to be compared;
- *   may be one of: none, all, prefix, suffix, subsequence;
- *   if "none" is given, then the element count is returned without any comparison
+ *   may be one of: full, prefix, suffix, subsequence
  * - filter (optional; corresponds with "selection" property):
  *   string to compare the elements' names with;
  *   only those parts will be counted whose name matches the filter string
@@ -67,6 +66,20 @@ void apply_count(void* p0, void* p1, void* p2) {
     // The filter part.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // The count part model item.
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The selection part model item.
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The filter part model item.
+    void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The count part model item data.
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The selection part model item data.
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The filter part model item data.
+    void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // Get count part.
     get_part_knowledge((void*) &c, p0, (void*) COUNT_COUNT_OPERATION_CYBOL_NAME, (void*) COUNT_COUNT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get part part.
@@ -76,7 +89,22 @@ void apply_count(void* p0, void* p1, void* p2) {
     // Get filter part.
     get_part_knowledge((void*) &f, p0, (void*) FILTER_COUNT_OPERATION_CYBOL_NAME, (void*) FILTER_COUNT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
-    count_part();
+    // Get count part model item.
+    copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    // Get selection part model item.
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    // Get filter part model item.
+    copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+
+    // Get count part model item data.
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get selection part model item data.
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get filter part model item data.
+    copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    // Count certain elements of the given part.
+    count_part(cmd, p, fmd, smd);
 }
 
 /* COUNT_SOURCE */

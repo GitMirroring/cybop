@@ -1,0 +1,116 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.11.0 2012-01-01
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef ARRAY_COUNTER_SOURCE
+#define ARRAY_COUNTER_SOURCE
+
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/comparator/basic/integer/greater_integer_comparator.c"
+#include "../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
+#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/modifier/copier/value_copier.c"
+#include "../../../logger/logger.c"
+
+/**
+ * Counts certain elements of the given data array.
+ *
+ * @param p0 the destination count
+ * @param p1 the source data
+ * @param p2 the source count
+ * @param p3 the filter string
+ * @param p4 the selection
+ */
+void count_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
+
+    if selection == none then copy count p2 to count p0 else
+    loop elements
+    get name
+    compare name with filter
+    increment count p0
+--
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array.");
+
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The maximum loop count has been reached.
+            // All elements have been compared.
+            // A part with the searched name could not be found.
+            // Leave index untouched.
+
+            break;
+        }
+
+        // Get part j from investigated pointer array p1.
+        copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
+        // Compare part p name item with given name p2.
+        compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NAME_PART_STATE_CYBOI_NAME);
+
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // The part with the searched name has been found.
+
+            // Remember the index.
+            copy_integer(p0, (void*) &j);
+
+            // The loop may be left now.
+            break;
+        }
+
+        j++;
+    }
+}
+
+/* ARRAY_COUNTER_SOURCE */
+#endif
