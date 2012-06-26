@@ -9,6 +9,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Add logic (rest finished) to example cybol specification in cybol format in directory "doc/books/cybol/";
+            see "residenz" application in "resmedicinae" project
+
         * Reactivate "sense" in about dialogue of "ui_control" cybol app
         * Complete "count" and "indicate" operations
         * Rename comparison filter selection "all" value into "full"

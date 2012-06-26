@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add example cybol specification in cybol format in directory "doc/books/cybol/"
+
 2012-06-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete "count" and "indicate" operations

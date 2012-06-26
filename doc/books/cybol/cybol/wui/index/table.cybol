@@ -1,0 +1,5 @@
+<model>
+    <part name="header" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="residenz/wui/index/table_header.cybol">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tr"/>
+    </part>
+</model>

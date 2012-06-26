@@ -1,0 +1,19 @@
+<model>
+    <!-- The loop models. -->
+    <part name="loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+    <part name="loop_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+    <part name="loop_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+    <!-- The record name. -->
+    <part name="record_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="record_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <!-- The content entry. -->
+    <part name="content_entry_1" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="content_entry_2" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="content_entry_3" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <!-- The wui entry row. -->
+    <part name="wui_entry_row" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <!-- The wui entry. -->
+    <part name="wui_entry_1" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="wui_entry_2" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="wui_entry_3" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+</model>
