@@ -78,7 +78,9 @@ void serialise_html_attribute(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Only add attribute, if the properties part name is NOT "tag"!
+        //
+        // CAUTION! Only add attribute, if the properties part name is NOT "tag"!
+        //
 
         // Append space character.
         append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

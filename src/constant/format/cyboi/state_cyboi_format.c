@@ -42,50 +42,6 @@
 //
 
 //
-// application
-//
-
-/** The pdf application state cyboi format. */
-static int* PDF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The zip application state cyboi format. */
-static int* ZIP_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// application vnd
-//
-
-/** The vnd.ms-excel application state cyboi format. */
-static int* VND_MS_EXCEL_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// application x
-//
-
-/** The x-latex application state cyboi format. */
-static int* X_LATEX_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The x-tar application state cyboi format. */
-static int* X_TAR_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// audio
-//
-
-/** The mpeg audio state cyboi format. */
-static int* MPEG_AUDIO_STATE_CYBOI_FORMAT = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The vorbis audio state cyboi format. */
-static int* VORBIS_AUDIO_STATE_CYBOI_FORMAT = NUMBER_101_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// bluetooth
-//
-
-/** The synchronisation-profile bluetooth state cyboi format. */
-static int* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOI_FORMAT = NUMBER_150_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // colour
 //
 
@@ -157,41 +113,11 @@ static int* EXAMPLE_STATE_CYBOI_FORMAT = NUMBER_230_INTEGER_STATE_CYBOI_MODEL_AR
 static int* PACKAGE_FONTS_STATE_CYBOI_FORMAT = NUMBER_250_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// image
-//
-
-/** The gif image state cyboi format. */
-static int* GIF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_270_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The jpeg image state cyboi format. */
-static int* JPEG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_271_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The png image state cyboi format. */
-static int* PNG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_272_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The tiff image state cyboi format. */
-static int* TIFF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_273_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// inode
-//
-
-/** The socket inode state cyboi format. */
-static int* SOCKET_INODE_STATE_CYBOI_FORMAT = NUMBER_280_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // logicvalue
 //
 
 /** The boolean logicvalue state cyboi format. */
 static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// media
-//
-
-/** The vcd media state cyboi format. */
-static int* VCD_MEDIA_STATE_CYBOI_FORMAT = NUMBER_310_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // meta
@@ -211,20 +137,6 @@ static int* FORMAT_META_STATE_CYBOI_FORMAT = NUMBER_333_INTEGER_STATE_CYBOI_MODE
 
 /** The type meta state cyboi format. */
 static int* TYPE_META_STATE_CYBOI_FORMAT = NUMBER_334_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// model
-//
-
-/** The vrml model state cyboi format. */
-static int* VRML_MODEL_STATE_CYBOI_FORMAT = NUMBER_340_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// multipart
-//
-
-/** The mixed multipart state cyboi format. */
-static int* MIXED_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_345_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // number
@@ -256,13 +168,6 @@ static int* ENCAPSULATED_PATH_STATE_CYBOI_FORMAT = NUMBER_400_INTEGER_STATE_CYBO
 static int* KNOWLEDGE_PATH_STATE_CYBOI_FORMAT = NUMBER_401_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// print
-//
-
-/** The jobs print state cyboi format. */
-static int* JOBS_PRINT_STATE_CYBOI_FORMAT = NUMBER_410_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // text
 //
 
@@ -274,32 +179,6 @@ static int* PLAIN_TEXT_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL
 
 /** The html text state cyboi format. */
 static int* HTML_TEXT_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// uri
-//
-
-/** The mms uri state cyboi format. */
-static int* MMS_URI_STATE_CYBOI_FORMAT = NUMBER_440_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// video
-//
-
-/** The avi video state cyboi format. */
-static int* AVI_VIDEO_STATE_CYBOI_FORMAT = NUMBER_450_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The mp4 video state cyboi format. */
-static int* MP4_VIDEO_STATE_CYBOI_FORMAT = NUMBER_451_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The mpeg video state cyboi format. */
-static int* MPEG_VIDEO_STATE_CYBOI_FORMAT = NUMBER_452_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The quicktime video state cyboi format. */
-static int* QUICKTIME_VIDEO_STATE_CYBOI_FORMAT = NUMBER_453_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The x-ms-wmv video state cyboi format. */
-static int* X_MS_WMV_VIDEO_STATE_CYBOI_FORMAT = NUMBER_454_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STATE_CYBOI_FORMAT_CONSTANT_SOURCE */
 #endif

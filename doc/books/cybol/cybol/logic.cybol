@@ -1,6 +1,9 @@
 <model>
+    <part name="translate_property" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_property.cybol"/>
+<!--
     <part name="translate_to_wui" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/content_to_wui.cybol"/>
     <part name="translation" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translation.cybol"/>
     <part name="user_interface" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/user_interface.cybol"/>
     <part name="send_wui_index" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/send_wui_index.cybol"/>
+-->
 </model>

@@ -1,0 +1,4 @@
+<model>
+    <part name="logic" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/spec/logic.cybol"/>
+    <part name="state" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/spec/state.cybol"/>
+</model>

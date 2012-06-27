@@ -18,7 +18,10 @@
 
 2012-06-27  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Generate html from cybol specification in directory "doc/books/cybol/"
+        * Reenable and update html serialiser in cyboi
+        * Add first definition files to cybol specification
+        * Implement example translation into wui for cybol specification
+        * Generate html from cybol specification
 
 2012-06-26  Christian Heller  <christian.heller@tuxtax.de>
 

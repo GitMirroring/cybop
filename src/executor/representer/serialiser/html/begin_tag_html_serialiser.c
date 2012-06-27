@@ -43,14 +43,11 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the indentation level
  */
-void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html begin tag.");
 
-    // Encode indentation.
-    serialise_html_indentation(p0, p5);
     // Append less than character.
     append_item_element(p0, (void*) LESS_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Append html tag.
@@ -59,8 +56,6 @@ void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, 
     serialise_html_attributes(p0, p3, p4);
     // Append greater than character.
     append_item_element(p0, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Append line feed character, for better source reading.
-    append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* BEGIN_TAG_HTML_SERIALISER_SOURCE */

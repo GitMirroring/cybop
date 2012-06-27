@@ -26,12 +26,12 @@
 #ifndef CONTENT_ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE
 #define CONTENT_ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/inserter/array_inserter.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/indentation_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/line_model_diagram_serialiser.c"
@@ -47,7 +47,7 @@ void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* 
 /**
  * Serialises the part element content into model diagram.
  *
- * @param p0 the destination model diagram item
+ * @param p0 the destination item
  * @param p1 the source name data
  * @param p2 the source name count
  * @param p3 the source format data

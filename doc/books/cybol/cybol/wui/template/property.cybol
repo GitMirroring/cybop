@@ -1,0 +1,8 @@
+<model>
+    <part name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h4"/>
+    </part>
+    <part name="required" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
+    </part>
+</model>

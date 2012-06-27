@@ -26,6 +26,7 @@
 #ifndef PART_MODEL_DIAGRAM_SERIALISER_SOURCE
 #define PART_MODEL_DIAGRAM_SERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -37,7 +38,7 @@
 /**
  * Serialises the part into model diagram.
  *
- * @param p0 the destination model diagram item
+ * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the properties flag

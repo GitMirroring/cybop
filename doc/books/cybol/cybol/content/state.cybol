@@ -1,5 +1,0 @@
-<model>
-    <part name="tui" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="wui" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="gui" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-</model>
