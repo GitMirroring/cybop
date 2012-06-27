@@ -51,6 +51,8 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The tree level.
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST serialise html: %i\n", l);
+
     // Encode html root node.
     serialise_html_node(p0, p1, p2, p3, p4, (void*) &l, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
