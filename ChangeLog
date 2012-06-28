@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-06-28  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Factor out todo lists of developers to new project directory "todo/"
+
 2012-06-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Reenable and update html serialiser in cyboi
