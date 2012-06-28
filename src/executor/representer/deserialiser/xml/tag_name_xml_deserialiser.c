@@ -31,6 +31,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/searcher/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
 #include "../../../../logger/logger.c"
 

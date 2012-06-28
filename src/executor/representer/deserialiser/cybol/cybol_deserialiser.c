@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/boolean_cybol_deserialiser.c"
