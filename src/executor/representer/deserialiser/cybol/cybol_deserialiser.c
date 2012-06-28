@@ -43,6 +43,7 @@
 #include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/terminal_colour_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
 
 //?? TEMPORARY FOR TESTING! DELETE LATER!
 #include "../../../../tester/data_as_model_diagram_tester.c"
