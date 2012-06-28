@@ -1,0 +1,25 @@
+<model>
+<!--
+    THIS following list describes the cybol logic "translate_specification":
+    get spec model number
+    loop over spec model number and call as loop body the cybol logic "translate_branch"
+    get part at index (and assign to tree model node handed over as property)
+    create_wui_chapter
+    receive_wui_chapter_from_template
+    overwrite destination wui chapter name etc. with source part name etc. (for fixed elements like name, description etc.)
+    call "translate_chapter" cybol logic to handle child parts
+--
+    repeat the above for whole hierarchy:
+    translate_specification
+    translate_branch
+    translate_category
+    translate_operation
+    translate_properties
+--
+    <part name="copy_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.test"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification.logic.calculate.add.properties.result#name"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+-->
+</model>

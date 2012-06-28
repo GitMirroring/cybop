@@ -19,6 +19,7 @@
 2012-06-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Factor out todo lists of developers to new project directory "todo/"
+        * Adapt cybol specification slightly
 
 2012-06-27  Christian Heller  <christian.heller@tuxtax.de>
 
