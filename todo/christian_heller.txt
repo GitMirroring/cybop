@@ -9,6 +9,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Check why "Segmentation fault" happens when non-existing path
+            is given as destination or source property for "modify/overwrite"
+
         * Add logic (rest finished) to example cybol specification in cybol format in directory "doc/books/cybol/";
             see "residenz" application in "resmedicinae" project
 
