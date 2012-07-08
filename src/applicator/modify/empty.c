@@ -33,7 +33,7 @@
 #include "../../constant/name/cybol/operation/modification/empty_modification_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/emptier/part_emptier.c"
-#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -58,7 +58,7 @@ void apply_empty(void* p0, void* p1, void* p2) {
     void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
-    get_part_knowledge((void*) &p, p0, (void*) PART_EMPTY_OPERATION_CYBOL_NAME, (void*) PART_EMPTY_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &p, p0, (void*) PART_EMPTY_MODIFICATION_OPERATION_CYBOL_NAME, (void*) PART_EMPTY_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get part type.
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Get part type data.

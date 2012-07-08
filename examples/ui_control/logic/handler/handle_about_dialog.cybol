@@ -26,7 +26,7 @@
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="logicvalue/boolean"/>
     </part>
     <!-- The command MUST NOT be empty, since otherwise, a signal with unpredictable content is sent. -->
-    <part name="check_command" channel="inline" encoding="utf-8" language="text/cybol" format="modify/indicate-exists" model="">
+    <part name="check_command" channel="inline" encoding="utf-8" language="text/cybol" format="access/indicate-exists" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.command_exists"/>
         <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command"/>
     </part>

@@ -1,7 +1,9 @@
 <model>
-    <part name="get_model_count" channel="inline" encoding="utf-8" language="text/cybol" format="modify/get-count" model="">
+    <part name="get_model_count" channel="inline" encoding="utf-8" language="text/cybol" format="access/count" model="">
         <property name="count" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.loop.count"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification"/>
+??        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
+??        <property name="filter" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     </part>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <part name="compare_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">

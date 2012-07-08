@@ -23,104 +23,55 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BUILDING_MEMORISER_SOURCE
-#define BUILDING_MEMORISER_SOURCE
+#ifndef BUILD_SOURCE
+#define BUILD_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/modification/count_modification_operation_cybol_name.c"
+#include "../../constant/name/cybol/operation/modification/build_modification_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
-#include "../../executor/modifier/counter/part_counter.c"
+#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+//?? #include "../../executor/modifier/builder/part_builder.c"
 #include "../../logger/logger.c"
 
 /**
- * Builds a list name.
+ * Builds a part name to be used in a list of many parts.
+ * Uses a base name and adds an index to retrieve a unique resulting composed name.
  *
  * Expected parametres:
- * - ?? (required): ?? (description)
+ * - result (required): the knowledge part where to store the resulting composed name
+ * - base (required): the base name
+ * - index (required): the index to add to the base name
  *
- * @param p0 the parametres
+ * @param p0 the parametres data
  * @param p1 the parametres count
- * @param p2 the knowledge memory
- * @param p3 the knowledge memory count
- * @param p4 the knowledge memory size
+ * @param p2 the knowledge memory part
  */
-void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_build(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Build list name.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply build.");
 
-    // The basisname name, type, model, properties.
-    void** bnn = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bnnc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bnns = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bna = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bnac = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bnas = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bnm = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bnmc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bnms = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bnd = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bndc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** bnds = NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index name, type, model, properties.
-    void** idxn = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxnc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxns = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxa = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxac = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxas = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxm = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxmc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxms = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxd = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxdc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** idxds = NULL_POINTER_STATE_CYBOI_MODEL;
-    // The result name, type, model, properties.
-    void** resn = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resnc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resns = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resa = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resac = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resas = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resm = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resmc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resms = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resd = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resdc = NULL_POINTER_STATE_CYBOI_MODEL;
-    void** resds = NULL_POINTER_STATE_CYBOI_MODEL;
+    // The result part.
+    void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The base part.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index part.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // get the basisname
-    get_universal_compound_element_by_name(
-        (void*) &bnn, (void*) &bnnc, (void*) &bnns,
-        (void*) &bna, (void*) &bnac, (void*) &bnas,
-        (void*) &bnm, (void*) &bnmc, (void*) &bnms,
-        (void*) &bnd, (void*) &bndc, (void*) &bnds,
-        p0, p1,
-        (void*) BASE_BUILD_FLOW_OPERATION_CYBOL_NAME, (void*) BASE_BUILD_FLOW_OPERATION_CYBOL_NAME_COUNT,
-        p2, p3);
+    // The result part model item.
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The base part model item.
+    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index part model item.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // get the index
-    get_universal_compound_element_by_name(
-        (void*) &idxn, (void*) &idxnc, (void*) &idxns,
-        (void*) &idxa, (void*) &idxac, (void*) &idxas,
-        (void*) &idxm, (void*) &idxmc, (void*) &idxms,
-        (void*) &idxd, (void*) &idxdc, (void*) &idxds,
-        p0, p1,
-        (void*) INDEX_BUILD_FLOW_OPERATION_CYBOL_NAME, (void*) INDEX_BUILD_FLOW_OPERATION_CYBOL_NAME_COUNT,
-        p2, p3);
+    //?? ... TODO: continue here!
 
-    // get the result
-    get_universal_compound_element_by_name(
-        (void*) &resn, (void*) &resnc, (void*) &resns,
-        (void*) &resa, (void*) &resac, (void*) &resas,
-        (void*) &resm, (void*) &resmc, (void*) &resms,
-        (void*) &resd, (void*) &resdc, (void*) &resds,
-        p0, p1,
-        (void*) COMPOSITION_BUILD_FLOW_OPERATION_CYBOL_NAME, (void*) COMPOSITION_BUILD_FLOW_OPERATION_CYBOL_NAME_COUNT,
-        p2, p3);
+/*??
+
+    VERY OLD CODE TO BE DELETED!
 
     //check the type for the operation element
     int comp_res1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -154,7 +105,8 @@ void memorise_building(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Destroy int_string array.
     deallocate_array((void*) &int_string, (void*) &int_string_size, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+*/
 }
 
-/* BUILDING_MEMORISER_SOURCE */
+/* BUILD_SOURCE */
 #endif

@@ -33,7 +33,7 @@
 #include "../../constant/name/cybol/operation/life/interrupt_life_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/lifeguard/interrupter.c"
-#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
 /**

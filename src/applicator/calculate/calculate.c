@@ -33,8 +33,8 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/all/part_all_calculator.c"
 #include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
-#include "../../executor/modifier/name_getter/array_name_getter.c"
+#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../executor/modifier/overwriter/part_overwriter.c"
 #include "../../logger/logger.c"
 

@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/operation/modification/append_modification_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -85,15 +85,15 @@ void apply_append(void* p0, void* p1, void* p2) {
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part.
-    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_APPEND_OPERATION_CYBOL_NAME, (void*) DESTINATION_APPEND_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_APPEND_MODIFICATION_OPERATION_CYBOL_NAME, (void*) DESTINATION_APPEND_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get source part.
-    get_part_knowledge((void*) &s, p0, (void*) SOURCE_APPEND_OPERATION_CYBOL_NAME, (void*) SOURCE_APPEND_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &s, p0, (void*) SOURCE_APPEND_MODIFICATION_OPERATION_CYBOL_NAME, (void*) SOURCE_APPEND_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get type part.
-    get_part_knowledge((void*) &a, p0, (void*) TYPE_APPEND_OPERATION_CYBOL_NAME, (void*) TYPE_APPEND_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &a, p0, (void*) TYPE_APPEND_MODIFICATION_OPERATION_CYBOL_NAME, (void*) TYPE_APPEND_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get count part.
-    get_part_knowledge((void*) &c, p0, (void*) COUNT_APPEND_OPERATION_CYBOL_NAME, (void*) COUNT_APPEND_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &c, p0, (void*) COUNT_APPEND_MODIFICATION_OPERATION_CYBOL_NAME, (void*) COUNT_APPEND_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get index part.
-    get_part_knowledge((void*) &i, p0, (void*) INDEX_APPEND_OPERATION_CYBOL_NAME, (void*) INDEX_APPEND_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &i, p0, (void*) INDEX_APPEND_MODIFICATION_OPERATION_CYBOL_NAME, (void*) INDEX_APPEND_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
     // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

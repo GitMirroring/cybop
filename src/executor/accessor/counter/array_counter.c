@@ -33,6 +33,7 @@
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
+#include "../../../executor/comparator/comparator.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../executor/modifier/copier/value_copier.c"
 #include "../../../logger/logger.c"

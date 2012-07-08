@@ -33,7 +33,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../controller/checker/empty_checker.c"
 #include "../../controller/checker/found_checker.c"
-#include "../../executor/modifier/getter/item_getter.c"
+#include "../../executor/accessor/getter/item_getter.c"
 #include "../../logger/logger.c"
 
 /**

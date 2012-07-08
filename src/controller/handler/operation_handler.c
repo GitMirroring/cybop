@@ -26,6 +26,9 @@
 #ifndef OPERATION_HANDLER_SOURCE
 #define OPERATION_HANDLER_SOURCE
 
+#include "../../applicator/access/count.c"
+#include "../../applicator/access/get.c"
+#include "../../applicator/access/indicate.c"
 #include "../../applicator/compare/compare.c"
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/communicate/receive.c"
@@ -43,9 +46,8 @@
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
 #include "../../applicator/modify/append.c"
-#include "../../applicator/modify/count.c"
+#include "../../applicator/modify/build.c"
 #include "../../applicator/modify/empty.c"
-#include "../../applicator/modify/indicate.c"
 #include "../../applicator/modify/insert.c"
 #include "../../applicator/modify/overwrite.c"
 #include "../../applicator/modify/remove.c"
@@ -78,6 +80,50 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // access
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) COUNT_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_count(p0, p1, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) GET_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_get(p0, p1, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) EMPTY_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_indicate(p0, p1, p3, (void*) EMPTY_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) EXISTS_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_indicate(p0, p1, p3, (void*) EXISTS_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
+        }
+    }
 
     //
     // calculate
@@ -517,7 +563,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
-/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p8, (void*) BUILD_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -525,17 +570,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_build(p0, p1, p3);
-        }
-    }
-*/
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p8, (void*) COUNT_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_count(p0, p1, p3);
         }
     }
 
@@ -546,38 +580,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_empty(p0, p1, p3);
-        }
-    }
-
-/*??
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p8, (void*) GET_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_get(p0, p1, p3);
-        }
-    }
-*/
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p8, (void*) EMPTY_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_indicate(p0, p1, p3, (void*) EMPTY_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p8, (void*) EXISTS_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_indicate(p0, p1, p3, (void*) EXISTS_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 

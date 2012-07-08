@@ -30,10 +30,10 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/modification/indicate_modification_operation_cybol_name.c"
+#include "../../constant/name/cybol/operation/access/indicate_access_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/modifier/indicator/part_indicator.c"
-#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/indicator/part_indicator.c"
+#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -69,9 +69,9 @@ void apply_indicate(void* p0, void* p1, void* p2, void* p3) {
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
-    get_part_knowledge((void*) &r, p0, (void*) RESULT_INDICATE_OPERATION_CYBOL_NAME, (void*) RESULT_INDICATE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &r, p0, (void*) RESULT_INDICATE_ACCESS_OPERATION_CYBOL_NAME, (void*) RESULT_INDICATE_ACCESS_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get part part.
-    get_part_knowledge((void*) &p, p0, (void*) PART_INDICATE_OPERATION_CYBOL_NAME, (void*) PART_INDICATE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &p, p0, (void*) PART_INDICATE_ACCESS_OPERATION_CYBOL_NAME, (void*) PART_INDICATE_ACCESS_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
     // Get result part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

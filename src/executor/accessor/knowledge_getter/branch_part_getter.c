@@ -30,7 +30,7 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/modifier/knowledge_getter/hierarchical_part_getter.c"
+#include "../../../executor/accessor/knowledge_getter/hierarchical_part_getter.c"
 #include "../../../executor/searcher/selector/knowledge/branch_knowledge_selector.c"
 #include "../../../logger/logger.c"
 

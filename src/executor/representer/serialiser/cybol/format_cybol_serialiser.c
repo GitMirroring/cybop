@@ -26,13 +26,49 @@
 #ifndef FORMAT_CYBOL_SERIALISER_SOURCE
 #define FORMAT_CYBOL_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cybol/logic/access_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/calculate_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/communicate_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/compare_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/convert_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/file_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/flow_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/live_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/logify_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/maintain_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/manipulate_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/memorise_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/modify_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/run_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/state/application_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/application_vnd_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/application_x_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/audio_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/bluetooth_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/colour_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/datetime_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/element_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/example_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/fonts_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/image_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/inode_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/logicvalue_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/media_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/meta_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/model_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/multipart_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/number_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/path_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/print_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/text_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/uri_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/video_state_cybol_format.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
@@ -283,6 +319,50 @@ void serialise_cybol_format(void* p0, void* p1) {
     // Logic.
     //
     // ======================================================================
+
+    //
+    // access
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) COUNT_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) COUNT_ACCESS_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) GET_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) GET_ACCESS_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) EMPTY_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) EXISTS_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) EXISTS_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EXISTS_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
 
     //
     // calculate
@@ -844,51 +924,11 @@ void serialise_cybol_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) COUNT_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) COUNT_MODIFY_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COUNT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p1, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_element(p0, (void*) EMPTY_MODIFY_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EMPTY_MODIFY_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) GET_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) GET_MODIFY_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GET_MODIFY_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) EMPTY_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) EMPTY_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EMPTY_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) EXISTS_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) EXISTS_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EXISTS_INDICATE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

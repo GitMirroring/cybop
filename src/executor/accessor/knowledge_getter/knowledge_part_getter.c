@@ -31,8 +31,8 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../executor/comparator/all/part_all_comparator.c"
-#include "../../../executor/modifier/knowledge_getter/branch_part_getter.c"
-#include "../../../executor/modifier/name_getter/array_name_getter.c"
+#include "../../../executor/accessor/knowledge_getter/branch_part_getter.c"
+#include "../../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../../logger/logger.c"
 
 /**

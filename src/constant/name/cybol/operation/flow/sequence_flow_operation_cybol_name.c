@@ -27,6 +27,7 @@
 #define SEQUENCE_FLOW_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The model sequence flow operation cybol name. */

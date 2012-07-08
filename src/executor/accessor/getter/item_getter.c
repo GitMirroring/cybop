@@ -29,14 +29,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/memoriser/size_determiner.c"
 #include "../../../logger/logger.c"
 
 /**

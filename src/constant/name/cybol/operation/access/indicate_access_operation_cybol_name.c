@@ -23,31 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LIST_FILE_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
-#define LIST_FILE_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef INDICATE_ACCESS_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
+#define INDICATE_ACCESS_OPERATION_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/**
- * The all list directory contents file operation cybol name.
- *
- * It indicates that hidden files should be listed
- * as well as the current . and upper .. directory.
- */
-static wchar_t ALL_LIST_FILE_OPERATION_CYBOL_NAME_ARRAY[] = {L'a', L'l', L'l'};
-static wchar_t* ALL_LIST_FILE_OPERATION_CYBOL_NAME = ALL_LIST_FILE_OPERATION_CYBOL_NAME_ARRAY;
-static int* ALL_LIST_FILE_OPERATION_CYBOL_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The result indicate access operation cybol name. */
+static wchar_t RESULT_INDICATE_ACCESS_OPERATION_CYBOL_NAME_ARRAY[] = {L'r', L'e', L's', L'u', L'l', L't'};
+static wchar_t* RESULT_INDICATE_ACCESS_OPERATION_CYBOL_NAME = RESULT_INDICATE_ACCESS_OPERATION_CYBOL_NAME_ARRAY;
+static int* RESULT_INDICATE_ACCESS_OPERATION_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The long list directory contents file operation cybol name.
- *
- * It indicates the usage of a long listing including file access rights etc.
- */
-static wchar_t LONG_LIST_FILE_OPERATION_CYBOL_NAME_ARRAY[] = {L'l', L'o', L'n', L'g'};
-static wchar_t* LONG_LIST_FILE_OPERATION_CYBOL_NAME = LONG_LIST_FILE_OPERATION_CYBOL_NAME_ARRAY;
-static int* LONG_LIST_FILE_OPERATION_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The part indicate access operation cybol name. */
+static wchar_t PART_INDICATE_ACCESS_OPERATION_CYBOL_NAME_ARRAY[] = {L'p', L'a', L'r', L't'};
+static wchar_t* PART_INDICATE_ACCESS_OPERATION_CYBOL_NAME = PART_INDICATE_ACCESS_OPERATION_CYBOL_NAME_ARRAY;
+static int* PART_INDICATE_ACCESS_OPERATION_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* LIST_FILE_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
+/* INDICATE_ACCESS_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

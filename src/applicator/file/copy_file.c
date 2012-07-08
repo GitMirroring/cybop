@@ -37,7 +37,7 @@
 #include "../../constant/name/cybol/operation/file/copy_file_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/modifier/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 #include "../../variable/reallocation_factor.c"
 

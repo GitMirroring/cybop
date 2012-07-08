@@ -57,7 +57,7 @@ void indicate_item(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) EMPTY_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p2, (void*) EMPTY_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -72,7 +72,7 @@ void indicate_item(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) EXISTS_INDICATE_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p2, (void*) EXISTS_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

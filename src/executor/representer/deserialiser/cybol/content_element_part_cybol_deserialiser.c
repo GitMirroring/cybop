@@ -33,7 +33,7 @@
 #include "../../../../constant/name/cybol/cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
-#include "../../../../executor/modifier/name_getter/array_name_getter.c"
+#include "../../../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/encoding_cybol_deserialiser.c"

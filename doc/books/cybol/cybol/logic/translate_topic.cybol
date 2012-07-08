@@ -1,6 +1,6 @@
 <model>
     <!-- Get part at index and assign to tree model node handed over as property. -->
-    <part name="get_model_part_at_index" channel="inline" encoding="utf-8" language="text/cybol" format="modify/get" model="">
+    <part name="get_model_part_at_index" channel="inline" encoding="utf-8" language="text/cybol" format="access/get" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.model"/>
         <property name="index" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.loop.index"/>
     </part>

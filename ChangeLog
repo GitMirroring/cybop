@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move operations "count", "get" and "indicate" from category "modify" to "access"
+
 2012-06-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Factor out todo lists of developers to new project directory "todo/"
