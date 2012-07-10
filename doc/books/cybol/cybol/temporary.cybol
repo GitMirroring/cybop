@@ -1,3 +1,13 @@
 <model>
-    <part name="translate_content_to_wui" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/temporary/translate_content_to_wui.cybol"/>
+    <!-- The loop models. -->
+    <part name="specification_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+    <part name="specification_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+    <part name="specification_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+    <part name="topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+    <part name="topic_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+    <part name="topic_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+    <!-- temporary path models -->
+    <part name="topics" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model=""/>
+    <!-- selected part names -->
+    <part name="selected_specification" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
 </model>

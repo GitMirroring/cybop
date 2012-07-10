@@ -1,24 +1,29 @@
 <model>
-    <!-- Get part at index and assign to tree model node handed over as property. -->
-    <part name="get_model_part_at_index" channel="inline" encoding="utf-8" language="text/cybol" format="access/get" model="">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.model"/>
-        <property name="index" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.loop.index"/>
-    </part>
-    <part name="create_wui_knowledge_chapter" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="summand_1"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
-        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".addition_application"/>
-    </part>
-    <part name="initialise_wui_knowledge_chapter" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+    <part name="print_static_topic" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/topic_chapter.cybol"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content."/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="topic"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+        <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+    </part>
+    
+    <!-- handle specification loop after finished specification --> 
+    <part name="increment_topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_index"/>
+        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="compare_topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_break"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_count"/>
+        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_index"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
     </part>
     <!-- Copy knowledge data (fixed elements like name, description etc.). -->
+<!--
     <part name="copy_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content.??.name"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.model#name"/>
@@ -32,4 +37,5 @@
     <part name="translate_categories" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.translate_categories(children??)"/>
     </part>
+-->
 </model>
