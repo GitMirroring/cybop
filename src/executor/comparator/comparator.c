@@ -61,7 +61,7 @@ void compare_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p7, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -125,7 +125,7 @@ void compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) FULL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

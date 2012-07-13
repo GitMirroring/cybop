@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Correct minor things for "access/count" operation
+        * Add "get_count" cybol example application
+
 2012-07-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move operations "count", "get" and "indicate" from category "modify" to "access"

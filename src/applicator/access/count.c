@@ -44,7 +44,7 @@
  * - part (required): the part whose elements are to be counted
  * - selection (optional; if null, the element count is returned without any comparison):
  *   the area of the elements' names to be compared;
- *   may be one of: full, prefix, suffix, subsequence
+ *   may be one of: all, prefix, suffix, subsequence
  * - filter (optional; corresponds with "selection" property):
  *   string to compare the elements' names with;
  *   only those parts will be counted whose name matches the filter string
@@ -108,6 +108,8 @@ void apply_count(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &fmc, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Count certain elements of the given part.
+    // If the given selection is null, then the
+    // element count is returned without any comparison.
     count_part(cmd, p, fmd, fmc, smd, smc);
 }
 

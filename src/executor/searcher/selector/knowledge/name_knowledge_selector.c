@@ -77,7 +77,7 @@ void select_knowledge_name(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! Do NOT move the position (last parametre) here,
+        // CAUTION! Do NOT move the position here (last parametre),
         // since the "." has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (model).
         detect_array((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -91,7 +91,7 @@ void select_knowledge_name(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! Do NOT move the position (last parametre) here,
+        // CAUTION! Do NOT move the position here (last parametre),
         // since the "#" has to be DETECTED AGAIN later for
         // determining the correct knowledge branch (properties).
         detect_array((void*) &r, p1, p2, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

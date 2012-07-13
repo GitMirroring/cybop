@@ -91,6 +91,7 @@ ___________________________
     /home/cybop/src/controller/cyboi --knowledge addition_dynamic_model/run.cybol
     /home/cybop/src/controller/cyboi --knowledge addition_dynamic_model_with_root/run.cybol
     /home/cybop/src/controller/cyboi --knowledge addition_static_model/run.cybol
+    /home/cybop/src/controller/cyboi --knowledge get_count/run.cybol
     /home/cybop/src/controller/cyboi --knowledge counter/run.cybol
     /home/cybop/src/controller/cyboi --knowledge counter_static_model/run.cybol
     /home/cybop/src/controller/cyboi --knowledge counter_storage/run.cybol
