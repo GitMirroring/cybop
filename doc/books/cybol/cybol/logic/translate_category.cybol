@@ -1,0 +1,26 @@
+<model>
+    <!-- indicate executing this file -->
+    <part name="print_static_category" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="category"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+        <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+    </part>
+
+    <!-- handle category loop after finished category --> 
+    <part name="increment_category_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_index"/>
+        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="compare_category_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_break"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_count"/>
+        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_index"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
+    </part>
+</model>

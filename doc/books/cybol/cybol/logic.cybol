@@ -4,4 +4,6 @@
     <part name="translate_specification" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_specification.cybol"/>
     <part name="build_specification" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_specification.cybol"/>
     <part name="translate_topic" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_topic.cybol"/>
+    <part name="build_topic" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic.cybol"/>
+    <part name="translate_category" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_category.cybol"/>
 </model>

@@ -1,25 +1,23 @@
 <model>
-<!-- copy specification template to wui.index.body.content and set information
-
+<!-- copy specification template to wui.index.body.content and set information -->
     <part name="create_wui_specification" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="specification"/>
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wui_specification"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content.api-content.specification"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content.api_content"/>
     </part>
-    <part name="initialise_wui_specification" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+
+    <part name="initialise_wui_specification_with_template" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/specification.cybol"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content.api-content.specification"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content.api_content.wui_specification"/>
     </part>
-
     <part name="copy_specification_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content.api-content.specification"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content.api_content.wui_specification.specification"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
--->
 </model>

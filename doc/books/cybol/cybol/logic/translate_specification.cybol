@@ -9,21 +9,7 @@
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
     </part>
 
-    <!-- create knowledge-tree-part for temporary specification -->
-    <part name="create_temp_specification" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".temporary.specification"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-    </part>
-    <!-- get specification by index -->
-    <!-- Hint: Does not work yet!!!!!!!!!!! 
-    <part name="get_specification_by_index" channel="inline" encoding="utf-8" language="text/cybol" format="access/get" model="">
-	<property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model="temp_specification"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification"/>
-        <property name="index" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.loop_index"/>
-    </part>
-    -->
-    <!-- Debug: copy selected specification to temp (replaces not working get part) -->
+    <!-- Debug: copy selected specification topics to temp -->
     <part name="copy_selected_specs_topics" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topics"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification.logic#topics"/>
@@ -45,7 +31,7 @@
     <!-- count the topics of the selected specification -->
     <part name="get_topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="access/count" model="">
         <property name="count" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_count"/>
-        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topics"/>
     </part>
 
     <!-- post execution of loop check (necessary if no topic entry found); break variable initialized with false -->
@@ -59,11 +45,6 @@
     <part name="loop_topic_translation" channel="inline" encoding="utf-8" language="text/cybol" format="flow/loop" model="">
         <property name="break" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_break"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.translate_topic"/>
-    </part>
-
-    <!-- Release temorary specification -->
-    <part name="release_specification" channel="inline" abstraction="operation" model="memorise/destroy">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temp_specification"/>
     </part>
 
     <!-- handle specification loop after finished specification --> 

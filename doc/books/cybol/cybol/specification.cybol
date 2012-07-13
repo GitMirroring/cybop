@@ -5,5 +5,6 @@
     </part>
     <part name="state" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="">
 	<property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="state"/>
-	<property name="topics" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/state.cybol"/    </part>
+	<property name="topics" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/state.cybol"/>  
+    </part>
 </model>

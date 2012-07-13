@@ -6,8 +6,13 @@
     <part name="topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
     <part name="topic_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
     <part name="topic_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+    <part name="category_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+    <part name="category_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+    <part name="category_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
     <!-- temporary path models -->
     <part name="topics" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model=""/>
+    <part name="categories" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model=""/>
     <!-- selected part names -->
     <part name="selected_specification" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="selected_topic" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
 </model>
