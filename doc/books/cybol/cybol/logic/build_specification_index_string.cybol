@@ -1,0 +1,20 @@
+<model>
+    <part name="copy_specification_by_index_to_temp" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model=".specification.[0]#topics"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topics"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="path/knowledge"/>
+    </part>
+
+    <!-- Debug: copy selected specification topics to temp -->
+    <part name="copy_selected_specs_topics" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topics"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification.logic#topics"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="path/knowledge"/>
+    </part>
+    <!-- copy selected specification name to temp ('logic' has to be replaced by 'temp_specification') -->
+    <part name="copy_selected_spec_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification.logic#name"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="path/knowledge"/>
+    </part>
+</model>

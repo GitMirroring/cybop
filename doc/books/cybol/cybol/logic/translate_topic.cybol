@@ -34,10 +34,10 @@
         <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.categories"/>
     </part>
 
-    <!-- post execution of loop check (necessary if no topic entry found); break variable initialized with false -->
-    <part name="exists_category_entries" channel="inline" encoding="utf-8" language="text/cybol" format="compare/unequal" model="">
+    <!-- pre execution of loop check (necessary if no topic entry found); break variable initialized with false -->
+    <part name="exists_category_entries" channel="inline" encoding="utf-8" language="text/cybol" format="compare/equal" model="">
         <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_count"/>
-        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model="0"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_break"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>

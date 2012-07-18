@@ -15,4 +15,11 @@
     <!-- selected part names -->
     <part name="selected_specification" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="selected_topic" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <!-- temp variables to dynamic knowledge path -->
+    <part name="specification_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="specification_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="specification_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="specification_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="specification_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="specification_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
 </model>

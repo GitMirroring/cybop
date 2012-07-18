@@ -16,11 +16,11 @@
         <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification"/>
     </part>
     
-    <!-- post execution of loop check (necessary if no specification entry found); break variable initialized with false -->
+    <!-- pre execution of loop check (necessary if no specification entry found); break variable initialized with false -->
     <!-- Question: executes loop even if specification_count = 0--> 
-    <part name="exists_specification_entries" channel="inline" encoding="utf-8" language="text/cybol" format="compare/unequal" model="">
+    <part name="exists_specification_entries" channel="inline" encoding="utf-8" language="text/cybol" format="compare/equal" model="">
         <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_count"/>
-        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model="0"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_break"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
