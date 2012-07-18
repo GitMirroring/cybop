@@ -9,9 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Complete "count" and "indicate" operations (handle selection and filter, also in the case when null)
-        * Rename comparison filter selection "all" value into "full"
-
+        * Is a function allowing access to a part's name necessary? (request by Enrico Gallus)
         * Add logic (rest finished) to example cybol specification in cybol format in directory "doc/books/cybol/";
             see "residenz" application in "resmedicinae" project
 

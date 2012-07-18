@@ -16,9 +16,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2012-07-13  Christian Heller  <christian.heller@tuxtax.de>
+2012-07-17  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Correct minor things for "access/count" operation
+        * Implement handling of index in knowledge path
+        * Move knowledge path evaluation from "accessor/knowledge_getter/" into "representer/deserialiser/knowledge/"
+
+2012-07-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Ensure proper handling of "access/count" operation if selection and filter are null
         * Add "get_count" cybol example application
 
 2012-07-08  Christian Heller  <christian.heller@tuxtax.de>
