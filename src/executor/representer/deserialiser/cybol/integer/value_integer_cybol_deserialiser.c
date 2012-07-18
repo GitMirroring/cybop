@@ -50,7 +50,7 @@
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the prepend flag (false - append value at destination end; true - prepend value at destination beginning)
- * @param p4 the old destination item count
+ * @param p4 the old destination item count (only needed if prepend flag is true, for insertion; may otherwise be null)
  */
 void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
