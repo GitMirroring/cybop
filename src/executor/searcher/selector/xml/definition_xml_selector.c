@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/xml/xml_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"

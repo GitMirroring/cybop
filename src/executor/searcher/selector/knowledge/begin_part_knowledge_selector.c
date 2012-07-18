@@ -26,11 +26,14 @@
 #ifndef BEGIN_PART_KNOWLEDGE_SELECTOR_SOURCE
 #define BEGIN_PART_KNOWLEDGE_SELECTOR_SOURCE
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"

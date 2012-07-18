@@ -31,8 +31,18 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/searcher/selector/xml/attribute_name_xml_selector.c"
+#include "../../../../executor/accessor/name_getter/part_name_getter.c"
+#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/searcher/selector/knowledge/end_part_knowledge_selector.c"
 #include "../../../../logger/logger.c"
+
+//
+// Forward declarations.
+//
+
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3);
 
 /**
  * Gets a knowledge part by name.
