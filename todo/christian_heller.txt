@@ -9,7 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Is a function allowing access to a part's name necessary? (request by Enrico Gallus)
+        * Add cybol operation using cyboi's de-/serialisation functions (request by Enrico Gallus)
+        * Add cybol operation allowing access to a part's name and possibly other attributes (request by Enrico Gallus)
         * Add logic (rest finished) to example cybol specification in cybol format in directory "doc/books/cybol/";
             see "residenz" application in "resmedicinae" project
 
