@@ -26,6 +26,7 @@
 #ifndef HANDLER_SOURCE
 #define HANDLER_SOURCE
 
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -35,7 +36,7 @@
 #include "../controller/handler/operation_handler.c"
 #include "../controller/handler/part_handler.c"
 #include "../executor/comparator/all/array_all_comparator.c"
-#include "../executor/accessor/knowledge_getter/branch_part_getter.c"
+#include "../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
 #include "../logger/logger.c"
 
 /**
@@ -131,7 +132,7 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 
             // Get encapsulated signal part.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &e, p2, (void*) &md, mc);
+            deserialise_knowledge((void*) &e, p2, (void*) &md, mc);
 
             // Get encapsulated signal part model item.
             copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -141,7 +142,7 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 
             // Get double-encapsulated signal part.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &part, p2, (void*) &emd, emc);
+            deserialise_knowledge((void*) &part, p2, (void*) &emd, emc);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6, p7);
@@ -158,7 +159,7 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 
             // Get signal part referenced by a knowledge path.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &part, p2, (void*) &md, mc);
+            deserialise_knowledge((void*) &part, p2, (void*) &md, mc);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6, p7);

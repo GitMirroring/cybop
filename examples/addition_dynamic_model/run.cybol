@@ -15,7 +15,10 @@
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
     </part>
     <part name="initialise_summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+<!--
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".summand_1"/>
+-->
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".[1]"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>

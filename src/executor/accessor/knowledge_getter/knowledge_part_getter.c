@@ -26,13 +26,12 @@
 #ifndef KNOWLEDGE_PART_GETTER_SOURCE
 #define KNOWLEDGE_PART_GETTER_SOURCE
 
+#include "../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../executor/comparator/all/part_all_comparator.c"
-#include "../../../executor/accessor/knowledge_getter/branch_part_getter.c"
 #include "../../../executor/accessor/name_getter/array_name_getter.c"
+#include "../../../executor/comparator/all/part_all_comparator.c"
 #include "../../../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
 #include "../../../logger/logger.c"
 
@@ -146,8 +145,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
             // Get encapsulated part.
             // CAUTION! Hand over name as reference!
-            get_part_branch((void*) &e, p5, (void*) &d, (void*) &c);
-//??            deserialise_knowledge((void*) &e, p5, (void*) &d, (void*) &c);
+            deserialise_knowledge((void*) &e, p5, (void*) &d, (void*) &c);
             // Get encapsulated part model item.
             copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             // Get encapsulated part model item data, count.
@@ -172,7 +170,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
             // Get knowledge part.
             // CAUTION! Hand over name as reference!
-            get_part_branch(p0, p5, (void*) &d, (void*) &c);
+            deserialise_knowledge(p0, p5, (void*) &d, (void*) &c);
         }
     }
 
@@ -212,7 +210,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
             // Get knowledge part.
             // CAUTION! Hand over name as reference!
-            get_part_branch(p0, p5, (void*) &d, (void*) &c);
+            deserialise_knowledge(p0, p5, (void*) &d, (void*) &c);
         }
     }
 

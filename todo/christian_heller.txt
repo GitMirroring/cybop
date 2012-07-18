@@ -34,6 +34,8 @@
 
         * Remove obsolete entries in "constant/format/cybol/logic/logic_cybol_format.c' (equal-part, equal-prefix, equal-suffix)
 
+        * Unify common code of files "handler.c" and "knowledge_part_getter.c"
+
         * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
             (possibly not necessary for all channels)
         * Remove temporary solution in file "file_terminal_sender.c"

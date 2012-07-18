@@ -19,6 +19,7 @@
 2012-07-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue handling of index in knowledge path
+        * Remove old files "branch_part_getter.c", "hierarchical_part_getter.c", "branch_knowledge_selector.c", "name_knowledge_selector.c"
 
 2012-07-17  Christian Heller  <christian.heller@tuxtax.de>
 

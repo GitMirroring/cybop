@@ -29,8 +29,8 @@
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../executor/communicator/sender/file/stream_file_sender.c"
 #include "../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../executor/accessor/knowledge_getter/branch_part_getter.c"
 #include "../executor/accessor/name_getter/part_name_getter.c"
+#include "../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
 #include "../executor/searcher/finder/array_finder.c"
 #include "../executor/searcher/finder/item_finder.c"
 #include "../executor/searcher/finder/part_finder.c"
@@ -190,17 +190,17 @@ void test_finder_part_hierarchical() {
     //
 
     // Get part on first hierarchy level.
-    get_part_branch((void*) &p1, application, (void*) &n1, (void*) &n1c);
+    deserialise_knowledge((void*) &p1, application, (void*) &n1, (void*) &n1c);
     // Get part on second hierarchy level.
-    get_part_branch((void*) &p2, application, (void*) &n2, (void*) &n2c);
+    deserialise_knowledge((void*) &p2, application, (void*) &n2, (void*) &n2c);
     // Get meta property of part on second hierarchy level.
-    get_part_branch((void*) &p3, application, (void*) &n3, (void*) &n3c);
+    deserialise_knowledge((void*) &p3, application, (void*) &n3, (void*) &n3c);
     // Get part of a part directly.
-    get_part_branch((void*) &p4, p1, (void*) &n4, (void*) &n4c);
+    deserialise_knowledge((void*) &p4, p1, (void*) &n4, (void*) &n4c);
     // Get meta property of another part on a lower hierarchy level.
-    get_part_branch((void*) &p5, p1, (void*) &n5, (void*) &n5c);
+    deserialise_knowledge((void*) &p5, p1, (void*) &n5, (void*) &n5c);
     // Get meta property of a part directly.
-    get_part_branch((void*) &p6, p4, (void*) &n6, (void*) &n6c);
+    deserialise_knowledge((void*) &p6, p4, (void*) &n6, (void*) &n6c);
 
     //
     // Output determined result parts.
