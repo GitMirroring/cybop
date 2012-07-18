@@ -31,6 +31,26 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /**
+ * The begin index separator knowledge cyboi name.
+ *
+ * Example:
+ * .wui.index.body.table.row.[2].data
+ */
+static wchar_t BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L'['};
+static wchar_t* BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME = BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
+static int* BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The end index separator knowledge cyboi name.
+ *
+ * Example:
+ * .wui.index.body.table.row.[2].data
+ */
+static wchar_t END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L']'};
+static wchar_t* END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME = END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
+static int* END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The list separator knowledge cyboi name.
  *
  * It is standing between the base name and the index.
