@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue handling of index in knowledge path
+
 2012-07-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement handling of index in knowledge path

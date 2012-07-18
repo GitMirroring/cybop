@@ -62,8 +62,8 @@
  * Selects the knowledge name.
  *
  * @param p0 the break flag
- * @param p1 the source data position (pointer reference)
- * @param p2 the source count remaining
+ * @param p1 the knowledge path data position (pointer reference)
+ * @param p2 the knowledge path count remaining
  */
 void select_knowledge_name(void* p0, void* p1, void* p2) {
 

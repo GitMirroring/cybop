@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BRANCH_KNOWLEDGE_SELECTOR_SOURCE
-#define BRANCH_KNOWLEDGE_SELECTOR_SOURCE
+#ifndef BEGIN_PART_KNOWLEDGE_SELECTOR_SOURCE
+#define BEGIN_PART_KNOWLEDGE_SELECTOR_SOURCE
 
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -59,54 +59,50 @@
 //
 
 /**
- * Selects the knowledge branch.
+ * Selects the knowledge part begin.
  *
- * @param p0 the part element index
- * @param p1 the knowledge path data position (pointer reference)
- * @param p2 the knowledge path count remaining
+ * @param p0 the destination part (pointer reference)
+ * @param p1 the source whole part
+ * @param p2 the knowledge path data position (pointer reference)
+ * @param p3 the knowledge path count remaining
  */
-void select_knowledge_branch(void* p0, void* p1, void* p2) {
+void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge branch.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge part begin.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // The "." indicates that the name specifies a part of a whole's model.
-    // The "#" indicates that the name specifies a meta property of a whole's properties.
+    //
+    // The "." or "#" indicate that a new sub part's model or property, respectively, begins.
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! DO MOVE the position here (last parametre),
-        // since only the actual name is of interest later.
-        detect_array((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p2, p3, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set part element index to model.
-            copy_integer(p0, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            deserialise_knowledge_part(p0, p1, p2, p3, (void*) MODEL_PART_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! DO MOVE the position here (last parametre),
-        // since only the actual name is of interest later.
-        detect_array((void*) &r, p1, p2, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p2, p3, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set part element index to properties.
-            copy_integer(p0, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+            deserialise_knowledge_part(p0, p1, p2, p3, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Move position by one if nothing was found.
-        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        move_position(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
-/* BRANCH_KNOWLEDGE_SELECTOR_SOURCE */
+/* BEGIN_PART_KNOWLEDGE_SELECTOR_SOURCE */
 #endif

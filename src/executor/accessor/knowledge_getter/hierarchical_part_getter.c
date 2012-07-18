@@ -120,8 +120,8 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // then the element count ec would always be ONE TOO SMALL,
                         // since the last loop would be omitted and ec not incremented (below).
 
-                        // Find part by name in whole model or properties
-                        // (depending on part element index p4).
+                        // Find part by name in whole model OR properties,
+                        // depending on part element index p4.
                         get_name_part_element(p0, p1, e, (void*) &ec, p4);
 
                         // Process knowledge hierarchy recursively further down.
@@ -132,7 +132,7 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // If it has a child part, then that will be assigned to the
                         // destination. Otherwise, the destination remains UNTOUCHED.
                         //
-                        // CAUTION! Hand over the source as dereferenced parametre!
+                        // CAUTION! Hand over the source as DEREFERENCED parametre!
                         get_part_branch(p0, *d, p2, p3);
 
                         break;
@@ -140,8 +140,9 @@ void get_part_hierarchical(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     } else {
 
                         // Increment element count.
-                        // A . or # delimiter has NOT been found, so that this
-                        // is somewhere in the middle of an element name.
+                        // A . or # delimiter has NOT been found,
+                        // so that the current position is somewhere
+                        // in the middle of an element name.
                         ec++;
                     }
                 }

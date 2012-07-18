@@ -102,20 +102,37 @@ void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // Reset comparison result.
         copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        // CAUTION! The data item element's count HAS TO BE GREATER
-        // than the given source index. Otherwise, array boundaries
-        // might get crossed and false pointer values returned.
+        // CAUTION! The given source index HAS TO BE smaller than
+        // the data item element's count.
+        // Otherwise, array boundaries might get crossed and
+        // false pointer values returned.
         // Therefore, this is checked here.
-        compare_integer((void*) &r, c, p5, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_smaller((void*) &r, p5, c);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Get destination array as element of the source item container.
-            copy_array_forward(p0, e, p2, p3, p4, p5);
+            // Reset comparison result.
+            copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // CAUTION! The given source index MUST NOT be negative.
+            // Otherwise, array boundaries might get crossed and
+            // false pointer values returned.
+            // Therefore, this is checked here.
+            compare_integer_greater_or_equal((void*) &r, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // Get destination array as element of the source item container.
+                copy_array_forward(p0, e, p2, p3, p4, p5);
+
+            } else {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get item element. The source index is smaller than zero.");
+            }
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get item element. The source item count is not greater than the given source index.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get item element. The source index is greater than or equal to the item count.");
         }
 
     } else {
