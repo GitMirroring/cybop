@@ -15,32 +15,23 @@
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
     </part>
     <part name="initialise_summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".summand_1"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".[0]"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
-    <!-- Write knowledge tree into file. -->
-    <part name="test_TMP_INDEX_DEBUGGING" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".summand_1"/>
-        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_ADDITION_DYNAMIC_SUM.txt"/>
-    </part>
     <part name="initialise_summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".summand_2"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".[1]"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="3"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
     <part name="initialise_sum" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".sum"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".[2]"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
     <part name="add_operand_1" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".sum"/>
-        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".summand_1"/>
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".[2]"/>
+        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".[0]"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
     <part name="add_operand_2" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
@@ -48,23 +39,12 @@
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".summand_2"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
-    <!-- Write knowledge tree into file. -->
-<!--
-    <part name="test_knowledge_tree" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".sum"/>
-        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_ADDITION_DYNAMIC_SUM.txt"/>
-    </part>
--->
     <part name="print_result" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".sum"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".[2]"/>
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
@@ -73,6 +53,8 @@
 <!--
     This example creates and initialises three integer values dynamically.
     Afterwards, the two summands are added and the sum is printed on screen.
+    The knowledge tree nodes are accessed in two different ways,
+    using dot-separated names like ".sum" and indices like ".[0]".
 -->
 
 <!--
