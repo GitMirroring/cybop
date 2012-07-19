@@ -17,7 +17,7 @@
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/specification.cybol"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/specification_content.cybol"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.specification_content_path"/>
     </part>
 

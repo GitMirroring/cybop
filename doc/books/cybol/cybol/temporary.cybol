@@ -22,4 +22,10 @@
     <part name="specification_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
     <part name="specification_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
     <part name="specification_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="topic_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="topic_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="topic_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="topic_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="topic_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="topic_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
 </model>

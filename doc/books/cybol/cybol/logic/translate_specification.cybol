@@ -13,10 +13,12 @@
     <part name="build_specification_index_string" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_specification_index_string"/>
     </part>
+
     <!-- copy information from knowledge-tree-part 'specification' to knowledge-tree-part 'wui.index' -->
     <part name="build_specification_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_specification"/>
     </part>
+
     <!-- read specification topics -->
     <!-- count the topics of the selected specification -->
     <part name="get_topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="access/count" model="">

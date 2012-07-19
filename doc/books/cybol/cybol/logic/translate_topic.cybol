@@ -8,20 +8,12 @@
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
     </part>
-    
-    <!-- Debug: copy selected topic categories to temp -->
-    <part name="copy_selected_specs_topics" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.categories"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification.logic#topics.calculate#categories"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="path/knowledge"/>
-    </part>
-    <!-- Debug: copy selected specification name to temp ('logic' has to be replaced by 'temp_specification') -->
-    <part name="copy_selected_spec_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_topic"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".specification.logic#topics.calculate#name"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="path/knowledge"/>
-    </part>
 
+    <!-- build specification string dynamically using indexes -->
+    <part name="build_topic_index_string" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_topic_index_string"/>
+    </part>
+    
     <!-- copy information from knowledge-tree-part 'topic' to knowledge-tree-part 'wui.index' -->
     <part name="build_topic_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_topic"/>
