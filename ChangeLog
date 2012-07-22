@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add "represent/serialise" and "represent/deserialise" cybol operations
+
 2012-07-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete handling of index in knowledge path

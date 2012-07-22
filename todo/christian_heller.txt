@@ -9,8 +9,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Add cybol operation using cyboi's de-/serialisation functions (request by Enrico Gallus)
         * Add cybol operation allowing access to a part's name and possibly other attributes (request by Enrico Gallus)
+        * Add convenience property "local" for file-internal html reference anchor (request by Enrico Gallus) as in this example:
+
+    <part name="specification_toc" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a"/>
+        <property name="href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="local" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+
         * Add logic (rest finished) to example cybol specification in cybol format in directory "doc/books/cybol/";
             see "residenz" application in "resmedicinae" project
 
