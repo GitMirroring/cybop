@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The result comparison operation cybol name. */
 static wchar_t RESULT_COMPARISON_OPERATION_CYBOL_NAME_ARRAY[] = {L'r', L'e', L's', L'u', L'l', L't'};

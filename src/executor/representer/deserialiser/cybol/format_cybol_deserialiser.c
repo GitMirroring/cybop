@@ -39,6 +39,7 @@
 #include "../../../../constant/format/cybol/logic/manipulate_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/memorise_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/modify_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/represent_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/run_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/state/application_state_cybol_format.c"
 #include "../../../../constant/format/cybol/state/application_vnd_state_cybol_format.c"
@@ -971,6 +972,30 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             overwrite_item_element(p0, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        }
+    }
+
+    //
+    // represent
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) DESERIALISE_REPRESENT_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) SERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) SERIALISE_REPRESENT_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 

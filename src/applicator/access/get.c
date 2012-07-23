@@ -37,11 +37,12 @@
 #include "../../logger/logger.c"
 
 /**
- * Gets the part at the given index.
+ * Gets an element (attribute) of the given part.
  *
  * Expected parametres:
- * - part (required): the knowledge path where to store the retrieved part
- * - index (required): the index of the part within its surrounding whole compound part
+ * - destination (required): the element retrieved from the part
+ * - source (required): the knowledge path to the part
+ * - element (required): the kind of element (name, channel, encoding, language, format, type, model, properties)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -51,11 +52,14 @@ void apply_get(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply get.");
 
-    // The part part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index part.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The destination part.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The element part.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+/*??
     // The index part model item.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -73,8 +77,9 @@ void apply_get(void* p0, void* p1, void* p2) {
     // Get index part model item data.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Get part at given index.
-//??    get_part(p, imd);
+    // Get part element.
+    get_part_element(dest_arr, src_part, type, count, dest_arr_idx, src_part_idx, src_part_element_idx);
+*/
 }
 
 /* GET_SOURCE */

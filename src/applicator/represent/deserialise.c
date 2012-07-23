@@ -30,14 +30,18 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/represent/deserialise_represent_operation_cybol_name.c"
+#include "../../constant/name/cybol/operation/representation/deserialise_representation_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/representer/deserialiser.c"
 #include "../../logger/logger.c"
 
 /**
  * Deserialises the source- into the destination part.
- * 
+ *
+ * CAUTION! The result get APPENDED to the destination.
+ * It does NOT overwrite already existing content in the destination.
+ *
  * Expected parametres:
  * - destination (required): the destination part, e.g. an integer number
  * - source (required): the source part, which is always a sequence of wide characters
@@ -80,13 +84,13 @@ void apply_deserialise(void* p0, void* p1, void* p2) {
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part.
-    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_DESERIALISE_REPRESENT_OPERATION_CYBOL_NAME, (void*) DESTINATION_DESERIALISE_REPRESENT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) DESTINATION_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get source part.
-    get_part_knowledge((void*) &s, p0, (void*) SOURCE_DESERIALISE_REPRESENT_OPERATION_CYBOL_NAME, (void*) SOURCE_DESERIALISE_REPRESENT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &s, p0, (void*) SOURCE_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) SOURCE_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get format part.
-    get_part_knowledge((void*) &f, p0, (void*) FORMAT_DESERIALISE_REPRESENT_OPERATION_CYBOL_NAME, (void*) FORMAT_DESERIALISE_REPRESENT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &f, p0, (void*) FORMAT_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) FORMAT_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get language part.
-    get_part_knowledge((void*) &l, p0, (void*) LANGUAGE_DESERIALISE_REPRESENT_OPERATION_CYBOL_NAME, (void*) LANGUAGE_DESERIALISE_REPRESENT_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &l, p0, (void*) LANGUAGE_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) LANGUAGE_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
     // Get destination part model, properties item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -105,6 +109,13 @@ void apply_deserialise(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get language part model item data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST apply deserialise dm: %i\n", dm);
+fwprintf(stdout, L"TEST apply deserialise dp: %i\n", dp);
+fwprintf(stdout, L"TEST apply deserialise smd: %ls\n", (wchar_t*) smd);
+fwprintf(stdout, L"TEST apply deserialise *smc: %i\n", *((int*) smc));
+fwprintf(stdout, L"TEST apply deserialise *fmc: %i\n", *((int*) fmd));
+fwprintf(stdout, L"TEST apply deserialise *lmc: %i\n", *((int*) lmd));
 
     // Deserialise the source- into the destination part.
     deserialise(dm, dp, smd, smc, fmd, lmd);

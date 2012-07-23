@@ -51,6 +51,8 @@
 #include "../../applicator/modify/insert.c"
 #include "../../applicator/modify/overwrite.c"
 #include "../../applicator/modify/remove.c"
+#include "../../applicator/represent/deserialise.c"
+#include "../../applicator/represent/serialise.c"
 #include "../../applicator/run/run.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -610,6 +612,30 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_remove(p0, p1, p3);
+        }
+    }
+
+    //
+    // represent
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) DESERIALISE_REPRESENT_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_deserialise(p0, p1, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) SERIALISE_REPRESENT_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_serialise(p0, p1, p3);
         }
     }
 

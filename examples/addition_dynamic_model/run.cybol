@@ -19,15 +19,6 @@
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
-    <!-- Write knowledge tree into file. -->
-    <part name="test_TMP_INDEX_DEBUGGING" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".summand_1"/>
-        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_ADDITION_DYNAMIC_SUM.txt"/>
-    </part>
     <part name="initialise_summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".summand_2"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="3"/>

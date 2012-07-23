@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete "represent/serialise" and "represent/deserialise" cybol operations
+        * Add cybol example application "addition_using_serialisation" for testing de-/serialisation
+
 2012-07-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add "represent/serialise" and "represent/deserialise" cybol operations
