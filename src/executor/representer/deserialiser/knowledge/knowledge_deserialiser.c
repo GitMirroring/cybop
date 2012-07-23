@@ -39,8 +39,8 @@
 /**
  * Deserialises a knowledge path retrieving the specified part.
  *
- * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part
+ * @param p0 the destination name or part (pointer reference)
+ * @param p1 the source part
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
  */

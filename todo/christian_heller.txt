@@ -9,7 +9,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Add cybol operation allowing access to a part's name and possibly other attributes (request by Enrico Gallus)
+        * Extend knowledge path syntax with ? accessing a part's name
+            already prepared; problem: part expected in applicator functions but part's "name" delivered back as pure array
+
         * Add convenience property "local" for file-internal html reference anchor (request by Enrico Gallus) as in this example:
 
     <part name="specification_toc" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">

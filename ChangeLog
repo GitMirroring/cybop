@@ -20,6 +20,8 @@
 
         * Complete "represent/serialise" and "represent/deserialise" cybol operations
         * Add cybol example application "addition_using_serialisation" for testing de-/serialisation
+        * Remove useless operation "access/get" replaced by extended knowledge path syntax
+        * Try to extend knowledge path syntax with ? accessing a part's name
 
 2012-07-22  Christian Heller  <christian.heller@tuxtax.de>
 

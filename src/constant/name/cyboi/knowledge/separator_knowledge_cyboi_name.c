@@ -75,6 +75,16 @@ static wchar_t* MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME = MODEL_SEPARATOR_KNOWLEDGE
 static int* MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The name separator knowledge cyboi name.
+ *
+ * Example:
+ * .gui.menubar?
+ */
+static wchar_t NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L'?'};
+static wchar_t* NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME = NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
+static int* NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The property separator knowledge cyboi name.
  *
  * Example:

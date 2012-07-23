@@ -66,17 +66,6 @@ static wchar_t* COUNT_ACCESS_LOGIC_CYBOL_FORMAT = COUNT_ACCESS_LOGIC_CYBOL_FORMA
 static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The access/get logic cybol format.
- *
- * Get a reference to data.
- *
- * This is a CYBOL extension.
- */
-static wchar_t GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'a', L'c', L'c', L'e', L's', L's', L'/', L'g', L'e', L't'};
-static wchar_t* GET_ACCESS_LOGIC_CYBOL_FORMAT = GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The access/indicate-empty logic cybol format.
  *
  * Indicates if data are empty, i.e. the count is zero.

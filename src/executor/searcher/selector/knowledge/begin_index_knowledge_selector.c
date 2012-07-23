@@ -33,8 +33,8 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/deserialiser/knowledge/index_knowledge_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/knowledge/name_knowledge_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/knowledge/index_part_knowledge_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/knowledge/name_part_knowledge_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -86,7 +86,7 @@ void select_knowledge_index_begin(void* p0, void* p1, void* p2, void* p3, void* 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_knowledge_index(p0, p1, p2, p3, p4);
+            deserialise_knowledge_part_index(p0, p1, p2, p3, p4);
         }
     }
 
@@ -95,7 +95,7 @@ void select_knowledge_index_begin(void* p0, void* p1, void* p2, void* p3, void* 
         // An "[" indicating that a new sub part's index begins was not found.
         // Therefore, the following characters are supposed to represent a part name.
 
-        deserialise_knowledge_name(p0, p1, p2, p3, p4);
+        deserialise_knowledge_part_name(p0, p1, p2, p3, p4);
     }
 }
 

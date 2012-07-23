@@ -33,6 +33,7 @@
 #include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/deserialiser/knowledge/name_knowledge_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
@@ -64,8 +65,8 @@
 /**
  * Selects the knowledge part begin.
  *
- * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part
+ * @param p0 the destination name or part (pointer reference)
+ * @param p1 the source part
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
  */
@@ -77,8 +78,18 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // The "." or "#" indicate that a new sub part's model or property, respectively, begins.
+    // The "?" or "." or "#" indicate that a part's name or a sub part's model or property, respectively, begins.
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect_array((void*) &r, p2, p3, (void*) NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_knowledge_name(p0, p1, (void*) NAME_PART_STATE_CYBOI_NAME);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
