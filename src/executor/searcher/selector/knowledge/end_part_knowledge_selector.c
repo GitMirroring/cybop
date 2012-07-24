@@ -79,20 +79,6 @@ void select_knowledge_part_end(void* p0, void* p1, void* p2) {
         // CAUTION! Do NOT move the position, i.e. hand over FALSE as last parametre here.
         // The reason is that a potential new sub part's name or model or property, indicated by
         // a "?" or "." or "#" character, respectively, yet have to be detected in another function.
-        detect_array((void*) &r, p1, p2, (void*) NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // CAUTION! Do NOT move the position, i.e. hand over FALSE as last parametre here.
-        // The reason is that a potential new sub part's name or model or property, indicated by
-        // a "?" or "." or "#" character, respectively, yet have to be detected in another function.
         detect_array((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

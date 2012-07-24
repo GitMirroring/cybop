@@ -48,8 +48,8 @@
 /** The count access logic cyboi format. */
 static int* COUNT_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_500_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The get access logic cyboi format. */
-static int* GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_501_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The name get access logic cyboi format. */
+static int* NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_501_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The empty indicate access logic cyboi format. */
 static int* EMPTY_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_502_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -9,9 +9,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Extend knowledge path syntax with ? accessing a part's name
-            already prepared; problem: part expected in applicator functions but part's "name" delivered back as pure array
-
         * Add convenience property "local" for file-internal html reference anchor (request by Enrico Gallus) as in this example:
 
     <part name="specification_toc" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
@@ -25,6 +22,7 @@
 
         * Check why "Segmentation fault" happens when non-existing path
             is given as destination or source property for "modify/overwrite"
+            ... also appears with de-/serialisation from/to e.g. integer
 
         * Reactivate "sense" in about dialogue of "ui_control" cybol app
 

@@ -27,6 +27,7 @@
 #define OPERATION_HANDLER_SOURCE
 
 #include "../../applicator/access/count.c"
+#include "../../applicator/access/get.c"
 #include "../../applicator/access/indicate.c"
 #include "../../applicator/compare/compare.c"
 #include "../../applicator/calculate/calculate.c"
@@ -93,6 +94,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_count(p0, p1, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_get(p0, p1, p3, (void*) NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT);
         }
     }
 

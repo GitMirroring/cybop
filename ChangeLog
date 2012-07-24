@@ -16,6 +16,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Decide that extending the knowledge path syntax with ? is NOT useful for accessing a part's name,
+            since a reference to the name gets returned, which may not be processed in cybol
+        * Implement "access/get-name" cybol operation for retrieving a part's name
+        * Add cybol example application "knowledge_tree_access" for testing retrieval of a part's name
+
 2012-07-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete "represent/serialise" and "represent/deserialise" cybol operations

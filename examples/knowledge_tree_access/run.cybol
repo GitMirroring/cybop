@@ -1,0 +1,70 @@
+<model>
+    <part name="create_part_1" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part_1"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+    </part>
+    <part name="create_part_2" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part_2"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+    </part>
+    <part name="initialise_part_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".part_1"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="initialise_part_2" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".part_2"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="blubla"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_name_of_part_1_into_model_of_part_2" channel="inline" encoding="utf-8" language="text/cybol" format="access/get-name" model="">
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".part_2"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".part_1"/>
+    </part>
+    <part name="print_model_of_part_2" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".part_2"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
+</model>
+
+<!--
+    This example creates and initialises two values:
+    one of type integer and another one of type character.
+    The "access/get-name" operation copies the name of part_1 into the model of part_2.
+    Afterwards, the model of part_2 is printed on screen.
+    The example demonstrates how node names may be accessed.
+    However, they CANNOT be modified, only copied since otherwise,
+    the application's knowledge tree might get mixed up.
+-->
+
+<!--
+    Copyright (C) 1999-2012. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    Christian Heller <christian.heller@tuxtax.de>
+
+    @version CYBOP 0.11.0 2012-01-01
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

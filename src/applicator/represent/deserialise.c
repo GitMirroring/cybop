@@ -110,13 +110,6 @@ void apply_deserialise(void* p0, void* p1, void* p2) {
     // Get language part model item data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST apply deserialise dm: %i\n", dm);
-fwprintf(stdout, L"TEST apply deserialise dp: %i\n", dp);
-fwprintf(stdout, L"TEST apply deserialise smd: %ls\n", (wchar_t*) smd);
-fwprintf(stdout, L"TEST apply deserialise *smc: %i\n", *((int*) smc));
-fwprintf(stdout, L"TEST apply deserialise *fmc: %i\n", *((int*) fmd));
-fwprintf(stdout, L"TEST apply deserialise *lmc: %i\n", *((int*) lmd));
-
     // Deserialise the source- into the destination part.
     deserialise(dm, dp, smd, smc, fmd, lmd);
 }
