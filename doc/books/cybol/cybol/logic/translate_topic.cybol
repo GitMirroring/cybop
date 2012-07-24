@@ -9,7 +9,7 @@
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
     </part>
 
-    <!-- build specification string dynamically using indexes -->
+    <!-- build topic string dynamically using indexes -->
     <part name="build_topic_index_string" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_topic_index_string"/>
     </part>
@@ -20,7 +20,7 @@
     </part>
 
     <!-- read topic categories -->
-    <!-- count the topics of the selected specification -->
+    <!-- count the categories of the selected topic -->
     <part name="get_category_count" channel="inline" encoding="utf-8" language="text/cybol" format="access/count" model="">
         <property name="count" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_count"/>
         <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.categories"/>

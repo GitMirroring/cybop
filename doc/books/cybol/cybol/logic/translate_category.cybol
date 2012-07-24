@@ -10,6 +10,30 @@
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
     </part>
 
+    <!-- build category string dynamically using indexes -->
+    <part name="build_category_index_string" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_index_string"/>
+    </part>
+
+    <!-- count the properties of the selected topic -->
+    <part name="get_properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="access/count" model="">
+        <property name="count" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_count"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties"/>
+    </part>
+
+    <!-- pre execution of loop check (necessary if no topic entry found); break variable initialized with false -->
+    <part name="exists_properties_entries" channel="inline" encoding="utf-8" language="text/cybol" format="compare/equal" model="">
+        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_count"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_break"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
+    </part>
+    <part name="loop_properties_translation" channel="inline" encoding="utf-8" language="text/cybol" format="flow/loop" model="">
+        <property name="break" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_break"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.translate_properties"/>
+    </part>
+
     <!-- handle category loop after finished category --> 
     <part name="increment_category_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_index"/>

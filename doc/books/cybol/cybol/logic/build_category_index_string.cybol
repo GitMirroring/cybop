@@ -1,0 +1,20 @@
+<model>
+    <part name="copy_category_by_index_to_temp" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.categories.[1]"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="path/knowledge"/>
+    </part>
+
+    <!-- copy selected category name to temp -->
+    <part name="copy_selected_category_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_category"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.categories.[1]#name"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <!-- copy selected category properties to temp -->
+    <part name="copy_selected_category_properties" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.categories.[1]#properties"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="path/knowledge"/>
+    </part>
+</model>
