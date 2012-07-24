@@ -12,11 +12,6 @@
     <part name="properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
     <part name="properties_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
     <part name="properties_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <!-- temporary path models -->
-    <part name="topics" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model=""/>
-    <part name="categories" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model=""/>
-    <part name="category" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model=""/>
-    <part name="properties" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model=""/>
     <!-- selected part names -->
     <part name="selected_specification" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="selected_topic" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
@@ -37,4 +32,15 @@
     <!-- temporary path links to items -->
     <part name="specification_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="specification_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <!-- category properties access -->
+    <part name="link_spec_properties" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="link_spec_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="link_spec_example" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="link_spec_description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="link_spec_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
 </model>
+

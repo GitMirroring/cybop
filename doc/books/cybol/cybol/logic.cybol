@@ -14,5 +14,7 @@
     <part name="build_topic_toc_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic_toc_path.cybol"/>
     <part name="translate_category" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_category.cybol"/>
     <part name="build_category_index_string" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_index_string.cybol"/>
+    <part name="build_category_access_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_access_path.cybol"/>
+    <part name="build_category_wui_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_wui_path.cybol"/>
     <part name="translate_properties" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_properties.cybol"/>
 </model>
