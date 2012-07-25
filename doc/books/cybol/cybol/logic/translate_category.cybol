@@ -25,6 +25,12 @@
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_wui_path"/>
     </part>
 
+    <!-- build category name template -->
+    <part name="build_category_name_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_name"/>
+    </part>
+
+
     <!-- count the properties of the selected topic -->
     <part name="get_properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="access/count" model="">
         <property name="count" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_count"/>
