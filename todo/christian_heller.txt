@@ -9,23 +9,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Add convenience property "local" for file-internal html reference anchor (request by Enrico Gallus) as in this example:
-
-    <part name="specification_toc" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a"/>
-        <property name="href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-        <property name="local" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-    </part>
-
-        * Add logic (rest finished) to example cybol specification in cybol format in directory "doc/books/cybol/";
-            see "residenz" application in "resmedicinae" project
-
-        * Check why "Segmentation fault" happens when non-existing path
-            is given as destination or source property for "modify/overwrite"
-            ... also appears with de-/serialisation from/to e.g. integer
+        * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"
 
         * Reactivate "sense" in about dialogue of "ui_control" cybol app
-
         * Solve issue with "ui_control" cybol app in "handle_gnu_linux_console_command.cybol" and "handle_gnu_linux_console.cybol"
         * Split and adapt "handle_about_dialog.cybol" likewise
 
@@ -37,17 +23,12 @@
             --> just comment out tui sending in "ui_control" and only receive key presses to test
             ==> try to compile new file "character_ansi_escape_code_deserialiser.c" -- IS THIS THE BUG FIX?
 
-        * Should duplicated "part" functions in executor/modifier/ for part* and item* be removed ??
-            rename "part_element" into "part" as function name??
-
-        * Remove obsolete entries in "constant/format/cybol/logic/logic_cybol_format.c' (equal-part, equal-prefix, equal-suffix)
-
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"
 
-        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
-            (possibly not necessary for all channels)
         * Remove temporary solution in file "file_terminal_sender.c"
         * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input
+        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
+            (possibly not necessary for all channels)
 
         * Reactivate x_window_system receive functionality
         * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):

@@ -1,0 +1,17 @@
+<model>
+    <part name="heading" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="CYBOL Web User Interface (WUI) Example">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h1"/>
+    </part>
+    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="This is an example web page created from cybol files.">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
+    </part>
+    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="br"/>
+    </part>
+    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Yet another sentence following a line break as empty tag.">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
+    </part>
+    <part name="table" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="wui/table.cybol">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="table"/>
+    </part>
+</model>

@@ -66,8 +66,10 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     // The tag part model data, count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The empty flag.
+    int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The compound flag.
+    int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get tag part by name.
     get_name_array((void*) &t, p3, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT, p4);
@@ -77,18 +79,24 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Encode indentation.
+    // Check if content is empty.
+    compare_integer_smaller_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    // Serialise indentation.
     serialise_html_indentation(p0, p5);
     // Append begin tag.
-    serialise_html_begin_tag(p0, tmd, tmc, p3, p4);
+    serialise_html_begin_tag(p0, tmd, tmc, p3, p4, (void*) &e);
     // Append line feed character, for better source reading.
     append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-    compare_integer_greater((void*) &r, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    if (e == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // The content is NOT empty, since the empty flag is false.
 
-        // The content is NOT empty.
+        // Check if this part is of type "element/part".
+        // In this case, it is a compound part containing child parts
+        // and not just primitive data like text or a number.
+        compare_integer_equal((void*) &c, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         // The new indentation level.
         //
@@ -102,20 +110,39 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
         // Increment new indentation level by one.
         calculate_integer_add((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-        // Encode indentation.
-        serialise_html_indentation(p0, (void*) &l);
+        if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! The content of compound parts gets
+            // indented inside the called function stack:
+            // - serialise_html
+            // - serialise_html_part
+            // - serialise_html_part_element
+            // - serialise_html_part_element_content
+            //
+            // However, this is NOT the case for primitive values like a text or number.
+            // Therefore, those have to get indented right here.
+
+            // Serialise indentation.
+            serialise_html_indentation(p0, (void*) &l);
+        }
+
         // Append part model.
         serialise_html(p0, p1, p2, p3, p4, (void*) &l, p6);
+
+        if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append line feed character, for better source reading.
+            append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        }
+
+        // Serialise indentation.
+        // CAUTION! Use original indentation that was handed over as parametre.
+        serialise_html_indentation(p0, p5);
+        // Append end tag.
+        serialise_html_end_tag(p0, tmd, tmc);
         // Append line feed character, for better source reading.
         append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
-
-    // Encode indentation.
-    serialise_html_indentation(p0, p5);
-    // Append end tag.
-    serialise_html_end_tag(p0, tmd, tmc);
-    // Append line feed character, for better source reading.
-    append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* CONTENT_ELEMENT_PART_HTML_SERIALISER_SOURCE */

@@ -79,7 +79,7 @@ void serialise_html_attribute(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // CAUTION! Only add attribute, if the properties part name is NOT "tag"!
+        // CAUTION! Only add attribute, if the property's part name is NOT "tag"!
         //
 
         // Append space character.

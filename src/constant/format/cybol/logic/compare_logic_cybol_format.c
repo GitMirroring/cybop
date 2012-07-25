@@ -66,39 +66,6 @@ static wchar_t* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = EQUAL_COMPARE_LOGIC_CYBOL_FOR
 static int* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The compare/equal-part logic cybol format.
- *
- * Compare for part equality: ==
- *
- * This is a CYBOL extension.
- */
-static wchar_t EQUAL_PART_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L'p', L'a', L'r', L't'};
-static wchar_t* EQUAL_PART_COMPARE_LOGIC_CYBOL_FORMAT = EQUAL_PART_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* EQUAL_PART_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The compare/equal-prefix logic cybol format.
- *
- * Compare for prefix equality: ==
- *
- * This is a CYBOL extension.
- */
-static wchar_t EQUAL_PREFIX_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L'p', L'r', L'e', L'f', L'i', L'x'};
-static wchar_t* EQUAL_PREFIX_COMPARE_LOGIC_CYBOL_FORMAT = EQUAL_PREFIX_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* EQUAL_PREFIX_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The compare/equal-suffix logic cybol format.
- *
- * Compare for suffix equality: ==
- *
- * This is a CYBOL extension.
- */
-static wchar_t EQUAL_SUFFIX_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l', L'-', L's', L'u', L'f', L'f', L'i', L'x'};
-static wchar_t* EQUAL_SUFFIX_COMPARE_LOGIC_CYBOL_FORMAT = EQUAL_SUFFIX_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* EQUAL_SUFFIX_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The compare/greater logic cybol format.
  *
  * Compare for greaterness: >

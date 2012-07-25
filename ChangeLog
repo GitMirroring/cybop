@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise html serialiser to produce correct line break, indentation and empty tags
+        * Add cybol example application "wui" for demonstrating html generation
+        * Remove obsolete constants (equal-part, equal-prefix, equal-suffix) in file "logic_cybol_format.c"
+
 2012-07-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Decide that extending the knowledge path syntax with ? is NOT useful for accessing a part's name,
