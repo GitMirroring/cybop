@@ -30,6 +30,20 @@
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_name"/>
     </part>
 
+    <!-- build category description template -->
+    <part name="build_category_description_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_description"/>
+    </part>
+
+    <!-- build category format template -->
+    <part name="build_category_format_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_format"/>
+    </part>
+
+    <!-- build category example template -->
+    <part name="build_category_example_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_example"/>
+    </part>
 
     <!-- count the properties of the selected topic -->
     <part name="get_properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="access/count" model="">

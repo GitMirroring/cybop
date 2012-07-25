@@ -52,4 +52,51 @@
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
 
+    <part name="clear_category_wui_description_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_description"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_category_to_description_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_description"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_category_description_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_description"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".category_description_name"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    
+    <part name="clear_category_wui_format_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_format"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_category_to_format_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_format"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_category_format_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_format"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".category_format_name"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_category_wui_example_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_category_to_example_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_category_example_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".category_example_name"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
 </model>

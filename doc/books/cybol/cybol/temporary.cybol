@@ -32,6 +32,9 @@
     <part name="category_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="category_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="category_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_content_path_description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_content_path_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_content_path_example" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <!-- temporary path links to items -->
     <part name="specification_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="specification_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
