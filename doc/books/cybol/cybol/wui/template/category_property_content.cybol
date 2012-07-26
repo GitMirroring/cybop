@@ -1,0 +1,9 @@
+<model>
+    <part name="category_property_space" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
+        <property name="align" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="center"/>
+    </part>
+    <part name="category_property_table" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/wui/template/category_property_content_header.cybol">
+	<property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="table"/>
+    </part>
+</model>

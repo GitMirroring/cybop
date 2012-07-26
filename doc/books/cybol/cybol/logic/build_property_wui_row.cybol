@@ -1,0 +1,45 @@
+<model>
+    <!-- create knowledge part in index.html -->
+    <part name="create_wui_content_property" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_property"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path"/>
+    </part>
+
+    <!-- copy topic content template to wui.index.body.toc -->
+    <part name="initialise_wui_property_content_with_template" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/category_property_content_row.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path_specific"/>
+    </part>
+
+    <part name="copy_property_name_information" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.link_property_name"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path_name"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_property_description_information" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.link_property_description"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path_description"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_property_required_information" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.link_property_required"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path_required"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_property_format_information" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.link_property_format"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path_format"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_property_model_information" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.link_property_model"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path_model"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+</model>

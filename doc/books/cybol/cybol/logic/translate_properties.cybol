@@ -10,6 +10,26 @@
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
     </part>
 
+    <!-- build category property template structure -->
+    <part name="build_property_specification_global_path" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_spec"/>
+    </part>
+
+    <!-- build category property template structure -->
+    <part name="build_property_specification_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_spec_path"/>
+    </part>
+
+    <!-- build category property template structure -->
+    <part name="build_property_wui_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_wui_path"/>
+    </part>
+
+    <!-- fill table row with spec information -->
+    <part name="build_property_wui_row" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_wui_row"/>
+    </part>
+
     <!-- handle property loop after finished property --> 
     <part name="increment_properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_index"/>
