@@ -1,5 +1,5 @@
 <model>
-    <part name="about_ui_control_item" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="About Revue">
+    <part name="about_ui_control" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="About Revue">
         <property name="layout" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="compass"/>
         <property name="cell" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="north"/>
         <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0,0"/>
@@ -7,7 +7,7 @@
         <property name="mouse_over_action" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="select"/>
         <property name="mouse_click_action" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.logic.show_about_dialogue"/>
     </part>
-    <part name="about_resmedicinae_item" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="About Res Medicinae">
+    <part name="about_resmedicinae" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="About Res Medicinae">
         <property name="layout" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="compass"/>
         <property name="cell" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="north"/>
         <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0,0"/>

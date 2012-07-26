@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Search bug in terminal input and "ui_control" cybol example application
+        * Add cybol example application "tui" for demonstrating text user interface
+
 2012-07-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise html serialiser to produce correct line break, indentation and empty tags

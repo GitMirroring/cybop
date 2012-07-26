@@ -1,5 +1,5 @@
 <model>
-    <part name="exit_item" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Exit">
+    <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Exit">
         <property name="layout" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="compass"/>
         <property name="cell" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="north"/>
         <property name="style" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.gui_style.menu"/>

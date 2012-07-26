@@ -80,10 +80,19 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST receive terminal *dc: %i\n", *((int*) dc));
+fwprintf(stdout, L"TEST receive terminal *dc: %i\n", *((int*) dc));
+fwprintf(stdout, L"TEST receive terminal dd: %ls\n", (wchar_t*) dd);
 
     // Deserialise data.
     deserialise(p0, p1, dd, dc, p2, p3);
+
+//?? TEST only! Delete later.
+void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
+void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
+copy_array_forward((void*) &testd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+copy_array_forward((void*) &testc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST receive terminal *testc: %i\n", *((int*) testc));
+fwprintf(stdout, L"TEST receive terminal testd: %ls\n", (wchar_t*) testd);
 
     // Deallocate decoded message item.
     deallocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

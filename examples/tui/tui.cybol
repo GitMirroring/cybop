@@ -1,0 +1,31 @@
+<model>
+    <part name="menu" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="tui/menu.cybol">
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0"/>
+        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="80,24"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 1999-2012. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    Christian Heller <christian.heller@tuxtax.de>
+
+    @version CYBOP 0.11.0 2012-01-01
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
