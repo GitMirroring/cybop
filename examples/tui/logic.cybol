@@ -1,0 +1,71 @@
+<model>
+    <part name="move_arrow_down" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="move_arrow_down"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="move_arrow_up" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="move_arrow_up"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="move_arrow_right" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="move_arrow_right"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="move_arrow_left" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="move_arrow_left"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="enter_sub_menu" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="enter_sub_menu"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="exit_programme" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
+    <part name="start_mc" channel="inline" encoding="utf-8" language="text/cybol" format="run/run" model="">
+        <property name="programme" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="mc"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 1999-2012. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    Christian Heller <christian.heller@tuxtax.de>
+
+    @version CYBOP 0.11.0 2012-01-01
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

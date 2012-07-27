@@ -9,6 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue cybol example application "tui" for demonstrating text user interface
+
         * Study "libcurl3" library for URL transfer
 
         * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"

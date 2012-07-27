@@ -1,0 +1,51 @@
+<model>
+    <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
+    <part name="reset_command" channel="inline" encoding="utf-8" language="text/cybol" format="modify/empty" model="">
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.logic.gnu_linux_console_command"/>
+    </part>
+    <part name="receive_command" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.logic.gnu_linux_console_command"/>
+    </part>
+    <part name="reset_flag" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.logic.command_exists"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="logicvalue/boolean"/>
+    </part>
+    <!-- The command MUST NOT be empty, since otherwise, a signal with unpredictable content is sent. -->
+    <part name="check_command" channel="inline" encoding="utf-8" language="text/cybol" format="access/indicate-exists" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.logic.command_exists"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.logic.gnu_linux_console_command"/>
+    </part>
+    <part name="execute_command" channel="inline" encoding="utf-8" language="text/cybol" format="flow/branch" model="">
+        <property name="criterion" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.logic.command_exists"/>
+        <property name="true" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.logic.handle_gnu_linux_console_command"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 1999-2012. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    Christian Heller <christian.heller@tuxtax.de>
+
+    @version CYBOP 0.11.0 2012-01-01
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

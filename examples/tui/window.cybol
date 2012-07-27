@@ -1,13 +1,12 @@
 <model>
-    <part name="window" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="tui/window.cybol">
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="80,15"/>
-        <property name="background" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="green"/>
-        <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="white"/>
+    <part name="menu" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="tui/menu.cybol">
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,2"/>
+        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,10"/>
+        <property name="background" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
         <property name="border" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="ascii"/>
     </part>
-    <!-- Further windows and dialogues may follow here. -->
 </model>
 
 <!--
