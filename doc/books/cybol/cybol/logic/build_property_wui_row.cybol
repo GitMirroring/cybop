@@ -27,10 +27,17 @@
 	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path_description"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
+
     <part name="copy_property_required_information" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.link_property_required"/>
-	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path_required"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.property_required_value"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="logicvalue/boolean"/>
+    </part>
+    <part name="serialise_property_required_value_to_text" channel="inline" encoding="utf-8" language="text/cybol" format="represent/serialise" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_content_path_required"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.property_required_value"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="logicvalue/boolean"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
     </part>
     <part name="copy_property_format_information" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.link_property_format"/>

@@ -34,7 +34,7 @@
     <part name="increment_properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_index"/>
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
-        <property name="type" channel="inline" encoding="ux	xtf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
     <part name="compare_properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_break"/>

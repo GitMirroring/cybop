@@ -1,6 +1,11 @@
 <model>
+    <part name="tabulator" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="&nbsp;">
+    </part>
     <part name="topic_toc" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
         <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a"/>
         <property name="href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    </part>
+    <part name="line_break" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="br"/>
     </part>
 </model>

@@ -1,7 +1,3 @@
 <model>
-    <part name="category_example_space" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
-        <property name="align" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="center"/>
-    </part>
     <part name="category_example_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
 </model>

@@ -96,7 +96,7 @@
     </part>
     <part name="add_category_example_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example"/>
-	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".category_example_name"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".category_example_environment.category_example_name"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
 </model>
