@@ -9,6 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Study "libcurl3" library for URL transfer
+
         * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"
 
         * Reactivate "sense" in about dialogue of "ui_control" cybol app
