@@ -19,6 +19,7 @@
 2012-07-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue cybol example application "tui" for demonstrating text user interface
+        * Fix bug that detected irq may be reset only after having handled a signal
 
 2012-07-26  Christian Heller  <christian.heller@tuxtax.de>
 

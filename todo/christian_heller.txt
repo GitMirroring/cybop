@@ -9,6 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Check why terminal input is detected just once, but not a second time etc.
         * Continue cybol example application "tui" for demonstrating text user interface
 
         * Study "libcurl3" library for URL transfer

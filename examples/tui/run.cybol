@@ -1,4 +1,9 @@
 <model>
+    <part name="create_temporary" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="temporary"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+    </part>
     <part name="create_logic" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="logic"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
@@ -8,6 +13,24 @@
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tui"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+    </part>
+    <part name="create_actions" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="actions"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+    </part>
+    <part name="create_handler" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="handler"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+    </part>
+    <part name="initialise_temporary" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tui/temporary.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary"/>
     </part>
     <part name="initialise_logic" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
@@ -25,6 +48,23 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tui/tui.cybol"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui"/>
     </part>
+    <part name="initialise_actions" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tui/actions.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".actions"/>
+    </part>
+    <part name="initialise_handler" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tui/handler.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".handler"/>
+    </part>
+<!--
     <part name="send_tui" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -32,6 +72,7 @@
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.window"/>
     </part>
+-->
     <part name="startup_tui" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/startup" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
     </part>

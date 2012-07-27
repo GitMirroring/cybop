@@ -89,18 +89,62 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // because otherwise, the "else" branch below would not always be reached.
     if ((irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irq) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
+        // Handle signal.
+        //
+        // CAUTION! The "handle" function has to be called DIRECTLY
+        // (with direct execution flag set) here!
+        // For reasons, see the comment block above!
+        handle(s, p0, p1, p2, p3, p4, (void*) &x, p6);
+
         // Lock mutex.
         pthread_mutex_lock(mt);
 
         // Reset interrupt.
         //
-        // CAUTION! The interrupt is reset to false here because its purpose
-        // of receiving data over some device in order to handle
-        // the corresponding signal is fulfilled.
+        // CAUTION! Do FIRST handle the signal and
+        // ONLY AFTERWARDS reset the interrupt!
         //
-        // This is done here, right after checking the interrupt flag
-        // and yet BEFORE receiving data and handling the signal below,
-        // so that the system may react faster to new interrupt requests.
+        // There is NO reason to hurry to sense data on
+        // the same channel the interrupt belongs to.
+        // The interrupt's purpose of waking up the
+        // signal checker has been fulfilled and signals are
+        // being read from the signal memory (queue) right now.
+        //
+        // If resetting the interrupt too early, the old
+        // (already sensed) data are still available on the channel
+        // and the interrupt would be set right again.
+        // But this double or triple etc. detection of data
+        // might lead to cases in which cyboi tries to
+        // receive data it MEANWHILE already received.
+        // This would lead to empty data which complicates
+        // CYBOL programming, because cybol developers then would
+        // have to consider empty input using a flag, if-else etc.
+        // But if data were sensed (detected), it should be
+        // possible for cybol developers to rely on their availability.
+        //
+        // This effect is caused by the main thread
+        // and sensing threads running in parallel.
+        // It is comparable to something like a "race".
+        //
+        // Following an example of what would happen
+        // when (falsely) resetting the interrupt first
+        // and only then handle and process the signal:
+        // - sensing thread detects data input on terminal, sets irq
+        // - main thread wakes up, resets irq
+        // - main thread receives data from terminal
+        // - sensing thread MEANWHILE (IN PARALLEL) detects the same data again on terminal, sets irq
+        // - main thread tries to receive data (because irq is set), but finds nothing
+        // - main thread provides empty data (null data pointer and zero count) to next cybol operation
+        //
+        // CAUTION! Do NOT try to reset the irq in the corresponding
+        // "receive" functions of the several channels.
+        // Spreading the reset code over many functions is bad
+        // and leads to redundant logic.
+        // Further, it is not always clear where to reset
+        // the irq, e.g. after having read all characters
+        // or just one? But ansi escape sequences consist
+        // of many characters that may or may not belong together ...
+        // Therefore, LEAVE the code for resetting irq HERE.
         //
         // CAUTION! Avoid using the "copy_integer" function,
         // since the irq is atomic and casting it to int
@@ -109,13 +153,6 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         // Unlock mutex.
         pthread_mutex_unlock(mt);
-
-        // Handle signal.
-        //
-        // CAUTION! The "handle" function has to be called DIRECTLY
-        // (with direct execution flag set) here!
-        // For reasons, see the comment block above!
-        handle(s, p0, p1, p2, p3, p4, (void*) &x, p6);
 
         // CAUTION! An interrupt request was detected and the corresponding data received.
         // It is therefore VERY likely that new signals have been generated while handling the data.
