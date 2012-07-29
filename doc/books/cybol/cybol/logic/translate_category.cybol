@@ -15,12 +15,12 @@
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_index_string"/>
     </part>
 
-    <!-- build access to category specification -->
+    <!-- build path to category specification -->
     <part name="build_category_access_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_access_path"/>
     </part>
 
-    <!-- build access to category specification -->
+    <!-- build path to category wui -->
     <part name="build_category_wui_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_wui_path"/>
     </part>
@@ -48,6 +48,11 @@
     <!-- build category property template structure -->
     <part name="build_category_property_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_property"/>
+    </part>
+
+    <!-- build category toc template -->
+    <part name="build_category_toc_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_toc"/>
     </part>
 
     <!-- handle category loop after finished category --> 
