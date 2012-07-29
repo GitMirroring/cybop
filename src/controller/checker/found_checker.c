@@ -68,11 +68,11 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
     // Whenever a signal is added to the signal memory,
     // then the signal memory flag is set as well.
-    // It gets reset when detecting the signal memory interrupt (see below).
+    // It gets reset when detecting the signal memory interrupt.
     //
     // CAUTION! However, when other signals happen to be processed right now,
     // then the signal that was just added is processed as well.
-    // In this case, an interrupt detection (see below) does not take place.
+    // In this case, an interrupt detection does not take place.
     // But the signal memory interrupt HAS TO BE RESET ANYWAY,
     // since otherwise, the system's signal processing might get mixed up.
     copy_integer(p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
