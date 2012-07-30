@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Deactivate signal memory irq and mutex (testwise comment out), since irqs for other channels suffice
+            and a signal memory wakeup cannot come from the sleeping main thread itself, but only from outside (terminal, socket etc.)
+            and furthermore, UNIX system signal handlers for sensing thread interruption are not affected by them
+
 2012-07-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue cybol example application "tui" for demonstrating text user interface

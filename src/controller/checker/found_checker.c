@@ -59,7 +59,13 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 //?? fwprintf(stdout, L"TEST check found: %i\n", x);
 
     // Lock signal memory mutex.
-    pthread_mutex_lock(p5);
+//??    pthread_mutex_lock(p5);
+
+/*??
+static int COUNTER;
+COUNTER++;
+fwprintf(stdout, L"TEST COUNTER: %i\n", COUNTER);
+*/
 
     // Remove signal from signal memory.
     remove_item(p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -75,10 +81,10 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // In this case, an interrupt detection does not take place.
     // But the signal memory interrupt HAS TO BE RESET ANYWAY,
     // since otherwise, the system's signal processing might get mixed up.
-    copy_integer(p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+//??    copy_integer(p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Unlock signal memory mutex.
-    pthread_mutex_unlock(p5);
+//??    pthread_mutex_unlock(p5);
 
     // Handle signal.
     handle(p0, p1, p2, p3, p4, p5, (void*) &x, p6);

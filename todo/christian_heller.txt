@@ -11,12 +11,7 @@
 
         * Fix bug that terminal input is detected just once, but not a second time etc.
             (chosen action got executed once and then disappeared in knowledge tree node ".actions")
-            ideas:
-            - the part's references set to zero when removed from signal memory, so that part gets destroyed (check with log message in referencer)
-            - try deactivating (commenting) code using un-/setting signal_memory irq
-                Are irqs for other channels sufficient?
-                A "wakeup" cannot come from the sleeping system's signal memory itself, but rather from outside (terminal, socket etc.).
-            OK:
+            ideas checked, which are OK:
             - signal_sender (addition to signal memory): (references are used in both signal sensor and sender
             - check_found function resets signal memory irq BEFORE handling --> is this correct?
                 YES, because then the signal memory is open for new signals that might be placed in it while processing the current function
@@ -25,7 +20,15 @@
                 --> therefore, distinguish between kind of irq and reset signal memory irq BEFORE being processed?
                 NO, since a handler is NOT set in the case of a signal memory interrupt
                 --> therefore, it does not matter when the irq is reset, since no handling is taking place
+            - the part's references set to zero when removed from signal memory?
+                ... so that part gets destroyed (check with log message in referencer)?
+                NO, currently gc does not work, because of comparison with "part" type, while the "pointer" type arrives instead
         * Continue cybol example application "tui" for demonstrating text user interface
+
+        * Remove irq and mutex for signal memory (already prepared by commenting out);
+            The irqs for other channels are sufficient?
+            Is the signal memory irq needed for UNIX system signal handlers?: obviously NOT
+            A "wakeup" cannot come from the sleeping system's signal memory itself, but rather from outside (terminal, socket etc.).
 
         * Study "libcurl3" library for URL transfer
 

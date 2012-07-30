@@ -40,7 +40,8 @@
 #include "../../logger/logger.c"
 
 /**
- * Handles the situation that no signal is available and queries interrupts instead.
+ * Handles the situation that no signal is available in the signal memory
+ * and queries interrupts instead.
  *
  * @param p0 the internal memory data
  * @param p1 the knowledge memory part

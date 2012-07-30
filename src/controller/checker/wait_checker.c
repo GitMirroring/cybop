@@ -54,7 +54,7 @@ void check_wait(void* p0, void* p1) {
         int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // The signal memory interrupt request.
-        void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+//??        void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The terminal interrupt request.
         void* lt = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The x window system interrupt request.
@@ -74,7 +74,7 @@ void check_wait(void* p0, void* p1) {
         // and interrupt request variables may have to be introduced one day,
         // which would make it necessary to adapt all function signatures then.
         // Therefore, these variables are used locally just here.
-        copy_array_forward((void*) &sm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+//??        copy_array_forward((void*) &sm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         copy_array_forward((void*) &lt, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         copy_array_forward((void*) &xw, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -98,7 +98,7 @@ void check_wait(void* p0, void* p1) {
 
         if (lt != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (sm != *NULL_POINTER_STATE_CYBOI_MODEL) {
+//??        if (sm != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Wait for an interrupt request.");
 
@@ -187,8 +187,10 @@ void check_wait(void* p0, void* p1) {
 
 //?? fwprintf(stdout, L"TEST wait *sl: %f\n", *((double*) sl));
 
-            while ((*((int*) sm) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                && (*((int*) lt) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            while (
+//??                (*((int*) sm) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+//??                &&
+                (*((int*) lt) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
                 && (*((int*) xw) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
                 && (*((int*) ww) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
                 && (*((int*) cy) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
@@ -211,10 +213,12 @@ void check_wait(void* p0, void* p1) {
             // In this case, probably a signal was placed in the signal memory and
             // the corresponding interrupt variable set to true (one).
 
+/*??
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The signal memory interrupt request is null.");
         }
+*/
 
         } else {
 

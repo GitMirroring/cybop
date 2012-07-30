@@ -72,6 +72,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // Otherwise, if an irq was retrieved AND its value is not false (irq is set),
         // this and further interrupts are NOT checked.
 
+/*??
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected signal memory interrupt.");
@@ -84,6 +85,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
 
 //?? fwprintf(stdout, L"TEST detected signal memory irq: %i\n", *((int*) *irq));
         }
+*/
 
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
