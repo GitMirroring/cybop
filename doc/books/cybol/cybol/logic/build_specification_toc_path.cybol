@@ -7,7 +7,7 @@
 
     <part name="add_static_knowledge_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_toc_path"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".wui.index.body.toc.api_content."/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".wui.index.body.toc."/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_dynamic_knowledge_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">

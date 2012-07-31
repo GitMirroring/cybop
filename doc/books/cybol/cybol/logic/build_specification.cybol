@@ -4,7 +4,7 @@
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content.api_content"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content"/>
     </part>
 
     <!-- create knowledge path to selected specification for content -->
@@ -38,7 +38,7 @@
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.toc.api_content"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.toc"/>
     </part>
 
     <!-- create knowledge path to selected specification for content -->
