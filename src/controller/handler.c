@@ -71,11 +71,11 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The referenced (by a knowledge path) signal part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encapsulated signal part.
+    // The reference signal part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encapsulated signal part model.
+    // The reference signal part model.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encapsulated signal part model data, count.
+    // The reference signal part model data, count.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -124,23 +124,23 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, fd, (void*) ENCAPSULATED_PATH_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, fd, (void*) REFERENCE_PATH_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST handle encapsulated: %i\n", r);
+//?? fwprintf(stdout, L"TEST handle reference: %i\n", r);
 
-            // Get encapsulated signal part.
+            // Get reference signal part.
             // CAUTION! Hand over name as reference!
             deserialise_knowledge((void*) &e, p2, (void*) &md, mc);
 
-            // Get encapsulated signal part model item.
+            // Get reference signal part model item.
             copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            // Get encapsulated signal part model data, count array.
+            // Get reference signal part model data, count array.
             copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-            // Get double-encapsulated signal part.
+            // Get double-reference signal part.
             // CAUTION! Hand over name as reference!
             deserialise_knowledge((void*) &part, p2, (void*) &emd, emc);
 

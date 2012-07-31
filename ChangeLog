@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-07-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename cybol format "path/encapsulated" into "path/reference"
+
 2012-07-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Deactivate signal memory irq and mutex (testwise comment out), since irqs for other channels suffice

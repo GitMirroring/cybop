@@ -161,8 +161,8 @@ static int* INTEGER_NUMBER_STATE_CYBOI_FORMAT = NUMBER_354_INTEGER_STATE_CYBOI_M
 // path
 //
 
-/** The encapsulated path state cyboi format. */
-static int* ENCAPSULATED_PATH_STATE_CYBOI_FORMAT = NUMBER_400_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The reference path state cyboi format. */
+static int* REFERENCE_PATH_STATE_CYBOI_FORMAT = NUMBER_400_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The knowledge path state cyboi format. */
 static int* KNOWLEDGE_PATH_STATE_CYBOI_FORMAT = NUMBER_401_INTEGER_STATE_CYBOI_MODEL_ARRAY;

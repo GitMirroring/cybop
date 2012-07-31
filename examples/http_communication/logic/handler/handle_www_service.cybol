@@ -13,7 +13,7 @@
     </part>
     <part name="send" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="send">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="signal"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".http_communication.logic.handler.www_index_input_model"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".http_communication.logic.handler.www_index_input_model"/>
     </part>
 </model>
 

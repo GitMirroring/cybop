@@ -33,7 +33,6 @@
 #include <wchar.h>
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -71,7 +70,6 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
                     // Also, this function runs in an endless loop and would produce huge log files.
-                    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal message.");
 
                     // Lock terminal mutex.
                     //

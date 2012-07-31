@@ -41,8 +41,6 @@
 #include "../../../../constant/channel/cybol_channel.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -127,7 +125,6 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                         // logging is not guaranteed to be thread-safe and might
                         // cause unpredictable programme behaviour.
                         // Also, this function runs in an endless loop and would produce huge log files.
-                        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense socket.");
 
     fwprintf(stdout, L"TEST: sense (stream) socket server socket: %i \n", *os);
 
@@ -307,7 +304,6 @@ void sense_socket(void* p0, void* p1) {
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense socket.");
 
         // The internal memory index.
         int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;

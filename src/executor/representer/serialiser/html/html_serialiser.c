@@ -184,7 +184,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) ENCAPSULATED_PATH_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) REFERENCE_PATH_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

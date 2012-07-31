@@ -26,7 +26,7 @@
     </part>
     <part name="send_command" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="signal"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".ui_control.logic.handler.gnu_linux_console_command_model"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".ui_control.logic.handler.gnu_linux_console_command_model"/>
     </part>
 </model>
 

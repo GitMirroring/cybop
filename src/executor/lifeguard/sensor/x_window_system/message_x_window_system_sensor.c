@@ -70,7 +70,6 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
                     // Also, this function runs in an endless loop and would produce huge log files.
-                    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense x window system message.");
 
                     // CAUTION! Do NOT use the following statement directly here:
                     // while (XEventsQueued(*d, QueuedAfterReading) == 0) { ... }

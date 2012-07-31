@@ -1,0 +1,44 @@
+
+Design Decisions
+================
+
+Multiple Formats
+________________
+
+Question:
+Should multiple formats (types) be allowed?
+- separated by a pipe character
+- as value of the "format" CYBOL attribute
+- to be processed in this order, one-by-one in CYBOI
+
+Example:
+format="text/plain|UTF-8|tar|gzip"
+
+Answer:
+This is NOT necessary.
+- there is a "format" attribute in CYBOL, e.g. number/fraction-vulgar
+- there is an additional "language" attribute, e.g. text/html
+- multiple translations can be handled as separate operations,
+  by assigning the result of one translation to a tree node
+  which serves as input to another operation
+- similar to pipelining in UNIX
+
+Sensing Thread Interruption
+___________________________
+
+Question:
+Stop sensing thread while data detection irq is set?
+- seems better than "busy waiting" (sleep loop)
+- might relax the cpu
+- sensing might continue if irq has been processed and reset
+- how to continue a thread?
+
+Example:
+- see function "sense_terminal"
+
+Answer:
+NO for now.
+- interrupting and creating threads eats performance
+- a new sensing thread would have to be created every some miliseconds
+- is whole process context (memory?) copied for each new thread?
+- probably causes more effort than busy waiting

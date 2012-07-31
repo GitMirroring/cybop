@@ -9,6 +9,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"
+
         * Fix bug that terminal input is detected just once, but not a second time etc.
             (chosen action got executed once and then disappeared in knowledge tree node ".actions")
             ideas checked, which are OK:
@@ -25,33 +27,22 @@
                 NO, currently gc does not work, because of comparison with "part" type, while the "pointer" type arrives instead
         * Continue cybol example application "tui" for demonstrating text user interface
 
+        * Reactivate "sense" in about dialogue of "ui_control" cybol app
+        * Solve issue with "ui_control" cybol app in "handle_gnu_linux_console_command.cybol" and "handle_gnu_linux_console.cybol"
+        * Split and adapt "handle_about_dialog.cybol" likewise
+
+        * Remove temporary solution in file "file_terminal_sender.c"
+        * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input
+        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
+            --> probably NOT necessary for all channels
+            --> if terminal output and input stream are treated differently, then NO conflicts are to be expected and NO mutex is necessary
+
         * Remove irq and mutex for signal memory (already prepared by commenting out);
             The irqs for other channels are sufficient?
             Is the signal memory irq needed for UNIX system signal handlers?: obviously NOT
             A "wakeup" cannot come from the sleeping system's signal memory itself, but rather from outside (terminal, socket etc.).
 
-        * Study "libcurl3" library for URL transfer
-
-        * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"
-
-        * Reactivate "sense" in about dialogue of "ui_control" cybol app
-        * Solve issue with "ui_control" cybol app in "handle_gnu_linux_console_command.cybol" and "handle_gnu_linux_console.cybol"
-        * Split and adapt "handle_about_dialog.cybol" likewise
-
-        * Why does terminal sensing detect input, even if nothing was done on terminal (besides output)?
-        * Check why some operations are null and therefore unknown:
-            Warum wird bei Eingabe von <enter> "sense" ein zweites Mal aufgerufen?
-            --> weil für about dialog "sense" mit anderen kommandos aufgerufen wird
-        * Check why sequences like "arrow up" DO arrive correctly, but NOT simple letters like "e"
-            --> just comment out tui sending in "ui_control" and only receive key presses to test
-            ==> try to compile new file "character_ansi_escape_code_deserialiser.c" -- IS THIS THE BUG FIX?
-
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"
-
-        * Remove temporary solution in file "file_terminal_sender.c"
-        * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input
-        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
-            (possibly not necessary for all channels)
 
         * Reactivate x_window_system receive functionality
         * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):
@@ -59,6 +50,7 @@
         * Debug lost memory errors (see valgrind memcheck log file)
 
         * Reactivate socket functionality
+        * Study "libcurl3" library for URL transfer
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
             in file "socket_starter.c" to new model constants
@@ -95,27 +87,8 @@
         * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
             http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
 
-        * Add new cybol function "convert" or "translate" (or "deserialise" and "serialise"?)
-        * Simplify send/receive functions by factoring out translation to steps before
-        * Hand over already translated message to send/receive
-        * Enable multiple abstractions like "character|UTF-32|gzip", separated by
-            a "pipe" character and processed one-by-one, in the given order?
-            --> not necessary, if all translation is done transparently in cybol models
-
         * Adapt all places in source code where reallocation is used to new
             reallocation factor handling and also shrink memory structures appropriately
-
-        * TUI: Check why the escape code sequence (e.g. ESC[B for arrow left) is added to the
-            knowledge tree TEST_SHUTDOWN, instead of the decoded string "arrow_left"
-        * stop thread if irq has already been set to 1; only continue sensing if irq is 0,
-            e.g. in function "sense_gnu_linux_console"
-        * possibly also wait some time while irq is 0, not only while irq is 1
-
-        * Set "receive" model in internal memory to NULL in "interrupt" (stop sensing) function,
-            but do NOT destroy, since it belongs to the knowledge model tree
-
-        * Does the logger need an own mutex? ... because it is accessed by all threads!
-            Alternative: Do NOT use the logger in sensing threads at all
 
         * Include the sources of all documents into the distributable tarball cybop-0.12.0/
             --> really? This will grow it up to 500 MB in size due to the images

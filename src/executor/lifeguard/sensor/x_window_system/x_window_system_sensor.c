@@ -50,7 +50,6 @@ void sense_x_window_system(void* p0) {
     // This function is executed within a thread, but the
     // logging is not guaranteed to be thread-safe and might
     // cause unpredictable programme behaviour.
-    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense x window system.");
 
     // The interrupt.
     void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -54,7 +54,7 @@
 //
 
 /**
- * The path/encapsulated state cybol type.
+ * The path/reference state cybol type.
  *
  * A knowledge path pointing to an item of a knowledge tree,
  * that contains a knowledge path.
@@ -66,9 +66,9 @@
  *
  * The same rules as for the "path/knowledge" language apply here.
  */
-static wchar_t ENCAPSULATED_PATH_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd'};
-static wchar_t* ENCAPSULATED_PATH_STATE_CYBOL_FORMAT = ENCAPSULATED_PATH_STATE_CYBOL_FORMAT_ARRAY;
-static int* ENCAPSULATED_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t REFERENCE_PATH_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd'};
+static wchar_t* REFERENCE_PATH_STATE_CYBOL_FORMAT = REFERENCE_PATH_STATE_CYBOL_FORMAT_ARRAY;
+static int* REFERENCE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The path/knowledge state cybol type.

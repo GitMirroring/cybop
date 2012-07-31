@@ -37,7 +37,7 @@
 
 /**
  * Gets the knowledge part by hierarchical name,
- * whereby the name may also be given as encapsulated name.
+ * whereby the name may also be given as reference name.
  *
  * A name with missing prefix does not necessarily have to be
  * an error, since property (meta) names are given without prefix.
@@ -74,11 +74,11 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     void* sfd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encapsulated part.
+    // The reference part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encapsulated part model item.
+    // The reference part model item.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encapsulated part model item data, count.
+    // The reference part model item data, count.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The temporary source data position.
@@ -90,8 +90,8 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     get_name_array((void*) &s, p1, p2, p3, p4);
     // Get source part format, model item.
     // CAUTION! It is necessary to find out about the format and model.
-    // The format may be "path/encapsulated", "path/knowledge", or some other.
-    // The model may contain a knowledge path or encapsulated knowledge path.
+    // The format may be "path/reference", "path/knowledge", or some other.
+    // The model may contain a knowledge path or reference knowledge path.
     copy_array_forward((void*) &sf, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get source part format, model data, count.
@@ -104,22 +104,22 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     //
     // The following comparisons do, in this order, get a part model item as:
-    // - encapsulated knowledge (a model pointing to another model containing a part name)
+    // - reference knowledge (a model pointing to another model containing a part name)
     // - knowledge (a model containing a hierarchical part name)
     // - direct model
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, sfd, (void*) ENCAPSULATED_PATH_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, sfd, (void*) REFERENCE_PATH_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Get part as encapsulated knowledge.
+            // Get part as reference knowledge.
             //
-            // CAUTION! The format "path/encapsulated" is processed as wchar_t inside.
-            // The "properties" are uninteresting, since an encapsulated name cannot have
+            // CAUTION! The format "path/reference" is processed as wchar_t inside.
+            // The "properties" are uninteresting, since an reference name cannot have
             // constraints. That is, only the model is of interest. It contains the
             // hierarchical name of the knowledge part to be retrieved.
             //
@@ -143,12 +143,12 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // A local copy was made anyway, not to risk parametre falsification.
             // Its reference is forwarded, as it gets incremented by sub routines inside.
 
-            // Get encapsulated part.
+            // Get reference part.
             // CAUTION! Hand over name as reference!
             deserialise_knowledge((void*) &e, p5, (void*) &d, (void*) &c);
-            // Get encapsulated part model item.
+            // Get reference part model item.
             copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            // Get encapsulated part model item data, count.
+            // Get reference part model item data, count.
             copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
@@ -184,7 +184,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // Get part as knowledge model.
             //
             // CAUTION! The format "path/knowledge" is processed as wchar_t inside.
-            // The "properties" are uninteresting, since an encapsulated name cannot have
+            // The "properties" are uninteresting, since an reference name cannot have
             // constraints. That is, only the model is of interest. It contains the
             // hierarchical name of the knowledge part to be retrieved.
             //
