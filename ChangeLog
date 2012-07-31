@@ -19,6 +19,7 @@
 2012-07-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename cybol format "path/encapsulated" into "path/reference"
+        * Debug cybol example application "tui"
 
 2012-07-30  Christian Heller  <christian.heller@tuxtax.de>
 

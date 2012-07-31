@@ -71,7 +71,8 @@
     </part>
     <part name="send_command" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="signal"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.path"/>
+        <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.path"/>
     </part>
     <part name="test_knowledge_tree_actions_6" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>

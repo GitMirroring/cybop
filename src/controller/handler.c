@@ -39,6 +39,9 @@
 #include "../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
 #include "../logger/logger.c"
 
+//?? TEMPORARY FOR TESTING! DELETE LATER!
+#include "../tester/part_as_model_diagram_tester.c"
+
 /**
  * Handles the signal.
  *
@@ -69,15 +72,15 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The referenced (by a knowledge path) signal part.
+    // The knowledge signal part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The reference signal part.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ref = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The reference signal part model.
-    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* refm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The reference signal part model data, count.
-    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* refmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* refmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get signal part format, model, properties.
     copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
@@ -91,13 +94,15 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-/*??
 if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 fwprintf(stdout, L"TEST handle *fd: %i\n", *((int*) fd));
 } else {
 fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 }
-*/
+
+//?? TEST BEGIN
+test_part_as_model_diagram((void*) L"TEST/test_1", p2);
+//?? TEST END
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -132,17 +137,17 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 
             // Get reference signal part.
             // CAUTION! Hand over name as reference!
-            deserialise_knowledge((void*) &e, p2, (void*) &md, mc);
+            deserialise_knowledge((void*) &ref, p2, (void*) &md, mc);
 
             // Get reference signal part model item.
-            copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &refm, ref, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             // Get reference signal part model data, count array.
-            copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &refmd, refm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &refmc, refm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-            // Get double-reference signal part.
+            // Get actual referenced (ending with letter "d") signal part.
             // CAUTION! Hand over name as reference!
-            deserialise_knowledge((void*) &part, p2, (void*) &emd, emc);
+            deserialise_knowledge((void*) &part, p2, (void*) &refmd, refmc);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6, p7);
