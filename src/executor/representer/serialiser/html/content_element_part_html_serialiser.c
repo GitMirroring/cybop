@@ -131,6 +131,16 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
 
         if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // CAUTION! The content of compound parts gets
+            // added a line break inside the called function stack:
+            // - serialise_html
+            // - serialise_html_part
+            // - serialise_html_part_element
+            // - serialise_html_part_element_content
+            //
+            // However, this is NOT the case for primitive values like a text or number.
+            // Therefore, those have to get added a line break right here.
+
             // Append line feed character, for better source reading.
             append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
