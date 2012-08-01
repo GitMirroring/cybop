@@ -56,6 +56,11 @@ void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, 
     append_item_element(p0, (void*) LESS_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Append html tag.
     append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // TEST! The block below is NOT necessary and for testing only.
+    // The generated html file will contain an error message for each nameless tag.
+    if ((p1 == *NULL_POINTER_STATE_CYBOI_MODEL) || (p2 == *NULL_POINTER_STATE_CYBOI_MODEL)) {
+        append_item_element(p0, (void*) L"ERROR: The tree node does not contain a tag name!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_49_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    }
     // Append html tag properties.
     serialise_html_attributes(p0, p3, p4);
 
