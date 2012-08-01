@@ -12,7 +12,7 @@
     <part name="focus_background" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".ui_control.temporary.character"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.selection.background"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="colour/terminal"/>
     </part>
     <part name="assemble_current_element_foreground_1" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.character"/>
@@ -27,7 +27,16 @@
     <part name="focus_foreground" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".ui_control.temporary.character"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.selection.foreground"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="colour/terminal"/>
+    </part>
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control"/>
+        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_UI_CONTROL.txt"/>
     </part>
     <part name="send_tui" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>

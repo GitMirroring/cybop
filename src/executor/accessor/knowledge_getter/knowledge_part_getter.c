@@ -75,16 +75,16 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The reference part.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ref = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The reference part model item.
-    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* refm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The reference part model item data, count.
-    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* refmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* refmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The temporary source data position.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The temporary source count remaining.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get source part.
     get_name_array((void*) &s, p1, p2, p3, p4);
@@ -119,7 +119,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // Get part as reference knowledge.
             //
             // CAUTION! The format "path/reference" is processed as wchar_t inside.
-            // The "properties" are uninteresting, since an reference name cannot have
+            // The "properties" are uninteresting, since a reference name cannot have
             // constraints. That is, only the model is of interest. It contains the
             // hierarchical name of the knowledge part to be retrieved.
             //
@@ -128,49 +128,38 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             //
 
             // Copy source data position.
-            copy_pointer((void*) &d, (void*) &smd);
+            copy_pointer((void*) &pathd, (void*) &smd);
             // Copy source count remaining.
-            copy_integer((void*) &c, smc);
+            copy_integer((void*) &pathc, smc);
 
-            // CAUTION! A COPY of source count remaining is forwarded here,
-            // so that the original source value does not get changed.
-            // This is IMPORTANT since otherwise, the original variable's "count"
-            // gets decreased to zero, so that knowledge access works only once
-            // (while decrementing the "count"), but not anymore afterwards.
-            //
-            // CAUTION! The source data position does NOT have to be copied,
-            // since the parametre that was handed over is already a copy.
-            // A local copy was made anyway, not to risk parametre falsification.
-            // Its reference is forwarded, as it gets incremented by sub routines inside.
-
-            // Get reference part.
+            // Get reference knowledge part.
             // CAUTION! Hand over name as reference!
-            deserialise_knowledge((void*) &e, p5, (void*) &d, (void*) &c);
+            // CAUTION! A COPY of path data and count is forwarded here,
+            // so that the original values do NOT get changed.
+            // This is IMPORTANT since otherwise, the original data position
+            // gets increased and the count remaining decreased to zero,
+            // so that knowledge access works only once, but not anymore afterwards.
+            deserialise_knowledge((void*) &ref, p5, (void*) &pathd, (void*) &pathc);
+
             // Get reference part model item.
-            copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &refm, ref, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             // Get reference part model item data, count.
-            copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &refmd, refm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &refmc, refm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             // Copy source data position.
-            copy_pointer((void*) &d, (void*) &emd);
+            copy_pointer((void*) &pathd, (void*) &refmd);
             // Copy source count remaining.
-            copy_integer((void*) &c, emc);
+            copy_integer((void*) &pathc, refmc);
 
-            // CAUTION! A COPY of source count remaining is forwarded here,
-            // so that the original source value does not get changed.
-            // This is IMPORTANT since otherwise, the original variable's "count"
-            // gets decreased to zero, so that knowledge access works only once
-            // (while decrementing the "count"), but not anymore afterwards.
-            //
-            // CAUTION! The source data position does NOT have to be copied,
-            // since the parametre that was handed over is already a copy.
-            // A local copy was made anyway, not to risk parametre falsification.
-            // Its reference is forwarded, as it gets incremented by sub routines inside.
-
-            // Get knowledge part.
+            // Get actual referenced (ending with letter "d") knowledge part.
             // CAUTION! Hand over name as reference!
-            deserialise_knowledge(p0, p5, (void*) &d, (void*) &c);
+            // CAUTION! A COPY of path data and count is forwarded here,
+            // so that the original values do NOT get changed.
+            // This is IMPORTANT since otherwise, the original data position
+            // gets increased and the count remaining decreased to zero,
+            // so that knowledge access works only once, but not anymore afterwards.
+            deserialise_knowledge(p0, p5, (void*) &pathd, (void*) &pathc);
         }
     }
 
@@ -184,7 +173,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // Get part as knowledge model.
             //
             // CAUTION! The format "path/knowledge" is processed as wchar_t inside.
-            // The "properties" are uninteresting, since an reference name cannot have
+            // The "properties" are uninteresting, since a reference name cannot have
             // constraints. That is, only the model is of interest. It contains the
             // hierarchical name of the knowledge part to be retrieved.
             //
@@ -193,24 +182,18 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             //
 
             // Copy source data position.
-            copy_pointer((void*) &d, (void*) &smd);
+            copy_pointer((void*) &pathd, (void*) &smd);
             // Copy source count remaining.
-            copy_integer((void*) &c, smc);
+            copy_integer((void*) &pathc, smc);
 
-            // CAUTION! A COPY of source count remaining is forwarded here,
-            // so that the original source value does not get changed.
-            // This is IMPORTANT since otherwise, the original variable's "count"
-            // gets decreased to zero, so that knowledge access works only once
-            // (while decrementing the "count"), but not anymore afterwards.
-            //
-            // CAUTION! The source data position does NOT have to be copied,
-            // since the parametre that was handed over is already a copy.
-            // A local copy was made anyway, not to risk parametre falsification.
-            // Its reference is forwarded, as it gets incremented by sub routines inside.
-
-            // Get knowledge part.
+            // Get knowledge part referenced by a knowledge path.
             // CAUTION! Hand over name as reference!
-            deserialise_knowledge(p0, p5, (void*) &d, (void*) &c);
+            // CAUTION! A COPY of path data and count is forwarded here,
+            // so that the original values do NOT get changed.
+            // This is IMPORTANT since otherwise, the original data position
+            // gets increased and the count remaining decreased to zero,
+            // so that knowledge access works only once, but not anymore afterwards.
+            deserialise_knowledge(p0, p5, (void*) &pathd, (void*) &pathc);
         }
     }
 

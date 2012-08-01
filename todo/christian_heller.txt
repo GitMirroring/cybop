@@ -9,11 +9,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Unify common code of files "handler.c" and "knowledge_part_getter.c"
+        * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
+            --> possibly, state and logic models need to be handled differently (at least path/reference)
+        * Fix bug in "ui_control" example where red selection bar does not appear due to an empty destination (related to path issue when using path/reference)
 
-        * Reactivate "sense" in about dialogue of "ui_control" cybol app
-        * Solve issue with "ui_control" cybol app in "handle_gnu_linux_console_command.cybol" and "handle_gnu_linux_console.cybol"
-        * Split and adapt "handle_about_dialog.cybol" likewise
+| | | +-focus_background | modify/overwrite |
+| | | | #-destination |  |
+| | | | #-source | path/knowledge | .ui_control.settings.tui.selection.background
+| | | | #-type | meta/type | number/integer
 
         * Remove temporary solution in file "file_terminal_sender.c"
         * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input

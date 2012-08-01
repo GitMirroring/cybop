@@ -1,54 +1,34 @@
 <model>
-    <!-- Write test message to terminal. -->
-    <part name="test_message" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="handle_console"/>
-        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-    </part>
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
     <part name="reset_command" channel="inline" encoding="utf-8" language="text/cybol" format="modify/empty" model="">
-        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.command"/>
     </part>
     <part name="receive_command" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.command"/>
     </part>
-    <!-- Write knowledge tree into file. -->
-    <part name="test_command" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command"/>
-        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_UI_CONTROL_HANDLER_MAIN_COMMAND_ONLY.txt"/>
+    <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
+    <part name="append_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.path"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.logic.user_interface.main_window_actions."/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
-    <part name="reset_flag" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.command_exists"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="logicvalue/boolean"/>
+    <part name="append_command" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.path"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.command"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
-    <!-- The command MUST NOT be empty, since otherwise, a signal with unpredictable content is sent. -->
-    <part name="check_command" channel="inline" encoding="utf-8" language="text/cybol" format="access/indicate-exists" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.command_exists"/>
-        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.gnu_linux_console_command"/>
-    </part>
-    <!-- Write knowledge tree into file. -->
-    <part name="test_knowledge_tree" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler"/>
-        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_UI_CONTROL_HANDLER_MAIN.txt"/>
-    </part>
-    <part name="execute_command" channel="inline" encoding="utf-8" language="text/cybol" format="flow/branch" model="">
-        <property name="criterion" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.command_exists"/>
-        <property name="true" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.handler.handle_gnu_linux_console_command"/>
+    <!--
+        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
+        Otherwise, another signal might be executed before, so that this signal could possibly
+        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
+        The "flow/sequence" operation ensures that the given model is executed directly.
+    -->
+    <part name="send_command" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.path"/>
     </part>
 </model>
 

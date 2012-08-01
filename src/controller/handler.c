@@ -164,6 +164,9 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             // CAUTION! Hand over name as reference!
             // CAUTION! A COPY of path data and count is forwarded here,
             // so that the original values do NOT get changed.
+            // This is IMPORTANT since otherwise, the original data position
+            // gets increased and the count remaining decreased to zero,
+            // so that knowledge access works only once, but not anymore afterwards.
             deserialise_knowledge((void*) &ref, p2, (void*) &pathd, (void*) &pathc);
 
             // Get reference signal part model item.
@@ -181,6 +184,9 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             // CAUTION! Hand over name as reference!
             // CAUTION! A COPY of path data and count is forwarded here,
             // so that the original values do NOT get changed.
+            // This is IMPORTANT since otherwise, the original data position
+            // gets increased and the count remaining decreased to zero,
+            // so that knowledge access works only once, but not anymore afterwards.
             deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc);
 
             // Handle signal.
@@ -205,6 +211,9 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             // CAUTION! Hand over name as reference!
             // CAUTION! A COPY of path data and count is forwarded here,
             // so that the original values do NOT get changed.
+            // This is IMPORTANT since otherwise, the original data position
+            // gets increased and the count remaining decreased to zero,
+            // so that knowledge access works only once, but not anymore afterwards.
             deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc);
 
             // Handle signal.

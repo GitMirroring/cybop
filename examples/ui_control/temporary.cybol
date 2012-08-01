@@ -1,9 +1,13 @@
 <model>
-    <part name="url" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="http://www.cybop.org/">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.menu_footer"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="25,0"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="24,1"/>
-    </part>
+    <part name="character" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="integer" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model=""/>
+    <part name="command" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <!--
+        CAUTION! The path format is "path/knowledge" and NOT "text/plain".
+        A knowledge path is treated like a character array anyway.
+        So, text fragments may be added to it in the "handler.cybol" file.
+    -->
+    <part name="path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
 </model>
 
 <!--

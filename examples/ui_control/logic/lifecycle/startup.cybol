@@ -11,18 +11,6 @@
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
         <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control"/>
     </part>
-    <part name="create_character" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="character"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary"/>
-    </part>
-    <part name="create_integer" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
-        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary"/>
-    </part>
     <part name="create_application_information" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="application_information"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
@@ -52,6 +40,14 @@
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
         <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control"/>
+    </part>
+    <part name="initialise_temporary" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="ui_control/temporary.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary"/>
     </part>
     <part name="initialise_application_information" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>

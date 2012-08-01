@@ -21,8 +21,10 @@
         * Insert error message for tree nodes with empty tag name in html serialiser
         * Initialise knowledge tree root node in file "manager.c", which is necessary for model diagram printing
         * Fix bug in file "handler.c" that handed over the signal model as parametre, which got manipulated by the
-            "deserialise_knowledge" function, so that following operation calls of type "path/knowledge" seemed empty
+            "deserialise_knowledge" function, so that following operation calls of type "path/knowledge" were empty
+            (the same bug was already fixed in file "knowledge_part_getter.c")
         * Complete cybol example application "tui"
+        * Debug cybol example application "ui_control"
 
 2012-07-31  Christian Heller  <christian.heller@tuxtax.de>
 

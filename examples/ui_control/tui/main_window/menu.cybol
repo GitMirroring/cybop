@@ -1,4 +1,8 @@
 <model>
+    <!--?? TODO:
+        Delete the "background", "foreground" and "bold" properties later, since they are already part of the standard setting!
+        But as long as CYBOI does not handle super templates at creation time, they must be added explicitly here.
+    -->
     <part name="title" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Menu">
         <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.menu_title"/>
         <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="30,1"/>
@@ -59,10 +63,6 @@
         <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="white"/>
         <property name="bold" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    <!--??
-        Delete the "background", "foreground" and "bold" properties later, since they are already part of the standard setting!
-        But as long as CYBOI does not handle super templates at creation time, they must be added explicitly here.
-    -->
 </model>
 
 <!--
