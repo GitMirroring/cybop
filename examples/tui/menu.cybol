@@ -21,6 +21,20 @@
         <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="white"/>
         <property name="bold" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
+    <part name="keys_heading" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="You may press the following keys:">
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2,6"/>
+        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="60,1"/>
+        <property name="background" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="white"/>
+        <property name="bold" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="keys_content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="arrow down/up/left/right, enter, escape, m, e">
+        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2,7"/>
+        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="60,1"/>
+        <property name="background" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="white"/>
+        <property name="bold" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
 </model>
 
 <!--

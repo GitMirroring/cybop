@@ -81,6 +81,10 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     // The reference signal part model data, count.
     void* refmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* refmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary source path data position.
+    void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary source path count remaining.
+    int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get signal part format, model, properties.
     copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
@@ -151,9 +155,16 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 
 //?? fwprintf(stdout, L"TEST handle reference: %i\n", r);
 
+            // Copy source path data position.
+            copy_pointer((void*) &pathd, (void*) &md);
+            // Copy source path count remaining.
+            copy_integer((void*) &pathc, mc);
+
             // Get reference signal part.
             // CAUTION! Hand over name as reference!
-            deserialise_knowledge((void*) &ref, p2, (void*) &md, mc);
+            // CAUTION! A COPY of path data and count is forwarded here,
+            // so that the original values do NOT get changed.
+            deserialise_knowledge((void*) &ref, p2, (void*) &pathd, (void*) &pathc);
 
             // Get reference signal part model item.
             copy_array_forward((void*) &refm, ref, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -161,9 +172,16 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             copy_array_forward((void*) &refmd, refm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &refmc, refm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+            // Copy source path data position.
+            copy_pointer((void*) &pathd, (void*) &refmd);
+            // Copy source path count remaining.
+            copy_integer((void*) &pathc, refmc);
+
             // Get actual referenced (ending with letter "d") signal part.
             // CAUTION! Hand over name as reference!
-            deserialise_knowledge((void*) &part, p2, (void*) &refmd, refmc);
+            // CAUTION! A COPY of path data and count is forwarded here,
+            // so that the original values do NOT get changed.
+            deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6, p7);
@@ -178,11 +196,6 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 
 //?? fwprintf(stdout, L"TEST handle knowledge: %i\n", r);
 
-            // The source path data position.
-            void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The source path count remaining.
-            int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
             // Copy source path data position.
             copy_pointer((void*) &pathd, (void*) &md);
             // Copy source path count remaining.
@@ -190,9 +203,8 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 
             // Get signal part referenced by a knowledge path.
             // CAUTION! Hand over name as reference!
-            // CAUTION! A copy of source path data and count is forwarded here,
-            // so that the original source path value does not get changed.
-//??            deserialise_knowledge((void*) &part, p2, (void*) &md, mc);
+            // CAUTION! A COPY of path data and count is forwarded here,
+            // so that the original values do NOT get changed.
             deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc);
 
             // Handle signal.

@@ -20,15 +20,8 @@
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.command"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
-    <part name="test_knowledge_tree_actions_5" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".actions"/>
-        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_TUI_actions_5.txt"/>
-    </part>
     <!-- Write knowledge tree into file. -->
+<!--
     <part name="test_knowledge_tree" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -37,6 +30,7 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary"/>
         <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_TUI.txt"/>
     </part>
+-->
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
         Otherwise, another signal might be executed before, so that this signal could possibly
@@ -47,13 +41,23 @@
         <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.path"/>
     </part>
-    <part name="test_knowledge_tree_actions_6" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+    <part name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" encoding="utf-8" language="text/cybol" format="run/run" model="">
+        <property name="programme" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="sleep 0.5"/>
+    </part>
+    <part name="send_tui" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".actions"/>
-        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_TUI_actions_6.txt"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.window"/>
+        <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="set_cursor" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.cursor"/>
     </part>
 </model>
 

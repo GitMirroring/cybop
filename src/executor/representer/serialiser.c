@@ -29,6 +29,11 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/language/cyboi/state_cyboi_language.c"
+// CAUTION! Do NOT include the "content_element_part_ansi_escape_code_serialiser.c" module.
+// It is true, the "serialise_ansi_escape_code_part_element_content" function is called from here,
+// but the module dependency hierarchy slightly differs and just goes top-down
+// by module granularity and NOT by call hierarchy.
+// Therefore, the "ansi_escape_code_serialiser.c" module is included here.
 #include "../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
 #include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 // CAUTION! Do NOT include the "content_element_part_html_serialiser.c" module.

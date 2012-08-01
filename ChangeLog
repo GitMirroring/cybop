@@ -20,6 +20,9 @@
 
         * Insert error message for tree nodes with empty tag name in html serialiser
         * Initialise knowledge tree root node in file "manager.c", which is necessary for model diagram printing
+        * Fix bug in file "handler.c" that handed over the signal model as parametre, which got manipulated by the
+            "deserialise_knowledge" function, so that following operation calls of type "path/knowledge" seemed empty
+        * Complete cybol example application "tui"
 
 2012-07-31  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -28,9 +31,7 @@
 
 2012-07-30  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Deactivate signal memory irq and mutex (testwise comment out), since irqs for other channels suffice
-            and a signal memory wakeup cannot come from the sleeping main thread itself, but only from outside (terminal, socket etc.)
-            and furthermore, UNIX system signal handlers for sensing thread interruption are not affected by them
+        * Deactivate signal memory irq and mutex (testwise comment out)
         * Add "cybol_extension" tutorial of Falk Müller
 
 2012-07-27  Christian Heller  <christian.heller@tuxtax.de>
@@ -1360,7 +1361,7 @@
 2010-08-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up compilation errors stemming from previously implemented changes
-        * CAUTION! Parameter values such as *_MEMORY_ABSTRACTION should always be handed over together with MEMORY_ABSTRACTION_COUNT,
+        * CAUTION! Parametre values such as *_MEMORY_ABSTRACTION should always be handed over together with MEMORY_ABSTRACTION_COUNT,
             but NOT for array functions, to avoid cyclic calls when evaluating an "ABSTRACTION" constant
             which is currently of type "integer" but might become a "wide_character" again in future
 
@@ -1393,7 +1394,7 @@
 
 2010-02-21  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Replace "compare_arrays" with "compare_equal_arrays" and correct order of parameters
+        * Replace "compare_arrays" with "compare_equal_arrays" and correct order of parametres
         * Clean up compilation errors stemming from previously implemented changes
         * Remove superfluous "vector" files, e.g. "character_vector_getter.c" etc.
         * Remove further superfluous files, e.g. "character_vector_appender.c"
@@ -2051,7 +2052,7 @@
 
 2008-06-19  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Rollback changes from 2008-06-06, because function "optionalise" already returns wide character parameters
+        * Rollback changes from 2008-06-06, because function "optionalise" already returns wide character parametres
         * Hand over "&k" instead of just "k" in function call "optionalise" of function "main"
 
 2008-06-06  Christian Heller  <christian.heller@tuxtax.de>
@@ -2117,7 +2118,7 @@
         * Remove sub directory "controller/checker/", the functionality of whose files
             is now filled by function "check_interrupts" in module "checker.c"
         * Clean up module "checker.c" by removing old code that was commented out
-        * Correct parameter casts in function "check_signal" of module "checker.c"
+        * Correct parametre casts in function "check_signal" of module "checker.c"
         * Add encoding test files
 
 2008-05-12  Christian Heller  <christian.heller@tuxtax.de>
@@ -2182,9 +2183,9 @@
             the command is now not determined within the "receive" operations anymore,
             but instead has to be assembled in CYBOL knowledge files with the advantages:
             1 avoid problems with two calls of the function "get_universal_compound_element_by_name"
-              (once for the operation's "commands" parameter and another time for determining the actual command)
+              (once for the operation's "commands" parametre and another time for determining the actual command)
             2 more flexibility since the knowledge path of a command can be manipulated in CYBOL
-            3 no "commands" parameter has to be handed over to the CYBOL "receive" operation anymore
+            3 no "commands" parametre has to be handed over to the CYBOL "receive" operation anymore
         * Make example application "ui_control" work with at least "exit" operation
 
 2008-04-27  Christian Heller  <christian.heller@tuxtax.de>
@@ -2199,7 +2200,7 @@
 
 2008-04-23  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Correct parameters and bugs in module "checker.c" and others
+        * Correct parametres and bugs in module "checker.c" and others
 
 2008-04-22  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2298,7 +2299,7 @@
         * Determine body count at first, before adding it to http header in "http_response_converter.c"
         * Delete a number of outdated functions
         * Add temporary "dirty" changes to make http request and response back to the same client socket run for the first time
-            (e.g. misuse the signal id to forward the client socket as parameter attached to the signal)
+            (e.g. misuse the signal id to forward the client socket as parametre attached to the signal)
         * Merge all "applicator/interrupt/interrupt_*.c" files into "applicator/interrupt.c"
         * Adapt "applicator/shutdown/shutdown_*.c" files accordingly
         * Delete directory "applicator/interrupt/" recursively
@@ -2313,7 +2314,7 @@
 
 2007-10-14  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Hand over thread identification and thread interrupt as parameters,
+        * Hand over thread identification and thread interrupt as parametres,
             in all shutdown- and interrupt functions
 
 2007-10-03  Christian Heller  <christian.heller@tuxtax.de>
@@ -2322,7 +2323,7 @@
             so that the correct prefix (information, warning, error, debug) appears
         * Delete "Information: " etc. which were sometimes written directly into the log message
         * Rename "log_message_debug" function to "log_terminated_message" and require
-            the log level as additional parameter
+            the log level as additional parametre
         * Eliminate "malloc" function from "logger.c", since the logger is also called from threads
             and memory allocation would result in an error like:
                 *** glibc detected *** malloc(): memory corruption (fast): 0x080e0470 ***
@@ -2368,18 +2369,18 @@
 2007-09-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Use an extra http receive model part (defined as cybol name constant) for
-            (1) http request "method" and (2) "action" parameter in "http_request_converter.c"
+            (1) http request "method" and (2) "action" parametre in "http_request_converter.c"
 
 2007-09-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug "http_request_converter.c"
         * Add new cybol name- and cybol model constants for http request
-        * Add a "prefixed key" parameter that is necessary to add a prefix "." or "#" to the parameter name;
+        * Add a "prefixed key" parametre that is necessary to add a prefix "." or "#" to the parametre name;
             it is created at socket startup and forwarded to the "receive_socket.c" thread
 
 2007-09-14  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Mention parameters (as defined in CYBOL specification) in comment block of all operations in "applicator" directory
+        * Mention parametres (as defined in CYBOL specification) in comment block of all operations in "applicator" directory
         * Debug "http_request_converter.c"
 
 2007-09-10  Christian Heller  <christian.heller@tuxtax.de>
@@ -2429,7 +2430,7 @@
 
 2007-08-21  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt "receive.c" and "receive_socket.c" by handing over new parameters: model, details, language
+        * Adapt "receive.c" and "receive_socket.c" by handing over new parametres: model, details, language
 
 2007-08-20  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2504,7 +2505,7 @@
 2007-07-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt all example applications to property name changes
-        * Fix forgotten casts of parameters handed over to "receive_file_system", in function "receive_message"
+        * Fix forgotten casts of parametres handed over to "receive_file_system", in function "receive_message"
         * Fix forgotten model allocation in workaround section of function "parse_compound_cybol_node"
         * Split function "parse_compound_cybol_properties" by extracting loop body
         * Split function "parse_compound_cybol_nodes" by extracting loop body
@@ -2545,7 +2546,7 @@
 
 2007-07-12  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Extend applicator/receive/receive_file_system.c so that details may be given as parameter
+        * Extend applicator/receive/receive_file_system.c so that details may be given as parametre
             (for example, this is necessary when creating an HTML table row of a web user interface,
             because the HTML tag has to be given as property = meta data in this case)
 
@@ -2614,7 +2615,7 @@
 2007-05-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add name, name count, name size to functions "get_compound_element_by_name" and "get_universal_compound_element_by_name"
-        * Adjust all source code by adding name parameters to these function calls
+        * Adjust all source code by adding name parametres to these function calls
         * Fix bug that pointer vector instead of integer vector was used
         * Adjust comma characters to be added only if one element already exists in the destination array
 
@@ -2631,7 +2632,7 @@
 2007-04-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete "model_diagram_converter.c"
-        * Add "name" parameters to "get_compound_element_by_index" function and adapt all code
+        * Add "name" parametres to "get_compound_element_by_index" function and adapt all code
         * Replace some integer values with constants of the kind NUMBER_X_INTEGER
 
 2007-04-24  Christian Heller  <christian.heller@tuxtax.de>
@@ -2703,7 +2704,7 @@
 
         * Continue bdt parser
         * Make receive_file_system ... hand over part details to the "parse" operation of the converter
-        * Extend the "parse" operation's number of parameters
+        * Extend the "parse" operation's number of parametres
 
 2007-03-04  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2816,7 +2817,7 @@
         * Merge two procedures "get_compound_element_by_encapsulated_name" and "get_real_compound_element_by_name"<br>
             - rename this new, merged procedure to "get_universal_compound_element_by_name"<br>
             - adapt all source code to new procedure<br>
-            - change all places where logic parameters were retrieved with "get_compound_element_by_name" to the new "get_universal_compound_element_by_name"<br>
+            - change all places where logic parametres were retrieved with "get_compound_element_by_name" to the new "get_universal_compound_element_by_name"<br>
             - this means that from now on, CYBOL knowledge templates can be written much more flexibly, since models can be given as<br>
             1 hard-coded inline value<br>
             2 hierarchical name to a model (= encapsulated model)<br>
@@ -2831,7 +2832,7 @@
         * Correct bug that tui is walking right and down when sending it several times:<br>
             the reason was that the original value coming from cybol was manipulated,
             when calculating the coordinates according to the given layout;
-            copies are used instead now, so that the original tui parameters are stable
+            copies are used instead now, so that the original tui parametres are stable
         * Implement selective repaint; small areas instead of the whole textual user interface (tui) can be repainted now
         * Implement <i>clear</i> as property to the <i>send</i> operation, so that the tui is not cleared every time, only if wanted
         * Add <i>enter</i> (carriage return, line feed) and <i>escape</i> character handling for tui
@@ -2885,7 +2886,7 @@
             right: if (*a != NULL_POINTER)
             this caused knowledge models not to be created/ added to the knowledge root/ whole model
         * Replace NULL_POINTER with &NULL_POINTER, where a local void** variable is initialised
-        * Remove all const keywords before static variables and before parameters in headers of procedures, for less code, improved readability and because the const keyword is considered useless now:
+        * Remove all const keywords before static variables and before parametres in headers of procedures, for less code, improved readability and because the const keyword is considered useless now:
             pointers that were handed over do mostly not get manipulated directly anyway, only pointers within the array pointed to
             arrays defined with = {} are constant anyway
         * Delete all character counts and replace them with just one count constant
@@ -2903,8 +2904,8 @@
         * Rename low-level receive/ send into read/ write, to better distinguish them from the high-level receive/ send CYBOL operations
         * Rename low-level create/ destroy into allocate/ deallocate, to better distinguish them from the high-level create/ destroy CYBOL operations
         * Rename file set.c to copy.c
-        * Add knowledge memory and signal memory to internal memory; this HAS TO BE DONE, because when using threads, ONLY ONE parameter (the internal memory) can be handed over to these
-        * Hand over internal memory, knowledge memory and signal memory as parameters, instead of reading them every time from internal_memory
+        * Add knowledge memory and signal memory to internal memory; this HAS TO BE DONE, because when using threads, ONLY ONE parametre (the internal memory) can be handed over to these
+        * Hand over internal memory, knowledge memory and signal memory as parametres, instead of reading them every time from internal_memory
         * Rename internals_memory to internal_memory
         * Adapt some include paths and procedure names after restructuring
         * Delete memory managers and put code into general manager.c
@@ -2930,7 +2931,7 @@
         * Complete implementation of the loop operation
         * Correct bug in get_new_signal_id of signal_memory_accessor.c
         * Implement Web User Interface (WUI) handling by generating (translating) HTML from CYBOL (comparable to XUL/ UIML)
-        * Extend sources for handing over string parameters in URL, using escape code sequences
+        * Extend sources for handing over string parametres in URL, using escape code sequences
         * Add url_refresh operation
         * Implement post operation for web communication
         * Add new abstraction knowledge for runtime access to knowledge model
@@ -3059,7 +3060,7 @@
         * Release cyboi 0.2.2.0
         * Fix several bugs in model handling
         * Create transient copies of all persistent sources, instead of pointing to persistent sources which get freed after some time which resulted in null pointers
-        * Extend number of command line parameters, providing more options for running CYBOI
+        * Extend number of command line parametres, providing more options for running CYBOI
         * Enable reading of sources from inline and file location
 
 2004-06-11  Christian Heller  <christian.heller@tuxtax.de>
@@ -3072,7 +3073,7 @@
         * Use more constants, instead of hard-coded values
         * Introduce constants for log messages
         * Improve logger; removed all dependencies from other project parts (like array)
-        * Hand over size and count as parameters; do not keep them in one array with pointers
+        * Hand over size and count as parametres; do not keep them in one array with pointers
         * Prepare processing of compound signals
         * Factor out two procedures handle_create_model_signal and handle_send_signal from handle_operation_signal
         * Adapt create_model procedure to read cybol sources from several locations like inline|file|ftp

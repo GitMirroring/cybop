@@ -152,7 +152,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                         // encounter end of file.
                         ungetwc(c, is);
 
-fwprintf(stdout, L"TEST sense terminal c: %lc\n", c);
+//?? fwprintf(stdout, L"TEST sense terminal c: %lc\n", c);
 
                         // Set terminal interrupt request to indicate
                         // that a message has been received via terminal,
