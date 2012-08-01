@@ -2,6 +2,33 @@
 Design Decisions
 ================
 
+Arithmetic Operands
+___________________
+
+Question:
+Is it possible to combine operands of type "integer" and "double" for an arithmetic operation?
+
+Example:
+    <!-- This example cuts off decimal places of the resulting number, since integer is used as type. -->
+    <part name="divide" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/divide" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    </part>
+
+Answer:
+It is NOT possible.
+- cyboi uses void* types only for passing parametres around
+- a type cast is done before executing an arithmetic operation
+- the type could theoretically be read from each argument
+- however, both arguments might have different types so that
+  cyboi could not decide which operation to use and how to cast
+- once, the result might be a double and the operand an integer,
+  another time the other way around
+- in the end it is the responsibility of the CYBOL developer
+  to decide if he wants to work with integer or double values
+- a combination of both worlds is not possible, nor necessary
+
 Multiple Formats
 ________________
 
