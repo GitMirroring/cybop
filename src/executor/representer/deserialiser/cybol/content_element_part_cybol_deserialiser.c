@@ -261,7 +261,7 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         // (NOT the mime type format)!
         allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
 
-        // Get part name, channel, encoding, language, format, type, model, properties.
+        // Get part name, channel, encoding, language, format, type, model, properties item.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
@@ -274,17 +274,17 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-        // Fill part name.
+        // Fill part name item.
         overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        // Fill part channel.
+        // Fill part channel item.
         deserialise_cybol_channel(pc, scmd, scmc);
-        // Fill part encoding.
+        // Fill part encoding item.
         deserialise_cybol_encoding(pe, semd, semc);
-        // Fill part language.
+        // Fill part language item.
         deserialise_cybol_language(pl, slmd, slmc);
-        // Fill part format.
+        // Fill part format item.
         overwrite_item_element(pf, fd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        // Fill part type.
+        // Fill part type item.
         overwrite_item_element(pt, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Get part channel item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -301,7 +301,7 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &pld, pl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        // Fill part model taken from cybol source part properties.
+        // Fill part model item taken from cybol source part properties.
         // CAUTION! What is the properties in a parsed xml/cybol file,
         // becomes the model in the cyboi-internal knowledge tree.
         // CAUTION! Use the CYBOL cyboi destination type determined above
@@ -311,7 +311,7 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         // but the internal memory (second-last parametre) is only necessary for
         // "terminal", "x_window_system" and similar channels.
         receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, fd, pld, ped, *NULL_POINTER_STATE_CYBOI_MODEL, pcd);
-        // Fill part properties taken from cybol source part model.
+        // Fill part properties item taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
         deserialise_cybol_part(pp, p1, p2, p5, p6);

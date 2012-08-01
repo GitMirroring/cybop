@@ -219,6 +219,33 @@ void manage(void* p0) {
     // Variable initialisation.
     //
 
+    // Initialise knowledge memory part.
+    //
+    // CAUTION! It is not essential but just correct to assign a type here.
+    // Furthermore, an initialised root node is needed e.g. when printing
+    // the whole runtime knowledge tree as model diagram.
+    // Otherwise (empty root type), the printed model diagram would be empty.
+
+    // The knowledge memory part name, format, type item.
+    void* kn = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* kf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* kt = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get knowledge memory part name, format, type item.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &kn, k, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &kf, k, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &kt, k, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+
+    // Fill part name item.
+    overwrite_item_element(kn, (void*) L"root", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Fill part format item.
+    overwrite_item_element(kf, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Fill part type item.
+    overwrite_item_element(kt, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
     // Initialise signal memory interrupt request flag.
 //??    copy_integer((void*) signal_memory_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise terminal interrupt request flag.

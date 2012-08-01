@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Insert error message for tree nodes with empty tag name in html serialiser
+        * Initialise knowledge tree root node in file "manager.c"
+
 2012-07-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename cybol format "path/encapsulated" into "path/reference"
