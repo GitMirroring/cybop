@@ -94,12 +94,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
-fwprintf(stdout, L"TEST handle *fd: %i\n", *((int*) fd));
-} else {
-fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
-}
-
+/*??
 //?? TEST BEGIN
 static int TEST_COUNTER = 0;
 TEST_COUNTER++;
@@ -115,6 +110,15 @@ copy_array_forward((void*) &TEST_ITEM_COUNT, TEST_ITEM, (void*) POINTER_STATE_CY
 test_part_as_model_diagram(TEST_ITEM_DATA, p2);
 deallocate_item((void*) &TEST_ITEM, (void*) NUMBER_20_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 //?? TEST END
+*/
+
+/*??
+if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST handle *fd: %i\n", *((int*) fd));
+} else {
+fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
+}
+*/
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -174,9 +178,22 @@ deallocate_item((void*) &TEST_ITEM, (void*) NUMBER_20_INTEGER_STATE_CYBOI_MODEL,
 
 //?? fwprintf(stdout, L"TEST handle knowledge: %i\n", r);
 
+            // The source path data position.
+            void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The source path count remaining.
+            int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            // Copy source path data position.
+            copy_pointer((void*) &pathd, (void*) &md);
+            // Copy source path count remaining.
+            copy_integer((void*) &pathc, mc);
+
             // Get signal part referenced by a knowledge path.
             // CAUTION! Hand over name as reference!
-            deserialise_knowledge((void*) &part, p2, (void*) &md, mc);
+            // CAUTION! A copy of source path data and count is forwarded here,
+            // so that the original source path value does not get changed.
+//??            deserialise_knowledge((void*) &part, p2, (void*) &md, mc);
+            deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6, p7);

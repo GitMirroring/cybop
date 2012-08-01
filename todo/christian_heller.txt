@@ -9,7 +9,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"
+            model data md is the problem! Do NOT hand it over as reference, but introduce a local variable!
+            Otherwise, the pointer is counted to the end so that it points to behind the path string!
+            see file "handler.c", line 181
+            deserialise_knowledge((void*) &part, p2, (void*) &md, mc);
+
+        * CURRENT STATE: problem seems to lie in handle.c --> (knowledge path branch) deserialise_knowledge --> ??
+            --> the destination is o.k. BUT the source is somehow deleted --> check this out
+            --> problem is in files "" and ""
+            --> search for comment "so that p0 is now the source" and AVOID usage of destination as new source by introducing new local part variable
 
         * Fix bug that terminal input is detected just once, but not a second time etc.
             (chosen action got executed once and then disappeared in knowledge tree node ".actions")
@@ -26,6 +34,8 @@
                 ... so that part gets destroyed (check with log message in referencer)?
                 NO, currently gc does not work, because of comparison with "part" type, while the "pointer" type arrives instead
         * Continue cybol example application "tui" for demonstrating text user interface
+
+        * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"
 
         * Reactivate "sense" in about dialogue of "ui_control" cybol app
         * Solve issue with "ui_control" cybol app in "handle_gnu_linux_console_command.cybol" and "handle_gnu_linux_console.cybol"
