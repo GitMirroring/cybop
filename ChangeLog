@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Read terminal output stream from internal memory instead of assigning it directly in file "file_terminal_sender.c"
+
 2012-08-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Insert error message for tree nodes with empty tag name in html serialiser

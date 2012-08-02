@@ -18,7 +18,6 @@
 | | | | #-source | path/knowledge | .ui_control.settings.tui.selection.background
 | | | | #-type | meta/type | number/integer
 
-        * Remove temporary solution in file "file_terminal_sender.c"
         * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input
         * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
             --> probably NOT necessary for all channels

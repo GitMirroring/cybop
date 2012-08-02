@@ -53,11 +53,8 @@ void send_terminal_file(void* p0, void* p1, void* p2) {
     // The terminal output file descriptor.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //?? TODO: Temporary solution. Use startup terminal later. For now, stdout is used.
-    f = (void*) stdout;
-
     // Get terminal output file descriptor.
-//??    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_OUTPUT_FILE_DESCRIPTOR_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_STREAM_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     send_terminal_stream(f, p0, p1);
 }
