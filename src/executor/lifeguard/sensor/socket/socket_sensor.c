@@ -177,14 +177,17 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                             // Set socket interrupt request to indicate
                             // that a message has been received via socket,
                             // which may now be processed in the main thread of this system.
-                            *irq = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+                            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                             // Unlock socket mutex.
                             pthread_mutex_unlock(mt);
 
     fwprintf(stdout, L"TEST: sense wait st: %g \n", *st);
 
-                            while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                            // Access irq as atomic variable.
+                            // CAUTION! Therefore better don't use the following line:
+                            // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                            while (*irq) {
 
                                 // Sleep as long as the socket interrupt is not handled and reset yet.
                                 // This is to give the central processing unit (cpu) some

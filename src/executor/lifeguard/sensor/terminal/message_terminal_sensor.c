@@ -157,12 +157,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                         // Set terminal interrupt request to indicate
                         // that a message has been received via terminal,
                         // which may now be processed in the main thread of this system.
-                        //
-                        // CAUTION! Avoid using the "copy_integer" function,
-                        // since it might use the logger which is not
-                        // guaranteed to be thread-safe and might
-                        // cause unpredictable programme behaviour.
-                        *irq = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+                        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                     }
 
                     // Unlock terminal mutex.

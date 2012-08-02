@@ -561,21 +561,6 @@ void apply_send_socket(void* p0, void* p1, void* p2, void* p3,
     apply_send_socket_initialise_socket_address((void*) &sa, p2, p3, ha, p4, (void*) &an);
     fwprintf(stdout, L"TEST: send socket sa init: %i \n", sa);
 
-    // One might think that a deadlock may occur if this system
-    // sends a message to itself. However, this could only occur if
-    // the socket of this system got locked when a message is sent
-    // AND ALSO when a message is received. Once the lock got set by
-    // the "send" procedure, the "receive" procedure would wait
-    // endlessly for an unlock, since the "send" in turn would wait
-    // for the "receive" procedure to finish.
-    //
-    // But all this is not a problem and cannot happen, since the
-    // "receive" operation creates a new socket with the address
-    // data of the communication partner, whenever data are received.
-    // Therefore, sender- and receiver socket cannot happen to be
-    // identical. As a consequence, socket locking using a mutex is
-    // not necessary here!
-
     // Send message via socket in server mode.
     send_stream_socket((void*) *s, p13, p14, (void*) &sa, (void*) &sas, p9, p10);
 

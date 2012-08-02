@@ -55,7 +55,16 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // The character data are printed out at once,
+        // CAUTION! Locking does NOT seem to be necessary here.
+        // It is assumed that input- and output stream represent
+        // independent channels that may be accessed in parallel
+        // without having to fear conflicts.
+        // The glibc manual at least said nothing about this.
+        //
+
+        // Send to terminal.
+        //
+        // CAUTION! The character data are printed out at once,
         // using the "fwprintf" function, for two reasons:
         //
         // (1) This is more efficient than using a loop and
@@ -63,9 +72,6 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
         //     "element_file_sender.c".
         //
         // (2) The ansi escape codes are interpreted correctly.
-        //
-
-        // Send to terminal.
         //
         // CAUTION! The placeholder %s is used, since the data are given
         // as utf-8 multibyte character sequence of type "char".

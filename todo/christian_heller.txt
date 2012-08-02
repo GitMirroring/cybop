@@ -9,6 +9,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Remove irq and mutex of signal memory, since signals are placed there in the main thread only;
+            a signal memory wakeup cannot come from the sleeping main thread itself,
+            but only from outside (terminal, socket etc.), so that irqs for these channels suffice;
+            furthermore, UNIX system signal handlers for sensing thread interruption are not affected
+            [already prepared by commenting out]
+
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
         * Fix bug in "ui_control" example where red selection bar does not appear due to an empty destination (related to path issue when using path/reference)
@@ -17,17 +23,6 @@
 | | | | #-destination |  |
 | | | | #-source | path/knowledge | .ui_control.settings.tui.selection.background
 | | | | #-type | meta/type | number/integer
-
-        * Build in mutex into file "stream_terminal_sender.c" to avoid conflict with terminal data input
-        * Implement mutex locks not only for sense, but also for send and receive for all channels, in order to avoid input/ output conflicts??
-            --> probably NOT necessary for all channels
-            --> if terminal output and input stream are treated differently, then NO conflicts are to be expected and NO mutex is necessary
-
-        * Deactivate signal memory irq and mutex, since irqs for other channels suffice
-            and a signal memory wakeup cannot come from the sleeping main thread itself,
-            but only from outside (terminal, socket etc.) and furthermore,
-            UNIX system signal handlers for sensing thread interruption are not affected by them
-            [already prepared by commenting out]
 
         * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"
 

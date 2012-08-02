@@ -73,7 +73,14 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
                     //
                     // CAUTION! Initialise the error number BEFORE calling the procedure
                     // that might cause an error.
-                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+                    //
+                    // CAUTION! Locking does NOT seem to be necessary here.
+                    // Contrary to the terminal or x window system,
+                    // each socket represents an independent connexion
+                    // that may be accessed without having to fear conflicts.
+                    //
 
                     // Sense message from client.
                     // If the flags argument (fourth one) is zero, then one can

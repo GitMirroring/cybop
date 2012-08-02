@@ -109,7 +109,10 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                     // Unlock x window system mutex.
                     pthread_mutex_unlock(mt);
 
-                    while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                    // Access irq as atomic variable.
+                    // CAUTION! Therefore better don't use the following line:
+                    // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                    while (*irq) {
 
                         // Sleep as long as the x window system interrupt is not handled and reset yet.
                         //

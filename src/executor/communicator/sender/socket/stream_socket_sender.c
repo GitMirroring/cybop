@@ -76,7 +76,25 @@ void send_stream_socket_server_mode_single_transfer(void* p0, void* p1, void* p2
                     //
                     // CAUTION! Initialise the error number BEFORE calling the procedure
                     // that might cause an error.
-                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+                    //
+                    // CAUTION! Locking does NOT seem to be necessary here.
+                    //
+                    // One might think that a deadlock may occur if this system
+                    // sends a message to itself. However, this could ONLY occur if
+                    // the socket of this system got LOCKED when a message is sent
+                    // AND ALSO when a message is received. Once the lock got set by
+                    // the "send" procedure, the "receive" procedure would wait
+                    // endlessly for an unlock, since the "send" in turn would wait
+                    // for the "receive" procedure to finish.
+                    //
+                    // But all this is not a problem and cannot happen, since the
+                    // "receive" operation creates a new socket with the address
+                    // data of the communication partner, whenever data are received.
+                    // Therefore, sender- and receiver socket cannot happen to be identical.
+                    // As a consequence, socket locking using a mutex is NOT necessary here!
+                    //
 
                     // Send message to destination socket.
                     //

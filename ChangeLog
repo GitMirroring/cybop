@@ -19,6 +19,7 @@
 2012-08-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Read terminal output stream from internal memory instead of assigning it directly in file "file_terminal_sender.c"
+        * Verify proper usage of atomic locks in sensor/ receiver/ sender for the channels "terminal", "socket", "x_window_system"
 
 2012-08-01  Christian Heller  <christian.heller@tuxtax.de>
 

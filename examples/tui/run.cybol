@@ -64,6 +64,9 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tui/handler.cybol"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".handler"/>
     </part>
+    <part name="startup_tui" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/startup" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+    </part>
     <part name="send_tui" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -78,9 +81,6 @@
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".tui.cursor"/>
-    </part>
-    <part name="startup_tui" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/startup" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
     </part>
     <part name="sense_tui_commands" channel="inline" encoding="utf-8" language="text/cybol" format="live/sense" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
