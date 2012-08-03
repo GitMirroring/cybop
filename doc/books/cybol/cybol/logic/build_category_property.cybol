@@ -11,7 +11,7 @@
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/category_property_content.cybol"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/category_property.cybol"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.category_content_path"/>
     </part>
     <!-- pre execution of loop check (necessary if no topic entry found); break variable initialized with false -->

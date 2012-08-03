@@ -35,11 +35,6 @@
 	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_property"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_static_row_to_specific_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.property_content_path_specific"/>
-	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".row"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
-    </part>
 
     <part name="clear_property_wui_specific_name_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
 	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.property_content_path_name"/>
@@ -118,6 +113,22 @@
     <part name="add_static_path_to_model_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.property_content_path_model"/>
 	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".column_model"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_property_tag_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.property_content_path_tag"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_of_property_to_tag" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.property_content_path_tag"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.property_content_path_specific"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_static_path_to_tag" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.property_content_path_tag"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#tag"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
 </model>

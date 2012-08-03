@@ -46,6 +46,7 @@
     <part name="property_content_path_required" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="property_content_path_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="property_content_path_model" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="property_content_path_tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="property_required_value" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model=""/>
     <!-- temporary path links to items -->
     <part name="specification_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
