@@ -57,106 +57,118 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3);
  */
 void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part name.");
 
-        void** d = (void**) p0;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The name string data, count.
+    // CAUTION! This variable IS necessary, since the knowledge path data
+    // position parametre is a pointer reference that cannot be handed over
+    // to some of the functions below, which expect a simple pointer.
+    // Also, the count has to be incremented below.
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The knowledge part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part name.");
+    // Initialise name string data.
+    copy_pointer((void*) &sd, p2);
 
-        // The break flag.
-        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        // The name string data, count.
-        // CAUTION! This variable IS necessary, since the knowledge path data
-        // position parametre is a pointer reference that cannot be handed over
-        // to some of the functions below, which expect a simple pointer.
-        // Also, the count has to be incremented below.
-        void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Initialise name string data.
-        copy_pointer((void*) &sd, p2);
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
-        if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! If the loop count handed over as parametre is NULL,
-            // then the break flag will NEVER be set to true, because the loop
-            // variable comparison does (correctly) not consider null values.
-            // Therefore, in this case, the break flag is set to true already here.
-            // Initialising the break flag with true will NOT work either, since it:
-            // a) will be left untouched if a comparison operand is null;
-            // b) would have to be reset to true in each loop cycle.
-            copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // This part is NOT followed by a child part.
+
+            // CAUTION! The function "select_knowledge_part_end" below
+            // may have decremented the remaining count,
+            // if neither a "." nor a "#" delimiter were found.
+            //
+            // This is regularly the case if a part was the
+            // LAST IN THE HIERARCHY, having no further
+            // child nodes to follow in the name.
+
+            // Get part with name from source whole part model OR properties,
+            // depending on the source whole part element index p4.
+            //
+            // CAUTION! Hand over p0 instead of p here,
+            // since this IS the final name element.
+            //
+            // CAUTION! In case the remaining count is too small
+            // or zero (name does not exist) right at the beginning,
+            // then no knowledge part could be found before
+            // and therefore, the destination remains UNTOUCHED.
+            get_name_part_element(p0, p1, sd, (void*) &sc, p4);
+
+            // CAUTION! There is NO USE in processing the knowledge hierarchy
+            // recursively further down here, since the part was the
+            // LAST IN THE HIERARCHY, having no further
+            // child nodes to follow in the knowledge path.
+
+            break;
         }
 
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // If a "." or "#" delimiter is found, then the break flag is set to "true".
+        // CAUTION! This is done here in a "peek ahead" manner.
+        // The position is NOT moved by one character forward.
+        select_knowledge_part_end((void*) &b, p2, p3);
 
-            compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // This part IS followed by a child part.
 
-                // CAUTION! The function "select_knowledge_part_end" below
-                // may have decremented the remaining count,
-                // if neither a "." nor a "#" delimiter were found.
-                //
-                // This is regularly the case if a part was the
-                // LAST IN THE HIERARCHY, having no further
-                // child nodes to follow in the name.
-                //
-                // In order to also consider such parts, the
-                // following function call IS NECESSARY here.
-                //
-                // CAUTION! In case the remaining count is too small
-                // or zero (name does not exist) right at the beginning,
-                // then the destination remains UNTOUCHED.
+            // Get part with name from source whole part model OR properties,
+            // depending on the source whole part element index p4.
+            //
+            // CAUTION! Hand over p (as pointer reference) instead of p0 here,
+            // since this is NOT the final name element yet.
+            // Otherwise, some part in between the hierarchy,
+            // which is a parent of the searched part,
+            // might wrongly get returned as result,
+            // e.g. if the last name does not exist.
+            // In order to avoid this, the p0 result parametre
+            // gets only assigned the final part in the
+            // block with break condition further above.
+            get_name_part_element((void*) &p, p1, sd, (void*) &sc, p4);
 
-                // Get part with name from source whole part model OR properties,
-                // depending on the source whole part element index p4.
-                get_name_part_element(p0, p1, sd, (void*) &sc, p4);
+            // Process knowledge hierarchy recursively further down.
+            //
+            // CAUTION! A part node of the source p1 was assigned
+            // to p above, so that p now becomes the source.
+            // If it has a child part, then that will be assigned to the
+            // destination. Otherwise, the destination remains UNTOUCHED.
+            deserialise_knowledge(p0, p, p2, p3);
 
-                // CAUTION! There is NO USE in processing the knowledge hierarchy
-                // recursively further down here, since the part was the
-                // LAST IN THE HIERARCHY, having no further
-                // child nodes to follow in the knowledge path.
+            // CAUTION! This break statement is IMPORTANT.
+            // Without it, memory access errors will occur.
+            // The sd and sc were already used to get a part above, but
+            // without this break, they would be used again in the next
+            // loop cycle's break condition (at the beginning of the loop),
+            // leading to an error, since they are outdated.
+            break;
 
-                break;
-            }
+        } else {
 
-            // If a "." or "#" delimiter is found, then the break flag is set to "true".
-            // Otherwise, the position is just moved by one character forward.
-            select_knowledge_part_end((void*) &b, p2, p3);
+            // The "." or "#" delimiter indicating the end of
+            // the part name string data was not found.
 
-            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Get part with name from source whole part model OR properties,
-                // depending on the source whole part element index p4.
-                get_name_part_element(p0, p1, sd, (void*) &sc, p4);
-
-                // Process knowledge hierarchy recursively further down.
-                //
-                // CAUTION! The current p0 is the SOURCE AND DESTINATION!
-                // A part node of the source p1 was assigned to p0 above,
-                // so that p0 is now the source.
-                // If it has a child part, then that will be assigned to the
-                // destination. Otherwise, the destination remains UNTOUCHED.
-                //
-                // CAUTION! Hand over the source as DEREFERENCED parametre!
-                deserialise_knowledge(p0, *d, p2, p3);
-
-                break;
-
-            } else {
-
-                // The "." or "#" delimiter indicating the end of
-                // the part name string data was not found.
-
-                // Increment name string count.
-                sc++;
-            }
+            // Increment name string count.
+            sc++;
         }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise knowledge part name. The destination part is null.");
     }
 }
 

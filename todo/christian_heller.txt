@@ -9,6 +9,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        New knowledge path parsing causing:
+        * index handling does not seem to work for deep hierarchies (see cybol spec doc)
+        * ui_control app about dialogue may not be closed anymore -- related to the above?
+
         * Remove irq and mutex of signal memory, since signals are placed there in the main thread only;
             a signal memory wakeup cannot come from the sleeping main thread itself,
             but only from outside (terminal, socket etc.), so that irqs for these channels suffice;
