@@ -1,0 +1,238 @@
+<model>
+    <part name="create_test" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="test"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+    </part>
+    <part name="initialise_test" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="index_usage/test.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test"/>
+    </part>
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test"/>
+        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_INDEX_USAGE.txt"/>
+    </part>
+    <!--
+        Test knowledge path with node names.
+    -->
+    <part name="print_node3_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test .test.node3: "/>
+    </part>
+    <part name="print_node3" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test.node3"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_node1_node2_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test .test.node1.node2: "/>
+    </part>
+    <part name="print_node1_node2" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test.node1.node2"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_node1_node1_propc_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test .test.node1.node1#c: "/>
+    </part>
+    <part name="print_node1_node1_propc" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test.node1.node1#c"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_node2_propa_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test .test.node2#a: "/>
+    </part>
+    <part name="print_node2_propa" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test.node2#a"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_node2_propc_node3_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test .test.node2#c.node3: "/>
+    </part>
+    <part name="print_node2_propc_node3" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test.node2#c.node3"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_node2_propc_node1_propb_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test .test.node2#c.node1#b: "/>
+    </part>
+    <part name="print_node2_propc_node1_propb" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test.node2#c.node1#b"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <!--
+        Test knowledge path with name of non-existing node.
+    -->
+    <part name="print_node1_nodex_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test .test.node1.nodex: "/>
+    </part>
+    <part name="print_node1_nodex" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test.node1.nodex"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <!--
+        Test knowledge path with indices.
+    -->
+    <part name="print_index_node2_propc_node1_propb_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test index .test.[1]#[2].[0]#[1]: "/>
+    </part>
+    <part name="print_index_node2_propc_node1_propb" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test.[1]#[2].[0]#[1]"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <!--
+        Test reference path.
+    -->
+    <part name="print_knowledge_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test .test.reference as knowledge: "/>
+    </part>
+    <part name="print_knowledge" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/knowledge"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".test.reference"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_reference_label" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Test .test.reference as reference: "/>
+    </part>
+    <part name="print_reference" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="path/reference"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".test.reference"/>
+        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
+</model>
+
+<!--
+    This example tests hierarchical knowledge path names and indices.
+    It builds up and accesses nodes of the following tree:
+
+    [selected_node] | element/part |
+    +-node1 | element/part |
+    | +-node1 | text/plain | node1
+    | | #-a | text/plain | a
+    | | #-b | text/plain | b
+    | | #-c | text/plain | c
+    | +-node2 | text/plain | node2
+    | +-node3 | text/plain | node3
+    +-node2 | text/plain | node2
+    | #-a | text/plain | a
+    | #-b | text/plain | b
+    | #-c | element/part |
+    | | +-node1 | text/plain | node1
+    | | | #-a | text/plain | a
+    | | | #-b | text/plain | b
+    | | | #-c | text/plain | c
+    | | +-node2 | text/plain | node2
+    | | +-node3 | text/plain | node3
+    +-node3 | text/plain | node3
+    +-reference | path/knowledge | .test.node2#c.node1#b
+-->
+
+<!--
+    Copyright (C) 1999-2012. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    Christian Heller <christian.heller@tuxtax.de>
+
+    @version CYBOP 0.11.0 2012-01-01
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

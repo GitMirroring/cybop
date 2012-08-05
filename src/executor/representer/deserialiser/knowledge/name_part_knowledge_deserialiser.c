@@ -59,6 +59,11 @@ void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part name.");
 
+/*??
+fwprintf(stdout, L"TEST deserialise name path data: %ls\n", (wchar_t*) *((void**) p2));
+fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
+*/
+
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The name string data, count.

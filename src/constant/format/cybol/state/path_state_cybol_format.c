@@ -23,10 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CYBOL_PATH_LANGUAGE_CONSTANTS_SOURCE
-#define CYBOL_PATH_LANGUAGE_CONSTANTS_SOURCE
+#ifndef PATH_STATE_CYBOL_FORMAT_CONSTANTS_SOURCE
+#define PATH_STATE_CYBOL_FORMAT_CONSTANTS_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -66,9 +67,9 @@
  *
  * The same rules as for the "path/knowledge" language apply here.
  */
-static wchar_t REFERENCE_PATH_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'e', L'n', L'c', L'a', L'p', L's', L'u', L'l', L'a', L't', L'e', L'd'};
+static wchar_t REFERENCE_PATH_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'r', L'e', L'f', L'e', L'r', L'e', L'n', L'c', L'e'};
 static wchar_t* REFERENCE_PATH_STATE_CYBOL_FORMAT = REFERENCE_PATH_STATE_CYBOL_FORMAT_ARRAY;
-static int* REFERENCE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* REFERENCE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The path/knowledge state cybol type.
@@ -89,5 +90,5 @@ static wchar_t KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'a', L't', L'
 static wchar_t* KNOWLEDGE_PATH_STATE_CYBOL_FORMAT = KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_ARRAY;
 static int* KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* CYBOL_PATH_LANGUAGE_CONSTANTS_SOURCE */
+/* PATH_STATE_CYBOL_FORMAT_CONSTANTS_SOURCE */
 #endif

@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Clean up bug that "path/encapsulated" constant was not renamed into "path/reference" yet
+
 2012-08-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Read terminal output stream from internal memory instead of assigning it directly in file "file_terminal_sender.c"

@@ -61,6 +61,11 @@ void deserialise_knowledge_part_index(void* p0, void* p1, void* p2, void* p3, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part index.");
 
+/*??
+fwprintf(stdout, L"TEST deserialise index path data: %ls\n", (wchar_t*) *((void**) p2));
+fwprintf(stdout, L"TEST deserialise index path data: %i\n", *((int*) p3));
+*/
+
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The index string data, count.
@@ -141,8 +146,10 @@ void deserialise_knowledge_part_index(void* p0, void* p1, void* p2, void* p3, vo
             // since it is low-level and does not check array boundaries!
             get_part_element((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, id, p4);
 
+/*??
 fwprintf(stdout, L"TEST deserialise index id: %i\n", *((int*) id));
 fwprintf(stdout, L"TEST deserialise index p: %i\n", p);
+*/
 
             // Deallocate temporary index item.
             deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
@@ -153,8 +160,6 @@ fwprintf(stdout, L"TEST deserialise index p: %i\n", p);
             select_knowledge_part_end((void*) &r, p2, p3);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-fwprintf(stdout, L"TEST deserialise index hierarchical: %i\n", p);
 
                 // This part IS followed by a child part.
 
@@ -167,8 +172,6 @@ fwprintf(stdout, L"TEST deserialise index hierarchical: %i\n", p);
                 deserialise_knowledge(p0, p, p2, p3);
 
             } else {
-
-fwprintf(stdout, L"TEST deserialise index copy pointer: %i\n", p);
 
                 // This part is NOT followed by a child part.
 

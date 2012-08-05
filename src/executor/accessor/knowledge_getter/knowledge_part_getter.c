@@ -81,9 +81,8 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // The reference part model item data, count.
     void* refmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* refmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The temporary source data position.
+    // The temporary source data position and source count remaining.
     void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The temporary source count remaining.
     int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get source part.
