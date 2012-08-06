@@ -86,7 +86,7 @@ void manage(void* p0) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // The signal memory interrupt request flag.
+    // Explanation concerning interrupt request flags:
     //
     // Unix system signal handlers that return normally must modify some global
     // variable in order to have any effect. Typically, the variable is one that
@@ -151,9 +151,7 @@ void manage(void* p0) {
     // With this modification, the loop condition will not be optimised
     // away, and the system will detect the change when it occurs.
     //
-//??    volatile sig_atomic_t signal_memory_irq_array[1];
-//??    volatile sig_atomic_t* signal_memory_irq = signal_memory_irq_array;
-    volatile sig_atomic_t* signal_memory_irq = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The terminal interrupt request flag.
     volatile sig_atomic_t terminal_irq_array[1];
     volatile sig_atomic_t* terminal_irq = terminal_irq_array;
@@ -167,10 +165,6 @@ void manage(void* p0) {
     volatile sig_atomic_t cyboi_service_irq_array[1];
     volatile sig_atomic_t* cyboi_service_irq = cyboi_service_irq_array;
 
-    // The signal memory mutex.
-//??    pthread_mutex_t signal_memory_mutex_array[1];
-//??    pthread_mutex_t* signal_memory_mutex = signal_memory_mutex_array;
-    pthread_mutex_t* signal_memory_mutex = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The terminal mutex.
     pthread_mutex_t terminal_mutex_array[1];
     pthread_mutex_t* terminal_mutex = terminal_mutex_array;
@@ -246,8 +240,6 @@ void manage(void* p0) {
     // Fill part type item.
     overwrite_item_element(kt, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Initialise signal memory interrupt request flag.
-//??    copy_integer((void*) signal_memory_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise terminal interrupt request flag.
     copy_integer((void*) terminal_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise x window system interrupt request flag.
@@ -263,8 +255,6 @@ void manage(void* p0) {
     // If the parametre is null, the mutex is initialised with default attributes.
     //
 
-    // Initialise signal memory mutex.
-//??    pthread_mutex_init(signal_memory_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise terminal mutex.
     pthread_mutex_init(terminal_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise x window system mutex.
@@ -308,7 +298,7 @@ void manage(void* p0) {
     // to the internal memory, in order to be forwardable to threads.
 
     startup_internal_memory(i, (void*) &k, (void*) &s,
-        (void*) &signal_memory_irq, (void*) &signal_memory_mutex, (void*) &signal_memory_sleep_time,
+        (void*) &signal_memory_sleep_time,
         (void*) &terminal_irq, (void*) &terminal_mutex, (void*) &terminal_sleep_time,
         (void*) &x_window_system_irq, (void*) &x_window_system_mutex, (void*) &x_window_system_sleep_time,
         (void*) &www_service_irq, (void*) &www_service_mutex, (void*) &www_service_sleep_time,
@@ -346,14 +336,12 @@ void manage(void* p0) {
     // Variable finalisation.
     //
 
-    // CAUTION! Do NOT remove any internal memory internals!
+    // CAUTION! Do NOT REMOVE any internal memory internals!
     // The internals have a fixed position within the internal memory.
     // Removing them would shift all entries by one position and
     // thus make all entries invalid, since they could not be found
     // at their original index anymore.
 
-    // Destroy signal memory mutex.
-//??    pthread_mutex_destroy(signal_memory_mutex);
     // Destroy terminal mutex.
     pthread_mutex_destroy(terminal_mutex);
     // Destroy x window system mutex.

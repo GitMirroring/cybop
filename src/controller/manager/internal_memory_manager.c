@@ -59,25 +59,23 @@
  * @param p0 the internal memory data
  * @param p1 the knowledge memory part (pointer reference)
  * @param p2 the signal memory item (pointer reference)
- * @param p3 the signal memory interrupt request flag (pointer reference)
- * @param p4 the signal memory mutex (pointer reference)
- * @param p5 the signal memory sleep time (pointer reference)
- * @param p6 the terminal interrupt request flag (pointer reference)
- * @param p7 the terminal mutex (pointer reference)
- * @param p8 the terminal sleep time (pointer reference)
- * @param p9 the x window system interrupt request flag (pointer reference)
- * @param p10 the x window system mutex (pointer reference)
- * @param p11 the x window system sleep time (pointer reference)
- * @param p12 the www service interrupt request flag (pointer reference)
- * @param p13 the www service mutex (pointer reference)
- * @param p14 the www service sleep time (pointer reference)
- * @param p15 the cyboi service interrupt request flag (pointer reference)
- * @param p16 the cyboi service mutex (pointer reference)
- * @param p17 the cyboi service sleep time (pointer reference)
+ * @param p3 the signal memory sleep time (pointer reference)
+ * @param p4 the terminal interrupt request flag (pointer reference)
+ * @param p5 the terminal mutex (pointer reference)
+ * @param p6 the terminal sleep time (pointer reference)
+ * @param p7 the x window system interrupt request flag (pointer reference)
+ * @param p8 the x window system mutex (pointer reference)
+ * @param p9 the x window system sleep time (pointer reference)
+ * @param p10 the www service interrupt request flag (pointer reference)
+ * @param p11 the www service mutex (pointer reference)
+ * @param p12 the www service sleep time (pointer reference)
+ * @param p13 the cyboi service interrupt request flag (pointer reference)
+ * @param p14 the cyboi service mutex (pointer reference)
+ * @param p15 the cyboi service sleep time (pointer reference)
  */
-void startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
-    void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
-    void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
+void startup_internal_memory(void* p0, void* p1, void* p2, void* p3,
+    void* p4, void* p5, void* p6, void* p7, void* p8, void* p9,
+    void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup internal memory.");
@@ -134,54 +132,48 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Set signal memory internals.
     copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-/*??
-    // Set signal memory interrupt request flag.
-    copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set signal memory mutex.
-    copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-*/
     // Set signal memory sleep time.
-    copy_array_forward(p0, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Set terminal interrupt request flag.
-    copy_array_forward(p0, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set terminal mutex.
-    copy_array_forward(p0, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set terminal sleep time.
-    copy_array_forward(p0, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Set x window system interrupt request flag.
-    copy_array_forward(p0, p9, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set x window system mutex.
-    copy_array_forward(p0, p10, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set x window system sleep time.
-    copy_array_forward(p0, p11, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p9, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Set www service interrupt request flag.
     copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p12, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p10, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set www service mutex.
     copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p13, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p11, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set www service sleep time.
     copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) SLEEP_TIME_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p14, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p12, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Set cyboi service interrupt request flag.
     copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p15, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p13, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set cyboi service mutex.
     copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p16, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p14, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set cyboi service sleep time.
     copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) SLEEP_TIME_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p17, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p15, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* INTERNAL_MEMORY_MANAGER_SOURCE */

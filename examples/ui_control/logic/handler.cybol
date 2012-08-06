@@ -1,6 +1,6 @@
 <model>
     <part name="handle_gnu_linux_console" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/handler/handle_gnu_linux_console.cybol"/>
-    <part name="handle_about_dialog" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/handler/handle_about_dialog.cybol"/>
+    <part name="handle_about_dialogue" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/handler/handle_about_dialogue.cybol"/>
     <part name="handle_x_window_system" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/handler/handle_x_window_system.cybol"/>
     <part name="handle_www_service" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/handler/handle_www_service.cybol"/>
     <part name="handle_cyboi_service" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/handler/handle_cyboi_service.cybol"/>
