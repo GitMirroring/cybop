@@ -18,17 +18,17 @@
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/specification_content.cybol"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.specification_content_path"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_content_path"/>
     </part>
 
     <!-- copy name to header and anchor -->
     <part name="copy_specification_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.specification_content_path_name"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_content_path_name"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="copy_specification_name_to_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.specification_content_path_anchor"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_content_path_anchor"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
@@ -52,23 +52,23 @@
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/specification_toc.cybol"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.specification_toc_path"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_toc_path"/>
     </part>
 
     <!-- copy name to toc and link -->
     <part name="copy_specification_name_to_toc" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.specification_toc_path_name"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_toc_path_name"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="copy_sharp_to_specification_href" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.specification_toc_path_href"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_toc_path_href"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="copy_specification_name_to_href" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.specification_toc_path_href"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_toc_path_href"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>

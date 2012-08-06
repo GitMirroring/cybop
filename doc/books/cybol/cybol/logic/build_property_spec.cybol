@@ -39,6 +39,6 @@
     <!-- copy selected property name to temp -->
     <part name="copy_name_of_property_to_temp" channel="inline" encoding="utf-8" language="text/cybol" format="access/get-name" model="">
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_property"/>
-        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.property_link"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.property_link"/>
     </part>
 </model>

@@ -4,7 +4,7 @@
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_category"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.topic_content_path"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.topic_content_path"/>
     </part>
 
     <!-- copy topic content template to wui.index.body.toc -->
@@ -14,16 +14,16 @@
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/category_name_content.cybol"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.category_content_path"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.category_content_path"/>
     </part>
     <!-- copy category name to html content -->
     <part name="copy_category_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.category_content_path_name"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.category_content_path_name"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_category"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="copy_category_name_to_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.category_content_path_anchor"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.category_content_path_anchor"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_category"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>

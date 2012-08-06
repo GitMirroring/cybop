@@ -1,6 +1,6 @@
 <model>
-    <part name="add" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/add.cybol"/>
     <part name="absolute" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/absolute.cybol"/>
+    <part name="add" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/add.cybol"/>
     <part name="divide" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/divide.cybol"/>
     <part name="multiply" channel="file" encoding="utf-8" language="tex	t/cybol" format="element/part" model="cybol/specification/logic/calculate/multiply.cybol"/>
     <part name="negate" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/negate.cybol"/>

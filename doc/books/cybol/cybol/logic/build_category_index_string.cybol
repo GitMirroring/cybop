@@ -39,7 +39,7 @@
     <!-- copy selected specification name to temp -->
     <part name="add_name_of_category_to_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="access/get-name" model="">
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_category"/>
-        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.category_link"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.category_link"/>
     </part>
 
     <!-- build category toc base path to category -->

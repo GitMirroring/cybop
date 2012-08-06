@@ -10,17 +10,17 @@
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
     </part>
 
-    <!-- build category property template structure -->
+    <!-- build property global path -->
     <part name="build_property_specification_global_path" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_spec"/>
     </part>
 
-    <!-- build category property template structure -->
+    <!-- build property specification paths -->
     <part name="build_property_specification_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_spec_path"/>
     </part>
 
-    <!-- build category property template structure -->
+    <!-- build property wui paths -->
     <part name="build_property_wui_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_wui_path"/>
     </part>

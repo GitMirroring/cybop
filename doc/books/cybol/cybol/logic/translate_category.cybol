@@ -47,7 +47,7 @@
 
     <!-- build category property template structure -->
     <part name="build_category_property_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_category_property"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.translate_category_property"/>
     </part>
 
     <!-- build category toc template -->

@@ -20,8 +20,8 @@
     <part name="build_category_description" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_description.cybol"/>
     <part name="build_category_format" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_format.cybol"/>
     <part name="build_category_example" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_example.cybol"/>
-    <part name="build_category_property" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_property.cybol"/>
     <part name="build_category_toc" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_toc.cybol"/>
+    <part name="translate_category_property" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_category_property.cybol"/>
     <part name="translate_properties" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_properties.cybol"/>
     <part name="build_property_spec" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_property_spec.cybol"/>
     <part name="build_property_spec_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_property_spec_path.cybol"/>

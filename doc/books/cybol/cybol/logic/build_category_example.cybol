@@ -6,12 +6,12 @@
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/category_example_environment.cybol"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.category_content_path"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.category_content_path"/>
     </part>
     <!-- copy category example to html content -->
     <part name="copy_category_example" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.category_content_path_example"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/encapsulated" model=".temporary.link_spec_example"/>
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.category_content_path_example"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.link_spec_example"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
 </model>
