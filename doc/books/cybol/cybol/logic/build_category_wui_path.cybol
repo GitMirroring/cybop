@@ -96,7 +96,39 @@
     </part>
     <part name="add_category_example_content" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example"/>
-	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".category_example_environment.category_example_name"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".category_example_name"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_category_wui_example_div" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example_div"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_category_to_example_div" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example_div"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_category_example_div" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example_div"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#tag"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_category_wui_example_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example_div_class"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_category_to_example_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example_div_class"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_category_example_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_example_div_class"/>
+	<property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#class"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
 

@@ -1,5 +1,0 @@
-<model>
-    <part name="category_example_environment" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/wui/template/category_example_content.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="xmp"/>
-    </part>
-</model>
