@@ -1,15 +1,4 @@
 <model>
-    <!-- indicate executing this file -->
-    <part name="print_static_category_property" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="category_property"/>
-        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-        <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    </part>
-
     <!-- reset properties index --> 
     <part name="reset_property_index" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
 	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_index"/>

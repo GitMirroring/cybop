@@ -1,5 +1,5 @@
 <model>
-    <!-- copy specification template to wui.index.body.content and set information -->
+    <!-- create placeholder for specification template to wui.index.body.content -->
     <part name="create_wui_specification" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
@@ -7,11 +7,11 @@
         <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".wui.index.body.content"/>
     </part>
 
-    <!-- create knowledge path to selected specification for content -->
-    <part name="build_specification_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+    <!-- create dynamic reference of knowledge path to selected specification for content -->
+    <part name="build_specification_content_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_specification_content_path"/>
     </part>
-
+    <!-- copy specification template to wui.index.body.content -->
     <part name="initialise_wui_specification_with_template" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -33,7 +33,7 @@
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
 
-    <!-- copy specification template to wui.index.body.toc and set information -->
+    <!-- create placeholder for template to wui.index.body.toc -->
     <part name="create_wui_toc_specification" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
@@ -45,7 +45,7 @@
     <part name="build_path_to_spec_toc" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_specification_toc_path"/>
     </part>
-
+    <!-- copy toc template to wui.index.body.toc -->
     <part name="initialise_wui_toc_specification_with_template" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>

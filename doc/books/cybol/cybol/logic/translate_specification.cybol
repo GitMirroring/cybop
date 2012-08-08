@@ -1,32 +1,21 @@
 <model>
-    <part name="print_static_specification" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="specification"/>
-        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-        <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    </part>
-
-    <!-- build specification string dynamically using indexes -->
+    <!-- build specification access string and set specification name to temp var -->
     <part name="build_specification_index_string" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_specification_index_string"/>
     </part>
 
-    <!-- copy information from knowledge-tree-part 'specification' to knowledge-tree-part 'wui.index' -->
+    <!-- copy template to specific knowledge path in wui.index -->
     <part name="build_specification_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_specification"/>
     </part>
 
-    <!-- read specification topics -->
     <!-- count the topics of the selected specification -->
     <part name="get_topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="access/count" model="">
         <property name="count" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_count"/>
         <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_link"/>
     </part>
     
-    <!-- pre execution of loop check (necessary if no topic entry found); break variable initialized with false -->
+    <!-- pre execution of topic loop check (necessary if no topic entry found) -->
     <part name="exists_topic_entries" channel="inline" encoding="utf-8" language="text/cybol" format="compare/equal" model="">
         <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_count"/>
         <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
@@ -34,6 +23,7 @@
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
     </part>
+    <!-- calls translate_topic foreach topic in specification part -->
     <part name="loop_topic_translation" channel="inline" encoding="utf-8" language="text/cybol" format="flow/loop" model="">
         <property name="break" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_break"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.translate_topic"/>

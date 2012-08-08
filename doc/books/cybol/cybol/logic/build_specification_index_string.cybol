@@ -1,4 +1,5 @@
 <model>
+    <!-- build dynamic knowledge path using index to the current specification -->  
     <part name="clear_specification" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
 	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_link"/>
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
@@ -32,7 +33,7 @@
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
 
-    <!-- copy selected specification name to temp -->
+    <!-- copy selected specification name to temporary variable -->
     <part name="copy_name_of_specification_to_temp" channel="inline" encoding="utf-8" language="text/cybol" format="access/get-name" model="">
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_specification"/>
         <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_link"/>
