@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare filtering of html tags that are allowed to be empty, following the latest HTML 5 specification
+            and generate closing tags for all others, in html serialiser
+
 2012-08-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Make cybol example application "ui_control" function fully again

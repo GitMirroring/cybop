@@ -34,6 +34,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/representer/serialiser/html/begin_tag_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/empty_tag_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/end_tag_html_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -79,8 +80,9 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Check if content is empty.
-    compare_integer_smaller_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Check if content is empty and if this tag is allowed
+    // to be an empty tag, following the html specification.
+    serialise_html_empty_tag((void*) &e, tmd, tmc, p2);
 
     // Serialise indentation.
     serialise_html_indentation(p0, p5);
