@@ -33,12 +33,12 @@
 /**
  * The html document type html model.
  *
- * <!doctype html>
+ * <!DOCTYPE html>
  *
  * It was introduced with the html5 specification:
  * http://www.w3.org/TR/html-markup/
  */
-static wchar_t HTML_DOCUMENT_TYPE_HTML_MODEL_ARRAY[] = {L'<', L'!', L'd', L'o', L'c', L't', L'y', L'p', L'e', L' ', L'h', L't', L'm', L'l', L'>'};
+static wchar_t HTML_DOCUMENT_TYPE_HTML_MODEL_ARRAY[] = {L'<', L'!', L'D', L'O', L'C', L'T', L'Y', L'P', L'E', L' ', L'h', L't', L'm', L'l', L'>'};
 static wchar_t* HTML_DOCUMENT_TYPE_HTML_MODEL = HTML_DOCUMENT_TYPE_HTML_MODEL_ARRAY;
 static int* HTML_DOCUMENT_TYPE_HTML_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

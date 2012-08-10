@@ -10,8 +10,6 @@
 #
 
         * HTML Serialiser:
-            - Filter out html tags that are allowed to be empty (see latest HTML 5 specification)
-              and generate closing tags for all others in file "html_serialiser.c"
             - Replace special characters like < with XML masked characters, but only if
               indicated by special flag property in "communicate/send" cybol operation
               (needed for source code example in cybol specification)

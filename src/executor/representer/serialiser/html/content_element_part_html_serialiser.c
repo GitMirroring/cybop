@@ -34,8 +34,8 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/representer/serialiser/html/begin_tag_html_serialiser.c"
-#include "../../../../executor/representer/serialiser/html/empty_tag_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/end_tag_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/void_element_html_serialiser.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -69,6 +69,8 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The empty flag.
     int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The void flag.
+    int v = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The compound flag.
     int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -80,19 +82,63 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Check if element is empty and allowed to be void.
-    serialise_html_empty_tag((void*) &e, tmd, tmc, p2);
+    // TEST: The block below is NOT necessary and for testing only.
+    // The generated html file will contain an error message for each nameless tag.
+    if ((tmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (tmc == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
+        tmd = (void*) L"ERROR_MISSING_TAG_NAME";
+        int* tmc_tmp = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+        tmc = (void*) tmc_tmp;
+    }
+
+    // Check if source model count is empty.
+    compare_integer_smaller_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Check if element is allowed to be void.
+    serialise_html_void_element((void*) &v, tmd, tmc);
     // Serialise indentation.
     serialise_html_indentation(p0, p5);
     // Append begin tag.
-    serialise_html_begin_tag(p0, tmd, tmc, p3, p4, (void*) &e);
+    serialise_html_begin_tag(p0, tmd, tmc, p3, p4, (void*) &e, (void*) &v);
     // Append line feed character, for better source reading.
     append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-    if (e == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The content is NOT empty, since the empty flag is false.
+        // The content IS empty.
+
+        if (v != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // This element IS allowed to be void, following the html specification.
+            // It may therefore be represented as empty tag.
+            //
+            // Example:
+            // <img/>
+
+            // NOTHING is to be done here.
+            // The compiler will remove this block, since it is empty.
+            // So, no need to worry about memory or bad performance.
+
+        } else {
+
+            // This element is NOT allowed to be void, following the html specification.
+            // It therefore has to be represented with opening and closing tag.
+            //
+            // Example:
+            // <div>
+            // </div>
+
+            // Serialise indentation.
+            // CAUTION! Use original indentation that was handed over as parametre.
+            serialise_html_indentation(p0, p5);
+            // Append end tag.
+            serialise_html_end_tag(p0, tmd, tmc);
+            // Append line feed character, for better source reading.
+            append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        }
+
+    } else {
+
+        // The content is NOT empty.
 
         // Check if this part is of type "element/part".
         // In this case, it is a compound part containing child parts
@@ -113,6 +159,12 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
 
         if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // This is a primitive value, NOT a compound element.
+            // Example:
+            // <p>
+            //     some text
+            // </p>
+
             // CAUTION! The content of compound parts gets
             // indented inside the called function stack:
             // - serialise_html
@@ -131,6 +183,12 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
         serialise_html(p0, p1, p2, p3, p4, (void*) &l, p6);
 
         if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // This is a primitive value, NOT a compound element.
+            // Example:
+            // <p>
+            //     some text
+            // </p>
 
             // CAUTION! The content of compound parts gets
             // added a line break inside the called function stack:

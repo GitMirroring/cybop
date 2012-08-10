@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/logifier/and_boolean_logifier.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../executor/representer/serialiser/html/attributes_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
@@ -44,8 +45,9 @@
  * @param p3 the source properties data
  * @param p4 the source properties count
  * @param p5 the empty flag
+ * @param p6 the void flag
  */
-void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html begin tag.");
 
@@ -56,20 +58,13 @@ void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, 
     append_item_element(p0, (void*) LESS_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Append html tag.
     append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // TEST! The block below is NOT necessary and for testing only.
-    // The generated html file will contain an error message for each nameless tag.
-    if ((p1 == *NULL_POINTER_STATE_CYBOI_MODEL) || (p2 == *NULL_POINTER_STATE_CYBOI_MODEL)) {
-        append_item_element(p0, (void*) L"ERROR: The tree node does not contain a tag name!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_49_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    }
     // Append html tag properties.
     serialise_html_attributes(p0, p3, p4);
 
-    // Check if content is empty.
-    compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Check if content is empty AND element is allowed to be void.
+    logify_boolean_and((void*) &r, p5, p6);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // The content IS empty, since the empty flag is set.
 
         // Append solidus slash / character.
         append_item_element(p0, (void*) SOLIDUS_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
