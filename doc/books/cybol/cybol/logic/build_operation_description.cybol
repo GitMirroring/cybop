@@ -1,0 +1,17 @@
+<model>
+    <!-- copy operation content template for description to wui.index.body.toc -->
+    <part name="copy_wui_operation_description_content_template" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/operation_description_content.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_content_path"/>
+    </part>
+    <!-- copy operation description to html content -->
+    <part name="copy_operation_description" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_content_path_description"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.link_spec_description"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+</model>

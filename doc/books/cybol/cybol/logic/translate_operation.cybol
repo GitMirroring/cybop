@@ -1,0 +1,60 @@
+<model>
+    <!-- build operation string dynamically using indexes -->
+    <part name="build_operation_index_string" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_operation_index_string"/>
+    </part>
+
+    <!-- build path to category specification -->
+    <part name="build_operation_access_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_operation_access_path"/>
+    </part>
+
+    <!-- build path to operation wui -->
+    <part name="build_operation_wui_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_operation_wui_path"/>
+    </part>
+
+    <!-- build category name template -->
+    <part name="build_operation_name_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_operation_name"/>
+    </part>
+
+    <!-- build operation description template -->
+    <part name="build_operation_description_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_operation_description"/>
+    </part>
+
+    <!-- build operation format template -->
+    <part name="build_operation_format_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_operation_format"/>
+    </part>
+
+    <!-- build operation example template -->
+    <part name="build_operation_example_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_operation_example"/>
+    </part>
+
+    <!-- build operation property template structure -->
+    <part name="build_operation_property_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.translate_operation_property"/>
+    </part>
+
+    <!-- build operation toc template -->
+    <part name="build_operation_toc_template_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_operation_toc"/>
+    </part>
+
+    <!-- handle operation loop after finished category --> 
+    <part name="increment_operation_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_index"/>
+        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="compare_operation_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_break"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_count"/>
+        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_index"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
+    </part>
+</model>

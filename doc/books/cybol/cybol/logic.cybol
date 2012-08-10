@@ -12,16 +12,16 @@
     <part name="build_topic_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic_path.cybol"/>
     <part name="build_topic_content_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic_content_path.cybol"/>
     <part name="build_topic_toc_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic_toc_path.cybol"/>
-    <part name="translate_category" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_category.cybol"/>
-    <part name="build_category_index_string" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_index_string.cybol"/>
-    <part name="build_category_access_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_access_path.cybol"/>
-    <part name="build_category_wui_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_wui_path.cybol"/>
-    <part name="build_category_name" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_name.cybol"/>
-    <part name="build_category_description" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_description.cybol"/>
-    <part name="build_category_format" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_format.cybol"/>
-    <part name="build_category_example" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_example.cybol"/>
-    <part name="build_category_toc" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_toc.cybol"/>
-    <part name="translate_category_property" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_category_property.cybol"/>
+    <part name="translate_operation" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_operation.cybol"/>
+    <part name="build_operation_index_string" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_operation_index_string.cybol"/>
+    <part name="build_operation_access_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_operation_access_path.cybol"/>
+    <part name="build_operation_wui_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_operation_wui_path.cybol"/>
+    <part name="build_operation_name" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_operation_name.cybol"/>
+    <part name="build_operation_description" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_operation_description.cybol"/>
+    <part name="build_operation_format" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_operation_format.cybol"/>
+    <part name="build_operation_example" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_operation_example.cybol"/>
+    <part name="build_operation_toc" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_operation_toc.cybol"/>
+    <part name="translate_operation_property" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_operation_property.cybol"/>
     <part name="translate_properties" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_properties.cybol"/>
     <part name="build_property_spec" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_property_spec.cybol"/>
     <part name="build_property_spec_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_property_spec_path.cybol"/>

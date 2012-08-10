@@ -1,0 +1,38 @@
+<model>
+    <!-- create operation knowlegdepath in wui.index.body.toc -->
+    <part name="create_operation_knowledgepath_in_toc" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_operation"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.topic_toc_path"/>
+    </part>
+    <!-- copy operation toc template for description to wui.index.body.toc -->
+    <part name="copy_wui_operation_toc_template" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/operation_toc.cybol"/>
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path"/>
+    </part>
+    <!-- copy operation name to html toc -->
+    <part name="copy_operation_name_to_toc" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path_name"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_operation"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <!-- copy sharp to html toc href -->
+    <part name="copy_sharp_to_toc_href" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path_href"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- copy operation name to html toc href -->
+    <part name="copy_operation_name_to_toc_href" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path_href"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_operation"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+</model>
