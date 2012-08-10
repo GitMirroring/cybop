@@ -31,8 +31,8 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/representer/serialiser/html/void_element_html_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -54,19 +54,12 @@ void serialise_html_empty_tag(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html empty tag.");
 
-    // The empty flag.
-    int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The void flag.
-    int v = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Check if source model count is empty.
-    compare_integer_smaller_or_equal((void*) &e, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    // Check if element is allowed to be void.
-    serialise_html_void_element((void*) &v, tmd, tmc);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    if ((e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) && (v != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
-
-        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_all_array((void*) &r, p1, (void*) TODO_TAG_HTML_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TODO_TAG_HTML_MODEL_COUNT);
     }
 }
 

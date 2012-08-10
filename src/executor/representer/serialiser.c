@@ -26,8 +26,10 @@
 #ifndef SERIALISER_SOURCE
 #define SERIALISER_SOURCE
 
+#include "../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/html/document_type_html_model.c"
 #include "../../constant/language/cyboi/state_cyboi_language.c"
 // CAUTION! Do NOT include the "content_element_part_ansi_escape_code_serialiser.c" module.
 // It is true, the "serialise_ansi_escape_code_part_element_content" function is called from here,
@@ -154,6 +156,11 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // since the indentation level value gets changed in the following functions!
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+            // Append document type.
+            append_item_element(p0, (void*) HTML_DOCUMENT_TYPE_HTML_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HTML_DOCUMENT_TYPE_HTML_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Append line feed character, for better source reading.
+            append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Append content.
             serialise_html_part_element_content(p0, p1, p2, p3, p4, (void*) &l, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
         }
     }

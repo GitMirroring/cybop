@@ -80,8 +80,7 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Check if content is empty and if this tag is allowed
-    // to be an empty tag, following the html specification.
+    // Check if element is empty and allowed to be void.
     serialise_html_empty_tag((void*) &e, tmd, tmc, p2);
 
     // Serialise indentation.
