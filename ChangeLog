@@ -20,6 +20,8 @@
 
         * Filter out html tags that are allowed to be void elements following the html specification
               and generate empty tags only for those and closing tags for all others in html serialiser
+        * Collect all kinds of escape model constants (ansi, entity, numeric, percent) in one directory
+            and adapt de-/serialiser and other files accordingly
 
 2012-08-06  Christian Heller  <christian.heller@tuxtax.de>
 
