@@ -23,18 +23,15 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef URL_ESCAPE_CODE_DESERIALISER_SOURCE
-#define URL_ESCAPE_CODE_DESERIALISER_SOURCE
+#ifndef PERCENT_ESCAPE_DESERIALISER_SOURCE
+#define PERCENT_ESCAPE_DESERIALISER_SOURCE
 
-#include "../../../../constant/character/character_constants.c"
-#include "../../../../constant/http/url_escape_code_constants.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
-#include "../../../../variable/reallocation_factor.c"
 
 //
 // RFC 3986 does not determine which character set to use for decoding
@@ -51,15 +48,13 @@
 //
 
 /**
- * Deserialises the url escape code character data into unmasked character data.
+ * Deserialises the percent-escaped character.
  *
- * @param p0 the destination data (pointer reference)
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source data
- * @param p4 the source count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_escape_percent(void* p0, void* p1, void* p2) {
 
     //
     // CAUTION! Simply using "copy_pointer" is NOT enough!
@@ -336,5 +331,5 @@ void deserialise_url_escape_code(void* p0, void* p1, void* p2, void* p3, void* p
     }
 }
 
-/* URL_ESCAPE_CODE_DESERIALISER_SOURCE */
+/* PERCENT_ESCAPE_DESERIALISER_SOURCE */
 #endif

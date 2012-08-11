@@ -64,8 +64,8 @@ void serialise_ansi_escape_code_part_element_content(void* p0, void* p1, void* p
 
     // Reset terminal attributes in order to
     // have original settings when leaving cyboi.
-    append_item_element(p0, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(p0, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ESCAPE_ANSI_ESCAPE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ANSI_ESCAPE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* CONTENT_ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

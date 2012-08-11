@@ -36,7 +36,7 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
+#include "../../../../constant/model/escape/ansi_escape_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
@@ -47,7 +47,7 @@
  * Select ansi escape code command and deserialises it into a cyboi-internal keyboard constant.
  *
  * This function changes the ansi escape codes into real names as defined by CYBOL.
- * Example: The ARROW_UP_ANSI_ESCAPE_CODE_MODEL (ESC[A sequence) gets converted into the
+ * Example: The ARROW_UP_ANSI_ESCAPE_MODEL (ESC[A sequence) gets converted into the
  * constant ARROW_UP_KEYBOARD_KEY_CYBOL_NAME with the value "arrow_up", which is used so in CYBOL files.
  *
  * @param p0 the destination item
@@ -63,7 +63,7 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) ARROW_UP_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_UP_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) ARROW_UP_ANSI_ESCAPE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_UP_ANSI_ESCAPE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -73,7 +73,7 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) ARROW_DOWN_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_DOWN_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) ARROW_DOWN_ANSI_ESCAPE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_DOWN_ANSI_ESCAPE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +83,7 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) ARROW_LEFT_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_LEFT_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) ARROW_LEFT_ANSI_ESCAPE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_LEFT_ANSI_ESCAPE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -93,7 +93,7 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) ARROW_RIGHT_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_RIGHT_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect_array((void*) &r, p1, p2, (void*) ARROW_RIGHT_ANSI_ESCAPE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_RIGHT_ANSI_ESCAPE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

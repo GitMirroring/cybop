@@ -36,7 +36,7 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
+#include "../../../../constant/model/escape/ansi_escape_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"

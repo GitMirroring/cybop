@@ -26,14 +26,14 @@
 #ifndef HTTP_REQUEST_SELECTOR_SOURCE
 #define HTTP_REQUEST_SELECTOR_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../constant/name/xml_name.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cybol/xml_cybol_name.c"
+#include "../../../../constant/name/xml_name.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Selects http request.

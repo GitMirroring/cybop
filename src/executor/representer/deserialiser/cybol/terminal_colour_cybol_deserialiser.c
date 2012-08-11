@@ -31,7 +31,6 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
-#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../logger/logger.c"

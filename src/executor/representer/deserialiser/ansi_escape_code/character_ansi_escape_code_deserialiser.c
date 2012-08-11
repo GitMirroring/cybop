@@ -23,13 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
-#define ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
-
-#ifdef CYGWIN_ENVIRONMENT
-#include <windows.h>
-/* CYGWIN_ENVIRONMENT */
-#endif
+#ifndef CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
+#define CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
 
 #include <stdio.h>
 #include <wchar.h>
@@ -38,41 +33,33 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/terminal/ansi_escape_code_model.c"
 #include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/searcher/selector/ansi_escape_code/ansi_escape_code_selector.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises the ansi escape code character data into a command.
  *
  * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void deserialise_ansi_escape_code(void* p0, void* p1, void* p2) {
+void deserialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The source data position.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source count remaining.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        void** d = (void**) p1;
 
-    // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p1);
-    // Copy source count remaining.
-    copy_integer((void*) &c, p2);
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code character.");
 
-    // CAUTION! A copy of source count remaining is forwarded here,
-    // so that the original source value does not get changed.
-    // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
-    // A local copy was made anyway, not to risk parametre falsification.
-    // Its reference is forwarded, as it gets incremented by sub routines inside.
-    select_ansi_escape_code(p0, (void*) &d, (void*) &c);
+        append_item_element(p0, *d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise ansi escape code character. The source data position is null.");
+    }
 }
 
-/* ANSI_ESCAPE_CODE_DESERIALISER_SOURCE */
+/* CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE */
 #endif

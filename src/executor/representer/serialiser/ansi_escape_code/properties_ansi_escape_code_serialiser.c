@@ -284,11 +284,11 @@ void serialise_ansi_escape_code_properties(void* p0, void* p1, void* p2, void* p
     serialise_ansi_escape_code_foreground(p0, fgmd);
 
     // Serialise attributes.
-    serialise_ansi_escape_code_property(p0, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL_COUNT, hmd);
-    serialise_ansi_escape_code_property(p0, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL_COUNT, imd);
-    serialise_ansi_escape_code_property(p0, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL_COUNT, blmd);
-    serialise_ansi_escape_code_property(p0, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL_COUNT, umd);
-    serialise_ansi_escape_code_property(p0, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL_COUNT, bmd);
+    serialise_ansi_escape_code_property(p0, (void*) HIDDEN_ANSI_ESCAPE_MODEL, (void*) HIDDEN_ANSI_ESCAPE_MODEL_COUNT, hmd);
+    serialise_ansi_escape_code_property(p0, (void*) INVERSE_ANSI_ESCAPE_MODEL, (void*) INVERSE_ANSI_ESCAPE_MODEL_COUNT, imd);
+    serialise_ansi_escape_code_property(p0, (void*) BLINK_ANSI_ESCAPE_MODEL, (void*) BLINK_ANSI_ESCAPE_MODEL_COUNT, blmd);
+    serialise_ansi_escape_code_property(p0, (void*) UNDERLINE_ANSI_ESCAPE_MODEL, (void*) UNDERLINE_ANSI_ESCAPE_MODEL_COUNT, umd);
+    serialise_ansi_escape_code_property(p0, (void*) BOLD_ANSI_ESCAPE_MODEL, (void*) BOLD_ANSI_ESCAPE_MODEL_COUNT, bmd);
 
     // Serialise rectangle border and area.
     serialise_ansi_escape_code_rectangle(p0, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
