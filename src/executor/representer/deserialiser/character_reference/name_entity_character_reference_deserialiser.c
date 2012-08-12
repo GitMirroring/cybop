@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ENTITY_ESCAPE_DESERIALISER_SOURCE
-#define ENTITY_ESCAPE_DESERIALISER_SOURCE
+#ifndef NAME_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
+#define NAME_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -40,8 +40,11 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_escape_entity(void* p0, void* p1, void* p2) {
+void deserialise_character_reference_entity_name(void* p0, void* p1, void* p2) {
+
+    //?? TODO: Add entity-escaped character comparisons here
+    // and append resulting character to destination.
 }
 
-/* ENTITY_ESCAPE_DESERIALISER_SOURCE */
+/* NAME_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
 #endif

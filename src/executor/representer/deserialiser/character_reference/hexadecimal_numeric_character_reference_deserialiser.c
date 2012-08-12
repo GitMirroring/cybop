@@ -1,0 +1,96 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.11.0 2012-01-01
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_DESERIALISER_SOURCE
+#define HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_DESERIALISER_SOURCE
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Deserialises the hexadecimal numeric character reference.
+ *
+ * @param p0 the destination item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ */
+void deserialise_character_reference_numeric_hexadecimal(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference numeric hexadecimal.");
+
+    // The hexadecimal numeric character reference data, count.
+    void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Initialise hexadecimal numeric character reference data.
+    copy_pointer((void*) &rd, p1);
+
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
+        }
+
+        select_character_reference_end((void*) &b, p1, p2);
+
+        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Increment hexadecimal numeric character reference count.
+            rc++;
+        }
+    }
+
+    // Deserialise hexadecimal numeric character reference data into integer number.
+    //
+    // CAUTION! The deserialised number is appended to the destination as integer.
+    // This is ONLY POSSIBLE because the glibc types "int" and "wchar_t"
+    // have a size of 4 Byte each so that they may be mixed in arrays.
+    // Should this change one day, deserialisation would have be done differently here.
+    deserialise_cybol_integer_value(p0, rd, (void*) &rc, NEW FLAG INDICATING NUMBER BASE 16 (hex) FOR wcstol function, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+}
+
+/* HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
+#endif

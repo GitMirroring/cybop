@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement character reference deserialiser
+
 2012-08-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Filter out html tags that are allowed to be void elements following the html specification
