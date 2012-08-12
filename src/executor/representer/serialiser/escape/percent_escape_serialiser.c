@@ -23,17 +23,15 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef URL_ESCAPE_CODE_SERIALISER_SOURCE
-#define URL_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef PERCENT_ESCAPE_SERIALISER_SOURCE
+#define PERCENT_ESCAPE_SERIALISER_SOURCE
 
-#include "../../../../constant/character/character_constants.c"
-#include "../../../../constant/http/url_escape_code_constants.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/reallocation_factor.c"
 
 //
 // RFC 3986 does not determine which character set to use for decoding
@@ -50,13 +48,13 @@
 //
 
 /**
- * Serialises the character into a url escape code.
+ * Serialises into a percent-escaped character.
  *
- * @param p0 the destination escape code item
- * @param p1 the source character data
- * @param p2 the source character count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void serialise_url_escape_code(void* p0, void* p1, void* p2) {
+void serialise_escape_percent(void* p0, void* p1, void* p2) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -282,5 +280,5 @@ void serialise_url_escape_code(void* p0, void* p1, void* p2) {
     }
 }
 
-/* URL_ESCAPE_CODE_SERIALISER_SOURCE */
+/* PERCENT_ESCAPE_SERIALISER_SOURCE */
 #endif

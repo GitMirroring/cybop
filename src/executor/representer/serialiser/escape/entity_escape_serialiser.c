@@ -23,100 +23,40 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_ENTITY_REFERENCE_SERIALISER_SOURCE
-#define CHARACTER_ENTITY_REFERENCE_SERIALISER_SOURCE
+#ifndef ENTITY_ESCAPE_SERIALISER_SOURCE
+#define ENTITY_ESCAPE_SERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/reallocation_factor.c"
 
 /**
- * Serialises a character into a character entity reference (html escape reference).
+ * Serialises into an entity-escaped character.
  *
- * @param p0 the destination character entity reference (html escape reference)
- * @param p1 the destination character entity reference (html escape reference) count
- * @param p2 the destination character entity reference (html escape reference) size
- * @param p3 the source character
- * @param p4 the source character count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-/*??
-void serialise_character_entity_reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_escape_entity(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The comparison result.
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        int* ds = (int*) p2;
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        compare_all_array((void*) &r, p3, p4, (void*) SPACE_CHARACTER, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-            int* dc = (int*) p1;
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                void** d = (void**) p0;
-
-                // The temporary value.
-                void** t = NULL_POINTER_STATE_CYBOI_MODEL;
-                int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                int ts = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                // The comparison result.
-                int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-/*??
-                if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    compare_all_array((void*) &r, p3, p4, (void*) SPACE_CHARACTER, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-                    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                        t = (void**) &SPACE_URL_ESCAPE_CODE;
-                        tc = *SPACE_URL_ESCAPE_CODE_COUNT;
-                        ts = tc;
-                    }
-                }
-*/
-
-/*??
-                //
-                // Set actual destination, using the temporary value.
-                //
-
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    if ((*dc + tc) > *ds) {
-
-                        // Calculate destination size.
-                        *ds = (*ARRAY_REALLOCATION_FACTOR * (*dc)) + tc;
-
-                        // Reallocate destination.
-                        reallocate(p0, p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-                    }
-
-                    // Add temporary value to destination.
-                    overwrite_array(*d, p1, (void*) t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-
-                    // Increase destination count.
-                    *dc = *dc + tc;
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise character entity reference. The destination is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise character entity reference. The destination count is null.");
+            t = (void**) &SPACE_URL_ESCAPE_CODE;
+            tc = *SPACE_URL_ESCAPE_CODE_COUNT;
+            ts = tc;
         }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise character entity reference. The destination size is null.");
     }
 }
-*/
 
-/* CHARACTER_ENTITY_REFERENCE_SERIALISER_SOURCE */
+/* ENTITY_ESCAPE_SERIALISER_SOURCE */
 #endif

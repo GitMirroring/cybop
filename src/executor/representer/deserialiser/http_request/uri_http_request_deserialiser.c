@@ -33,7 +33,6 @@
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
 #include "../../../../constant/format/cybol/state/text_state_cybol_format.c"
 #include "../../../../executor/communicator/receiver/inline_receiver.c"
-#include "../../../../executor/representer/deserialiser/uri/percent_encoding_vector_deserialiser.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../executor/modifier/appender/character_deserialiser_part_allocator_item_appender.c"
 #include "../../../../executor/modifier/overwriter/part_overwriter.c"
@@ -68,7 +67,7 @@ void deserialise_http_request_uri_content(void* p0, void* p1, void* p2) {
     //
 
     // Decode percent-encoded character array into character data.
-    deserialise_percent_encoding_vector((void*) &cd, (void*) &cc, (void*) &cs, p1, p2);
+//??    deserialise_percent_encoding_vector((void*) &cd, (void*) &cc, (void*) &cs, p1, p2);
 
     //
     // Add uri as full text representation.
