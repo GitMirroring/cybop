@@ -26,6 +26,7 @@
 #ifndef NAME_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
 #define NAME_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
 
+#include "../../../../constant/model/character_entity_reference/html_character_entity_reference_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -44,6 +45,21 @@ void deserialise_character_reference_entity_name(void* p0, void* p1, void* p2) {
 
     //?? TODO: Add entity-escaped character comparisons here
     // and append resulting character to destination.
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) QUOTATION_MARK_HTML_CHARACTER_ENTITY_REFERENCE_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) QUOTATION_MARK_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        }
+    }
+
+    //?? TODO: insert all html character entity reference model constants here
 }
 
 /* NAME_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE */

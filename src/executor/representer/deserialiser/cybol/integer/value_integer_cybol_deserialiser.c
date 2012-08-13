@@ -51,76 +51,90 @@
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
- * @param p3 the prepend flag (false - append value at destination end; true - prepend value at destination beginning)
- * @param p4 the old destination item count (only needed if prepend flag is true, for insertion; may otherwise be null)
+ * @param p3 the number base:
+ *           0 - tries to automatically identify the correct number base
+ *           8 - octal, e.g. 083
+ *           10 - decimal, e.g. 1234
+ *           16 - hexadecimal, e.g. 3d4 or, optionally, 0x3d4
+ * @param p4 the prepend flag (false - append value at destination end; true - prepend value at destination beginning)
+ * @param p5 the old destination item count (only needed if prepend flag is true, for insertion; may otherwise be null)
  */
-void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol integer value.");
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The temporary null-terminated string item.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The temporary null-terminated string item data.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* nb = (int*) p3;
 
-    // Allocate temporary null-terminated string item.
-    allocate_item((void*) &t, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol integer value.");
 
-    // Copy original string to temporary null-terminated string.
-    append_item_element(t, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Add null termination character.
-    append_item_element(t, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // The temporary null-terminated string item.
+        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The temporary null-terminated string item data.
+        void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get temporary null-terminated string item data.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Allocate temporary null-terminated string item.
+        allocate_item((void*) &t, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // The tail variable is useless here and only needed for the string
-    // transformation function. If the whole string array consists of
-    // many sub strings, separated by space characters, then each sub
-    // string gets interpreted as integer number.
-    // The tail variable in this case points to the remaining sub string.
-    wchar_t* tail = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        // Copy original string to temporary null-terminated string.
+        append_item_element(t, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Add null termination character.
+        append_item_element(t, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-    // Initialise error number.
-    // It is a global variable/ function and other operations
-    // may have set some value that is not wanted here.
-    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // Get temporary null-terminated string item data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Transform string to integer value.
-    //
-    // The third parametre is the number base:
-    // 0 - tries to automatically identify the correct number base
-    // 8 - octal, e.g. 083
-    // 10 - decimal, e.g. 1234
-    // 16 - hexadecimal, e.g. 3d4 or, optionally, 0x3d4
-    int i = wcstol((wchar_t*) td, &tail, *NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+        // The tail variable is useless here and only needed for the string
+        // transformation function. If the whole string array consists of
+        // many sub strings, separated by space characters, then each sub
+        // string gets interpreted as integer number.
+        // The tail variable in this case points to the remaining sub string.
+        wchar_t* tail = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    if (errno != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        // Initialise error number.
+        // It is a global variable/ function and other operations
+        // may have set some value that is not wanted here.
+        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol integer value. An error (probably overflow) occured.");
+        // Transform string to integer value.
+        //
+        // The third parametre is the number base:
+        // 0 - tries to automatically identify the correct number base
+        // 8 - octal, e.g. 083
+        // 10 - decimal, e.g. 1234
+        // 16 - hexadecimal, e.g. 3d4 or, optionally, 0x3d4
+        int i = wcstol((wchar_t*) td, &tail, *nb);
 
-    } else {
+        if (errno != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        // The comparison flag.
-        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        compare_integer_unequal((void*) &b, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            insert_item_element(p0, (void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol integer value. An error (probably overflow) occured.");
 
         } else {
 
-            append_item_element(p0, (void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        }
-    }
+            // The comparison flag.
+            int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Deallocate temporary null-terminated string item.
-    deallocate_item((void*) &t, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            compare_integer_unequal((void*) &b, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                insert_item_element(p0, (void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+            } else {
+
+                append_item_element(p0, (void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            }
+        }
+
+        // Deallocate temporary null-terminated string item.
+        deallocate_item((void*) &t, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol integer value. The number base is null.");
+    }
 }
 
 /* VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE */

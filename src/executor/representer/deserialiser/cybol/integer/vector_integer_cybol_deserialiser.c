@@ -116,7 +116,10 @@ void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2) {
     }
 
     // Prepend element to destination.
-    deserialise_cybol_integer_value(p0, e, (void*) &ec, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
+    //
+    // CAUTION! Hand over number base 0 as parametre
+    // (automatic identification of the correct number base).
+    deserialise_cybol_integer_value(p0, e, (void*) &ec, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
 }
 
 /* VECTOR_INTEGER_CYBOL_DESERIALISER_SOURCE */

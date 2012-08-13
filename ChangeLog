@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend integer value deserialiser with number base parametre
+        * Continue implementing character reference deserialiser
+
 2012-08-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement character reference deserialiser

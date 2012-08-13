@@ -49,6 +49,10 @@ void deserialise_character_reference_numeric_hexadecimal(void* p0, void* p1, voi
     int rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The deserialised integer.
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The deserialised character.
+    wchar_t c = *NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL;
 
     // Initialise hexadecimal numeric character reference data.
     copy_pointer((void*) &rd, p1);
@@ -85,11 +89,18 @@ void deserialise_character_reference_numeric_hexadecimal(void* p0, void* p1, voi
 
     // Deserialise hexadecimal numeric character reference data into integer number.
     //
-    // CAUTION! The deserialised number is appended to the destination as integer.
-    // This is ONLY POSSIBLE because the glibc types "int" and "wchar_t"
-    // have a size of 4 Byte each so that they may be mixed in arrays.
-    // Should this change one day, deserialisation would have be done differently here.
-    deserialise_cybol_integer_value(p0, rd, (void*) &rc, NEW FLAG INDICATING NUMBER BASE 16 (hex) FOR wcstol function, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // CAUTION! Hand over number base 16 as parametre!
+    deserialise_cybol_integer_value((void*) &i, rd, (void*) &rc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+    // Cast integer to wide character.
+    //
+    // CAUTION! This is ONLY POSSIBLE because the glibc types
+    // "int" and "wchar_t" have a size of 4 Byte each.
+    // If this changes one day, something will have to be adapted here.
+    c = (wchar_t) i;
+
+    // Append character to destination.
+    append_item_element(p0, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_DESERIALISER_SOURCE */

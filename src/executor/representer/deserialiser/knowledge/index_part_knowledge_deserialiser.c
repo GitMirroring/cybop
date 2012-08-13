@@ -121,7 +121,7 @@ fwprintf(stdout, L"TEST deserialise index path data: %i\n", *((int*) p3));
             allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             // Deserialise index.
-            deserialise_cybol_integer_value(i, sd, (void*) &sc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            deserialise_cybol_integer_value(i, sd, (void*) &sc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             // Get temporary index item data.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
