@@ -19,11 +19,13 @@
 2012-08-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Extend integer value deserialiser with number base parametre
-        * Continue implementing character reference deserialiser
+        * Continue character reference deserialiser
 
 2012-08-12  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement character reference deserialiser
+        * Implement character reference deserialiser for numeric character reference (hexadecimal and decimal) and character entity reference
+        * Decide not to put character reference de-/serialiser and percent encoding de-/serialiser
+            into "encoding/" directory, to not mix it up with character set specific conversions
 
 2012-08-10  Christian Heller  <christian.heller@tuxtax.de>
 

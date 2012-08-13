@@ -9,13 +9,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Implement:
-            - character reference deserialiser for: numeric character reference (hexadecimal and decimal), character entity reference
-            - character reference serialiser only for hexadecimal numeric character reference
-            - percent encoding deserialiser calling filters in this order: utf-8 decode, percent deserialise, url deserialise
-            - percent encoding serialiser calling percent serialise for each single part of the url and only in the end utf-8 encode for the complete url
-        * Decide not to put character reference de-/serialiser and percent encoding de-/serialiser
-            into "encoding/" directory, to not mix it up with character set specific conversions
+        * Merge in constants standing above blocks in file "html_entity_character_reference_deserialiser.c"
+        * Implement character reference serialiser only for hexadecimal numeric character reference
+            (NOT for character entity references, since they are outdated and numeric character references should be used instead)
+        * Implement percent encoding deserialiser calling filters in this order: utf-8 decode, percent deserialise, url deserialise
+        * Implement percent encoding serialiser calling percent serialise for each single part of the url and only in the end utf-8 encode for the complete url
+        * Remove file "constant/model/escape/percent_escape_model.c" and directory "constant/model/escape/",
+            since percent-escaped codes represent unicode character codes that may be used directly
 
         * HTML Serialiser:
             - Replace special characters like < with XML masked characters, but only if

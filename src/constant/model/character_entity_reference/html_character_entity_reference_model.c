@@ -301,7 +301,7 @@ static int* REGISTERED_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER
  * The macron html character entity reference model.
  *
  * Name: macr
- * Character: �
+ * Character: ¯
  * Unicode code point: U+00AF (175)
  * Standard: HTML 3.2
  * Description: macron
@@ -314,7 +314,7 @@ static int* MACRON_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_4_INTEGE
  * The degree sign html character entity reference model.
  *
  * Name: deg
- * Character: �
+ * Character: °
  * Unicode code point: U+00B0 (176)
  * Standard: HTML 3.2
  * Description: degree sign
@@ -327,7 +327,7 @@ static int* DEGREE_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_3_I
  * The plus-minus sign html character entity reference model.
  *
  * Name: plusmn
- * Character: �
+ * Character: ±
  * Unicode code point: U+00B1 (177)
  * Standard: HTML 3.2
  * Description: plus-minus sign
@@ -340,7 +340,7 @@ static int* PLUS_MINUS_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER
  * The superscript two html character entity reference model.
  *
  * Name: sup2
- * Character: �
+ * Character: ²
  * Unicode code point: U+00B2 (178)
  * Standard: HTML 3.2
  * Description: superscript two
@@ -353,7 +353,7 @@ static int* SUPERSCRIPT_TWO_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER
  * The superscript three html character entity reference model.
  *
  * Name: sup3
- * Character: �
+ * Character:
  * Unicode code point: U+00B3 (179)
  * Standard: HTML 3.2
  * Description: superscript three
