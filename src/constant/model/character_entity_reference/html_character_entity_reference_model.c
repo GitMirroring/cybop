@@ -30,6 +30,13 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// This list of constants was built upon information taken from:
+// http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+//
+// Accessed on: 2012-08-13
+//
+
 /**
  * The quotation mark html character entity reference model.
  *
@@ -112,7 +119,7 @@ static int* NON_BREAKING_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUM
  * The inverted exclamation mark html character entity reference model.
  *
  * Name: iexcl
- * Character: �
+ * Character: ¡
  * Unicode code point: U+00A1 (161)
  * Standard: HTML 3.2
  * Description: inverted exclamation mark
@@ -125,7 +132,7 @@ static int* INVERTED_EXCLAMATION_MARK_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUN
  * The cent sign html character entity reference model.
  *
  * Name: cent
- * Character: �
+ * Character: ¢
  * Unicode code point: U+00A2 (162)
  * Standard: HTML 3.2
  * Description: cent sign
@@ -138,7 +145,7 @@ static int* CENT_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_4_INT
  * The pound sign html character entity reference model.
  *
  * Name: pound
- * Character: �
+ * Character: £
  * Unicode code point: U+00A3 (163)
  * Standard: HTML 3.2
  * Description: pound sign
@@ -151,7 +158,7 @@ static int* POUND_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_5_IN
  * The currency sign html character entity reference model.
  *
  * Name: curren
- * Character: �
+ * Character: ¤
  * Unicode code point: U+00A4 (164)
  * Standard: HTML 3.2
  * Description: currency sign
@@ -164,7 +171,7 @@ static int* CURRENCY_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_6
  * The yen sign html character entity reference model.
  *
  * Name: yen
- * Character: �
+ * Character: ¥
  * Unicode code point: U+00A5 (165)
  * Standard: HTML 3.2
  * Description: yen sign
@@ -177,7 +184,7 @@ static int* YEN_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_3_INTE
  * The broken bar html character entity reference model.
  *
  * Name: brvbar
- * Character: �
+ * Character: ¦
  * Unicode code point: U+00A6 (166)
  * Standard: HTML 3.2
  * Description: broken bar
@@ -190,7 +197,7 @@ static int* BROKEN_BAR_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_6_IN
  * The section sign html character entity reference model.
  *
  * Name: sect
- * Character: �
+ * Character: §
  * Unicode code point: U+00A7 (167)
  * Standard: HTML 3.2
  * Description: section sign
@@ -203,7 +210,7 @@ static int* SECTION_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_4_
  * The diaeresis html character entity reference model.
  *
  * Name: uml
- * Character: �
+ * Character: ¨
  * Unicode code point: U+00A8 (168)
  * Standard: HTML 3.2
  * Description: diaeresis
@@ -216,7 +223,7 @@ static int* DIAERESIS_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_3_INT
  * The copyright sign html character entity reference model.
  *
  * Name: copy
- * Character: �
+ * Character: ©
  * Unicode code point: U+00A9 (169)
  * Standard: HTML 3.2
  * Description: copyright sign
@@ -229,7 +236,7 @@ static int* COPYRIGHT_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_
  * The feminine ordinal indicator html character entity reference model.
  *
  * Name: ordf
- * Character: �
+ * Character: ª
  * Unicode code point: U+00AA (170)
  * Standard: HTML 3.2
  * Description: feminine ordinal indicator
@@ -242,7 +249,7 @@ static int* FEMININE_ORDINAL_INDICATOR_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COU
  * The left-pointing double angle quotation mark html character entity reference model.
  *
  * Name: laquo
- * Character: �
+ * Character: «
  * Unicode code point: U+00AB (171)
  * Standard: HTML 3.2
  * Description: left-pointing double angle quotation mark
@@ -255,7 +262,7 @@ static int* LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK_HTML_CHARACTER_ENTITY_REFE
  * The not sign html character entity reference model.
  *
  * Name: not
- * Character: �
+ * Character: ¬
  * Unicode code point: U+00AC (172)
  * Standard: HTML 3.2
  * Description: not sign
@@ -268,7 +275,7 @@ static int* NOT_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_3_INTE
  * The soft hyphen html character entity reference model.
  *
  * Name: shy
- * Character: �
+ * Character:
  * Unicode code point: U+00AD (173)
  * Standard: HTML 3.2
  * Description: soft hyphen
@@ -281,7 +288,7 @@ static int* SOFT_HYPHEN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_3_I
  * The registered sign html character entity reference model.
  *
  * Name: reg
- * Character: �
+ * Character: ®
  * Unicode code point: U+00AE (174)
  * Standard: HTML 3.2
  * Description: registered sign
