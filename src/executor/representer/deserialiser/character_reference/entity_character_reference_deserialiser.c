@@ -83,8 +83,8 @@ void deserialise_character_reference_entity(void* p0, void* p1, void* p2) {
         }
     }
 
-    // Deserialise entity character reference data into character.
-    deserialise_character_reference_entity_name(p0, rd, (void*) &rc);
+    // Deserialise character entity reference data into character.
+    deserialise_character_reference_entity_html(p0, rd, (void*) &rc);
 }
 
 /* ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
