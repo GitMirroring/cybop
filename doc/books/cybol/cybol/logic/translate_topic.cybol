@@ -1,18 +1,18 @@
 <model>
-    <!-- build specification access string and set specification name to temp var -->
-    <part name="build_specification_index_string" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_specification_index_string"/>
+    <!-- build topic access string and set topic name to temp var -->
+    <part name="build_topic_index_string" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_topic_index_string"/>
     </part>
 
     <!-- copy template to specific knowledge path in wui.index -->
-    <part name="build_specification_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_specification"/>
+    <part name="build_topic_to_html" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_topic"/>
     </part>
 
-    <!-- count the categories of the selected specification -->
+    <!-- count the categories of the selected topic -->
     <part name="get_category_count" channel="inline" encoding="utf-8" language="text/cybol" format="access/count" model="">
         <property name="count" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_count"/>
-        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_link"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.topic_link"/>
     </part>
     
     <!-- pre execution of category loop check (necessary if no category entry found) -->
@@ -23,22 +23,22 @@
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
     </part>
-    <!-- calls translate_category foreach category in specification part -->
+    <!-- calls translate_category foreach category in topic part -->
     <part name="loop_category_translation" channel="inline" encoding="utf-8" language="text/cybol" format="flow/loop" model="">
         <property name="break" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_break"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.translate_category"/>
     </part>
 
-    <!-- handle specification loop after finished specification --> 
-    <part name="increment_specification_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_index"/>
+    <!-- handle topic loop after finished topic --> 
+    <part name="increment_topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_index"/>
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </part>
-    <part name="compare_specification_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_break"/>
-        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_count"/>
-        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_index"/>
+    <part name="compare_topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_break"/>
+        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_count"/>
+        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_index"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
     </part>

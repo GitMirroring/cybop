@@ -1,11 +1,11 @@
 <model>
     <!-- add logic implementation to knowledge-tree here --> 
     <part name="translate_api" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_api.cybol"/>
-    <part name="translate_specification" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_specification.cybol"/>
-    <part name="build_specification" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_specification.cybol"/>
-    <part name="build_specification_content_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_specification_content_path.cybol"/>
-    <part name="build_specification_toc_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_specification_toc_path.cybol"/>
-    <part name="build_specification_index_string" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_specification_index_string.cybol"/>
+    <part name="translate_topic" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_topic.cybol"/>
+    <part name="build_topic" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic.cybol"/>
+    <part name="build_topic_content_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic_content_path.cybol"/>
+    <part name="build_topic_toc_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic_toc_path.cybol"/>
+    <part name="build_topic_index_string" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic_index_string.cybol"/>
     <part name="translate_category" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_category.cybol"/>
     <part name="build_category" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category.cybol"/>
     <part name="build_category_index_string" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_category_index_string.cybol"/>

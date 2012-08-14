@@ -1,0 +1,41 @@
+<model>
+    <!-- build dynamic knowledge path using index to the current topic -->  
+    <part name="clear_topic" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_link"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_static_pre_to_topic" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".specification.["/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_link"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_topic_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_link_number"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="serialise_index_to_topic_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="represent/serialise" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_link_number"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_index"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+    </part>
+    <part name="add_topic_link_number_as_text" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_link_number"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_link"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_post_to_topic_link" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="]"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_link"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- copy selected topic name to temporary variable -->
+    <part name="copy_name_of_topic_to_temp" channel="inline" encoding="utf-8" language="text/cybol" format="access/get-name" model="">
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_topic"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.topic_link"/>
+    </part>
+</model>

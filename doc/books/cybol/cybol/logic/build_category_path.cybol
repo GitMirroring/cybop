@@ -5,9 +5,9 @@
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>^
-    <part name="add_belonging_specification_knowledge_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+    <part name="add_belonging_topic_knowledge_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_content_path"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_content_path"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_dot" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
@@ -29,7 +29,7 @@
     </part>
     <part name="add_static_path_to_toc" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_toc_path"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_toc_path"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_toc_path"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_dot_to_path_of_toc" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">

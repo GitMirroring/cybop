@@ -5,11 +5,11 @@
     </part>
 
     <!-- create category knowlegdepath in wui.index.body.content -->
-    <part name="create_category_specification" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+    <part name="create_category_topic" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_category"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_content_path"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.topic_content_path"/>
     </part>
 
     <!-- copy category content template to wui.index.body.content -->
@@ -27,7 +27,7 @@
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_category"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.specification_toc_path"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.topic_toc_path"/>
     </part>
 
     <!-- copy category content template to wui.index.body.toc -->
