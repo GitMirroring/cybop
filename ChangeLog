@@ -21,6 +21,7 @@
         * Implement percent encoding deserialiser
         * Add name constants for character reference deserialiser and percent encoding deserialiser
         * Remove superfluous percent encoding model constants since they represent unicode character codes that may be used directly
+        * Implement percent encoding serialiser
 
 2012-08-13  Christian Heller  <christian.heller@tuxtax.de>
 

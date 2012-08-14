@@ -9,7 +9,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Implement percent encoding serialiser
         * Implement character reference serialiser ONLY for hexadecimal numeric character reference
             (NOT for character entity references, since they are outdated and allow only for a limited number of characters)
         * Ensure that non-encoded characters are copied as well in character reference deserialiser

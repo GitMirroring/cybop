@@ -23,32 +23,34 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATA_PERCENT_ENCODING_DESERIALISER_SOURCE
-#define DATA_PERCENT_ENCODING_DESERIALISER_SOURCE
+#ifndef DATA_PERCENT_ENCODING_SERIALISER_SOURCE
+#define DATA_PERCENT_ENCODING_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/searcher/selector/percent_encoding/begin_percent_encoding_selector.c"
+#include "../../../../executor/representer/serialiser/percent_encoding/character_percent_encoding_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises percent-encoded character data.
+ * Serialises into percent-encoded character data.
  *
- * The source multibyte character data are transformed into wide character data.
+ * The source wide character data are transformed into multibyte character data.
  *
- * @param p0 the destination wide character item
- * @param p1 the source character data position (pointer reference)
- * @param p2 the source character count remaining
+ * @param p0 the destination character item
+ * @param p1 the source wide character data position (pointer reference)
+ * @param p2 the source wide character count remaining
  */
-void deserialise_percent_encoding_data(void* p0, void* p1, void* p2) {
+void serialise_percent_encoding_data(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise percent encoding data.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise percent encoding data.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The source wide character.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -71,9 +73,18 @@ void deserialise_percent_encoding_data(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_percent_encoding_begin(p0, p1, p2);
+        // The source count remaining is greater zero.
+        // So, at least one wide character is left.
+
+        // Get next wide character.
+        copy_pointer((void*) &c, p1);
+
+        serialise_percent_encoding_character(p0, c);
+
+        // CAUTION! The source is of type "wide character".
+        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
-/* DATA_PERCENT_ENCODING_DESERIALISER_SOURCE */
+/* DATA_PERCENT_ENCODING_SERIALISER_SOURCE */
 #endif
