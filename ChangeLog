@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement percent encoding deserialiser
+        * Add name constants for character reference deserialiser and percent encoding deserialiser
+        * Remove superfluous percent encoding model constants since they represent unicode character codes that may be used directly
+
 2012-08-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Extend integer value deserialiser with number base parametre

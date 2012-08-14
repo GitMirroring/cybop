@@ -23,30 +23,27 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ANY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
-#define ANY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
+#ifndef DATA_PERCENT_ENCODING_DESERIALISER_SOURCE
+#define DATA_PERCENT_ENCODING_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/searcher/selector/character_reference/begin_character_reference_selector.c"
+#include "../../../../executor/searcher/selector/percent_encoding/begin_percent_encoding_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises any kind of character reference, may it be:
- * - numeric character reference (hexadecimal)
- * - numeric character reference (decimal)
- * - character entity reference
+ * Deserialises percent-encoded character data.
  *
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void deserialise_character_reference_any(void* p0, void* p1, void* p2) {
+void deserialise_percent_encoding_data(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference any.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise percent encoding data.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -72,9 +69,9 @@ void deserialise_character_reference_any(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_character_reference_begin(p0, p1, p2);
+        select_percent_encoding_begin(p0, p1, p2);
     }
 }
 
-/* ANY_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
+/* DATA_PERCENT_ENCODING_DESERIALISER_SOURCE */
 #endif

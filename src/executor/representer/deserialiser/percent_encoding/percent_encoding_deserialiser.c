@@ -23,30 +23,27 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_REFERENCE_DESERIALISER_SOURCE
-#define CHARACTER_REFERENCE_DESERIALISER_SOURCE
+#ifndef PERCENT_ENCODING_DESERIALISER_SOURCE
+#define PERCENT_ENCODING_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/deserialiser/character_reference/any_character_reference_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/percent_encoding/data_percent_encoding_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the character reference, may it be:
- * - numeric character reference (hexadecimal)
- * - numeric character reference (decimal)
- * - character entity reference
+ * Deserialises the percent-encoded character data.
  *
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_character_reference(void* p0, void* p1, void* p2) {
+void deserialise_percent_encoding(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise percent encoding.");
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -64,8 +61,8 @@ void deserialise_character_reference(void* p0, void* p1, void* p2) {
     // since the parametre that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
-    deserialise_character_reference_any(p0, (void*) &d, (void*) &c);
+    deserialise_percent_encoding_data(p0, (void*) &d, (void*) &c);
 }
 
-/* CHARACTER_REFERENCE_DESERIALISER_SOURCE */
+/* PERCENT_ENCODING_DESERIALISER_SOURCE */
 #endif

@@ -27,6 +27,7 @@
 #define HTML_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/character_entity_reference/html_character_entity_reference_model.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"

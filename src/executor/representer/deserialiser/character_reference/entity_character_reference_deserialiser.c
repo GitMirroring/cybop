@@ -31,6 +31,8 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/deserialiser/character_reference/html_entity_character_reference_deserialiser.c"
+#include "../../../../executor/searcher/selector/character_reference/end_character_reference_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
