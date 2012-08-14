@@ -4,8 +4,8 @@
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_topic_path_to_operation" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_link"/>
+    <part name="add_category_path_to_operation" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_link"/>
 	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_link"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
@@ -48,8 +48,8 @@
         <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_topic_path_to_operation_toc" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.topic_toc_path"/>
+    <part name="add_category_path_to_operation_toc" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_toc_path"/>
 	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_toc_path"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
     </part>

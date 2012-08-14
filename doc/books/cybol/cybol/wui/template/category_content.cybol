@@ -1,9 +1,9 @@
 <model>
-    <part name="topic_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
+    <part name="category_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
         <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a"/>
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     </part>
-    <part name="topic" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
+    <part name="category" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
         <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h2"/>
         <property name="align" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="center"/>
     </part>

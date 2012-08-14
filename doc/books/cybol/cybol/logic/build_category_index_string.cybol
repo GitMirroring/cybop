@@ -1,0 +1,45 @@
+<model>
+    <part name="clear_category" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_link"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_specification_path_to_category" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.specification_link"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_link"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_static_pre_to_category_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".["/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_link"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_category_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_link_number"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="serialise_index_to_category_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="represent/serialise" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_link_number"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_index"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
+        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+    </part>
+    <part name="add_category_link_number_as_text" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_link_number"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_link"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_post_to_category_link" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="]"/>
+	<property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_link"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- copy selected specification name to temp -->
+    <part name="copy_name_of_category_to_temp" channel="inline" encoding="utf-8" language="text/cybol" format="access/get-name" model="">
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_category"/>
+        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.category_link"/>
+    </part>
+</model>

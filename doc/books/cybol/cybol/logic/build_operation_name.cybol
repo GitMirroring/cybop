@@ -4,7 +4,7 @@
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.selected_operation"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.topic_content_path"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.category_content_path"/>
     </part>
 
     <!-- copy operation content template to wui.index.body.content -->
