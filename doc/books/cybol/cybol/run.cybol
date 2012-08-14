@@ -54,8 +54,8 @@
     </part>
 
     <!-- execute application logic -->
-    <part name="translate_api" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.translate_api"/>
+    <part name="translate_specification" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.translate_specification"/>
     </part>
     <!-- generate application main knowledge part tree views (just for test purposes)-->
     <part name="test_knowledge_tree_spec" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
