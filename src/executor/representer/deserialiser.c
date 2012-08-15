@@ -154,7 +154,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The temporary model, properties data, count.
+            // The temporary model, properties item data, count.
             void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;

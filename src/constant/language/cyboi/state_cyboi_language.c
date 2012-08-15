@@ -69,35 +69,6 @@ static int* X_LATEX_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_20_INTEGER_STATE_CYB
 static int* X_TAR_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// interface
-//
-
-/** The graphical interface state cyboi language. */
-static int* GRAPHICAL_INTERFACE_STATE_CYBOI_LANGUAGE = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The x-winamp-skin interface state cyboi language. */
-static int* X_WINAMP_SKIN_INTERFACE_STATE_CYBOI_LANGUAGE = NUMBER_51_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// message
-//
-
-/** The ansi escape code message state cyboi language. */
-static int* ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The http message state cyboi language. */
-static int* HTTP_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_101_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The http-request message state cyboi language. */
-static int* HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_102_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The http-response message state cyboi language. */
-static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_103_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The news message state cyboi language. */
-static int* NEWS_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_104_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // audio
 //
 
@@ -115,65 +86,63 @@ static int* VORBIS_AUDIO_STATE_CYBOI_FORMAT = NUMBER_101_INTEGER_STATE_CYBOI_MOD
 static int* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOI_FORMAT = NUMBER_150_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// text
-//
-
-/** The authority text state cyboi language. */
-static int* AUTHORITY_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The css text state cyboi language. */
-static int* CSS_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The cybol text state cyboi language. */
-static int* CYBOL_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The html text state cyboi language. */
-static int* HTML_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The hxp text state cyboi language. */
-static int* HXP_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The model-diagram text state cyboi language. */
-static int* MODEL_DIAGRAM_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The uri text state cyboi language. */
-static int* URI_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_206_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xdt text state cyboi language. */
-static int* XDT_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_207_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xml text state cyboi language. */
-static int* XML_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_208_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // image
 //
 
 /** The gif image state cyboi format. */
-static int* GIF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_270_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* GIF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The jpeg image state cyboi format. */
-static int* JPEG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_271_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* JPEG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The png image state cyboi format. */
-static int* PNG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_272_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* PNG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The tiff image state cyboi format. */
-static int* TIFF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_273_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* TIFF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // inode
 //
 
 /** The socket inode state cyboi format. */
-static int* SOCKET_INODE_STATE_CYBOI_FORMAT = NUMBER_280_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SOCKET_INODE_STATE_CYBOI_FORMAT = NUMBER_250_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// interface
+//
+
+/** The graphical interface state cyboi language. */
+static int* GRAPHICAL_INTERFACE_STATE_CYBOI_LANGUAGE = NUMBER_270_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-winamp-skin interface state cyboi language. */
+static int* X_WINAMP_SKIN_INTERFACE_STATE_CYBOI_LANGUAGE = NUMBER_271_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // media
 //
 
 /** The vcd media state cyboi format. */
-static int* VCD_MEDIA_STATE_CYBOI_FORMAT = NUMBER_310_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* VCD_MEDIA_STATE_CYBOI_FORMAT = NUMBER_290_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// message
+//
+
+/** The ansi escape code message state cyboi language. */
+static int* ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The http message state cyboi language. */
+static int* HTTP_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_301_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The http-request message state cyboi language. */
+static int* HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_302_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The http-response message state cyboi language. */
+static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_303_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The news message state cyboi language. */
+static int* NEWS_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_304_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // model
@@ -187,14 +156,48 @@ static int* VRML_MODEL_STATE_CYBOI_FORMAT = NUMBER_340_INTEGER_STATE_CYBOI_MODEL
 //
 
 /** The mixed multipart state cyboi format. */
-static int* MIXED_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_345_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* MIXED_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_360_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // print
 //
 
 /** The jobs print state cyboi format. */
-static int* JOBS_PRINT_STATE_CYBOI_FORMAT = NUMBER_410_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* JOBS_PRINT_STATE_CYBOI_FORMAT = NUMBER_380_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// text
+//
+
+/** The authority text state cyboi language. */
+static int* AUTHORITY_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_400_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The css text state cyboi language. */
+static int* CSS_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_401_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The cybol text state cyboi language. */
+static int* CYBOL_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_402_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The html text state cyboi language. */
+static int* HTML_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_403_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The hxp text state cyboi language. */
+static int* HXP_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_404_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The model-diagram text state cyboi language. */
+static int* MODEL_DIAGRAM_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_405_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The sgml text state cyboi language. */
+static int* SGML_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_406_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The uri text state cyboi language. */
+static int* URI_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_407_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The xdt text state cyboi language. */
+static int* XDT_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_408_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The xml text state cyboi language. */
+static int* XML_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_409_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // uri

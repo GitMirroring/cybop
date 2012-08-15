@@ -46,7 +46,7 @@ void serialise_http_response_header_content_length(void* p0, void* p1) {
 
     append_item_element(p0, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(p0, (void*) HEADER_ARGUMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HEADER_ARGUMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    serialise_cybol_integer(p0, p1, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    serialise_cybol_integer(p0, p1, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
     append_item_element(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 

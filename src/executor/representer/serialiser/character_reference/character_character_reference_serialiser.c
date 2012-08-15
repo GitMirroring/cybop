@@ -30,51 +30,51 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/percent_encoding/percent_encoding_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/character_reference/html_character_reference_serialiser.c"
+#include "../../../../executor/representer/serialiser/character_reference/xml_character_reference_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises into a hexadecimal numeric character reference character.
+ * Serialises a character into a hexadecimal numeric character reference.
  *
  * @param p0 the destination item
- * @param p1 the source data
+ * @param p1 the source wide character
+ * @param p2 the language
  */
-void serialise_character_reference_character(void* p0, void* p1) {
+void serialise_character_reference_character(void* p0, void* p1, void* p2) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        wchar_t* c = (wchar_t*) p1;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise character reference character.");
+        compare_integer_equal((void*) &r, p2, (void*) HTML_TEXT_STATE_CYBOI_LANGUAGE);
 
-        //
-        // CAUTION! The following comparisons ARE POSSIBLE because the
-        // glibc types "int" and "wchar_t" both have a size of 4 Byte each.
-        // If this changes one day, something will have to be adapted here.
-        //
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Compare for unicode block.
-        if ((*c > xx) && (*c < yy)) {
-
-            // Append source character code directly.
-            // CAUTION! The destination item is of type "character".
-            append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-        } else {
-
-            // Append &#x begin hexadecimal numeric character reference name.
-            append_item_element(p0, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Serialise source character code into wide character sequence.
-            // CAUTION! Hand over NUMBER BASE 16 as parametre!
-            serialise_cybol_integer_value(p0, p1, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-            // Append ; end character reference name.
-            append_item_element(p0, (void*) END_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_CHARACTER_REFERENCE_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            serialise_character_reference_html(p0, p1);
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise percent encoding character. The source wide character is null.");
+        compare_integer_equal((void*) &r, p2, (void*) SGML_TEXT_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Not implemented yet.
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) XML_TEXT_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_character_reference_xml(p0, p1);
+        }
     }
 }
 

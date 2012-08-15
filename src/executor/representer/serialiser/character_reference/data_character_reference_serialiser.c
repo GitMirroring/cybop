@@ -31,6 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/character_reference/character_character_reference_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -39,8 +40,9 @@
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
+ * @param p3 the language
  */
-void serialise_character_reference_data(void* p0, void* p1, void* p2) {
+void serialise_character_reference_data(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise character reference data.");
 
@@ -76,7 +78,7 @@ void serialise_character_reference_data(void* p0, void* p1, void* p2) {
         // Get next wide character.
         copy_pointer((void*) &c, p1);
 
-        serialise_character_reference_character(p0, c);
+        serialise_character_reference_character(p0, c, p3);
 
         // CAUTION! The source is of type "wide character".
         move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);

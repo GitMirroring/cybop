@@ -48,12 +48,10 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
- * @param p5 the tree level
- * @param p6 the format
+ * @param p3 the tree level
+ * @param p4 the format
  */
-void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html.");
 
@@ -73,7 +71,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -88,7 +86,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) HH_MM_SS_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) HH_MM_SS_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -98,7 +96,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -112,11 +110,11 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_html_part(p0, p1, p2, p5);
+            serialise_html_part(p0, p1, p2, p3);
         }
     }
 
@@ -126,7 +124,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -140,7 +138,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -150,7 +148,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -160,21 +158,21 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_vulgar_fraction(p0, p2, p3);
+//??            serialise_vulgar_fraction(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_integer(p0, p1, p2);
+            serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -184,7 +182,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) REFERENCE_PATH_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) REFERENCE_PATH_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -194,7 +192,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) KNOWLEDGE_PATH_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) KNOWLEDGE_PATH_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -208,7 +206,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

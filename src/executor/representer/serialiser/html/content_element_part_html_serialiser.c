@@ -33,6 +33,7 @@
 #include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/representer/serialiser/character_reference/character_reference_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/begin_tag_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/end_tag_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/void_element_html_serialiser.c"
@@ -42,7 +43,7 @@
 // Forward declarations.
 //
 
-void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4);
 void serialise_html_part(void* p0, void* p1, void* p2, void* p3);
 
 /**
@@ -180,7 +181,47 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
         }
 
         // Append part model.
-        serialise_html(p0, p1, p2, p3, p4, (void*) &l, p6);
+        if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // This is a primitive value, NOT a compound element.
+            // Example:
+            // <p>
+            //     some text
+            // </p>
+
+            // The numeric character reference item.
+            void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The numeric character reference item data, count.
+            void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Allocate numeric character reference item.
+            // CAUTION! Use the source count as initial size,
+            // since the destination will have at least the same size,
+            // if not a greater one if numberic character references are inserted.
+            allocate_item((void*) &r, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+            // Serialise primitive value, e.g. a date, number or arbitrary text.
+            serialise_html(r, p1, p2, (void*) &l, p6);
+
+            // Get numeric character reference item data, count.
+            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+            // Inside the structure, arrays may have been reallocated,
+            // with elements pointing to different memory areas now.
+            copy_array_forward((void*) &rd, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &rc, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+            // Replace reserved characters/ predefined entities with
+            // their corresponding numeric character reference.
+            serialise_character_reference(p0, rd, rc, (void*) HTML_TEXT_STATE_CYBOI_LANGUAGE);
+
+            // Deallocate numeric character reference item.
+            deallocate_item((void*) &r, rc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        } else {
+
+            serialise_html(p0, p1, p2, (void*) &l, p6);
+        }
 
         if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

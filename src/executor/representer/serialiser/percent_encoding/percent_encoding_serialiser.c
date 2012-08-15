@@ -34,6 +34,86 @@
 #include "../../../../executor/representer/serialiser/percent_encoding/data_percent_encoding_serialiser.c"
 #include "../../../../logger/logger.c"
 
+//
+// A URI is composed from a limited set of characters consisting of
+// digits, letters, and a few graphic symbols. A reserved subset of
+// those characters may be used to delimit syntax components within a
+// URI while the remaining characters, including both the unreserved set
+// and those reserved characters not acting as delimiters, define each
+// component's identifying data.
+//
+// A percent-encoding mechanism is used to represent a data octet in a
+// component when that octet's corresponding character is outside the
+// allowed set or is being used as a delimiter of, or within, the component.
+// A percent-encoded octet is encoded as a character triplet,
+// consisting of the percent character "%" followed by the two
+// hexadecimal digits representing that octet's numeric value.
+//
+// Example:
+//
+// percent-encoding: %20
+// binary octet: 00100000
+// ABNF: %x20
+// US-ASCII: space character (SP)
+//
+// The uppercase hexadecimal digits 'A' through 'F' are equivalent to
+// the lowercase digits 'a' through 'f', respectively. If two URIs
+// differ only in the case of hexadecimal digits used in percent-encoded
+// octets, they are equivalent. For consistency, URI producers and
+// normalisers should use uppercase hexadecimal digits for all
+// percent-encodings.
+//
+// Reserved characters:
+// - generic delimiters: : / ? # [ ] @
+// - sub delimiters: ! $ & ' ( ) * + , ; =
+//
+// URI producing applications should percent-encode data octets that
+// correspond to characters in the reserved set unless these characters
+// are specifically allowed by the URI scheme to represent data in that
+// component. If a reserved character is found in a URI component and
+// no delimiting role is known for that character, then it must be
+// interpreted as representing the data octet corresponding to that
+// character's encoding in US-ASCII.
+//
+// Characters that are allowed in a URI but do not have a reserved
+// purpose are called unreserved. These include uppercase and lowercase
+// letters, decimal digits, hyphen, period, underscore, and tilde.
+//
+// Unreserved characters: ALPHA DIGIT - . _ ~
+//
+// URIs that differ in the replacement of an unreserved character
+// with its corresponding percent-encoded US-ASCII octet are
+// equivalent: they identify the same resource. However, URI
+// comparison implementations do not always perform normalisation
+// prior to comparison. For consistency, percent-encoded octets
+// in the ranges of:
+// - ALPHA (%41-%5A and %61-%7A)
+// - DIGIT (%30-%39)
+// - hyphen (%2D)
+// - period (%2E)
+// - underscore (%5F)
+// - tilde (%7E)
+// should NOT BE created by URI producers and, when found in a URI,
+// SHOULD BE decoded to their corresponding unreserved characters.
+//
+// http://tools.ietf.org/html/rfc3986
+// (Chapter 2 "Characters")
+//
+
+//
+// RFC 3986 does not determine which character set to use for decoding
+// non-ASCII characters (e.g. Umlauts like �, �, �). Since a two-digit
+// hexadecimal number (which corresponds to eight Bit) is used for url
+// encoding, it would be theoretically possible to use an 8 Bit character
+// set (e.g. ISO-8859-1 for Umlauts).
+//
+// However, since many languages have their own 8 Bit character sets, it
+// would be rather tedious to handle all these different character sets.
+// Moreover, some languages (e.g. Chinese) may not be represented using an
+// 8 Bit character set. For this reason, RFC 3629 suggests to represent
+// non-ASCII characters using the UTF-8 character set.
+//
+
 /**
  * Serialises into percent-encoded character data.
  *

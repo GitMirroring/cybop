@@ -16,6 +16,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete character reference serialiser
+        * Call character reference serialiser for primitive parts in html serialiser, replacing special characters like < with masked characters
+        * Replace space character in primitive parts with no-break space, so that indentations are correct and spaces respected by web browsers
+        * Extend cybol example application "wui" with external text file to test replacement with numeric character references
+        * Adapt cybol specification files accordingly
+        * Delete outdated directories "executor/representer/deserialiser/escape/" and "executor/representer/serialiser/escape/"
+
 2012-08-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement percent encoding deserialiser

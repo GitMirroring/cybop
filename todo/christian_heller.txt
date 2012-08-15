@@ -9,6 +9,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Call character reference serialiser for attributes of all parts in html serialiser
         * Ensure that non-encoded characters are copied as well in character reference deserialiser
         * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
         * Call percent encoding deserialiser in this order: utf-8 decode, percent deserialise, url deserialise
@@ -16,13 +17,6 @@
         * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
             the corresponding type may be forwarded between functions as parametre
         * Merge in constants standing above blocks in file "html_entity_character_reference_deserialiser.c"
-
-        * HTML Serialiser:
-            - Replace special characters like < with XML masked characters, but only if
-              indicated by special flag property in "communicate/send" cybol operation
-              (needed for source code example in cybol specification)
-            - Check why first line of source code example is indented too far in cybol specification
-              (probably because the example is read from a txt file interpreted as one- and not multiple lines)
 
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)

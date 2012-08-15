@@ -42,8 +42,9 @@
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
+ * @param p3 the number base
  */
-void serialise_cybol_integer(void* p0, void* p1, void* p2) {
+void serialise_cybol_integer(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol integer.");
 
@@ -74,7 +75,7 @@ void serialise_cybol_integer(void* p0, void* p1, void* p2) {
         }
 
         serialise_cybol_integer_separator(p0, (void*) &j);
-        serialise_cybol_integer_value(p0, p1, (void*) &j);
+        serialise_cybol_integer_value(p0, p1, (void*) &j, p3);
 
         // Increment loop variable.
         j++;

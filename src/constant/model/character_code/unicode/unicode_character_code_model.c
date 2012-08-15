@@ -639,6 +639,30 @@ static wchar_t* DELETE_CONTROL_UNICODE_CHARACTER_CODE_MODEL = DELETE_CONTROL_UNI
 // Extended character codes (128 - 255).
 //
 
+/**
+ * The no-break space unicode character code model.
+ *
+ * Unicode block: Latin-1 Supplement
+ * Unicode category: Separator, Space
+ *
+ * Unicode: U+00A0
+ * UTF-8: 0xC2 0xA0
+ * Octal escaped UTF-8: \302\240
+ * Decimal entity reference: &#160;
+ *
+ * Notes:
+ * commonly abbreviated as NBSP
+ *
+ * See also:
+ * U+0020 SPACE
+ * U+2007 FIGURE SPACE
+ * U+202F NARROW NO-BREAK SPACE
+ * U+2060 WORD JOINER
+ * U+FEFF ZERO WIDTH NO-BREAK SPACE
+ */
+static wchar_t NO_BREAK_SPACE_UNICODE_CHARACTER_CODE_MODEL_ARRAY[] = {0x00A0};
+static wchar_t* NO_BREAK_SPACE_UNICODE_CHARACTER_CODE_MODEL = NO_BREAK_SPACE_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+
 //
 // Unicode block: ?? (?? - ??).
 //

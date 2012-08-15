@@ -47,7 +47,7 @@ void serialise_percent_encoding_byte(void* p0, void* p1) {
     // Serialise byte into string of two hexadecimal digits.
     //
     // CAUTION! Hand over NUMBER BASE 16 as parametre!
-    serialise_cybol_integer_value((void*) &i, rd, (void*) &rc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_cybol_integer_value((void*) &i, rd, (void*) &rc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL);
 }
 
 /* BYTE_PERCENT_ENCODING_SERIALISER_SOURCE */
