@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-16  Falk Müller  <falk89@web.de>
+
+        * Add decimal fraction de-/serialiser and calculator
+        * Update "cybol_extension" tutorial and add presentation
+        * Add cybol example application "double" calculating double numbers
+
 2012-08-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete character reference serialiser

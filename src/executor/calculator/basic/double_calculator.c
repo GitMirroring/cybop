@@ -20,6 +20,7 @@
  * Christian Heller <christian.heller@tuxtax.de>
  *
  * @version CYBOP 0.11.0 2012-01-01
+ * @author Falk Müller <falk89@web.de>
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -30,12 +31,12 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
-/*??
+#include "../../../executor/calculator/basic/double/absolute_double_calculator.c"
 #include "../../../executor/calculator/basic/double/add_double_calculator.c"
 #include "../../../executor/calculator/basic/double/divide_double_calculator.c"
 #include "../../../executor/calculator/basic/double/multiply_double_calculator.c"
+#include "../../../executor/calculator/basic/double/negate_double_calculator.c"
 #include "../../../executor/calculator/basic/double/subtract_double_calculator.c"
-*/
 #include "../../../logger/logger.c"
 
 /**
@@ -58,7 +59,7 @@ void calculate_double(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            calculate_double_absolute(p0, p1);
+            calculate_double_absolute(p0, p1);
         }
     }
 
@@ -68,7 +69,8 @@ void calculate_double(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            calculate_double_add(p0, p1);
+           calculate_double_add(p0, p1);
+
         }
     }
 
@@ -78,7 +80,7 @@ void calculate_double(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            calculate_double_divide(p0, p1);
+            calculate_double_divide(p0, p1);
         }
     }
 
@@ -88,7 +90,7 @@ void calculate_double(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            calculate_double_multiply(p0, p1);
+            calculate_double_multiply(p0, p1);
         }
     }
 
@@ -98,7 +100,7 @@ void calculate_double(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            calculate_double_negate(p0, p1);
+            calculate_double_negate(p0, p1);
         }
     }
 
@@ -108,7 +110,7 @@ void calculate_double(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            calculate_double_subtract(p0, p1);
+            calculate_double_subtract(p0, p1);
         }
     }
 

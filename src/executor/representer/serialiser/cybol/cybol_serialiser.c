@@ -34,7 +34,7 @@
 #include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
@@ -234,7 +234,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_double(p0, p1, p2);
+            serialise_cybol_fraction_decimal(p0, p1, p2);
         }
     }
 

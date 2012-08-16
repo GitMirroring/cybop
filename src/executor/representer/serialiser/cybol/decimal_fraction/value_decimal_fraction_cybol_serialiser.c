@@ -21,10 +21,11 @@
  *
  * @version CYBOP 0.11.0 2012-01-01
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Falk Müller <falk89@web.de>
  */
 
-#ifndef VALUE_DOUBLE_CYBOL_SERIALISER_SOURCE
-#define VALUE_DOUBLE_CYBOL_SERIALISER_SOURCE
+#ifndef VALUE_DECIMAL_FRACTION_CYBOL_SERIALISER_SOURCE
+#define VALUE_DECIMAL_FRACTION_CYBOL_SERIALISER_SOURCE
 
 #ifdef CYGWIN_ENVIRONMENT
 #include <windows.h>
@@ -36,29 +37,34 @@
 #include <wchar.h>
 
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Serialises the double value into a wide character value.
+ * Serialises the doube value into wide character data.
  *
  * @param p0 the destination item
- * @param p1 the source double data
- * @param p2 the source double index
+ * @param p1 the source data
+ * @param p2 the source index
  */
-void serialise_cybol_double_value(void* p0, void* p1, void* p2) {
+void serialise_cybol_fraction_decimal_value(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol double value.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol fraction decimal value.");
 
+/**?? SOLUTION AS FOR INTEGER:
     // The value.
     void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get value from vector at index.
     copy_array_forward((void*) &v, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+*/
+
+    void* r = p1;
+    // Add offset.
+    add_offset((void*) &r, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (int*) p2);
+    //?? Falk: fwprintf(stdout, L"value_decimal_fraction_serialiser.c d: %f\n", *((double*) r));
 
     //
     // The temporary array.
@@ -89,11 +95,12 @@ void serialise_cybol_double_value(void* p0, void* p1, void* p2) {
     // for the given input, excluding the trailing null.
     // If not all output fits into the provided buffer,
     // a negative value is returned.
+
 #ifdef CYGWIN_ENVIRONMENT
-    tc = wsprintfW(td, L"%d", *((long double*) v));
+    tc = wsprintfW(td, L"%f", *((double*) r));
 /* CYGWIN_ENVIRONMENT */
 #else
-    tc = swprintf(td, ts, L"%d", *((long double*) v));
+    tc = swprintf(td, ts, L"%f", *((double*) r));
 /* CYGWIN_ENVIRONMENT */
 #endif
 
@@ -108,7 +115,7 @@ void serialise_cybol_double_value(void* p0, void* p1, void* p2) {
         // The value returned by the conversion function is negative,
         // which means that the value was NOT converted successfully.
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol double value.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol fraction decimal value.");
 
         // CAUTION! A more flexible approach would be to stepwise enlarge
         // the destination array, until the provided source value matches.
@@ -122,5 +129,5 @@ void serialise_cybol_double_value(void* p0, void* p1, void* p2) {
     deallocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* VALUE_DOUBLE_CYBOL_SERIALISER_SOURCE */
+/* VALUE_DECIMAL_FRACTION_CYBOL_SERIALISER_SOURCE */
 #endif

@@ -33,7 +33,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/double/double_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
@@ -152,7 +152,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_double(p0, p1, p2);
+            serialise_cybol_fraction_decimal(p0, p1, p2);
         }
     }
 

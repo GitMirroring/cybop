@@ -21,10 +21,11 @@
  *
  * @version CYBOP 0.11.0 2012-01-01
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Falk Müller <falk89@web.de>
  */
 
-#ifndef SEPARATOR_DOUBLE_CYBOL_SERIALISER_SOURCE
-#define SEPARATOR_DOUBLE_CYBOL_SERIALISER_SOURCE
+#ifndef SEPARATOR_DECIMAL_FRACTION_CYBOL_SERIALISER_SOURCE
+#define SEPARATOR_DECIMAL_FRACTION_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -38,11 +39,11 @@
  * Serialises the double separator.
  *
  * @param p0 the destination item
- * @param p1 the source double index
+ * @param p1 the source index
  */
-void serialise_cybol_double_separator(void* p0, void* p1) {
+void serialise_cybol_fraction_decimal_separator(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol double separator.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol fraction decimal separator.");
 
     // The index flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -57,5 +58,5 @@ void serialise_cybol_double_separator(void* p0, void* p1) {
     }
 }
 
-/* SEPARATOR_DOUBLE_CYBOL_SERIALISER_SOURCE */
+/* SEPARATOR_DECIMAL_FRACTION_CYBOL_SERIALISER_SOURCE */
 #endif

@@ -21,36 +21,58 @@
  *
  * @version CYBOP 0.11.0 2012-01-01
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Falk Müller <falk89@web.de>
  */
 
-#ifndef DOUBLE_CYBOL_SERIALISER_SOURCE
-#define DOUBLE_CYBOL_SERIALISER_SOURCE
+#ifndef VECTOR_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE
+#define VECTOR_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE
 
+#ifdef CYGWIN_ENVIRONMENT
+#include <windows.h>
+/* CYGWIN_ENVIRONMENT */
+#endif
+
+#include <stdio.h>
+#include <string.h>
+#include <wchar.h>
+
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/representer/serialiser/cybol/double/separator_double_cybol_serialiser.c"
-#include "../../../../../executor/representer/serialiser/cybol/double/value_double_cybol_serialiser.c"
+#include "../../../../../executor/representer/deserialiser/cybol/decimal_fraction/value_decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../executor/searcher/selector/cybol/decimal_fraction_cybol_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Serialises the double values into comma-separated wide character values.
+ * Deserialises the comma-separated wide character data into double values.
  *
  * @param p0 the destination item
- * @param p1 the source double data
- * @param p2 the source double count
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void serialise_cybol_double(void* p0, void* p1, void* p2) {
+void deserialise_cybol_fraction_decimal_vector(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol double.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol fraction decimal vector.");
 
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The destination item count.
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The element.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Get destination item count.
+    copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Initialise old destination item count.
+    copy_integer((void*) &oc, dc);
+
+    // Initialise element.
+    copy_pointer((void*) &e, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -66,20 +88,25 @@ void serialise_cybol_double(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        serialise_cybol_double_separator(p0, (void*) &j);
-        serialise_cybol_double_value(p0, p1, (void*) &j);
+        select_cybol_fraction_decimal(p0, (void*) &b, p1, p2);
 
-        // Increment loop variable.
-        j++;
+        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Increment element count.
+            ec++;
+        }
     }
+
+    // Prepend element to destination.
+    deserialise_cybol_fraction_decimal_value(p0, e, (void*) &ec, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
 }
 
-/* DOUBLE_CYBOL_SERIALISER_SOURCE */
+/* VECTOR_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE */
 #endif

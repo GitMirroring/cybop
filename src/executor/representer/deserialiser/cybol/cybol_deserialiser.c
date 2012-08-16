@@ -32,12 +32,12 @@
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/decimal_fraction/decimal_fraction_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/boolean_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/complex_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/date_time_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/double_vector_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
@@ -329,9 +329,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TEMPORARY solution!
-            //?? TODO: Replace with something like "deserialise_decimal_fraction".
-//??            deserialise_double_vector(p0, p2, p3);
+            deserialise_cybol_fraction_decimal(p0, p2, p3);
         }
     }
 

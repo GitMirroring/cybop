@@ -17,6 +17,7 @@ Cybernetics Oriented Language (CYBOL)
         * Patrick Sperl (time output example)
         * Jens Rudek (time output example)
         * Andy Röhr <andy_roehr@gmx.de> (if-else example)
+        * Enrico Gallus <enrico.gallus@googlemail.com> (cybol specification generator written in cybol)
 
 Cybernetics Oriented Interpreter (CYBOI)
         * Christian Heller <christian.heller@tuxtax.de> (overall design and implementation of cyboi, first in java, later in c)
@@ -29,6 +30,7 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Enrico Gallus <enrico.gallus@googlemail.com> (internet protocol- and service port constants)
         * Thomas Thiele (character entity xml model constants)
         * Friedemann Simon (character entity xml model constants)
+        * Falk Müller <falk.mueller@it2009.ba-leipzig.de> (de-/serialiser and calculator for double type)
 
 CYBOP Project
         * Christian Heller <christian.heller@tuxtax.de> (administration, website, releases)
@@ -45,10 +47,11 @@ CYBOP Project
         * Mirco Gatz (udp socket tutorial example)
         * Patrick Lorenz (opengl tutorial example)
         * Johannes Meinhardt (opengl tutorial example)
-        * Max Brauer <max.brauer@inqbus.de> (hints on automatic creation of Debian package)
-        * Benjamin Teßmar <benjamin.tessmar@it2009.ba-leipzig.de> (hints on improving project data)
-        * Sebastian Brückner <sebastian.brueckner@live.com> (hints on improving project data)
-        * Falk Müller <falk.mueller@it2009.ba-leipzig.de> (hints on improving project data)
+        * Max Brauer <max.brauer@inqbus.de> (article comparing cybop double hierarchy with Python meta programming)
+
+Tools
+        * Benjamin Teßmar <benjamin.tessmar@it2009.ba-leipzig.de> (cybol editor based on mono)
+        * Sebastian Brückner <sebastian.brueckner@live.com> (cybol editor based on mono)
 
 Help and Support
         * Karl Berry <karl@freefriends.org> (feedback on improving project infrastructure and documentation)
