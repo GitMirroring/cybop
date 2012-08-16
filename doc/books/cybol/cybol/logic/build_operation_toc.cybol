@@ -15,6 +15,63 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/wui/template/operation_toc.cybol"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path"/>
     </part>
+    <part name="clear_operation_toc_div" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_toc_path_div"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_dynamic_operation_path_to_div" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_toc_path_div"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_toc_path"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_static_tag_to_operation_div" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_toc_path_div"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#tag"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_operation_toc_class" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_toc_path_div_class"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_dynamic_operation_path_to_class" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_toc_path_div_class"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_toc_path"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_static_tag_to_operation_class" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.operation_toc_path_div_class"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="#class"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- add div tag to operation toc -->
+    <part name="create_div_tag_for_operation_toc_node" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tag"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="property"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path"/>
+    </part>
+    <part name="copy_div_tag_to_knowledge_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path_div"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="div"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+    <!-- set div class tag of operation toc -->
+    <part name="create_class_for_operation_toc_tag" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
+        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="class"/>
+        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="property"/>
+        <property name="whole" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path"/>
+    </part>
+    <part name="copy_class_to_style_tag" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path_div_class"/>
+        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="operation_toc"/>
+        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    </part>
+
     <!-- copy operation name to html toc -->
     <part name="copy_operation_name_to_toc" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
         <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".temporary.operation_toc_path_name"/>

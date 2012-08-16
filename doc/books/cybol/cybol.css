@@ -2,4 +2,8 @@
 #toc { float:left; width:250px; }
 #content { float:left; width:1000px; }
 
+.topic_toc { padding-left: 0px }
+.category_toc { padding-left: 10px }
+.operation_toc { padding-left: 20px }
+
 .category_example { white-space: pre-wrap; font-size: 9pt; }

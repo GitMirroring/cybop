@@ -18,18 +18,22 @@
     <part name="selected_operation" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="selected_property" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <!-- temp variables to dynamic knowledge path -->
-    <part name="topic_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="topic_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="topic_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="topic_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="topic_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="topic_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="category_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="category_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="category_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="category_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="category_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="category_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="topic_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_toc_path_div" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_toc_path_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_toc_path_div" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="category_toc_path_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="operation_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="operation_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="operation_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
@@ -38,6 +42,8 @@
     <part name="operation_content_path_example" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="operation_content_path_example_div" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="operation_content_path_example_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="operation_toc_path_div" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
+    <part name="operation_toc_path_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
     <part name="operation_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="operation_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="operation_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
