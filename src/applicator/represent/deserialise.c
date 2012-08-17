@@ -48,6 +48,8 @@
  * - format (required): the destination part format (type)
  * - language (required): the destination part language (cybol, http_request, xdt etc.)
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

@@ -48,6 +48,8 @@
  * - all (optional): the list all option (showing hidden, current . and upper .. directory)
  * - long (optional): the long listing option (showing user rights etc.)
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

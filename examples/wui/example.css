@@ -27,8 +27,8 @@ h4 {
 
     background-color: #009;
     color: #FF0;
-    font-family: Fixedsys,Courier,monospace;
-    padding: 10px;
+    font-family: DejaVu Sans Mono,Bitstream Vera Sans Mono,FreeMono,Monospace,Fixedsys,Courier;
+    padding: 5px;
     white-space: pre-wrap;
     font-size: 9pt;
 }

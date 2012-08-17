@@ -46,6 +46,8 @@
  * - index (optional; if null, the index of the LAST element will be used instead):
  *   the index from where to start removing elements from
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

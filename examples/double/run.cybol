@@ -1,5 +1,5 @@
 <model>
-<!--Initialisierung-->
+    <!--Initialisierung-->
     <part name="create_result" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
         <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="result"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/fraction-decimal"/>
@@ -19,7 +19,7 @@
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/fraction-decimal"/>
         <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
     </part>
-    
+
     <part name="initialise_operant" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="inline"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -28,11 +28,14 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="10.5,11.11"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".operant"/>
     </part>
-    
-<!-- ADDITION -->
+
+    <!-- ADDITION -->
     <part name="add_operand" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
+<!--
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".operant"/>
+-->
+        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/fraction-decimal" model="100,2"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/fraction-decimal"/>
     </part>
 
@@ -45,7 +48,7 @@
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
         <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    
+
     <part name="print_result" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -54,14 +57,14 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    
+
 <!-- MULTIPLIKATION -->
     <part name="multiply_operand" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/multiply" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".operant"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/fraction-decimal"/>
     </part>
-    
+
     <part name="print" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -80,14 +83,14 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    
+
   <!-- SUBSTRAKTION -->
     <part name="substract_operand" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/subtract" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".operant"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/fraction-decimal"/>
     </part>
-    
+
     <part name="print" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -106,14 +109,14 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    
+
  <!-- DIVISION -->
     <part name="divide_operand" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/divide" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".operant"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/fraction-decimal"/>
     </part>
-    
+
     <part name="print" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -139,7 +142,7 @@
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".operant"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/fraction-decimal"/>
     </part>
-    
+
     <part name="print" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -158,14 +161,14 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    
+
 <!-- ABSOLUTE -->
     <part name="absolute_operand" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/absolute" model="">
         <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
         <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".operant"/>
         <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/fraction-decimal"/>
     </part>
-    
+
     <part name="print" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
         <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
@@ -184,6 +187,6 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
-    
+
     <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
 </model>

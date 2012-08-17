@@ -45,6 +45,8 @@
  * - style (optional, only if service is www or similar): the namespace of the socket
  * - address (optional, only if service is www or similar): the address of hosts communicating with this system via socket
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

@@ -21,6 +21,7 @@
         * Indicate usage of preformatted text in html with new "preformatted" cybol property
             (the correct formatting has to be taken care of in css)
             and do not replace all space characters in primitive parts with no-break space anymore
+        * Add cybol constraint for switching html formatting on/off
 
 2012-08-16  Falk Müller  <falk89@web.de>
 

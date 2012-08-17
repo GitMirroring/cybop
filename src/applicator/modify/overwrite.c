@@ -56,6 +56,8 @@
  *   if the number of elements exceeds the destination count, in order to avoid
  *   memory errors caused by crossing array boundaries
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

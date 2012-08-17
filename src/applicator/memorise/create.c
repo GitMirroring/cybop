@@ -57,6 +57,8 @@
  * - whole (optional; if null, the new part will be added to the knowledge memory root):
  *       the compound to which to add to the new part
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

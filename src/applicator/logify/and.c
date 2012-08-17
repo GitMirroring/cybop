@@ -39,6 +39,10 @@
 /**
  * Applies the boolean logic AND operation.
  *
+ * Properties:
+ *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  */

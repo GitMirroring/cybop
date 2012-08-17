@@ -49,6 +49,8 @@
  * - source (required): the source to be copied
  * - recursive (optional): the option indicating that all sub directories should be copied as well
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

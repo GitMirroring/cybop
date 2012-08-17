@@ -41,9 +41,10 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model index
- * @param p3 the indentation level
+ * @param p3 the formatting flag
+ * @param p4 the indentation level
  */
-void serialise_html_part_element(void* p0, void* p1, void* p2, void* p3) {
+void serialise_html_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html part element.");
 
@@ -74,7 +75,7 @@ void serialise_html_part_element(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Serialise part element content.
-    serialise_html_part_element_content(p0, md, mc, pd, pc, p3, fd);
+    serialise_html_part_element_content(p0, md, mc, pd, pc, p3, p4, fd);
 }
 
 /* ELEMENT_PART_HTML_SERIALISER_SOURCE */

@@ -35,7 +35,9 @@
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/representer/serialiser/character_reference/character_reference_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/begin_tag_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/break_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/end_tag_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/void_element_html_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -43,8 +45,7 @@
 // Forward declarations.
 //
 
-void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4);
-void serialise_html_part(void* p0, void* p1, void* p2, void* p3);
+void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Serialises the part element content into html.
@@ -54,10 +55,11 @@ void serialise_html_part(void* p0, void* p1, void* p2, void* p3);
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the indentation level
- * @param p6 the format
+ * @param p5 the formatting flag
+ * @param p6 the indentation level
+ * @param p7 the format
  */
-void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html part element content.");
 
@@ -100,7 +102,7 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     // Get preformatted part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // TEST: The block below is NOT necessary and for testing only.
+    // TEST: This block is NOT necessary and for testing only.
     // The generated html file will contain an error message for each nameless tag.
     if ((tmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (tmc == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
@@ -114,11 +116,11 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     // Test if element is allowed to be void.
     serialise_html_void_element((void*) &v, tmd, tmc);
     // Serialise indentation.
-    serialise_html_indentation(p0, p5);
+    serialise_html_indentation(p0, p5, p6);
     // Append begin tag.
     serialise_html_begin_tag(p0, tmd, tmc, p3, p4, (void*) &e, (void*) &v);
-    // Append line feed character, for better source reading.
-    append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Serialise line break.
+    serialise_html_break(p0, p5);
 
     if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -147,11 +149,11 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
 
             // Serialise indentation.
             // CAUTION! Use original indentation that was handed over as parametre.
-            serialise_html_indentation(p0, p5);
+            serialise_html_indentation(p0, p5, p6);
             // Append end tag.
             serialise_html_end_tag(p0, tmd, tmc);
-            // Append line feed character, for better source reading.
-            append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Serialise line break.
+            serialise_html_break(p0, p5);
         }
 
     } else {
@@ -161,7 +163,7 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
         // Test if this part is of type "element/part".
         // In this case, it is a compound part containing child parts
         // and not just primitive data like text or a number.
-        compare_integer_equal((void*) &c, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &c, p7, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         // The new indentation level.
         //
@@ -171,43 +173,10 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
         int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Initialise new indentation level with current one.
-        copy_integer((void*) &l, p5);
+        copy_integer((void*) &l, p6);
         // Increment new indentation level by one.
         calculate_integer_add((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-        // CAUTION! If this is NOT a preformatted element,
-        // then the preformatted property may NOT be given
-        // so that the pmd flag is NULL.
-        // Or, the flag IS given, but has to be set to false.
-        if ((c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            && ((pmd == *NULL_POINTER_STATE_CYBOI_MODEL) || ((pmd != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) pmd) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)))) {
-
-            // This is a primitive value, NOT a compound element.
-            // Further, this is NOT a preformatted element.
-            // Example:
-            // <p>
-            //     some text
-            // </p>
-
-            // CAUTION! The content of compound parts gets
-            // indented inside the called function stack:
-            // - serialise_html
-            // - serialise_html_part
-            // - serialise_html_part_element
-            // - serialise_html_part_element_content
-            //
-            // However, this is NOT the case for primitive values like a text or number.
-            // Therefore, those have to get indented right here.
-            //
-            // But for preformatted elements an indentation is NOT wanted,
-            // since it represents a block of text in which structure is
-            // represented by typographic conventions rather than by elements.
-
-            // Serialise indentation.
-            serialise_html_indentation(p0, (void*) &l);
-        }
-
-        // Append part model.
         if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // This is a primitive value, NOT a compound element.
@@ -215,6 +184,39 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
             // <p>
             //     some text
             // </p>
+
+            // CAUTION! If this is NOT a preformatted element,
+            // then the preformatted property may NOT be given
+            // so that the pmd flag is NULL.
+            // Or, the flag IS given, but has to be set to FALSE.
+            if ((pmd == *NULL_POINTER_STATE_CYBOI_MODEL) || ((pmd != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) pmd) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
+
+                // This is a primitive value, NOT a compound element.
+                // Further, this is NOT a preformatted element.
+                // Example:
+                // <p>
+                //     some text
+                // </p>
+
+                // CAUTION! The content of compound parts gets
+                // indented inside the called function stack:
+                // - serialise_html
+                // - serialise_html_part
+                // - serialise_html_part_element
+                // - serialise_html_part_element_content
+                //
+                // However, this is NOT the case for primitive values like a text or number.
+                // Therefore, those have to get indented right here.
+                //
+                // But for preformatted elements an indentation is NOT wanted,
+                // since it represents a block of text in which structure is
+                // represented by typographic conventions rather than by elements.
+
+                // Serialise indentation.
+                serialise_html_indentation(p0, p5, (void*) &l);
+            }
+
+            // Append part model.
 
             // The numeric character reference item.
             void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -229,7 +231,7 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
             allocate_item((void*) &r, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Serialise primitive value, e.g. a date, number or arbitrary text.
-            serialise_html(r, p1, p2, (void*) &l, p6);
+            serialise_html(r, p1, p2, p5, (void*) &l, p7);
 
             // Get numeric character reference item data, count.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -244,13 +246,6 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
 
             // Deallocate numeric character reference item.
             deallocate_item((void*) &r, rc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        } else {
-
-            serialise_html(p0, p1, p2, (void*) &l, p6);
-        }
-
-        if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // This is a primitive value, NOT a compound element.
             // Example:
@@ -268,17 +263,21 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
             // However, this is NOT the case for primitive values like a text or number.
             // Therefore, those have to get added a line break right here.
 
-            // Append line feed character, for better source reading.
-            append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Serialise line break.
+            serialise_html_break(p0, p5);
+
+        } else {
+
+            serialise_html(p0, p1, p2, p5, (void*) &l, p7);
         }
 
         // Serialise indentation.
         // CAUTION! Use original indentation that was handed over as parametre.
-        serialise_html_indentation(p0, p5);
+        serialise_html_indentation(p0, p5, p6);
         // Append end tag.
         serialise_html_end_tag(p0, tmd, tmc);
-        // Append line feed character, for better source reading.
-        append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Serialise line break.
+        serialise_html_break(p0, p5);
     }
 }
 

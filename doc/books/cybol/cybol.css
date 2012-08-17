@@ -6,14 +6,12 @@
 .category_toc { padding-left: 10px }
 .operation_toc { padding-left: 20px }
 
-.category_example { white-space: pre-wrap; font-size: 9pt; }
-
 .operation_example {
 
     background-color: #009;
     color: #FF0;
-    font-family: Fixedsys,Courier,monospace;
-    padding: 10px;
+    font-family: DejaVu Sans Mono,Bitstream Vera Sans Mono,FreeMono,Monospace,Fixedsys,Courier;
+    padding: 5px;
     white-space: pre-wrap;
     font-size: 9pt;
 }

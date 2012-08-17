@@ -49,6 +49,8 @@
  *   string to compare the elements' names with;
  *   only those parts will be counted whose name matches the filter string
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

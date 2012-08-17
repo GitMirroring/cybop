@@ -48,6 +48,8 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * - break (required): the break flag; once set, the loop will be left (exited)
  * - model (required): the logic knowledge model to be executed repeatedly by the loop
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

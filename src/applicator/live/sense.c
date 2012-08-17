@@ -57,6 +57,8 @@
  * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
  * - handler (optional): the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

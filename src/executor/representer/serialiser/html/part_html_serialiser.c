@@ -41,9 +41,10 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the indentation level
+ * @param p3 the formatting flag
+ * @param p4 the indentation level
  */
-void serialise_html_part(void* p0, void* p1, void* p2, void* p3) {
+void serialise_html_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html part.");
 
@@ -52,7 +53,7 @@ void serialise_html_part(void* p0, void* p1, void* p2, void* p3) {
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -66,14 +67,14 @@ void serialise_html_part(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        serialise_html_part_element(p0, p1, (void*) &j, p3);
+        serialise_html_part_element(p0, p1, (void*) &j, p3, p4);
 
         // Increment loop variable.
         j++;

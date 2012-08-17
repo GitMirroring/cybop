@@ -47,6 +47,8 @@
  * - index (optional; if null, an index of zero will be used instead):
  *   the source index from which to start copying elements from
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

@@ -48,6 +48,8 @@
  * - format (required): the source part format (type)
  * - language (required): the source part language (cybol, http_request, xdt etc.)
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
@@ -62,6 +64,8 @@ void apply_serialise(void* p0, void* p1, void* p2) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The indentation part.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -72,6 +76,8 @@ void apply_serialise(void* p0, void* p1, void* p2) {
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part model item.
     void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The indentation part model item.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part model item.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -83,17 +89,21 @@ void apply_serialise(void* p0, void* p1, void* p2) {
     void* spc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part model item data.
     void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The indentation part model item data.
+    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part model item data.
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part.
-    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) DESTINATION_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) DESTINATION_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get source part.
-    get_part_knowledge((void*) &s, p0, (void*) SOURCE_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) SOURCE_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &s, p0, (void*) SOURCE_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) SOURCE_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get format part.
-    get_part_knowledge((void*) &f, p0, (void*) FORMAT_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) FORMAT_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &f, p0, (void*) FORMAT_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) FORMAT_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get indentation part.
+    get_part_knowledge((void*) &i, p0, (void*) INDENTATION_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) INDENTATION_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get language part.
-    get_part_knowledge((void*) &l, p0, (void*) LANGUAGE_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) LANGUAGE_DESERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &l, p0, (void*) LANGUAGE_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME, (void*) LANGUAGE_SERIALISE_REPRESENTATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
     // Get destination part model item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -102,6 +112,8 @@ void apply_serialise(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &sp, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get format part model item.
     copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get indentation part model item.
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get language part model item.
     copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
@@ -113,11 +125,13 @@ void apply_serialise(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &spc, sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get format part model item data.
     copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get indentation part model item data.
+    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get language part model item data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Deserialise the source- into the destination part.
-    serialise(dm, smd, smc, spd, spc, p2, fmd, lmd);
+    // Serialise the source- into the destination part.
+    serialise(dm, smd, smc, spd, spc, p2, fmd, imd, lmd);
 }
 
 /* SERIALISE_SOURCE */

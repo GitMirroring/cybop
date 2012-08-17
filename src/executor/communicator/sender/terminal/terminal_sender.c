@@ -51,13 +51,14 @@
  * @param p3 the source properties count
  * @param p4 the knowledge memory part
  * @param p5 the format
- * @param p6 the language
- * @param p7 the encoding
- * @param p8 the internal memory
- * @param p9 the clean flag
- * @param p10 the new line flag
+ * @param p6 the language indentation
+ * @param p7 the language
+ * @param p8 the encoding
+ * @param p9 the internal memory
+ * @param p10 the clean flag
+ * @param p11 the new line flag
  */
-void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal.");
 
@@ -83,7 +84,7 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     allocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Compare clean flag.
-    compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,13 +93,13 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     }
 
     // Serialise source knowledge model into serialised wide character array.
-    serialise(s, p0, p1, p2, p3, p4, p5, p6);
+    serialise(s, p0, p1, p2, p3, p4, p5, p6, p7);
 
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Compare new line flag.
-    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -113,7 +114,7 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Encode serialised wide character array into encoded character array.
-    encode(e, sd, sc, p7);
+    encode(e, sd, sc, p8);
 
     // Add null termination character.
     // CAUTION! Appending a wide character null termination to the
@@ -133,7 +134,7 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Write encoded array to terminal.
-    send_terminal_file(ed, ec, p8);
+    send_terminal_file(ed, ec, p9);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

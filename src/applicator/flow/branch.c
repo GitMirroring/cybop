@@ -49,6 +49,8 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * - true (required): the logic knowledge model to be executed if the condition is true
  * - false (required): the logic knowledge model to be executed if the condition is false
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

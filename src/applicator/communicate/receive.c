@@ -46,7 +46,7 @@
  * contain both, the model AND the properties, in one file. To cover these cases,
  * the model AND properties are received TOGETHER, in just one operation.
  *
- * Expected parametres:
+ * Properties:
  * - channel (required): the channel via which to receive the message (terminal, www, x_window_system etc.)
  * - encoding (required): the encoding (utf-8, utf-32 for inline channel etc.)
  * - language (required): the language of the data received (cybol, http_request, xdt etc.)
@@ -57,6 +57,8 @@
  * - properties (optional): the properties to be filled with the data received
  * - root (required): the knowledge model that will serve as the root
  * - style (optional, only if channel is www, cyboi or similar): the style of socket communication
+ *
+ * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

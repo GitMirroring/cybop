@@ -43,6 +43,8 @@
  * - element (required): the part's element (name, channel, encoding, language, format, type)
  * - part (required): the knowledge path to the part
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

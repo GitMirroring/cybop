@@ -45,6 +45,8 @@
  * - base (required): the base name
  * - index (required): the index to add to the base name
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

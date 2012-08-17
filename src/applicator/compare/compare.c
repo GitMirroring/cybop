@@ -53,6 +53,8 @@
  * However, this function relies on it, for finding the right comparison function to call.
  * Therefore, that parametre IS REQUIRED.
  *
+ * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part

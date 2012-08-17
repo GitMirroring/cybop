@@ -23,44 +23,39 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INLINE_SENDER_SOURCE
-#define INLINE_SENDER_SOURCE
+#ifndef BREAK_HTML_SERIALISER_SOURCE
+#define BREAK_HTML_SERIALISER_SOURCE
 
-#include <stdio.h>
-
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Sends the source via the given channel.
+ * Serialises the html line break.
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
- * @param p5 the knowledge memory part
- * @param p6 the format
- * @param p7 the language indentation
- * @param p8 the language
+ * @param p1 the formatting flag
  */
-void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_html_break(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send inline.");
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // CAUTION! Do NOT try to encode into UTF-8 or other formats here!
-    //
-    // The reason is that each cybol file is encoded from a wide character
-    // array into a multibyte character array at once when being written.
-    // Therefore, data do NOT have to be encoded once more already here.
+    compare_integer_unequal((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    // Encode source data according to given type.
-    serialise(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The formatting flag IS set, i.e. line breaks ARE WANTED.
+
+        // Append line feed character.
+        append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    }
 }
 
-/* INLINE_SENDER_SOURCE */
+/* BREAK_HTML_SERIALISER_SOURCE */
 #endif

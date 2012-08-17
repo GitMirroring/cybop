@@ -40,8 +40,10 @@
 /**
  * Runs a programme.
  *
- * Expected parametres:
+ * Properties:
  * - programme: the programme to be run
+ *
+ * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

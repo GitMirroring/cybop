@@ -46,6 +46,8 @@
  * - operand (required): the second operand
  * - type (required): the operand type which is equal for both operands
  *
+ * Constraints:
+ *
  * CAUTION! Do NOT use the "add" operation for characters!
  * They may be concatenated by using the "append" or "overwrite" operation.
  *
