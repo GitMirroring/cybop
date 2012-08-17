@@ -41,7 +41,7 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model index
- * @param p3 the formatting flag
+ * @param p3 the indentation flag
  * @param p4 the indentation level
  */
 void serialise_html_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {

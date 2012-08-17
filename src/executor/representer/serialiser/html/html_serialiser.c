@@ -48,7 +48,7 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the formatting flag
+ * @param p3 the indentation flag
  * @param p4 the tree level
  * @param p5 the format
  */

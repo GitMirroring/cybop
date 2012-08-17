@@ -29,6 +29,28 @@ It is NOT possible.
   to decide if he wants to work with integer or double values
 - a combination of both worlds is not possible, nor necessary
 
+HTML Formatting
+_______________
+
+- a cybol constraint "indentation" of type "logicvalue/boolean"
+  may be handed over to send/serialise operations that indicates
+  whether or not generated html should be formatted
+- a formatted file (indented and using more line breaks) is
+  approximately three times as big as a "condensed" (non-formatted) one
+
+- if formatting (pretty printing) is wanted, then pre-formatted tags
+  might get indented, even though this is not wanted
+- therefore, a cybol property "preformatted" of type "logicvalue/boolean"
+  may be specified for each html node
+- it is excluded from generated html attributes
+- actually, it is not a good idea to give format-related properties
+  on structure-related tags
+- however, THIS IS THE BEST CHOICE, since no-break spaces also have
+  to be specified directly
+- one functioning alternative would be to filter for <pre> tags
+- the problem is that nowadays, preformatting is mostly done via css
+  classes whose name may vary, so that they cannot be filtered
+
 Multiple Formats
 ________________
 

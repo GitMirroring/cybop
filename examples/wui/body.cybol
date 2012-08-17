@@ -25,6 +25,10 @@
         <property name="preformatted" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
         <property name="class" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="preformatted"/>
     </part>
+    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="This link contains a URL with unicode character codes greater 256 that should get encoded using percent encoding.">
+        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a"/>
+        <property name="href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="http://www.The word China in Chinese: 中國 and that is it.cn"/>
+    </part>
     <part name="heading" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Example Table">
         <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h4"/>
     </part>

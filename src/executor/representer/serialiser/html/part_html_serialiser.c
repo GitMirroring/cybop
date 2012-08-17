@@ -41,7 +41,7 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the formatting flag
+ * @param p3 the indentation flag
  * @param p4 the indentation level
  */
 void serialise_html_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -53,7 +53,7 @@ void serialise_html_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -67,7 +67,7 @@ void serialise_html_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

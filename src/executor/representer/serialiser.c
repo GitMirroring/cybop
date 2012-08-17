@@ -67,7 +67,7 @@
  * @param p4 the source properties count
  * @param p5 the knowledge memory part
  * @param p6 the format
- * @param p7 the language indentation
+ * @param p7 the indentation flag
  * @param p8 the language
  */
 void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
@@ -159,8 +159,8 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
             // Append document type.
             append_item_element(p0, (void*) HTML_DOCUMENT_TYPE_HTML_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HTML_DOCUMENT_TYPE_HTML_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Append line feed character, for better source reading.
-            append_item_element(p0, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Serialise line break.
+            serialise_html_break(p0, p7);
             // Append content.
             serialise_html_part_element_content(p0, p1, p2, p3, p4, p7, (void*) &l, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
         }
