@@ -74,7 +74,13 @@ void serialise_html_attribute(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    // The following names are NOT to be treated as attributes.
+    // They therefore have to be EXCLUDED here!
+    // CAUTION! Many comparisons may be done in a sequence.
+    // If a comparison's result is not true, then the return value
+    // is NOT altered, so that the following comparisons are not affected.
     compare_all_array((void*) &r, nd, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT);
+    compare_all_array((void*) &r, nd, (void*) PREFORMATTED_WEB_USER_INTERFACE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) PREFORMATTED_WEB_USER_INTERFACE_CYBOL_NAME_COUNT);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

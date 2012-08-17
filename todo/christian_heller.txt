@@ -22,6 +22,8 @@
             --> possibly, state and logic models need to be handled differently (at least path/reference)
 
         * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"
+        * Update cybol specification
+        * Format cybol specification using cascading style sheets (css)
 
         * Make rubbish (garbage) collection work
             --> use test messages in executor/referencer/

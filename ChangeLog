@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-08-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Indicate usage of preformatted text in html with new "preformatted" cybol property
+            (the correct formatting has to be taken care of in css)
+            and do not replace all space characters in primitive parts with no-break space anymore
+
 2012-08-16  Falk Müller  <falk89@web.de>
 
         * Add decimal fraction de-/serialiser and calculator

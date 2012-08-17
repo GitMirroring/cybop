@@ -54,23 +54,7 @@ void serialise_character_reference_html(void* p0, void* p1) {
         // If this changes one day, something will have to be adapted here.
         //
 
-        if (*c == 0x0020) {
-
-            // This is a standard SPACE character (NOT a no-break space).
-            // The standard space does NOT represent a reserved character/ predefined entity.
-            // However, for primitive values such as arbitrary text,
-            // space characters are converted into no-break spaces,
-            // so that web browsers do respect them.
-
-            // Append &#x begin hexadecimal numeric character reference name.
-            append_item_element(p0, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Serialise source character code into wide character sequence.
-            // CAUTION! Hand over NUMBER BASE 16 as parametre!
-            serialise_cybol_integer_value(p0, (void*) NO_BREAK_SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL);
-            // Append ; end character reference name.
-            append_item_element(p0, (void*) END_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_CHARACTER_REFERENCE_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-        } else if (
+        if (
             (*c == *QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL)
             || (*c == *AMPERSAND_UNICODE_CHARACTER_CODE_MODEL)
             || (*c == *APOSTROPHE_UNICODE_CHARACTER_CODE_MODEL)

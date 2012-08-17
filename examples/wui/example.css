@@ -22,3 +22,13 @@ h4 {
     font-size: 12pt;
     color: blue;
 }
+
+.preformatted {
+
+    background-color: #009;
+    color: #FF0;
+    font-family: Fixedsys,Courier,monospace;
+    padding: 10px;
+    white-space: pre-wrap;
+    font-size: 9pt;
+}

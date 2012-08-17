@@ -63,11 +63,20 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
 
     // The tag part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The preformatted part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The tag part model.
     void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The preformatted part model.
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The tag part model data, count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The preformatted part model data.
+    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The empty flag.
     int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The void flag.
@@ -77,11 +86,19 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
 
     // Get tag part by name.
     get_name_array((void*) &t, p3, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT, p4);
+    // Get preformatted part by name.
+    get_name_array((void*) &p, p3, (void*) PREFORMATTED_WEB_USER_INTERFACE_CYBOL_NAME, (void*) PREFORMATTED_WEB_USER_INTERFACE_CYBOL_NAME_COUNT, p4);
+
     // Get tag part model item.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get preformatted part model item.
+    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
     // Get tag part model item data, count.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get preformatted part model item data.
+    copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // TEST: The block below is NOT necessary and for testing only.
     // The generated html file will contain an error message for each nameless tag.
@@ -92,9 +109,9 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
         tmc = (void*) tmc_tmp;
     }
 
-    // Check if source model count is empty.
+    // Test if source model count is empty.
     compare_integer_smaller_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    // Check if element is allowed to be void.
+    // Test if element is allowed to be void.
     serialise_html_void_element((void*) &v, tmd, tmc);
     // Serialise indentation.
     serialise_html_indentation(p0, p5);
@@ -141,7 +158,7 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
 
         // The content is NOT empty.
 
-        // Check if this part is of type "element/part".
+        // Test if this part is of type "element/part".
         // In this case, it is a compound part containing child parts
         // and not just primitive data like text or a number.
         compare_integer_equal((void*) &c, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
@@ -158,9 +175,15 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
         // Increment new indentation level by one.
         calculate_integer_add((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-        if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // CAUTION! If this is NOT a preformatted element,
+        // then the preformatted property may NOT be given
+        // so that the pmd flag is NULL.
+        // Or, the flag IS given, but has to be set to false.
+        if ((c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            && ((pmd == *NULL_POINTER_STATE_CYBOI_MODEL) || ((pmd != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) pmd) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)))) {
 
             // This is a primitive value, NOT a compound element.
+            // Further, this is NOT a preformatted element.
             // Example:
             // <p>
             //     some text
@@ -175,6 +198,10 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
             //
             // However, this is NOT the case for primitive values like a text or number.
             // Therefore, those have to get indented right here.
+            //
+            // But for preformatted elements an indentation is NOT wanted,
+            // since it represents a block of text in which structure is
+            // represented by typographic conventions rather than by elements.
 
             // Serialise indentation.
             serialise_html_indentation(p0, (void*) &l);
