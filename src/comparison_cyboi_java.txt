@@ -1,11 +1,12 @@
 #
+# Copyright (C) 1999-2012. Christian Heller.
+#
 # This is a temporary helper file with information on
 # how to structure the new container framework of CYBOI.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # Christian Heller <christian.heller@tuxtax.de>
 #
-# @version CYBOP 0.11.0 2012-01-01
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
@@ -24,7 +25,9 @@ ________
 
 + copy: assign, place, copy, duplicate, copyValueOf, clone, SQL UPDATE
 
-+ get_element: element, elementAt, charAt, codePointAt, retrieve, getChildAt, firstElement, lastElement, peek, first, lowest, last, highest, SQL SELECT
++ get: element, elementAt, charAt, codePointAt, retrieve, getChildAt, firstElement, lastElement, peek, first, lowest, last, highest, SQL SELECT
++ indicate (empty or exists): isEmpty
++ count: getChildCount, length, capacity, size, getSize
 
 + overwrite: set, append, add, push, put, offer, concat, appendAll, putAll, replace
 + overwrite_element: set
@@ -101,9 +104,6 @@ ___________
 - hashCode:
   typically (e.g. in Java) implemented by converting the internal address of the object into an integer;
   CYBOI works with pointers anyway, so that distinct objects are identifiable
-
-- getChildCount, length, capacity, isEmpty, size, setSize:
-  elements are accompanied by a count and size by default
 
 - subSequence, substring:
   it suffices to simply count up the pointer to the desired sub sequence of an array

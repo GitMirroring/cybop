@@ -4,9 +4,10 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # Christian Heller <christian.heller@tuxtax.de>
 #
-# @version CYBOP 0.11.0 2012-01-01
+# @version CYBOP 0.12.0 2012-08-22
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
+
 
 CYBOP Installation
 __________________
@@ -20,6 +21,7 @@ __________________
     tar -xvzf cybop-0.9.0.tar.gz
     tar -xvjf cybop-0.9.0.tar.bz2
 
+
 Package and Library Installation
 ________________________________
 
@@ -32,6 +34,7 @@ xorg-dev
 xlibs-dev (now possibly contained in xorg-dev)
 glut or freeglut3 or the like
 mesa etc.
+
 
 CYBOI Compilation
 _________________
@@ -76,32 +79,39 @@ ___________________________
 
 - Execute cyboi and give the "run.cybol" file of an application as argument, e.g.:
 
-    /home/cybop/src/controller/cyboi --knowledge exit/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge exit_signal/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge exit_cybol_file/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge shell_output/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge shell_output_file/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge shell_output_sequence/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge if-else/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge shell_output_branch/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge shell_output_loop/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge shell_command_execution/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge programme_execution/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge addition/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge addition_dynamic_model/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge addition_dynamic_model_with_root/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge addition_static_model/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge get_count/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge counter/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge counter_static_model/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge counter_storage/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge time_output_1/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge time_output_2/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge time_output_3/run.cybol
-    /home/cybop/src/controller/cyboi --knowledge helloworld/run.cybol
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi --knowledge ui_control/run.cybol
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi --knowledge http_communication/run.cybol
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi --knowledge presence/run.cybol
+    /home/cybop/src/controller/cyboi exit/run.cybol
+    /home/cybop/src/controller/cyboi exit_signal/run.cybol
+    /home/cybop/src/controller/cyboi exit_cybol_file/run.cybol
+    /home/cybop/src/controller/cyboi shell_output/run.cybol
+    /home/cybop/src/controller/cyboi shell_output_file/run.cybol
+    /home/cybop/src/controller/cyboi shell_output_sequence/run.cybol
+    /home/cybop/src/controller/cyboi if-else/run.cybol
+    /home/cybop/src/controller/cyboi shell_output_branch/run.cybol
+    /home/cybop/src/controller/cyboi shell_output_loop/run.cybol
+    /home/cybop/src/controller/cyboi shell_command_execution/run.cybol
+    /home/cybop/src/controller/cyboi programme_execution/run.cybol
+    /home/cybop/src/controller/cyboi addition/run.cybol
+    /home/cybop/src/controller/cyboi addition_dynamic_model/run.cybol
+    /home/cybop/src/controller/cyboi addition_dynamic_model_with_root/run.cybol
+    /home/cybop/src/controller/cyboi addition_static_model/run.cybol
+    /home/cybop/src/controller/cyboi double/run.cybol
+    /home/cybop/src/controller/cyboi get_count/run.cybol
+    /home/cybop/src/controller/cyboi counter/run.cybol
+    /home/cybop/src/controller/cyboi counter_static_model/run.cybol
+    /home/cybop/src/controller/cyboi counter_storage/run.cybol
+    /home/cybop/src/controller/cyboi time_output_1/run.cybol
+    /home/cybop/src/controller/cyboi time_output_2/run.cybol
+    /home/cybop/src/controller/cyboi time_output_3/run.cybol
+    /home/cybop/src/controller/cyboi addition_using_indices/run.cybol
+    /home/cybop/src/controller/cyboi index_usage/run.cybol
+    /home/cybop/src/controller/cyboi knowledge_tree_access/run.cybol
+    /home/cybop/src/controller/cyboi helloworld/run.cybol
+    /home/cybop/src/controller/cyboi tui/run.cybol
+    /home/cybop/src/controller/cyboi ui_control/run.cybol
+    /home/cybop/src/controller/cyboi addition_using_serialisation/run.cybol
+    /home/cybop/src/controller/cyboi wui/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi http_communication/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi presence/run.cybol
 
 To make the client-server communication work in the "http_communication" example,
 type the following URL into a web browser after having started the application:
@@ -134,26 +144,6 @@ source file and that way knows if it has to recompile the executable.
 Another point to use make targets for is the generation of the documentation.
 
 
-Tagging SVN
-___________
-
-Tagging and branching are very simple in SVN.
-The root node of the trunk/ directory is just copied.
-The graphical kdesvn application does not provide this functionality.
-Therefore, adapt and use the following command line:
-
-svn copy svn+ssh://christian@svn.savannah.nongnu.org/cybop/trunk svn+ssh://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"
-
-The https protocol as in the following example did work with the berliOS portal,
-but it does NOT work with savannah:
-
-svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"
-
-It shows the following error:
-
-svn: OPTIONS of 'https://christian@svn.savannah.nongnu.org/cybop': SSL handshake failed: SSL error: An unexpected TLS packet was received. (https://svn.savannah.nongnu.org)
-
-
 CYBOP Distribution
 __________________
 
@@ -177,6 +167,7 @@ __________________
 
     make dist
 
+
 CYBOP Packaging
 _______________
 
@@ -189,3 +180,23 @@ _______________
     checkinstall
 
 - Configure package answering the checkinstall questions
+
+
+Tagging SVN
+___________
+
+Tagging and branching are very simple in SVN.
+The root node of the trunk/ directory is just copied.
+The graphical kdesvn application does not provide this functionality.
+Therefore, adapt and use the following command line:
+
+svn copy svn+ssh://christian@svn.savannah.nongnu.org/cybop/trunk svn+ssh://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"
+
+The https protocol as in the following example did work with the berliOS portal,
+but it does NOT work with savannah:
+
+svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.10.0 -m "Tag the cybop-0.10.0 release"
+
+It shows the following error:
+
+svn: OPTIONS of 'https://christian@svn.savannah.nongnu.org/cybop': SSL handshake failed: SSL error: An unexpected TLS packet was received. (https://svn.savannah.nongnu.org)

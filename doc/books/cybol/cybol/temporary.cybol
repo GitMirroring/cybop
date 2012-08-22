@@ -1,4 +1,5 @@
 <model>
+
     <!-- The loop models. -->
     <part name="topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
     <part name="topic_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
@@ -12,12 +13,14 @@
     <part name="properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
     <part name="properties_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
     <part name="properties_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <!-- selected part names -->
+
+    <!-- The selected part names. -->
     <part name="selected_topic" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="selected_category" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="selected_operation" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="selected_property" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <!-- temp variables to dynamic knowledge path -->
+
+    <!-- The dynamic knowledge path temporary variables. -->
     <part name="topic_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="topic_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="topic_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
@@ -56,7 +59,8 @@
     <part name="property_content_path_model" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="property_content_path_tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="property_required_value" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model=""/>
-    <!-- temporary path links to items -->
+
+    <!-- The temporary path links to items. -->
     <part name="topic_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="topic_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="category_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
@@ -65,7 +69,8 @@
     <part name="operation_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="property_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="property_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <!-- category properties access -->
+
+    <!-- The category properties access. -->
     <part name="link_spec_properties" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="link_spec_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="link_spec_example" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
@@ -76,5 +81,5 @@
     <part name="link_property_required" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="link_property_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
     <part name="link_property_model" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-</model>
 
+</model>

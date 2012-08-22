@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version CYBOP 0.11.0 2012-01-01
+ * @version CYBOP 0.12.0 2012-08-22
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -41,6 +41,7 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/modifier/inserter/item_inserter.c"
 #include "../../../../../logger/logger.c"

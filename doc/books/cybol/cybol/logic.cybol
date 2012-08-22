@@ -1,5 +1,5 @@
 <model>
-    <!-- add logic implementation to knowledge-tree here --> 
+    <!-- add logic implementation to knowledge-tree here -->
     <part name="translate_specification" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_specification.cybol"/>
     <part name="translate_topic" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/translate_topic.cybol"/>
     <part name="build_topic" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_topic.cybol"/>
@@ -27,6 +27,4 @@
     <part name="build_property_spec_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_property_spec_path.cybol"/>
     <part name="build_property_wui_path" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_property_wui_path.cybol"/>
     <part name="build_property_wui_row" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/logic/build_property_wui_row.cybol"/>
-
 </model>
-

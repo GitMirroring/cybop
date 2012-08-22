@@ -19,12 +19,14 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version CYBOP 0.11.0 2012-01-01
+ * @version CYBOP 0.12.0 2012-08-22
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
 #ifndef THREAD_INTERRUPTER_SOURCE
 #define THREAD_INTERRUPTER_SOURCE
+
+#include <signal.h>
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"

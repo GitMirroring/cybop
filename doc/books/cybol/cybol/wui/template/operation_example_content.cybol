@@ -1,7 +1,6 @@
 <model>
     <part name="operation_example_header" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Example">
         <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h5"/>
-        <property name="align" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="center"/>
     </part>
     <part name="operation_example_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
         <property name="preformatted" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>

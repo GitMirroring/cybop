@@ -1,10 +1,5 @@
 <model>
-    <part name="heading" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="CYBOL Specification">
+    <part name="heading" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="CYBOL Specification 2012-08-22 -- Application Programming Interface (API)">
         <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h1"/>
-        <property name="align" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="center"/>
-    </part>
-    <part name="website" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="CYBOP Website">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a"/>
-        <property name="href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="http://www.cybop.org/"/>
     </part>
 </model>

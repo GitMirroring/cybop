@@ -7,9 +7,29 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # Christian Heller <christian.heller@tuxtax.de>
 #
-# @version CYBOP 0.11.0 2012-01-01
+# @version CYBOP 0.12.0 2012-08-22
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
+
+CYBOP 0.12.0, 2012-08-22, Christian Heller  <christian.heller@tuxtax.de>
+        * CYBOI:
+            - Advance ansi escape code generator
+            - Add or update container functions: get, count, indicate (empty or exists), insert, remove
+            - Improve terminal input and -output
+            - Replace optionaliser with command line deserialiser
+            - Simplify cyboi command line so that "--knowledge" argument is the default
+            - Update html serialiser with switchable formatting
+            - Implement handling of index in knowledge path
+            - Implement character reference de-/serialiser for numeric character reference (hexadecimal and decimal) and entity reference
+            - Prepare percent encoding de-/serialiser
+            - Add decimal fraction de-/serialiser and calculator of Falk Müller
+        * CYBOL:
+            - Make cybol example application "ui_control" work again
+            - Add example applications: get_count, addition_using_indices, index_usage, knowledge_tree_access, addition_using_serialisation, wui, tui, double
+            - Generate cybol application programming interface (api) specification from cybol files using html format, contributed by Enrico Gallus
+            - Add new operations: represent/serialise, represent/deserialise, access/get-name
+        * Project:
+            - Add "cybol_extension" tutorial of Falk Müller
 
 CYBOP 0.11.0, 2012-06-08, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:

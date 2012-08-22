@@ -328,6 +328,12 @@ on the architecture and implementation of the \emph{CYBOI Interpreter}.
         The array is the basis holding primitive data.
         An item consists of three arrays: data, count, size.
         A part has four items: name, type, model, properties.
+    \item[2011] A part now has nine items: name, channel, encoding, language, format, type, model, properties, references.
+        The references item counts the number of other parts which are using the part.
+        This is used to implement rubbish (garbage) collection,
+        i.e. automatic clean-up (deallocation) of parts that are not used anymore.
+    \item[2012] The CYBOL Application Programming Interface (API) specification is now
+        defined in CYBOL syntax itself and generated as HTML page to be published on the website.
     \item[20xx] Open issues yet to be implemented are, for example:
         compiling CYBOI under \emph{Windows} OS and making use of their GUI
         functionality; improving the GUI layout and providing a GUI theme

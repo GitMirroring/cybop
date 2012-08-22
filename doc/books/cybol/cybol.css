@@ -1,17 +1,134 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * This style sheet defines layout information for the cybol specification.
+ *
+ * Colours:
+ * - yellow: #FFFFC0
+ * - blue: #000099
+ * - light blue: #C0C0FF
+ * - red: #FF8080
+ * - green: #C0FFC0
+ * - orange: #FFDCA8
+ *
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
 
-#toc { float:left; width:250px; }
-#content { float:left; width:1000px; }
+* html div {
+    /* The workaround for the 3 pixel bug of Internet Explorer up to version 6. */
+    height: 1em;
+}
 
-.topic_toc { padding-left: 0px }
-.category_toc { padding-left: 10px }
-.operation_toc { padding-left: 20px }
+#toc {
+    float: left;
+    width: 200px;
+    font-size: 8pt;
+}
+
+#toc h1 {
+    text-align: center;
+}
+
+#toc a {
+    display: block;
+    text-decoration: none;
+}
+
+#toc a:link {
+    background-color: #FFFFC0;
+    color: #000000;
+}
+
+#toc a:visited {
+    background-color: #FFFFC0;
+    color: #808080;
+}
+
+#toc a:hover {
+    background-color: #C0C0FF;
+    color: #000000;
+}
+
+#toc a:active {
+    background-color: #000000;
+    color: #C0C0FF;
+}
+
+#content {
+    margin-left: 300px;
+    width: 1000px;
+    font-size: 10pt;
+}
+
+#content h1 {
+    text-align: center;
+    font-size: 14pt;
+}
+
+#content h2 {
+    text-align: center;
+    font-size: 12pt;
+}
+
+#content h3 {
+    text-align: center;
+    font-size: 10pt;
+}
+
+.property_table {
+    background-color: #FFFFC0;
+    border-collapse: collapse;
+    font-size: 9pt;
+}
+
+.property_table tr {
+    text-align: left;
+    vertical-align: top;
+}
+
+.property_table th {
+    padding: 2px;
+}
+
+.property_table td {
+    padding: 2px;
+}
+
+.topic_toc {
+    padding-left: 0px
+}
+
+.category_toc {
+    padding-left: 10px
+}
+
+.operation_toc {
+    padding-left: 20px
+}
 
 .operation_example {
-
-    background-color: #009;
-    color: #FF0;
-    font-family: DejaVu Sans Mono,Bitstream Vera Sans Mono,FreeMono,Monospace,Fixedsys,Courier;
+    background-color: #000099;
+    color: #FFFFC0;
     padding: 5px;
     white-space: pre-wrap;
+    font-family: DejaVu Sans Mono,Bitstream Vera Sans Mono,FreeMono,Monospace,Fixedsys,Courier;
     font-size: 9pt;
 }

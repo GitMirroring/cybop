@@ -1,4 +1,4 @@
-EXTRA_DIST = checker deoptionaliser globaliser handler manager optionaliser unglobaliser checker.c deoptionaliser.c globaliser.c handler.c helper.c informant.c initialiser.c Makefile.am manager.c optionaliser.c orienter.c tester.c unglobaliser.c
+EXTRA_DIST = checker/ deoptionaliser/ globaliser/ handler/ manager/ optionaliser/ unglobaliser/ checker.c deoptionaliser.c globaliser.c handler.c helper.c informant.c initialiser.c Makefile.am manager.c optionaliser.c orienter.c tester.c unglobaliser.c
 
 bin_PROGRAMS = cyboi
 
