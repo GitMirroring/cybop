@@ -1,0 +1,23 @@
+#
+# $RCSfile$
+#
+# Copyright (c) 2005-2006. Tux Tax.
+#
+# Version: $Revision$ $Date$ $Author$
+#
+# Authors:
+# Christian Heller <christian.heller@tuxtax.de>
+#
+# Description:
+# This is the runtime knowledge model tree, later to become a
+# CYBOP Model Diagram (MD).
+#
+
+hedam
+    settings
+        user_interface
+    logic
+        gui
+    gui
+        main_window
+        about

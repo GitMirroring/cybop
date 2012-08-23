@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<model>
+    <part name="create_hedam" channel="inline" abstraction="operation" model="create_part">
+        <property name="name" channel="inline" abstraction="character" model="hedam"/>
+        <property name="channel" channel="inline" abstraction="character" model="inline"/>
+        <property name="abstraction" channel="inline" abstraction="character" model="compound"/>
+        <property name="model" channel="inline" abstraction="character" model=""/>
+    </part>
+    <part name="create_settings" channel="inline" abstraction="operation" model="create_part">
+        <property name="whole" channel="inline" abstraction="knowledge" model=".hedam"/>
+        <property name="name" channel="inline" abstraction="character" model="settings"/>
+        <property name="channel" channel="inline" abstraction="character" model="file"/>
+        <property name="abstraction" channel="inline" abstraction="character" model="compound"/>
+        <property name="model" channel="inline" abstraction="character" model="hedam/settings.cybol"/>
+    </part>
+    <part name="create_logic" channel="inline" abstraction="operation" model="create_part">
+        <property name="whole" channel="inline" abstraction="knowledge" model=".hedam"/>
+        <property name="name" channel="inline" abstraction="character" model="logic"/>
+        <property name="channel" channel="inline" abstraction="character" model="file"/>
+        <property name="abstraction" channel="inline" abstraction="character" model="compound"/>
+        <property name="model" channel="inline" abstraction="character" model="hedam/logic.cybol"/>
+    </part>
+    <part name="create_gui_commands" channel="inline" abstraction="operation" model="create_part">
+        <property name="whole" channel="inline" abstraction="knowledge" model=".hedam.logic"/>
+        <property name="name" channel="inline" abstraction="character" model="gui_commands"/>
+        <property name="channel" channel="inline" abstraction="character" model="file"/>
+        <property name="abstraction" channel="inline" abstraction="character" model="compound"/>
+        <property name="model" channel="inline" abstraction="character" model="hedam/logic/gui_commands.cybol"/>
+    </part>
+    <part name="create_gui" channel="inline" abstraction="operation" model="create_part">
+        <property name="whole" channel="inline" abstraction="knowledge" model=".hedam"/>
+        <property name="name" channel="inline" abstraction="character" model="gui"/>
+        <property name="channel" channel="inline" abstraction="character" model="file"/>
+        <property name="abstraction" channel="inline" abstraction="character" model="compound"/>
+        <property name="model" channel="inline" abstraction="character" model="hedam/gui.cybol"/>
+    </part>
+    <part name="startup_gnu_linux_console" channel="inline" abstraction="operation" model="startup">
+        <property name="service" channel="inline" abstraction="character" model="x_window_system"/>
+    </part>
+    <part name="send_model_to_output" channel="inline" abstraction="operation" model="send">
+        <property name="channel" channel="inline" abstraction="character" model="x_window_system"/>
+        <property name="receiver" channel="inline" abstraction="character" model="user"/>
+        <property name="message" channel="inline" abstraction="knowledge" model=".hedam.gui"/>
+    </part>
+    <part name="receive_x_window_system" channel="inline" abstraction="operation" model="receive">
+        <property name="channel" channel="inline" abstraction="character" model="x_window_system"/>
+        <property name="root" channel="inline" abstraction="knowledge" model=".hedam.gui"/>
+        <property name="commands" channel="inline" abstraction="knowledge" model=".hedam.logic.gui_commands"/>
+        <property name="blocking" channel="inline" abstraction="character" model="false"/>
+    </part>
+</model>
+
+<!--
+    $RCSfile$
+
+    Copyright (c) 2005-2006. Christian Heller.
+
+    @version $Revision$ $Date$ $Author$
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

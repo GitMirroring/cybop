@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+    $RCSfile$
+
+    Copyright (c) 1999-2005. Christian Heller and the Res Medicinae developers.
+
+    This knowledge model is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+
+    This knowledge model is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this knowledge model; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+    http://www.resmedicinae.org
+    - Information in Medicine -
+
+    Version: $Revision$ $Date$ $Author: christian $
+
+    Authors:
+    Christian Heller <christian.heller@tuxtax.de>
+-->
+
+<model>
+    <part name="documentclass" channel="inline" abstraction="string" model="book">
+        <property name="paper" channel="inline" abstraction="string" model="a4paper"/>
+        <property name="side" channel="inline" abstraction="string" model="twoside"/>
+        <property name="font" channel="inline" abstraction="string" model="12pt"/>
+    </part>
+    <part name="usepackages" channel="file" abstraction="cybol" model="usepackages.cybol"/>
+    <part name="text_format" channel="file" abstraction="cybol" model="text_format.cybol"/>
+    <part name="hyphenations" channel="file" abstraction="cybol" model="hyphenations.cybol"/>
+    <part name="makeindex" channel="inline" abstraction="boolean" model="true"/>
+    <part name="footer" channel="inline" abstraction="boolean" model="true"/>
+    <part name="pagenumbering" channel="inline" abstraction="string" model="Roman"/>
+    <part name="title" channel="inline" abstraction="string" model="Res Medicinae Pflichtenheft"/>
+    <part name="subtitle" channel="inline" abstraction="string" model="Analysedokument zur Erstellung eines Informationssystems fuer den Einsatz in der Medizin">
+        <property name="font_size" channel="inline" abstraction="string" model="small"/>
+    </part>
+    <part name="authors" channel="file" abstraction="cybol" model="">
+        <property name="count" channel="inline" abstraction="integer" model="10"/>
+    </part>
+    <part name="date" channel="inline" abstraction="date" model=""/>
+    <part name="maketitle" channel="inline" abstraction="boolean" model="true"/>
+    <part name="copyright" channel="inline" abstraction="string" model=""/>
+    <part name="license" channel="inline" abstraction="string" model="
+        Permission is granted to copy, distribute and/or modify this document
+        under the terms of the GNU Free Documentation License, Version 1.1
+        or any later version published by the Free Software Foundation;
+        with no Invariant Sections, with no Front-Cover Texts and with no Back-Cover
+        Texts. A copy of the license is included in the section entitled
+        "GNU Free Documentation License"."/>
+    <part name="dedication" channel="inline" abstraction="string" model=""/>
+    <part name="table_of_contents" channel="inline" abstraction="boolean" model="true"/>
+    <part name="preface" channel="file" abstraction="cybol" model="preface.cybol">
+        <property name="sectioning" channel="inline" abstraction="string" model="chapter"/>
+    </part>
+    <part name="pagenumbering" channel="inline" abstraction="string" model="arabic"/>
+    <part name="abstract" channel="file" abstraction="cybol" model="abstract.cybol"/>
+    <part name="introduction" channel="file" abstraction="cybol" model="introduction.cybol"/>
+    <part name="principles" channel="file" abstraction="cybol" model="introduction.cybol"/>
+    <part name="introduction" channel="file" abstraction="cybol" model="introduction.cybol">
+        <property name="sectioning" channel="inline" abstraction="string" model="chapter"/>
+    </part>
+    <part name="requirements_list" channel="file" abstraction="cybol" model="requirements_list.cybol">
+        <property name="sectioning" channel="inline" abstraction="string" model="chapter"/>
+    </part>
+    <part name="appendices" channel="file" abstraction="cybol" model="appendices.cybol">
+        <property name="sectioning" channel="inline" abstraction="string" model="chapter"/>
+    </part>
+</model>

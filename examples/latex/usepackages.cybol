@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+    $RCSfile$
+
+    Copyright (c) 1999-2005. Christian Heller and the Res Medicinae developers.
+
+    This knowledge model is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+
+    This knowledge model is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this knowledge model; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+    http://www.resmedicinae.org
+    - Information in Medicine -
+
+    Version: $Revision$ $Date$ $Author: christian $
+
+    Authors:
+    Christian Heller <christian.heller@tuxtax.de>
+-->
+
+<model>
+    <part name="usepackage_$0" channel="inline" abstraction="string" model="">
+        <property name="paper_format" channel="inline" abstraction="string" model="a4"/>
+        <property name="font" channel="inline" abstraction="string" model="times"/>
+    </part>
+    <part name="usepackage_$1" channel="inline" abstraction="string" model="tocbibind">
+        <property name="section" channel="inline" abstraction="string" model="section"/>
+        <property name="font" channel="inline" abstraction="string" model="nottoc"/>
+        <property name="font" channel="inline" abstraction="string" model="numbib"/>
+        <property name="font" channel="inline" abstraction="string" model="numindex"/>
+    </part>
+    <part name="usepackage_$2" channel="inline" abstraction="string" model="makeidx"/>
+    <part name="usepackage_$3" channel="inline" abstraction="string" model="wrapfig"/>
+</model>

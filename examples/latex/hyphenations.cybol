@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+    $RCSfile$
+
+    Copyright (c) 1999-2005. Christian Heller and the Res Medicinae developers.
+
+    This knowledge model is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+
+    This knowledge model is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this knowledge model; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+    http://www.resmedicinae.org
+    - Information in Medicine -
+
+    Version: $Revision$ $Date$ $Author: christian $
+
+    Authors:
+    Christian Heller <christian.heller@tuxtax.de>
+-->
+
+<model>
+    <part name="abstraction" channel="inline" abstraction="string" model="abs-trac-tion"/>
+    <part name="actually" channel="inline" abstraction="string" model="ac-tu-ally"/>
+    <part name="analyst" channel="inline" abstraction="string" model="ana-lyst"/>
+    <part name="analysis" channel="inline" abstraction="string" model="ana-ly-sis"/>
+    <part name="ancient" channel="inline" abstraction="string" model="an-cient"/>
+    <part name="application" channel="inline" abstraction="string" model="ap-pli-ca-tion"/>
+    <part name="aristotle" channel="inline" abstraction="string" model="aris-to-tle"/>
+    <part name="attribute" channel="inline" abstraction="string" model="at-tri-bute"/>
+    <part name="being" channel="inline" abstraction="string" model="be-ing"/>
+    <part name="categorisation" channel="inline" abstraction="string" model="ca-te-go-ri-sa-tion"/>
+</model>

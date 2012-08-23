@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<model>
+    <part name="refresh_gui" channel="inline" abstraction="operation" model="send">
+        <property name="channel" channel="inline" abstraction="character" model="x_window_system"/>
+        <property name="receiver" channel="inline" abstraction="character" model="user"/>
+        <property name="message" channel="inline" abstraction="knowledge" model=".hedam.gui"/>
+    </part>
+    <part name="show_about_information" channel="inline" abstraction="operation" model="send">
+        <property name="channel" channel="inline" abstraction="character" model="x_window_system"/>
+        <property name="receiver" channel="inline" abstraction="character" model="user"/>
+        <property name="message" channel="inline" abstraction="knowledge" model=".hedam.gui.about"/>
+    </part>
+    <part name="exit_program" channel="file" abstraction="compound" model="hedam/logic/shutdown.cybol"/>
+</model>
+
+<!--
+    $RCSfile$
+
+    Copyright (c) 2005-2006. Christian Heller.
+
+    @version $Revision$ $Date$ $Author$
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

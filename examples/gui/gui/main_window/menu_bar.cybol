@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<model>
+    <part name="module_menu" channel="inline" abstraction="character" model="Module">
+        <property name="layout" channel="inline" abstraction="character" model="compass"/>
+        <property name="cell" channel="inline" abstraction="character" model="west"/>
+        <property name="position" channel="inline" abstraction="integer" model="0,0,0"/>
+        <property name="size" channel="inline" abstraction="integer" model="100,20,1"/>
+        <property name="left_release" channel="inline" abstraction="knowledge" model=".hedam.logic.exit_program"/>
+    </part>
+<!--
+    <part name="view_menu" channel="inline" abstraction="character" model="View">
+        <property name="layout" channel="inline" abstraction="character" model="compass"/>
+        <property name="cell" channel="inline" abstraction="character" model="east"/>
+        <property name="position" channel="inline" abstraction="integer" model="0,0,0"/>
+        <property name="size" channel="inline" abstraction="integer" model="0,0,0"/>
+    </part>
+-->
+    <part name="help_menu" channel="inline" abstraction="character" model="Help">
+        <property name="layout" channel="inline" abstraction="character" model="compass"/>
+        <property name="cell" channel="inline" abstraction="character" model="east"/>
+        <property name="position" channel="inline" abstraction="integer" model="200,0,0"/>
+        <property name="size" channel="inline" abstraction="integer" model="100,20,1"/>
+    </part>
+</model>
+
+<!--
+    $RCSfile$
+
+    Copyright (c) 2005-2006. Christian Heller.
+
+    @version $Revision$ $Date$ $Author$
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
