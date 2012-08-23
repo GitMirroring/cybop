@@ -1,0 +1,11 @@
+<model>
+    <part name="name" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model="schema/item.cybol"/>
+    <part name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model="schema/item.cybol"/>
+    <part name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model="schema/item.cybol"/>
+    <part name="language" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model="schema/item.cybol"/>
+    <part name="format" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model="schema/item.cybol"/>
+    <part name="type" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model="schema/item.cybol"/>
+    <part name="model" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model="schema/item.cybol"/>
+    <part name="properties" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model="schema/item.cybol"/>
+    <part name="references" channel="inline" encoding="utf-8" language="text/cybol" format="element/part" model="schema/item.cybol"/>
+</model>

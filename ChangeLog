@@ -19,6 +19,7 @@
 2012-08-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete constants in file "html_entity_character_reference_deserialiser.c"
+        * Add schema in cybol syntax to directory "doc/books/cybol/schema/"
 
 2012-08-22  Christian Heller  <christian.heller@tuxtax.de>
 
