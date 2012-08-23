@@ -11,25 +11,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
-        * Ensure that non-encoded characters are copied as well in character reference deserialiser
-        * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
-        * Call percent encoding deserialiser in this order: utf-8 decode, percent deserialise, url deserialise
-        * Call percent encoding serialiser for each single part of the url and only in the end utf-8 encode for the complete url
-        * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
-            the corresponding type may be forwarded between functions as parametre
-        * Merge in constants standing above blocks in file "html_entity_character_reference_deserialiser.c"
-
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
 
-        * Complete dynamically generated cybol specification in cybol format in directory "doc/books/cybol/"
-        * Update cybol specification
-        * Format cybol specification using cascading style sheets (css)
-
         * Make rubbish (garbage) collection work
             --> use test messages in executor/referencer/
-            --> gc does not work, because of comparison with "part" type, while the "pointer" type arrives instead
+            --> gc does not work yet, because of comparison with "part" type, while the "pointer" type arrives instead
 
         * Reactivate x_window_system receive functionality
         * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):
@@ -48,40 +35,41 @@
             (e.g. html file http response was generated twice as long as wanted;
             only first action was received and added properly to uri internal model,
             all following actions were appended but only the first is considered)
-        * Continue with example application "presence"
-            (it already works for one client request, but due to the missing container function "replace_part"
-            answers to following client request are appended to the same model leading to false results)
-        * Offer part deallocation shallow and deep
-            (deep is not always wanted, if a child is referenced by many parts)
-
+        * Create three different sockets (local, inet, inet6)? distinguish at socket startup?
+            and store as different entries in internal memory?
+        * It was decided that "send" operations do NOT run in an own thread (for now and the near future, at least),
+            also if querying a server via http, since this would mix up the signal handling mechanism
         * Use htons for socket transfer
         * Empty buffer with bzero(buffer, 300) in each socket transfer cycle? (See socket examples in tmp/)
-        * Replace temporary workaround in file "percent_encoding_decoder.c" with proper decoder file
         * Figure out necessary LIMITATION of the socket receive buffer in function "communicate_receiving_socket" to 1024!
         * See: http://www.w3.org/TR/html5/urls.html#urls
         * See also file "resmedicinae/apps/residenz/logic/handler/handle_www_service.cybol"
 
-        * Create three different sockets (local, inet, inet6)? distinguish at socket startup?
-            and store as different entries in internal memory?
-        * move and rename "set_new_signal_identification" to e.g. /globals/references/integer_references.c
-            and name function e.g. "get_integer_reference"
+        * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
+        * Ensure that non-encoded characters are copied as well in character reference deserialiser
+        * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
+        * Call percent encoding deserialiser in this order: utf-8 decode, percent deserialise, url deserialise
+        * Call percent encoding serialiser for each single part of the url and only in the end utf-8 encode for the complete url
+        * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
+            the corresponding type may be forwarded between functions as parametre
+
+        * Continue with example application "presence"
+            (it already works for one client request, but due to the missing container function "replace_part"
+            answers to following client request are appended to the same model leading to false results)
         * Implement session on application level (Res Medicinae)
-        * It was decided that "send" operations do NOT run in an own thread (for now and the near future, at least),
-            also if querying a server via http, since this would mix up the signal handling mechanism
+        * Offer part deallocation shallow and deep
+            (deep is not always wanted, if a child is referenced by many parts)
 
         * Try to increase performance by commenting out "memset" in array allocation
         * Optimise "replace_array" function by replacing offset with constantly growing variable (less addition in loop necessary)
         * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
             http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
 
-        * Adapt all places in source code where reallocation is used to new
-            reallocation factor handling and also shrink memory structures appropriately
-
         * Include the sources of all documents into the distributable tarball cybop-0.12.0/
             --> really? This will grow it up to 500 MB in size due to the images
-        * Write an actual manual that is updated as necessary to reflect the current
-            state of cybop; brief overview which ones should be read first
-            if someone was trying to use the system
+        * Write an actual manual that is updated as necessary to reflect the current state of cybop;
+            give a brief overview which ones should be read first if someone was trying to use the system
+        * Reapply to become an official GNU project
 
         * Search for "??" (places that are left TODO) and clean up source code
 
