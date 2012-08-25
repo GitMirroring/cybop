@@ -1,0 +1,7 @@
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\bin\Data\api_xml_definition.xml
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\bin\Cybop.Designer.Data.dll
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\bin\Cybop.Designer.Data.pdb
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\bin\Cybop.Designer.Data.XML
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.Data\obj\Debug\ResolveAssemblyReference.cache
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.Data\obj\Debug\Cybop.Designer.Data.dll
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.Data\obj\Debug\Cybop.Designer.Data.pdb

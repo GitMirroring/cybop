@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cybop.Designer</name>
+    </assembly>
+    <members>
+        <member name="F:Cybop.Designer.Formulare.frmNew.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNew.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNew.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Cybop.Designer.Formulare.frmComment.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmComment.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmComment.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Cybop.Designer.Formulare.frmOption.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmOption.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmOption.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Cybop.Designer.Formulare.Setting.frmSettings.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.Setting.frmSettings.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.Setting.frmSettings.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Cybop.Designer.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:Cybop.Designer.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:Cybop.Designer.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.LoadNavigation">
+            <summary>
+            Lädt den Navigations-Baum.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.LoadElements(Cybop.Designer.Data.ElementCollection,System.Windows.Forms.TreeNode)">
+            <summary>
+            Lädt ein Element
+            </summary>
+            <param name="Elements"></param>
+            <param name="Node"></param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.CreateNewObject(System.String)">
+            <summary>
+            Erzeugt eine neue Datei oder Ordner.
+            </summary>
+            <param name="Type"></param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.AddObject(System.String)">
+            <summary>
+            Fügt ein vorhandenes Objekt zum Projekt hinzu.
+            </summary>
+            <param name="Type"></param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.AddFolder">
+            <summary>
+            Fügt einen vorhandenen Ordner rekursiv dem Projekt hinzu.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.AddFolder(System.String,System.Windows.Forms.TreeNode)">
+            <summary>
+            Fügt einen vorhandenen Ordner rekursiv dem Projekt hinzu.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.AddFile(System.String,System.Windows.Forms.TreeNode)">
+            <summary>
+            Fügt eine vorhandenen Datei dem Projekt hinzu.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.AddFile">
+            <summary>
+            Fügt eine vorhandenen Datei dem Projekt hinzu.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.CopyNodes(System.Windows.Forms.TreeNode,System.Windows.Forms.TreeNode@)">
+            <summary>
+            Kopiert die Angehangenen Knoten aus dem alten Objekt ins neue Objekt.
+            </summary>
+            <param name="OldNode"></param>
+            <param name="NewNode"></param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.PasteObject(System.Windows.Forms.TreeNode)">
+            <summary>
+            Fügt das Objekt an einer neuen stelle ein.
+            </summary>
+            <param name="OldNode"></param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.DeleteObject(System.Windows.Forms.TreeNode)">
+            <summary>
+            Löscht das Objekt 
+            </summary>
+            <param name="Node"></param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.InitializeControls">
+            <summary>
+            Initialisiert die Steuerelemente auf dem Formular.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.SetTransparency(System.Int32)">
+            <summary>
+            Setzt die Transparenz.
+            </summary>
+            <param name="Value"></param>
+        </member>
+        <member name="F:Cybop.Designer.Formulare.frmNavigation.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmNavigation.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Cybop.Designer.Formulare.frmSuche.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmSuche.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmSuche.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Cybop.Designer.Formulare.frmMain.components">
+            <summary>
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmMain.Dispose(System.Boolean)">
+            <summary>
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmMain.InitializeComponent">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung.
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmMain.NewProjekt">
+            <summary>
+            Erstellt ein neues Projekt.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmMain.OpenProject">
+            <summary>
+            Öffnet ein vorhandenes Projekt.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmMain.OpenFile(Cybop.Designer.Data.Element,System.Windows.Forms.TreeNode)">
+            <summary>
+            Öffnet das Dokument.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmMain.CommitChanges">
+            <summary>
+            Übernimmt die Änerungen in die Objekte.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmMain.CloseFile">
+            <summary>
+            Schließt die Datei und übernimmt die Werte.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmMain.InitializeControls">
+            <summary>
+            Initialisiert die Steuerelemente auf dem Formular.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmMain.InitializeMenuShortCut(System.Windows.Forms.ToolStripMenuItem@,System.String,System.Windows.Forms.Keys)">
+            <summary>
+            Initialisiert die ShortCuts.
+            </summary>
+            <param name="menuItem"></param>
+            <param name="displayString"></param>
+            <param name="keys"></param>
+        </member>
+        <member name="M:Cybop.Designer.Program.Main">
+            <summary>
+            Der Haupteinstiegspunkt für die Anwendung.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmLoad.LoadMain">
+            <summary>
+            Lädt die Daten für das Main-Objekt.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmLoad.InitializeControls">
+            <summary>
+            Initialisiert die Steuerelemente auf dem Formular.
+            </summary>
+        </member>
+        <member name="F:Cybop.Designer.Formulare.frmLoad.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmLoad.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Cybop.Designer.Formulare.frmLoad.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

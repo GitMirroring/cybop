@@ -1,0 +1,22 @@
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\bin\Debug\Cybop.Designer.IntellisenseEditor.dll
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\bin\Debug\Cybop.Designer.IntellisenseEditor.pdb
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\ResolveAssemblyReference.cache
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\Cybop.Designer.IntellisenseEditor.EditorTextbox.resources
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\Cybop.Designer.IntellisenseEditor.dll
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\Cybop.Designer.IntellisenseEditor.pdb
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\ResGen.read.1.tlog
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\ResGen.write.1.tlog
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\bin\Cybop.Designer.IntellisenseEditor.dll
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\bin\Cybop.Designer.IntellisenseEditor.pdb
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\GenerateResource.read.1.tlog
+C:\Arbeit\CYBOP Designer\Source\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\GenerateResource.write.1.tlog
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\bin\Cybop.Designer.IntellisenseEditor.dll
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\bin\Cybop.Designer.IntellisenseEditor.pdb
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\ResolveAssemblyReference.cache
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\Cybop.Designer.IntellisenseEditor.EditorTextbox.resources
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\GenerateResource.read.1.tlog
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\ResGen.read.1.tlog
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\GenerateResource.write.1.tlog
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\ResGen.write.1.tlog
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\Cybop.Designer.IntellisenseEditor.dll
+C:\Arbeit\cybop_trunk\tools\ide\src\Cybop.Designer\Cybop.Designer.IntellisenseEditor\obj\Debug\Cybop.Designer.IntellisenseEditor.pdb
