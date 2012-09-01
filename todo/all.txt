@@ -1,0 +1,62 @@
+#
+# Copyright (C) 1999-2012. Christian Heller.
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# Christian Heller <christian.heller@tuxtax.de>
+#
+# @version CYBOP 0.12.0 2012-08-22
+# @author Christian Heller <christian.heller@tuxtax.de>
+#
+
+Documentation
+_____________
+
+        * Update cybol specification (which gets automatically generated into html)
+        * Erweitern Handbuch für Einsteiger (LaTeX oder LibreOffice, Deutsch oder Englisch),
+            mit Bezug auf die zur Verfügung stehenden CYBOL Beispielanwendungen
+
+Project
+_______
+
+        * Create CYBOP poster in DIN A0 format, to be used at conferences and exhibitions
+        * Build and actively maintain Debian package for cybop
+
+CYBOL
+_____
+
+        * Create a tui application, e.g. a calculator
+        * Advance wui design for "presence" application
+
+CYBOI
+_____
+
+        * Add constants for unicode character code block in directory "cybop/src/constant/model/character_code/unicode/"
+        * Add constants for file formats in directory "src/constant/language/"
+        * Add constants for mime types in directory "cybop/src/constant/format/cybol/"
+        * Add constants for unix shell command in directory "src/constant/model/command/"
+
+        * Add missing functions for type "fraction" in directory "src/executor/calculator/basic/"
+        * Add missing functions for type "complex" in directory "src/executor/calculator/basic/"
+
+        * Add missing functions for type "double" in directory "src/executor/comparator/basic/"
+        * Add missing functions for type "fraction" in directory "src/executor/comparator/basic/"
+        * Add missing functions for type "complex" in directory "src/executor/comparator/basic/"
+
+        * Implement bit manipulation functions in directory "executor/manipulator/"
+
+        * Erstellen verschiedener Layout Manager Algorithmen zur Positionierung grafischer Komponenten (Arithmetik)
+        * Erweitern der X Window System (Xlibs) Anbindung zum Zeichnen grafischer Komponenten (Geometrie, ähnlich Swing)
+        * Erstellen eines Anmeldemaske-Dialoges als Beispiel
+        * Anbindung von OpenGL und Umsetzung einfacher CYBOL 3D Modelle
+
+        * Implement communication via udp socket
+
+        * Create css serialiser (and, optionally, deserialiser)
+        * Prepare ldap communication (investigate protocol structure)
+        * Create latex serialiser
+
+        * Make cyboi compilable under windows os (using preprocessor directives)
+        * Adapt ansi escape code terminal input/output to windows operating system shell

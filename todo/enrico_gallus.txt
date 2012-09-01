@@ -10,6 +10,6 @@
 #
 
         * Update CYBOL specification using new directory structure in "doc/books/cybol/cybol/spec/"
-	* Implement web prototype in cybol (editing index.html)
-	* Implementing HTML-Templates in CYBOL
+        * Implement web prototype in cybol (editing index.html)
+        * Implement HTML-Templates in CYBOL
         * Write logic (in CYBOL) to automatically generate HTML format using CSS

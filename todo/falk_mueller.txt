@@ -9,9 +9,4 @@
 # @author Falk Müller <falk.mueller@it2009.ba-leipzig.de>
 #
 
-        * Add missing functions for all types in directory "src/executor/calculator/basic",
-            especially for numbers like double, fraction, complex
-        * Add missing functions for all types in directory "src/executor/comparator/basic",
-            especially for numbers like double, fraction, complex
-        * Add constants for further shell commands in directory "src/constant/model/command/"
-        * Add further constants in directory "src/constant/model/xml/"
+        * Add missing functions for type "double" in directory "src/executor/calculator/basic/"
