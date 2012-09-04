@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-09-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Start implementing new version of xdt deserialiser
+
 2012-08-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete constants in file "html_entity_character_reference_deserialiser.c"
