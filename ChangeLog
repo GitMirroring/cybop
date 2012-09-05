@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-09-05  Max Brauer  <max.brauer@inqbus.de>
+
+        * Add article "Veranschaulichung des doppelhierarchischen Ansatzes von CYBOP durch die Programmiersprache Python"
+
 2012-09-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Start implementing new version of xdt deserialiser
