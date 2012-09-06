@@ -46,145 +46,91 @@
  *
  * @param p0 the destination field size (pointer reference)
  * @param p1 the destination field identification (pointer reference)
- * @param p2 the destination field content (pointer reference)
- * @param p3 the destination field content count (pointer reference)
+ * @param p2 the destination field data (pointer reference)
+ * @param p3 the destination field count (pointer reference)
  * @param p4 the destination verification flag
- * @param p5 the source byte array (pointer reference)
- * @param p6 the source byte array count
+ * @param p5 the source data (pointer reference)
+ * @param p6 the source count
  */
 void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field.");
 
-        int* sc = (int*) p6;
+    // The remaining bytes in the source byte array.
+    // They are used to check that the array border is not crossed.
+    int rem = (*sc * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 
-        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (rem >= (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
-            void** s = (void**) p5;
-
-            if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                int* v = (int*) p4;
-
-                if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    int* fcc = (int*) p3;
-
-                    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        void** fc = (void**) p2;
-
-                        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                            int* fs = (int*) p0;
-
-                            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field.");
-
-                            // The remaining bytes in the source byte array.
-                            // They are used to check that the array border is not crossed.
-                            int rem = (*sc * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-
-                            if (rem >= (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
-
-                                // Decode xdt field size.
+        // Decode xdt field size.
 //??                                deserialise_cybol_integer(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *s, (void*) XDT_FIELD_SIZE_COUNT);
 
-                                // Increment source xdt byte array index.
-                                *s = *s + (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                                rem = rem - (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                            }
+        // Increment source xdt byte array index.
+        *s = *s + (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+        rem = rem - (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+    }
 
-                            if (rem >= (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
+    if (rem >= (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
-                                // Decode xdt field identification.
+        // Decode xdt field identification.
 //??                                deserialise_cybol_integer(p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *s, (void*) XDT_FIELD_IDENTIFICATION_COUNT);
 
-                                // Increment source xdt byte array index.
-                                *s = *s + (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                                rem = rem - (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-                            }
+        // Increment source xdt byte array index.
+        *s = *s + (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+        rem = rem - (*XDT_FIELD_IDENTIFICATION_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+    }
 
-                            if (*fs >= ((*XDT_FIELD_SIZE_COUNT + *XDT_FIELD_IDENTIFICATION_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
+    if (*fs >= ((*XDT_FIELD_SIZE_COUNT + *XDT_FIELD_IDENTIFICATION_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
-                                // Calculate xdt field content count.
-                                //
-                                // CAUTION! The xdt field size comprises all characters:
-                                // - field size (3 bytes)
-                                // - field identification (4 bytes)
-                                // - field content (VARIABLE!)
-                                // - carriage return (1 byte)
-                                // - line feed (1 byte)
-                                //
-                                // It therefore has to be decremented here, so that
-                                // only the actual xdt field content count remains.
-                                *fcc = *fs - ((*XDT_FIELD_SIZE_COUNT + *XDT_FIELD_IDENTIFICATION_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+        // Calculate xdt field content count.
+        //
+        // CAUTION! The xdt field size comprises all characters:
+        // - field size (3 bytes)
+        // - field identification (4 bytes)
+        // - field content (VARIABLE!)
+        // - carriage return (1 byte)
+        // - line feed (1 byte)
+        //
+        // It therefore has to be decremented here, so that
+        // only the actual xdt field content count remains.
+        *fcc = *fs - ((*XDT_FIELD_SIZE_COUNT + *XDT_FIELD_IDENTIFICATION_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 
-                                if (rem >= *fcc) {
+        if (rem >= *fcc) {
 
-                                    // Store xdt field content, to be returned.
-                                    *fc = *s;
+            // Store xdt field content, to be returned.
+            *fc = *s;
 
-                                    // Increment source xdt byte array index.
-                                    *s = *s + *fcc;
-                                    rem = rem - *fcc;
-                                }
-
-                            } else {
-
-                                // Store xdt field content, to be returned.
-                                *fc = *NULL_POINTER_STATE_CYBOI_MODEL;
-                                *fcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                            }
-
-                            if (rem >= ((*PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
-
-                                // Verify if field end is reached (carriage return and line feed).
-
-                                if (*((wchar_t*) *s) == *CARRIAGE_RETURN_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
-
-                                    // Increment source xdt byte array index.
-                                    *s = *s + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-
-                                    if (*((wchar_t*) *s) == *LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
-
-                                        // Increment source xdt byte array index.
-                                        *s = *s + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-
-                                        // Set verification flag indicating that
-                                        // the xdt field was decoded correctly.
-                                        *v = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                                    }
-                                }
-                            }
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field. The field size is null.");
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field. The field content is null.");
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field. The field content count is null.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field. The verification flag is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field. The source byte array is null.");
+            // Increment source xdt byte array index.
+            *s = *s + *fcc;
+            rem = rem - *fcc;
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field. The source count is null.");
+        // Store xdt field content, to be returned.
+        *fc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        *fcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    }
+
+    if (rem >= ((*PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
+
+        // Verify if field end is reached (carriage return and line feed).
+
+        if (*((wchar_t*) *s) == *CARRIAGE_RETURN_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
+
+            // Increment source xdt byte array index.
+            *s = *s + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+
+            if (*((wchar_t*) *s) == *LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
+
+                // Increment source xdt byte array index.
+                *s = *s + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+
+                // Set verification flag indicating that
+                // the xdt field was decoded correctly.
+                *v = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+            }
+        }
     }
 }
 
@@ -192,75 +138,48 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
  * Deserialises the next xdt field.
  *
  * @param p0 the next field count = number of bytes to the next field (pointer reference)
- * @param p1 the byte array
- * @param p2 the byte array count
+ * @param p1 the data
+ * @param p2 the count
  */
 void deserialise_xdt_next_field(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise next xdt field.");
 
-        int* ac = (int*) p2;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            wchar_t* a = (wchar_t*) p1;
+        if (j >= *ac) {
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Set next field count to the end, that is to the
+            // full array count, as the carriage return plus
+            // line feed characters have not been found or
+            // the remaining array count was too small.
+            *nc = *ac;
 
-                int* nc = (int*) p0;
-
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise next xdt field.");
-
-                // The loop variable.
-                int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                    if (j >= *ac) {
-
-                        // Set next field count to the end, that is to the
-                        // full array count, as the carriage return plus
-                        // line feed characters have not been found or
-                        // the remaining array count was too small.
-                        *nc = *ac;
-
-                        break;
-                    }
-
-                    if ((j + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT)) <= *ac) {
-
-                        if (*(a + (j * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) == *CARRIAGE_RETURN_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
-
-                            if (*(a + (j * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE) + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) == *LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
-
-                                // Set next field count to the first character following
-                                // the carriage return plus line feed characters.
-                                *nc = j + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-
-                                // Set loop variable to full array count ac, as the next
-                                // field has been found, so that the loop can be left.
-                                j = *ac;
-                            }
-                        }
-                    }
-
-                    // Increment loop variable.
-                    j++;
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise for next xdt field. The next field count is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise for next xdt field. The byte array is null.");
+            break;
         }
 
-    } else {
+        if ((j + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT)) <= *ac) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise for next xdt field. The byte array count is null.");
+            if (*(a + (j * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) == *CARRIAGE_RETURN_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
+
+                if (*(a + (j * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE) + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT) == *LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL) {
+
+                    // Set next field count to the first character following
+                    // the carriage return plus line feed characters.
+                    *nc = j + (*PRIMITIVE_STATE_CYBOI_MODEL_COUNT + *PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+                    // Set loop variable to full array count ac, as the next
+                    // field has been found, so that the loop can be left.
+                    j = *ac;
+                }
+            }
+        }
+
+        // Increment loop variable.
+        j++;
     }
 }
 

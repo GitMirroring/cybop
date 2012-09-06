@@ -109,226 +109,108 @@
 /**
  * Deserialises the model.
  *
- * @param p0 the destination name (pointer reference)
- * @param p1 the destination name count (pointer reference)
- * @param p2 the destination name size (pointer reference)
- * @param p3 the destination type (pointer reference)
- * @param p4 the destination type count (pointer reference)
- * @param p5 the destination type size (pointer reference)
- * @param p6 the destination model (pointer reference)
- * @param p7 the destination model count (pointer reference)
- * @param p8 the destination model size (pointer reference)
- * @param p9 the destination properties (pointer reference)
- * @param p10 the destination properties count (pointer reference)
- * @param p11 the destination properties size (pointer reference)
- * @param p12 the source model
+ * @param p0 the destination part
+ * @param p12 the source model data
  * @param p13 the source model count
- * @param p14 the source type
+ * @param p14 the source type data
  * @param p15 the source type count
- * @param p16 the source name
+ * @param p16 the source name data
  * @param p17 the source name count
  */
 void deserialise_xdt_deserialise_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
     void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
-    if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        int** ds = (int**) p11;
-
-        if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int** dc = (int**) p10;
-
-            if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                int** ms = (int**) p8;
-
-                if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    int** mc = (int**) p7;
-
-                    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        int** as = (int**) p5;
-
-                        if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                            int** ac = (int**) p4;
-
-                            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                                int** ns = (int**) p2;
-
-                                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                                    int** nc = (int**) p1;
-
-                                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise model.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise model.");
 
 /*??
-                                    allocate_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p14, p15);
+    allocate_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p14, p15);
 
-                                    // Decode name.
-                                    overwrite_array(p0, p16, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p17, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                                    // Decode type.
-                                    overwrite_array(p3, p14, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p15, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                                    // Decode model.
-                                    deserialise(p6, (void*) *mc, (void*) *ms, p9, (void*) *dc, (void*) *ds, p12, p13, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p14, p15);
+    // Decode name.
+    overwrite_array(p0, p16, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p17, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Decode type.
+    overwrite_array(p3, p14, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p15, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Decode model.
+    deserialise(p6, (void*) *mc, (void*) *ms, p9, (void*) *dc, (void*) *ds, p12, p13, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p14, p15);
 */
-
-                                } else {
-
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise model. The name count is null.");
-                                }
-
-                            } else {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise model. The name size is null.");
-                            }
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise model. The type count is null.");
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise model. The type size is null.");
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise model. The model count is null.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise model. The model size is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise model. The properties count is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise model. The properties size is null.");
-    }
 }
 
 /**
- * Deserialises an xdt format byte array into a compound model.
+ * Deserialises the source into the destination, according to the given format.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  * @param p4 the format
  */
 void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt format into compound model.");
+
+    // The xdt package size.
+    int ps = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The xdt package content.
+    void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int pcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The xdt package header.
+    void* ph = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int phc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The xdt package footer.
+    void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int pfc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
+        }
+
 /*??
-    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // CAUTION! The data package section pointer s
+        // has to be handed over as REFERENCE, because it
+        // gets manipulated in the called operations and
+        // these have to store their result in s.
+        // If temporary variables (function parametres) were used,
+        // their values would be lost when the called operation is left.
+        deserialise_xdt_package((void*) &ps, (void*) &ph, (void*) &phc, (void*) &pf, (void*) &pfc, (void*) &pc, (void*) &pcc, (void*) &s, (void*) &rem);
 
-        int* sc = (int*) p7;
+        if (ps > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Decrement remaining bytes in the source byte array.
+            rem = rem - ps;
 
-            void* s = (void*) p6;
-
-            if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                void** dd = (void**) p3;
-
-                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    void** dm = (void**) p0;
-
-                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt format into compound model.");
-
-                    // The remaining bytes in the source byte array.
-                    int rem = *sc;
-                    // The xdt package size.
-                    int ps = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    // The xdt package content.
-                    void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    int pcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    // The xdt package header.
-                    void* ph = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    int phc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    // The xdt package footer.
-                    void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    int pfc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        if (rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                            break;
-                        }
-
-                        // CAUTION! The data package section pointer s
-                        // has to be handed over as REFERENCE, because it
-                        // gets manipulated in the called operations and
-                        // these have to store their result in s.
-                        // If temporary variables (function parametres) were used,
-                        // their values would be lost when the called operation is left.
-                        deserialise_xdt_package((void*) &ps, (void*) &ph, (void*) &phc, (void*) &pf, (void*) &pfc, (void*) &pc, (void*) &pcc, (void*) &s, (void*) &rem);
-
-                        if (ps > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                            // Decrement remaining bytes in the source byte array.
-                            rem = rem - ps;
-
-                            // Select xdt package.
-                            deserialise_xdt_select_package(*dm, p1, p2, *dd, p4, p5,
-                                pc, (void*) &pcc, ph, (void*) &phc, pf, (void*) &pfc);
-
-                        } else {
-
-                            // If the xdt package size is zero or smaller, then
-                            // increment the source xdt byte array index by one,
-                            // in order to ensure that this loop will finally
-                            // find an end.
-                            s = s + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                            rem = rem - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                        }
-
-                        // Reset xdt package size.
-                        ps = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                        // Reset xdt package content.
-                        pc = *NULL_POINTER_STATE_CYBOI_MODEL;
-                        pcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                        // Reset xdt package header.
-                        ph = *NULL_POINTER_STATE_CYBOI_MODEL;
-                        phc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                        // Reset xdt package footer.
-                        pf = *NULL_POINTER_STATE_CYBOI_MODEL;
-                        pfc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt. The destination compound model is null.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt. The destination compound properties is null.");
-            }
+            // Select xdt package.
+            select_xdt_package(*dm, p1, p2, *dd, p4, p5, pc, (void*) &pcc, ph, (void*) &phc, pf, (void*) &pfc);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt. The source byte array is null.");
+            // If the xdt package size is zero or smaller, then
+            // increment the source xdt byte array index by one,
+            // in order to ensure that this loop will finally
+            // find an end.
+            s = s + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+            rem = rem - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
         }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt. The source byte array count is null.");
-    }
 */
+    }
 }
 
 /* XDT_DESERIALISER_SOURCE */

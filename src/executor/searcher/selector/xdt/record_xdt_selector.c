@@ -44,11 +44,9 @@
 /**
  * Selects the xdt record.
  *
- * @param p0 the destination model
- * @param p1 the destination model count
- * @param p2 the destination model size
- * @param p3 the source record content
- * @param p4 the source record content count
+ * @param p0 the destination model item
+ * @param p3 the source record data
+ * @param p4 the source record count
  * @param p5 the source record identification
  */
 void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
@@ -59,28 +57,11 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt record.");
 
-/*??
-        // Test values.
-        fwprintf(stdout, L"Test: Select xdt record. Record identification: %i\n", *id);
-*/
+//??        fwprintf(stdout, L"TEST: Select xdt record identification: %i\n", *id);
 
 /*??
-        // The knowledge model name.
-        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* ns = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The knowledge model type.
-        void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The knowledge model model.
-        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* ms = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The knowledge model properties.
-        void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The part.
+        void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         if (*id == *MEDICAL_PRACTICE_DATA_RECORD_XDT_NAME) {
 
@@ -88,10 +69,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) MEDICAL_PRACTICE_DATA_RECORD_XDT_CYBOI_NAME, (void*) MEDICAL_PRACTICE_DATA_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *DATA_MEDIUM_HEADER_RECORD_XDT_NAME) {
@@ -109,10 +87,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) PACKAGE_HEADER_RECORD_XDT_CYBOI_NAME, (void*) PACKAGE_HEADER_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *DATA_PACKAGE_FOOTER_RECORD_XDT_NAME) {
@@ -122,10 +97,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) PACKAGE_FOOTER_RECORD_XDT_CYBOI_NAME, (void*) PACKAGE_FOOTER_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *MEDICAL_TREATMENT_RECORD_XDT_NAME) {
@@ -134,10 +106,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) MEDICAL_TREATMENT_RECORD_XDT_CYBOI_NAME, (void*) MEDICAL_TREATMENT_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *REFERRAL_CASE_RECORD_XDT_NAME) {
@@ -146,10 +115,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) REFERRAL_CASE_RECORD_XDT_CYBOI_NAME, (void*) REFERRAL_CASE_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME) {
@@ -158,10 +124,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_CYBOI_NAME, (void*) MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_NAME) {
@@ -170,10 +133,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_CYBOI_NAME, (void*) MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *PRIVATE_BILLING_RECORD_XDT_NAME) {
@@ -182,10 +142,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) PRIVATE_BILLING_RECORD_XDT_CYBOI_NAME, (void*) PRIVATE_BILLING_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_NAME) {
@@ -194,10 +151,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_CYBOI_NAME, (void*) EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *UNSTRUCTURED_CASES_RECORD_XDT_NAME) {
@@ -206,10 +160,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) UNSTRUCTURED_CASES_RECORD_XDT_CYBOI_NAME, (void*) UNSTRUCTURED_CASES_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *PATIENT_MASTER_DATA_RECORD_XDT_NAME) {
@@ -218,10 +169,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) PATIENT_MASTER_DATA_RECORD_XDT_CYBOI_NAME, (void*) PATIENT_MASTER_DATA_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *MEDICAL_TREATMENT_DATA_RECORD_XDT_NAME) {
@@ -230,10 +178,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) MEDICAL_TREATMENT_DATA_RECORD_XDT_CYBOI_NAME, (void*) MEDICAL_TREATMENT_DATA_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_NAME) {
@@ -242,10 +187,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_CYBOI_NAME, (void*) PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_NAME) {
@@ -254,10 +196,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME, (void*) PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *EXAMINATION_REQUEST_RECORD_XDT_NAME) {
@@ -266,10 +205,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) EXAMINATION_REQUEST_RECORD_XDT_CYBOI_NAME, (void*) EXAMINATION_REQUEST_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *EXAMINATION_DATA_TRANSFER_RECORD_XDT_NAME) {
@@ -278,10 +214,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) EXAMINATION_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME, (void*) EXAMINATION_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME_COUNT);
 
         } else if (*id == *EXAMINATION_DATA_DISPLAY_RECORD_XDT_NAME) {
@@ -290,10 +223,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // This is necessary because an EMPTY compound model is to be created.
             // The given model parametres do not represent the compound's xml file name
             // but a byte stream which gets processed further below.
-            deserialise_xdt_deserialise_model((void*) &n, (void*) &nc, (void*) &ns, (void*) &a, (void*) &ac, (void*) &as,
-                (void*) &m, (void*) &mc, (void*) &ms, (void*) &d, (void*) &dc, (void*) &ds,
-                *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL,
-                (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
+            deserialise_xdt_deserialise_model((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT,
                 (void*) EXAMINATION_DATA_DISPLAY_RECORD_XDT_CYBOI_NAME, (void*) EXAMINATION_DATA_DISPLAY_RECORD_XDT_CYBOI_NAME_COUNT);
         }
 
@@ -312,31 +242,11 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         } else {
 
+            //?? The following remark stems from the old parser version.
+            //?? It is likely to be outdated and this block may possibly be removed.
             // Destroy all arrays, since they were not added to the compound.
             // CAUTION! If this was not done here, they would never be deallocated!
             // CAUTION! Use DESCENDING order, as opposed to array allocation!
-
-            // Deallocate knowledge model properties.
-            deallocate((void*) &d, ds, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PART_ELEMENT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-            deallocate((void*) &dc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ds, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-
-            // Deallocate knowledge model model.
-            deallocate((void*) &m, ms, a, ac);
-            deallocate((void*) &mc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ms, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-
-            // Deallocate knowledge model type.
-            deallocate((void*) &a, as, (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT, (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT_COUNT);
-            deallocate((void*) &ac, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-
-            // A knowledge model channel was not allocated.
-
-            // Deallocate knowledge model name.
-            deallocate((void*) &n, ns, (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT, (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT_COUNT);
-            deallocate((void*) &nc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
-            deallocate((void*) &ns, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT);
         }
 */
 
