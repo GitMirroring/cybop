@@ -49,8 +49,8 @@
  * @param p2 the destination field data (pointer reference)
  * @param p3 the destination field count (pointer reference)
  * @param p4 the destination verification flag
- * @param p5 the source data (pointer reference)
- * @param p6 the source count
+ * @param p5 the source data position (pointer reference)
+ * @param p6 the source count remaining
  */
 void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
@@ -63,6 +63,7 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     if (rem >= (*XDT_FIELD_SIZE_COUNT * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE)) {
 
         // Decode xdt field size.
+        deserialise_cybol_integer_value(dest_item, );
 //??                                deserialise_cybol_integer(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *s, (void*) XDT_FIELD_SIZE_COUNT);
 
         // Increment source xdt byte array index.
