@@ -107,35 +107,6 @@
 //?? void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
 
 /**
- * Deserialises the model.
- *
- * @param p0 the destination part
- * @param p12 the source model data
- * @param p13 the source model count
- * @param p14 the source type data
- * @param p15 the source type count
- * @param p16 the source name data
- * @param p17 the source name count
- */
-void deserialise_xdt_deserialise_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
-    void* p6, void* p7, void* p8, void* p9, void* p10, void* p11,
-    void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise model.");
-
-/*??
-    allocate_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p14, p15);
-
-    // Decode name.
-    overwrite_array(p0, p16, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p17, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Decode type.
-    overwrite_array(p3, p14, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p15, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Decode model.
-    deserialise(p6, (void*) *mc, (void*) *ms, p9, (void*) *dc, (void*) *ds, p12, p13, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p14, p15);
-*/
-}
-
-/**
  * Deserialises the source into the destination, according to the given format.
  *
  * @param p0 the destination model item
