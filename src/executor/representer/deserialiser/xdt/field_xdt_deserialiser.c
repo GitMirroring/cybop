@@ -142,12 +142,8 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                 break;
             }
 
-            select_xdt_field_end(p0, p1, p2, fc, (void*) &fcc, (void*) &fid);
-
-            // Increment source xdt byte array index, so that following
-            // fields may be found in the next loop cycle.
-            s = s + nc;
-            rem = rem - nc;
+//??            select_xdt_field_end(p0, p1, p2, fc, (void*) &fcc, (void*) &fid);
+            select_xdt_field_end((void*) &b, p5, p6);
         }
 
         // Search for cr and lf indicating the field end.
