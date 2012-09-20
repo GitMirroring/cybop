@@ -29,68 +29,9 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /**
- * The xdt record identification count.
- *
- * All xdt record identifications have the same length: 4 ASCII characters (bytes).
+ * The identification record xdt name.
  */
-static int* XDT_RECORD_IDENTIFICATION_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The medical practice data record xdt name. */
-static int* MEDICAL_PRACTICE_DATA_RECORD_XDT_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The data medium header record xdt name. */
-static int* DATA_MEDIUM_HEADER_RECORD_XDT_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The data medium footer record xdt name. */
-static int* DATA_MEDIUM_FOOTER_RECORD_XDT_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The data package header record xdt name. */
-static int* DATA_PACKAGE_HEADER_RECORD_XDT_NAME = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The data package footer record xdt name. */
-static int* DATA_PACKAGE_FOOTER_RECORD_XDT_NAME = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The medical treatment record xdt name. */
-static int* MEDICAL_TREATMENT_RECORD_XDT_NAME = NUMBER_101_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The referral case record xdt name. */
-static int* REFERRAL_CASE_RECORD_XDT_NAME = NUMBER_102_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The medical treatment with cottage hospital affiliation record xdt name. */
-static int* MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME = NUMBER_103_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The medical emergency service record xdt name. */
-static int* MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_NAME = NUMBER_104_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The private billing record xdt name. */
-static int* PRIVATE_BILLING_RECORD_XDT_NAME = NUMBER_190_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The employers' liability insurance association billing record xdt name. */
-static int* EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_NAME = NUMBER_191_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The unstructured cases record xdt name. */
-static int* UNSTRUCTURED_CASES_RECORD_XDT_NAME = NUMBER_199_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The patient master data record xdt name. */
-static int* PATIENT_MASTER_DATA_RECORD_XDT_NAME = NUMBER_6100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The medical treatment data record xdt name. */
-static int* MEDICAL_TREATMENT_DATA_RECORD_XDT_NAME = NUMBER_6200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The patient master data request record xdt name. */
-static int* PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_NAME = NUMBER_6300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The patient master data transfer record xdt name. */
-static int* PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_NAME = NUMBER_6301_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The examination request record xdt name. */
-static int* EXAMINATION_REQUEST_RECORD_XDT_NAME = NUMBER_6302_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The examination data transfer record xdt name. */
-static int* EXAMINATION_DATA_TRANSFER_RECORD_XDT_NAME = NUMBER_6310_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The examination data display record xdt name. */
-static int* EXAMINATION_DATA_DISPLAY_RECORD_XDT_NAME = NUMBER_6311_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* IDENTIFICATION_RECORD_XDT_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* RECORD_XDT_NAME_CONSTANT_SOURCE */
 #endif

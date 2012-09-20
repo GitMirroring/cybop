@@ -11,6 +11,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue in file "record_xdt_deserialiser.c"
+        * Define selector files for record begin and end etc.
+
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
 

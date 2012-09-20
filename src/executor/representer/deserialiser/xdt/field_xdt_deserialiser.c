@@ -26,101 +26,76 @@
 #ifndef FIELD_XDT_DESERIALISER_SOURCE
 #define FIELD_XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/xdt/field_xdt_cyboi_name.c"
-#include "../../../../constant/name/cyboi/xdt/record_xdt_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/name/xdt/field_xdt_name.c"
-#include "../../../../constant/name/xdt/package_xdt_name.c"
-#include "../../../../constant/name/xdt/record_xdt_name.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
 
 /**
  * Deserialises an xdt field.
  *
- * @param p0 the destination field size (pointer reference)
- * @param p1 the destination field identification (pointer reference)
- * @param p2 the destination field data (pointer reference)
- * @param p3 the destination field count (pointer reference)
- * @param p4 the destination verification flag
- * @param p5 the source data position (pointer reference)
- * @param p6 the source count remaining
+ * An xdt field consists of the following elements:
+ * - size: 3 Byte
+ * - dependency hierarchy: 1 Byte
+ * - identification: 4 Byte
+ * - content: variable
+ * - end (carriage return + line feed): 2 Byte
+ *
+ * content count = size value - 10 Byte (3 + 1 + 4 + 2)
+ *
+ * @param p0 the destination field content data (pointer reference)
+ * @param p1 the destination field content count
+ * @param p2 the destination field identification
+ * @param p3 the destination field dependency hierarchy
+ * @param p4 the source data position (pointer reference)
+ * @param p5 the source count remaining
  */
-void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        void** sd = (void**) p5;
+        int* dc = (int*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field.");
 
-        // The count flag.
-        int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        // CAUTION! This comparison ensures that array boundaries are not crossed.
-        compare_integer_greater_or_equal((void*) &c, p6, (void*) XDT_FIELD_SIZE_COUNT);
-
-        if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Decode xdt field size.
-            deserialise_cybol_integer_value(dest_item, *sd, (void*) XDT_FIELD_SIZE_COUNT, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // Move position.
-            // The xdt field length is defined to be 3 Byte.
-            move_position(p5, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XDT_FIELD_SIZE_COUNT);
-        }
-
-        // The count flag.
-        int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        // CAUTION! This comparison ensures that array boundaries are not crossed.
-        compare_integer_greater_or_equal((void*) &c, p6, (void*) XDT_FIELD_IDENTIFICATION_COUNT);
-
-        if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Decode xdt field identification.
-            deserialise_cybol_integer_value(dest_item, *sd, (void*) XDT_FIELD_IDENTIFICATION_COUNT, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // Move position.
-            // The xdt field identification is defined to be 4 Byte.
-            move_position(p5, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XDT_FIELD_IDENTIFICATION_COUNT);
-        }
-
-        //
-        // Calculate xdt field content count.
-        //
-        // CAUTION! The xdt field size comprises all characters:
-        // - field size: 3 Byte
-        // - field identification: 4 Byte
-        // - field content: flexible
-        // - carriage return: 1 Byte
-        // - line feed: 1 Byte
-        //
-
-        // Determine xdt field content count.
-
+        // The field size.
+        // It seems to be useless, since a field's end
+        // is defined as line feed + carriage return
+        // and may thus be detected and thereby
+        // count the length of the field.
+        // However, it may be used for verification,
+        // i.e. if calculated and given field size match.
+        int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The field content count.
+        int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The break flag.
         int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (p6 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Deserialise size.
+        deserialise_xdt_field_element((void*) &s, p4, p5, (void*) SIZE_FIELD_XDT_NAME_COUNT);
+        // Deserialise dependency hierarchy.
+        //?? Not defined in the standard yet. Possibly to be implemented later.
+        //?? deserialise_xdt_field_element(p3, p4, p5, (void*) HIERARCHY_FIELD_XDT_NAME_COUNT);
+        // Deserialise identification.
+        deserialise_xdt_field_element(p2, p4, p5, (void*) IDENTIFICATION_FIELD_XDT_NAME_COUNT);
 
-            // CAUTION! If the loop count handed over as parametre is NULL,
-            // then the break flag will NEVER be set to true, because the loop
-            // variable comparison does (correctly) not consider null values.
-            // Therefore, in this case, the break flag is set to true already here.
-            // Initialising the break flag with true will NOT work either, since it:
-            // a) will be left untouched if a comparison operand is null;
-            // b) would have to be reset to true in each loop cycle.
-            copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        // Calculate field content count.
+        // CAUTION! The xdt field size comprises ALL elements, even itself.
+        // content count = size value - 10 Byte (3 + 1 + 4 + 2)
+        calculate_integer_add((void*) &cc, (void*) &s);
+        //?? Subtract 10 instead of 9 as soon as the dependency hierarchy field element is used!
+        //?? calculate_integer_subtract((void*) &cc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_subtract((void*) &cc, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
 
-        if (??field_size_item_data == *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Initialise field content data.
+        copy_pointer(p0, p4);
+
+        if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // CAUTION! If the loop count handed over as parametre is NULL,
             // then the break flag will NEVER be set to true, because the loop
@@ -134,23 +109,25 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_smaller_or_equal((void*) &b, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            compare_integer_greater((void*) &b, ??field_size_item_data, p6);
+            compare_integer_smaller_or_equal((void*) &b, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 break;
             }
 
-//??            select_xdt_field_end(p0, p1, p2, fc, (void*) &fcc, (void*) &fid);
-            select_xdt_field_end((void*) &b, p5, p6);
-        }
+            select_xdt_field_end((void*) &b, p4, p5);
 
-        // Search for cr and lf indicating the field end.
+            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // Increment destination field content count.
+                (*dc)++;
+            }
+        }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field. The source data is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field. The destination field content count is null.");
     }
 }
 

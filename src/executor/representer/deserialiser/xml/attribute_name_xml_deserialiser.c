@@ -37,7 +37,7 @@
 /**
  * Deserialises the xml attribute name.
  *
- * @param p0 the destination attribute name (pointer reference)
+ * @param p0 the destination attribute name data (pointer reference)
  * @param p1 the destination attribute name count
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining

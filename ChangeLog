@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-09-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue new xdt deserialiser
+        * Move field- and record identifiers from "name" into "model" constants
+
 2012-09-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up old version of xdt deserialiser
