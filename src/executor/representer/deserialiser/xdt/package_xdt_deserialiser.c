@@ -84,99 +84,62 @@ void deserialise_xdt_package(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // returned to the calling function.
         deserialise_xdt_record((void*) &rs, (void*) &rid, p3, p4, p7, (void*) &rem);
 
-/*??
-        // Test values.
-        fwprintf(stdout, L"Test: Decode xdt package. Record size rs: %i\n", rs);
-        fwprintf(stdout, L"Test: Decode xdt package. Record identification id: %i\n", rid);
-        fwprintf(stdout, L"Test: Decode xdt package. Record content count pfc: %i\n\n", *pfc);
-*/
+        // Decrement remaining bytes in the source byte array.
+        rem = rem - rs;
 
-        if (rs > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        // Increment package size.
+        *ps = *ps + rs;
 
-            // Decrement remaining bytes in the source byte array.
-            rem = rem - rs;
+        // Increment loop variable.
+        j = j + rs;
 
-            // Increment package size.
-            *ps = *ps + rs;
+        if (rid == *DATA_PACKAGE_HEADER_RECORD_XDT_NAME) {
 
-            // Increment loop variable.
-            j = j + rs;
+            // Store xdt package header.
+            //
+            // CAUTION! This is only the record content
+            // WITHOUT the record size and -identification!
+            *ph = *pf;
+            *phc = *pfc;
 
-            if (rid == *DATA_PACKAGE_HEADER_RECORD_XDT_NAME) {
+            // Store xdt package content.
+            //
+            // CAUTION! Everything following this package
+            // header record up to the package footer
+            // record belongs to the package's content.
+            *pc = *s;
 
-                // Store xdt package header.
-                //
-                // CAUTION! This is only the record content
-                // WITHOUT the record size and -identification!
-                *ph = *pf;
-                *phc = *pfc;
+            // Reset loop variable.
+            j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-/*??
-                // Test values.
-                fwprintf(stdout, L"Test: Decode xdt package. Package header: %i\n", *ph);
-                fwprintf(stdout, L"Test: Decode xdt package. Package header count: %i\n\n", *phc);
-*/
+        } else if (rid == *DATA_PACKAGE_FOOTER_RECORD_XDT_NAME) {
 
-                // Store xdt package content.
-                //
-                // CAUTION! Everything following this package
-                // header record up to the package footer
-                // record belongs to the package's content.
-                *pc = *s;
+            // CAUTION! The package footer does NOT
+            // have to be stored here explicitly.
+            // It was already handed over as parametre
+            // to the "deserialise_xdt_record" function,
+            // so that its value is already set.
 
-                // Reset loop variable.
-                j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // Decrement package content count.
+            //
+            // CAUTION! The package content count pcc was
+            // reset when the data package header record
+            // was found and steadily increased since then.
+            //
+            // It needs to be decremented here, because
+            // the current record size rs was added above,
+            // but this data package footer record does
+            // NOT belong to the data package content
+            // and hence should not be counted.
+            *pcc = j - rs;
 
-            } else if (rid == *DATA_PACKAGE_FOOTER_RECORD_XDT_NAME) {
+            // CAUTION! Do NOT decrement the package
+            // size, as this package footer record
+            // DOES belong to the package!
 
-                // CAUTION! The package footer does NOT
-                // have to be stored here explicitly.
-                // It was already handed over as parametre
-                // to the "deserialise_xdt_record" function,
-                // so that its value is already set.
-
-/*??
-                // Test values.
-                fwprintf(stdout, L"Test: Decode xdt package. Package footer: %i\n", *pf);
-                fwprintf(stdout, L"Test: Decode xdt package. Package footer count: %i\n\n", *pfc);
-*/
-
-                // Decrement package content count.
-                //
-                // CAUTION! The package content count pcc was
-                // reset when the data package header record
-                // was found and steadily increased since then.
-                //
-                // It needs to be decremented here, because
-                // the current record size rs was added above,
-                // but this data package footer record does
-                // NOT belong to the data package content
-                // and hence should not be counted.
-                *pcc = j - rs;
-
-                // CAUTION! Do NOT decrement the package
-                // size, as this package footer record
-                // DOES belong to the package!
-
-                // Set remaining bytes to zero, as the package footer
-                // has been detected and the loop can be left now.
-                rem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            }
-
-        } else {
-
-            // If the xdt record size is zero or smaller, then
-            // increment the source xdt byte array index by one,
-            // in order to ensure that this loop will finally
-            // find an end.
-            *s = *s + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-            rem = rem - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-            // Increment package size.
-            *ps = *ps + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-            // Increment loop variable.
-            j = j + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+            // Set remaining bytes to zero, as the package footer
+            // has been detected and the loop can be left now.
+            rem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         }
     }
 }
@@ -210,31 +173,7 @@ void deserialise_xdt_process_package(void* p0, void* p1, void* p2, void* p3, voi
         // Decode xdt record (size, identification, content).
         deserialise_xdt_record((void*) &rs, (void*) &rid, (void*) &rc, (void*) &rcc, (void*) &s, (void*) &rem);
 
-/*??
-        // Test values.
-        fwprintf(stdout, L"\nTest: Process xdt package. Record size rs: %i\n", rs);
-        fwprintf(stdout, L"Test: Process xdt package. Record identification id: %i\n", rid);
-        fwprintf(stdout, L"Test: Process xdt package. Record content count pfc: %i\n", rcc);
-*/
-
-        if (rs > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            // Increment source xdt byte array index,
-            // so that following records may be found
-            // in the next loop cycle.
-//??                    s = s + rs;
-            rem = rem - rs;
-
-            select_xdt_record(p0, p1, p2, rc, (void*) &rcc, (void*) &rid);
-
-        } else {
-
-            // If the xdt record size is zero or smaller, then
-            // increment the source xdt byte array index by one,
-            // in order to ensure that this loop will find an end.
-            s = s + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-            rem = rem - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        }
+        select_xdt_record(p0, p1, p2, rc, (void*) &rcc, (void*) &rid);
     }
 }
 
