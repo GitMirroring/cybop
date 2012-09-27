@@ -26,13 +26,12 @@
 #ifndef RECORD_XDT_DESERIALISER_SOURCE
 #define RECORD_XDT_DESERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/xdt/record_xdt_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/name/xdt/record_xdt_name.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -49,6 +48,33 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record.");
 
+    // Allocate new part representing the record.
+    void* p = ...
+
+    // Get record name (identification).
+    select_xdt_record();
+
+    // Assign record name (identification) to part name.
+    ...
+
+    // Peek ahead if the next field is the begin of a new record.
+    // CAUTION! Problem: What to do if the next field is NOT
+    // a level below the record, but a next record in PARALLEL?
+    // In this case, handing over p as parent is pointless.
+    // The next record demarcates the end of this record.
+    if (false) {
+
+        // Deserialise next field handing over part as destination,
+        // so that the field's data may be added to the compound part.
+        deserialise_xdt_field(p, ...);
+
+    } else {
+
+        // Do nothing here.
+        // The next record demarcates the end of this record.
+        // Therefore, no more fields are added to this record.
+    }
+--
     // The field content data, count.
     void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

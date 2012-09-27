@@ -57,10 +57,11 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Assign record name (identification).
+            ...
         }
     }
+
 --
     if (*id == *MEDICAL_PRACTICE_DATA_RECORD_XDT_NAME) {
 
