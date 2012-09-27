@@ -62,6 +62,11 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 
+    //?? TODO: Just an example for record 0010.
+    if (*id == *MEDICAL_PRACTICE_core_DATA_RECORD_XDT_NAME) {
+
+        deserialise_xdt_record_medical_practice_core_data();
+
 --
     if (*id == *MEDICAL_PRACTICE_DATA_RECORD_XDT_NAME) {
 

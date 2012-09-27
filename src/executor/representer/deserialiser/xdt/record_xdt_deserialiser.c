@@ -52,11 +52,14 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     void* p = ...
 
     // Get record name (identification).
-    select_xdt_record();
+    select_xdt_record(source_field_content_e.g._6200_or_0010);
 
     // Assign record name (identification) to part name.
     ...
 
+    //?? TODO: The following is possibly NOT necessary
+    // since the select_xdt_record above distinguishes the kind of record
+    // and identifies its end.
     // Peek ahead if the next field is the begin of a new record.
     // CAUTION! Problem: What to do if the next field is NOT
     // a level below the record, but a next record in PARALLEL?
