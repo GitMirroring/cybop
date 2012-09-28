@@ -23,31 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FIELD_XDT_NAME_CONSTANT_SOURCE
-#define FIELD_XDT_NAME_CONSTANT_SOURCE
+#ifndef BDT_XDT_NAME_CONSTANT_SOURCE
+#define BDT_XDT_NAME_CONSTANT_SOURCE
 
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/**
- * The size field xdt name.
- */
-static int* SIZE_FIELD_XDT_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The size field bdt xdt name. */
+static int* SIZE_FIELD_BDT_XDT_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The hierarchy field xdt name.
- */
-static int* HIERARCHY_FIELD_XDT_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The hierarchy field bdt xdt name. */
+static int* HIERARCHY_FIELD_BDT_XDT_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The identification field xdt name.
- */
-static int* IDENTIFICATION_FIELD_XDT_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The identification field bdt xdt name. */
+static int* IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The end (line feed, carriage return) field xdt name. */
-static wchar_t END_FIELD_XDT_NAME_ARRAY[] = {0x000A, 0x000D};
-static wchar_t* END_FIELD_XDT_NAME = END_FIELD_XDT_NAME_ARRAY;
-static int* END_FIELD_XDT_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The record identification content field bdt xdt name. */
+static int* RECORD_IDENTIFICATION_CONTENT_FIELD_BDT_XDT_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* FIELD_XDT_NAME_CONSTANT_SOURCE */
+/** The end (carriage return, line feed) field bdt xdt name. */
+static wchar_t END_FIELD_BDT_XDT_NAME_ARRAY[] = {0x000D, 0x000A};
+static wchar_t* END_FIELD_BDT_XDT_NAME = END_FIELD_BDT_XDT_NAME_ARRAY;
+static int* END_FIELD_BDT_XDT_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* BDT_XDT_NAME_CONSTANT_SOURCE */
 #endif
