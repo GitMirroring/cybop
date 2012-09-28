@@ -46,6 +46,29 @@ void deserialise_xdt_record_content(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record content.");
 
+    // Determine field data.
+    deserialise_xdt_field();
+
+    // CAUTION! Peeking forward is possibly NOT necessary,
+    // Each field id may be assigned a type as constant, following the xdt standard.
+    // This type constant my be e.g. integer or element/part (compound)
+    // and be used for creating the new part representing the field.
+
+    //?? The following comparison of the field hierarchy is ONLY needed
+    // for free-self-defined records and fields.
+    // All fields listed in the xdt standard have a defined type.
+
+    // Peek forward to next field's hierarchy number.
+    if (peek-forward-hierarchy greater current-hierarchy) {
+        create compound part here
+        assign field content to part's NAME (not model)
+        make new part the future parent part when handing it over as parametre
+    } else {
+        determine type of field id; DEFINE constants in new file assigning a type constant like INTEGER_TYPE to an xdt field id, for all possible xdt fields
+        create new part here using type constant assigned to the current field's id
+        assign field content to part's MODEL (not name)
+    }
+
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

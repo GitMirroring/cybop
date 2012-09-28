@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RECORD_XDT_DESERIALISER_SOURCE
-#define RECORD_XDT_DESERIALISER_SOURCE
+#ifndef MEDICAL_PRACTICE_CORE_DATA_RECORD_XDT_DESERIALISER_SOURCE
+#define MEDICAL_PRACTICE_CORE_DATA_RECORD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -51,5 +51,5 @@ void deserialise_xdt_record_medical_practice_core_data(void* p0, void* p1, void*
     select_xdt_record_medical_practice_core_data();
 }
 
-/* RECORD_XDT_DESERIALISER_SOURCE */
+/* MEDICAL_PRACTICE_CORE_DATA_RECORD_XDT_DESERIALISER_SOURCE */
 #endif
