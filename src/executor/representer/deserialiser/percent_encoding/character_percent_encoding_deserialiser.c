@@ -87,7 +87,7 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
         } else {
 
             // CAUTION! The data are available as multibyte (NOT wide) character sequence.
-            move_position(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+            move_position(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Increment percent encoding character count.
             cc++;

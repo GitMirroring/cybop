@@ -81,7 +81,7 @@ void serialise_character_reference_data(void* p0, void* p1, void* p2, void* p3) 
         serialise_character_reference_character(p0, c, p3);
 
         // CAUTION! The source is of type "wide character".
-        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

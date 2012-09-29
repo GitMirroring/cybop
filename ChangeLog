@@ -16,9 +16,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-09-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue xdt deserialiser record
+
 2012-09-28  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Continue xdt deserialiser
+        * Continue xdt deserialiser field
 
 2012-09-20  Christian Heller  <christian.heller@tuxtax.de>
 

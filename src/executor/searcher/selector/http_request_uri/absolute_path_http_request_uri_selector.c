@@ -120,7 +120,7 @@ void select_absolute_path_http_request_uri(void* p0, void* p1, void* p2, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move_position(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        move_position(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

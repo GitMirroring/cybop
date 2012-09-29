@@ -86,7 +86,7 @@ void detect_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
                     if (*m != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                        move_position(p1, p2, p4, p5);
+                        move_position(p1, p2, p4, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
                     }
                 }
 

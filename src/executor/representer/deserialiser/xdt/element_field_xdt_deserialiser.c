@@ -94,7 +94,7 @@ void deserialise_xdt_field_element(void* p0, void* p1, void* p2, void* p3) {
             deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             // Move position.
-            move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3);
+            move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
     } else {

@@ -45,22 +45,57 @@
  * @param p1 the count remaining
  * @param p2 the type
  * @param p3 the count
+ * @param p4 the backward flag
  */
-void move_position(void* p0, void* p1, void* p2, void* p3) {
+void move_position(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Move position.");
 
     // The memory area.
     int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Determine type (type) size.
+    // Determine type size.
     determine_size((void*) &m, p2);
     // Calculate memory area.
     calculate_integer_multiply((void*) &m, p3);
-    // Add memory area to current position.
-    calculate_pointer_add(p0, (void*) &m);
-    // Subtract count from remaining count.
-    calculate_integer_subtract(p1, p3);
+
+    // Compare if backward flag is set.
+    compare_integer_equal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The backward flag is NOT set.
+        // This is the standard case.
+        // In most cases, the pointer has to be moved FORWARD.
+
+        // Add memory area to current position.
+        calculate_pointer_add(p0, (void*) &m);
+        // Subtract count from remaining count.
+        calculate_integer_subtract(p1, p3);
+
+    } else {
+
+        // The backward flag IS set.
+        // This is sometimes necessary when parsing data.
+        // Some data structures require to "peek ahead",
+        // i.e. read next data in order to find out about
+        // the end or meaning of the current data.
+        //
+        // In such cases, the pointer has to be moved BACKWARD
+        // after having finished "peeking ahead",
+        // so that the data may be processed once again.
+
+        // Negate memory area.
+        calculate_integer_negate((void*) &m, (void*) &m);
+        // Add NEGATIVE memory area to current position,
+        // which is equal to a subtraction,
+        // so that the pointer is moved BACKWARD.
+        calculate_pointer_add(p0, (void*) &m);
+        // Add count to remaining count.
+        calculate_integer_add(p1, p3);
+    }
 }
 
 /* POSITION_MOVER_SOURCE */
