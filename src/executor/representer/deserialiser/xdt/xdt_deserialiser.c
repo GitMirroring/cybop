@@ -154,33 +154,8 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-/*??
-        // CAUTION! The data package section pointer s
-        // has to be handed over as REFERENCE, because it
-        // gets manipulated in the called operations and
-        // these have to store their result in s.
-        // If temporary variables (function parametres) were used,
-        // their values would be lost when the called operation is left.
-        deserialise_xdt_package((void*) &ps, (void*) &ph, (void*) &phc, (void*) &pf, (void*) &pfc, (void*) &pc, (void*) &pcc, (void*) &s, (void*) &rem);
-
-        if (ps > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            // Decrement remaining bytes in the source byte array.
-            rem = rem - ps;
-
-            // Select xdt package.
-            select_xdt_package(*dm, p1, p2, *dd, p4, p5, pc, (void*) &pcc, ph, (void*) &phc, pf, (void*) &pfc);
-
-        } else {
-
-            // If the xdt package size is zero or smaller, then
-            // increment the source xdt byte array index by one,
-            // in order to ensure that this loop will finally
-            // find an end.
-            s = s + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-            rem = rem - *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        }
-*/
+        // Select xdt package.
+        select_xdt_package(*dm, p1, p2, *dd, p4, p5, pc, (void*) &pcc, ph, (void*) &phc, pf, (void*) &pfc);
     }
 }
 

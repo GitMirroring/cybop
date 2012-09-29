@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/deserialiser/xdt/element_record_xdt_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -48,88 +49,31 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record.");
 
-    // Allocate new part representing the record.
-    void* p = ...
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Get record name (identification).
-    select_xdt_record(source_field_content_e.g._6200_or_0010);
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Assign record name (identification) to part name.
-    ...
-
-    //?? TODO: The following is possibly NOT necessary
-    // since the select_xdt_record above distinguishes the kind of record
-    // and identifies its end.
-    // Peek ahead if the next field is the begin of a new record.
-    // CAUTION! Problem: What to do if the next field is NOT
-    // a level below the record, but a next record in PARALLEL?
-    // In this case, handing over p as parent is pointless.
-    // The next record demarcates the end of this record.
-    if (false) {
-
-        // Deserialise next field handing over part as destination,
-        // so that the field's data may be added to the compound part.
-        deserialise_xdt_field(p, ...);
-
-    } else {
-
-        // Do nothing here.
-        // The next record demarcates the end of this record.
-        // Therefore, no more fields are added to this record.
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
---
-    // The field content data, count.
-    void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The field dependency hierarchy.
-    int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The field identification.
-    int id = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (rem <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        // Decode xdt field (size, identification, content).
-        deserialise_xdt_field((void*) &cd, (void*) &cc, (void*) &id, (void*) &h, pos, rem);
-
-        //?? TODO
-        select_xdt_record_end(p0, p1, p2, fc, (void*) &fcc, (void*) &fid);
-
-        if (id == *RECORD_IDENTIFICATION_FIELD_XDT_NAME) {
-
-            // Decode xdt record identification.
-            //?? deserialise_cybol_integer(p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fc, (void*) &fcc);
-
-        } else if (id == *RECORD_SIZE_FIELD_XDT_NAME) {
-
-            // Decode xdt record size.
-            //
-            // CAUTION! Do NOT use the following line:
-            // deserialise_cybol_integer(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fc, (void*) &fcc);
-            //
-            // This is because the record content size is
-            // counted using the loop variable j.
-            // This is safer than relying on the given record size.
-
-            // Store xdt record content.
-            //
-            // CAUTION! Everything following this record
-            // size field belongs to its content.
-            // The pointer s was already increased above,
-            // so that the record size and -identification
-            // are NOT included!
-            // The current value of s points to the beginning
-            // of the first field of the record's CONTENT.
-            *rc = *s;
-
-            // Reset record content count, in order to
-            // count the xdt record content now following.
-            *rcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        }
+        deserialise_xdt_record_element((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, pos, rem);
     }
 }
 
