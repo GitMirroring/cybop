@@ -55,18 +55,21 @@
  * @param p4 the destination field size
  * @param p5 the source data position (pointer reference)
  * @param p6 the source count remaining
+ * @param p7 the bdt standard main version
  */
-void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field.");
 
+    // The bdt standard legacy flag (true for main version < 3).
+    int l = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The field size.
     // CAUTION! It seems to be useless, since a field's end
     // is defined as line feed + carriage return
     // and may thus be detected and thereby
     // count the length of the field.
-    // However, it might be used for verification,
-    // i.e. if calculated and given field size match.
+    // However, it is used below for verifying if
+    // calculated and given field size match.
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The field dependency hierarchy.
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -82,21 +85,46 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    // Compare for bdt standard legacy version.
+    compare_integer_smaller((void*) &l, p7, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
+
     // Deserialise size.
     deserialise_xdt_field_element((void*) &s, p5, p6, (void*) SIZE_FIELD_XDT_NAME_COUNT);
-    // Deserialise dependency hierarchy.
-    //?? Not defined in the standard yet. Possibly to be implemented later.
-    //?? deserialise_xdt_field_element((void*) &h, p5, p6, (void*) HIERARCHY_FIELD_XDT_NAME_COUNT);
+
+    if (l == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The bdt version is >= 3.
+        // The dependency hierarchy byte exists.
+
+        // Deserialise dependency hierarchy.
+        deserialise_xdt_field_element((void*) &h, p5, p6, (void*) HIERARCHY_FIELD_XDT_NAME_COUNT);
+    }
+
     // Deserialise identification.
     deserialise_xdt_field_element((void*) &i, p5, p6, (void*) IDENTIFICATION_FIELD_XDT_NAME_COUNT);
 
     // Calculate field content count.
     // CAUTION! The xdt field size comprises ALL elements, even itself.
-    // content count = size value - 10 Byte (3 + 1 + 4 + 2)
     copy_integer((void*) &cc2, (void*) &s);
-    //?? Subtract 10 instead of 9 as soon as the dependency hierarchy field element is used!
-    //?? calculate_integer_subtract((void*) &cc2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-    calculate_integer_subtract((void*) &cc2, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
+
+    if (l == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The bdt version is >= 3.
+        // The dependency hierarchy byte DOES exist.
+
+        // Subtract meta bytes.
+        // content count = size value - 10 Byte (3 size + 1 dependency hierarchy + 4 identification + 2 cr and lf)
+        calculate_integer_subtract((void*) &cc2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+
+    } else {
+
+        // The bdt version is < 3.
+        // The dependency hierarchy byte does NOT exist.
+
+        // Subtract meta bytes.
+        // content count = size value - 9 Byte (3 size + 4 identification + 2 cr and lf)
+        calculate_integer_subtract((void*) &cc2, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
+    }
 
     // Initialise field content data.
     copy_pointer((void*) &cd, p5);
@@ -144,7 +172,12 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         copy_pointer(p0, (void*) &cd);
         copy_integer(p1, (void*) &cc);
         copy_integer(p2, (void*) &i);
-        copy_integer(p3, (void*) &h);
+
+        if (l == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p3, (void*) &h);
+        }
+
         copy_integer(p4, (void*) &s);
 
     } else {

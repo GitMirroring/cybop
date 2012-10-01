@@ -60,106 +60,30 @@ void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The next tree level.
     int ln = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     deserialise_xdt_field((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, pos, rem);
 
-    //
-    // This comparison of the current and old field hierarchy
-    // is especially needed for free-self-defined records and fields
-    // since for those no types are defined in the xdt standard.
-    //
-    // All fields listed in the xdt standard have a defined type.
-    // Each field id may be assigned a type as constant, following the xdt standard.
-    // This type constant my be e.g. integer or element/part (compound)
-    // and be used for creating the new part representing the field.
-    //
+    if (h == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+        // Probably, the bdt main version is < 3.
+        // In this case, the hierarchy dependency byte does not exist.
+        // Therefore, another function has to be called.
+
+        // Figure out the relation of this field to the previous one.
+        // The px_current_tree_level handed over as parametre
+        // gets changed as follows:
+        // - 1 super node, parallel to parent or yet higher level
+        // +/- 0 sequence, parallel
+        // + 1 child
+        select_xdt_field_hierarchy((void*) &h, px_current_tree_level);
+    }
+
+    // Initialise next tree level.
+    copy_integer((void*) &ln, px_current_tree_level);
     // Calculate next lower tree level.
     calculate_integer_add((void*) &ln, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, (void*) &h, px_current_tree_level);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_xdt_record_element_part();
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, (void*) &h, (void*) &ln);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_xdt_record_element_part();
-
-            // Increment current tree level.
-            // An alternative could be to assign to it the field hierarchy.
-            calculate_integer_add(px, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-
-            // Deserialise child fields of this record recursively.
-            // Hand over new part as parent parametre.
-            deserialise_xdt_record();
-
-            // Decrement current tree level.
-            calculate_integer_add(px, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_smaller((void*) &r, (void*) &h, px_current_tree_level);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // This field belongs to a higher record level
-            // and must NOT be added to the current parent part.
-
-            // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // Reset data position and count remaining BACKWARD to
-            // the beginning of the field last read by using its size.
-            //
-            // CAUTION! Reading the next field ("peeking ahead") is necessary
-            // in order to find out about its dependency hierarchy level and type.
-            // Only this way, the end of the current record can be detected.
-            // This is not very convenient and efficient, but the only way
-            // in which this is possible when processing xdt data.
-            move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &s, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // Ignore field if there is a gap in the hierarchy,
-        // i.e. the field hierarchy is more than one level
-        // below the current node.
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt record element. The field hierarchy is more than one level below the current one.");
-    }
---
-    deserialise_xdt_record_element_part() {
-        determine field type using field id; DEFINE constants in new file assigning a type constant like INTEGER_TYPE to an xdt field id, for all possible xdt fields
-        allocate new part using field type
-        if (field_type == compound) {
-            // This is a compound part.
-            // Copy field content to part NAME.
-            copy field content to part's NAME (not model)
-        } else {
-            // This is a primitive part.
-            // Copy field content to part MODEL.
-            copy field content to part's MODEL (not name)
-        }
-        add part to parent
-    }
---
-    select_xdt_record(p0, p1, p2, fc, (void*) &fcc, (void*) &fid);
-    select_xdt_record_end(p0, p1, (void*) &b, p2, p3);
+    select_xdt_field_hierarchy();
 }
 
 /* ELEMENT_RECORD_XDT_DESERIALISER_SOURCE */
