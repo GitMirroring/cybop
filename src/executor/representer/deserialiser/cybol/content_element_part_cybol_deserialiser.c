@@ -248,7 +248,7 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         // CAUTION! Both are not always equal in their meaning.
         // For example, an "xdt" file is converted into a cyboi "part".
         // Therefore, a runtime type has to be figured out here.
-        // The latter is needed for allocating the new part.
+        // It is needed for allocating the new part.
         deserialise_cybol_type(p5, fd);
         // Get temporary type item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!

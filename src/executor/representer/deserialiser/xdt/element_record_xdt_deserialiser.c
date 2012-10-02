@@ -70,12 +70,7 @@ void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void
         // Therefore, another function has to be called.
 
         // Figure out the relation of this field to the previous one.
-        // The px_current_tree_level handed over as parametre
-        // gets changed as follows:
-        // - 1 super node, parallel to parent or yet higher level
-        // +/- 0 sequence, parallel
-        // + 1 child
-        select_xdt_field_hierarchy((void*) &h, px_current_tree_level);
+        select_xdt_field_relation((void*) &h, px_current_tree_level);
     }
 
     // Initialise next tree level.
@@ -83,6 +78,7 @@ void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void
     // Calculate next lower tree level.
     calculate_integer_add((void*) &ln, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
+    // Process field depending on hierarchy level.
     select_xdt_field_hierarchy();
 }
 

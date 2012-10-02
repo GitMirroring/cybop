@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-10-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue xdt deserialiser field format and part
+
 2012-09-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue xdt deserialiser record
