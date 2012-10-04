@@ -108,11 +108,7 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         // 16 - hexadecimal, e.g. 3d4 or, optionally, 0x3d4
         int i = wcstol((wchar_t*) td, &tail, *nb);
 
-        if (errno != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol integer value. An error (probably overflow) occured.");
-
-        } else {
+        if (errno == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // The comparison flag.
             int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -127,6 +123,10 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
 
                 append_item_element(p0, (void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol integer value. An error (probably overflow) occured.");
         }
 
         // Deallocate temporary null-terminated string item.

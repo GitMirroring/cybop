@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MEDICAL_PRACTICE_CORE_DATA_RECORD_XDT_DESERIALISER_SOURCE
-#define MEDICAL_PRACTICE_CORE_DATA_RECORD_XDT_DESERIALISER_SOURCE
+#ifndef COMPOUND_PART_RECORD_XDT_DESERIALISER_SOURCE
+#define COMPOUND_PART_RECORD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -32,24 +32,34 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises an xdt record.
+ * Deserialises xdt record compound part.
  *
- * @param p0 the record size (pointer reference)
- * @param p1 the record identification (pointer reference)
- * @param p2 the record data (pointer reference)
- * @param p3 the record count (pointer reference)
- * @param p4 the source data (pointer reference)
- * @param p5 the source count
+ * @param p0 the parent model item
+ * @param p1 the current tree level
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void deserialise_xdt_record_medical_practice_core_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_xdt_record_part_compound(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record medical practice core data.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record part compound.");
 
-    select_xdt_record_medical_practice_core_data();
+    deserialise_xdt_record_part((void*) &p);
+
+    // Increment current tree level.
+    // An alternative could be to assign to it the field hierarchy.
+    calculate_integer_add(p1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+    // Deserialise child fields of this field recursively.
+    // Hand over new part as parent parametre.
+    deserialise_xdt_record(p, p1, p2, p3);
+
+    // Decrement current tree level.
+    calculate_integer_subtract(p1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 }
 
-/* MEDICAL_PRACTICE_CORE_DATA_RECORD_XDT_DESERIALISER_SOURCE */
+/* COMPOUND_PART_RECORD_XDT_DESERIALISER_SOURCE */
 #endif

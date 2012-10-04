@@ -38,19 +38,19 @@
 /**
  * Deserialises an xdt record.
  *
- * @param p0 the record size (pointer reference)
- * @param p1 the record identification (pointer reference)
- * @param p2 the record data (pointer reference)
- * @param p3 the record count (pointer reference)
- * @param p4 the source data (pointer reference)
- * @param p5 the source count
+ * @param p0 the parent model item
+ * @param p1 the current tree level
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record.");
 
-    // The break flag.
+    // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The compound field flag.
+    int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -73,7 +73,7 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
             break;
         }
 
-        deserialise_xdt_record_element((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, pos, rem);
+        deserialise_xdt_record_element(p0, p1, p2, p3, (void*) &b, (void*) &c);
     }
 }
 

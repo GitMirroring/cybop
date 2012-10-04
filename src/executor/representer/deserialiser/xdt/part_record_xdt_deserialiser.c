@@ -38,15 +38,19 @@
 /**
  * Deserialises xdt record part.
  *
- * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
- * @param p5 the temporary type item
- * @param p6 the temporary format item
+ * @param p0 the parent model item
+ * @param p1 the current tree level
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
+ * @param p4 the field content data
+ * @param p5 the field content count
+ * @param p6 the field identification
+ * @param p7 the field dependency hierarchy
+ * @param p8 the field size
+ * @param p9 the temporary type item
+ * @param p10 the temporary format item
  */
-void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record part.");
 
@@ -74,6 +78,9 @@ void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3, void* p
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &td, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    // The part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part.
     // CAUTION! Use the cyboi runtime type determined above

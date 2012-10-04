@@ -51,8 +51,8 @@
  * @param p4 the file footer count (pointer reference)
  * @param p5 the file content data (pointer reference)
  * @param p6 the file content count (pointer reference)
- * @param p7 the source data (pointer reference)
- * @param p8 the source count
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
 void deserialise_xdt_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 

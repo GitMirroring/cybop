@@ -38,12 +38,12 @@
 /**
  * Deserialises an xdt record element.
  *
- * @param p0 the record size (pointer reference)
- * @param p1 the record identification (pointer reference)
- * @param p2 the record data (pointer reference)
- * @param p3 the record count (pointer reference)
- * @param p4 the source data (pointer reference)
- * @param p5 the source count
+ * @param p0 the parent model item
+ * @param p1 the current tree level
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
+ * @param p4 the loop break flag
+ * @param p5 the compound field flag
  */
 void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
@@ -58,10 +58,8 @@ void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The field size.
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The next tree level.
-    int ln = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    deserialise_xdt_field((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, pos, rem);
+    deserialise_xdt_field((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p2, p3);
 
     if (h == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -69,17 +67,12 @@ void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void
         // In this case, the hierarchy dependency byte does not exist.
         // Therefore, another function has to be called.
 
-        // Figure out the relation of this field to the previous one.
-        select_xdt_field_relation((void*) &h, px_current_tree_level);
+        // Figure out field hierarchy.
+        deserialise_xdt_field_hierarchy((void*) &h, (void*) &i);
     }
 
-    // Initialise next tree level.
-    copy_integer((void*) &ln, px_current_tree_level);
-    // Calculate next lower tree level.
-    calculate_integer_add((void*) &ln, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-
     // Process field depending on hierarchy level.
-    select_xdt_field_hierarchy();
+    select_xdt_field_hierarchy(p0, p1, p2, p3, cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p4, p5);
 }
 
 /* ELEMENT_RECORD_XDT_DESERIALISER_SOURCE */

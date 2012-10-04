@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RELATION_FIELD_XDT_SELECTOR_SOURCE
-#define RELATION_FIELD_XDT_SELECTOR_SOURCE
+#ifndef HIERARCHY_FIELD_XDT_DESERIALISER_SOURCE
+#define HIERARCHY_FIELD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -36,22 +36,46 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Selects the xdt field relation.
+ * Deserialises the xdt field hierarchy.
  *
- * Figure out the relation of the current field to the previous one.
- *
- * The px_current_tree_level handed over as parametre gets
- * changed and copied into the hierarchy result variable as follows:
- * - 1 super node, parallel to parent or yet higher level
- * +/- 0 sequence, parallel
- * + 1 child
- *
- * @param p0 the parametre ...
+ * @param p0 the field hierarchy
+ * @param p1 the field identification
  */
-void select_xdt_field_relation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_xdt_field_hierarchy(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt field relation.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field hierarchy.");
+
+    //
+    // CAUTION! The following comparisons rely on the bdt standard main version < 3.
+    //
+    // Since bdt 3.0 and higher provide a "hierarchy dependency" field element,
+    // there is NO NEED to find out the hierarchy level via comparisons like HERE.
+    // This is not only a more flexible, but also more efficient solution.
+    //
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) NUMBER_TODO_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) RESPONSIBLE_ENTITY_FIELD_XDT_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) NUMBER_TODO_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
 }
 
-/* RELATION_FIELD_XDT_SELECTOR_SOURCE */
+/* HIERARCHY_FIELD_XDT_DESERIALISER_SOURCE */
 #endif
