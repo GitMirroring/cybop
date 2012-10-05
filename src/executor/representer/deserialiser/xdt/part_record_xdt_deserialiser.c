@@ -38,56 +38,41 @@
 /**
  * Deserialises xdt record part.
  *
- * @param p0 the parent model item
- * @param p1 the current tree level
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
- * @param p4 the field content data
- * @param p5 the field content count
- * @param p6 the field identification
- * @param p7 the field dependency hierarchy
- * @param p8 the field size
- * @param p9 the temporary type item
- * @param p10 the temporary format item
+ * @param p0 the parent properties item
+ * @param p1 the field content data
+ * @param p2 the field content count
+ * @param p3 the field identification
+ * @param p4 the part properties item (pointer reference) as potential future parent node
  */
-void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record part.");
 
-    // The temporary format, type item data.
-    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Reset temporary format item.
-    // The count does NOT have to be set, since the p6 has a fixed size and count of one.
-    overwrite_item_element(p6, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Deserialise field identification into field format.
-    deserialise_xdt_field_format(p6, field_id);
-    // Get temporary format item data.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &fd, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Reset temporary type item.
-    overwrite_item_element(p5, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Deserialise field format into cyboi runtime type.
-    // It is needed for allocating the new part.
-    deserialise_cybol_type(p5, fd);
-    // Get temporary type item data.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &td, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
+    // The field format.
+    int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The field type.
+    int t = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part name, format, type, model, properties item.
+    void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Deserialise field identification into field format.
+    deserialise_xdt_field_format((void*) &f, p3);
+    // Deserialise field format into cyboi runtime type.
+    // It is needed for allocating the new part.
+    deserialise_xdt_field_type((void*) &t, (void*) &f);
 
     // Allocate part.
     // CAUTION! Use the cyboi runtime type determined above
     // (NOT the xdt format)!
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
+    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
 
-    // Get part name, format, type, model item.
+    // Get part name, format, type, model, properties item.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
@@ -95,44 +80,19 @@ void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3, void* p
     copy_array_forward((void*) &pf, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
+    // Fill part name item with cyboi-internal name using field identification.
+    deserialise_xdt_field_name((void*) &pn, p3);
     // Fill part format item.
-    overwrite_item_element(pf, fd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    overwrite_item_element(pf, (void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part type item.
-    overwrite_item_element(pt, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    overwrite_item_element(pt, (void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Fill part model item with field content.
+    append_item_element(pm, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, field_type == compound);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // This is a compound part.
-
-            // Fill part name (NOT model) item with field content.
-            overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // This is assumed to be a primitive part.
-
-        // Determine cyboi-internal name using field identification.
-        get_name((void*) &n, field_id);
-
-        // Fill part name item with cyboi-internal name.
-        overwrite_item_element(pn, n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-        // Copy field content to part MODEL.
-        copy field content to part's MODEL (not name)
-        // Fill part model item with field content.
-        //?? TODO: Replace the receive_data function with something useful for xdt.
-        receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, fd, pld, ped, *NULL_POINTER_STATE_CYBOI_MODEL, pcd);
-    }
+    // Remember part properties item as potential future parent node.
+    copy_pointer(p4, (void*) &pp);
 
     // Add part to destination.
     append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

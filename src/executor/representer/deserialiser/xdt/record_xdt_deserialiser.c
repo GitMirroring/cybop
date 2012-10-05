@@ -38,21 +38,20 @@
 /**
  * Deserialises an xdt record.
  *
- * @param p0 the parent model item
- * @param p1 the current tree level
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
+ * @param p0 the parent properties item
+ * @param p1 the part properties item
+ * @param p2 the current tree level
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
  */
-void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record.");
 
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The compound field flag.
-    int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -66,14 +65,14 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_smaller_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        deserialise_xdt_record_element(p0, p1, p2, p3, (void*) &b, (void*) &c);
+        deserialise_xdt_record_element(p0, p1, p2, p3, p4, (void*) &b);
     }
 }
 

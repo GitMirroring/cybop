@@ -38,12 +38,12 @@
 /**
  * Deserialises an xdt record element.
  *
- * @param p0 the parent model item
- * @param p1 the current tree level
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
- * @param p4 the loop break flag
- * @param p5 the compound field flag
+ * @param p0 the parent properties item
+ * @param p1 the part properties item
+ * @param p2 the current tree level
+ * @param p3 the source data position (pointer reference)
+ * @param p4 the source count remaining
+ * @param p5 the loop break flag
  */
 void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
@@ -59,7 +59,7 @@ void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void
     // The field size.
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    deserialise_xdt_field((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p2, p3);
+    deserialise_xdt_field((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p3, p4);
 
     if (h == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -72,7 +72,7 @@ void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void
     }
 
     // Process field depending on hierarchy level.
-    select_xdt_field_hierarchy(p0, p1, p2, p3, cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p4, p5);
+    select_xdt_field_hierarchy(p0, p1, p2, p3, p4, cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p5);
 }
 
 /* ELEMENT_RECORD_XDT_DESERIALISER_SOURCE */
