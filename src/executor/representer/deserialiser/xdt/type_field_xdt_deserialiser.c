@@ -38,22 +38,20 @@
 /**
  * Deserialises the xdt field format into a cyboi runtime type.
  *
- * @param p0 the destination type item
- * @param p1 the source format data
+ * @param p0 the destination cyboi runtime type item
+ * @param p1 the source xdt field format data
  */
 void deserialise_xdt_field_type(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field type.");
 
     // CAUTION! Do NOT use the "append" function here!
-    // The format of each part has been given a size of ONE,
+    // The destination has been given a size of ONE,
     // so that reallocation is not necessary for adding an element.
     // Therefore, the "overwrite" function has to be used instead.
     //
-    // CAUTION! The "true" flag has to be set for the "overwrite" function
-    // since a format may be handed over not only as cybol attribute
-    // (for which a default size of one has been set when allocating a part),
-    // but also as cybol model (which gets assigned a default size of zero).
+    // CAUTION! The "true" flag HAS TO BE SET for the "overwrite" function,
+    // so that the destination gets reallocated automatically when necessary.
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

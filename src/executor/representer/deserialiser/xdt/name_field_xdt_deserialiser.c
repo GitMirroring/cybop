@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FIELD_XDT_SELECTOR_SOURCE
-#define FIELD_XDT_SELECTOR_SOURCE
+#ifndef NAME_FIELD_XDT_DESERIALISER_SOURCE
+#define NAME_FIELD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -37,17 +37,38 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Selects an xdt field.
+ * Deserialise xdt field name (number) into cyboi-internal name (word).
  *
- * @param p0 the destination model item
- * @param p1 the source field data
- * @param p2 the source field count
- * @param p3 the source field identification
+ * @param p0 the destination cyboi-internal name item
+ * @param p1 the source xdt field identification data
  */
-void select_xdt_field(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_field_name(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt field.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field name.");
 
+    // CAUTION! Do NOT use the "append" function here!
+    // The destination has been given a size of ONE,
+    // so that reallocation is not necessary for adding an element.
+    // Therefore, the "overwrite" function has to be used instead.
+    //
+    // CAUTION! The "true" flag HAS TO BE SET for the "overwrite" function,
+    // so that the destination gets reallocated automatically when necessary.
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        }
+    }
+
+--
     if (*id == *KBV_TEST_NUMBER_FIELD_XDT_NAME) {
 
         deserialise_xdt_deserialise_model(p0, p1, p2, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT,
@@ -2094,5 +2115,5 @@ void select_xdt_field(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/* FIELD_XDT_SELECTOR_SOURCE */
+/* NAME_FIELD_XDT_DESERIALISER_SOURCE */
 #endif

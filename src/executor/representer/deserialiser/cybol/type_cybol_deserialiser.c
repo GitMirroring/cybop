@@ -38,22 +38,23 @@
 /**
  * Deserialises the cyboi format into a cyboi runtime type.
  *
- * @param p0 the destination item
- * @param p1 the source data
+ * @param p0 the destination cyboi runtime type item
+ * @param p1 the source cyboi format data
  */
 void deserialise_cybol_type(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol type.");
 
     // CAUTION! Do NOT use the "append" function here!
-    // The format of each part has been given a size of ONE,
+    // The destination has been given a size of ONE,
     // so that reallocation is not necessary for adding an element.
     // Therefore, the "overwrite" function has to be used instead.
     //
-    // CAUTION! The "true" flag has to be set for the "overwrite" function
-    // since a format may be handed over not only as cybol attribute
+    // CAUTION! The "true" flag HAS TO BE SET for the "overwrite" function,
+    // so that the destination gets reallocated automatically when necessary.
+    // For instance, the destination may be handed over not only as cybol xml attribute
     // (for which a default size of one has been set when allocating a part),
-    // but also as cybol model (which gets assigned a default size of zero).
+    // but also as model of a cybol property (which gets assigned a default size of zero).
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
