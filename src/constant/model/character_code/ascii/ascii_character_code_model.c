@@ -32,9 +32,11 @@
 // - Character Code: table assigning numbers, e.g. a = 97, b = 98, c = 99 etc.
 // - Character Encoding: storing code numbers in Bytes, e.g. 97 = 01100001, 98 = 01100010, 99 = 01100011 etc.
 //
-// This file contains character code constants.
+
 //
-// ASCII character codes (0 - 127).
+// This file contains ASCII character code constants.
+//
+// ASCII is ...
 //
 
 /**

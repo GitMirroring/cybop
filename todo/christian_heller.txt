@@ -11,6 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Implement "iso_8859_15_decoder.c"
         * Continue xdt deserialiser
         * Define selector files for record begin and end etc.
 
