@@ -19,6 +19,7 @@
 2012-10-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue xdt deserialiser and make it compilable again
+        * Prepare ISO 8859-15 decoder
 
 2012-10-05  Christian Heller  <christian.heller@tuxtax.de>
 
