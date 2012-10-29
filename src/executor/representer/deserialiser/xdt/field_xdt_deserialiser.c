@@ -26,14 +26,21 @@
 #ifndef FIELD_XDT_DESERIALISER_SOURCE
 #define FIELD_XDT_DESERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/xdt/field_xdt_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/name/xdt/bdt_xdt_name.c"
 #include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
+#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/representer/deserialiser/xdt/element_field_xdt_deserialiser.c"
+#include "../../../../executor/searcher/selector/xdt/end_field_xdt_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -61,8 +68,6 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field.");
 
-    // The bdt standard legacy flag (true for main version < 3).
-    int l = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The field size.
     // CAUTION! It seems to be useless, since a field's end
     // is defined as line feed + carriage return
@@ -71,6 +76,10 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // However, it is used below for verifying if
     // calculated and given field size match.
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The first field flag.
+    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The bdt standard legacy flag (true for main version < 3).
+    int l = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The field dependency hierarchy.
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The field identification.
@@ -85,11 +94,36 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    // Deserialise size.
+    deserialise_xdt_field_element((void*) &s, p5, p6, (void*) SIZE_FIELD_BDT_XDT_NAME_COUNT);
+
+    // Compare for first field.
+    compare_integer_equal((void*) &f, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The bdt standard main version handed over as parametre is zero.
+        // Therefore, this is the first xdt field processed within the file.
+
+        // Figure out bdt standard main version using field size.
+        // The bdt versions >= 3 contain an additional dependency hierarchy byte.
+        //
+        // Example for first bdt field in version (cr + lf = 2 byte are invisible):
+        // 2.x: 01380000020
+        // 3.x: 014180000020
+        // The first three bytes represent the size, either 13 or 14.
+        if (s > *NUMBER_13_INTEGER_STATE_CYBOI_MODEL) {
+
+            copy_integer(p7, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
+
+        } else {
+
+            copy_integer(p7, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
     // Compare for bdt standard legacy version.
     compare_integer_smaller((void*) &l, p7, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
-
-    // Deserialise size.
-    deserialise_xdt_field_element((void*) &s, p5, p6, (void*) SIZE_FIELD_XDT_NAME_COUNT);
 
     if (l == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -97,11 +131,11 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // The dependency hierarchy byte exists.
 
         // Deserialise dependency hierarchy.
-        deserialise_xdt_field_element((void*) &h, p5, p6, (void*) HIERARCHY_FIELD_XDT_NAME_COUNT);
+        deserialise_xdt_field_element((void*) &h, p5, p6, (void*) HIERARCHY_FIELD_BDT_XDT_NAME_COUNT);
     }
 
     // Deserialise identification.
-    deserialise_xdt_field_element((void*) &i, p5, p6, (void*) IDENTIFICATION_FIELD_XDT_NAME_COUNT);
+    deserialise_xdt_field_element((void*) &i, p5, p6, (void*) IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT);
 
     // Calculate field content count.
     // CAUTION! The xdt field size comprises ALL elements, even itself.

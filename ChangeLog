@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-10-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue xdt deserialiser and make it compilable again
+
 2012-10-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue xdt deserialiser parent/part properties item handling and recursive call

@@ -31,20 +31,22 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/xdt/element_record_xdt_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises an xdt record.
  *
- * @param p0 the parent properties item
- * @param p1 the part properties item
+ * @param p0 the destination parent properties item
+ * @param p1 the destination part properties item
  * @param p2 the current tree level
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining
+ * @param p5 the bdt standard main version
  */
-void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record.");
 
@@ -69,10 +71,13 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // Leave loop when there are no more characters to process.
             break;
         }
 
-        deserialise_xdt_record_element(p0, p1, p2, p3, p4, (void*) &b);
+        //?? TODO: Probably, the break flag does NOT need to be handed over as parametre.
+        //?? If so, then delete the last parametre here later!
+        deserialise_xdt_record_element(p0, p1, p2, p3, p4, (void*) &b, p5);
     }
 }
 

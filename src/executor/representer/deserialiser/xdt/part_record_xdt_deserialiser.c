@@ -28,17 +28,22 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/modifier/overwriter/item_overwriter.c"
+#include "../../../../executor/representer/deserialiser/xdt/format_field_xdt_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xdt/name_field_xdt_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xdt/type_field_xdt_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises xdt record part.
  *
- * @param p0 the parent properties item
+ * @param p0 the destination parent properties item
  * @param p1 the field content data
  * @param p2 the field content count
  * @param p3 the field identification

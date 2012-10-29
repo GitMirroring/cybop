@@ -26,20 +26,14 @@
 #ifndef XDT_DESERIALISER_SOURCE
 #define XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/xdt/field_xdt_cyboi_name.c"
-#include "../../../../constant/name/cyboi/xdt/record_xdt_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/name/xdt/field_xdt_name.c"
-#include "../../../../constant/name/xdt/package_xdt_name.c"
-#include "../../../../constant/name/xdt/record_xdt_name.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/representer/deserialiser/xdt/record_xdt_deserialiser.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
 
 //
 // The "x DatenTransfer" (xDT) is the German version of
@@ -100,63 +94,40 @@
 // ab Stelle 8: ab Stelle 3 der APW-PatNr
 //
 
-//
-// Forward declarations.
-//
-
-//?? void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
-
 /**
  * Deserialises the source into the destination, according to the given format.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
- * @param p4 the format
+ * @param p0 the destination properties item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_xdt(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt format into compound model.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt.");
 
-    // The xdt package size.
-    int ps = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The xdt package content.
-    void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int pcc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The xdt package header.
-    void* ph = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int phc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The xdt package footer.
-    void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int pfc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The placeholder part properties item.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The initial tree level.
+    int l = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    // The source data position.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The bdt standard main version.
+    int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p1);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p2);
 
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        // Select xdt package.
-        select_xdt_package(*dm, p1, p2, *dd, p4, p5, pc, (void*) &pcc, ph, (void*) &phc, pf, (void*) &pfc);
-    }
+    // CAUTION! A copy of source count remaining is forwarded here,
+    // so that the original source value does not get changed.
+    // CAUTION! The source data position does NOT have to be copied,
+    // since the parametre that was handed over is already a copy.
+    // A local copy was made anyway, not to risk parametre falsification.
+    // Its reference is forwarded, as it gets incremented by sub routines inside.
+    deserialise_xdt_record(p0, p, (void*) &l, (void*) &d, (void*) &c, (void*) &v);
 }
 
 /* XDT_DESERIALISER_SOURCE */

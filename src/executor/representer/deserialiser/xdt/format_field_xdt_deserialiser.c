@@ -26,18 +26,18 @@
 #ifndef FORMAT_FIELD_XDT_DESERIALISER_SOURCE
 #define FORMAT_FIELD_XDT_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/xdt/field_xdt_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the xdt field format.
+ * Deserialises the xdt field format into a cyboi format.
  *
  * All fields listed in the xdt standard have a defined format (type), e.g.:
  * - num
@@ -51,7 +51,7 @@
  * - XDT_DATE_DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT
  * - PLAIN_TEXT_STATE_CYBOI_FORMAT
  *
- * @param p0 the destination xdt field format item
+ * @param p0 the destination cyboi format data
  * @param p1 the source xdt field identification data
  */
 void deserialise_xdt_field_format(void* p0, void* p1) {
@@ -71,11 +71,10 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
         }
     }
@@ -86,7 +85,6 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
@@ -97,10 +95,11 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
+
+    //?? Copy types for ALL possible xdt fields here ...
 }
 
 /* FORMAT_FIELD_XDT_DESERIALISER_SOURCE */

@@ -29,11 +29,11 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/xdt/field_xdt_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/name/xdt/field_xdt_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -59,16 +59,17 @@ void deserialise_xdt_field_name(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+            overwrite_item_element(p0, (void*) KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
---
+    //?? Copy name for ALL possible xdt fields here ...
+
+/*??
     if (*id == *KBV_TEST_NUMBER_FIELD_XDT_NAME) {
 
         deserialise_xdt_deserialise_model(p0, p1, p2, (void*) INTEGER_NUMBER_CYBOL_TYPE, (void*) INTEGER_NUMBER_CYBOL_TYPE_COUNT,
@@ -2113,6 +2114,7 @@ void deserialise_xdt_field_name(void* p0, void* p1) {
         deserialise_xdt_deserialise_model(p0, p1, p2, (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT, (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT_COUNT,
             (void*) SYSTEM_INTERNAL_PARAMETRE_FIELD_XDT_CYBOI_NAME, (void*) SYSTEM_INTERNAL_PARAMETRE_FIELD_XDT_CYBOI_NAME_COUNT);
     }
+*/
 }
 
 /* NAME_FIELD_XDT_DESERIALISER_SOURCE */

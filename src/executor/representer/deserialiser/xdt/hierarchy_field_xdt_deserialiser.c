@@ -30,9 +30,8 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../constant/name/xdt/field_xdt_name.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -62,7 +61,7 @@ void deserialise_xdt_field_hierarchy(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) NUMBER_TODO_INTEGER_STATE_CYBOI_MODEL);
+            copy_integer(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -72,9 +71,11 @@ void deserialise_xdt_field_hierarchy(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) NUMBER_TODO_INTEGER_STATE_CYBOI_MODEL);
+            copy_integer(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         }
     }
+
+    //?? Copy hierarchy level for ALL possible xdt fields here ...
 }
 
 /* HIERARCHY_FIELD_XDT_DESERIALISER_SOURCE */

@@ -26,16 +26,10 @@
 #ifndef XDT_SERIALISER_SOURCE
 #define XDT_SERIALISER_SOURCE
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/xdt/field_xdt_name.c"
-#include "../../../../constant/name/xdt/package_xdt_name.c"
-#include "../../../../constant/name/xdt/record_xdt_name.c"
-#include "../../../../constant/name/cyboi/xdt/field_xdt_cyboi_name.c"
-#include "../../../../constant/name/cyboi/xdt/record_xdt_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 //

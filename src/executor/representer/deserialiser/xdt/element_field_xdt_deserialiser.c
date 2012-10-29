@@ -79,7 +79,7 @@ void deserialise_xdt_field_element(void* p0, void* p1, void* p2, void* p3) {
             allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             // Decode xdt field element.
-            deserialise_cybol_integer_value(i, *sd, p3, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            deserialise_cybol_integer_value(i, *sd, p3, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             // Get temporary item data.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!

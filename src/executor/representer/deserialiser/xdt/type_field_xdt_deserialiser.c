@@ -26,20 +26,20 @@
 #ifndef TYPE_FIELD_XDT_DESERIALISER_SOURCE
 #define TYPE_FIELD_XDT_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../executor/modifier/overwriter/item_overwriter.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises the xdt field format into a cyboi runtime type.
  *
- * @param p0 the destination cyboi runtime type item
- * @param p1 the source xdt field format data
+ * @param p0 the destination cyboi runtime type data
+ * @param p1 the source cyboi format data
  */
 void deserialise_xdt_field_type(void* p0, void* p1) {
 
@@ -66,10 +66,11 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) DATETIME_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) DATETIME_STATE_CYBOI_TYPE);
         }
     }
 
+/*??
     //
     // element
     //
@@ -80,9 +81,10 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
         }
     }
+*/
 
     //
     // number
@@ -94,7 +96,7 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
         }
     }
 
@@ -104,7 +106,7 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         }
     }
 
@@ -118,7 +120,7 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
     }
 

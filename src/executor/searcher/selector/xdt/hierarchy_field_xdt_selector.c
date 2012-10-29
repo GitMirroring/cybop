@@ -31,9 +31,20 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/representer/deserialiser/xdt/part_record_xdt_deserialiser.c"
+#include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
+
+//
+// Forward declarations.
+//
+
+void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Selects the xdt field hierarchy.
@@ -42,8 +53,8 @@
  * is especially needed for free self-defined records and fields,
  * since for those no types are defined in the xdt standard.
  *
- * @param p0 the parent properties item
- * @param p1 the part properties item
+ * @param p0 the destination parent properties item
+ * @param p1 the destination part properties item
  * @param p2 the current tree level
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining
@@ -53,8 +64,9 @@
  * @param p8 the field dependency hierarchy
  * @param p9 the field size
  * @param p10 the loop break flag
+ * @param p11 the bdt standard main version
  */
-void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt field hierarchy.");
 
@@ -78,7 +90,18 @@ void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4
 
             // The field is on the same tree level.
 
-            deserialise_xdt_record_part(p0, p5, p6, p7, *NULL_POINTER_STATE_CYBOI_MODEL);
+            // Create new part.
+            // CAUTION! Hand over parent properties item p0 as parent parametre.
+            //
+            // CAUTION! Do NOT hand over the null pointer constant as last parametre like:
+            // deserialise_xdt_record_part(p0, p5, p6, p7, *NULL_POINTER_STATE_CYBOI_MODEL);
+            //
+            // The reason is that it might get changed inside the called function, e.g. p4 in:
+            // copy_pointer(p4, (void*) &pp);
+            //
+            // But then, errors might occur and programme execution fail,
+            // since many variables are compared against the null pointer.
+            deserialise_xdt_record_part(p0, p5, p6, p7, (void*) &p);
         }
     }
 
@@ -94,6 +117,7 @@ void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4
 
             // The field is one tree level lower.
 
+            // Create new part.
             // CAUTION! Hand over part properties item p1 as new parent parametre.
             deserialise_xdt_record_part(p1, p5, p6, p7, (void*) &p);
 
@@ -104,7 +128,7 @@ void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4
             // Deserialise fields following this field recursively.
             // CAUTION! Hand over part properties item p1 as new parent parametre.
             // CAUTION! Also, hand over NEW part properties item p as POTENTIAL new parent parametre.
-            deserialise_xdt_record(p1, p, p2, p3, p4);
+            deserialise_xdt_record(p1, p, p2, p3, p4, p11);
 
             // Decrement current tree level.
             calculate_integer_subtract(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -121,7 +145,7 @@ void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4
             // and must NOT be added to the current parent part.
 
             // Set break flag.
-            copy_integer(p10, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+//??            copy_integer(p10, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Reset data position and count remaining BACKWARD to
             // the beginning of the field last read by using its size.

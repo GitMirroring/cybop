@@ -11,8 +11,18 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue in file "record_xdt_deserialiser.c"
+        * Continue xdt deserialiser
         * Define selector files for record begin and end etc.
+
+        * Check all places where a *NULL_POINTER_STATE_CYBOI_MODEL is handed over as parametre!
+            If it gets manipulated inside the called function, e.g. p4 in file "part_record_xdt_deserialiser.c":
+                // Remember part properties item as potential future parent node.
+                copy_pointer(p4, (void*) &pp);
+            then the NULL_POINTER_STATE_CYBOI_MODEL constant might get changed and errors occur
+            and programme execution fail, since many pointers are compared against the null pointer constant
+            --> find another solution to handle this
+                a) try out "const" pointers once more (did not work formerly, since some of them need to be changed sometimes
+                b) declare a local variable, assign it with null pointer and hand over as parametre
 
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
