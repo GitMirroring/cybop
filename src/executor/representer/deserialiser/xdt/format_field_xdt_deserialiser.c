@@ -100,6 +100,16 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
     }
 
     //?? Copy types for ALL possible xdt fields here ...
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) RECORD_IDENTIFICATION_FIELD_XDT_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        }
+    }
 }
 
 /* FORMAT_FIELD_XDT_DESERIALISER_SOURCE */

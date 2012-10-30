@@ -70,7 +70,6 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
         }
     }
 
-/*??
     //
     // element
     //
@@ -84,7 +83,6 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
             copy_integer(p0, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
         }
     }
-*/
 
     //
     // number
