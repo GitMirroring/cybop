@@ -36,9 +36,29 @@
 //
 
 //
+// ISO/IEC 8859 is a joint ISO and IEC series of standards for 8-bit character encodings.
+// The series of standards consists of numbered parts, such as ISO/IEC 8859-1, ISO/IEC 8859-2, etc.
+// There are 15 parts, excluding the abandoned ISO/IEC 8859-12.
+// The ISO working group maintaining this series of standards has been disbanded.
+// ISO/IEC 8859 parts 1, 2, 3, and 4 were originally Ecma International standard ECMA-94.
+//
+// While "ISO/IEC 8859" (without hyphen) does NOT define
+// any characters for ranges 0x00-0x1F and 0x7F-0x9F,
+// the "ISO-8859" (WITH hyphen and WITHOUT "IEC") standard
+// registered with the IANA specifies non-printable
+// control characters within these FREE areas.
+// Therefore, both are related and do NOT conflict.
+//
+// For easier handling, both are merged here, so that
+// cyboi is able to handle printable characters as defined
+// in "ISO/IEC 8859" AS WELL AS control characters of "ISO-8859".
+//
 // This file contains ISO 8859-15 character code constants.
 //
-// ISO 8859-15 is ...
+
+//
+// The non-printable control characters in range 0x00-0x1F
+// which are defined by "ISO-8859" but not "ISO/IEC 8859".
 //
 
 /**
@@ -47,6 +67,8 @@
  */
 static char NULL_CONTROL_15_ISO_8859_CHARACTER_CODE_MODEL_ARRAY[] = {0x00};
 static char* NULL_CONTROL_15_ISO_8859_CHARACTER_CODE_MODEL = NULL_CONTROL_15_ISO_8859_CHARACTER_CODE_MODEL_ARRAY;
+
+//?? TODO: ...
 
 /**
  * The character tabulation control ascii character code model.
@@ -80,6 +102,10 @@ static char* LINE_FEED_CONTROL_15_ISO_8859_CHARACTER_CODE_MODEL = LINE_FEED_CONT
  */
 static char CARRIAGE_RETURN_CONTROL_15_ISO_8859_CHARACTER_CODE_MODEL_ARRAY[] = {0x0D};
 static char* CARRIAGE_RETURN_CONTROL_15_ISO_8859_CHARACTER_CODE_MODEL = CARRIAGE_RETURN_CONTROL_15_ISO_8859_CHARACTER_CODE_MODEL_ARRAY;
+
+//
+// The printable characters.
+//
 
 /** The space ascii character code model  . U+0020 */
 static char SPACE_15_ISO_8859_CHARACTER_CODE_MODEL_ARRAY[] = {0x20};
@@ -253,7 +279,12 @@ static char* RIGHT_CURLY_BRACKET_15_ISO_8859_CHARACTER_CODE_MODEL = RIGHT_CURLY_
 static char TILDE_15_ISO_8859_CHARACTER_CODE_MODEL_ARRAY[] = {0x7E};
 static char* TILDE_15_ISO_8859_CHARACTER_CODE_MODEL = TILDE_15_ISO_8859_CHARACTER_CODE_MODEL_ARRAY;
 
-//?? TODO: Continue here ...
+//
+// The non-printable control characters in range 0x7F-0x9F
+// which are defined by "ISO-8859" but not "ISO/IEC 8859".
+//
+
+//?? TODO: Continue here for characters from 0xA0 to 0xFF ...
 
 /* 15_ISO_8859_CHARACTER_CODE_MODEL_CONSTANT_SOURCE */
 #endif

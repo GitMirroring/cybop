@@ -36,7 +36,22 @@
 //
 // This file contains ASCII character code constants.
 //
-// ASCII is ...
+// The American Standard Code for Information Interchange (ASCII)
+// is a character-encoding scheme originally based on the English alphabet.
+// ASCII codes represent text in computers, communications equipment,
+// and other devices that use text.
+// Most modern character-encoding schemes are based on ASCII,
+// though they support many additional characters.
+//
+// ASCII includes definitions for 128 characters:
+// - 33 are non-printing control characters (many now obsolete)
+//   that affect how text and space is processed;
+// - 95 printable characters, including the space
+//   (which is considered an invisible graphic).
+//
+// The IANA prefers the name US-ASCII to avoid ambiguity.
+// ASCII was the most commonly used character encoding on the
+// World Wide Web (WWW) until December 2007, when it was surpassed by UTF-8.
 //
 
 /**

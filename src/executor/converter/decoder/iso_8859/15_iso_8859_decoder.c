@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ISO_8859_15_DECODER_SOURCE
-#define ISO_8859_15_DECODER_SOURCE
+#ifndef 15_ISO_8859_DECODER_SOURCE
+#define 15_ISO_8859_DECODER_SOURCE
 
 /*??
 #include "../../../../constant/model/character_code/iso_8859/15_iso_8859_character_code_model.c"
@@ -82,5 +82,5 @@ void decode_iso_8859_15(void* p0, void* p1, void* p2) {
     //?? TODO: Continue here ...
 }
 
-/* ISO_8859_15_DECODER_SOURCE */
+/* 15_ISO_8859_DECODER_SOURCE */
 #endif

@@ -11,9 +11,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Implement "ascii_character_code_model.c"
+        * Implement "1_iso_8859_character_code_model.c"
+        * Implement "15_iso_8859_character_code_model.c"
         * Implement "iso_8859_15_decoder.c"
         * Continue xdt deserialiser
         * Define selector files for record begin and end etc.
+        * Allocate new model part for each beginning record (id 8000)
+            (dosn't matter that other fields inside the record are added to the properties part)
 
         * Check all places where a *NULL_POINTER_STATE_CYBOI_MODEL is handed over as parametre!
             If it gets manipulated inside the called function, e.g. p4 in file "part_record_xdt_deserialiser.c":
