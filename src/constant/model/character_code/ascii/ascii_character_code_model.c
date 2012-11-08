@@ -55,11 +55,17 @@
 //
 
 /**
- * The null control ascii character code model. U+0000
+ * The null ascii character code model. U+0000
  * It is used as string termination in the C programming language.
  */
-static char NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = {0x00};
-static char* NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL = NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL_ARRAY;
+static char NULL_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = {0x00};
+static char* NULL_ASCII_CHARACTER_CODE_MODEL = NULL_ASCII_CHARACTER_CODE_MODEL_ARRAY;
+
+/**
+ * The TODO ascii character code model. U+0001
+ */
+static char TODO_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = {0xTODO};
+static char* TODO_ASCII_CHARACTER_CODE_MODEL = TODO_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 
 /**
  * The character tabulation control ascii character code model.

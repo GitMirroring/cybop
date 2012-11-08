@@ -31,7 +31,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/converter/decoder/iso_8859/iso_8859_15_decoder.c"
+#include "../../executor/converter/decoder/iso_8859/15_iso_8859_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_16_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../logger/logger.c"
