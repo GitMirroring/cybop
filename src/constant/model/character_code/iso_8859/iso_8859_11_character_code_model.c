@@ -51,114 +51,18 @@
 // control characters within these FREE areas.
 // Therefore, both are related and do NOT conflict.
 //
-// For easier handling, both are merged here, so that
-// cyboi is able to handle printable characters as defined
-// in "ISO/IEC 8859" AS WELL AS control characters of "ISO-8859".
+// CAUTION! The "ISO/IEC 8859-11" did NOT get assigned an
+// IANA charset "ISO-8859-11", presumably because it was
+// almost identical to the Thai Industrial Standard (TIS) 620.
 //
-// This file contains ISO-8859-11 character code constants:
+// This file contains ISO/IEC 8859-11 character code constants:
 // Latin/Thai
 //
 
 //
 // The non-printable control characters in range 0x00-0x1F
-// which are defined by "ISO-8859" but not "ISO/IEC 8859".
+// are NOT defined, since an "ISO-8859-11" does NOT exist.
 //
-
-/** The null iso-8859-11 character code model. U+0000 */
-static char* NULL_ISO_8859_11_CHARACTER_CODE_MODEL = NULL_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The start of heading iso-8859-11 character code model. U+0001 */
-static char* START_OF_HEADING_ISO_8859_11_CHARACTER_CODE_MODEL = START_OF_HEADING_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The start of text iso-8859-11 character code model. U+0002 */
-static char* START_OF_TEXT_ISO_8859_11_CHARACTER_CODE_MODEL = START_OF_TEXT_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The end of text iso-8859-11 character code model. U+0003 */
-static char* END_OF_TEXT_ISO_8859_11_CHARACTER_CODE_MODEL = END_OF_TEXT_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The end of transmission iso-8859-11 character code model. U+0004 */
-static char* END_OF_TRANSMISSION_ISO_8859_11_CHARACTER_CODE_MODEL = END_OF_TRANSMISSION_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The enquiry iso-8859-11 character code model. U+0005 */
-static char* ENQUIRY_ISO_8859_11_CHARACTER_CODE_MODEL = ENQUIRY_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The acknowledge iso-8859-11 character code model. U+0006 */
-static char* ACKNOWLEDGE_ISO_8859_11_CHARACTER_CODE_MODEL = ACKNOWLEDGE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The bell iso-8859-11 character code model. U+0007 */
-static char* BELL_ISO_8859_11_CHARACTER_CODE_MODEL = BELL_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The backspace iso-8859-11 character code model. U+0008 */
-static char* BACKSPACE_ISO_8859_11_CHARACTER_CODE_MODEL = BACKSPACE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The character tabulation iso-8859-11 character code model. U+0009 */
-static char* CHARACTER_TABULATION_ISO_8859_11_CHARACTER_CODE_MODEL = CHARACTER_TABULATION_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The line feed iso-8859-11 character code model. U+000A */
-static char* LINE_FEED_ISO_8859_11_CHARACTER_CODE_MODEL = LINE_FEED_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The line tabulation iso-8859-11 character code model. U+000B */
-static char* LINE_TABULATION_ISO_8859_11_CHARACTER_CODE_MODEL = LINE_TABULATION_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The form feed iso-8859-11 character code model. U+000C */
-static char* FORM_FEED_ISO_8859_11_CHARACTER_CODE_MODEL = FORM_FEED_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The carriage return (enter) iso-8859-11 character code model. U+000D */
-static char* CARRIAGE_RETURN_ISO_8859_11_CHARACTER_CODE_MODEL = CARRIAGE_RETURN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The shift out iso-8859-11 character code model. U+000E */
-static char* SHIFT_OUT_ISO_8859_11_CHARACTER_CODE_MODEL = SHIFT_OUT_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The shift in iso-8859-11 character code model. U+000F */
-static char* SHIFT_IN_ISO_8859_11_CHARACTER_CODE_MODEL = SHIFT_IN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The data link escape iso-8859-11 character code model. U+0010 */
-static char* DATA_LINK_ESCAPE_ISO_8859_11_CHARACTER_CODE_MODEL = DATA_LINK_ESCAPE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The device control one iso-8859-11 character code model. U+0011 */
-static char* DEVICE_CONTROL_ONE_ISO_8859_11_CHARACTER_CODE_MODEL = DEVICE_CONTROL_ONE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The device control two iso-8859-11 character code model. U+0012 */
-static char* DEVICE_CONTROL_TWO_ISO_8859_11_CHARACTER_CODE_MODEL = DEVICE_CONTROL_TWO_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The device control three iso-8859-11 character code model. U+0013 */
-static char* DEVICE_CONTROL_THREE_ISO_8859_11_CHARACTER_CODE_MODEL = DEVICE_CONTROL_THREE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The device control four iso-8859-11 character code model. U+0014 */
-static char* DEVICE_CONTROL_FOUR_ISO_8859_11_CHARACTER_CODE_MODEL = DEVICE_CONTROL_FOUR_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The negative acknowledge iso-8859-11 character code model. U+0015 */
-static char* NEGATIVE_ACKNOWLEDGE_ISO_8859_11_CHARACTER_CODE_MODEL = NEGATIVE_ACKNOWLEDGE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The synchronous idle iso-8859-11 character code model. U+0016 */
-static char* SYNCHRONOUS_IDLE_ISO_8859_11_CHARACTER_CODE_MODEL = SYNCHRONOUS_IDLE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The end of transmission block iso-8859-11 character code model. U+0017 */
-static char* END_OF_TRANSMISSION_BLOCK_ISO_8859_11_CHARACTER_CODE_MODEL = END_OF_TRANSMISSION_BLOCK_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The cancel iso-8859-11 character code model. U+0018 */
-static char* CANCEL_ISO_8859_11_CHARACTER_CODE_MODEL = CANCEL_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The end of medium iso-8859-11 character code model. U+0019 */
-static char* END_OF_MEDIUM_ISO_8859_11_CHARACTER_CODE_MODEL = END_OF_MEDIUM_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The substitute iso-8859-11 character code model. U+001A */
-static char* SUBSTITUTE_ISO_8859_11_CHARACTER_CODE_MODEL = SUBSTITUTE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The escape iso-8859-11 character code model. U+001B */
-static char* ESCAPE_ISO_8859_11_CHARACTER_CODE_MODEL = ESCAPE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The file separator iso-8859-11 character code model. U+001C */
-static char* FILE_SEPARATOR_ISO_8859_11_CHARACTER_CODE_MODEL = FILE_SEPARATOR_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The group separator iso-8859-11 character code model. U+001D */
-static char* GROUP_SEPARATOR_ISO_8859_11_CHARACTER_CODE_MODEL = GROUP_SEPARATOR_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The record separator iso-8859-11 character code model. U+001E */
-static char* RECORD_SEPARATOR_ISO_8859_11_CHARACTER_CODE_MODEL = RECORD_SEPARATOR_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-/** The unit separator iso-8859-11 character code model. U+001F */
-static char* UNIT_SEPARATOR_ISO_8859_11_CHARACTER_CODE_MODEL = UNIT_SEPARATOR_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 
 //
 // The printable characters in range 0x20-0x7E.
@@ -451,17 +355,8 @@ static char* TILDE_ISO_8859_11_CHARACTER_CODE_MODEL = TILDE_ASCII_CHARACTER_CODE
 
 //
 // The non-printable control characters in range 0x7F-0x9F
-// which are defined by "ISO-8859" but not "ISO/IEC 8859".
+// are NOT defined, since an "ISO-8859-11" does NOT exist.
 //
-
-/** The delete iso-8859-11 character code model. U+007F */
-static char* DELETE_ISO_8859_11_CHARACTER_CODE_MODEL = DELETE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
-
-//?? TODO: Continue here ...
-
-/** The TODO iso-8859-11 character code model. U+00TODO */
-//?? static char TODO_ISO_8859_11_CHARACTER_CODE_MODEL_ARRAY[] = {0xTODO};
-//?? static char* TODO_ISO_8859_11_CHARACTER_CODE_MODEL = TODO_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 
 //
 // The printable characters in range 0xA0-0xFF.
