@@ -11,10 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Implement "ascii_character_code_model.c"
-        * Implement "iso_8859_1_character_code_model.c"
-        * Implement "iso_8859_15_character_code_model.c"
-        * Implement "iso_8859_15_decoder.c"
+        * Implement "iso_8859_15_decoder.c"; see mapping to Unicode at:
+            ftp://ftp.unicode.org/Public/MAPPINGS/ISO8859/
         * Continue xdt deserialiser
         * Define selector files for record begin and end etc.
         * Allocate new model part for each beginning record (id 8000)

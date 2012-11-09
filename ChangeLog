@@ -20,6 +20,7 @@
 
         * Continue ASCII, ISO/IEC 8859 and ISO-8859 character code constants
         * Add files containing C0 and C1 control codes of ISO 6429
+        * Complete ISO-8859-1 and ISO-8859-15 constants
 
 2012-11-08  Christian Heller  <christian.heller@tuxtax.de>
 
