@@ -12,8 +12,8 @@
 #
 
         * Implement "ascii_character_code_model.c"
-        * Implement "1_iso_8859_character_code_model.c"
-        * Implement "15_iso_8859_character_code_model.c"
+        * Implement "iso_8859_1_character_code_model.c"
+        * Implement "iso_8859_15_character_code_model.c"
         * Implement "iso_8859_15_decoder.c"
         * Continue xdt deserialiser
         * Define selector files for record begin and end etc.
