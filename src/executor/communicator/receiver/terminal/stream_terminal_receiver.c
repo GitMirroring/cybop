@@ -73,7 +73,7 @@ void receive_terminal_stream(void* p0, void* p1, void* p2) {
     // CAUTION! The initial value is set to WEOF,
     // since it is returned by the fgetwc function by default.
     // Hence, do NOT assign the following value:
-    // wint_t c = *((wint_t*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL);
+    // wint_t c = *((wint_t*) NULL_UNICODE_CHARACTER_CODE_MODEL);
     wint_t c = WEOF;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {

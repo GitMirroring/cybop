@@ -199,7 +199,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                                     copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                                 }
 
-                            } else if (*c == *((wint_t*) ESCAPE_CONTROL_UNICODE_CHARACTER_CODE_MODEL)) {
+                            } else if (*c == *((wint_t*) ESCAPE_UNICODE_CHARACTER_CODE_MODEL)) {
 
                                 // Set escape character flag.
                                 copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

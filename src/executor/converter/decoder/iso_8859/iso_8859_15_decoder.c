@@ -23,13 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef 15_ISO_8859_DECODER_SOURCE
-#define 15_ISO_8859_DECODER_SOURCE
+#ifndef ISO_8859_15_DECODER_SOURCE
+#define ISO_8859_15_DECODER_SOURCE
 
-/*??
-#include "../../../../constant/model/character_code/iso_8859/15_iso_8859_character_code_model.c"
+#include "../../../../constant/model/character_code/iso_8859/iso_8859_15_character_code_model.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-*/
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -37,10 +35,6 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../logger/logger.c"
-
-//
-//?? TODO: Add general remarks on ISO 8859-15 here.
-//
 
 /**
  * Decodes the ISO 8859-15 character data into UTF-32 wide character data.
@@ -59,11 +53,11 @@ void decode_iso_8859_15(void* p0, void* p1, void* p2) {
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) NULL_CONTROL_15_ISO_8859_CHARACTER_CODE_MODEL);
+        compare_integer_equal((void*) &r, p3, (void*) NULL_ISO_8859_15_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            overwrite_item_element(p0, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
@@ -74,7 +68,7 @@ void decode_iso_8859_15(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) START_OF_HEADING_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            overwrite_item_element(p0, (void*) START_OF_HEADING_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 */
@@ -82,5 +76,5 @@ void decode_iso_8859_15(void* p0, void* p1, void* p2) {
     //?? TODO: Continue here ...
 }
 
-/* 15_ISO_8859_DECODER_SOURCE */
+/* ISO_8859_15_DECODER_SOURCE */
 #endif

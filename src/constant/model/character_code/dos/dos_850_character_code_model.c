@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef 850_DOS_CHARACTER_CODE_MODEL_CONSTANT_SOURCE
-#define 850_DOS_CHARACTER_CODE_MODEL_CONSTANT_SOURCE
+#ifndef DOS_850_CHARACTER_CODE_MODEL_CONSTANT_SOURCE
+#define DOS_850_CHARACTER_CODE_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -40,5 +40,5 @@
 //?? TODO: Add dos character codes here!
 //?? Add further files for other character codes in this directory!
 
-/* 850_DOS_CHARACTER_CODE_MODEL_CONSTANT_SOURCE */
+/* DOS_850_CHARACTER_CODE_MODEL_CONSTANT_SOURCE */
 #endif

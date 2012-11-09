@@ -273,7 +273,7 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
             encode_utf_8(text, *m, *mc);
 
             // Append null termination character.
-            append_item_element(text, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(text, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             //?? TODO: Create "text" as 2byte character array,
             //?? since the xlib C library expects it that way.
@@ -477,9 +477,9 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
         }
 
         // Add null termination character to title.
-        overwrite_array((void*) &tt, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, ttc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, ttc, tts, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        overwrite_array((void*) &tt, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, ttc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, ttc, tts, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Add null termination character to icon name.
-        overwrite_array((void*) &ti, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tic, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, tic, tis, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        overwrite_array((void*) &ti, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tic, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, tic, tis, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Set terminated window title.
         //

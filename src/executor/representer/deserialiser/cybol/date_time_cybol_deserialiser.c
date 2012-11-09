@@ -165,11 +165,11 @@ void deserialise_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void
 
 /*?? TODO!
                         // Add string termination to temporary null-terminated day string.
-                        overwrite_array((void*) &tmpd, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &dti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                        overwrite_array((void*) &tmpd, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &dti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
                         // Add string termination to temporary null-terminated month string.
-                        overwrite_array((void*) &tmpm, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                        overwrite_array((void*) &tmpm, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
                         // Add string termination to temporary null-terminated year string.
-                        overwrite_array((void*) &tmpy, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &yti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
+                        overwrite_array((void*) &tmpy, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &yti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
 */
 
 /*??

@@ -52,7 +52,7 @@ void deserialise_character_reference_numeric_hexadecimal(void* p0, void* p1, voi
     // The deserialised integer.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The deserialised character.
-    wchar_t c = *NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL;
+    wchar_t c = *NULL_UNICODE_CHARACTER_CODE_MODEL;
 
     // Initialise hexadecimal numeric character reference data.
     copy_pointer((void*) &rd, p1);

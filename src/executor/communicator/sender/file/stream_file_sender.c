@@ -64,7 +64,7 @@ void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
     encode_utf_8(t, p0, p1);
 
     // Add null termination character to terminated file name.
-    append_item_element(t, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Get terminated file name item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

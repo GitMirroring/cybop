@@ -52,7 +52,7 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
     // The deserialised integer.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The deserialised character.
-    wchar_t c = *NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL;
+    wchar_t c = *NULL_UNICODE_CHARACTER_CODE_MODEL;
 
     // Initialise percent encoding character data.
     copy_pointer((void*) &cd, p1);

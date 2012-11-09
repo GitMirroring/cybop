@@ -80,7 +80,7 @@ void apply_execute(void* p0, void* p1) {
     append_item_element(c, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     append_item_element(c, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Append null character as string termination.
-    append_item_element(c, (void*) NULL_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(c, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Get shell command line item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

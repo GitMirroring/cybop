@@ -103,7 +103,7 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        append_item_element(s, (void*) LINE_FEED_CONTROL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(s, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 
     // Get serialised wide character item data, count.
@@ -124,7 +124,7 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // The encode function above only converts the actual characters
     // whose count is given, but NOT a null termination character.
     // Therefore, the null termination is only added here, as ascii character.
-    append_item_element(e, (void*) NULL_CONTROL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(e, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Get encoded character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
