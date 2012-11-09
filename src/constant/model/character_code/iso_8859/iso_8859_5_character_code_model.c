@@ -56,7 +56,7 @@
 // in "ISO/IEC 8859" AS WELL AS control characters of "ISO-8859".
 //
 // This file contains ISO-8859-5 character code constants:
-// Latin-9
+// Latin/Cyrillic
 //
 
 //
