@@ -29,10 +29,8 @@
 #include "../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/converter/decoder/iso_8859/iso_8859_1_decoder.c"
-#include "../../executor/converter/decoder/iso_8859/iso_8859_15_decoder.c"
+#include "../../executor/converter/decoder/iso_8859/iso_8859_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_16_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../logger/logger.c"
@@ -62,7 +60,7 @@ void decode(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_iso_8859_1(p0, p1, p2);
+            decode_iso_8859(p0, p1, p3);
         }
     }
 
@@ -72,7 +70,7 @@ void decode(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_iso_8859_15(p0, p1, p2);
+            decode_iso_8859(p0, p1, p3);
         }
     }
 

@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-11-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue ISO-8859-15 decoder
+
 2012-11-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue ASCII, ISO/IEC 8859 and ISO-8859 character code constants

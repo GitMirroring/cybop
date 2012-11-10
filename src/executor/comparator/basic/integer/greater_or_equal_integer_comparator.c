@@ -26,11 +26,9 @@
 #ifndef GREATER_OR_EQUAL_INTEGER_COMPARATOR_SOURCE
 #define GREATER_OR_EQUAL_INTEGER_COMPARATOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
 
 /**
  * Compares the left- with the right integer for greaterness and equality.
@@ -50,26 +48,23 @@ void compare_integer_greater_or_equal(void* p0, void* p1, void* p2) {
             int* lv = (int*) p1;
 
             // CAUTION! Do NOT call the logger here.
-            // It uses functions causing circular references.
-            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare integer greater or equal.");
+            // It might use functions that cause circular references.
 
             if (*lv >= *rv) {
 
-                copy_integer(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
         } else {
 
             // CAUTION! Do NOT call the logger here.
-            // It uses functions causing circular references.
-            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer greater or equal. The left value is null.");
+            // It might use functions that cause circular references.
         }
 
     } else {
 
         // CAUTION! Do NOT call the logger here.
-        // It uses functions causing circular references.
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer greater or equal. The right value is null.");
+        // It might use functions that cause circular references.
     }
 }
 

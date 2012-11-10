@@ -30,7 +30,7 @@
 #include <string.h>
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
 
@@ -65,13 +65,13 @@ void compare_double(void* p0, void* p1, void* p2, void* p3) {
                     // The comparison result.
                     // CAUTION! It is used instead of if-else statements.
                     // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
-                    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         if (*a == *EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
-                            r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                             if (*lv == *rv) {
 
@@ -80,11 +80,11 @@ void compare_double(void* p0, void* p1, void* p2, void* p3) {
                         }
                     }
 
-                    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         if (*a == *SMALLER_COMPARE_LOGIC_CYBOI_FORMAT) {
 
-                            r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                             if (*lv < *rv) {
 
@@ -93,11 +93,11 @@ void compare_double(void* p0, void* p1, void* p2, void* p3) {
                         }
                     }
 
-                    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         if (*a == *GREATER_COMPARE_LOGIC_CYBOI_FORMAT) {
 
-                            r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                             if (*lv > *rv) {
 
@@ -106,11 +106,11 @@ void compare_double(void* p0, void* p1, void* p2, void* p3) {
                         }
                     }
 
-                    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
-                            r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                             if (*lv <= *rv) {
 
@@ -119,11 +119,11 @@ void compare_double(void* p0, void* p1, void* p2, void* p3) {
                         }
                     }
 
-                    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
-                            r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                             if (*lv >= *rv) {
 
@@ -132,7 +132,7 @@ void compare_double(void* p0, void* p1, void* p2, void* p3) {
                         }
                     }
 
-                    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare double. The operation type is unknown.");
                     }

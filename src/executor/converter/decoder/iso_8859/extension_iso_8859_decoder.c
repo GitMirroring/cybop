@@ -23,34 +23,52 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ISO_8859_1_DECODER_SOURCE
-#define ISO_8859_1_DECODER_SOURCE
+#ifndef EXTENSION_ISO_8859_DECODER_SOURCE
+#define EXTENSION_ISO_8859_DECODER_SOURCE
 
-#include "../../../../constant/model/character_code/iso_8859/iso_8859_1_character_code_model.c"
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/basic/character/equal_character_comparator.c"
-#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/converter/decoder/iso_8859/iso_8859_1_decoder.c"
+#include "../../../../executor/converter/decoder/iso_8859/iso_8859_15_decoder.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the ISO 8859-1 character data into UTF-32 wide character data.
+ * Decodes the ISO 8859 extension character data into UTF-32 wide character data.
  *
  * @param p0 the destination item
  * @param p1 the source data
+ * @param p2 the encoding
  */
-void decode_iso_8859_1(void* p0, void* p1) {
+void decode_iso_8859_extension(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode ISO 8859-1.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode ISO 8859 extension.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //?? TODO: Continue here ...
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) ISO_8859_1_CYBOI_ENCODING);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            decode_iso_8859_1(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) ISO_8859_15_CYBOI_ENCODING);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            decode_iso_8859_15(p0, p1);
+        }
+    }
 }
 
-/* ISO_8859_1_DECODER_SOURCE */
+/* EXTENSION_ISO_8859_DECODER_SOURCE */
 #endif

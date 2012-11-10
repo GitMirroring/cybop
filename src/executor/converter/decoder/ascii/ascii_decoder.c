@@ -23,10 +23,10 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ISO_8859_1_DECODER_SOURCE
-#define ISO_8859_1_DECODER_SOURCE
+#ifndef ASCII_DECODER_SOURCE
+#define ASCII_DECODER_SOURCE
 
-#include "../../../../constant/model/character_code/iso_8859/iso_8859_1_character_code_model.c"
+#include "../../../../constant/model/character_code/iso_8859/iso_8859_15_character_code_model.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -37,20 +37,30 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the ISO 8859-1 character data into UTF-32 wide character data.
+ * Decodes the ASCII character data into UTF-32 wide character data.
  *
  * @param p0 the destination item
  * @param p1 the source data
  */
-void decode_iso_8859_1(void* p0, void* p1) {
+void decode_ascii(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode ISO 8859-1.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode ascii.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_character_equal((void*) &r, p1, (void*) NULL_ASCII_CHARACTER_CODE_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        }
+    }
+
     //?? TODO: Continue here ...
 }
 
-/* ISO_8859_1_DECODER_SOURCE */
+/* ASCII_DECODER_SOURCE */
 #endif

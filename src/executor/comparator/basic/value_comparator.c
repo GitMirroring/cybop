@@ -31,7 +31,7 @@
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/character_comparator.c"
 #include "../../../executor/comparator/basic/double_comparator.c"
@@ -84,17 +84,17 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // The comparison result.
         // CAUTION! It is used instead of if-else statements.
         // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
-        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         //
         // element
         //
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *PART_ELEMENT_STATE_CYBOI_TYPE) {
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_part(p0, p1, p2, p3);
             }
@@ -104,41 +104,41 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // number
         //
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_double(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *FRACTION_NUMBER_STATE_CYBOI_TYPE) {
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_fraction(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *INTEGER_NUMBER_STATE_CYBOI_TYPE) {
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_integer(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE) {
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_unsigned_long(p0, p1, p2, p3);
             }
@@ -148,11 +148,11 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // pointer
         //
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *POINTER_STATE_CYBOI_TYPE) {
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_pointer(p0, p1, p2, p3);
             }
@@ -162,27 +162,27 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // text
         //
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_character(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 
-                r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_wide_character(p0, p1, p2, p3);
             }
         }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare value. The operand type is unknown.");
         }
