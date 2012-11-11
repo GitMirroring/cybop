@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-11-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete decoders ASCII, ISO-8859-1, ISO-8859-15
+
 2012-11-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue ISO-8859-15 decoder

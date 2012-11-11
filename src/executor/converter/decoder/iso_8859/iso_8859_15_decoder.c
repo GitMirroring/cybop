@@ -361,11 +361,11 @@ void decode_iso_8859_15(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_character_equal((void*) &r, p1, (void*) APPLICATION_PROGRAMME_COMMAND_ISO_8859_15_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) APPLICATION_PROGRAM_COMMAND_ISO_8859_15_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) APPLICATION_PROGRAMME_COMMAND_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) APPLICATION_PROGRAM_COMMAND_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -449,14 +449,13 @@ void decode_iso_8859_15(void* p0, void* p1) {
         }
     }
 
-    //?? TODO 0xA8      0x0161  #       LATIN SMALL LETTER S WITH CARON
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_character_equal((void*) &r, p1, (void*) DIAERESIS_ISO_8859_15_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) LATIN_SMALL_LETTER_S_WITH_CARON_ISO_8859_15_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) DIAERESIS_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) LATIN_SMALL_LETTER_S_WITH_CARON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -570,14 +569,13 @@ void decode_iso_8859_15(void* p0, void* p1) {
         }
     }
 
-    //?? TODO 0xB4      0x017D  #       LATIN CAPITAL LETTER Z WITH CARON
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_character_equal((void*) &r, p1, (void*) ACUTE_ACCENT_ISO_8859_15_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) LATIN_CAPITAL_LETTER_Z_WITH_CARON_ISO_8859_15_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) ACUTE_ACCENT_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) LATIN_CAPITAL_LETTER_Z_WITH_CARON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -611,14 +609,13 @@ void decode_iso_8859_15(void* p0, void* p1) {
         }
     }
 
-    //?? TODO 0xB8      0x017E  #       LATIN SMALL LETTER Z WITH CARON
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_character_equal((void*) &r, p1, (void*) CEDILLA_ISO_8859_15_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) LATIN_SMALL_LETTER_Z_WITH_CARON_ISO_8859_15_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) CEDILLA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) LATIN_SMALL_LETTER_Z_WITH_CARON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -652,36 +649,33 @@ void decode_iso_8859_15(void* p0, void* p1) {
         }
     }
 
-    //?? TODO 0xBC      0x0152  #       LATIN CAPITAL LIGATURE OE
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_character_equal((void*) &r, p1, (void*) VULGAR_FRACTION_ONE_QUARTER_ISO_8859_15_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) LATIN_CAPITAL_LIGATURE_OE_ISO_8859_15_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) VULGAR_FRACTION_ONE_QUARTER_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) LATIN_CAPITAL_LIGATURE_OE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
-    //?? TODO 0xBD      0x0153  #       LATIN SMALL LIGATURE OE
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_character_equal((void*) &r, p1, (void*) VULGAR_FRACTION_ONE_HALF_ISO_8859_15_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) LATIN_SMALL_LIGATURE_OE_ISO_8859_15_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) VULGAR_FRACTION_ONE_HALF_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) LATIN_SMALL_LIGATURE_OE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
-    //?? TODO 0xBE      0x0178  #       LATIN CAPITAL LETTER Y WITH DIAERESIS
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_character_equal((void*) &r, p1, (void*) VULGAR_FRACTION_THREE_QUARTERS_ISO_8859_15_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) LATIN_CAPITAL_LETTER_Y_WITH_DIAERESIS_ISO_8859_15_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) VULGAR_FRACTION_THREE_QUARTERS_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) LATIN_CAPITAL_LETTER_Y_WITH_DIAERESIS_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 

@@ -11,8 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Implement "iso_8859_15_decoder.c"; see mapping to Unicode at:
-            ftp://ftp.unicode.org/Public/MAPPINGS/ISO8859/
+        * Complete decoders for Windows 1250 (copy from iso 8859-1 and only change some characters)
         * Continue xdt deserialiser
         * Define selector files for record begin and end etc.
         * Allocate new model part for each beginning record (id 8000)
