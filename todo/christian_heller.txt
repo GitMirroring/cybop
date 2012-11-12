@@ -11,7 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Complete decoders for Windows 1250 (copy from iso 8859-1 and only change some characters)
         * Continue xdt deserialiser
         * Define selector files for record begin and end etc.
         * Allocate new model part for each beginning record (id 8000)

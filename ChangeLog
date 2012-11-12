@@ -16,28 +16,32 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-11-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete windows 1252 character decoder
+
 2012-11-11  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Complete decoders ASCII, ISO-8859-1, ISO-8859-15
+        * Complete character decoders ascii, iso-8859-1, iso-8859-15
 
 2012-11-10  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Continue ISO-8859-15 decoder
+        * Continue iso-8859-15 decoder
 
 2012-11-09  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Continue ASCII, ISO/IEC 8859 and ISO-8859 character code constants
-        * Add files containing C0 and C1 control codes of ISO 6429
-        * Complete ISO-8859-1 and ISO-8859-15 constants
+        * Continue ascii, iso/iec 8859 and iso-8859 character code constants
+        * Add files containing c0 and c1 control codes of iso 6429
+        * Complete iso-8859-1 and iso-8859-15 constants
 
 2012-11-08  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Prepare ASCII, ISO/IEC 8859 and ISO-8859 character code constants
+        * Prepare ascii, iso/iec 8859 and iso-8859 character code constants
 
 2012-10-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue xdt deserialiser and make it compilable again
-        * Prepare ISO 8859-15 decoder
+        * Prepare iso 8859-15 decoder
 
 2012-10-05  Christian Heller  <christian.heller@tuxtax.de>
 

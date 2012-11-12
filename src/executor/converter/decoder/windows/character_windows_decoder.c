@@ -23,52 +23,51 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EXTENSION_ISO_8859_DECODER_SOURCE
-#define EXTENSION_ISO_8859_DECODER_SOURCE
+#ifndef CHARACTER_WINDOWS_DECODER_SOURCE
+#define CHARACTER_WINDOWS_DECODER_SOURCE
 
 #include "../../../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../executor/converter/decoder/iso_8859/iso_8859_1_decoder.c"
-#include "../../../../executor/converter/decoder/iso_8859/iso_8859_15_decoder.c"
+#include "../../../../executor/converter/decoder/windows/windows_1252_decoder.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the iso-8859 extension character data into utf-32 wide character data.
+ * Decodes the windows character into a utf-32 wide character.
  *
  * @param p0 the destination item
- * @param p1 the source data
+ * @param p1 the source character
  * @param p2 the encoding
  */
-void decode_iso_8859_extension(void* p0, void* p1, void* p2) {
+void decode_windows_character(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode iso-8859 extension.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode windows character.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ISO_8859_1_CYBOI_ENCODING);
+        compare_integer_equal((void*) &r, p2, (void*) WINDOWS_1252_CYBOI_ENCODING);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_iso_8859_1(p0, p1);
+            decode_windows_1252(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ISO_8859_15_CYBOI_ENCODING);
+        compare_integer_equal((void*) &r, p2, (void*) WINDOWS_1253_CYBOI_ENCODING);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_iso_8859_15(p0, p1);
+//??            decode_windows_1253(p0, p1);
         }
     }
 }
 
-/* EXTENSION_ISO_8859_DECODER_SOURCE */
+/* CHARACTER_WINDOWS_DECODER_SOURCE */
 #endif

@@ -23,52 +23,79 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EXTENSION_ISO_8859_DECODER_SOURCE
-#define EXTENSION_ISO_8859_DECODER_SOURCE
+#ifndef WINDOWS_1252_DECODER_SOURCE
+#define WINDOWS_1252_DECODER_SOURCE
 
-#include "../../../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../executor/converter/decoder/iso_8859/iso_8859_1_decoder.c"
-#include "../../../../executor/converter/decoder/iso_8859/iso_8859_15_decoder.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
+#include "../../../../executor/converter/decoder/ascii/ascii_decoder.c"
+#include "../../../../executor/converter/decoder/iso_8859/extension_iso_8859_decoder.c"
+#include "../../../../executor/converter/decoder/windows/special_windows_1252_decoder.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the iso-8859 extension character data into utf-32 wide character data.
+ * Decodes the windows 1252 character into a utf-32 wide character.
  *
  * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the encoding
+ * @param p1 the source character
  */
-void decode_iso_8859_extension(void* p0, void* p1, void* p2) {
+void decode_windows_1252(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode iso-8859 extension.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode windows 1252.");
 
-    // The comparison result.
+    // The comparison results.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // CAUTION! The ORDER of comparisons IS IMPORTANT!
+    // Do NOT change it easily!
+    //
+    // The character is filtered in the following order:
+    // - ASCII
+    // - Windows
+    // - ISO-8859
+    //
+
+    //
+    // Characters 0..127 (ascii)
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ISO_8859_1_CYBOI_ENCODING);
+        compare_integer_smaller((void*) &r, p1, (void*) NUMBER_128_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_iso_8859_1(p0, p1);
+            decode_ascii(p0, p1);
         }
     }
 
+    //
+    // Characters 128..159 (windows)
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) ISO_8859_15_CYBOI_ENCODING);
+        compare_integer_smaller((void*) &r, p1, (void*) NUMBER_160_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode_iso_8859_15(p0, p1);
+            decode_windows_1252_special(p0, p1);
         }
+    }
+
+    //
+    // Characters 160..255 (iso-8859)
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        decode_iso_8859_extension(p0, p1, (void*) ISO_8859_1_CYBOI_ENCODING);
     }
 }
 
-/* EXTENSION_ISO_8859_DECODER_SOURCE */
+/* WINDOWS_1252_DECODER_SOURCE */
 #endif

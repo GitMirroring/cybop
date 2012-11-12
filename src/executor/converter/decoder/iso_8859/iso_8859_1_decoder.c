@@ -37,14 +37,14 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the ISO 8859-1 character data into UTF-32 wide character data.
+ * Decodes the iso-8859-1 character data into utf-32 wide character data.
  *
  * @param p0 the destination item
  * @param p1 the source data
  */
 void decode_iso_8859_1(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode ISO 8859-1.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode iso-8859-1.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

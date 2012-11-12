@@ -54,6 +54,10 @@
 // This file contains ASCII character code constants.
 //
 
+//
+// The non-printable control characters in range 0x00-0x1F
+//
+
 /**
  * The null ascii character code model. U+0000
  * It is used as string termination in the C programming language.
@@ -207,6 +211,10 @@ static char* RECORD_SEPARATOR_ASCII_CHARACTER_CODE_MODEL = RECORD_SEPARATOR_ASCI
 /** The unit separator ascii character code model. U+001F */
 static char UNIT_SEPARATOR_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = {0x1F};
 static char* UNIT_SEPARATOR_ASCII_CHARACTER_CODE_MODEL = UNIT_SEPARATOR_ASCII_CHARACTER_CODE_MODEL_ARRAY;
+
+//
+// The printable characters in range 0x20-0x7E
+//
 
 /** The space ascii character code model. U+0020 */
 static char SPACE_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = {0x20};
@@ -643,6 +651,10 @@ static char* RIGHT_CURLY_BRACKET_ASCII_CHARACTER_CODE_MODEL = RIGHT_CURLY_BRACKE
 /** The tilde ascii character code model. U+007E */
 static char TILDE_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = {0x7E};
 static char* TILDE_ASCII_CHARACTER_CODE_MODEL = TILDE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
+
+//
+// The non-printable control character 0x7F
+//
 
 /** The delete ascii character code model. U+007F */
 static char DELETE_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = {0x7F};

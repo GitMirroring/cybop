@@ -37,7 +37,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the ASCII character data into UTF-32 wide character data.
+ * Decodes the ascii character data into utf-32 wide character data.
  *
  * @param p0 the destination item
  * @param p1 the source data

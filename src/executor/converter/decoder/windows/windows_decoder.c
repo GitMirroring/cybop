@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ISO_8859_DECODER_SOURCE
-#define ISO_8859_DECODER_SOURCE
+#ifndef WINDOWS_DECODER_SOURCE
+#define WINDOWS_DECODER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -32,21 +32,21 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/converter/decoder/iso_8859/element_iso_8859_decoder.c"
+#include "../../../../executor/converter/decoder/windows/element_windows_decoder.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the iso-8859 character data into utf-32 wide character data.
+ * Decodes the windows character data into UTF-32 wide character data.
  *
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the encoding
  */
-void decode_iso_8859(void* p0, void* p1, void* p2, void* p3) {
+void decode_windows(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode iso-8859.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode windows.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -74,9 +74,9 @@ void decode_iso_8859(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        decode_iso_8859_element(p0, p1, (void*) &j, p3);
+        decode_windows_element(p0, p1, (void*) &j, p3);
     }
 }
 
-/* ISO_8859_DECODER_SOURCE */
+/* WINDOWS_DECODER_SOURCE */
 #endif
