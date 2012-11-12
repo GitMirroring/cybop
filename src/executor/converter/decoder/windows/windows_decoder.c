@@ -75,6 +75,9 @@ void decode_windows(void* p0, void* p1, void* p2, void* p3) {
         }
 
         decode_windows_element(p0, p1, (void*) &j, p3);
+
+        // Increment loop variable.
+        j++;
     }
 }
 

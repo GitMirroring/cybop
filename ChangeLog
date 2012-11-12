@@ -18,6 +18,7 @@
 
 2012-11-12  Christian Heller  <christian.heller@tuxtax.de>
 
+        * Debug character decoder
         * Complete windows 1252 character decoder
 
 2012-11-11  Christian Heller  <christian.heller@tuxtax.de>

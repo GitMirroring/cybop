@@ -40,6 +40,51 @@
 //
 
 /*
+ * The windows-874 cybol encoding.
+ *
+ * Windows-874 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_874_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'8', L'7', L'4'};
+static wchar_t* WINDOWS_874_CYBOL_ENCODING = WINDOWS_874_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_874_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-932 cybol encoding.
+ *
+ * Windows-932 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_932_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'9', L'3', L'2'};
+static wchar_t* WINDOWS_932_CYBOL_ENCODING = WINDOWS_932_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_932_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-936 cybol encoding.
+ *
+ * Windows-936 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_936_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'9', L'3', L'6'};
+static wchar_t* WINDOWS_936_CYBOL_ENCODING = WINDOWS_936_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_936_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-949 cybol encoding.
+ *
+ * Windows-949 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_949_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'9', L'4', L'9'};
+static wchar_t* WINDOWS_949_CYBOL_ENCODING = WINDOWS_949_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_949_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-950 cybol encoding.
+ *
+ * Windows-950 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_950_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'9', L'5', L'0'};
+static wchar_t* WINDOWS_950_CYBOL_ENCODING = WINDOWS_950_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_950_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
  * The windows-1250 cybol encoding.
  *
  * Windows-1250 for Central European languages that use Latin script.
@@ -47,6 +92,78 @@
 static wchar_t WINDOWS_1250_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'0'};
 static wchar_t* WINDOWS_1250_CYBOL_ENCODING = WINDOWS_1250_CYBOL_ENCODING_ARRAY;
 static int* WINDOWS_1250_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-1251 cybol encoding.
+ *
+ * Windows-1251 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_1251_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'1'};
+static wchar_t* WINDOWS_1251_CYBOL_ENCODING = WINDOWS_1251_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_1251_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-1252 cybol encoding.
+ *
+ * Windows-1252 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_1252_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'2'};
+static wchar_t* WINDOWS_1252_CYBOL_ENCODING = WINDOWS_1252_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_1252_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-1253 cybol encoding.
+ *
+ * Windows-1253 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_1253_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'3'};
+static wchar_t* WINDOWS_1253_CYBOL_ENCODING = WINDOWS_1253_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_1253_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-1254 cybol encoding.
+ *
+ * Windows-1254 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_1254_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'4'};
+static wchar_t* WINDOWS_1254_CYBOL_ENCODING = WINDOWS_1254_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_1254_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-1255 cybol encoding.
+ *
+ * Windows-1255 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_1255_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'5'};
+static wchar_t* WINDOWS_1255_CYBOL_ENCODING = WINDOWS_1255_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_1255_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-1256 cybol encoding.
+ *
+ * Windows-1256 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_1256_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'6'};
+static wchar_t* WINDOWS_1256_CYBOL_ENCODING = WINDOWS_1256_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_1256_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-1257 cybol encoding.
+ *
+ * Windows-1257 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_1257_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'7'};
+static wchar_t* WINDOWS_1257_CYBOL_ENCODING = WINDOWS_1257_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_1257_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*
+ * The windows-1258 cybol encoding.
+ *
+ * Windows-1258 for Central European languages that use Latin script.
+ */
+static wchar_t WINDOWS_1258_CYBOL_ENCODING_ARRAY[] = {L'w', L'i', L'n', L'd', L'o', L'w', L's', L'-', L'1', L'2', L'5', L'8'};
+static wchar_t* WINDOWS_1258_CYBOL_ENCODING = WINDOWS_1258_CYBOL_ENCODING_ARRAY;
+static int* WINDOWS_1258_CYBOL_ENCODING_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* WINDOWS_CYBOL_ENCODING_CONSTANT_SOURCE */
 #endif
