@@ -96,14 +96,27 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-/*??
 fwprintf(stdout, L"\nTEST receive file ec: %i\n", *((int*) ec));
 fwprintf(stdout, L"TEST receive file encoding: %i\n", *((int*) p6));
 fwprintf(stdout, L"TEST receive file dc: %i\n", *((int*) dc));
-*/
 
     // Deserialise data via type (language).
     deserialise(p0, p1, dd, dc, p4, p5);
+
+//?? TEST BEGIN
+void* testmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+void* testmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+void* testpd = *NULL_POINTER_STATE_CYBOI_MODEL;
+void* testpc = *NULL_POINTER_STATE_CYBOI_MODEL;
+copy_array_forward((void*) &testmd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+copy_array_forward((void*) &testmc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+copy_array_forward((void*) &testpd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+copy_array_forward((void*) &testpc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST receive file testmc: %i\n", *((int*) testmc));
+//?? fwprintf(stdout, L"TEST receive file testmd: %ls\n", (wchar_t*) testmd);
+//?? fwprintf(stdout, L"TEST receive file testpc: %i\n", *((int*) testpc));
+fwprintf(stdout, L"TEST receive file testpd: %ls\n", (wchar_t*) testpd);
+//?? TEST END
 
     // Deallocate byte message item.
     deallocate_item((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

@@ -39,13 +39,22 @@
  */
 void compare_character_smaller_or_equal(void* p0, void* p1, void* p2) {
 
+    //
+    // CAUTION! Use "unsigned char" with range 0..+255
+    // and NOT just "char" here.
+    // The reason is that this type is most commonly used for
+    // characters from 0..255 (ascii extended by iso-8859),
+    // for which the simple "char" type with range -128..+127
+    // would NOT suffice.
+    //
+
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        char* rv = (char*) p2;
+        unsigned char* rv = (unsigned char*) p2;
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            char* lv = (char*) p1;
+            unsigned char* lv = (unsigned char*) p1;
 
             // CAUTION! Do NOT call the logger here.
             // It might use functions that cause circular references.

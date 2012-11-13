@@ -131,7 +131,11 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+            // CAUTION! Using SIGNED character is NOT sufficient!
+            // It covers the range -127..+127.
+            // But ASCII extended by ISO-8859 occupies the range 0..+255.
+            // Therefore, the UNSIGNED character is used here.
+            copy_integer(p0, (void*) UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
         } else if (*t == *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 

@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Replace simple "char" with "unsigned char" everywhere
+
         * Continue xdt deserialiser
         * Define selector files for record begin and end etc.
         * Allocate new model part for each beginning record (id 8000)

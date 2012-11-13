@@ -74,10 +74,6 @@ void decode_iso_8859(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-if (j == 3) {
-fwprintf(stdout, L"TEST decode iso 8859 j: %i\n", j);
-}
-
         decode_iso_8859_element(p0, p1, (void*) &j, p3);
 
         // Increment loop variable.
