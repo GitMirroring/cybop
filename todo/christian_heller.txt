@@ -18,6 +18,9 @@
         * Allocate new model part for each beginning record (id 8000)
             (dosn't matter that other fields inside the record are added to the properties part)
 
+        * Simplify cybol files by using standard attribute values like "utf-8" for encoding etc. inside cyboi
+        * Read all cybol attributes and replace cyboi-internal standard value only if attribute exists
+
         * Check all places where a *NULL_POINTER_STATE_CYBOI_MODEL is handed over as parametre!
             If it gets manipulated inside the called function, e.g. p4 in file "part_record_xdt_deserialiser.c":
                 // Remember part properties item as potential future parent node.
