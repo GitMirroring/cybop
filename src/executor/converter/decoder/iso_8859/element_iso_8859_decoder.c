@@ -56,9 +56,9 @@ void decode_iso_8859_element(void* p0, void* p1, void* p2, void* p3) {
     // But this is going to cause trouble when deserialising the string,
     // since the null character often serves as termination.
     // Therefore, do NOT use the following initialisation:
-    // char c = *NULL_ASCII_CHARACTER_CODE_MODEL;
+    // unsigned char c = *NULL_ASCII_CHARACTER_CODE_MODEL;
     // Instead, the SPACE character is used by default.
-    char c = *SPACE_ASCII_CHARACTER_CODE_MODEL;
+    unsigned char c = *SPACE_ASCII_CHARACTER_CODE_MODEL;
 
     // Get source character at given index.
     copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);

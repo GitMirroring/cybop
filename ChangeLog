@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-12-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace simple "char" with "unsigned char" everywhere
+
 2012-11-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Find bug that "unsigned char" (range range 0..+255) has to be used instead of just "char" (range -127..+127),

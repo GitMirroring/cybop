@@ -49,7 +49,7 @@ void decode_windows_element(void* p0, void* p1, void* p2, void* p3) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode windows element.");
 
     // The source character.
-    char c = *NULL_ASCII_CHARACTER_CODE_MODEL;
+    unsigned char c = *NULL_ASCII_CHARACTER_CODE_MODEL;
 
     // Get source character at given index.
     copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);

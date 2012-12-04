@@ -27,11 +27,12 @@
 #define VARIABLE_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The Charset variable http name. */
-static char CHARSET_VARIABLE_HTTP_NAME_ARRAY[] = {'C', 'h', 'a', 'r', 's', 'e', 't'};
-static char* CHARSET_VARIABLE_HTTP_NAME = CHARSET_VARIABLE_HTTP_NAME_ARRAY;
+static unsigned char CHARSET_VARIABLE_HTTP_NAME_ARRAY[] = {'C', 'h', 'a', 'r', 's', 'e', 't'};
+static unsigned char* CHARSET_VARIABLE_HTTP_NAME = CHARSET_VARIABLE_HTTP_NAME_ARRAY;
 static int* CHARSET_VARIABLE_HTTP_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* VARIABLE_HTTP_NAME_CONSTANT_SOURCE */

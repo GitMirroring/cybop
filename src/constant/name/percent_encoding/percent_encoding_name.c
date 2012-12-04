@@ -31,7 +31,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The begin percent encoding name. */
-static char* BEGIN_PERCENT_ENCODING_NAME = PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
+static unsigned char* BEGIN_PERCENT_ENCODING_NAME = PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* BEGIN_PERCENT_ENCODING_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PERCENT_ENCODING_NAME_CONSTANT_SOURCE */

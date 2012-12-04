@@ -43,11 +43,11 @@ void copy_character(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        char* s = (char*) p1;
+        unsigned char* s = (unsigned char*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            char* d = (char*) p0;
+            unsigned char* d = (unsigned char*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy character.");
 
