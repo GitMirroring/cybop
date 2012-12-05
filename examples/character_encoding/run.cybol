@@ -12,12 +12,22 @@
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="character_encoding/iso-8859-15.txt"/>
         <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".text"/>
     </part>
+    <!--
+        Since printing on console does not display
+        all unicode characters correctly,
+        the output is sent to a utf-8-encoded text file here,
+        in order to be tested for correctness.
+    -->
     <part name="print_text" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
+<!--
+        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Ä"/>
+-->
         <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".text"/>
+        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_CHARACTER_ENCODING.txt"/>
         <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>

@@ -11,6 +11,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        [It was already verified that the iso-8859-15 character decoder works correctly.
+        Now, continue xdt deserialiser which for some reason does not produce knowledge tree nodes yet ...]
+
         * Debug xdt deserialiser
         * Define selector files for record begin and end etc.
         * Allocate new model part for each beginning record (id 8000)
