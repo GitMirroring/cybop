@@ -65,6 +65,8 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
+fwprintf(stdout, L"TEST deserialise xdt record tree level: %i\n", *((int*) p2));
+
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_smaller_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -76,7 +78,7 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         }
 
         //?? TODO: Probably, the break flag does NOT need to be handed over as parametre.
-        //?? If so, then delete the last parametre here later!
+        //?? If so, then delete the parametre before the last parametre here later!
         deserialise_xdt_record_element(p0, p1, p2, p3, p4, (void*) &b, p5);
     }
 }

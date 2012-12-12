@@ -75,6 +75,9 @@ void deserialise_xdt_field_hierarchy(void* p0, void* p1) {
         }
     }
 
+    //?? TEST ONLY. DELETE LATER!
+    copy_integer(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
     //?? Copy hierarchy level for ALL possible xdt fields here ...
 }
 

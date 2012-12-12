@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2012-12-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug xdt deserialiser
+
 2012-12-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Verify that iso-8859-15 character decoder works correctly

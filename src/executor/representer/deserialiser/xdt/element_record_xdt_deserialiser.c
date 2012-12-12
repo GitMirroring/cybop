@@ -51,6 +51,8 @@ void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record element.");
 
+fwprintf(stdout, L"TEST deserialise xdt record element tree level: %i\n", *((int*) p2));
+
     // The field content data, count.
     void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -71,10 +73,12 @@ void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void
 
         // Figure out field hierarchy.
         deserialise_xdt_field_hierarchy((void*) &h, (void*) &i);
+fwprintf(stdout, L"TEST deserialise xdt record element deserialised hierarchy: %i\n", h);
     }
 
     // Process field depending on hierarchy level.
     select_xdt_field_hierarchy(p0, p1, p2, p3, p4, cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p5, p6);
+fwprintf(stdout, L"TEST deserialise xdt record element select hierarchy: %i\n", h);
 }
 
 /* ELEMENT_RECORD_XDT_DESERIALISER_SOURCE */

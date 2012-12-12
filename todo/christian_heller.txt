@@ -13,6 +13,7 @@
 
         [It was already verified that the iso-8859-15 character decoder works correctly.
         Now, continue xdt deserialiser which for some reason does not produce knowledge tree nodes yet ...]
+        * Check why copying format integer number fails in file "part_record_xdt_deserialiser.c"
 
         * Debug xdt deserialiser
         * Define selector files for record begin and end etc.
