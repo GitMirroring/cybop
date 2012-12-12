@@ -28,6 +28,7 @@
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
+/*??
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
@@ -36,8 +37,13 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
+*/
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/address_cybol_model.c"
 #include "../../../../constant/model/cybol/communication_style_cybol_model.c"
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
@@ -46,10 +52,10 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/memoriser/allocator.c"
+#include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/socket_type_size.c"
 
 /**

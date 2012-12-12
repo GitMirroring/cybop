@@ -28,6 +28,7 @@
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
+/*??
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
@@ -36,78 +37,63 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
+*/
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cybol/address_cybol_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/communication_style_cybol_model.c"
-#include "../../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../../constant/model/cybol/namespace_cybol_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/memoriser/allocator.c"
-#include "../../../../variable/type_size/socket_type_size.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Starts up socket communication style.
  *
  * @param p0 the communication style (pointer reference)
- * @param p1 the communication style model
+ * @param p1 the communication style model data
  * @param p2 the communication style model count
  */
 void startup_socket_style(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket style.");
 
-        int* s = (int*) p0;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket style.");
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The comparison result.
-        int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        compare_integer_equal((void*) &r, p1, (void*) STREAM_COMMUNICATION_STYLE_CYBOL_MODEL);
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p1, (void*) STREAM_COMMUNICATION_STYLE_CYBOL_MODEL);
-
-            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                *s = SOCK_STREAM;
-            }
+            copy_integer(p0, (void*) &SOCK_STREAM);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p1, (void*) DATAGRAM_COMMUNICATION_STYLE_CYBOL_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) DATAGRAM_COMMUNICATION_STYLE_CYBOL_MODEL);
 
-            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                *s = SOCK_DGRAM;
-            }
+            copy_integer(p0, (void*) &SOCK_DGRAM);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p1, (void*) RAW_COMMUNICATION_STYLE_CYBOL_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) RAW_COMMUNICATION_STYLE_CYBOL_MODEL);
 
-            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                *s = SOCK_RAW;
-            }
+            copy_integer(p0, (void*) &SOCK_RAW);
         }
+    }
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket style. The communication style model is not known.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket style. The communication style is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket style. The communication style model is not known.");
     }
 }
 
