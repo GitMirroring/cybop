@@ -110,6 +110,14 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
         }
     }
+
+    //??
+    //?? TEST ONLY! DELETE LATER!
+    //??
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+    }
 }
 
 /* FORMAT_FIELD_XDT_DESERIALISER_SOURCE */

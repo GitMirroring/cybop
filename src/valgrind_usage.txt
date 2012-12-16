@@ -1,0 +1,7 @@
+
+Valgrind Usage
+==============
+
+valgrind --log-file=memcheck.log /home/project/cybop/src/controller/cyboi bdt2html/run.cybol
+
+valgrind --tool=memcheck --log-file=memcheck.log --leak-check=full --track-origins=yes /home/project/cybop/src/controller/cyboi bdt2html/run.cybol

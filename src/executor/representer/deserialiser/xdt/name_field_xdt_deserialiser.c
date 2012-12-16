@@ -2115,6 +2115,14 @@ void deserialise_xdt_field_name(void* p0, void* p1) {
             (void*) SYSTEM_INTERNAL_PARAMETRE_FIELD_XDT_CYBOI_NAME, (void*) SYSTEM_INTERNAL_PARAMETRE_FIELD_XDT_CYBOI_NAME_COUNT);
     }
 */
+
+    //??
+    //?? TEST ONLY! DELETE LATER!
+    //??
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        overwrite_item_element(p0, (void*) L"empty", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    }
 }
 
 /* NAME_FIELD_XDT_DESERIALISER_SOURCE */

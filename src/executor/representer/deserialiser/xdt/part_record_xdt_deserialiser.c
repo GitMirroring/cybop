@@ -92,15 +92,27 @@ fwprintf(stdout, L"TEST deserialise xdt record part 3 t: %i\n", t);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST deserialise xdt record part 4 id: %ls\n", (wchar_t*) p3);
+fwprintf(stdout, L"TEST pn: %i\n", pn);
+fwprintf(stdout, L"TEST pf: %i\n", pf);
+fwprintf(stdout, L"TEST pt: %i\n", pt);
+fwprintf(stdout, L"TEST pm: %i\n", pm);
+fwprintf(stdout, L"TEST pp: %i\n", pp);
+
+fwprintf(stdout, L"TEST deserialise xdt record part 4 p3: %i\n", p3);
+fwprintf(stdout, L"TEST deserialise xdt record part 4 *p3: %i\n", *((int*) p3));
     // Fill part name item with cyboi-internal name using field identification.
     deserialise_xdt_field_name((void*) &pn, p3);
 fwprintf(stdout, L"TEST deserialise xdt record part 5 t: %i\n", t);
 fwprintf(stdout, L"TEST deserialise xdt record part 5 pf: %i\n", *((int*) pf));
+
+fwprintf(stdout, L"TEST EXTRA f: %i\n", f);
+fwprintf(stdout, L"TEST EXTRA t: %i\n", t);
+fwprintf(stdout, L"TEST EXTRA pf: %i\n", pf);
+fwprintf(stdout, L"TEST EXTRA *pf: %i\n", *((int*) pf));
     // Fill part format item.
-    overwrite_item_element(pf, (void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST deserialise xdt record part 6 pf: %i\n", *((int*) pf));
+//??    overwrite_item_element(pf, (void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 fwprintf(stdout, L"TEST deserialise xdt record part 6 t: %i\n", t);
+fwprintf(stdout, L"TEST deserialise xdt record part 6 pf: %i\n", *((int*) pf));
     // Fill part type item.
     overwrite_item_element(pt, (void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part model item with field content.
