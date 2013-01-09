@@ -44,10 +44,9 @@
  * @param p2 the current tree level
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining
- * @param p5 the loop break flag
- * @param p6 the bdt standard main version
+ * @param p5 the bdt standard main version
  */
-void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_xdt_record_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record element.");
 
@@ -63,7 +62,7 @@ fwprintf(stdout, L"TEST deserialise xdt record element tree level: %i\n", *((int
     // The field size.
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    deserialise_xdt_field((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p3, p4, p6);
+    deserialise_xdt_field((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p3, p4, p5);
 
 //?? fwprintf(stdout, L"TEST deserialise xdt record element deserialised hierarchy from field: %i\n", h);
 
@@ -80,7 +79,7 @@ fwprintf(stdout, L"TEST deserialise xdt record element tree level: %i\n", *((int
     }
 
     // Process field depending on hierarchy level.
-    select_xdt_field_hierarchy(p0, p1, p2, p3, p4, cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p5, p6);
+    select_xdt_field_hierarchy(p0, p1, p2, p3, p4, cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p5);
 }
 
 /* ELEMENT_RECORD_XDT_DESERIALISER_SOURCE */

@@ -63,10 +63,9 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
  * @param p7 the field identification
  * @param p8 the field dependency hierarchy
  * @param p9 the field size
- * @param p10 the loop break flag
- * @param p11 the bdt standard main version
+ * @param p10 the bdt standard main version
  */
-void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt field hierarchy.");
 
@@ -132,7 +131,7 @@ fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", 
             // Deserialise fields following this field recursively.
             // CAUTION! Hand over part properties item p1 as new parent parametre.
             // CAUTION! Also, hand over NEW part properties item p as POTENTIAL new parent parametre.
-            deserialise_xdt_record(p1, p, p2, p3, p4, p11);
+            deserialise_xdt_record(p1, p, p2, p3, p4, p10);
 
             // Decrement current tree level.
             calculate_integer_subtract(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -147,9 +146,6 @@ fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", 
 
             // This field belongs to a higher tree level (parent or higher)
             // and must NOT be added to the current parent part.
-
-            // Set break flag.
-//??            copy_integer(p10, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Reset data position and count remaining BACKWARD to
             // the beginning of the field last read by using its size.
@@ -171,7 +167,7 @@ fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", 
         // Presumably, a field hierarchy value is wrong.
         // Therefore, ignore field and just do nothing.
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt field hierarchy. The hierarchy is more than one level below the current one.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt field hierarchy. The hierarchy is more than one level below the current one.");
     }
 }
 

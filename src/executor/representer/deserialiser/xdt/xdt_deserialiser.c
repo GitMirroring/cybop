@@ -95,7 +95,7 @@
 //
 
 /**
- * Deserialises the source into the destination, according to the given format.
+ * Deserialises xdt data.
  *
  * @param p0 the destination properties item
  * @param p1 the source data

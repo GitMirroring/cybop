@@ -79,9 +79,7 @@ fwprintf(stdout, L"TEST deserialise xdt record rem: %i\n", *((int*) p4));
             break;
         }
 
-        //?? TODO: Probably, the break flag does NOT need to be handed over as parametre.
-        //?? If so, then delete the parametre before the last parametre here later!
-        deserialise_xdt_record_element(p0, p1, p2, p3, p4, (void*) &b, p5);
+        deserialise_xdt_record_element(p0, p1, p2, p3, p4, p5);
     }
 }
 

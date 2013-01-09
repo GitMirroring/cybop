@@ -12,6 +12,10 @@
 #
 
         * Continue xdt deserialiser
+        * Parse data in two steps: 1 xdt + 2 bdt/gdt/ldt, similar to 1 xml + 2 cybol; see file "deserialiser.c"
+            this absolutely makes sense, since the fields are just markup comparable to xml,
+            whereas the contained record identifications are comparable to cybol vocabulary
+        --
         * Allocate new model part for each beginning record (id 8000)
             (dosn't matter that other fields inside the record are added to the properties part)
         * Define selector files for record begin and end etc.

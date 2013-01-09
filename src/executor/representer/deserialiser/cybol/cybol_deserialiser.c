@@ -360,7 +360,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) REFERENCE_PATH_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) KNOWLEDGE_PATH_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -370,7 +370,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) KNOWLEDGE_PATH_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) REFERENCE_PATH_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
