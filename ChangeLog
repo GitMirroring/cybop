@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-01-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue xdt deserialiser
+
 2012-12-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug xdt deserialiser

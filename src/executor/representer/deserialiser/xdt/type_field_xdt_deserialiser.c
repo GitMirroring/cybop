@@ -74,6 +74,7 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
     // element
     //
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
@@ -83,6 +84,7 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
             copy_integer(p0, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
         }
     }
+*/
 
     //
     // number

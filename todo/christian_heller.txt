@@ -11,14 +11,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        [It was already verified that the iso-8859-15 character decoder works correctly.
-        Now, continue xdt deserialiser which for some reason does not produce knowledge tree nodes yet ...]
-        * Check why copying format integer number fails in file "part_record_xdt_deserialiser.c"
-
-        * Debug xdt deserialiser
-        * Define selector files for record begin and end etc.
+        * Continue xdt deserialiser
         * Allocate new model part for each beginning record (id 8000)
             (dosn't matter that other fields inside the record are added to the properties part)
+        * Define selector files for record begin and end etc.
+        * Complete file "hierarchy_field_xdt_deserialiser.c"
+        * Complete file "format_field_xdt_deserialiser.c"
+        * Complete file "name_field_xdt_deserialiser.c"
+        * Remove outcommented section on element/part in file "type_field_xdt_deserialiser.c"
 
         * Simplify cybol files by using standard attribute values like "utf-8" for encoding etc. inside cyboi
         * Read all cybol attributes and replace cyboi-internal standard value only if attribute exists
@@ -93,7 +93,7 @@
             give a brief overview which ones should be read first if someone was trying to use the system
         * Reapply to become an official GNU project
 
-        * Search for "??" (places that are left TODO) and clean up source code
+        * Search for "??" (places that are left TODO) and code commented with "TEST", in order to clean it up
 
         * Check out handling of "super" property. Is it necessary at all?
             ==> use "prototype programming" paradigm-like behaviour, i.e.:
@@ -111,9 +111,7 @@
                 so the upper-most category for a tui model may be one that
                 provides ALL essential properties like "shape", "border", "background" etc.
 
-        * Delete directories "controller/globaliser/" and "controller/unglobaliser/" if not needed anymore
-
-        Q: Why should a tui knowledge template NOT be implemented with properties of abstraction "knowledge" or "encapsulated", as follows:
+        Q: Why should a tui knowledge template NOT be implemented with properties of abstraction "knowledge" or "reference" (formerly "encapsulated"), as follows:
 
             <part name="apw_entry" channel="inline" abstraction="character" model="a - Starte Arztpraxis Wiegand (APW) im DOS Emulator (DOSemu)">
                 <property name="position" channel="inline" abstraction="integer" model="1,3,0"/>
@@ -196,10 +194,6 @@
                 this is a kind of "prototype programming"-like approach
             ==> for now, as temporary solution, the properties are stored redundantly (twice) in the template
                 that needs them (for example "menu_item" entries in the resmedicinae-revue menu) and in its super template
-
-        * Implement an own solution for character set conversion, since the
-            three function sets of the gnu C library all have their drawbacks
-            (see comment at beginning of file "utf_8_unicode_character_converter.c")
 
         * Add a "fill_array" function, useful e.g. in function "startup_internal_memory";
             possibly use function pointer to hand over function to be executed as loop body

@@ -65,6 +65,8 @@ fwprintf(stdout, L"TEST deserialise xdt record element tree level: %i\n", *((int
 
     deserialise_xdt_field((void*) &cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p3, p4, p6);
 
+//?? fwprintf(stdout, L"TEST deserialise xdt record element deserialised hierarchy from field: %i\n", h);
+
     if (h == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // Probably, the bdt main version is < 3.
@@ -73,12 +75,12 @@ fwprintf(stdout, L"TEST deserialise xdt record element tree level: %i\n", *((int
 
         // Figure out field hierarchy.
         deserialise_xdt_field_hierarchy((void*) &h, (void*) &i);
-fwprintf(stdout, L"TEST deserialise xdt record element deserialised hierarchy: %i\n", h);
+
+//?? fwprintf(stdout, L"TEST deserialise xdt record element deserialised hierarchy from comparison: %i\n", h);
     }
 
     // Process field depending on hierarchy level.
     select_xdt_field_hierarchy(p0, p1, p2, p3, p4, cd, (void*) &cc, (void*) &i, (void*) &h, (void*) &s, p5, p6);
-fwprintf(stdout, L"TEST deserialise xdt record element select hierarchy: %i\n", h);
 }
 
 /* ELEMENT_RECORD_XDT_DESERIALISER_SOURCE */

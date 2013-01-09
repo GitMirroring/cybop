@@ -69,6 +69,8 @@ fwprintf(stdout, L"TEST deserialise xdt record tree level: %i\n", *((int*) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST deserialise xdt record rem: %i\n", *((int*) p4));
+
         compare_integer_smaller_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
