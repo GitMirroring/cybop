@@ -23,23 +23,24 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FORMAT_FIELD_XDT_DESERIALISER_SOURCE
-#define FORMAT_FIELD_XDT_DESERIALISER_SOURCE
+#ifndef FORMAT_FIELD_BASIC_XDT_DESERIALISER_SOURCE
+#define FORMAT_FIELD_BASIC_XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/name/xdt/field_xdt_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/name/xdt/field_xdt_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the xdt field format into a cyboi format.
+ * Deserialises the xdt basic field format into a cyboi format.
  *
- * All fields listed in the xdt standard have a defined format (type), e.g.:
+ * All fields listed in the xdt standard have one of
+ * the following defined formats (types), e.g.:
  * - num
  * - float
  * - datum
@@ -54,17 +55,9 @@
  * @param p0 the destination cyboi format data
  * @param p1 the source xdt field identification data
  */
-void deserialise_xdt_field_format(void* p0, void* p1) {
+void deserialise_xdt_basic_field_format(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field format.");
-
-    // CAUTION! Do NOT use the "append" function here!
-    // The destination has been given a size of ONE,
-    // so that reallocation is not necessary for adding an element.
-    // Therefore, the "overwrite" function has to be used instead.
-    //
-    // CAUTION! The "true" flag HAS TO BE SET for the "overwrite" function,
-    // so that the destination gets reallocated automatically when necessary.
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic field format.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -110,7 +103,12 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt basic field format. The field identification is unknown.");
+    }
 }
 
-/* FORMAT_FIELD_XDT_DESERIALISER_SOURCE */
+/* FORMAT_FIELD_BASIC_XDT_DESERIALISER_SOURCE */
 #endif

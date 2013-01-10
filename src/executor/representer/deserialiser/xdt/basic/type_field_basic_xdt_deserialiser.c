@@ -23,27 +23,27 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TYPE_FIELD_XDT_DESERIALISER_SOURCE
-#define TYPE_FIELD_XDT_DESERIALISER_SOURCE
+#ifndef TYPE_FIELD_BASIC_XDT_DESERIALISER_SOURCE
+#define TYPE_FIELD_BASIC_XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the xdt field format into a cyboi runtime type.
+ * Deserialises the xdt basic field format into a cyboi runtime type.
  *
  * @param p0 the destination cyboi runtime type data
  * @param p1 the source cyboi format data
  */
-void deserialise_xdt_field_type(void* p0, void* p1) {
+void deserialise_xdt_basic_field_type(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field type.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic field type.");
 
     // CAUTION! Do NOT use the "append" function here!
     // The destination has been given a size of ONE,
@@ -69,22 +69,6 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
             copy_integer(p0, (void*) DATETIME_STATE_CYBOI_TYPE);
         }
     }
-
-    //
-    // element
-    //
-
-/*??
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-        }
-    }
-*/
 
     //
     // number
@@ -126,9 +110,9 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field type. The format is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt basic field type. The format is unknown.");
     }
 }
 
-/* TYPE_FIELD_XDT_DESERIALISER_SOURCE */
+/* TYPE_FIELD_BASIC_XDT_DESERIALISER_SOURCE */
 #endif
