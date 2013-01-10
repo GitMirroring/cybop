@@ -48,15 +48,16 @@
  * @param p2 the field identification count
  * @param p3 the field content data
  * @param p4 the field content count
+ * @param p5 the field identification as integer number
  */
-void deserialise_xdt_basic_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_xdt_basic_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic part.");
 
     // The field format.
-    int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The field type.
-    int t = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part name, format, type, model, properties item.
@@ -64,13 +65,12 @@ void deserialise_xdt_basic_part(void* p0, void* p1, void* p2, void* p3, void* p4
     void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Deserialise field identification into field format.
-    deserialise_xdt_field_format((void*) &f, p3);
+    deserialise_xdt_basic_field_format((void*) &f, p5);
     // Deserialise field format into cyboi runtime type.
     // It is needed for allocating the new part.
-    deserialise_xdt_field_type((void*) &t, (void*) &f);
+    deserialise_xdt_basic_field_type((void*) &t, (void*) &f);
 
     // Allocate part.
     // CAUTION! Use the cyboi runtime type determined above
@@ -85,20 +85,16 @@ void deserialise_xdt_basic_part(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &pf, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
     // Fill part name item with cyboi-internal name using field identification.
-    deserialise_xdt_field_name(pn, p3);
+    overwrite_item_element(pn, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part format item.
     overwrite_item_element(pf, (void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part type item.
     overwrite_item_element(pt, (void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Fill part model item with field content.
     // CAUTION! Consider different types! Not all are characters.
-    append_item_element(pm, p1, (void*) &t, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-    // Remember part properties item as potential future parent node.
-    copy_pointer(p4, (void*) &pp);
+    overwrite_item_element(pm, p3, (void*) &t, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Add part to destination.
     append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

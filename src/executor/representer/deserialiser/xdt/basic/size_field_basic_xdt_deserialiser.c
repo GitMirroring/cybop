@@ -63,28 +63,7 @@ void deserialise_xdt_basic_field_size(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The temporary item.
-            void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The temporary item data.
-            void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Allocate temporary item.
-            allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-            // Decode xdt field element.
-            deserialise_cybol_integer_value(i, *sd, p3, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-            // Get temporary item data.
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            // Copy temporary value to destination.
-            copy_integer(p0, id);
-
-            // Deallocate temporary item.
-            deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deserialise_cybol_integer_value_primitive(p0, *sd, p3, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             // Move position.
             move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

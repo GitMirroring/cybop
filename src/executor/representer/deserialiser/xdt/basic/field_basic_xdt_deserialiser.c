@@ -73,6 +73,8 @@ void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
     // The field identification data, count.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     int ic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The field identification as integer primitive.
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The field content data, count.
     void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -87,6 +89,9 @@ void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
     deserialise_xdt_basic_field_identification((void*) &id, (void*) &ic, p1, p2, (void*) IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT);
     // Deserialise content.
     deserialise_xdt_basic_field_content((void*) &cd, (void*) &cc, p1, p2);
+
+    //?? TODO
+    deserialise_cybol_integer_value_primitive((void*) &i, xx, yy, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Calculate field content count.
     // CAUTION! The xdt field size comprises ALL elements, even itself.
