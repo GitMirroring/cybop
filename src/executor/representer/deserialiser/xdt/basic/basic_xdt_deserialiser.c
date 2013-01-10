@@ -23,17 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef XDT_DESERIALISER_SOURCE
-#define XDT_DESERIALISER_SOURCE
+#ifndef BASIC_XDT_DESERIALISER_SOURCE
+#define BASIC_XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/modifier/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/xdt/record_xdt_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../../executor/representer/deserialiser/xdt/basic/fields_basic_xdt_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 //
 // The "x DatenTransfer" (xDT) is the German version of
@@ -97,24 +97,18 @@
 /**
  * Deserialises xdt data.
  *
- * @param p0 the destination properties item
+ * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_xdt(void* p0, void* p1, void* p2) {
+void deserialise_xdt_basic(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic.");
 
-    // The placeholder part properties item.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The initial tree level.
-    int l = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source count remaining.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The bdt standard main version.
-    int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Copy source data position.
     copy_pointer((void*) &d, (void*) &p1);
@@ -127,8 +121,8 @@ void deserialise_xdt(void* p0, void* p1, void* p2) {
     // since the parametre that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
-    deserialise_xdt_record(p0, p, (void*) &l, (void*) &d, (void*) &c, (void*) &v);
+    deserialise_xdt_basic_fields(p0, (void*) &d, (void*) &c);
 }
 
-/* XDT_DESERIALISER_SOURCE */
+/* BASIC_XDT_DESERIALISER_SOURCE */
 #endif

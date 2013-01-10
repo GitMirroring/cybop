@@ -1,0 +1,116 @@
+/*
+ * Copyright (C) 1999-2012. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.12.0 2012-08-22
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef FIELD_BASIC_XDT_DESERIALISER_SOURCE
+#define FIELD_BASIC_XDT_DESERIALISER_SOURCE
+
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/name/xdt/bdt_xdt_name.c"
+#include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
+#include "../../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../../executor/representer/deserialiser/xdt/basic/element_field_basic_xdt_deserialiser.c"
+#include "../../../../../executor/searcher/selector/xdt/basic/end_field_basic_xdt_selector.c"
+#include "../../../../../logger/logger.c"
+
+/**
+ * Deserialises xdt basic field.
+ *
+ * An xdt field consists of the following elements:
+ * - size: 3 Byte
+ * - identification: 4 Byte
+ * - content: variable
+ * - end (carriage return + line feed): 2 Byte
+ *
+ * content count = size value - 9 Byte (3 + 4 + 2)
+ *
+ * @param p0 the destination item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ */
+void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic field.");
+
+    // The field size.
+    // CAUTION! It seems to be useless, since a field's end
+    // is defined as line feed + carriage return
+    // and may thus be detected and thereby
+    // count the length of the field.
+    // However, it is used below for verifying if
+    // calculated and given field size match.
+    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The field identification data, count.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The field content data, count.
+    void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The calculated field content count.
+    int cc2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Deserialise size.
+    deserialise_xdt_basic_field_size((void*) &s, p1, p2, (void*) SIZE_FIELD_BDT_XDT_NAME_COUNT);
+    // Deserialise identification.
+    deserialise_xdt_basic_field_identification((void*) &id, (void*) &ic, p1, p2, (void*) IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT);
+    // Deserialise content.
+    deserialise_xdt_basic_field_content((void*) &cd, (void*) &cc, p1, p2);
+
+    // Calculate field content count.
+    // CAUTION! The xdt field size comprises ALL elements, even itself.
+    copy_integer((void*) &cc2, (void*) &s);
+    // Subtract meta bytes.
+    // content count = size value - 9 Byte (3 size + 4 identification + 2 cr and lf)
+    calculate_integer_subtract((void*) &cc2, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
+
+    // Verify correctness by comparing the following two field content counts:
+    // - calculated above from size given at beginning of xdt field
+    // - incremented until the xdt field end (cr, lf) was detected
+    compare_integer_equal((void*) &r, (void*) &cc, (void*) &cc2);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Both field content counts match, i.e. everything is fine.
+
+        deserialise_xdt_basic_part(p0, (void*) &id, (void*) &ic, (void*) &cd, (void*) &cc);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt basic field. The field size is not correct.");
+    }
+}
+
+/* FIELD_BASIC_XDT_DESERIALISER_SOURCE */
+#endif

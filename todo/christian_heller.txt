@@ -11,7 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue xdt deserialiser
+        * Continue xdt deserialiser in file "part_basic_xdt_deserialiser.c"
+            move format+type deserialisation files into xdt/basic/ directory
         * Parse data in two steps: 1 xdt + 2 bdt/gdt/ldt, similar to 1 xml + 2 cybol; see file "deserialiser.c"
             this absolutely makes sense, since the fields are just markup comparable to xml,
             whereas the contained record identifications are comparable to cybol vocabulary

@@ -37,7 +37,7 @@
 #include "../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
 #include "../../executor/representer/deserialiser/latex/latex_deserialiser.c"
 #include "../../executor/representer/deserialiser/uri/uri_deserialiser.c"
-#include "../../executor/representer/deserialiser/xdt/xdt_deserialiser.c"
+#include "../../executor/representer/deserialiser/xdt/basic/basic_xdt_deserialiser.c"
 #include "../../executor/representer/deserialiser/xml/xml_deserialiser.c"
 
 //?? TEMPORARY FOR TESTING! DELETE LATER!
@@ -252,7 +252,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             //?? - parse all xdt fields and add them as list to a root part
             //?? - loop through the list of fields and interpret these
 
-            deserialise_xdt(p1, p2, p3);
+            deserialise_xdt_basic(p1, p2, p3);
         }
     }
 

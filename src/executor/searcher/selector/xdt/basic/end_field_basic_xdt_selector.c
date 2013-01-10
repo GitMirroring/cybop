@@ -23,29 +23,29 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef END_FIELD_XDT_SELECTOR_SOURCE
-#define END_FIELD_XDT_SELECTOR_SOURCE
+#ifndef END_FIELD_BASIC_XDT_SELECTOR_SOURCE
+#define END_FIELD_BASIC_XDT_SELECTOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/xdt/bdt_xdt_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/searcher/detector/array_detector.c"
-#include "../../../../executor/searcher/mover/position_mover.c"
-#include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/name/xdt/bdt_xdt_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/searcher/detector/array_detector.c"
+#include "../../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../../logger/logger.c"
+#include "../../../../../variable/type_size/integral_type_size.c"
 
 /**
- * Selects the xdt field end.
+ * Selects the xdt basic field end.
  *
  * @param p0 the break flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void select_xdt_field_end(void* p0, void* p1, void* p2) {
+void select_xdt_basic_field_end(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt field end.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt basic field end.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -74,5 +74,5 @@ void select_xdt_field_end(void* p0, void* p1, void* p2) {
     }
 }
 
-/* END_FIELD_XDT_SELECTOR_SOURCE */
+/* END_FIELD_BASIC_XDT_SELECTOR_SOURCE */
 #endif

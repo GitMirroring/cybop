@@ -23,35 +23,35 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_RECORD_XDT_DESERIALISER_SOURCE
-#define PART_RECORD_XDT_DESERIALISER_SOURCE
+#ifndef PART_BASIC_XDT_DESERIALISER_SOURCE
+#define PART_BASIC_XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/memoriser/allocator/part_allocator.c"
-#include "../../../../executor/modifier/appender/item_appender.c"
-#include "../../../../executor/modifier/copier/array_copier.c"
-#include "../../../../executor/modifier/copier/pointer_copier.c"
-#include "../../../../executor/modifier/overwriter/item_overwriter.c"
-#include "../../../../executor/representer/deserialiser/xdt/format_field_xdt_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xdt/name_field_xdt_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xdt/type_field_xdt_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../../executor/modifier/overwriter/item_overwriter.c"
+#include "../../../../../executor/representer/deserialiser/xdt/format_field_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/name_field_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/type_field_xdt_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Deserialises xdt record part.
+ * Deserialises xdt basic part.
  *
- * @param p0 the destination parent properties item
- * @param p1 the field content data
- * @param p2 the field content count
- * @param p3 the field identification
- * @param p4 the part properties item (pointer reference) as potential future parent node
+ * @param p0 the destination item
+ * @param p1 the field identification data
+ * @param p2 the field identification count
+ * @param p3 the field content data
+ * @param p4 the field content count
  */
-void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_xdt_basic_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic part.");
 
     // The field format.
     int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -104,5 +104,5 @@ void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3, void* p
     append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* PART_RECORD_XDT_DESERIALISER_SOURCE */
+/* PART_BASIC_XDT_DESERIALISER_SOURCE */
 #endif

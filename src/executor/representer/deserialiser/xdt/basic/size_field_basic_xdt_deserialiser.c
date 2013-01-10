@@ -23,49 +23,42 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ELEMENT_FIELD_XDT_DESERIALISER_SOURCE
-#define ELEMENT_FIELD_XDT_DESERIALISER_SOURCE
+#ifndef SIZE_FIELD_BASIC_XDT_DESERIALISER_SOURCE
+#define SIZE_FIELD_BASIC_XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/modifier/copier/array_copier.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Deserialises an xdt field element.
+ * Deserialises xdt basic field size.
  *
- * It may be one of the following:
- * - size: 3 Byte
- * - dependency hierarchy: 1 Byte
- * - identification: 4 Byte
- *
- * The corresponding length in Byte is handed over as parametre.
- *
- * @param p0 the destination integer data
+ * @param p0 the destination field size data
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  * @param p3 the element count
  */
-void deserialise_xdt_field_element(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_basic_field_size(void* p0, void* p1, void* p2, void* p3) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** sd = (void**) p1;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field element.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic field size.");
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // CAUTION! This comparison ensures that array boundaries are not crossed.
+        // Ensure that array boundaries are not crossed.
         compare_integer_greater_or_equal((void*) &r, p2, p3);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -99,9 +92,9 @@ void deserialise_xdt_field_element(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field element. The source data is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt basic field size. The source data is null.");
     }
 }
 
-/* ELEMENT_FIELD_XDT_DESERIALISER_SOURCE */
+/* SIZE_FIELD_BASIC_XDT_DESERIALISER_SOURCE */
 #endif

@@ -23,37 +23,34 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RECORD_XDT_DESERIALISER_SOURCE
-#define RECORD_XDT_DESERIALISER_SOURCE
+#ifndef FIELDS_BASIC_XDT_DESERIALISER_SOURCE
+#define FIELDS_BASIC_XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/xdt/element_record_xdt_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/representer/deserialiser/xdt/basic/element_basic_xdt_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Deserialises an xdt record.
+ * Deserialises xdt basic fields.
  *
- * @param p0 the destination parent properties item
- * @param p1 the destination part properties item
- * @param p2 the current tree level
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
- * @param p5 the bdt standard main version
+ * @param p0 the destination item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_xdt_basic_fields(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic fields.");
 
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -65,13 +62,11 @@ void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-fwprintf(stdout, L"TEST deserialise xdt record tree level: %i\n", *((int*) p2));
-
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deserialise xdt record rem: %i\n", *((int*) p4));
+fwprintf(stdout, L"TEST deserialise xdt basic fields rem: %i\n", *((int*) p2));
 
-        compare_integer_smaller_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -79,9 +74,9 @@ fwprintf(stdout, L"TEST deserialise xdt record rem: %i\n", *((int*) p4));
             break;
         }
 
-        deserialise_xdt_record_element(p0, p1, p2, p3, p4, p5);
+        deserialise_xdt_basic_field(p0, p1, p2);
     }
 }
 
-/* RECORD_XDT_DESERIALISER_SOURCE */
+/* FIELDS_BASIC_XDT_DESERIALISER_SOURCE */
 #endif

@@ -32,14 +32,11 @@
 /** The size field bdt xdt name. */
 static int* SIZE_FIELD_BDT_XDT_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The hierarchy field bdt xdt name. */
-static int* HIERARCHY_FIELD_BDT_XDT_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The identification field bdt xdt name. */
 static int* IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The record identification content field bdt xdt name. */
-static int* RECORD_IDENTIFICATION_CONTENT_FIELD_BDT_XDT_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The content field bdt xdt name. */
+static int* CONTENT_FIELD_BDT_XDT_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The end (carriage return, line feed) field bdt xdt name. */
 static wchar_t END_FIELD_BDT_XDT_NAME_ARRAY[] = {0x000D, 0x000A};
