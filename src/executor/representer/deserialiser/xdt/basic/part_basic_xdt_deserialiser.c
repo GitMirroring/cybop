@@ -28,16 +28,15 @@
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
-#include "../../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../../executor/modifier/overwriter/item_overwriter.c"
-#include "../../../../../executor/representer/deserialiser/xdt/format_field_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/name_field_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/type_field_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/basic/format_field_basic_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/basic/type_field_basic_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**

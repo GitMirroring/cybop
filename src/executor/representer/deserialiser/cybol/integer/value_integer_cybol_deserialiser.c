@@ -42,6 +42,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/modifier/inserter/item_inserter.c"
 #include "../../../../../logger/logger.c"

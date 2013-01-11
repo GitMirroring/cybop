@@ -32,15 +32,14 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/xdt/bdt_xdt_name.c"
-#include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
-#include "../../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../../executor/modifier/copier/pointer_copier.c"
-#include "../../../../../executor/representer/deserialiser/xdt/basic/element_field_basic_xdt_deserialiser.c"
-#include "../../../../../executor/searcher/selector/xdt/basic/end_field_basic_xdt_selector.c"
+#include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/basic/content_field_basic_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/basic/identification_field_basic_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/basic/part_basic_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/basic/size_field_basic_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -87,11 +86,10 @@ void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
     deserialise_xdt_basic_field_size((void*) &s, p1, p2, (void*) SIZE_FIELD_BDT_XDT_NAME_COUNT);
     // Deserialise identification.
     deserialise_xdt_basic_field_identification((void*) &id, (void*) &ic, p1, p2, (void*) IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT);
+    // Deserialise identification as integer primitive.
+    deserialise_cybol_integer_value_primitive((void*) &i, id, (void*) &ic, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Deserialise content.
     deserialise_xdt_basic_field_content((void*) &cd, (void*) &cc, p1, p2);
-
-    //?? TODO
-    deserialise_cybol_integer_value_primitive((void*) &i, xx, yy, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Calculate field content count.
     // CAUTION! The xdt field size comprises ALL elements, even itself.
@@ -99,6 +97,14 @@ void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
     // Subtract meta bytes.
     // content count = size value - 9 Byte (3 size + 4 identification + 2 cr and lf)
     calculate_integer_subtract((void*) &cc2, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
+
+fwprintf(stdout, L"TEST deserialise xdt basic field s: %i\n", s);
+fwprintf(stdout, L"TEST deserialise xdt basic field ic: %i\n", ic);
+//?? fwprintf(stdout, L"TEST deserialise xdt basic field id: %ls\n", (wchar_t*) id);
+fwprintf(stdout, L"TEST deserialise xdt basic field i: %i\n", i);
+fwprintf(stdout, L"TEST deserialise xdt basic field cc: %i\n", cc);
+//?? fwprintf(stdout, L"TEST deserialise xdt basic field cd: %ls\n", (wchar_t*) cd);
+fwprintf(stdout, L"TEST deserialise xdt basic field cc2: %i\n", cc2);
 
     // Verify correctness by comparing the following two field content counts:
     // - calculated above from size given at beginning of xdt field
@@ -109,7 +115,7 @@ void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
 
         // Both field content counts match, i.e. everything is fine.
 
-        deserialise_xdt_basic_part(p0, (void*) &id, (void*) &ic, (void*) &cd, (void*) &cc);
+        deserialise_xdt_basic_part(p0, (void*) &id, (void*) &ic, (void*) &cd, (void*) &cc, (void*) &i);
 
     } else {
 

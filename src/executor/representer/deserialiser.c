@@ -252,7 +252,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             //?? - parse all xdt fields and add them as list to a root part
             //?? - loop through the list of fields and interpret these
 
-            deserialise_xdt_basic(p1, p2, p3);
+            deserialise_xdt_basic(p0, p2, p3);
         }
     }
 

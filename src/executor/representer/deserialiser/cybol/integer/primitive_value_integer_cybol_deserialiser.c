@@ -42,6 +42,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/modifier/inserter/item_inserter.c"
 #include "../../../../../logger/logger.c"
@@ -73,7 +74,7 @@ void deserialise_cybol_integer_value_primitive(void* p0, void* p1, void* p2, voi
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Decode xdt field element.
-    deserialise_cybol_integer_value(i, p1, p3, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_cybol_integer_value(i, p1, p2, p3, p4, p5);
 
     // Get temporary item data.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

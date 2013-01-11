@@ -11,8 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue xdt deserialiser in file "part_basic_xdt_deserialiser.c"
-            move format+type deserialisation files into xdt/basic/ directory
+        * Continue xdt deserialiser
         * Parse data in two steps: 1 xdt + 2 bdt/gdt/ldt, similar to 1 xml + 2 cybol; see file "deserialiser.c"
             this absolutely makes sense, since the fields are just markup comparable to xml,
             whereas the contained record identifications are comparable to cybol vocabulary
@@ -205,4 +204,4 @@
 
         * Optimise performance by NOT comparing every single element of an array for its type,
             but rather ONLY ONCE compare for the type at first and then process all array elements
-        * Refactor loops into an own function? See "language/loop.c"!
+        * Refactor loops into an own function using function pointers? See "language/loop.c"!
