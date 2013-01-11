@@ -98,6 +98,7 @@ void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
     // content count = size value - 9 Byte (3 size + 4 identification + 2 cr and lf)
     calculate_integer_subtract((void*) &cc2, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
 
+/*??
 fwprintf(stdout, L"TEST deserialise xdt basic field s: %i\n", s);
 fwprintf(stdout, L"TEST deserialise xdt basic field ic: %i\n", ic);
 //?? fwprintf(stdout, L"TEST deserialise xdt basic field id: %ls\n", (wchar_t*) id);
@@ -105,6 +106,7 @@ fwprintf(stdout, L"TEST deserialise xdt basic field i: %i\n", i);
 fwprintf(stdout, L"TEST deserialise xdt basic field cc: %i\n", cc);
 //?? fwprintf(stdout, L"TEST deserialise xdt basic field cd: %ls\n", (wchar_t*) cd);
 fwprintf(stdout, L"TEST deserialise xdt basic field cc2: %i\n", cc2);
+*/
 
     // Verify correctness by comparing the following two field content counts:
     // - calculated above from size given at beginning of xdt field
@@ -115,7 +117,7 @@ fwprintf(stdout, L"TEST deserialise xdt basic field cc2: %i\n", cc2);
 
         // Both field content counts match, i.e. everything is fine.
 
-        deserialise_xdt_basic_part(p0, (void*) &id, (void*) &ic, (void*) &cd, (void*) &cc, (void*) &i);
+        deserialise_xdt_basic_part(p0, id, (void*) &ic, cd, (void*) &cc, (void*) &i);
 
     } else {
 

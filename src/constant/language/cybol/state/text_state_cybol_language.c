@@ -134,18 +134,19 @@ static wchar_t* URI_TEXT_STATE_CYBOL_LANGUAGE = URI_TEXT_STATE_CYBOL_LANGUAGE_AR
 static int* URI_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/xdt cybol language.
+ * The text/bdt cybol language.
  *
- * x Daten Transfer (xDT) format.
- * A group of compatible formats for medical data exchange in Germany.
+ * Behandlungsdatentransfer (BDT) format.
+ * It belongs to the x Datentransfer (xDT) group of
+ * compatible formats for medical data exchange in Germany.
  *
  * Schnittstellen - Datensatzbeschreibungen - Specification:
  * http://www.kbv.de/ita/4201.html
- * Suffixes: xdt, adt, bdt, gdt, ldt
+ * Suffixes: adt, bdt, gdt, ldt, xdt
  */
-static wchar_t XDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'x', L'd', L't'};
-static wchar_t* XDT_TEXT_STATE_CYBOL_LANGUAGE = XDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
-static int* XDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t BDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'b', L'd', L't'};
+static wchar_t* BDT_TEXT_STATE_CYBOL_LANGUAGE = BDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static int* BDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The text/xml cybol language.

@@ -193,8 +193,8 @@ static int* SGML_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_406_INTEGER_STATE_CYBOI_MODE
 /** The uri text state cyboi language. */
 static int* URI_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_407_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt text state cyboi language. */
-static int* XDT_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_408_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The bdt text state cyboi language. */
+static int* BDT_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_408_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The xml text state cyboi language. */
 static int* XML_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_409_INTEGER_STATE_CYBOI_MODEL_ARRAY;

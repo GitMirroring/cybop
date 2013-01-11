@@ -81,18 +81,6 @@
 //                                      ASCII-Wert 10 = LF (Zeilenvorschub)
 // -----------------------------------------------------------------------------
 //
-// Here is an extract from the German "Arztpraxis Wiegand" (APW) documentation,
-// available at:
-// http://www.apw-wiegand.de/
-//
-// Patientennummerkonvertierung:
-// Beim BDT ... werden die Patientennummern nach folgender Formel konvertiert:
-// Stelle 1: immer 1
-// Stelle 2-3: Parallelabrechnungsnummer (meist 01)
-// Stelle 4-5: 1. Stelle der APW-PatNr umgewandelt in Alphabet-Rangfolge (z.B. a->01, z->26)
-// Stelle 6-7: 2. Stelle der APW-PatNr umgewandelt in Alphabet-Rangfolge
-// ab Stelle 8: ab Stelle 3 der APW-PatNr
-//
 
 /**
  * Deserialises xdt data.

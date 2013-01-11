@@ -64,7 +64,7 @@ void deserialise_xdt_basic_fields(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deserialise xdt basic fields rem: %i\n", *((int*) p2));
+//?? fwprintf(stdout, L"TEST deserialise xdt basic fields rem: %i\n", *((int*) p2));
 
         compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
