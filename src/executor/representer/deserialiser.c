@@ -37,7 +37,7 @@
 #include "../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
 #include "../../executor/representer/deserialiser/latex/latex_deserialiser.c"
 #include "../../executor/representer/deserialiser/uri/uri_deserialiser.c"
-#include "../../executor/representer/deserialiser/xdt/bdt/bdt_xdt_deserialiser.c"
+#include "../../executor/representer/deserialiser/xdt/xdt_deserialiser.c"
 #include "../../executor/representer/deserialiser/xml/xml_deserialiser.c"
 
 //?? TEMPORARY FOR TESTING! DELETE LATER!
@@ -212,11 +212,31 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p5, (void*) BDT_TEXT_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_xdt(p0, p1, p2, p3, p5);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p5, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_cybol(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) GDT_TEXT_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_xdt(p0, p1, p2, p3, p5);
         }
     }
 
@@ -232,6 +252,16 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p5, (void*) LDT_TEXT_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_xdt(p0, p1, p2, p3, p5);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p5, (void*) URI_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -239,16 +269,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             deserialise_uri(p0, p1, p2, p3);
 
 //??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_URI.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p0, p1);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) BDT_TEXT_STATE_CYBOI_LANGUAGE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_xdt_bdt(p0, p1, p2, p3);
         }
     }
 

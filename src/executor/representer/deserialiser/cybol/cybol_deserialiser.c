@@ -174,7 +174,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
             allocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
             allocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-            // Decode source message (cybol file) into temporary model, properties item.
+            // Deserialise source message (cybol file) into temporary model, properties item.
             deserialise_xml(m, p, p2, p3);
 
             // Get temporary model, properties data, count.
@@ -191,7 +191,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // the PART_ELEMENT_STATE_CYBOI_FORMAT may be used as parametre here.
             test_data_as_model_diagram((void*) L"TEST_DESERIALISE_XML.txt", (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, md, mc, pd, pc);
 
-            // Decode temporary model, properties item into cyboi model using temporary type, format.
+            // Deserialise temporary model, properties item into cyboi model using temporary type, format.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
             deserialise_cybol_part_element_content(p0, md, mc, pd, pc, t, f);
 
@@ -289,14 +289,14 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // the element and to thus increase efficiency.
             allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-            // Decode cybol source format (mime type as string) into cyboi-internal type (an integer).
+            // Deserialise cybol source format (mime type as string) into cyboi-internal type (an integer).
             deserialise_cybol_format(f, p2, p3);
             // Get temporary format item data.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
             // Inside the structure, arrays may have been reallocated,
             // with elements pointing to different memory areas now.
             copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            // Decode cyboi-internal type into cyboi runtime type.
+            // Deserialise cyboi-internal type into cyboi runtime type.
             // CAUTION! Both are not always equal in their meaning.
             // For example, an "xdt" file is converted into a cyboi "part".
             // Therefore, a runtime type has to be figured out here.

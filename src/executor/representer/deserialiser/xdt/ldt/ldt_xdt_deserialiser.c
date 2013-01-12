@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BDT_XDT_DESERIALISER_SOURCE
-#define BDT_XDT_DESERIALISER_SOURCE
+#ifndef LDT_XDT_DESERIALISER_SOURCE
+#define LDT_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,36 +35,18 @@
 //?? #include "../../../../../executor/representer/deserialiser/xdt/bdt/xx_bdt_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
-//
-// Here is an extract from the German "Arztpraxis Wiegand" (APW) documentation,
-// available at:
-// http://www.apw-wiegand.de/
-//
-// Patientennummerkonvertierung:
-// Beim BDT ... werden die Patientennummern nach folgender Formel konvertiert:
-// Stelle 1: immer 1
-// Stelle 2-3: Parallelabrechnungsnummer (meist 01)
-// Stelle 4-5: 1. Stelle der APW-PatNr umgewandelt in Alphabet-Rangfolge (z.B. a->01, z->26)
-// Stelle 6-7: 2. Stelle der APW-PatNr umgewandelt in Alphabet-Rangfolge
-// ab Stelle 8: ab Stelle 3 der APW-PatNr
-//
-
 /**
- * Deserialises xdt bdt data.
- *
- * Parse data in two steps:
- * 1 parse all xdt fields and add them to a temporary part
- * 2 loop through the list of fields and interpret these
+ * Deserialises xdt ldt data.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
  */
-void deserialise_xdt_bdt(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_ldt(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt ldt.");
 }
 
-/* BDT_XDT_DESERIALISER_SOURCE */
+/* LDT_XDT_DESERIALISER_SOURCE */
 #endif

@@ -46,23 +46,37 @@
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
+ * @param p4 the language
  */
-void deserialise_xdt(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt.");
 
-/*??
-    // Create temporary part.
-    //?? TODO temporary_part
+    // The temporary model item.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary model data, count.
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Allocate temporary model item.
+    allocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Deserialise all xdt fields.
-    deserialise_xdt_basic(temporary_part, p2, p3);
+    deserialise_xdt_basic(m, p2, p3);
 
-    if-else
-    deserialise_xdt_bdt(p0, p1, temporary_part_model_item_data, temporary_part_model_item_count);
-    deserialise_xdt_gdt(p0, p1, temporary_part_model_item_data, temporary_part_model_item_count);
-    deserialise_xdt_ldt(p0, p1, temporary_part_model_item_data, temporary_part_model_item_count);
-*/
+    // Get temporary model data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Deserialise temporary model item (bdt or gdt or ldt)
+    // into cyboi model, depending on given language.
+    deserialise_xdt_standard(p0, p1, md, mc, p4);
+
+    // Deallocate temporary model item.
+    deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 
 /* XDT_DESERIALISER_SOURCE */

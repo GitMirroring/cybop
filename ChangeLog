@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-01-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare second part (bdt/gdt/ldt) of xdt deserialiser
+
 2013-01-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete deserialising xdt fields into cyboi-internal list of parts, which is the first step of two
