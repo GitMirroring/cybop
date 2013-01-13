@@ -33,6 +33,7 @@
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../executor/representer/deserialiser/xdt/basic/basic_xdt_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xdt/standard_xdt_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
