@@ -30,8 +30,6 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../../executor/modifier/copier/pointer_copier.c"
 //?? #include "../../../../../executor/representer/deserialiser/xdt/bdt/xx_bdt_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
@@ -52,10 +50,6 @@
 /**
  * Deserialises xdt bdt data.
  *
- * Parse data in two steps:
- * 1 parse all xdt fields and add them to a temporary part
- * 2 loop through the list of fields and interpret these
- *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the source data
@@ -64,6 +58,8 @@
 void deserialise_xdt_bdt(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt.");
+
+//??    deserialise_xdt_bdt_record_content();
 }
 
 /* BDT_XDT_DESERIALISER_SOURCE */
