@@ -50,14 +50,54 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source model data
- * @param p3 the source model count
- * @param p4 the source properties data
- * @param p5 the source properties count
+ * @param p2 the source name data
+ * @param p3 the source name count
+ * @param p4 the source model data
+ * @param p5 the source model count
  */
 void deserialise_xdt_bdt_record_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt record content.");
+
+/*??
+    parametres: parent part, current part index
+
+    find record begin by name
+
+    if (name is one of a hierarchical xdt field) {
+
+        allocate hierarchical part
+        assign new part to parent parametre
+
+        if (name is record begin) {
+
+            copy former field model string to record part's name
+
+        } else {
+
+            // Compound xdt fields below the record level contain
+            // not only child nodes, but also primitive data as model.
+            // Since a cyboi compound node may contain child nodes only,
+            // but not primitive data, the following was decided:
+            //
+            // TWO parts are created for each xdt compound part (except record parts).
+            // The first represents the compound node.
+            // The second represents the primitive data.
+            // The SAME IDENTICAL name is used for both, which may NOT
+            // be ambiguous, as the second part is one level below the first.
+
+            // Copy source field name to first new part's name.
+
+            // Allocate ONE MORE part using the source part's type (which is NOT hierarchical).
+
+            // Copy source field name to ONCE MORE to second new part's name.
+        }
+
+    } else {
+
+        add part to parent record
+    }
+*/
 
 /*??
     //

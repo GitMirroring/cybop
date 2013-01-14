@@ -12,17 +12,11 @@
 #
 
         * Continue xdt deserialiser
-        * Parse data in two steps: 1 xdt + 2 bdt/gdt/ldt, similar to 1 xml + 2 cybol; see file "deserialiser.c"
-            this absolutely makes sense, since the fields are just markup comparable to xml,
-            whereas the contained record identifications are comparable to cybol vocabulary
-        --
-        * Allocate new model part for each beginning record (id 8000)
-            (dosn't matter that other fields inside the record are added to the properties part)
+        * Use three xdt processing steps: field-record-bdt/gdt/ldt
         * Define selector files for record begin and end etc.
-        * Complete file "hierarchy_field_xdt_deserialiser.c"
-        * Complete file "format_field_xdt_deserialiser.c"
-        * Complete file "name_field_xdt_deserialiser.c"
-        * Remove outcommented section on element/part in file "type_field_xdt_deserialiser.c"
+        * Allocate new model part for each beginning record (id 8000)
+        * Delete files "file_xdt_deserialiser.c", "hierarchy_field_xdt_deserialiser.c", "name_field_xdt_deserialiser.c"
+        * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
 
         * Simplify cybol files by using standard attribute values like "utf-8" for encoding etc. inside cyboi
         * Read all cybol attributes and replace cyboi-internal standard value only if attribute exists

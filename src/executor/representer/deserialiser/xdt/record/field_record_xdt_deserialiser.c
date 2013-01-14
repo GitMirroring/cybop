@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RECORD_BDT_XDT_DESERIALISER_SOURCE
-#define RECORD_BDT_XDT_DESERIALISER_SOURCE
+#ifndef FIELD_RECORD_XDT_DESERIALISER_SOURCE
+#define FIELD_RECORD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,20 +35,19 @@
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
-#include "../../../../../executor/representer/deserialiser/xdt/bdt/content_record_bdt_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/record/filter_record_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the xdt bdt record.
+ * Deserialises the xdt record field.
  *
  * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source index
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_record_field(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt record.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record field.");
 
     // The source part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -62,7 +61,7 @@ void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source part with given index.
-    copy_array_forward((void*) &p, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
+    copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
     // Get source part name, model.
     copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -72,8 +71,8 @@ void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    deserialise_xdt_bdt_record_content(p0, p1, pnd, pnc, pmd, pmc);
+    deserialise_xdt_record_filter(p0, pnd, pnc, pmd, pmc);
 }
 
-/* RECORD_BDT_XDT_DESERIALISER_SOURCE */
+/* FIELD_RECORD_XDT_DESERIALISER_SOURCE */
 #endif
