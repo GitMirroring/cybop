@@ -38,11 +38,12 @@
 /**
  * Deserialises the xdt record fields.
  *
- * @param p0 the destination model item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination root model item
+ * @param p1 the destination record model item
+ * @param p2 the source data
+ * @param p3 the source count
  */
-void deserialise_xdt_record_fields(void* p0, void* p1, void* p2) {
+void deserialise_xdt_record_fields(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record fields.");
 
@@ -51,7 +52,7 @@ void deserialise_xdt_record_fields(void* p0, void* p1, void* p2) {
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -65,14 +66,14 @@ void deserialise_xdt_record_fields(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        deserialise_xdt_record_field(p0, p1, (void*) &j);
+        deserialise_xdt_record_field(p0, p1, p2, (void*) &j);
 
         // Increment loop variable.
         j++;

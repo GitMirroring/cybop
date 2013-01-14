@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FILTER_RECORD_XDT_DESERIALISER_SOURCE
-#define FILTER_RECORD_XDT_DESERIALISER_SOURCE
+#ifndef RECORD_XDT_SELECTOR_SOURCE
+#define RECORD_XDT_SELECTOR_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -39,18 +39,20 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the xdt record by filtering out record begin fields.
+ * Selects an xdt record by filtering out the record begin field.
  *
- * @param p0 the destination model item
- * @param p1 the source name data
- * @param p2 the source name count
- * @param p3 the source model data
- * @param p4 the source model count
- * @param p5 the parent model item (pointer reference)
+ * @param p0 the destination root model item
+ * @param p1 the destination record model item
+ * @param p2 the source data
+ * @param p3 the source count
+ * @param p4 the source part name data
+ * @param p5 the source part name count
+ * @param p6 the source part model data
+ * @param p7 the source part model count
  */
-void deserialise_xdt_record_filter(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record filter.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt record.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -58,39 +60,21 @@ void deserialise_xdt_record_filter(void* p0, void* p1, void* p2, void* p3, void*
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Deserialise identification as integer primitive.
-    deserialise_cybol_integer_value_primitive((void*) &i, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_cybol_integer_value_primitive((void*) &i, p4, p5, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Compare if field represents a record identification.
     compare_integer_equal((void*) &r, (void*) &i, (void*) RECORD_IDENTIFICATION_FIELD_XDT_NAME);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The part.
-        void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The part name, format, type, model, properties item.
-        void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Allocate record part.
-        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-        // Get record part name item.
-        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-        // Inside the structure, arrays may have been reallocated,
-        // with elements pointing to different memory areas now.
-        copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-
-        // Fill record part name item with field model.
-        overwrite_item_element(pn, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-        // Remember record part model as future parent node.
-        copy_pointer(p5, (void*) &p);
+        deserialise_xdt_record_part(p0, p2, p3, );
 
     } else {
 
-        // Add field part to destination.
-        append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Append current field part to destination parent record.
+        append_item_element(p1, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
 
-/* FILTER_RECORD_XDT_DESERIALISER_SOURCE */
+/* RECORD_XDT_SELECTOR_SOURCE */
 #endif

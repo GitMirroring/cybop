@@ -36,7 +36,7 @@
 /**
  * Deserialises xdt record.
  *
- * @param p0 the destination model item
+ * @param p0 the destination root model item
  * @param p1 the source data
  * @param p2 the source count
  */
