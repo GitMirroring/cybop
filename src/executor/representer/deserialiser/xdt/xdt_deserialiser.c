@@ -33,15 +33,17 @@
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../executor/representer/deserialiser/xdt/basic/basic_xdt_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xdt/record/record_xdt_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/standard_xdt_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises xdt data.
  *
- * Parse data in two steps:
+ * Parse data in three steps:
  * 1 parse all xdt fields and add them to a temporary part
- * 2 loop through the list of fields and interpret these
+ * 2 loop through the list of fields and identify records
+ * 3 loop through the list of records and interpret their fields
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -53,31 +55,53 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt.");
 
-    // The temporary model item.
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The temporary model data, count.
-    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The field temporary model item.
+    void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The record temporary model item.
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate temporary model item.
-    allocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    // The field temporary model data, count.
+    void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The record temporary model data, count.
+    void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Deserialise all xdt fields.
-    deserialise_xdt_basic(m, p2, p3);
+    // Allocate field temporary model item.
+    allocate_item((void*) &fm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    // Allocate record temporary model item.
+    allocate_item((void*) &rm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-    // Get temporary model data, count.
+    // Deserialise all xdt fields into field temporary model item.
+    deserialise_xdt_basic(fm, p2, p3);
+
+    // Get field temporary model data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &fmc, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Deserialise temporary model item (bdt or gdt or ldt)
+    // Deserialise field temporary model item
+    // into record temporary model item.
+//??    deserialise_xdt_record(rm, fmd, fmc);
+    deserialise_xdt_record(p0, fmd, fmc);
+
+    // Get record temporary model data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rmc, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Deserialise record temporary model item (bdt or gdt or ldt)
     // into cyboi model, depending on given language.
-    deserialise_xdt_standard(p0, p1, md, mc, p4);
+//??    deserialise_xdt_standard(p0, p1, rmd, rmc, p4);
 
-    // Deallocate temporary model item.
-    deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    // Deallocate field temporary model item.
+    deallocate_item((void*) &fm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    // Deallocate record temporary model item.
+    deallocate_item((void*) &rm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 
 /* XDT_DESERIALISER_SOURCE */

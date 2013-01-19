@@ -28,23 +28,22 @@
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cybol/cybol_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/modifier/appender/item_appender.c"
-#include "../../../../../executor/accessor/name_getter/array_name_getter.c"
+#include "../../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../executor/modifier/overwriter/item_overwriter.c"
-#include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
  * Deserialises the xdt record by allocating a part.
  *
  * @param p0 the destination root model item
- * @param p1 the destination record model item
- * @param p2 the source model data
- * @param p3 the source model count
+ * @param p1 the destination record model item (pointer reference)
+ * @param p2 the source part model data
+ * @param p3 the source part model count
  */
 void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3) {
 
@@ -68,9 +67,11 @@ void deserialise_xdt_record_part(void* p0, void* p1, void* p2, void* p3) {
 
     // Fill record part name item with field model.
     overwrite_item_element(pn, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Remember record part model as future destination record model item.
+    copy_pointer(p1, (void*) &pm);
 
-    // Hand over new record part model.
-    deserialise_xdt_record_fields(p0, pm);
+    // Append record part to destination root model item.
+    append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* PART_RECORD_XDT_DESERIALISER_SOURCE */

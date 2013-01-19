@@ -28,27 +28,28 @@
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cybol/cybol_name.c"
+#include "../../../../../constant/name/xdt/field_xdt_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/accessor/name_getter/array_name_getter.c"
-#include "../../../../../executor/modifier/overwriter/item_overwriter.c"
+#include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/record/part_record_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
  * Selects an xdt record by filtering out the record begin field.
  *
  * @param p0 the destination root model item
- * @param p1 the destination record model item
- * @param p2 the source data
- * @param p3 the source count
- * @param p4 the source part name data
- * @param p5 the source part name count
- * @param p6 the source part model data
- * @param p7 the source part model count
+ * @param p1 the destination record model item (pointer reference)
+ * @param p2 the destination record model item
+ * @param p3 the source part model data
+ * @param p4 the source part model count
+ * @param p5 the source part name data
+ * @param p6 the source part name count
+ * @param p7 the source part (pointer reference)
  */
 void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
@@ -60,19 +61,23 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Deserialise identification as integer primitive.
-    deserialise_cybol_integer_value_primitive((void*) &i, p4, p5, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_cybol_integer_value_primitive((void*) &i, p5, p6, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Compare if field represents a record identification.
     compare_integer_equal((void*) &r, (void*) &i, (void*) RECORD_IDENTIFICATION_FIELD_XDT_NAME);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deserialise_xdt_record_part(p0, p2, p3, );
+        // Allocate new record part.
+        // CAUTION! The source part may NOT be reused as record part,
+        // since the source's model is of type "character",
+        // while the new record part's type has to be "part" (a compound).
+        deserialise_xdt_record_part(p0, p1, p3, p4);
 
     } else {
 
-        // Append current field part to destination parent record.
-        append_item_element(p1, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Append current field part to destination record model item.
+        append_item_element(p2, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
 

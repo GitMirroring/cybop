@@ -69,6 +69,8 @@ void deallocate_part(void* p0, void* p1, void* p2) {
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int res = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Get references, name, channel, encoding, language, format, type, model, properties.
         copy_array_forward((void*) &r, *part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) REFERENCES_PART_STATE_CYBOI_NAME);
@@ -88,7 +90,9 @@ void deallocate_part(void* p0, void* p1, void* p2) {
 
         // Verify that reference data is zero.
         // CAUTION! Otherwise, do NOT deallocate this part.
-        if (rd == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        compare_integer_equal((void*) &res, rd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Decrement reference count of child parts for rubbish (garbage) collection.
             reference(md, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);

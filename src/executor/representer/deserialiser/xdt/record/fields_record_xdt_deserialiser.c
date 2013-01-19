@@ -30,6 +30,7 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/xdt/record/field_record_xdt_deserialiser.c"
@@ -39,11 +40,10 @@
  * Deserialises the xdt record fields.
  *
  * @param p0 the destination root model item
- * @param p1 the destination record model item
- * @param p2 the source data
- * @param p3 the source count
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void deserialise_xdt_record_fields(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_record_fields(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt record fields.");
 
@@ -51,8 +51,10 @@ void deserialise_xdt_record_fields(void* p0, void* p1, void* p2, void* p3) {
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The destination record model item.
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -66,14 +68,19 @@ void deserialise_xdt_record_fields(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        deserialise_xdt_record_field(p0, p1, p2, (void*) &j);
+        // The destination record model item gets only assigned
+        // inside the called functions.
+        // CAUTION! It is therefore handed over as pointer reference.
+        // However, in order to not having to dereference it
+        // it is ALSO forwarded as normal pointer.
+        deserialise_xdt_record_field(p0, (void*) &rm, rm, p1, (void*) &j);
 
         // Increment loop variable.
         j++;
