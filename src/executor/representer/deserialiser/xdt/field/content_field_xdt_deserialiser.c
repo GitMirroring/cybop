@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CONTENT_FIELD_BASIC_XDT_DESERIALISER_SOURCE
-#define CONTENT_FIELD_BASIC_XDT_DESERIALISER_SOURCE
+#ifndef CONTENT_FIELD_XDT_DESERIALISER_SOURCE
+#define CONTENT_FIELD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,20 +35,20 @@
 #include "../../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../../executor/modifier/copier/pointer_copier.c"
-#include "../../../../../executor/searcher/selector/xdt/basic/end_field_basic_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/field/end_field_xdt_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises xdt basic field content.
+ * Deserialises xdt field content.
  *
  * @param p0 the destination field content data (pointer reference)
  * @param p1 the destination field content count
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
  */
-void deserialise_xdt_basic_field_content(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_field_content(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic field content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field content.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -77,7 +77,7 @@ void deserialise_xdt_basic_field_content(void* p0, void* p1, void* p2, void* p3)
             break;
         }
 
-        select_xdt_basic_field_end((void*) &b, p2, p3);
+        select_xdt_field_end((void*) &b, p2, p3);
 
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,5 +87,5 @@ void deserialise_xdt_basic_field_content(void* p0, void* p1, void* p2, void* p3)
     }
 }
 
-/* CONTENT_FIELD_BASIC_XDT_DESERIALISER_SOURCE */
+/* CONTENT_FIELD_XDT_DESERIALISER_SOURCE */
 #endif

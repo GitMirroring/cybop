@@ -23,56 +23,55 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef END_FIELD_BASIC_XDT_SELECTOR_SOURCE
-#define END_FIELD_BASIC_XDT_SELECTOR_SOURCE
+#ifndef SIZE_FIELD_XDT_DESERIALISER_SOURCE
+#define SIZE_FIELD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/name/xdt/bdt_xdt_name.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/searcher/detector/array_detector.c"
+#include "../../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Selects the xdt basic field end.
+ * Deserialises xdt field size.
  *
- * @param p0 the break flag
+ * @param p0 the destination field size data
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
+ * @param p3 the element count
  */
-void select_xdt_basic_field_end(void* p0, void* p1, void* p2) {
+void deserialise_xdt_field_size(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt basic field end.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        void** sd = (void**) p1;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field size.");
 
-        detect_array((void*) &r, p1, p2, (void*) END_FIELD_BDT_XDT_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_FIELD_BDT_XDT_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        // Ensure that array boundaries are not crossed.
+        compare_integer_greater_or_equal((void*) &r, p2, p3);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // The field end was found.
-            //
-            // CAUTION! The current position and remaining count were already
-            // changed in the called function, to be processed further.
-            //
+            deserialise_cybol_integer_value_primitive(p0, *sd, p3, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-            // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Move position.
+            move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    } else {
 
-        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field size. The source data is null.");
     }
 }
 
-/* END_FIELD_BASIC_XDT_SELECTOR_SOURCE */
+/* SIZE_FIELD_XDT_DESERIALISER_SOURCE */
 #endif

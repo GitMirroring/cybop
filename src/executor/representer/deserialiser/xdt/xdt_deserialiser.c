@@ -32,7 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/modifier/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/xdt/basic/basic_xdt_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xdt/field/field_xdt_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/record/record_xdt_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/standard_xdt_deserialiser.c"
 #include "../../../../logger/logger.c"
@@ -73,7 +73,7 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
     allocate_item((void*) &rm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Deserialise all xdt fields into field temporary model item.
-    deserialise_xdt_basic(fm, p2, p3);
+    deserialise_xdt_field(fm, p2, p3);
 
     // Get field temporary model data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

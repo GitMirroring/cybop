@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef IDENTIFICATION_FIELD_BASIC_XDT_DESERIALISER_SOURCE
-#define IDENTIFICATION_FIELD_BASIC_XDT_DESERIALISER_SOURCE
+#ifndef IDENTIFICATION_FIELD_XDT_DESERIALISER_SOURCE
+#define IDENTIFICATION_FIELD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -37,7 +37,7 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises xdt basic field identification.
+ * Deserialises xdt field identification.
  *
  * @param p0 the destination field identification data (pointer reference)
  * @param p1 the destination field identification count
@@ -45,9 +45,9 @@
  * @param p3 the source count remaining
  * @param p4 the element count
  */
-void deserialise_xdt_basic_field_identification(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_xdt_field_identification(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic field identification.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field identification.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -67,5 +67,5 @@ void deserialise_xdt_basic_field_identification(void* p0, void* p1, void* p2, vo
     move_position(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
-/* IDENTIFICATION_FIELD_BASIC_XDT_DESERIALISER_SOURCE */
+/* IDENTIFICATION_FIELD_XDT_DESERIALISER_SOURCE */
 #endif

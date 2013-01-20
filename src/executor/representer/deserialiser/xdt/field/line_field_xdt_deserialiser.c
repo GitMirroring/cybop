@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FIELD_BASIC_XDT_DESERIALISER_SOURCE
-#define FIELD_BASIC_XDT_DESERIALISER_SOURCE
+#ifndef LINE_FIELD_XDT_DESERIALISER_SOURCE
+#define LINE_FIELD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -36,14 +36,14 @@
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/basic/content_field_basic_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/basic/identification_field_basic_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/basic/part_basic_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/basic/size_field_basic_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/field/content_field_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/field/identification_field_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/field/part_field_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/field/size_field_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises xdt basic field.
+ * Deserialises xdt field line.
  *
  * An xdt field consists of the following elements:
  * - size: 3 Byte
@@ -57,9 +57,9 @@
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
+void deserialise_xdt_field_line(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic field.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field line.");
 
     // The field size.
     // CAUTION! It seems to be useless, since a field's end
@@ -83,13 +83,13 @@ void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Deserialise size.
-    deserialise_xdt_basic_field_size((void*) &s, p1, p2, (void*) SIZE_FIELD_BDT_XDT_NAME_COUNT);
+    deserialise_xdt_field_size((void*) &s, p1, p2, (void*) SIZE_FIELD_BDT_XDT_NAME_COUNT);
     // Deserialise identification.
-    deserialise_xdt_basic_field_identification((void*) &id, (void*) &ic, p1, p2, (void*) IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT);
+    deserialise_xdt_field_identification((void*) &id, (void*) &ic, p1, p2, (void*) IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT);
     // Deserialise identification as integer primitive.
     deserialise_cybol_integer_value_primitive((void*) &i, id, (void*) &ic, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Deserialise content.
-    deserialise_xdt_basic_field_content((void*) &cd, (void*) &cc, p1, p2);
+    deserialise_xdt_field_content((void*) &cd, (void*) &cc, p1, p2);
 
     // Calculate field content count.
     // CAUTION! The xdt field size comprises ALL elements, even itself.
@@ -99,13 +99,13 @@ void deserialise_xdt_basic_field(void* p0, void* p1, void* p2) {
     calculate_integer_subtract((void*) &cc2, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
 
 /*??
-fwprintf(stdout, L"TEST deserialise xdt basic field s: %i\n", s);
-fwprintf(stdout, L"TEST deserialise xdt basic field ic: %i\n", ic);
-//?? fwprintf(stdout, L"TEST deserialise xdt basic field id: %ls\n", (wchar_t*) id);
-fwprintf(stdout, L"TEST deserialise xdt basic field i: %i\n", i);
-fwprintf(stdout, L"TEST deserialise xdt basic field cc: %i\n", cc);
-//?? fwprintf(stdout, L"TEST deserialise xdt basic field cd: %ls\n", (wchar_t*) cd);
-fwprintf(stdout, L"TEST deserialise xdt basic field cc2: %i\n", cc2);
+fwprintf(stdout, L"TEST deserialise xdt field s: %i\n", s);
+fwprintf(stdout, L"TEST deserialise xdt field ic: %i\n", ic);
+//?? fwprintf(stdout, L"TEST deserialise xdt field id: %ls\n", (wchar_t*) id);
+fwprintf(stdout, L"TEST deserialise xdt field i: %i\n", i);
+fwprintf(stdout, L"TEST deserialise xdt field cc: %i\n", cc);
+//?? fwprintf(stdout, L"TEST deserialise xdt field cd: %ls\n", (wchar_t*) cd);
+fwprintf(stdout, L"TEST deserialise xdt field cc2: %i\n", cc2);
 */
 
     // Verify correctness by comparing the following two field content counts:
@@ -117,13 +117,13 @@ fwprintf(stdout, L"TEST deserialise xdt basic field cc2: %i\n", cc2);
 
         // Both field content counts match, i.e. everything is fine.
 
-        deserialise_xdt_basic_part(p0, id, (void*) &ic, cd, (void*) &cc, (void*) &i);
+        deserialise_xdt_field_part(p0, id, (void*) &ic, cd, (void*) &cc, (void*) &i);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt basic field. The field size is not correct.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field line. The field size is not correct.");
     }
 }
 
-/* FIELD_BASIC_XDT_DESERIALISER_SOURCE */
+/* LINE_FIELD_XDT_DESERIALISER_SOURCE */
 #endif

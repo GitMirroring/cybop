@@ -23,92 +23,96 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FORMAT_FIELD_BASIC_XDT_DESERIALISER_SOURCE
-#define FORMAT_FIELD_BASIC_XDT_DESERIALISER_SOURCE
+#ifndef TYPE_FIELD_XDT_DESERIALISER_SOURCE
+#define TYPE_FIELD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/name/xdt/field_xdt_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the xdt basic field format into a cyboi format.
+ * Deserialises the xdt field format into a cyboi runtime type.
  *
- * All fields listed in the xdt standard have one of
- * the following defined formats (types), e.g.:
- * - num
- * - float
- * - datum
- * - alnum
- *
- * The following constants may be returned:
- * - INTEGER_NUMBER_STATE_CYBOI_FORMAT
- * - FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT
- * - XDT_DATE_DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT
- * - PLAIN_TEXT_STATE_CYBOI_FORMAT
- *
- * @param p0 the destination cyboi format data
- * @param p1 the source xdt field identification data
+ * @param p0 the destination cyboi runtime type data
+ * @param p1 the source cyboi format data
  */
-void deserialise_xdt_basic_field_format(void* p0, void* p1) {
+void deserialise_xdt_field_type(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic field format.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field type.");
+
+    // CAUTION! Do NOT use the "append" function here!
+    // The destination has been given a size of ONE,
+    // so that reallocation is not necessary for adding an element.
+    // Therefore, the "overwrite" function has to be used instead.
+    //
+    // CAUTION! The "true" flag HAS TO BE SET for the "overwrite" function,
+    // so that the destination gets reallocated automatically when necessary.
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // datetime
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p0, (void*) DATETIME_STATE_CYBOI_TYPE);
+        }
+    }
+
+    //
+    // number
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) RESPONSIBLE_ENTITY_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        }
+    }
+
+    //
+    // text
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SOFTWARE_FIELD_XDT_NAME);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
-        }
-    }
-
-    //?? Copy types for ALL possible xdt fields here ...
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) RECORD_IDENTIFICATION_FIELD_XDT_NAME);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt basic field format. The field identification is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field type. The format is unknown.");
     }
 }
 
-/* FORMAT_FIELD_BASIC_XDT_DESERIALISER_SOURCE */
+/* TYPE_FIELD_XDT_DESERIALISER_SOURCE */
 #endif

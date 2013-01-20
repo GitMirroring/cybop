@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_BASIC_XDT_DESERIALISER_SOURCE
-#define PART_BASIC_XDT_DESERIALISER_SOURCE
+#ifndef PART_FIELD_XDT_DESERIALISER_SOURCE
+#define PART_FIELD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,12 +35,12 @@
 #include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../executor/modifier/overwriter/item_overwriter.c"
-#include "../../../../../executor/representer/deserialiser/xdt/basic/format_field_basic_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/basic/type_field_basic_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/field/format_field_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/field/type_field_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises xdt basic part.
+ * Deserialises xdt field part.
  *
  * @param p0 the destination item
  * @param p1 the field identification data
@@ -49,9 +49,9 @@
  * @param p4 the field content count
  * @param p5 the field identification as integer number
  */
-void deserialise_xdt_basic_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field part.");
 
     // The field format.
     int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -66,10 +66,10 @@ void deserialise_xdt_basic_part(void* p0, void* p1, void* p2, void* p3, void* p4
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Deserialise field identification into field format.
-    deserialise_xdt_basic_field_format((void*) &f, p5);
+    deserialise_xdt_field_format((void*) &f, p5);
     // Deserialise field format into cyboi runtime type.
     // It is needed for allocating the new part.
-    deserialise_xdt_basic_field_type((void*) &t, (void*) &f);
+    deserialise_xdt_field_type((void*) &t, (void*) &f);
 
     // Allocate part.
     // CAUTION! Use the cyboi runtime type determined above
@@ -99,5 +99,5 @@ void deserialise_xdt_basic_part(void* p0, void* p1, void* p2, void* p3, void* p4
     append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* PART_BASIC_XDT_DESERIALISER_SOURCE */
+/* PART_FIELD_XDT_DESERIALISER_SOURCE */
 #endif

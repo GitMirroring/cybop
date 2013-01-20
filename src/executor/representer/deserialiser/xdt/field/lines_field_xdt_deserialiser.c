@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FIELDS_BASIC_XDT_DESERIALISER_SOURCE
-#define FIELDS_BASIC_XDT_DESERIALISER_SOURCE
+#ifndef LINES_FIELD_XDT_DESERIALISER_SOURCE
+#define LINES_FIELD_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,19 +33,19 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../../executor/representer/deserialiser/xdt/basic/field_basic_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/field/line_field_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises xdt basic fields.
+ * Deserialises xdt field lines.
  *
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void deserialise_xdt_basic_fields(void* p0, void* p1, void* p2) {
+void deserialise_xdt_field_lines(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt basic fields.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field lines.");
 
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -64,7 +64,7 @@ void deserialise_xdt_basic_fields(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST deserialise xdt basic fields rem: %i\n", *((int*) p2));
+//?? fwprintf(stdout, L"TEST deserialise xdt field lines rem: %i\n", *((int*) p2));
 
         compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
@@ -74,9 +74,9 @@ void deserialise_xdt_basic_fields(void* p0, void* p1, void* p2) {
             break;
         }
 
-        deserialise_xdt_basic_field(p0, p1, p2);
+        deserialise_xdt_field_line(p0, p1, p2);
     }
 }
 
-/* FIELDS_BASIC_XDT_DESERIALISER_SOURCE */
+/* LINES_FIELD_XDT_DESERIALISER_SOURCE */
 #endif
