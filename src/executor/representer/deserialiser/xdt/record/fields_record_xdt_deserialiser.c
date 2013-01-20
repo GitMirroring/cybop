@@ -68,6 +68,8 @@ void deserialise_xdt_record_fields(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+//?? fwprintf(stdout, L"TEST deserialise xdt record fields rm: %i\n", rm);
+
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

@@ -76,6 +76,9 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     } else {
 
+//?? fwprintf(stdout, L"TEST select xdt record *p1: %i\n", *((void**) p1));
+//?? fwprintf(stdout, L"TEST select xdt record p2: %i\n", p2);
+
         // Append current field part to destination record model item.
         append_item_element(p2, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }

@@ -15,7 +15,6 @@
         * Use three xdt processing steps: field-record-bdt/gdt/ldt
         * Rename xdt deserialiser directory "basic" into "record"
         * Define selector files for record begin and end etc.
-        * Allocate new model part for each beginning record (id 8000)
         * Delete files "file_xdt_deserialiser.c", "hierarchy_field_xdt_deserialiser.c", "name_field_xdt_deserialiser.c"
         * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
 
