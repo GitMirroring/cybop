@@ -109,7 +109,7 @@ void test_empty() {
 
 //    test_empty_1();
 //    test_empty_2();
-    test_empty_3();
+//    test_empty_3();
 }
 
 /* EMPTY_TESTER */

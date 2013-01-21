@@ -41,6 +41,7 @@
 #include "../tester/modifier_tester.c"
 #include "../tester/pointer_tester.c"
 #include "../tester/preprocessor_tester.c"
+#include "../tester/referencer_tester.c"
 #include "../tester/variable_tester.c"
 
 //
@@ -133,6 +134,7 @@ void test() {
     test_finder();
     test_memoriser();
     test_modifier();
+    test_referencer();
 
     // Empty.
     test_empty();

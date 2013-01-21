@@ -72,7 +72,12 @@ void reference_part(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ms, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST reference part rd: %i\n", *((int*) rd));
+fwprintf(stdout, L"TEST reference part p: %i\n", p);
+fwprintf(stdout, L"TEST reference part r: %i\n", r);
+fwprintf(stdout, L"TEST reference part t: %i\n", t);
+fwprintf(stdout, L"TEST reference part m: %i\n", m);
+fwprintf(stdout, L"TEST reference part rd: %i\n", rd);
+//?? fwprintf(stdout, L"TEST reference part *rd: %i\n", *((int*) rd));
 
     // Increment or decrement references counter.
     calculate_integer(rd, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);

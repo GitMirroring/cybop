@@ -54,6 +54,8 @@ void deallocate_part(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate part.");
 
+fwprintf(stdout, L"TEST deallocate part: %i\n", *((void**) part));
+
         // The references, name, channel, encoding, language, format, type, model, properties.
         void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
