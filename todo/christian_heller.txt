@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue testing part referencer
+
         * Continue xdt deserialiser
         * Use three xdt processing steps: field-record-bdt/gdt/ldt
         * Define selector files for record begin and end etc.
