@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-01-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug in part referencer which used the new instead of old destination count to calculate the number of references
+
 2013-01-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Start testing part referencer

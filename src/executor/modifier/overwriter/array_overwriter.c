@@ -93,6 +93,10 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         // The new destination count.
         int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The overwritten elements count.
+        int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // CAUTION! An element may be added far behind the end of the array.
         // This is similar to random access of an arbitrary byte of a file.
@@ -104,9 +108,15 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // Add count of source elements to be written over destination elements.
         calculate_integer_add((void*) &nc, p3);
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // CAUTION! An element may be added far behind the end of the array.
+        // In such a case, the result will be negative.
 
+        // Initialise with original destination array count.
+        copy_integer((void*) &oc, p6);
+        // Subtract destination index.
+        calculate_integer_subtract((void*) &oc, p4);
+
+        // Test if new destination count exceeds original destination array size.
         compare_integer_greater((void*) &r, (void*) &nc, p7);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -134,12 +144,19 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         }
 
         // Decrement reference count of overwritten parts for rubbish (garbage) collection.
-        reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
+        // CAUTION! Use the overwritten elements count and
+        // NOT the count handed over as parametre p3 here!
+        // CAUTION! The overwritten elements count might be negative,
+        // e. g. if the destination index is greater than
+        // the original destination array count.
+        // However, this case is tested for in the called function.
+        reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, (void*) &oc, p4, p2);
 
         // Copy source to destination.
         copy_array_forward(*d, p1, p2, p3, p4, p5);
 
         // Increment reference count of new parts for rubbish (garbage) collection.
+        // CAUTION! Use the count handed over as parametre p3 and NOT the overwritten elements count here!
         reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
 
         // Reset comparison result.

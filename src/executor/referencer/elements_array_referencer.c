@@ -61,8 +61,14 @@ void reference_array_elements(void* p0, void* p1, void* p2) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
+fwprintf(stdout, L"TEST reference array elements p2: %i\n", *((int*) p2));
+
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // CAUTION! The comparison has to be for equality AND greaterness,
+        // since the count handed over as parametre might be negative,
+        // e. g. if the destination index is greater than
+        // the original destination array count.
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

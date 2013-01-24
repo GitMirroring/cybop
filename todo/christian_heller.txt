@@ -12,6 +12,12 @@
 #
 
         * Continue testing part referencer
+        * Check problem that initial check of references count is zero, so that the part gets deallocated!
+        * Usage of PART_ELEMENT_STATE_CYBOI_TYPE is necessary for referencer,
+            but has to be mapped to POINTER_STATE_CYBOI_TYPE internally in copier
+        * Function "copy_part" does not make sense, since a part's child nodes change dynamically and are not predictable;
+            provide a function "clone_part" instead;
+            map call to "copy_part" to "copy_pointer", as is done in allocator
 
         * Continue xdt deserialiser
         * Use three xdt processing steps: field-record-bdt/gdt/ldt

@@ -48,15 +48,25 @@ void test_referencer_part() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test referencer part.");
 
-    // The child part.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The parent part.
+    // The parent, child part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The parent model, properties item.
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The parent data, count.
+    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ppd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ppc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate child part.
-    allocate_part((void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Allocate parent part.
     allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    // Allocate child part.
+    allocate_part((void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    fwprintf(stdout, L"TEST tester referencer part p: %i\n", p);
+    fwprintf(stdout, L"TEST tester referencer part c: %i\n", c);
 
     // Fill child part.
     overwrite_part_element(c, (void*) L"child", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
@@ -68,8 +78,19 @@ void test_referencer_part() {
     overwrite_part_element(p, (void*) &c, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 //??    overwrite_part_element(p, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST tester referencer part c: %i\n", c);
-    fwprintf(stdout, L"TEST tester referencer part p: %i\n", p);
+    // Get parent data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ppd, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ppc, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Test knowledge tree.
+    // CAUTION! Since the parent model, properties are of PART_ELEMENT_STATE_CYBOI_TYPE,
+    // the PART_ELEMENT_STATE_CYBOI_FORMAT may be used as parametre here.
+    test_data_as_model_diagram((void*) L"TEST_REFERENCER.txt", (void*) L"[selected_node]", (void*) NUMBER_19_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, pmd, pmc, ppd, ppc);
 
     // Deallocate child part.
 //??    deallocate_part((void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
