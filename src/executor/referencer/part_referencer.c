@@ -60,9 +60,11 @@ void reference_part(void* p0, void* p1, void* p2) {
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ms = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int res = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST reference part p0: %i\n", p0);
-fwprintf(stdout, L"TEST reference part *p0: %i\n", *((void**) p0));
+//?? fwprintf(stdout, L"TEST reference part p0: %i\n", p0);
+//?? fwprintf(stdout, L"TEST reference part *p0: %i\n", *((void**) p0));
 
     // Get part at index.
     copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
@@ -75,20 +77,23 @@ fwprintf(stdout, L"TEST reference part *p0: %i\n", *((void**) p0));
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ms, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
+/*??
 fwprintf(stdout, L"TEST reference part p: %i\n", p);
 fwprintf(stdout, L"TEST reference part r: %i\n", r);
 fwprintf(stdout, L"TEST reference part t: %i\n", t);
 fwprintf(stdout, L"TEST reference part m: %i\n", m);
 fwprintf(stdout, L"TEST reference part rd: %i\n", rd);
 fwprintf(stdout, L"TEST reference part *rd: %i\n", *((int*) rd));
+*/
 
     // Increment or decrement references counter.
     calculate_integer(rd, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
 
-    // The comparison result.
-    int res = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+//?? fwprintf(stdout, L"TEST reference part post *rd: %i\n", *((int*) rd));
 
     compare_integer_smaller_or_equal((void*) &res, rd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+//?? fwprintf(stdout, L"TEST reference part res: %i\n", res);
 
     if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

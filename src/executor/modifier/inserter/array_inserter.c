@@ -129,6 +129,8 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         copy_integer(p6, (void*) &n);
 
         // Increment reference count of inserted parts for rubbish (garbage) collection.
+        // CAUTION! This has to be done AFTER having inserted elements,
+        // since beforehand, these are not known to the destination yet.
         reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
 
     } else {

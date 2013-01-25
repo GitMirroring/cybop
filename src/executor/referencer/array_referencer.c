@@ -54,13 +54,7 @@ void reference_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // since an offset is added below.
         void* a = p0;
 
-fwprintf(stdout, L"TEST reference array p0: %i\n", p0);
-fwprintf(stdout, L"TEST reference array pre a: %i\n", a);
-
         add_offset((void*) &a, p4, p3);
-
-fwprintf(stdout, L"TEST reference array post a: %i\n", a);
-
         reference_array_elements(a, p1, p2);
 
     } else {

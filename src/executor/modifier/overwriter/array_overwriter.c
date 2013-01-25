@@ -144,6 +144,8 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         }
 
         // Decrement reference count of overwritten parts for rubbish (garbage) collection.
+        // CAUTION! This has to be done BEFORE actually overwriting old elements,
+        // since afterwards, they are not reachable anymore from the destination.
         // CAUTION! Use the overwritten elements count and
         // NOT the count handed over as parametre p3 here!
         // CAUTION! The overwritten elements count might be negative,
@@ -156,6 +158,8 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         copy_array_forward(*d, p1, p2, p3, p4, p5);
 
         // Increment reference count of new parts for rubbish (garbage) collection.
+        // CAUTION! This has to be done AFTER having overwritten old elements with new elements,
+        // since beforehand, the latter are not known to the destination yet.
         // CAUTION! Use the count handed over as parametre p3 and NOT the overwritten elements count here!
         reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
 

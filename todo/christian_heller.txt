@@ -11,10 +11,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue testing part referencer
-        * Check problem that initial check of references count is zero, so that the part gets deallocated!
-        * Usage of PART_ELEMENT_STATE_CYBOI_TYPE is necessary for referencer,
-            but has to be mapped to POINTER_STATE_CYBOI_TYPE internally in copier
+        * Continue testing part referencer for rubbish (garbage) collection
+        * Think through if it is possible (e. g. for knowledge memory root) to initially have
+            a references count of zero, so that the part gets deallocated right after having been allocated
+        * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE wherever a part
+            is meant in ALL source code, in order to activate the referencer
+            (search for insert, remove, overwrite, append, copy, empty etc.)
         * Function "copy_part" does not make sense, since a part's child nodes change dynamically and are not predictable;
             provide a function "clone_part" instead;
             map call to "copy_part" to "copy_pointer", as is done in allocator
