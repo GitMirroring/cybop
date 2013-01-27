@@ -100,6 +100,9 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // overlapping array elements might get overwritten!
         // CAUTION! Call this function BEFORE resizing the array
         // since elements might get lost while shrinking the array.
+        // CAUTION! If the array is to be emptied, then c is zero (see calculation above),
+        // so that NOTHING is copied from behind the end of the array,
+        // as that would break array boundaries and be unpredictable content.
         copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
 
         // The comparison result.

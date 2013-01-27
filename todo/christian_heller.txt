@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * CHECK: CONTINUE IN file "part_deallocator.c"
+
         * Continue rubbish (garbage) collection
         * Remove (not destroy) all child parts in "part_deallocator.c"
         * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE wherever a part
