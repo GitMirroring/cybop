@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-01-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Remove (not destroy) all of a part model's elements of type "element/part" in file "part_deallocator.c",
+            so that their references are decremented for rubbish (garbage) collection
+
 2013-01-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete part referencer for rubbish (garbage) collection

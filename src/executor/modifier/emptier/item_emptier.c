@@ -60,6 +60,9 @@ void empty_item(void* p0, void* p1) {
 
     // Remove all elements from item data.
     // The count and size are adjusted inside.
+    // CAUTION! Hand over the count twice, as
+    // count of elements to be removed (p2)
+    // AND as array count (p4).
     remove_array((void*) &d, p1, c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, c, s);
 
     // Set data as item element.

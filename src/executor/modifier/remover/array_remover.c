@@ -28,10 +28,13 @@
 
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
+#include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../executor/referencer/referencer.c"
 #include "../../../logger/logger.c"
 
@@ -96,13 +99,16 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, p2, p3, p1);
 
         // Move current elements behind area to be removed towards the beginning of the array.
+        //
         // CAUTION! Move array elements starting from the FIRST since otherwise,
         // overlapping array elements might get overwritten!
+        //
         // CAUTION! Call this function BEFORE resizing the array
         // since elements might get lost while shrinking the array.
+        //
         // CAUTION! If the array is to be emptied, then c is zero (see calculation above),
         // so that NOTHING is copied from behind the end of the array,
-        // as that would break array boundaries and be unpredictable content.
+        // as that would break array boundaries and would copy unpredictable content.
         copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
 
         // The comparison result.
@@ -148,7 +154,7 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p3, p4, (void*) SMALLER_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_smaller((void*) &r, p3, p4);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
