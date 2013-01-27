@@ -71,8 +71,11 @@ void deallocate_part(void* p0, void* p1, void* p2) {
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The data, count.
+        // The data.
+        void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int res = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Get references, name, channel, encoding, language, format, type, model, properties.
         copy_array_forward((void*) &r, *part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) REFERENCES_PART_STATE_CYBOI_NAME);
@@ -85,30 +88,44 @@ void deallocate_part(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) &m, *part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &p, *part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
         // Get data.
+        copy_array_forward((void*) &rd, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-        // Remove all elements from model.
-        // CAUTION! The necessary "reference" function is
-        // called automatically inside the "empty" function
-        // (and "remove" function, respectively,)
-        // in order to decrement the reference count
-        // for each element with type "element/part",
-        // for rubbish (garbage) collection.
-        empty_item(m, td);
+        // Verify that reference data is zero.
+        // CAUTION! Otherwise, do NOT deallocate this part.
+        // This test IS USEFUL in order to find out via log file
+        // if there are forgotten allocations/deallocations in source code.
+        compare_integer_equal((void*) &res, rd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        // Deallocate references, name, channel, encoding, language, format, type, model, properties.
-        deallocate_item((void*) &r, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &m, p1, p2);
-        deallocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+        if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Deallocate part.
-        deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+            // Remove all elements from model.
+            // CAUTION! The necessary "reference" function is
+            // called automatically inside the "empty" function
+            // (and "remove" function, respectively,)
+            // in order to decrement the reference count
+            // for each element with type "element/part",
+            // for rubbish (garbage) collection.
+            empty_item(m, td);
+
+            // Deallocate references, name, channel, encoding, language, format, type, model, properties.
+            deallocate_item((void*) &r, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &m, p1, p2);
+            deallocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+            // Deallocate part.
+            deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+
+        } else {
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate part. It is still referenced by other parts.");
+        }
 
     } else {
 

@@ -14,6 +14,7 @@
         * Continue rubbish (garbage) collection
         * Think through if it is possible (e. g. for knowledge memory root) to initially have
             a references count of zero, so that the part gets deallocated right after having been allocated
+            CONTINUE in file "manager.c"
         * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE wherever a part
             is meant in ALL source code, in order to activate the referencer
             (search for insert, remove, overwrite, append, copy, empty etc.)

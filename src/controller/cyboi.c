@@ -45,14 +45,12 @@
 #include "../logger/logger.c"
 #include "../variable/log_setting.c"
 
-//
-// This is the main file of the Cybernetics Oriented Interpreter (CYBOI).
-// CYBOI can interpret Cybernetics Oriented Language (CYBOL) files,
-// which adhere to the Extensible Markup Language (XML) syntax.
-//
-
 /**
  * The main entry function.
+ *
+ * The Cybernetics Oriented Interpreter (CYBOI) can interpret
+ * Cybernetics Oriented Language (CYBOL) files,
+ * which adhere to the Extensible Markup Language (XML) syntax.
  *
  * @param p0 the arguments count (argc) which also counts the name of the programme being run
  * @param p1 the arguments vector (argv), the first argument being the file name of the programme being run;
@@ -74,9 +72,9 @@ int main(int p0, char** p1) {
     // when the process terminates.
     //
     // Of course, all dynamically allocated memory should also be freed properly.
-    // However, if some memory to be freed is forgotten accidentally, it will
-    // not harm the operating system, as the memory occupied by the application
-    // will be freed automatically on process shutdown.
+    // However, if some memory to be deallocated is forgotten accidentally,
+    // it will not harm the operating system, as the memory occupied by
+    // the application will be freed automatically on process shutdown.
     //
 
     //
