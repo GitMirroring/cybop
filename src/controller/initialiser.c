@@ -27,12 +27,12 @@
 #define INITIALISER_SOURCE
 
 #include "../constant/encoding/cyboi/cyboi_encoding.c"
+#include "../constant/format/cyboi/state_cyboi_format.c"
 #include "../constant/language/cyboi/state_cyboi_language.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/format/cyboi/state_cyboi_format.c"
 #include "../controller/checker.c"
 #include "../executor/communicator/receiver/file/file_receiver.c"
 #include "../executor/memoriser/allocator/part_allocator.c"

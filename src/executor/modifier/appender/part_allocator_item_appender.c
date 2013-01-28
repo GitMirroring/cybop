@@ -71,7 +71,9 @@ void append_item_allocate_part(void* p0, void* p1, void* p2, void* p3, void* p4,
     overwrite_part_element(p, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, p8, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
     // Append part to destination.
-    append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+    // This is necessary in order to activate rubbish (garbage) collection.
+    append_item_element(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* PART_ALLOCATOR_ITEM_APPENDER_SOURCE */

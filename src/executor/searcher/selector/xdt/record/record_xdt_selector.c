@@ -80,7 +80,9 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 //?? fwprintf(stdout, L"TEST select xdt record p2: %i\n", p2);
 
         // Append current field part to destination record model item.
-        append_item_element(p2, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+        // This is necessary in order to activate rubbish (garbage) collection.
+        append_item_element(p2, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
 

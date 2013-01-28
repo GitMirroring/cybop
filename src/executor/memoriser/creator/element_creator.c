@@ -55,7 +55,7 @@ void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // The element (part or property).
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate type item.
+    // Allocate temporary type item.
     // CAUTION! Initialise integer items with a size of ONE,
     // in order to avoid later reallocation when overwriting
     // the element and to thus increase efficiency.
@@ -75,7 +75,7 @@ void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     overwrite_part_element(e, p4, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     overwrite_part_element(e, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
-    // Deallocate type item.
+    // Deallocate temporary type item.
     deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -85,10 +85,9 @@ void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add element to whole model.");
 
         // Append element (handed over as array reference) to whole model (being a part itself).
-        // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
-        // The reason is that deep copying would be used to assign the element inside,
-        // instead of just assigning the element reference in a shallow copying manner.
-        append_part_element(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+        // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+        // This is necessary in order to activate rubbish (garbage) collection.
+        append_part_element(p0, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
 
     } else {
 
@@ -102,10 +101,9 @@ void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         // Therefore, if the whole part is null, the knowledge memory is used instead.
 
         // Append element (handed over as array reference) to knowledge memory root model (being a part itself).
-        // CAUTION! Do NOT use PART_ELEMENT_STATE_CYBOI_TYPE here!
-        // The reason is that deep copying would be used to assign the element inside,
-        // instead of just assigning the element reference in a shallow copying manner.
-        append_part_element(p1, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+        // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+        // This is necessary in order to activate rubbish (garbage) collection.
+        append_part_element(p1, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
     }
 }
 

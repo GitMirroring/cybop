@@ -67,7 +67,10 @@ void copy_part(void* p0, void* p1) {
     // since copying just overwrites, but does not insert values.
     //
 
-    overwrite_part_all(p0, p1);
+    //?? TODO: This function "copy_part" should not be called at all!
+    //?? It was replaced in "copy_value" by a call to "copy_pointer".
+    //?? Replace this function with "clone_part" later!
+//??    overwrite_part_all(p0, p1);
 
 /*??
     //??

@@ -73,10 +73,10 @@ void copy_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TEST: temporary solution, until it has been decided whether to
-            //?? handle values as type element/part or type pointer/pointer.
+            // CAUTION! The type "element/part" IS important for activating
+            // the rubbish (garbage) collection when calling modifier functions like:
+            // append, empty, insert, overwrite, remove.
             copy_pointer(p0, p1);
-//??            copy_part(p0, p1);
         }
     }
 

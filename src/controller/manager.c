@@ -205,8 +205,13 @@ void manage(void* p0) {
     // Allocate knowledge memory part.
     allocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     // Allocate signal memory item.
-    // CAUTION! The signal memory is given an initial size of 1000,
-    // in order to avoid steady reallocation, for better performance.
+    // CAUTION! It is given an initial size of 1000, in order
+    // to avoid steady reallocation, for better performance.
+    // CAUTION! The signal memory should be a simple array only.
+    // If it was a part, rubbish (garbage) collection would become effective
+    // and manipulate the references count of child parts when removing them,
+    // so that these might get deallocated while still needed.
+    // But only the knowledge memory part has the right to do that.
     allocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
     //
@@ -358,6 +363,11 @@ void manage(void* p0) {
     // Deallocate signal memory item.
     deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     // Deallocate knowledge memory part.
+    // CAUTION! This is the knowledge memory tree root node.
+    // It has to be deallocated MANUALLY here.
+    // Its references count was initially zero and never
+    // got changed during programme execution,
+    // so that this root part is not deallocated automatically.
     deallocate_part((void*) &k, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     // Deallocate internal memory data.
     deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);

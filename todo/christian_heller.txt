@@ -12,15 +12,11 @@
 #
 
         * Continue rubbish (garbage) collection
-        * Think through if it is possible (e. g. for knowledge memory root) to initially have
-            a references count of zero, so that the part gets deallocated right after having been allocated
-            CONTINUE in file "manager.c"
-        * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE wherever a part
-            is meant in ALL source code, in order to activate the referencer
-            (search for insert, remove, overwrite, append, copy, empty etc.)
+        * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE wherever a part is meant in ALL source code,
+            in order to activate the referencer (search for insert, remove, overwrite, append, copy, empty etc.);
+            CONTINUE WITH directory "executor/representer/" (all other source code is already checked)
         * Function "copy_part" does not make sense, since a part's child nodes change dynamically and are not predictable;
-            provide a function "clone_part" instead;
-            map call to "copy_part" to "copy_pointer", as is done in allocator and in file "value_copier.c"
+            provide a function "clone_part" instead; map call to "copy_part" to "copy_pointer", as is done in allocator and in file "value_copier.c"
 
         * Continue xdt deserialiser
         * Use three xdt processing steps: field-record-bdt/gdt/ldt
@@ -43,10 +39,6 @@
 
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
-
-        * Make rubbish (garbage) collection work
-            --> use test messages in executor/referencer/
-            --> gc does not work yet, because of comparison with "part" type, while the "pointer" type arrives instead
 
         * Reactivate x_window_system receive functionality
         * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):

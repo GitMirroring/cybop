@@ -109,6 +109,7 @@ void overwrite_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
  * @param p0 the destination part
  * @param p1 the source part
  */
+/*??
 void overwrite_part_all(void* p0, void* p1) {
 
     //?? TODO: Parametres arrive here as normal pointer (NOT pointer reference) to a part.
@@ -165,6 +166,7 @@ void overwrite_part_all(void* p0, void* p1) {
     overwrite_item(dm, sm, sad, smc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     overwrite_item(dd, sd, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, sdc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 }
+*/
 
 /* PART_OVERWRITER_SOURCE */
 #endif
