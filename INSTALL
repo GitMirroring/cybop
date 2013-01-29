@@ -112,6 +112,11 @@ ___________________________
     /home/cybop/src/controller/cyboi wui/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi http_communication/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi presence/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi character_encoding/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi document_generator/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi gui/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi hedam/run.cybol
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi latex/run.cybol
 
 To make the client-server communication work in the "http_communication" example,
 type the following URL into a web browser after having started the application:

@@ -11,10 +11,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue rubbish (garbage) collection
-        * Search and check usage of function "get_part_element" in all source code; is PART_ELEMENT_STATE_CYBOI_TYPE necessary?
-        * Function "copy_part" does not make sense, since a part's child nodes change dynamically and are not predictable;
-            provide a function "clone_part" instead; map call to "copy_part" to "copy_pointer", as is done in allocator and in file "value_copier.c"
+        * Correct errors shown by valgrind
+
+        * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
+            using the function "copy_part" for deep copying does not make sense, since a part's child nodes change dynamically and are not predictable
+            USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
+            shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
 
         * Continue xdt deserialiser
         * Use three xdt processing steps: field-record-bdt/gdt/ldt
