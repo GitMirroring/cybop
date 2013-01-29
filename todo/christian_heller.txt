@@ -12,9 +12,7 @@
 #
 
         * Continue rubbish (garbage) collection
-        * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE wherever a part is meant in ALL source code,
-            in order to activate the referencer (search for insert, remove, overwrite, append, copy, empty etc.);
-            CONTINUE WITH directory "executor/representer/" (all other source code is already checked)
+        * Search and check usage of function "get_part_element" in all source code; is PART_ELEMENT_STATE_CYBOI_TYPE necessary?
         * Function "copy_part" does not make sense, since a part's child nodes change dynamically and are not predictable;
             provide a function "clone_part" instead; map call to "copy_part" to "copy_pointer", as is done in allocator and in file "value_copier.c"
 

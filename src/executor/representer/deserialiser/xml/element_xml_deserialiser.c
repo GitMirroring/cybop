@@ -100,9 +100,11 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     }
 
     // Append part to destination model.
-    // Storing many parts with identical tag name is not a problem,
+    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+    // This is necessary in order to activate rubbish (garbage) collection.
+    // CAUTION! Storing many parts with identical tag name is not a problem,
     // since the tag name of a part is added to its properties.
-    append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* ELEMENT_XML_DESERIALISER_SOURCE */

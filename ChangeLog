@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-01-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE wherever a part is added,
+            in order to activate the referencer for rubbish (garbage) collection
+
 2013-01-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Check all source code for necessary adaptations caused by rubbish (garbage) collection

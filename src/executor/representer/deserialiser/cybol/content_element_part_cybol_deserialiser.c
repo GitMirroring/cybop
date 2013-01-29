@@ -317,7 +317,9 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         deserialise_cybol_part(pp, p1, p2, p5, p6);
 
         // Add part to destination.
-        append_item_element(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+        // This is necessary in order to activate rubbish (garbage) collection.
+        append_item_element(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 
