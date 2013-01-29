@@ -105,11 +105,13 @@
 // Forward declarations.
 //
 
+void calculate_integer_add(void* p0, void* p1);
 void compare_integer_equal(void* p0, void* p1, void* p2);
 void compare_integer_smaller_or_equal(void* p0, void* p1, void* p2);
 void copy_integer(void* p0, void* p1);
 void copy_pointer(void* p0, void* p1);
-void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+//?? void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Writes a terminated log message to the given output stream.
@@ -234,12 +236,52 @@ void log_message(void* p0, void* p1, void* p2) {
         // The log level name.
         void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
         int lnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The destination index.
+        // CAUTION! Use zero as first destination index,
+        // in order to overwrite the destination from the beginning.
+        int di = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Add name of the given log level to log entry.
         log_get_level_name((void*) &ln, (void*) &lnc, p0);
 
+        // CAUTION! Do NOT use the "overwrite_array" function following,
+        // since it resizes the destination array to make the message fit.
+        // However, the log message is an array of fixed size.
+
         // Copy log level.
-        overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &lnc, (void*) LOG_MESSAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_array_forward((void*) LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &lnc, (void*) &di, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        // Calculate new destination index.
+        calculate_integer_add((void*) &di, (void*) &lnc);
+
+        // Copy colon.
+        copy_array_forward((void*) LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Calculate new destination index.
+        calculate_integer_add((void*) &di, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+        // Copy space.
+        copy_array_forward((void*) LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Calculate new destination index.
+        calculate_integer_add((void*) &di, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+        // Copy log message.
+        copy_array_forward((void*) LOG_MESSAGE, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) &di, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        // Calculate new destination index.
+        calculate_integer_add((void*) &di, p2);
+
+        // Copy line feed control wide character.
+        copy_array_forward((void*) LOG_MESSAGE, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Calculate new destination index.
+        calculate_integer_add((void*) &di, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+        // Copy null termination wide character.
+        copy_array_forward((void*) LOG_MESSAGE, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+/*??
+        // Copy log level.
+        // CAUTION! Use zero as destination index,
+        // since this is the first text to be added.
+//??        overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &lnc, (void*) LOG_MESSAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &lnc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Copy colon.
         overwrite_array((void*) &LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Copy space.
@@ -250,6 +292,7 @@ void log_message(void* p0, void* p1, void* p2) {
         overwrite_array((void*) &LOG_MESSAGE, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         // Copy null termination wide character.
         overwrite_array((void*) &LOG_MESSAGE, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+*/
 
         // Log message.
         log_write(*LOG_OUTPUT, (void*) LOG_MESSAGE);
@@ -274,7 +317,15 @@ void log_message_terminated(void* p0, void* p1) {
     // The message count.
     int c = wcslen((wchar_t*) p1);
 
-    log_message(p0, p1, (void*) &c);
+    // Test message count.
+    // CAUTION! This is important, since the destination
+    // log message count is fixed and limited in size.
+    if (c > 1000) {
+
+        c = 1000;
+    }
+
+//??    log_message(p0, p1, (void*) &c);
 }
 
 /* LOGGER_SOURCE */

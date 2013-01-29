@@ -12,6 +12,8 @@
 #
 
         * Correct errors shown by valgrind
+        * Check file "logger.c" and reactivate function "log_message_terminated";
+            use overwrite_array or simple copy_array_forward?
 
         * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
             using the function "copy_part" for deep copying does not make sense, since a part's child nodes change dynamically and are not predictable

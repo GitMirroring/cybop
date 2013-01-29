@@ -39,8 +39,24 @@
 static int LOG_LEVEL_ARRAY[1];
 static int* LOG_LEVEL = LOG_LEVEL_ARRAY;
 
-/** The log message. */
-static wchar_t LOG_MESSAGE_ARRAY[1000];
+/**
+ * The log message.
+ *
+ * It may have a maximum count of 1000 wide characters.
+ * This is just to have a defined size and avoid steady reallocation.
+ *
+ * In addition to the actual message, there has to be place for:
+ * - log level (the longest of is "information"): 11 Byte
+ * - colon: 1 Byte
+ * - space: 1 Byte
+ * - line feed: 1 Byte
+ * - null termination: 1 Byte
+ *
+ * Sum: 15 Byte
+ *
+ * Therefore, 1015 is used here instead of just 1000.
+ */
+static wchar_t LOG_MESSAGE_ARRAY[1015];
 static wchar_t* LOG_MESSAGE = LOG_MESSAGE_ARRAY;
 
 static int LOG_MESSAGE_COUNT_ARRAY[1];
