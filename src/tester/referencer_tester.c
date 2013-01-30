@@ -101,7 +101,8 @@ void test_referencer_part() {
     test_data_as_model_diagram((void*) L"TEST_REFERENCER_1.txt", (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, pmd, pmc, ppd, ppc);
 
     // Remove child from parent part.
-    remove_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+//??    remove_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    empty_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Test knowledge tree.
     // CAUTION! Since the parent model, properties are of PART_ELEMENT_STATE_CYBOI_TYPE,

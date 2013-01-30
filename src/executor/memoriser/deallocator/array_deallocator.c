@@ -48,8 +48,10 @@ void deallocate_array(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate array.");
 
-        // CAUTION! Check array for null value.
-        // The "free" function would cause an error when handing over a null value.
+        // CAUTION! Test array for null value.
+        // It is true, the "free" function normally does not
+        // cause an error when handing over a null value.
+        // However, the code is cleaner when testing for null.
         if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // This function may cause an error if some wrong pointer

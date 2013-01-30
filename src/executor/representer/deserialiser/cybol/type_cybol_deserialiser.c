@@ -289,7 +289,15 @@ void deserialise_cybol_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol cyboi type. The type is unknown.");
+        // The format is unknown.
+
+        // Assign WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE by default.
+        // (It might be any other type as well.)
+        // CAUTION! This is ESSENTIAL in order to avoid memory leaks.
+        // Logic formats like "live/exit" do not have a counterpart as type.
+        // Also, invalid formats may have been used in a cybol file.
+        // Therefore, for these cases, assign a default type here.
+        overwrite_item_element(p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     }
 }
 

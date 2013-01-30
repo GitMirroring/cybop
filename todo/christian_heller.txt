@@ -11,9 +11,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Search all source code for "allocate_part(", since the following might not be completed yet:
+            Assign not only format, but always type as well wherever a part gets allocated,
+            so that it may properly be deallocated together with its child parts at shutdown
         * Correct errors shown by valgrind
         * Check file "logger.c" and reactivate function "log_message_terminated";
             use overwrite_array or simple copy_array_forward?
+
+        * Eliminate temporary format and type parametres in file "content_element_part_cybol_deserialiser.c" and replace with locally allocated and deallocated items?
 
         * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
             using the function "copy_part" for deep copying does not make sense, since a part's child nodes change dynamically and are not predictable

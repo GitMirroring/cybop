@@ -19,6 +19,11 @@
 2013-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Use a minimum size of ONE for array allocation, if a zero size is handed over
+        * Assign not only format, but always type as well wherever a part gets allocated,
+            so that it may properly be deallocated together with its child parts at shutdown
+        * Assign a default type in file "type_cybol_deserialiser.c", in order to avoid memory leaks
+            (logic formats like "live/exit" do not have a counterpart as type;
+            also, invalid formats may have been used in a cybol file)
 
 2013-01-29  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -235,6 +235,9 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         // Reset temporary format item.
         // The count does NOT have to be set, since the p6 has a fixed size and count of one.
         overwrite_item_element(p6, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Reset temporary type item.
+        overwrite_item_element(p5, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
         // Decode cybol source format (mime type as string) into cyboi-internal format (an integer).
         deserialise_cybol_format(p6, sfmd, sfmc);
         // Get temporary format item data.
@@ -242,8 +245,6 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &fd, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        // Reset temporary type item.
-        overwrite_item_element(p5, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Decode cyboi-internal type into cyboi runtime type.
         // CAUTION! Both are not always equal in their meaning.
         // For example, an "xdt" file is converted into a cyboi "part".
@@ -259,6 +260,11 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         // Allocate part.
         // CAUTION! Use the cyboi runtime type determined above
         // (NOT the mime type format)!
+fwprintf(stdout, L"TEST content element part cybol deserialiser sfmd: %i\n", sfmd);
+fwprintf(stdout, L"TEST content element part cybol deserialiser *sfmd: %ls\n", (wchar_t*) sfmd);
+fwprintf(stdout, L"TEST content element part cybol deserialiser sfmc: %i\n", *((int*) sfmc));
+fwprintf(stdout, L"TEST content element part cybol deserialiser fd: %i\n", *((int*) fd));
+fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((int*) td));
         allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
 
         // Get part name, channel, encoding, language, format, type, model, properties item.
