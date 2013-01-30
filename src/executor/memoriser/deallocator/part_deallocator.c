@@ -119,6 +119,8 @@ void deallocate_part(void* p0, void* p1, void* p2) {
             deallocate_item((void*) &m, p1, p2);
             deallocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
+fwprintf(stdout, L"TEST deallocate part: %i\n", *((void**) part));
+
             // Deallocate part.
             deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 

@@ -155,8 +155,8 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         // Initialise ONLY NEW array elements (new memory area)
                         // with zero. Leave existing elements untouched.
                         //
-                        // CAUTION! Initialising with zero is essential, since cyboi
-                        // frequently tests variables for null pointer values.
+                        // CAUTION! Initialising with zero values is essential, since
+                        // cyboi frequently tests variables for null pointer values.
                         //
                         // CAUTION! Do NOT use large values, since the zero value gets
                         // converted to an unsigned char inside the "memset" function.

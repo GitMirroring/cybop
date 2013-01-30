@@ -57,4 +57,4 @@ Help and Support
         * Karl Berry <karl@freefriends.org> (feedback on improving project infrastructure and documentation)
         * Didier Link <didier@famille-link.fr> (autotools-automake-autoconf file creation)
         * Allan "TheForkOfJustice" <theforkofjustice@gmail.com> of Linux for Clinics (ubuntu/ debian packaging)
-        * Daniel Fischer via StackOverflow developer portal (hint on memory bug caused by int-to-size_t cast)
+        * Daniel Fischer via StackOverflow developer portal (hint on memory bug caused by int-to-size_t cast found with valgrind)
