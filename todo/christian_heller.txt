@@ -11,9 +11,18 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Search all source code for "allocate_part(", since the following might not be completed yet:
-            Assign not only format, but always type as well wherever a part gets allocated,
-            so that it may properly be deallocated together with its child parts at shutdown
+        * Use the size handed over as parametre in "allocate_array" and do not just assume a size of one
+        * Adapt all places (e.g. allocators) where a size of zero was used and use one instead
+            --> add comment:
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+        * Initialise references with zero already in "part_allocator.c"?
+        * TEST if the following is possible/necessary
+            (did not work in first try when changing "initialiser.c" and "found_checker.c"
+        * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE
+            also for appending/removing signal parts to/from signal memory,
+            in order to activate the referencer for rubbish (garbage) collection
+
         * Correct errors shown by valgrind
         * Check file "logger.c" and reactivate function "log_message_terminated";
             use overwrite_array or simple copy_array_forward?

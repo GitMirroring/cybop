@@ -62,9 +62,8 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 //??    pthread_mutex_lock(p5);
 
     // Remove signal from signal memory.
-    // CAUTION! Use POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here,
-    // since the latter causes the rubbish (garbage) collection to decrement the references count
-    // of the removed part, so that it (wrongly) might get deallocated while still being used.
+    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+    // This is necessary in order to activate rubbish (garbage) collection.
     remove_item(p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     // Reset interrupt request.
