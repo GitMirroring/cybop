@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Fix endless allocation loop in example "tui/run.cybol"
+
         * TEST if the following is possible/necessary (did not work in first try when changing "initialiser.c" and "found_checker.c"):
         * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE
             also for appending/removing signal parts to/from signal memory,

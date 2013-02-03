@@ -257,16 +257,19 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &td, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-        // Allocate part.
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        // CAUTION! Use the cyboi runtime type determined above
-        // (NOT the mime type format)!
+/*??
 fwprintf(stdout, L"TEST content element part cybol deserialiser sfmd: %i\n", sfmd);
 fwprintf(stdout, L"TEST content element part cybol deserialiser *sfmd: %ls\n", (wchar_t*) sfmd);
 fwprintf(stdout, L"TEST content element part cybol deserialiser sfmc: %i\n", *((int*) sfmc));
 fwprintf(stdout, L"TEST content element part cybol deserialiser fd: %i\n", *((int*) fd));
 fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((int*) td));
+*/
+
+        // Allocate part.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        // CAUTION! Use the cyboi runtime type determined above
+        // (NOT the mime type format)!
         allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
 
         // Get part name, channel, encoding, language, format, type, model, properties item.

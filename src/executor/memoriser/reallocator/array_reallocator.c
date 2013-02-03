@@ -63,19 +63,11 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 // The memory area.
                 int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST: reallocate array *type: %i\n", *((int*) p3));
-fwprintf(stdout, L"TEST: reallocate array *size: %i\n", *s);
-fwprintf(stdout, L"TEST: reallocate array *count: %i\n", *c);
-
                 // Determine type (type) size.
                 determine_size((void*) &ma, p3);
 
-fwprintf(stdout, L"TEST: reallocate array type ma: %i\n", ma);
-
                 // Calculate memory area.
                 calculate_integer_multiply((void*) &ma, p2);
-
-fwprintf(stdout, L"TEST: reallocate array size ma: %i\n", ma);
 
                 // Test memory area for valid value.
                 //
