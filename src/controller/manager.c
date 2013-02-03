@@ -374,14 +374,14 @@ void manage(void* p0) {
     //
 
     // Deallocate signal memory item.
-    deallocate_item((void*) &s, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &s, (void*) POINTER_STATE_CYBOI_TYPE);
     // Deallocate knowledge memory part.
     // CAUTION! This is the knowledge memory tree root node.
     // It has to be deallocated MANUALLY here.
     // Its references count was initially zero and never
     // got changed during programme execution,
     // so that this root part is not deallocated automatically.
-    deallocate_part((void*) &k, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &k);
     // Deallocate internal memory data.
     deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 }

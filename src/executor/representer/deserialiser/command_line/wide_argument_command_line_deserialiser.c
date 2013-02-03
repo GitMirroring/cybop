@@ -89,7 +89,7 @@ void deserialise_command_line_argument_wide(void* p0, void* p1, void* p2, void* 
     deserialise_command_line_option(p0, p1, p2, p3, p4, (void*) &ad, ac);
 
     // Deallocate argument item.
-    deallocate_item((void*) &a, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &a, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* WIDE_ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE */

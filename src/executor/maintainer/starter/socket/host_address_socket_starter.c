@@ -192,7 +192,7 @@ void startup_socket_host_address(void* p0, void* p1, void* p2, void* p3) {
             inet_pton(*((int*) p3), (char*) sd, p0);
 
             // Deallocate terminated address item.
-            deallocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &s, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
 
     } else {

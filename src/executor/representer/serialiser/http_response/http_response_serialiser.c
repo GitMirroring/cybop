@@ -121,7 +121,7 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4) {
     append_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, bc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate body item.
-    deallocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &b, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* HTTP_RESPONSE_SERIALISER_SOURCE */

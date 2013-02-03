@@ -254,7 +254,7 @@ void test_converter_decode_utf_8() {
     fwprintf(stdout, L"TEST post ds: %i\n", *((int*) ds));
 
     // Deallocate destination item.
-    deallocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

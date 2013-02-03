@@ -101,9 +101,9 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     send_file_stream(p0, (void*) &fc, bd, bc);
 
     // Deallocate model diagram item.
-    deallocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
-    deallocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &b, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* DATA_AS_MODEL_DIAGRAM_TESTER */

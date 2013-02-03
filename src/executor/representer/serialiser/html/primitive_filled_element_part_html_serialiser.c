@@ -125,7 +125,7 @@ void serialise_html_part_element_filled_primitive(void* p0, void* p1, void* p2, 
     serialise_character_reference(p0, rd, rc, (void*) HTML_TEXT_STATE_CYBOI_LANGUAGE);
 
     // Deallocate numeric character reference item.
-    deallocate_item((void*) &r, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &r, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // This is a primitive value, NOT a compound element.
     // Example:

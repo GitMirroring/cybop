@@ -123,7 +123,7 @@ void receive_file_stream(void* p0, void* p1, void* p2) {
         }
 
         // Deallocate terminated file name item.
-        deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
 

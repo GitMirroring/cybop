@@ -211,7 +211,7 @@ int main(int p0, char** p1) {
         deoptionalise((void*) LOG_OUTPUT);
 
         // Deallocate cybol knowledge file path.
-        deallocate_item((void*) &k, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &k, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Shutdown global variables.
         unglobalise();

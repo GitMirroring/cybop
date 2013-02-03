@@ -154,7 +154,7 @@ fwprintf(stdout, L"TEST deserialise index p: %i\n", p);
 */
 
             // Deallocate temporary index item.
-            deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             // If a "." or "#" delimiter is found, then the flag is set to "true".
             // CAUTION! This is done here in a "peek ahead" manner.

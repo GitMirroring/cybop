@@ -137,7 +137,7 @@ void apply_list_directory_contents(void* p0, void* p1, void* p2) {
     apply_execute(argd, argc);
 
     // Deallocate arguments item.
-    deallocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* LIST_DIRECTORY_CONTENTS_SOURCE */

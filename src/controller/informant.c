@@ -90,7 +90,7 @@ void inform(void* p0) {
     log_write(p0, md);
 
     // Deallocate message item.
-    deallocate_item((void*) &m, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &m, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* INFORMANT_SOURCE */

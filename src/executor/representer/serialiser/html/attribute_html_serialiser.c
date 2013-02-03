@@ -124,7 +124,7 @@ append_item_element(p0, md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, mc, (v
         append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Deallocate numeric character reference item.
-        deallocate_item((void*) &ref, mc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &ref, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
 

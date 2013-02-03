@@ -246,17 +246,17 @@ void test_finder_part_hierarchical() {
     // since references to all allocated parts are hold in
     // local variables here, so that all of them can be freed.
     //
-    deallocate_part((void*) &application, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &tui, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &gui, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &wui, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &menubar, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &toolbar, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &statusbar, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &position, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &size, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &colour, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &constraints, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &application);
+    deallocate_part((void*) &tui);
+    deallocate_part((void*) &gui);
+    deallocate_part((void*) &wui);
+    deallocate_part((void*) &menubar);
+    deallocate_part((void*) &toolbar);
+    deallocate_part((void*) &statusbar);
+    deallocate_part((void*) &position);
+    deallocate_part((void*) &size);
+    deallocate_part((void*) &colour);
+    deallocate_part((void*) &constraints);
 }
 
 /**
@@ -379,10 +379,10 @@ void test_finder_part_by_name() {
     // Deallocate parts.
     //
 
-    deallocate_part((void*) &p1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &w, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &p1);
+    deallocate_part((void*) &p2);
+    deallocate_part((void*) &p3);
+    deallocate_part((void*) &w);
 }
 
 /**

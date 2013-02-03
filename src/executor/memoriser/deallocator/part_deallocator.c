@@ -48,10 +48,8 @@ void empty_item(void* p0, void* p1);
  * Deallocates the part.
  *
  * @param p0 the part (pointer reference)
- * @param p1 the size
- * @param p2 the type
  */
-void deallocate_part(void* p0, void* p1, void* p2) {
+void deallocate_part(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -73,6 +71,7 @@ void deallocate_part(void* p0, void* p1, void* p2) {
         void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The data.
         void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The comparison result.
         int res = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -88,6 +87,7 @@ void deallocate_part(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) &p, *part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
         // Get data.
         copy_array_forward((void*) &rd, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
         // Verify that reference data is zero.
         // CAUTION! Otherwise, do NOT deallocate this part.
@@ -104,25 +104,20 @@ void deallocate_part(void* p0, void* p1, void* p2) {
             // in order to decrement the reference count
             // for each element with type "element/part",
             // for rubbish (garbage) collection.
-            empty_item(m, p2);
-
-            //?? TEST
-fwprintf(stdout, L"TEST deallocate part p2: %i\n", *((int*) p2));
-            void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-            copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             empty_item(m, td);
+
 fwprintf(stdout, L"TEST deallocate part td: %i\n", *((int*) td));
 
             // Deallocate references, name, channel, encoding, language, format, type, model, properties.
-            deallocate_item((void*) &r, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &e, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &l, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &m, p1, p2);
-            deallocate_item((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &e, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &l, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &m, td);
+            deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
 fwprintf(stdout, L"TEST deallocate part: %i\n", *part);
 

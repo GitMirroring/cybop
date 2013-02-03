@@ -103,9 +103,9 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     send_file_name(p0, ed, ec);
 
     // Deallocate serialised wide character item.
-    deallocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate encoded character item.
-    deallocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* FILE_SENDER_SOURCE */

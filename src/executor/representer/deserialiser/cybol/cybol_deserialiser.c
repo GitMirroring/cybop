@@ -209,10 +209,10 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
             test_data_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL.txt", (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, p0d, p0c, p1d, p1c);
 
             // Deallocate temporary format, type, model, properties item.
-            deallocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         }
     }
 
@@ -308,7 +308,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
             deserialise_cybol_type(p0, fd);
 
             // Deallocate temporary format item.
-            deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         }
     }
 

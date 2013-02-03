@@ -11,11 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Remove size parametre from functions "deallocate_part" and "deallocate_item"
-            but not from "deallocate_array", since it might be needed there one day
-
-        * TEST if the following is possible/necessary
-            (did not work in first try when changing "initialiser.c" and "found_checker.c"
+        * TEST if the following is possible/necessary (did not work in first try when changing "initialiser.c" and "found_checker.c"):
         * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE
             also for appending/removing signal parts to/from signal memory,
             in order to activate the referencer for rubbish (garbage) collection

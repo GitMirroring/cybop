@@ -117,7 +117,7 @@ void deserialise_cybol_fraction_decimal_value(void* p0, void* p1, void* p2, void
     }
 
     // Deallocate temporary null-terminated string item.
-    deallocate_item((void*) &t, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* VALUE_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE */

@@ -289,7 +289,7 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
             XDrawString(*di, **w, *gc, *pmx, *pmy + *NUMBER_20_INTEGER_STATE_CYBOI_MODEL, textd, *((int*) textc));
 
             // Deallocate terminated text item.
-            deallocate_item((void*) &text, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &text, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             /*
             In the conventional 'XFontStruct' model, an X client opens

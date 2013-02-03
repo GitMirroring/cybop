@@ -219,7 +219,7 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
             serialise_cybol_format(p0, fd);
 
             // Deallocate temporary format item.
-            deallocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         }
     }
 

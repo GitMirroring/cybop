@@ -63,8 +63,8 @@ void reallocate_item(void* p0, void* p1, void* p2) {
 
     if (d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Set count, size.
         // CAUTION! The count remains the same.
+        // Set size.
         copy_integer(s, p1);
 
         // Set data.

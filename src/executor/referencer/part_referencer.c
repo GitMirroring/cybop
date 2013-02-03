@@ -97,7 +97,7 @@ fwprintf(stdout, L"TEST reference part *rd: %i\n", *((int*) rd));
 
     if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deallocate_part((void*) &p, ms, td);
+        deallocate_part((void*) &p);
     }
 }
 

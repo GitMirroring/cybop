@@ -108,7 +108,7 @@ void initialise(void* p0, void* p1, void* p2) {
     check(p2);
 
     // Deallocate startup signal part.
-    deallocate_part((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &s);
 }
 
 /* INITIALISER_SOURCE */

@@ -133,9 +133,9 @@ void test_copier_part() {
     test_part_as_model_diagram((void*) L"TEST_COPIER.txt", w);
 
     // Deallocate parts.
-    deallocate_part((void*) &p1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deallocate_part((void*) &w, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &p1);
+    deallocate_part((void*) &p2);
+    deallocate_part((void*) &w);
 }
 
 /**

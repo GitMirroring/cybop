@@ -162,7 +162,7 @@ void apply_copy_file(void* p0, void* p1, void* p2) {
     apply_execute(argd, argc);
 
     // Deallocate arguments item.
-    deallocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* COPY_FILE_SOURCE */

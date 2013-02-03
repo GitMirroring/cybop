@@ -120,7 +120,7 @@ void test_referencer_part() {
     // However, the parent part itself still has to be deallocated below!
 
     // Deallocate parent part.
-    deallocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &p);
 }
 
 /**

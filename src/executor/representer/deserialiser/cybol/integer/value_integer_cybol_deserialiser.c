@@ -133,7 +133,7 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         }
 
         // Deallocate temporary null-terminated string item.
-        deallocate_item((void*) &t, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     } else {
 

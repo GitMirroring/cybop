@@ -37,10 +37,9 @@
  * Deallocates the item.
  *
  * @param p0 the item (pointer reference)
- * @param p1 the size
- * @param p2 the type
+ * @param p1 the type
  */
-void deallocate_item(void* p0, void* p1, void* p2) {
+void deallocate_item(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -59,7 +58,7 @@ void deallocate_item(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) &s, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
         // Deallocate data, count, size.
-        deallocate_array((void*) &d, p1, p2);
+        deallocate_array((void*) &d, s, p1);
         deallocate_array((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         deallocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 

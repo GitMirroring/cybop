@@ -88,7 +88,7 @@ void deserialise_cybol_integer_value_primitive(void* p0, void* p1, void* p2, voi
     copy_integer(p0, id);
 
     // Deallocate temporary item.
-    deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* PRIMITIVE_VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE */

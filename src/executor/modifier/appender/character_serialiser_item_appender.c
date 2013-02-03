@@ -76,7 +76,7 @@ void append_item_serialise_character(void* p0, void* p1, void* p2) {
     append_item_element(p0, id, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, ic, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate character item.
-    deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &i, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* CHARACTER_ENCODER_ITEM_APPENDER_SOURCE */

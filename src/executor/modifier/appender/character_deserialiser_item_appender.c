@@ -77,7 +77,7 @@ void append_item_deserialise_character(void* p0, void* p1, void* p2) {
     append_item_element(p0, d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate wide character item.
-    deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* CHARACTER_DECODER_ITEM_APPENDER_SOURCE */

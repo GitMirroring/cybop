@@ -73,7 +73,7 @@ void apply_destroy(void* p0, void* p1, void* p2) {
     // get decremented and, if zero, the (child) parts deallocated automatically inside.
     // Calling a special "destructor" here is therefore NOT necessary
     // (as opposed to the "creator" called by the "apply_create" function).
-    deallocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, ptd);
+    deallocate_part((void*) &p);
 }
 
 /* DESTROY_SOURCE */

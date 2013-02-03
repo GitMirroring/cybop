@@ -16,7 +16,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2013-02-02  Christian Heller  <christian.heller@tuxtax.de>
+2013-02-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Assign not only type, but always format as well wherever a part gets allocated,
             so that it may properly be deallocated together with its potential child parts at shutdown
@@ -27,6 +27,8 @@
         * Exclude unsuccessful allocation in files "array_reallocator.c", "item_reallocator.c", "part_reallocator.c"
             and only set other values if the data array or model item, respectively, are not null,
             in order to handle cases with negative or zero size and out of memory errors
+        * Remove size parametre from function "deallocate_item"
+        * Remove size and type parametre from function "deallocate_part"
 
 2013-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
