@@ -103,9 +103,11 @@ void serialise_html_part_element_filled_primitive(void* p0, void* p1, void* p2, 
     void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate numeric character reference item.
-    // CAUTION! Use the source count as initial size,
-    // since the destination will have at least the same size,
-    // if not a greater one if numberic character references are inserted.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    // CAUTION! Use the source count as initial size, since
+    // the destination will have at least the same, if not
+    // a greater size if numeric character references are inserted.
     allocate_item((void*) &r, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise primitive value, e.g. a date, number or arbitrary text.
@@ -123,7 +125,7 @@ void serialise_html_part_element_filled_primitive(void* p0, void* p1, void* p2, 
     serialise_character_reference(p0, rd, rc, (void*) HTML_TEXT_STATE_CYBOI_LANGUAGE);
 
     // Deallocate numeric character reference item.
-    deallocate_item((void*) &r, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &r, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // This is a primitive value, NOT a compound element.
     // Example:

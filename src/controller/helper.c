@@ -47,9 +47,11 @@ void help(void* p0) {
     // Set size to arbitrary big value, so that message does
     // not have to be reallocated for every character below.
     // This lets the programme run faster.
-    int ms = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
+    int ms = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate message.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Copy message.

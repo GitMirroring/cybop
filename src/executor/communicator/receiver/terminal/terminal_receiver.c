@@ -63,7 +63,9 @@ void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate decoded message item.
-    allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Receive byte data via channel.
     receive_terminal_file(d, p4);
@@ -98,7 +100,7 @@ fwprintf(stdout, L"TEST receive terminal testd: %ls\n", (wchar_t*) testd);
 */
 
     // Deallocate decoded message item.
-    deallocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

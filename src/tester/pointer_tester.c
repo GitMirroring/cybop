@@ -340,6 +340,8 @@ void test_pointer_array() {
 
     // The pointer array.
     void** p = NULL_POINTER_STATE_CYBOI_MODEL;
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     int ps = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Create pointer array.
@@ -388,6 +390,8 @@ void test_pointer_array_with_null_values() {
 
     // The pointer array.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     int as = *NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
 
     allocate_array((void*) &a, (void*) &as, (void*) POINTER_STATE_CYBOI_TYPE);
@@ -449,6 +453,8 @@ void test_pointer_addition() {
     log_write((void*) stdout, L"Test pointer addition:\n");
 
     // Allocate arrays of an arbitrary size.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     void* v = (void*) malloc(*NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
     int* i = (int*) malloc(*NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
     double* d = (double*) malloc(*NUMBER_10_INTEGER_STATE_CYBOI_MODEL);

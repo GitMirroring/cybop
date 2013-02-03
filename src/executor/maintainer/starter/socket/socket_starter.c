@@ -139,12 +139,20 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         }
 
         // Allocate socket address size of this system.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Allocate communication partner socket address size.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Allocate socket of this system.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Allocate communication partner socket.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate((void*) &ps, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Initialise socket address size of this system.
@@ -188,6 +196,8 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
         // Allocate socket address of this system.
         // Allocate communication partner socket address.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         if (an == AF_LOCAL) {
 
             la = (struct sockaddr_un*) malloc(*as);
@@ -221,6 +231,8 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         }
 
         // Allocate character buffer count and size.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate((void*) &bc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         allocate((void*) &bs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
@@ -229,10 +241,11 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         // suffice for transferring standard data over tcp/ip.
         // Another possible size could be 8192.
         copy_integer(bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        copy_integer(bs, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        copy_integer(bs, (void*) NUMBER_2048_INTEGER_STATE_CYBOI_MODEL);
 
         // Allocate character buffer.
-        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         // CAUTION! Allocate character buffer only AFTER
         // the buffer size has been initialised above!
         allocate((void*) &b, (void*) bs, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

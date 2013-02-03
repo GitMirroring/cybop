@@ -71,6 +71,8 @@ void deserialise_cybol_integer_value_primitive(void* p0, void* p1, void* p2, voi
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate temporary item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Decode xdt field element.

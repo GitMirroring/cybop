@@ -86,6 +86,8 @@ void apply_build(void* p0, void* p1, void* p2) {
     int int_string_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int int_string_size = *NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
 
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &int_string, (void*) &int_string_size, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     int_string_count = swprintf(int_string, int_string_size, L"%i", *((int*) *idxm));
@@ -95,6 +97,8 @@ void apply_build(void* p0, void* p1, void* p2) {
     *(int*)*resmc = *((int*) *bnmc) + *LIST_SEPARATOR_CYBOL_NAME_COUNT + int_string_count;
 
     // Reallocate result array.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     reallocate_array(resm, *resms, *resms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Set result array.

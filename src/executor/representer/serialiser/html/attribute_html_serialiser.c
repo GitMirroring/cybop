@@ -91,9 +91,11 @@ void serialise_html_attribute(void* p0, void* p1, void* p2) {
         void* refc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate numeric character reference item.
-        // CAUTION! Use the source count as initial size,
-        // since the destination will have at least the same size,
-        // if not a greater one if numberic character references are inserted.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        // CAUTION! Use the source count as initial size, since
+        // the destination will have at least the same, if not
+        // a greater size if numberic character references are inserted.
         allocate_item((void*) &ref, mc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Append attribute value.
@@ -122,7 +124,7 @@ append_item_element(p0, md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, mc, (v
         append_item_element(p0, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Deallocate numeric character reference item.
-        deallocate_item((void*) &ref, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &ref, mc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
 

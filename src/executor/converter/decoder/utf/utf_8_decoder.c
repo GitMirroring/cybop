@@ -214,6 +214,8 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             calculate_integer_add((void*) &nds, p2);
 
             // Reallocate destination item.
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
             reallocate_item(p0, (void*) &nds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Set locale.

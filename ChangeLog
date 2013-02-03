@@ -23,6 +23,7 @@
         * Initialise references item with zero in file "part_allocator.c"
         * Use the size handed over as parametre in file "array_allocator.c" and
             do not just assume a size of one for zero or a negative value
+        * Adapt all places where allocation happens not to use a zero size
 
 2013-01-30  Christian Heller  <christian.heller@tuxtax.de>
 

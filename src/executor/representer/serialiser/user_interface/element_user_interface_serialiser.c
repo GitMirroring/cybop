@@ -68,12 +68,20 @@ void serialise_user_interface_element(void* p0, void* p1, void* p2, void* p3, vo
     // size y
 
     // Allocate margin coordinates.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &m, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Allocate border coordinates.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &b, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Allocate padding coordinates.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &p, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Allocate content coordinates.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &c, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Determine margin coordinates.

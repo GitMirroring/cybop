@@ -63,7 +63,9 @@ void initialise(void* p0, void* p1, void* p2) {
     void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate startup signal part.
-    allocate_part((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_part((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // CAUTION! A name is not necessary, since only
     // the actual model and properties are of interest.
@@ -106,7 +108,7 @@ void initialise(void* p0, void* p1, void* p2) {
     check(p2);
 
     // Deallocate startup signal part.
-    deallocate_part((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 
 /* INITIALISER_SOURCE */

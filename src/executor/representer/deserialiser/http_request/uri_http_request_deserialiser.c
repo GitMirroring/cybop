@@ -57,9 +57,11 @@ void deserialise_http_request_uri_content(void* p0, void* p1, void* p2) {
     // The character data, count, size.
     void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int cs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int cs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate character data.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &cd, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
@@ -86,7 +88,9 @@ void deserialise_http_request_uri_content(void* p0, void* p1, void* p2) {
     void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate uri part.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Get uri part model, properties.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

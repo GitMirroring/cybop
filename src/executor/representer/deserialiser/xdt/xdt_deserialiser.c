@@ -68,9 +68,13 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate field temporary model item.
-    allocate_item((void*) &fm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &fm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     // Allocate record temporary model item.
-    allocate_item((void*) &rm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &rm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Deserialise all xdt fields into field temporary model item.
     deserialise_xdt_field(fm, p2, p3);
@@ -99,9 +103,9 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
 //??    deserialise_xdt_standard(p0, p1, rmd, rmc, p4);
 
     // Deallocate field temporary model item.
-    deallocate_item((void*) &fm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &fm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     // Deallocate record temporary model item.
-    deallocate_item((void*) &rm, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &rm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 
 /* XDT_DESERIALISER_SOURCE */

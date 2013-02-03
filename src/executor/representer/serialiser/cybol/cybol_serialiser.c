@@ -191,6 +191,8 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
             void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Allocate temporary format item.
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
             // CAUTION! Initialise integer items with a size of ONE,
             // in order to avoid later reallocation when overwriting
             // the element and to thus increase efficiency.

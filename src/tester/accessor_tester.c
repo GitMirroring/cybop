@@ -98,6 +98,8 @@ void test_accessor_array_setter() {
     int i2 = *NUMBER_13_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination array.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"d string: %ls\n", (wchar_t*) d);

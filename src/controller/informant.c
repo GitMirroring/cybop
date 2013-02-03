@@ -50,10 +50,12 @@ void inform(void* p0) {
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate message item.
-    // Set size to arbitrary big value, so that message does
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    // CAUTION! Set size to arbitrary big value, so that message does
     // not have to be reallocated for every character below.
     // This lets the programme possibly run faster.
-    allocate_item((void*) &m, (void*) NUMBER_1000_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &m, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append name.
     append_item_element(m, (void*) NAME_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NAME_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -88,7 +90,7 @@ void inform(void* p0) {
     log_write(p0, md);
 
     // Deallocate message item.
-    deallocate_item((void*) &m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &m, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* INFORMANT_SOURCE */

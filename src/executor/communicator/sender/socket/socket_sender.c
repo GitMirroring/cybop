@@ -295,11 +295,15 @@ void apply_send_socket_allocate_host_address(void* p0, void* p1) {
             if (*n == AF_INET) {
 
                 // Allocate ipv4 socket address.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
                 *a = malloc(*INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE);
 
             } else if (*n == AF_INET6) {
 
                 // Allocate ipv6 socket address.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
                 *a = malloc(*INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE);
             }
 
@@ -360,6 +364,8 @@ void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
                     *as = *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE + *NUMBER_108_INTEGER_STATE_CYBOI_MODEL;
 
                     // Allocate socket address.
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
                     *a = malloc(*as);
 
                 } else if (*n == AF_INET) {
@@ -368,6 +374,8 @@ void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
                     *as = *INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
 
                     // Allocate ipv4 socket address.
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
                     *a = malloc(*as);
 
                 } else if (*n == AF_INET6) {
@@ -376,6 +384,8 @@ void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
                     *as = *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE;
 
                     // Allocate ipv6 socket address.
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
                     *a = malloc(*as);
                 }
 

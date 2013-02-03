@@ -84,6 +84,8 @@ void test_empty_3() {
 //    int summand = 3;
     void* summand = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &summand, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
 //    *((int*) summand) = 4;

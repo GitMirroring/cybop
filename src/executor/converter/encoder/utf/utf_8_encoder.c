@@ -218,6 +218,8 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             calculate_integer_multiply((void*) &nds, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
 
             // Reallocate destination item.
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
             reallocate_item(p0, (void*) &nds, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Set locale.

@@ -171,7 +171,9 @@ void startup_socket_host_address(void* p0, void* p1, void* p2, void* p3) {
             void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Allocate terminated address item.
-            allocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Encode wide character name into multibyte character array.
             encode_utf_8(s, p1, p2);
@@ -190,7 +192,7 @@ void startup_socket_host_address(void* p0, void* p1, void* p2, void* p3) {
             inet_pton(*((int*) p3), (char*) sd, p0);
 
             // Deallocate terminated address item.
-            deallocate_item((void*) &s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
 
     } else {

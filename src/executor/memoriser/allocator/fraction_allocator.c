@@ -48,6 +48,8 @@ void allocate_fraction(void* p0, void* p1) {
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate fraction.");
 
         // Allocate fraction.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate_array(p0, (void*) FRACTION_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
         // The numerator and denominator.
@@ -55,6 +57,8 @@ void allocate_fraction(void* p0, void* p1) {
         void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate numerator and denominator.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate_array((void*) &n, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         allocate_array((void*) &d, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 

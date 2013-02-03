@@ -131,10 +131,16 @@ void deserialise_ddmmyyyy_date_time(void* p0, void* p1, void* p2, void* p3, void
                         int tmpys = *NUMBER_4_INTEGER_STATE_CYBOI_MODEL + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                         // Create temporary null-terminated day string.
+                        // CAUTION! Due to memory allocation handling, the size MUST NOT
+                        // be negative or zero, but have at least a value of ONE.
                         allocate_array((void*) &tmpd, (void*) &tmpds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
                         // Create temporary null-terminated month string.
+                        // CAUTION! Due to memory allocation handling, the size MUST NOT
+                        // be negative or zero, but have at least a value of ONE.
                         allocate_array((void*) &tmpm, (void*) &tmpms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
                         // Create temporary null-terminated year string.
+                        // CAUTION! Due to memory allocation handling, the size MUST NOT
+                        // be negative or zero, but have at least a value of ONE.
                         allocate_array((void*) &tmpy, (void*) &tmpys, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                         // The index.

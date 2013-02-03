@@ -55,13 +55,17 @@ void test_memoriser_array_resizing() {
     int* tc = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
     // The original array.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
     int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int os = *tc;
     // The copied array.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int cs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int cs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate original array.
     allocate_array((void*) &o, (void*) &os, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -98,7 +102,9 @@ void test_memoriser_part() {
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate part container.
-    allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Fill part container.
     overwrite_part_element(p, (void*) L"test_$0", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
@@ -145,7 +151,7 @@ void test_memoriser_part() {
     fwprintf(stdout, L"TEST dc: %i\n", *((int*) dc));
 
     // Deallocate part container.
-    deallocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -159,7 +165,9 @@ void test_memoriser_item() {
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate item container.
-    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Fill item container.
     overwrite_item_element(i, (void*) L"Hello, World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -179,7 +187,7 @@ void test_memoriser_item() {
     fwprintf(stdout, L"TEST item size: %i\n", *((int*) s));
 
     // Deallocate item container.
-    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -196,6 +204,8 @@ void test_memoriser_array() {
     // The integer array.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &p, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     allocate_array((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
@@ -249,6 +259,8 @@ void test_memoriser_array_wide_character() {
     // The wide character array.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Copy wide characters with zero indices.

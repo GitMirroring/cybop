@@ -263,7 +263,9 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
             void* textc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Allocate terminated text item.
-            allocate_item((void*) &text, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            allocate_item((void*) &text, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Get terminated text item data, count.
             copy_array_forward((void*) &textd, text, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -287,7 +289,7 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
             XDrawString(*di, **w, *gc, *pmx, *pmy + *NUMBER_20_INTEGER_STATE_CYBOI_MODEL, textd, *((int*) textc));
 
             // Deallocate terminated text item.
-            deallocate_item((void*) &text, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &text, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             /*
             In the conventional 'XFontStruct' model, an X client opens
@@ -448,9 +450,13 @@ fwprintf(stdout, L"layout count: %i\n", *((int*) *lmc));
         tic = *NULL_POINTER_STATE_CYBOI_MODEL;
         tis = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Create terminated title.
+        // Allocate terminated title.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate_array((void*) &tt, (void*) &ttc, (void*) &tts, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-        // Create terminated icon name.
+        // Allocate terminated icon name.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate_array((void*) &ti, (void*) &tic, (void*) &tis, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_TEXT_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
         // Encode wide character name into title, which is a multibyte character array.

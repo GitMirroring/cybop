@@ -59,7 +59,9 @@ void append_item_deserialise_character(void* p0, void* p1, void* p2) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate wide character item.
-    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Decode multibyte character array into wide character item.
     decode_utf_8(i, p1, p2);
@@ -75,7 +77,7 @@ void append_item_deserialise_character(void* p0, void* p1, void* p2) {
     append_item_element(p0, d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate wide character item.
-    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* CHARACTER_DECODER_ITEM_APPENDER_SOURCE */

@@ -118,8 +118,10 @@ void compare_part(void* p0, void* p1, void* p2, void* p3) {
                 copy_array_forward((void*) &sdc, sd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
                 // Allocate destination part.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
                 // CAUTION! Use source part type for allocation!
-                allocate_part(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sad);
+                allocate_part(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, sad);
 
                 // Copy source part name, type, model, properties to destination.
                 // The name is always of type "wide_character".

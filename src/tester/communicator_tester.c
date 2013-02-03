@@ -184,6 +184,8 @@ void test_wide_character_output() {
     struct termios* tw = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Create terminal internals.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
 //??        allocate((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
     to = (struct termios*) malloc(sizeof(struct termios));
     tw = (struct termios*) malloc(sizeof(struct termios));
@@ -209,7 +211,9 @@ void test_wide_character_output() {
     int tsc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int tss = *NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
 
-    // Create terminated control sequences string.
+    // Allocate terminated control sequences string.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &ts, (void*) &tss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Set terminated control sequences string by first copying the actual
@@ -320,6 +324,8 @@ void test_communicator_file_read() {
     // The file name count.
     int fnc = *NUMBER_26_INTEGER_STATE_CYBOI_MODEL;
 
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &a, (void*) &CHARACTER_ARRAY, (void*) &as);
 //??    receive_file((void*) &a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
 

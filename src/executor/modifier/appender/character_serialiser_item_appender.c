@@ -58,7 +58,9 @@ void append_item_serialise_character(void* p0, void* p1, void* p2) {
     void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate character item.
-    allocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode wide character array into multibyte character data.
     encode_utf_8(i, p1, p2);
@@ -74,7 +76,7 @@ void append_item_serialise_character(void* p0, void* p1, void* p2) {
     append_item_element(p0, id, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, ic, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate character item.
-    deallocate_item((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* CHARACTER_ENCODER_ITEM_APPENDER_SOURCE */

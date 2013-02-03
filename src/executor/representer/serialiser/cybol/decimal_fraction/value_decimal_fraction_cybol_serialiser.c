@@ -87,6 +87,8 @@ void serialise_cybol_fraction_decimal_value(void* p0, void* p1, void* p2) {
     int ts = *NUMBER_8192_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate temporary array.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Transform source value to destination string.

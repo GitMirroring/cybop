@@ -49,6 +49,8 @@ void test_converter_integer_to_wide_character_conversion() {
     int s = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate test wide character data.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // The temporary size_t variable.
@@ -99,12 +101,14 @@ void test_converter_serialise_integer() {
     // The destination character array.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ds = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // An arbitrary source integer value.
     int s = *NUMBER_18_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination character array.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Use compound count as index to create the element name suffix,
@@ -134,9 +138,11 @@ void test_converter_deserialise_cybol_integer_vector() {
     // The destination integer vector.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ds = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate integer vector.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &d, (void*) &ds, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Decode character array into integer vector.
@@ -181,9 +187,11 @@ void test_converter_serialise_integer_vector() {
     // The destination character array.
     wchar_t* d = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ds = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate destination character vector.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Use compound count as index to create the element name suffix,
@@ -217,7 +225,9 @@ void test_converter_decode_utf_8() {
     void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate destination item.
-    allocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Get destination item data, count, size.
     copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -243,8 +253,8 @@ void test_converter_decode_utf_8() {
     fwprintf(stdout, L"TEST post dc: %i\n", *((int*) dc));
     fwprintf(stdout, L"TEST post ds: %i\n", *((int*) ds));
 
-    // Deallocate wide character item.
-    deallocate_item((void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate destination item.
+    deallocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

@@ -59,9 +59,11 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate terminated file name item.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         // CAUTION! Do NOT use a wide character array here!
         // The glibc file stream functions below expect standard (multibyte) character arrays.
-        allocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Encode wide character option into multibyte character array.
         encode_utf_8(t, p1, p2);
@@ -111,7 +113,7 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         }
 
         // Deallocate terminated file name item.
-        deallocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     } else {
 

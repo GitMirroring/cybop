@@ -115,6 +115,8 @@ fwprintf(stdout, L"TEST deserialise index path data: %i\n", *((int*) p3));
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Allocate temporary index item.
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
             // CAUTION! Initialise integer items with a size of ONE,
             // in order to avoid later reallocation when overwriting
             // the element and to thus increase efficiency.

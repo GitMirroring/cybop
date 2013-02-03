@@ -11,10 +11,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Adapt all places (e.g. allocators) where a size of zero was used and use one instead
-            --> add comment:
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
+        * Adapt "array_reallocator.c" NO ZERO OR NEG. size!
+        * ONLY set size in item (for alloc and realloc and possibly also dealloc) if it was used in array for allocation so that the resulting memory is != null
+
+        * Remove size parametre from functions "deallocate_part" and "deallocate_item"
+            but not from "deallocate_array", since it might be needed there one day
 
         * TEST if the following is possible/necessary
             (did not work in first try when changing "initialiser.c" and "found_checker.c"

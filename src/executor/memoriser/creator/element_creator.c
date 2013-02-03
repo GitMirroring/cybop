@@ -56,6 +56,8 @@ void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate temporary type item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     // CAUTION! Initialise integer items with a size of ONE,
     // in order to avoid later reallocation when overwriting
     // the element and to thus increase efficiency.
@@ -69,7 +71,9 @@ void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Allocate element (part or property).
-    allocate_part((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_part((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
     // Fill element (part or property).
     overwrite_part_element(e, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
     overwrite_part_element(e, p4, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);

@@ -85,7 +85,9 @@ void receive_file_stream(void* p0, void* p1, void* p2) {
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate terminated file name item.
-        allocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Encode wide character name into multibyte character array.
         encode_utf_8(t, p1, p2);
@@ -121,7 +123,7 @@ void receive_file_stream(void* p0, void* p1, void* p2) {
         }
 
         // Deallocate terminated file name item.
-        deallocate_item((void*) &t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
 
