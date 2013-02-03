@@ -29,6 +29,7 @@
             in order to handle cases with negative or zero size and out of memory errors
         * Remove size parametre from function "deallocate_item"
         * Remove size and type parametre from function "deallocate_part"
+        * Make sure allocation size is at least one wherever function "reallocate_array" is called
 
 2013-01-30  Christian Heller  <christian.heller@tuxtax.de>
 

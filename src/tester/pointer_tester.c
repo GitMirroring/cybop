@@ -235,6 +235,8 @@ void test_character_array_multiple_elements() {
     // including two places for new line '\n' and c string termination '\0'.
     int ns = *NUMBER_15_INTEGER_STATE_CYBOI_MODEL;
 
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     reallocate_array((void*) &d, (void*) &ns, (void*) &ns, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     log_write((void*) stdout, (wchar_t*) d);

@@ -80,6 +80,8 @@ void test_memoriser_array_resizing() {
 
     // Reallocate copied array.
     os = os + *NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     reallocate_array((void*) &o, (void*) &oc, (void*) &os, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Print original array content.

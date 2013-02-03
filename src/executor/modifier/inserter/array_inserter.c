@@ -98,7 +98,7 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer((void*) &r, (void*) &n, p7, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_greater((void*) &r, (void*) &n, p7);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -108,7 +108,15 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             // which would lead to runtime errors.
             // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
+            // Make sure allocation size is at least one.
+            if (n <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                n = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+            }
+
             // Enlarge array using new count as size.
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
             reallocate_array(p0, p6, (void*) &n, p2);
 
             // Set new size.

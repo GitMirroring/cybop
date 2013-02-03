@@ -59,7 +59,23 @@ void reallocate_item(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
     // Reallocate data.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     reallocate_array((void*) &d, c, p1, p2);
+
+    //?? TEST
+    if ((*((int*) p1)) < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST: reallocate item p1 is SMALLER than zero: %i\n", *((int*) p1));
+    } else if ((*((int*) p1)) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST: reallocate item p1 IS zero: %i\n", *((int*) p1));
+    }
+
+    //?? TEST
+    if ((*((int*) s)) < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST: reallocate item s is SMALLER than zero: %i\n", *((int*) s));
+    } else if ((*((int*) s)) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST: reallocate item s IS zero: %i\n", *((int*) s));
+    }
 
     if (d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

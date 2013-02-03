@@ -134,7 +134,15 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // which would lead to runtime errors.
             calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
 
+            // Make sure allocation size is at least one.
+            if (ns <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+            }
+
             // Enlarge array using new destination size.
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
             reallocate_array(p0, p6, (void*) &ns, p2);
 
             // Adjust new size.
