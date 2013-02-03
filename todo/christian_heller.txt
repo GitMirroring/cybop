@@ -11,7 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Use the size handed over as parametre in "allocate_array" and do not just assume a size of one
         * Adapt all places (e.g. allocators) where a size of zero was used and use one instead
             --> add comment:
     // CAUTION! Due to memory allocation handling, the size MUST NOT

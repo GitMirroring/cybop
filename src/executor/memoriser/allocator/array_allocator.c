@@ -76,6 +76,8 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // because values are casted to int* internally again.
         size_t tma = ma;
 
+        // Test memory area for valid value.
+        //
         // Quotation from the C standard:
         // If the space cannot be allocated, a null pointer is returned.
         // If the size of the space requested is zero, the behavior is
@@ -97,29 +99,32 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // http://stackoverflow.com/questions/1073157/zero-size-malloc/1073175
         // http://stackoverflow.com/questions/2022335/whats-the-point-in-malloc0
         //
-        // CAUTION! In order to always get a correct memory address returned
-        // that may be used to store data, a potential zero size is changed
-        // to a minimum size of one here.
-        if (tma == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        // CAUTION! Wherever something gets allocated in source code,
+        // it HAS TO HAVE a size of at least one byte.
+        // Otherwise, nothing gets allocated.
+        if (tma > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            tma = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+            // Allocate memory area.
+            *a = malloc(tma);
 
-        } else if (tma < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            // Initialise array elements with null pointer.
+            //
+            // CAUTION! Initialising with zero values is essential, since
+            // cyboi frequently tests variables for null pointer values.
+            memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tma);
+
+        } else if (tma == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate array. The memory area to be allocated is zero.");
+
+fwprintf(stdout, L"ERROR: Could not allocate array. The memory area to be allocated is zero: %i\n", *a);
+
+        } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate array. The memory area to be allocated is negative.");
 
 fwprintf(stdout, L"ERROR: Could not allocate array. The memory area to be allocated is negative: %i\n", *a);
-
-            tma = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
         }
-
-        *a = malloc(tma);
-
-        // Initialise array elements with null pointer.
-        //
-        // CAUTION! Initialising with zero values is essential, since
-        // cyboi frequently tests variables for null pointer values.
-        memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tma);
 
     } else {
 

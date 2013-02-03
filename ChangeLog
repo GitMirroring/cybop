@@ -21,6 +21,8 @@
         * Assign not only type, but always format as well wherever a part gets allocated,
             so that it may properly be deallocated together with its potential child parts at shutdown
         * Initialise references item with zero in file "part_allocator.c"
+        * Use the size handed over as parametre in file "array_allocator.c" and
+            do not just assume a size of one for zero or a negative value
 
 2013-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
