@@ -16,7 +16,7 @@
             --> add comment:
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-        * Initialise references with zero already in "part_allocator.c"?
+
         * TEST if the following is possible/necessary
             (did not work in first try when changing "initialiser.c" and "found_checker.c"
         * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE

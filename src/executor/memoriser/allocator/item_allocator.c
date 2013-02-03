@@ -62,8 +62,8 @@ void allocate_item(void* p0, void* p1, void* p2) {
         allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Initialise count, size.
-        // The data does NOT have to be initialised and remains empty.
-        // The count is set to zero, since the model does not contain any elements yet.
+        // CAUTION! The data does NOT have to be initialised and remains empty.
+        // The count is set to zero, since the data does not contain any elements yet.
         // The size is set to the value that was handed over as argument.
         copy_integer(c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         copy_integer(s, p1);

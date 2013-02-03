@@ -19,7 +19,8 @@
 2013-02-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Assign not only type, but always format as well wherever a part gets allocated,
-            so that it may properly be deallocated together with its child parts at shutdown
+            so that it may properly be deallocated together with its potential child parts at shutdown
+        * Initialise references item with zero in file "part_allocator.c"
 
 2013-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
