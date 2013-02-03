@@ -69,17 +69,33 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 // Calculate memory area.
                 calculate_integer_multiply((void*) &ma, p2);
 
+                // Test memory area for valid value.
+                //
+                // Quotation from the C standard:
+                // If the space cannot be allocated, a null pointer is returned.
+                // If the size of the space requested is zero, the behavior is
+                // implementation defined: either a null pointer is returned,
+                // or the behavior is as if the size were some nonzero value,
+                // except that the returned pointer shall NOT be used to access an object.
+                //
+                // In other words:
+                // Calling malloc(0) will return either a null pointer or
+                // a unique pointer that can be successfully passed to free().
+                // For practical purposes, it's pretty much the same as doing:
+                // variable = NULL;
+                //
+                // Even though nothing gets allocated, the variable may be passed
+                // to a call to free() without worry, since:
+                // - free(NULL) is ok, no operation is done
+                // - free(address) is ok, if address was received from malloc
+                //
+                // http://stackoverflow.com/questions/1073157/zero-size-malloc/1073175
+                // http://stackoverflow.com/questions/2022335/whats-the-point-in-malloc0
+                //
+                // CAUTION! Wherever something gets allocated in source code,
+                // it HAS TO HAVE a size of at least one byte.
+                // Otherwise, nothing gets allocated.
                 if (ma > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    //
-                    // CAUTION! The memory area (new array size)
-                    // MUST NOT be zero or smaller!
-                    // If it were equal to zero, then the "realloc"
-                    // function call would be equivalent to "free" --
-                    // an unwanted side effect that would destroy
-                    // allocated memory areas and lead to errors.
-                    // Therefore, that case is excluded by this condition.
-                    //
 
                     // The temporary size_t variable.
                     //
@@ -109,63 +125,83 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                     // because it is NOT a pointer, but an integer value!
                     *a = realloc(*a, tma);
 
-                    if (*s > *c) {
+                    if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                        // CAUTION! If count and size are equal, then nothing
-                        // is to be done.
-                        // CAUTION! Do NOT change this value if the size is
-                        // smaller than the count, because this will result
-                        // in a negative value and cause the new array elements
-                        // pointer further below to cross the array's boundary!
-                        // If the size is smaller than the count, elements
-                        // outside the smaller size area are just lost.
+                        if (*s > *c) {
 
-                        // The NEW memory area to be initialised.
-                        int nma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                            // CAUTION! If count and size are equal, then nothing
+                            // is to be done.
+                            // CAUTION! Do NOT change this value if the size is
+                            // smaller than the count, because this will result
+                            // in a negative value and cause the new array elements
+                            // pointer further below to cross the array's boundary!
+                            // If the size is smaller than the count, elements
+                            // outside the smaller size area are just lost.
 
-                        // Calculate extra array size, which is the given array size
-                        // reduced by the existing element count.
-                        int es = *s - *c;
+                            // The NEW memory area to be initialised.
+                            int nma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                        // Determine type (type) size.
-                        determine_size((void*) &nma, p3);
+                            // Calculate extra array size, which is the given array size
+                            // reduced by the existing element count.
+                            int es = *s - *c;
 
-                        // Calculate new memory area.
-                        calculate_integer_multiply((void*) &nma, (void*) &es);
+                            // Determine type (type) size.
+                            determine_size((void*) &nma, p3);
 
-                        // The new array elements.
-                        void* na = *a + (ma - nma);
+                            // Calculate new memory area.
+                            calculate_integer_multiply((void*) &nma, (void*) &es);
 
-                        // The temporary size_t variable.
-                        //
-                        // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                        // the "size_t" type has a size of 8 Byte,
-                        // whereas the "int" type has the usual size of 4 Byte.
-                        // When trying to cast between the two, memory errors
-                        // will occur and the valgrind memcheck tool report:
-                        // "Invalid read of size 8".
-                        //
-                        // CAUTION! Initialise temporary size_t variable with final int value
-                        // JUST BEFORE handing that over to the glibc function requiring it.
-                        //
-                        // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-                        // because values are casted to int* internally again.
-                        size_t tnma = nma;
+                            // The new array elements.
+                            void* na = *a + (ma - nma);
 
-                        // Initialise ONLY NEW array elements (new memory area)
-                        // with zero. Leave existing elements untouched.
-                        //
-                        // CAUTION! Initialising with zero values is essential, since
-                        // cyboi frequently tests variables for null pointer values.
-                        //
-                        // CAUTION! Do NOT use large values, since the zero value gets
-                        // converted to an unsigned char inside the "memset" function.
-                        memset(na, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tnma);
+                            // The temporary size_t variable.
+                            //
+                            // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                            // the "size_t" type has a size of 8 Byte,
+                            // whereas the "int" type has the usual size of 4 Byte.
+                            // When trying to cast between the two, memory errors
+                            // will occur and the valgrind memcheck tool report:
+                            // "Invalid read of size 8".
+                            //
+                            // CAUTION! Initialise temporary size_t variable with final int value
+                            // JUST BEFORE handing that over to the glibc function requiring it.
+                            //
+                            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                            // because values are casted to int* internally again.
+                            size_t tnma = nma;
+
+                            // Initialise ONLY NEW array elements (new memory area)
+                            // with zero. Leave existing elements untouched.
+                            //
+                            // CAUTION! Initialising with zero values is essential, since
+                            // cyboi frequently tests variables for null pointer values.
+                            //
+                            // CAUTION! Do NOT use large values, since the zero value gets
+                            // converted to an unsigned char inside the "memset" function.
+                            memset(na, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tnma);
+                        }
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The allocated memory area is null.");
                     }
+
+                } else if (ma == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    // CAUTION! The memory area (new array size) MUST NOT be zero.
+                    // If it was equal to zero, then the "realloc" function call
+                    // would be equivalent to "free" -- an unwanted side effect
+                    // that would destroy allocated memory areas and lead to errors.
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The memory area to be allocated is zero.");
+
+        fwprintf(stdout, L"ERROR: Could not reallocate array. The memory area to be allocated is zero: %i\n", *a);
 
                 } else {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The memory area is not greater than zero.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The memory area to be allocated is negative.");
+
+        fwprintf(stdout, L"ERROR: Could not reallocate array. The memory area to be allocated is negative: %i\n", *a);
                 }
 
             } else {

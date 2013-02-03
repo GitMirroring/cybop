@@ -48,9 +48,6 @@ void allocate_item(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate item.");
 
-        // Allocate item.
-        allocate_array(p0, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-
         // The data, count, size.
         void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -58,20 +55,36 @@ void allocate_item(void* p0, void* p1, void* p2) {
 
         // Allocate data, count, size.
         allocate_array((void*) &d, p1, p2);
-        allocate_array((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-        // Initialise count, size.
-        // CAUTION! The data does NOT have to be initialised and remains empty.
-        // The count is set to zero, since the data does not contain any elements yet.
-        // The size is set to the value that was handed over as argument.
-        copy_integer(c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        copy_integer(s, p1);
+        if (d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Set data, count, size.
-        copy_array_forward(*i, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(*i, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) COUNT_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(*i, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SIZE_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Allocate count, size.
+            allocate_array((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+            // Initialise count, size.
+            // CAUTION! The data does NOT have to be initialised and remains empty.
+            // The count is set to zero, since the data does not contain any elements yet.
+            // The size is set to the value that was handed over as argument.
+            copy_integer(c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            copy_integer(s, p1);
+
+            // Allocate item.
+            allocate_array(p0, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+
+            // Set data, count, size.
+            copy_array_forward(*i, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(*i, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) COUNT_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(*i, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SIZE_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+        } else {
+
+            // Reasons might be:
+            // - given size is zero
+            // - given size is negative
+            // - no more memory (RAM) left in the system
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate item. The data is null.");
+        }
 
     } else {
 

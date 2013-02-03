@@ -11,9 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Adapt "array_reallocator.c" NO ZERO OR NEG. size!
-        * ONLY set size in item (for alloc and realloc and possibly also dealloc) if it was used in array for allocation so that the resulting memory is != null
-
         * Remove size parametre from functions "deallocate_part" and "deallocate_item"
             but not from "deallocate_array", since it might be needed there one day
 

@@ -60,22 +60,6 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // Calculate memory area.
         calculate_integer_multiply((void*) &ma, p1);
 
-        // The temporary size_t variable.
-        //
-        // CAUTION! It IS NECESSARY because on 64 Bit machines,
-        // the "size_t" type has a size of 8 Byte,
-        // whereas the "int" type has the usual size of 4 Byte.
-        // When trying to cast between the two, memory errors
-        // will occur and the valgrind memcheck tool report:
-        // "Invalid read of size 8".
-        //
-        // CAUTION! Initialise temporary size_t variable with final int value
-        // JUST BEFORE handing that over to the glibc function requiring it.
-        //
-        // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-        // because values are casted to int* internally again.
-        size_t tma = ma;
-
         // Test memory area for valid value.
         //
         // Quotation from the C standard:
@@ -102,18 +86,41 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // CAUTION! Wherever something gets allocated in source code,
         // it HAS TO HAVE a size of at least one byte.
         // Otherwise, nothing gets allocated.
-        if (tma > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (ma > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // The temporary size_t variable.
+            //
+            // CAUTION! It IS NECESSARY because on 64 Bit machines,
+            // the "size_t" type has a size of 8 Byte,
+            // whereas the "int" type has the usual size of 4 Byte.
+            // When trying to cast between the two, memory errors
+            // will occur and the valgrind memcheck tool report:
+            // "Invalid read of size 8".
+            //
+            // CAUTION! Initialise temporary size_t variable with final int value
+            // JUST BEFORE handing that over to the glibc function requiring it.
+            //
+            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+            // because values are casted to int* internally again.
+            size_t tma = ma;
 
             // Allocate memory area.
             *a = malloc(tma);
 
-            // Initialise array elements with null pointer.
-            //
-            // CAUTION! Initialising with zero values is essential, since
-            // cyboi frequently tests variables for null pointer values.
-            memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tma);
+            if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        } else if (tma == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                // Initialise array elements with null pointer.
+                //
+                // CAUTION! Initialising with zero values is essential, since
+                // cyboi frequently tests variables for null pointer values.
+                memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tma);
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate array. The allocated memory area is null.");
+            }
+
+        } else if (ma == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate array. The memory area to be allocated is zero.");
 

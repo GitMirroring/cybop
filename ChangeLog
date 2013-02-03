@@ -24,6 +24,9 @@
         * Use the size handed over as parametre in file "array_allocator.c" and
             do not just assume a size of one for zero or a negative value
         * Adapt all places where allocation happens not to use a zero size
+        * Exclude unsuccessful allocation in files "array_reallocator.c", "item_reallocator.c", "part_reallocator.c"
+            and only set other values if the data array or model item, respectively, are not null,
+            in order to handle cases with negative or zero size and out of memory errors
 
 2013-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
