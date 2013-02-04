@@ -114,6 +114,26 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // Subtract destination index.
         calculate_integer_subtract((void*) &oc, p4);
 
+        if (nc < 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array inside. The new destination count is negative.");
+            fwprintf(stdout, L"Could not overwrite array inside. The new destination count is negative nc: %i\n", nc);
+/*??
+        } else if (nc == 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array inside. The new destination count is zero.");
+            fwprintf(stdout, L"Could not overwrite array inside. The new destination count is zero nc: %i\n", nc);
+fwprintf(stdout, L"TEST type *p2: %i\n", *((int*) p2));
+fwprintf(stdout, L"TEST count *p3: %i\n", *((int*) p3));
+            if ((*((int*) p2)) == *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE) {
+fwprintf(stdout, L"TEST source array p1: %ls\n", (wchar_t*) p1);
+            }
+*/
+        }
+
+        if (oc < 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array inside. The overwritten elements count is negative.");
+            fwprintf(stdout, L"Could not overwrite array inside. The overwritten elements count is negative oc: %i\n", oc);
+        }
+
         // Test if new destination count exceeds original destination array size.
         compare_integer_greater((void*) &r, (void*) &nc, p7);
 
@@ -134,11 +154,13 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // which would lead to runtime errors.
             calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
 
+/*??
             // Make sure allocation size is at least one.
             if (ns <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
             }
+*/
 
             // Enlarge array using new destination size.
             // CAUTION! Due to memory allocation handling, the size MUST NOT

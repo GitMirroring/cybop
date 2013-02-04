@@ -95,6 +95,24 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // Add count of new elements to be inserted.
         calculate_integer_add((void*) &n, p3);
 
+        if (i < 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The move destination index is negative.");
+            fwprintf(stdout, L"Could not insert array inside. The move destination index is negative i: %i\n", i);
+        }
+
+        if (c < 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The move count is negative.");
+            fwprintf(stdout, L"Could not insert array inside. The move count is negative c: %i\n", c);
+        }
+
+        if (n < 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The new size is negative.");
+            fwprintf(stdout, L"Could not insert array inside. The new size is negative n: %i\n", n);
+        } else if (n == 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The new size is zero.");
+            fwprintf(stdout, L"Could not insert array inside. The new size is zero n: %i\n", n);
+        }
+
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -108,11 +126,13 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             // which would lead to runtime errors.
             // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
+/*??
             // Make sure allocation size is at least one.
             if (n <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 n = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
             }
+*/
 
             // Enlarge array using new count as size.
             // CAUTION! Due to memory allocation handling, the size MUST NOT

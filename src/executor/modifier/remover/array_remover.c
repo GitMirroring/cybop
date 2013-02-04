@@ -93,6 +93,24 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // Subtract count of elements to be removed.
         calculate_integer_subtract((void*) &n, p2);
 
+        if (i < 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The move source index is negative.");
+            fwprintf(stdout, L"Could not remove array inside. The move source index is negative i: %i\n", i);
+        }
+
+        if (c < 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The move source count is negative.");
+            fwprintf(stdout, L"Could not remove array inside. The move source count is negative c: %i\n", c);
+        }
+
+        if (n < 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The new size is negative.");
+            fwprintf(stdout, L"Could not remove array inside. The new size is negative n: %i\n", n);
+        } else if (n == 0) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The new size is zero.");
+            fwprintf(stdout, L"Could not remove array inside. The new size is zero n: %i\n", n);
+        }
+
         // Decrement reference count of removed parts for rubbish (garbage) collection.
         // CAUTION! This has to be done BEFORE actually removing elements,
         // since afterwards, they are not reachable anymore from the destination.
@@ -111,6 +129,7 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // as that would break array boundaries and would copy unpredictable content.
         copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
 
+/*??
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -118,20 +137,36 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Make sure allocation size is at least one.
-            if (n <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+                // Shrink array using new count as size.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
+                reallocate_array(p0, p4, (void*) &n, p1);
+
+            } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                // Set new size to value one.
+                // CAUTION! It is just normal that the calculated new size is zero,
+                // e.g. if a part was emptied and all of its child elements removed.
+                // However, in such cases it has to be made sure,
+                // that allocation size is at least one.
                 n = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-            }
 
-            // Shrink array using new count as size.
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            reallocate_array(p0, p4, (void*) &n, p1);
+                // Shrink array using new count as size.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
+                reallocate_array(p0, p4, (void*) &n, p1);
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The new size is negative.");
+            }
 
             // Set new size.
             copy_integer(p5, (void*) &n);
         }
+*/
 
         // Assign destination array count.
         copy_integer(p4, (void*) &n);

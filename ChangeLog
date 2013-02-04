@@ -16,10 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-02-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug in file "array_remover.c" causing endless allocation loop
+
 2013-02-03  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Assign not only type, but always format as well wherever a part gets allocated,
-            so that it may properly be deallocated together with its potential child parts at shutdown
         * Initialise references item with zero in file "part_allocator.c"
         * Use the size handed over as parametre in file "array_allocator.c" and
             do not just assume a size of one for zero or a negative value
@@ -30,6 +32,11 @@
         * Remove size parametre from function "deallocate_item"
         * Remove size and type parametre from function "deallocate_part"
         * Make sure allocation size is at least one wherever function "reallocate_array" is called
+
+2013-02-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Assign not only type, but always format as well wherever a part gets allocated,
+            so that it may properly be deallocated together with its potential child parts at shutdown
 
 2013-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
