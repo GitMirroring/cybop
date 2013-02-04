@@ -101,7 +101,9 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         pthread_mutex_lock(p8);
 
         // Add signal part to signal memory.
-        append_item_element(p6, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+        // This is necessary in order to activate rubbish (garbage) collection.
+        append_item_element(p6, (void*) &s, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Set interrupt request flag, in order to notify the signal checker
         // that a new signal has been placed in the signal memory.

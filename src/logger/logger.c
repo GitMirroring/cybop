@@ -140,7 +140,8 @@ void log_write(void* p0, void* p1) {
 
             // CAUTION! Do NOT call the logger here.
             // It cannot log itself.
-            fputws(L"Error: Could not write terminated log message. The log output stream is null.\n", stdout);
+            // This is commented out, in order to avoid annoying messages.
+            // fputws(L"Error: Could not write terminated log message. The log output stream is null.\n", stdout);
         }
 
     } else {

@@ -99,7 +99,7 @@ void initialise(void* p0, void* p1, void* p2) {
     // Add part model (signal) to signal memory.
     // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
     // This is necessary in order to activate rubbish (garbage) collection.
-    append_item_element(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, (void*) &s, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // The system is now started up and complete so that a loop
     // can be entered, checking for signals (events/ interrupts)

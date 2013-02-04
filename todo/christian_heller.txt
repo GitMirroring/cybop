@@ -11,14 +11,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Fix bug in file "array_remover.c" causing endless allocation loop
-        * Adapt files "array_inserter.c" and "array_overwriter.c"
-
-        * TEST if the following is possible/necessary (did not work in first try when changing "initialiser.c" and "found_checker.c"):
+        * CAUTION! Interrupt handlers used as signal are added to the internal memory in file "interrupt_checker.c" (used but not modified in file "empty_checker.c")
+            --> adapt references count accordingly
+        * CONTINUE: Search for function "append_item_element" and "remove_item" where a signal is added/removed to/from signal_memory
+            in files "signal_sender.c", "initialiser.c", "element_part_handler.c"
         * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE
             also for appending/removing signal parts to/from signal memory,
             in order to activate the referencer for rubbish (garbage) collection
 
+        * Fix bug in file "array_remover.c" causing endless allocation loop
         * Inspect files "array_remover.c", "array_inserter.c", "array_overwriter.c" for necessary tests of variable values
 
         * Correct errors shown by valgrind

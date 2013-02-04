@@ -58,29 +58,10 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
 //?? fwprintf(stdout, L"TEST check found p0: %i\n", p0);
 
-    // Lock signal memory mutex.
-//??    pthread_mutex_lock(p5);
-
     // Remove signal from signal memory.
     // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
     // This is necessary in order to activate rubbish (garbage) collection.
-    remove_item(p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-    // Reset interrupt request.
-    //
-    // Whenever a signal is added to the signal memory,
-    // then the signal memory flag is set as well.
-    // It gets reset when detecting the signal memory interrupt.
-    //
-    // CAUTION! However, when other signals happen to be processed right now,
-    // then the signal that was just added is processed as well.
-    // In this case, an interrupt detection does not take place.
-    // But the signal memory interrupt HAS TO BE RESET ANYWAY,
-    // since otherwise, the system's signal processing might get mixed up.
-//??    copy_integer(p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    // Unlock signal memory mutex.
-//??    pthread_mutex_unlock(p5);
+    remove_item(p3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     // Handle signal.
     handle(p0, p1, p2, p3, p4, p5, (void*) &x, p6);
