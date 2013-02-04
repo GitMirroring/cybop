@@ -18,7 +18,7 @@
 
 2013-02-04  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Fix bug in file "array_remover.c" causing endless allocation loop
+        * Fix bug in optionaliser and command line deserialiser that prevented the log file to be created correctly
 
 2013-02-03  Christian Heller  <christian.heller@tuxtax.de>
 

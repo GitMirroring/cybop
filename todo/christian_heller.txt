@@ -11,6 +11,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Fix bug in file "array_remover.c" causing endless allocation loop
+        * Adapt files "array_inserter.c" and "array_overwriter.c"
+
         * TEST if the following is possible/necessary (did not work in first try when changing "initialiser.c" and "found_checker.c"):
         * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE
             also for appending/removing signal parts to/from signal memory,

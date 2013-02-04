@@ -46,17 +46,26 @@ void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
     // Comment out this function call to avoid disturbing messages at system startup!
-    // log_write((void*) stdout, L"Information: Optionalise command line arguments.\n");
+    // log_write((void*) stdout, L"Information: Optionalise.\n");
 
-    // The log file name data, count.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The terminated log file name item as multibyte character data.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Allocate terminated log file name item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    // CAUTION! Do NOT use a wide character array here!
+    // The glibc file stream functions below expect standard (multibyte) character arrays.
+    allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Get command line options, among others the file name data, count.
-    deserialise_command_line(p0, p1, p2, (void*) &d, (void*) &c, p4, p5);
+    deserialise_command_line(p0, p1, p2, f, p4, p5);
 
-    // Optionalise log file handing over file name data, count.
-    optionalise_log_file(p3, d, (void*) &c);
+    // Optionalise log file handing over terminated log file name item.
+    optionalise_log_file(p3, f);
+
+    // Deallocate terminated log file name item.
+    deallocate_item((void*) &f, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* OPTIONALISER_SOURCE */

@@ -111,7 +111,6 @@ void compare_integer_smaller_or_equal(void* p0, void* p1, void* p2);
 void copy_integer(void* p0, void* p1);
 void copy_pointer(void* p0, void* p1);
 void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
-//?? void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Writes a terminated log message to the given output stream.
@@ -276,24 +275,6 @@ void log_message(void* p0, void* p1, void* p2) {
         // Copy null termination wide character.
         copy_array_forward((void*) LOG_MESSAGE, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-/*??
-        // Copy log level.
-        // CAUTION! Use zero as destination index,
-        // since this is the first text to be added.
-//??        overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &lnc, (void*) LOG_MESSAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        overwrite_array((void*) &LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &lnc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        // Copy colon.
-        overwrite_array((void*) &LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        // Copy space.
-        overwrite_array((void*) &LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        // Copy log message.
-        overwrite_array((void*) &LOG_MESSAGE, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LOG_MESSAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        // Copy line feed control wide character.
-        overwrite_array((void*) &LOG_MESSAGE, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        // Copy null termination wide character.
-        overwrite_array((void*) &LOG_MESSAGE, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOG_MESSAGE_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LOG_MESSAGE_COUNT, (void*) LOG_MESSAGE_SIZE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-*/
-
         // Log message.
         log_write(*LOG_OUTPUT, (void*) LOG_MESSAGE);
 
@@ -316,16 +297,30 @@ void log_message_terminated(void* p0, void* p1) {
 
     // The message count.
     int c = wcslen((wchar_t*) p1);
+    // Calculate overall count.
+    //
+    // Some characters are added by default [Byte]:
+    // 11 (the longest log level name is "information")
+    //  1 (colon)
+    //  1 (space)
+    // xx (the actual message)
+    //  1 line feed
+    //  1 null termination
+    // __
+    // 15
+    // ==
+    int o = c + *NUMBER_15_INTEGER_STATE_CYBOI_MODEL;
 
     // Test message count.
     // CAUTION! This is important, since the destination
     // log message count is fixed and limited in size.
-    if (c > 1000) {
+    if (o > *LOG_MESSAGE_SIZE) {
 
-        c = 1000;
+        // Limit message count.
+        c = *LOG_MESSAGE_SIZE - o;
     }
 
-//??    log_message(p0, p1, (void*) &c);
+    log_message(p0, p1, (void*) &c);
 }
 
 /* LOGGER_SOURCE */

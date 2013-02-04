@@ -39,10 +39,9 @@
  * Optionalises the log file option.
  *
  * @param p0 the log file stream (pointer reference)
- * @param p1 the log file name data
- * @param p2 the log file name count
+ * @param p1 the terminated logfile name item (multibyte character data)
  */
-void optionalise_log_file(void* p0, void* p1, void* p2) {
+void optionalise_log_file(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -53,29 +52,14 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
         // Comment out this function call to avoid disturbing messages at system startup!
         // log_write((void*) stdout, L"Debug: Optionalise log file.\n");
 
-        // The terminated file name item.
-        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The terminated file name item data.
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Allocate terminated file name item.
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        // CAUTION! Do NOT use a wide character array here!
-        // The glibc file stream functions below expect standard (multibyte) character arrays.
-        allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        // Encode wide character option into multibyte character array.
-        encode_utf_8(t, p1, p2);
-
-        // Add null termination character to terminated file name.
-        append_item_element(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Get terminated file name item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
-        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &td, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
         // Open log file for writing only.
         // If the file already exists, it is truncated to zero length.
@@ -111,9 +95,6 @@ void optionalise_log_file(void* p0, void* p1, void* p2) {
             // The logger will not work before its options are set.
             // log_write((void*) stdout, L"Error: Could not optionalise log file. An error occured when trying to open or create the file for writing.\n");
         }
-
-        // Deallocate terminated file name item.
-        deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     } else {
 

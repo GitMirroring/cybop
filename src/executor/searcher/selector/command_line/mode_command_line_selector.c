@@ -42,14 +42,13 @@
  * @param p0 the operation mode
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
- * @param p3 the log file name data (pointer reference)
- * @param p4 the log file name count
- * @param p5 the value data
- * @param p6 the value count
- * @param p7 the option data
- * @param p8 the option count
+ * @param p3 the terminated log file name item (multibyte character data)
+ * @param p4 the value data
+ * @param p5 the value count
+ * @param p6 the option data
+ * @param p7 the option count
  */
-void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
@@ -61,7 +60,7 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) HELP_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) HELP_OPTION_CYBOI_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) HELP_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) HELP_OPTION_CYBOI_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -72,12 +71,12 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) KNOWLEDGE_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) KNOWLEDGE_OPTION_CYBOI_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) KNOWLEDGE_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) KNOWLEDGE_OPTION_CYBOI_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Copy file path from value to cybol knowledge file path.
-            append_item_element(p1, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(p1, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             // Set knowledge operation mode.
             copy_integer(p0, (void*) KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL);
@@ -86,30 +85,32 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) LOG_FILE_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) LOG_FILE_OPTION_CYBOI_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) LOG_FILE_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) LOG_FILE_OPTION_CYBOI_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Copy log file name data, count.
-            copy_pointer(p3, p5);
-            copy_integer(p4, p6);
+            // Encode wide character value data into multibyte character array filename data.
+            encode_utf_8(p3, p4, p5);
+
+            // Add null termination character to terminated file name.
+            append_item_element(p3, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) LOG_LEVEL_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) LOG_LEVEL_OPTION_CYBOI_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) LOG_LEVEL_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) LOG_LEVEL_OPTION_CYBOI_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set log level.
-            select_command_line_log_level(p2, p5, p6);
+            select_command_line_log_level(p2, p4, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) TEST_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) TEST_OPTION_CYBOI_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) TEST_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) TEST_OPTION_CYBOI_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -120,7 +121,7 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) VERSION_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) VERSION_OPTION_CYBOI_NAME_COUNT);
+        compare_all_array((void*) &r, p6, (void*) VERSION_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) VERSION_OPTION_CYBOI_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -140,7 +141,7 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
         //
         // CAUTION! The OPTION has to be handed over INSTEAD OF the value,
         // since the value itself is null, because no separator was used.
-        append_item_element(p1, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(p1, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         // Set knowledge operation mode.
         copy_integer(p0, (void*) KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL);
