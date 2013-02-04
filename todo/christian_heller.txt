@@ -16,6 +16,8 @@
             also for appending/removing signal parts to/from signal memory,
             in order to activate the referencer for rubbish (garbage) collection
 
+        * Inspect files "array_remover.c", "array_inserter.c", "array_overwriter.c" for necessary tests of variable values
+
         * Correct errors shown by valgrind
         * Check file "logger.c" and reactivate function "log_message_terminated";
             use overwrite_array or simple copy_array_forward?
