@@ -40,7 +40,6 @@
  * Checks input channels for interrupt requests.
  *
  * Example input channels:
- * - signal memory
  * - terminal
  * - x window system
  * - socket

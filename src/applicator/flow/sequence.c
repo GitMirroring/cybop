@@ -39,7 +39,7 @@
 // Forward declarations.
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Executes the given programme flow as sequence.
@@ -54,11 +54,9 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p2 the knowledge memory part
  * @param p3 the internal memory data
  * @param p4 the signal memory item
- * @param p5 the signal memory interrupt
- * @param p6 the signal memory mutex
- * @param p7 the shutdown flag
+ * @param p5 the shutdown flag
  */
-void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sequence.");
@@ -81,7 +79,7 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Handle model as new operation.
-    handle(m, p3, p2, p4, p5, p6, (void*) &x, p7);
+    handle(m, p3, p2, p4, (void*) &x, p5);
 }
 
 /* SEQUENCE_SOURCE */

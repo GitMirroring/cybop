@@ -66,12 +66,10 @@
  * @param p0 the internal memory data
  * @param p1 the knowledge memory part
  * @param p2 the signal memory item
- * @param p3 the signal memory interrupt
- * @param p4 the signal memory mutex
- * @param p5 the signal memory sleep time
- * @param p6 the shutdown flag
+ * @param p3 the signal memory sleep time
+ * @param p4 the shutdown flag
  */
-void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check signal.");
@@ -93,11 +91,11 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // A signal was found and has to be handled.
         // Handling a signal has higher priority than checking for new interrupt requests.
 
-        check_found(s, p0, p1, p2, p3, p4, p6);
+        check_found(s, p0, p1, p2, p4);
 
     } else {
 
-        check_empty(p0, p1, p2, p3, p4, p5, p6);
+        check_empty(p0, p1, p2, p3, p4);
     }
 
     //

@@ -41,7 +41,7 @@
 // Forward declarations.
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Handles the part signal element.
@@ -53,12 +53,10 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p4 the internal memory data
  * @param p5 the knowledge memory part
  * @param p6 the signal memory item
- * @param p7 the signal memory interrupt
- * @param p8 the signal memory mutex
- * @param p9 the direct execution flag
- * @param p10 the shutdown flag
+ * @param p7 the direct execution flag
+ * @param p8 the shutdown flag
  */
-void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part element.");
 
@@ -70,7 +68,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // Get signal part with given index.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
     // Evaluate direct execution flag.
-    compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -79,7 +77,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // WITHOUT adding it to the signal memory.
 
         // Handle signal.
-        handle(s, p4, p5, p6, p7, p8, p9, p10);
+        handle(s, p4, p5, p6, p7, p8);
 
     } else {
 
@@ -97,20 +95,25 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // to be processed in between, in order to fulfil
         // the response time requirement.
 
-        // Lock signal memory mutex.
-        pthread_mutex_lock(p8);
-
         // Add signal part to signal memory.
-        // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-        // This is necessary in order to activate rubbish (garbage) collection.
-        append_item_element(p6, (void*) &s, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-        // Set interrupt request flag, in order to notify the signal checker
-        // that a new signal has been placed in the signal memory.
-        copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        // Unlock signal memory mutex.
-        pthread_mutex_unlock(p8);
+        //
+        // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
+        // The signal memory just holds references to knowledge memory parts (signals),
+        // but only the knowledge memory may care about rubbish (garbage) collection.
+        //
+        // Example:
+        // Assume there are two signals in the signal memory.
+        // The second references a logic part that is to be destroyed by the first.
+        // If reference counting from rubbish (garbage) collection were used,
+        // then the logic part serving as second signal could not be deallocated
+        // as long as it is still referenced from the signal memory item.
+        //
+        // But probably, there is a reason the first signal wants to destroy the
+        // second and consequently, the second should not be executed anymore.
+        // After destruction, the second signal just points to null, which is ignored.
+        // Hence, rubbish (garbage) collection would only disturb here
+        // and should be left to the knowledge memory.
+        append_item_element(p6, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
 

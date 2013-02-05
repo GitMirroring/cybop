@@ -51,9 +51,24 @@ void send_signal(void* p0, void* p1) {
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Add signal part to signal memory.
-    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-    // This is necessary in order to activate rubbish (garbage) collection.
-    append_item_element(s, p1, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //
+    // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
+    // The signal memory just holds references to knowledge memory parts (signals),
+    // but only the knowledge memory may care about rubbish (garbage) collection.
+    //
+    // Example:
+    // Assume there are two signals in the signal memory.
+    // The second references a logic part that is to be destroyed by the first.
+    // If reference counting from rubbish (garbage) collection were used,
+    // then the logic part serving as second signal could not be deallocated
+    // as long as it is still referenced from the signal memory item.
+    //
+    // But probably, there is a reason the first signal wants to destroy the
+    // second and consequently, the second should not be executed anymore.
+    // After destruction, the second signal just points to null, which is ignored.
+    // Hence, rubbish (garbage) collection would only disturb here
+    // and should be left to the knowledge memory.
+    append_item_element(s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* SIGNAL_SENDER_SOURCE */

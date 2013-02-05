@@ -97,9 +97,24 @@ void initialise(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add startup signal to signal memory.");
 
     // Add part model (signal) to signal memory.
-    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-    // This is necessary in order to activate rubbish (garbage) collection.
-    append_item_element(p0, (void*) &s, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //
+    // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
+    // The signal memory just holds references to knowledge memory parts (signals),
+    // but only the knowledge memory may care about rubbish (garbage) collection.
+    //
+    // Example:
+    // Assume there are two signals in the signal memory.
+    // The second references a logic part that is to be destroyed by the first.
+    // If reference counting from rubbish (garbage) collection were used,
+    // then the logic part serving as second signal could not be deallocated
+    // as long as it is still referenced from the signal memory item.
+    //
+    // But probably, there is a reason the first signal wants to destroy the
+    // second and consequently, the second should not be executed anymore.
+    // After destruction, the second signal just points to null, which is ignored.
+    // Hence, rubbish (garbage) collection would only disturb here
+    // and should be left to the knowledge memory.
+    append_item_element(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // The system is now started up and complete so that a loop
     // can be entered, checking for signals (events/ interrupts)

@@ -11,20 +11,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CAUTION! Interrupt handlers used as signal are added to the internal memory in file "interrupt_checker.c" (used but not modified in file "empty_checker.c")
-            --> adapt references count accordingly
-        * CONTINUE: Search for function "append_item_element" and "remove_item" where a signal is added/removed to/from signal_memory
-            in files "signal_sender.c", "initialiser.c", "element_part_handler.c"
-        * Use PART_ELEMENT_STATE_CYBOI_TYPE instead of POINTER_STATE_CYBOI_TYPE
-            also for appending/removing signal parts to/from signal memory,
-            in order to activate the referencer for rubbish (garbage) collection
-
         * Fix bug in file "array_remover.c" causing endless allocation loop
         * Inspect files "array_remover.c", "array_inserter.c", "array_overwriter.c" for necessary tests of variable values
-
         * Correct errors shown by valgrind
-        * Check file "logger.c" and reactivate function "log_message_terminated";
-            use overwrite_array or simple copy_array_forward?
+
+        * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
+            that become invalid after having shutdown a service and destroyed related objects
 
         * Eliminate temporary format and type parametres in file "content_element_part_cybol_deserialiser.c" and replace with locally allocated and deallocated items?
 
@@ -42,7 +34,18 @@
         * Simplify cybol files by using standard attribute values like "utf-8" for encoding etc. inside cyboi
         * Read all cybol attributes and replace cyboi-internal standard value only if attribute exists
 
-        * Check all places where a *NULL_POINTER_STATE_CYBOI_MODEL is handed over as parametre!
+        * Check all places where a *NULL_POINTER_STATE_CYBOI_MODEL is handed over as parametre! Search for:
+
+            NULL_POINTER_STATE_CYBOI_MODEL,
+            , NULL_POINTER_STATE_CYBOI_MODEL
+            NULL_POINTER_STATE_CYBOI_MODEL)
+            (NULL_POINTER_STATE_CYBOI_MODEL
+
+            *NULL_POINTER_STATE_CYBOI_MODEL,
+            , *NULL_POINTER_STATE_CYBOI_MODEL
+            *NULL_POINTER_STATE_CYBOI_MODEL)
+            (*NULL_POINTER_STATE_CYBOI_MODEL
+
             If it gets manipulated inside the called function, e.g. p4 in file "part_record_xdt_deserialiser.c":
                 // Remember part properties item as potential future parent node.
                 copy_pointer(p4, (void*) &pp);

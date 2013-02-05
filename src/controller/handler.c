@@ -53,12 +53,10 @@
  * @param p1 the internal memory data
  * @param p2 the knowledge memory part
  * @param p3 the signal memory item
- * @param p4 the signal memory interrupt
- * @param p5 the signal memory mutex
- * @param p6 the direct execution flag
- * @param p7 the shutdown flag
+ * @param p4 the direct execution flag
+ * @param p5 the shutdown flag
  */
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle signal.");
 
@@ -143,7 +141,7 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             //
             // CAUTION! The signal part properties are possibly
             // necessary one day for pre- and post conditions etc.
-            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6, p7);
+            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5);
         }
     }
 
@@ -190,7 +188,7 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc);
 
             // Handle signal.
-            handle(part, p1, p2, p3, p4, p5, p6, p7);
+            handle(part, p1, p2, p3, p4, p5);
         }
     }
 
@@ -217,14 +215,14 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc);
 
             // Handle signal.
-            handle(part, p1, p2, p3, p4, p5, p6, p7);
+            handle(part, p1, p2, p3, p4, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Handle primitive operation signal.
-        handle_operation(pd, pc, p1, p2, p3, p4, p5, p7, fd);
+        handle_operation(pd, pc, p1, p2, p3, p5, fd);
     }
 }
 

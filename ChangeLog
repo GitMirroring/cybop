@@ -16,6 +16,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-02-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Delete superfluous signal memory interrupt request flag and -mutex in files related to signal handling
+        * Make sure POINTER_STATE_CYBOI_TYPE is used instead of PART_ELEMENT_STATE_CYBOI_TYPE for adding/removing signals from signal memory,
+            since rubbish (garbage) collection is up to the knowledge memory and must not be influenced by the signal memory;
+            the same is valid for the internal memory, whereto/wherefrom simple pointers are copied
+
 2013-02-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug in optionaliser and command line deserialiser that prevented the log file to be created correctly

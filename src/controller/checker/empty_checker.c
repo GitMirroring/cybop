@@ -47,12 +47,10 @@
  * @param p0 the internal memory data
  * @param p1 the knowledge memory part
  * @param p2 the signal memory item
- * @param p3 the signal memory interrupt
- * @param p4 the signal memory mutex
- * @param p5 the signal memory sleep time
- * @param p6 the shutdown flag
+ * @param p3 the signal memory sleep time
+ * @param p4 the shutdown flag
  */
-void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
 
@@ -96,7 +94,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // CAUTION! The "handle" function has to be called DIRECTLY
         // (with direct execution flag set) here!
         // For reasons, see the comment block above!
-        handle(s, p0, p1, p2, p3, p4, (void*) &x, p6);
+        handle(s, p0, p1, p2, (void*) &x, p4);
 
         // Lock mutex.
         pthread_mutex_lock(mt);
@@ -166,7 +164,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // No interrupt request was detected, so that the cyboi system
         // can be sent to sleep now, in order to save cpu time.
 
-        check_wait(p5, p0);
+        check_wait(p3, p0);
     }
 }
 

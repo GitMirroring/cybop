@@ -45,11 +45,9 @@
  * @param p1 the internal memory data
  * @param p2 the knowledge memory part
  * @param p3 the signal memory item
- * @param p4 the signal memory interrupt
- * @param p5 the signal memory mutex
- * @param p6 the shutdown flag
+ * @param p4 the shutdown flag
  */
-void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void check_found(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check found.");
 
@@ -59,12 +57,27 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 //?? fwprintf(stdout, L"TEST check found p0: %i\n", p0);
 
     // Remove signal from signal memory.
-    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-    // This is necessary in order to activate rubbish (garbage) collection.
-    remove_item(p3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    //
+    // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
+    // The signal memory just holds references to knowledge memory parts (signals),
+    // but only the knowledge memory may care about rubbish (garbage) collection.
+    //
+    // Example:
+    // Assume there are two signals in the signal memory.
+    // The second references a logic part that is to be destroyed by the first.
+    // If reference counting from rubbish (garbage) collection were used,
+    // then the logic part serving as second signal could not be deallocated
+    // as long as it is still referenced from the signal memory item.
+    //
+    // But probably, there is a reason the first signal wants to destroy the
+    // second and consequently, the second should not be executed anymore.
+    // After destruction, the second signal just points to null, which is ignored.
+    // Hence, rubbish (garbage) collection would only disturb here
+    // and should be left to the knowledge memory.
+    remove_item(p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     // Handle signal.
-    handle(p0, p1, p2, p3, p4, p5, (void*) &x, p6);
+    handle(p0, p1, p2, p3, (void*) &x, p4);
 }
 
 /* FOUND_CHECKER_SOURCE */
