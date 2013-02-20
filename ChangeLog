@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-02-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare searching memory leaks
+
 2013-02-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Delete superfluous signal memory interrupt request flag and -mutex in files related to signal handling

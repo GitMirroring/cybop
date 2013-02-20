@@ -14,20 +14,22 @@
 Documentation
 _____________
 
-        * Update cybol specification (which gets automatically generated into html)
-        * Erweitern Handbuch für Einsteiger (LaTeX oder LibreOffice, Deutsch oder Englisch),
-            mit Bezug auf die zur Verfügung stehenden CYBOL Beispielanwendungen
+        * Update cybol specification, which gets automatically generated into html
+        * Create manual for beginners, in order to get accepted as official GNU project
+        * Erweitern Handbuch für Einsteiger (LaTeX oder LibreOffice) mit Bezug auf CYBOL Beispielanwendungen
 
 Project
 _______
 
-        * Create CYBOP poster in DIN A0 format, to be used at conferences and exhibitions
+        * Update CYBOP poster in DIN A0 format, to be used at conferences and exhibitions
         * Build and actively maintain Debian package for cybop
+        * Visualise project history using Ajax-based SIMILE timeline tool (ResMedicinae - ResMedLib - CYBOP)
 
 CYBOL
 _____
 
         * Create a tui application, e.g. a calculator
+        * Use CYBOL for shell scripting
         * Advance wui design for "presence" application
 
 CYBOI
@@ -60,3 +62,5 @@ _____
 
         * Make cyboi compilable under windows os (using preprocessor directives)
         * Adapt ansi escape code terminal input/output to windows operating system shell
+
+        * Identify memory leaks using valgrind

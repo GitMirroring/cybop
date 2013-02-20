@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Search cyboi.log file for: "Warning: Could not remove array. The destination index is outside the array boundaries."
+            --> How does this happen?
         * Fix bug in file "array_remover.c" causing endless allocation loop
         * Inspect files "array_remover.c", "array_inserter.c", "array_overwriter.c" for necessary tests of variable values
         * Correct errors shown by valgrind
@@ -19,6 +21,8 @@
 
         * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
             that become invalid after having shutdown a service and destroyed related objects
+
+        * Remove "TEST_REFERENCE_COUNT" in files logger.c, array_allocator.c, array_deallocator.c, cyboi.c
 
         * Eliminate temporary format and type parametres in file "content_element_part_cybol_deserialiser.c" and replace with locally allocated and deallocated items?
 

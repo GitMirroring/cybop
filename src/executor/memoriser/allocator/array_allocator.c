@@ -30,6 +30,7 @@
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
@@ -106,6 +107,9 @@ void allocate_array(void* p0, void* p1, void* p2) {
 
             // Allocate memory area.
             *a = malloc(tma);
+
+//?? TEMPORARY TEST
+TEST_REFERENCE_COUNT++;
 
             if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

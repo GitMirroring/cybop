@@ -85,6 +85,10 @@ int main(int p0, char** p1) {
     // Return 1 to indicate an error, by default.
     int r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
+//?? TEMPORARY TEST
+TEST_REFERENCE_COUNT = 0;
+fwprintf(stdout, L"TEST TEST_REFERENCE_COUNT BEGIN: %i\n", TEST_REFERENCE_COUNT);
+
     // There is NO use to test the parametre p0, because it
     // always has at least the value 1, since it also
     // counts the name of the programme being run.
@@ -217,6 +221,9 @@ int main(int p0, char** p1) {
         unglobalise();
 
         log_write(stdout, L"\nInformation: Exit cyboi normally.\n");
+
+//?? TEMPORARY TEST
+fwprintf(stdout, L"TEST TEST_REFERENCE_COUNT END: %i\n", TEST_REFERENCE_COUNT);
 
         // Set return value to 0, to indicate proper shutdown.
         copy_integer((void*) &r, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);

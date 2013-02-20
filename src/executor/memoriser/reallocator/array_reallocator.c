@@ -28,11 +28,14 @@
 
 #include <stdlib.h>
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../executor/memoriser/size_determiner.c"
+#include "../../../logger/logger.c"
 
 /**
  * Reallocates the array.
@@ -56,9 +59,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
 
                 void** a = (void**) p0;
 
-                // CAUTION! Do NOT call the logger here.
-                // It uses functions causing circular references.
-                // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reallocate array.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reallocate array.");
 
                 // The memory area.
                 int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

@@ -43,6 +43,9 @@
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../variable/log_setting.c"
 
+//?? TEMPORARY TEST
+static int TEST_REFERENCE_COUNT = 0;
+
 //
 // CAUTION! This logger uses some CYBOI functions so that
 // an ENDLESS LOOP might occur, if those functions call
