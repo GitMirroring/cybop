@@ -19,6 +19,7 @@
 2013-02-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up files "array_remover.c", "array_overwriter.c", "array_inserter.c" and add necessary tests of variable values
+        * Adapt "modifier_tester.c"
 
 2013-02-20  Christian Heller  <christian.heller@tuxtax.de>
 

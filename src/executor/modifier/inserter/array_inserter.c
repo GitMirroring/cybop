@@ -97,11 +97,11 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // Add count of new elements to be inserted.
         calculate_integer_add((void*) &nc, p3);
 
-        if (i >= 0) {
+        if (i >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (c >= 0) {
+            if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                if (nc >= 0) {
+                if (nc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // The comparison result.
                     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

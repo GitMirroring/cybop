@@ -93,11 +93,11 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // Subtract count of elements to be removed.
         calculate_integer_subtract((void*) &nc, p2);
 
-        if (i >= 0) {
+        if (i >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            if (c >= 0) {
+            if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                if (nc >= 0) {
+                if (nc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // Decrement reference count of removed parts for rubbish (garbage) collection.
                     // CAUTION! This has to be done BEFORE actually removing elements,

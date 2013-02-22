@@ -199,11 +199,11 @@ void test_modifier_part_wide_character_insert() {
     overwrite_part_element(p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p2, (void*) L"ABClloXYZ", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    //
-    // Add (model content of) part two to part one.
-    //
-
+    // Add model content of part two to part one's model.
     insert_part(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
+    // Manipulate part one's model.
+    // CAUTION! Set "adjust count" flag to FALSE_BOOLEAN_STATE_CYBOI_MODEL.
+    overwrite_part_element(p1, (void*) L"Heidi", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     //
     // Output test results.
@@ -271,13 +271,13 @@ void test_modifier_array() {
 
     allocate_array((void*) &w, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Append "Hello".
+    // Append "Hello" to empty array.
     insert_array((void*) &w, (void*) L"ABCHelloXYZ", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
-    // Append "World!".
+    // Append "World!" to non-empty array.
     insert_array((void*) &w, (void*) L"World!", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
@@ -289,18 +289,25 @@ void test_modifier_array() {
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
-    // Insert "ho, ".
+    // Insert "ho, " inside array.
     insert_array((void*) &w, (void*) L"ho, ", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
-    // Append "test" outside, leaving two elements empty.
+    // Append "test" outside, leaving elements between empty.
     // CAUTION! This is NOT shown when printed on screen,
     // since arrays are initialised with the null
     // termination character "\0" by default,
     // so that the "fwprintf" function stops output there.
     insert_array((void*) &w, (void*) L"test", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_20_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
+    fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
+    fwprintf(stdout, L"TEST w (the full string is NOT shown, since arrays are initialised with the null termination character by default, so that the 'fwprintf' function stops output there):\n");
+    fwprintf(stdout, L"TEST c: %i\n", c);
+    fwprintf(stdout, L"TEST s: %i\n", s);
+
+    // Overwrite some array elements with "blubla".
+    overwrite_array((void*) &w, (void*) L"TEST blubla 0123456789", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
