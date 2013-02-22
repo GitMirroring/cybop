@@ -11,6 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * See exit app:
+            TEST TEST_ARRAY_REFERENCE_COUNT END: 370
+            TEST TEST_ITEM_REFERENCE_COUNT END: 90
+            TEST TEST_PART_REFERENCE_COUNT END: 10
         * Correct errors shown by valgrind
 
         THE FOLLOWING IS PROBABLY NOT NECESSARY, SINCE ARRAYS SHOULD ONLY POINT TO VALID AREAS AND IF A NEW AREA GETS RE/ALLOCATED, MEMSET IS USED ALREADY!

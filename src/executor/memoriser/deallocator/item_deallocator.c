@@ -65,6 +65,9 @@ void deallocate_item(void* p0, void* p1) {
         // Deallocate item.
         deallocate_array(p0, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
+//?? TEMPORARY TEST
+TEST_ITEM_REFERENCE_COUNT--;
+
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate item. The item is null.");

@@ -64,8 +64,9 @@ void deallocate_array(void* p0, void* p1, void* p2) {
             // Somewhere else in the code, the pointer was manipulated
             // and probably set wrong, e.g. outside an allocated area.
             free(*a);
+
 //?? TEMPORARY TEST
-TEST_REFERENCE_COUNT--;
+TEST_ARRAY_REFERENCE_COUNT--;
 
         } else {
 

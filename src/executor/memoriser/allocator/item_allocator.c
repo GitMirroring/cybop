@@ -56,6 +56,9 @@ void allocate_item(void* p0, void* p1, void* p2) {
         // Allocate data, count, size.
         allocate_array((void*) &d, p1, p2);
 
+//?? TEMPORARY TEST
+TEST_ITEM_REFERENCE_COUNT++;
+
         if (d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Allocate count, size.

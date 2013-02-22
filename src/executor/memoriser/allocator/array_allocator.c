@@ -109,7 +109,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
             *a = malloc(tma);
 
 //?? TEMPORARY TEST
-TEST_REFERENCE_COUNT++;
+TEST_ARRAY_REFERENCE_COUNT++;
 
             if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

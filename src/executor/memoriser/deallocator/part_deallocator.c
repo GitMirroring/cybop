@@ -124,6 +124,9 @@ fwprintf(stdout, L"TEST deallocate part: %i\n", *part);
             // Deallocate part.
             deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
+//?? TEMPORARY TEST
+TEST_PART_REFERENCE_COUNT--;
+
         } else {
 
             // Reset comparison result.
