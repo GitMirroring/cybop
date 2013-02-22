@@ -11,11 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Search cyboi.log file for: "Warning: Could not remove array. The destination index is outside the array boundaries."
-            --> How does this happen?
-        * Fix bug in file "array_remover.c" causing endless allocation loop
-        * Inspect files "array_remover.c", "array_inserter.c", "array_overwriter.c" for necessary tests of variable values
+        * Search bugs in test mode using file "modifier_tester.c"
         * Correct errors shown by valgrind
+
+        THE FOLLOWING IS PROBABLY NOT NECESSARY, SINCE ARRAYS SHOULD ONLY POINT TO VALID AREAS AND IF A NEW AREA GETS RE/ALLOCATED, MEMSET IS USED ALREADY!
         * either set all removed elements to null in remover/inserter/overwriter using "memset" or create files "array_nuller,c", "item_nuller.c", "part_nuller.c" and call these functions
             (this is important to prevent "wild" or wrong pointers to accidently point to something meaningful
 

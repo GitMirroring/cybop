@@ -43,7 +43,9 @@
  * Overwrites the destination- with the source array,
  * starting from the given index.
  *
- * The count and size are adjusted automatically.
+ * The destination size gets adjusted automatically.
+ * A new destination count is only assigned,
+ * if the "adjust count flag" is set.
  *
  * Example:
  *
@@ -100,6 +102,17 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // This is similar to random access of an arbitrary byte of a file.
         // In such a case, the destination index plus number of source elements
         // to be added will deliver the new count of the destination array.
+        //
+        // CAUTION! If destination elements are overwritten
+        // somewhere in the "middle" of the destination array,
+        // then the calculated new destination count will be
+        // smaller than the original destination array count.
+        // In this case, the caller of this function may choose
+        // by setting the "adjust count flag" parametre to:
+        //
+        // TRUE: destination array count is set to new destination count
+        // FALSE: destination array count remains unchanged at its original value
+        //
 
         // Add destination index.
         calculate_integer_add((void*) &nc, p4);
@@ -114,146 +127,139 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // Subtract destination index.
         calculate_integer_subtract((void*) &oc, p4);
 
-        if (nc < 0) {
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array inside. The new destination count is negative.");
-            fwprintf(stdout, L"Could not overwrite array inside. The new destination count is negative nc: %i\n", nc);
-/*??
-        } else if (nc == 0) {
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array inside. The new destination count is zero.");
-            fwprintf(stdout, L"Could not overwrite array inside. The new destination count is zero nc: %i\n", nc);
-fwprintf(stdout, L"TEST type *p2: %i\n", *((int*) p2));
-fwprintf(stdout, L"TEST count *p3: %i\n", *((int*) p3));
-            if ((*((int*) p2)) == *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE) {
-fwprintf(stdout, L"TEST source array p1: %ls\n", (wchar_t*) p1);
+        if (nc >= 0) {
+
+            if (oc >= 0) {
+
+                // Test if new destination count exceeds original destination array size.
+                compare_integer_greater((void*) &r, (void*) &nc, p7);
+
+                if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    // The new destination count is greater than
+                    // the current destination size.
+
+                    // Initialise new destination size with new destination count.
+                    int ns = nc;
+
+                    // Multiply new destination size with factor.
+                    // CAUTION! This multiplication has to be done AFTER the comparison
+                    // of new size and old size since otherwise, the new size is falsified,
+                    // which would lead to runtime errors.
+                    calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
+
+                    // Make sure allocation size is at least one.
+                    if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        fwprintf(stdout, L"ERROR: Could not overwrite array. The new size is negative ns: %i\n", ns);
+                    } else if (ns == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        fwprintf(stdout, L"ERROR: Could not overwrite array. The new size is zero ns: %i\n", ns);
+//??                        ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                    }
+
+                    // Enlarge array using new destination size.
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
+                    reallocate_array(p0, p6, (void*) &ns, p2);
+
+                    // Set new size.
+                    copy_integer(p7, (void*) &ns);
+                }
+
+                // Decrement reference count of overwritten parts for rubbish (garbage) collection.
+                // CAUTION! This has to be done BEFORE actually overwriting old elements,
+                // since afterwards, they are not reachable anymore from the destination.
+                // CAUTION! Use the overwritten elements count and
+                // NOT the count handed over as parametre p3 here!
+                // CAUTION! The overwritten elements count might be negative,
+                // e. g. if the destination index is greater than
+                // the original destination array count.
+                // However, this case is tested for in the called function.
+                reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, (void*) &oc, p4, p2);
+
+                // Copy source to destination.
+                copy_array_forward(*d, p1, p2, p3, p4, p5);
+
+                // Increment reference count of new parts for rubbish (garbage) collection.
+                // CAUTION! This has to be done AFTER having overwritten old elements with new elements,
+                // since beforehand, the latter are not known to the destination yet.
+                // CAUTION! Use the count handed over as parametre p3 and NOT the overwritten elements count here!
+                reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
+
+                // Reset comparison result.
+                r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    //
+                    // Adjust destination array COUNT only if "adjust" flag was set.
+                    //
+                    // The destination size does not really matter here.
+                    // It got extended above, if necessary.
+                    // For the destination count, there are two possibilities:
+                    //
+                    // 1 The adjust flag is FALSE:
+                    //
+                    // In this case, the original destination count REMAINS AS IS.
+                    //
+                    // Example:
+                    //
+                    // - destination array: "Today is a rainy day."
+                    // - source array: "sunny"
+                    // - type: (wide_character given as special integer constant)
+                    // - count: 5
+                    // - destination index: 11
+                    // - source index: 0
+                    // - destination array count: 21
+                    // - destination array size: 21 (or greater, does not matter)
+                    // - adjust flag: 0
+                    //
+                    // --> destination array: "Today is a sunny day."
+                    // --> destination array count: 21
+                    //
+                    // 2 The adjust flag is TRUE:
+                    //
+                    // In this case, the original destination count GETS ADJUSTED.
+                    //
+                    // Example:
+                    //
+                    // - destination array: "green"
+                    // - source array: "red"
+                    // - type: (wide_character given as special integer constant)
+                    // - count: 3
+                    // - destination index: 0
+                    // - source index: 0
+                    // - destination array count: 5
+                    // - destination array size: 5 (or greater, does not matter)
+                    // - adjust flag: 1
+                    //
+                    // --> destination array: "red"
+                    // --> destination array count: 3
+                    //
+                    // If the destination count hadn't been adjusted, the result would have been:
+                    // --> destination array: "reden"
+                    // --> destination array count: 5
+                    // ... which is clearly wrong, since this colour value does not exist.
+                    //
+                    // Therefore, the destination array count has to get adjusted
+                    // not only if the number of elements increases (extension),
+                    // but also if the number of elements decreases (shrinking).
+                    // If this was not done, false results would occur.
+                    //
+                    copy_integer(p6, (void*) &nc);
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array. The overwritten elements count is negative.");
+                fwprintf(stdout, L"ERROR: Could not overwrite array. The overwritten elements count is negative oc: %i\n", oc);
             }
-*/
-        }
 
-        if (oc < 0) {
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array inside. The overwritten elements count is negative.");
-            fwprintf(stdout, L"Could not overwrite array inside. The overwritten elements count is negative oc: %i\n", oc);
-        }
+        } else {
 
-        // Test if new destination count exceeds original destination array size.
-        compare_integer_greater((void*) &r, (void*) &nc, p7);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // The new destination count is greater than
-            // the current destination size.
-
-            // The new destination size.
-            int ns = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            // Copy count to size.
-            copy_integer((void*) &ns, (void*) &nc);
-
-            // Multiply new destination size with factor.
-            // CAUTION! This multiplication has to be done AFTER the comparison
-            // of new size and old size since otherwise, the new size is falsified,
-            // which would lead to runtime errors.
-            calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
-
-/*??
-            // Make sure allocation size is at least one.
-            if (ns <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-            }
-*/
-
-            // Enlarge array using new destination size.
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            reallocate_array(p0, p6, (void*) &ns, p2);
-
-            // Adjust new size.
-            copy_integer(p7, (void*) &ns);
-        }
-
-        // Decrement reference count of overwritten parts for rubbish (garbage) collection.
-        // CAUTION! This has to be done BEFORE actually overwriting old elements,
-        // since afterwards, they are not reachable anymore from the destination.
-        // CAUTION! Use the overwritten elements count and
-        // NOT the count handed over as parametre p3 here!
-        // CAUTION! The overwritten elements count might be negative,
-        // e. g. if the destination index is greater than
-        // the original destination array count.
-        // However, this case is tested for in the called function.
-        reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, (void*) &oc, p4, p2);
-
-        // Copy source to destination.
-        copy_array_forward(*d, p1, p2, p3, p4, p5);
-
-        // Increment reference count of new parts for rubbish (garbage) collection.
-        // CAUTION! This has to be done AFTER having overwritten old elements with new elements,
-        // since beforehand, the latter are not known to the destination yet.
-        // CAUTION! Use the count handed over as parametre p3 and NOT the overwritten elements count here!
-        reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
-
-        // Reset comparison result.
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // Adjust destination array COUNT only if "adjust" flag was set.
-            //
-            // The destination size does not really matter here.
-            // It got extended above, if necessary.
-            // For the destination count, there are two possibilities:
-            //
-            // 1 The adjust flag is FALSE:
-            //
-            // In this case, the original destination count REMAINS AS IS.
-            //
-            // Example:
-            //
-            // - destination array: "Today is a rainy day."
-            // - source array: "sunny"
-            // - type: (wide_character given as special integer constant)
-            // - count: 5
-            // - destination index: 11
-            // - source index: 0
-            // - destination array count: 21
-            // - destination array size: 21 (or greater, does not matter)
-            // - adjust flag: 0
-            //
-            // --> destination array: "Today is a sunny day."
-            // --> destination array count: 21
-            //
-            // 2 The adjust flag is TRUE:
-            //
-            // In this case, the original destination count GETS ADJUSTED.
-            //
-            // Example:
-            //
-            // - destination array: "green"
-            // - source array: "red"
-            // - type: (wide_character given as special integer constant)
-            // - count: 3
-            // - destination index: 0
-            // - source index: 0
-            // - destination array count: 5
-            // - destination array size: 5 (or greater, does not matter)
-            // - adjust flag: 1
-            //
-            // --> destination array: "red"
-            // --> destination array count: 3
-            //
-            // If the destination count hadn't been adjusted, the result would have been:
-            // --> destination array: "reden"
-            // --> destination array count: 5
-            // ... which is clearly wrong, since this colour value does not exist.
-            //
-            // Therefore, the destination array count has to get adjusted
-            // not only if the number of elements increases (extension),
-            // but also if the number of elements decreases (shrinking).
-            // If this was not done, false results would occur.
-            //
-            copy_integer(p6, (void*) &nc);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite array. The new destination count is negative.");
+            fwprintf(stdout, L"ERROR: Could not overwrite array. The new destination count is negative nc: %i\n", nc);
         }
 
     } else {

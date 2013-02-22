@@ -31,6 +31,8 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
 #include "../../../executor/comparator/basic/value_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../../executor/modifier/overwriter/array_overwriter.c"
@@ -77,12 +79,12 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The move count.
         int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The new size.
-        int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The new destination array count.
+        int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Add destination index.
         calculate_integer_add((void*) &i, p4);
-        // Add count.
+        // Add count of source elements to be inserted.
         calculate_integer_add((void*) &i, p3);
 
         // Add destination array count.
@@ -91,75 +93,84 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         calculate_integer_subtract((void*) &c, p4);
 
         // Add destination array count.
-        calculate_integer_add((void*) &n, p6);
+        calculate_integer_add((void*) &nc, p6);
         // Add count of new elements to be inserted.
-        calculate_integer_add((void*) &n, p3);
+        calculate_integer_add((void*) &nc, p3);
 
-        if (i < 0) {
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The move destination index is negative.");
-            fwprintf(stdout, L"Could not insert array inside. The move destination index is negative i: %i\n", i);
-        }
+        if (i >= 0) {
 
-        if (c < 0) {
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The move count is negative.");
-            fwprintf(stdout, L"Could not insert array inside. The move count is negative c: %i\n", c);
-        }
+            if (c >= 0) {
 
-        if (n < 0) {
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The new size is negative.");
-            fwprintf(stdout, L"Could not insert array inside. The new size is negative n: %i\n", n);
-        } else if (n == 0) {
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The new size is zero.");
-            fwprintf(stdout, L"Could not insert array inside. The new size is zero n: %i\n", n);
-        }
+                if (nc >= 0) {
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+                    // The comparison result.
+                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer_greater((void*) &r, (void*) &n, p7);
+                    compare_integer_greater((void*) &r, (void*) &nc, p7);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Multiply new size with factor.
-            // CAUTION! This multiplication has to be done AFTER the comparison
-            // of new size and old size since otherwise, the new size is falsified,
-            // which would lead to runtime errors.
-            // multiply_with_integer((void*) &n, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+                        // Initialise new destination size with new destination count.
+                        int ns = nc;
 
-/*??
-            // Make sure allocation size is at least one.
-            if (n <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        // Multiply new destination size with factor.
+                        // CAUTION! This multiplication has to be done AFTER the comparison
+                        // of new size and old size since otherwise, the new size is falsified,
+                        // which would lead to runtime errors.
+                        calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
 
-                n = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                        // Make sure allocation size is at least one.
+                        if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                            fwprintf(stdout, L"ERROR: Could not insert array. The new size is negative ns: %i\n", ns);
+                        } else if (ns == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                            fwprintf(stdout, L"ERROR: Could not insert array. The new size is zero ns: %i\n", ns);
+//??                            ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                        }
+
+                        // Enlarge array using new destination size.
+                        // CAUTION! Due to memory allocation handling, the size MUST NOT
+                        // be negative or zero, but have at least a value of ONE.
+                        reallocate_array(p0, p6, (void*) &ns, p2);
+
+                        // Set new size.
+                        copy_integer(p7, (void*) &ns);
+                    }
+
+                    // Move current elements behind given index towards the end of the array.
+                    // CAUTION! Move array elements starting from the LAST since otherwise,
+                    // overlapping array elements might get overwritten!
+                    // CAUTION! Call this function AFTER having resized the array
+                    // since otherwise, it might not be big enough and elements be cut.
+                    copy_array_backward(*d, *d, p2, (void*) &c, (void*) &i, p4);
+
+                    // Copy source to destination.
+                    copy_array_forward(*d, p1, p2, p3, p4, p5);
+
+                    // Set destination array count.
+                    copy_integer(p6, (void*) &nc);
+
+                    // Increment reference count of inserted parts for rubbish (garbage) collection.
+                    // CAUTION! This has to be done AFTER having inserted elements,
+                    // since beforehand, these are not known to the destination yet.
+                    reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The new size is negative.");
+                    fwprintf(stdout, L"ERROR: Could not insert array inside. The new size is negative n: %i\n", nc);
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The move count is negative.");
+                fwprintf(stdout, L"ERROR: Could not insert array inside. The move count is negative c: %i\n", c);
             }
-*/
 
-            // Enlarge array using new count as size.
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            reallocate_array(p0, p6, (void*) &n, p2);
+        } else {
 
-            // Set new size.
-            copy_integer(p7, (void*) &n);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert array inside. The move destination index is negative.");
+            fwprintf(stdout, L"ERROR: Could not insert array inside. The move destination index is negative i: %i\n", i);
         }
-
-        // Move current elements behind given index towards the end of the array.
-        // CAUTION! Move array elements starting from the LAST since otherwise,
-        // overlapping array elements might get overwritten!
-        // CAUTION! Call this function AFTER having resized the array
-        // since otherwise, it might not be big enough and elements be cut.
-        copy_array_backward(*d, *d, p2, (void*) &c, (void*) &i, p4);
-
-        // Copy source to destination.
-        copy_array_forward(*d, p1, p2, p3, p4, p5);
-
-        // Set destination array count.
-        copy_integer(p6, (void*) &n);
-
-        // Increment reference count of inserted parts for rubbish (garbage) collection.
-        // CAUTION! This has to be done AFTER having inserted elements,
-        // since beforehand, these are not known to the destination yet.
-        reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
 
     } else {
 
@@ -189,7 +200,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_greater_or_equal((void*) &r, p4, p6);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -204,7 +215,7 @@ void insert_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer((void*) &r, p4, p6, (void*) SMALLER_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_smaller((void*) &r, p4, p6);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

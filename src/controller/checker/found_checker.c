@@ -45,9 +45,10 @@
  * @param p1 the internal memory data
  * @param p2 the knowledge memory part
  * @param p3 the signal memory item
- * @param p4 the shutdown flag
+ * @param p4 the signal memory index where the signal was found
+ * @param p5 the shutdown flag
  */
-void check_found(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check found.");
 
@@ -74,10 +75,10 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // After destruction, the second signal just points to null, which is ignored.
     // Hence, rubbish (garbage) collection would only disturb here
     // and should be left to the knowledge memory.
-    remove_item(p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    remove_item(p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p4);
 
     // Handle signal.
-    handle(p0, p1, p2, p3, (void*) &x, p4);
+    handle(p0, p1, p2, p3, (void*) &x, p5);
 }
 
 /* FOUND_CHECKER_SOURCE */

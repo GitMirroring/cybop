@@ -133,7 +133,7 @@ void test_referencer() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test referencer.");
 
-    test_referencer_part();
+//    test_referencer_part();
 }
 
 /* REFERENCER_TESTER */

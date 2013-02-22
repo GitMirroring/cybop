@@ -122,6 +122,8 @@ void initialise(void* p0, void* p1, void* p2) {
     // The loop is left as soon as its shutdown flag is set.
     check(p2);
 
+fwprintf(stdout, L"\nTEST initialise begin shutdown s: %i\n", s);
+
     // Deallocate startup signal part.
     deallocate_part((void*) &s);
 }

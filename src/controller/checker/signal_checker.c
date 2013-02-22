@@ -76,13 +76,15 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The signal memory index used to search for a signal.
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get next signal to be processed from position index zero.
     // CAUTION! The signal memory item's count is checked inside
     // this function. If it is smaller or equal to the given index
     // (here: zero), then the signal value s is NOT changed,
     // i.e. it remains NULL if initialised so before.
-    get_item_element((void*) &s, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    get_item_element((void*) &s, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 //?? fwprintf(stdout, L"\nTEST check signal s: %i\n\n", s);
 
@@ -91,9 +93,12 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // A signal was found and has to be handled.
         // Handling a signal has higher priority than checking for new interrupt requests.
 
-        check_found(s, p0, p1, p2, p4);
+        check_found(s, p0, p1, p2, (void*) &i, p4);
 
     } else {
+
+        // No signal is available in the signal memory.
+        // Query interrupt flags for requests.
 
         check_empty(p0, p1, p2, p3, p4);
     }

@@ -131,7 +131,7 @@ void compare_subsequence_array(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare subsequence array. The left array count is smaller than the right array count.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare subsequence array. The left array count is smaller than the right array count.");
     }
 }
 

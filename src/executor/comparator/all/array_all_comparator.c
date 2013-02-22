@@ -81,7 +81,7 @@ fwprintf(stdout, L"TEST compare all array p6: %i\n", *((int*) p6));
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare all array. The left array count is not equal to the right array count.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare all array. The left array count is not equal to the right array count.");
     }
 }
 

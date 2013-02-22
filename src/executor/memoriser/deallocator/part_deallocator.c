@@ -97,6 +97,8 @@ void deallocate_part(void* p0) {
 
         if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST deallocate part td: %i\n", *((int*) td));
+
             // Remove all elements from model.
             // CAUTION! The necessary "reference" function is
             // called automatically inside the "empty" function
@@ -105,8 +107,6 @@ void deallocate_part(void* p0) {
             // for each element with type "element/part",
             // for rubbish (garbage) collection.
             empty_item(m, td);
-
-fwprintf(stdout, L"TEST deallocate part td: %i\n", *((int*) td));
 
             // Deallocate references, name, channel, encoding, language, format, type, model, properties.
             deallocate_item((void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
