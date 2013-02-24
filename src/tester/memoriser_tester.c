@@ -88,9 +88,9 @@ void test_memoriser_array_resizing() {
     log_write((void*) stdout, t);
 
     // Deallocate original array.
-    deallocate_array((void*) &o, (void*) &os, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &o, (void*) &oc, (void*) &os, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate copied array.
-    deallocate_array((void*) &c, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &c, (void*) &cc, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -246,9 +246,9 @@ void test_memoriser_array() {
     fwprintf(stdout, L"TEST *wr: %ls\n", (wchar_t*) wr);
     fwprintf(stdout, L"TEST *ir: %i\n", *((int*) ir));
 
-    deallocate_array((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deallocate_array((void*) &p, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &p, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -283,7 +283,7 @@ void test_memoriser_array_wide_character() {
     copy_array_forward(w, (void*) L"xxxxxxxxxxxlloxxxxxxx", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_11_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
 
-    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &w, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

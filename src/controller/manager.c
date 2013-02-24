@@ -383,7 +383,7 @@ void manage(void* p0) {
     // so that this root part is not deallocated automatically.
     deallocate_part((void*) &k);
     // Deallocate internal memory data.
-    deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 
 /* MANAGER_SOURCE */

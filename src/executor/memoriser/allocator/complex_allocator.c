@@ -26,7 +26,9 @@
 #ifndef COMPLEX_ALLOCATOR_SOURCE
 #define COMPLEX_ALLOCATOR_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../logger/logger.c"
@@ -34,15 +36,33 @@
 /**
  * Allocates the complex.
  *
- * @param p0 the model (pointer reference)
- * @param p1 the model size
+ * It consists of the following elements:
+ * real (r)
+ * imaginary (i)
+ *
+ * @param p0 the complex (pointer reference)
  */
-void allocate_complex(void* p0, void* p1) {
+void allocate_complex(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate complex.");
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Create complex.
-    allocate_array(p0, p1, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+        void** c = (void**) p0;
+
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate complex.");
+
+        // Allocate complex.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_array(p0, (void*) COMPLEX_STATE_CYBOI_MODEL_COUNT, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+
+        // Initialise real and imaginary.
+        overwrite_array(*c, (void*) NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) REAL_COMPLEX_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        overwrite_array(*c, (void*) NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate complex. The complex is null.");
+    }
 }
 
 /* COMPLEX_ALLOCATOR_SOURCE */

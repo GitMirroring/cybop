@@ -65,7 +65,7 @@ void help(void* p0) {
     log_write(p0, m);
 
     // Deallocate message.
-    deallocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &m, (void*) &mc, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* HELPER_SOURCE */

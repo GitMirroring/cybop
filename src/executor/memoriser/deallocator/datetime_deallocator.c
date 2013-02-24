@@ -26,22 +26,23 @@
 #ifndef DATE_TIME_DEALLOCATOR_SOURCE
 #define DATE_TIME_DEALLOCATOR_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Deallocates the date time.
+ * Deallocates the datetime.
  *
- * @param p0 the model (pointer reference)
- * @param p1 the model size
+ * @param p0 the datetime (pointer reference)
  */
-void deallocate_date_time(void* p0, void* p1) {
+void deallocate_datetime(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate date time.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate datetime.");
 
-    deallocate_array(p0, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array(p0, (void*) DATETIME_STATE_CYBOI_MODEL_COUNT, (void*) DATETIME_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* DATE_TIME_DEALLOCATOR_SOURCE */

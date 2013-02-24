@@ -260,7 +260,7 @@ void test_wide_character_output() {
 //??    log_write((void*) stdout, (wchar_t*) ts, t);
 
     // Destroy terminated control sequences.
-    deallocate_array((void*) &ts, (void*) &tss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &ts, (void*) &tsc, (void*) &tss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // UTF-8 still allows you to use C1 control characters such as CSI, even
     // though UTF-8 also uses bytes in the range 0x80-0x9F. It is important to
@@ -326,7 +326,7 @@ void test_communicator_file_read() {
 
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &a, (void*) &CHARACTER_ARRAY, (void*) &as);
+    allocate_array((void*) &a, (void*) &as, (void*) &CHARACTER_ARRAY);
 //??    receive_file((void*) &a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
 
     fwprintf(stdout, L"a: %i\n", a);
@@ -352,7 +352,7 @@ void test_communicator_file_read() {
         j++;
     }
 
-    deallocate_array((void*) &a, (void*) &CHARACTER_ARRAY, (void*) &as);
+    deallocate_array((void*) &a, (void*) &ac, (void*) &as, (void*) &CHARACTER_ARRAY);
 */
 }
 

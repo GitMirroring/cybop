@@ -11,7 +11,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * See exit app:
+        * CONTINUE: the reason for the bug is the call of "empty_array" inside "array_deallocator.c"
+        * Fix bug that part elements got deallocated recursively due to rubbish (garbage) collection,
+            when removing a signal from the signal memory array
+            NO THIS SHOULD NOT BE THE CASE! The type "pointer..." is used instead of "part..."
+
+        * See exit(0):
             TEST TEST_ARRAY_REFERENCE_COUNT END: 370
             TEST TEST_ITEM_REFERENCE_COUNT END: 90
             TEST TEST_PART_REFERENCE_COUNT END: 10

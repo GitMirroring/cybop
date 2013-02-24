@@ -129,8 +129,8 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: Rename into "deserialise_hhmmss_date_time"!
-//??            deserialise_date_time(p0, p2, p3);
+            //?? TODO: Rename into "deserialise_hhmmss_datetime"!
+//??            deserialise_datetime(p0, p2, p3);
         }
     }
 
@@ -140,7 +140,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            deserialise_ddmmyyyy_date_time(p0, p2, p3);
+//??            deserialise_ddmmyyyy_datetime(p0, p2, p3);
         }
     }
 
@@ -165,6 +165,10 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
             void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST TEST_ARRAY_REFERENCE_COUNT PRE: %i\n", TEST_ARRAY_REFERENCE_COUNT);
+fwprintf(stdout, L"TEST TEST_ITEM_REFERENCE_COUNT PRE: %i\n", TEST_ITEM_REFERENCE_COUNT);
+fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT PRE: %i\n", TEST_PART_REFERENCE_COUNT);
+
             // Allocate temporary format, type, model, properties item.
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
@@ -178,6 +182,17 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // Deserialise source message (cybol file) into temporary model, properties item.
             deserialise_xml(m, p, p2, p3);
+
+//?? TEMPORARY TEST
+deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST TEST_ARRAY_REFERENCE_COUNT POST: %i\n", TEST_ARRAY_REFERENCE_COUNT);
+fwprintf(stdout, L"TEST TEST_ITEM_REFERENCE_COUNT POST: %i\n", TEST_ITEM_REFERENCE_COUNT);
+fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT POST: %i\n", TEST_PART_REFERENCE_COUNT);
+fwprintf(stdout, L"EXIT\n");
+exit(0);
 
             // Get temporary model, properties data, count.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!

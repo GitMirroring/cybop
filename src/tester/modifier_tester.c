@@ -312,7 +312,7 @@ void test_modifier_array() {
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
-    deallocate_array((void*) &w, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &w, (void*) &c, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

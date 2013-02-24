@@ -26,6 +26,7 @@
 #ifndef ITEM_EMPTIER_SOURCE
 #define ITEM_EMPTIER_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
@@ -33,7 +34,7 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/remover/array_remover.c"
+#include "../../../executor/modifier/emptier/array_emptier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -58,12 +59,8 @@ void empty_item(void* p0, void* p1) {
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-    // Remove all elements from item data.
-    // The count and size are adjusted inside.
-    // CAUTION! Hand over the count twice, as
-    // count of elements to be removed (p2)
-    // AND as array count (p4).
-    remove_array((void*) &d, p1, c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, c, s);
+    // Empty item data.
+    empty_array((void*) &d, p1, c, s);
 
     // Set data as item element.
     // CAUTION! This IS NECESSARY, because reallocation may have happened

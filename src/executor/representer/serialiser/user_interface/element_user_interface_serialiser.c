@@ -94,13 +94,13 @@ void serialise_user_interface_element(void* p0, void* p1, void* p2, void* p3, vo
     serialise_user_interface_coordinates(c, p, p6);
 
     // Deallocate margin coordinates.
-    deallocate_array((void*) &m, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &m, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Deallocate border coordinates.
-    deallocate_array((void*) &b, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &b, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Deallocate padding coordinates.
-    deallocate_array((void*) &p, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &p, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Deallocate content coordinates.
-    deallocate_array((void*) &c, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &c, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* ELEMENT_USER_INTERFACE_SERIALISER_SOURCE */

@@ -94,7 +94,7 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
 //??    deserialise(p0, p1, p2, p3, p4, p5, ed, (void*) &ec, p9, p10);
 
     // Deallocate encoded character array.
-    deallocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &ed, (void*) &ec, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //?? TODO: The destination compound model content needs to be RESET every time since
     //?? otherwise, new commands are just added to the "action" part entry, for example.

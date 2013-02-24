@@ -64,6 +64,8 @@ void check(void* p0) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST check 0 p0: %i\n", p0);
+
     // Get knowledge memory part.
     copy_array_forward((void*) &k, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get signal memory item, sleep time.
@@ -73,14 +75,20 @@ void check(void* p0) {
     // The shutdown flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST check 1 p0: %i\n", p0);
+
     // Run endless loop checking signal memory for signals.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST check 2: %i\n", p0);
 
         if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Leave loop if shutdown flag was set.
             break;
         }
+
+fwprintf(stdout, L"TEST check 3: %i\n", p0);
 
         check_signal(p0, k, s, st, (void*) &f);
     }

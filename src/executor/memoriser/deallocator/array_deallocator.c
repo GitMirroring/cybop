@@ -35,14 +35,26 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
 
+//
+// Forward declarations.
+//
+
+void empty_array(void* p0, void* p1, void* p2, void* p3);
+
 /**
  * Deallocates the array.
  *
+ * CAUTION! The "array count" parametre IS necessary,
+ * since it is used to decrement the reference count
+ * for each element with type "element/part",
+ * for rubbish (garbage) collection.
+ *
  * @param p0 the array (pointer reference)
- * @param p1 the array size
- * @param p2 the array element type
+ * @param p1 the array count
+ * @param p2 the array size
+ * @param p3 the array element type
  */
-void deallocate_array(void* p0, void* p1, void* p2) {
+void deallocate_array(void* p0, void* p1, void* p2, void* p3) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -55,6 +67,15 @@ void deallocate_array(void* p0, void* p1, void* p2) {
         // cause an error when handing over a null value.
         // However, the code is cleaner when testing for null.
         if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // Remove all elements from model.
+            // CAUTION! The necessary "reference" function is
+            // called automatically inside the "empty" function
+            // (and "remove" function, respectively,)
+            // in order to decrement the reference count
+            // for each element with type "element/part",
+            // for rubbish (garbage) collection.
+            empty_array(*a, p3, p1, p2);
 
             // This function may cause an error if some wrong pointer
             // is forwarded to it as argument.

@@ -26,7 +26,9 @@
 #ifndef COMPLEX_DEALLOCATOR_SOURCE
 #define COMPLEX_DEALLOCATOR_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../logger/logger.c"
@@ -34,15 +36,13 @@
 /**
  * Deallocates the complex.
  *
- * @param p0 the model (pointer reference)
- * @param p1 the model size
+ * @param p0 the complex (pointer reference)
  */
-void deallocate_complex(void* p0, void* p1) {
+void deallocate_complex(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate complex.");
 
-    // Destroy complex.
-    deallocate_array(p0, p1, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array(p0, (void*) COMPLEX_STATE_CYBOI_MODEL_COUNT, (void*) COMPLEX_STATE_CYBOI_MODEL_COUNT, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* COMPLEX_DEALLOCATOR_SOURCE */

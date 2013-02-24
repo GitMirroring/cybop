@@ -119,7 +119,7 @@ void test_accessor_array_setter() {
     fwprintf(stdout, L"d string 3: %ls\n", (wchar_t*) d);
 
     // Deallocate destination array.
-    deallocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &d, (void*) &ds, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

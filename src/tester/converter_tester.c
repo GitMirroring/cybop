@@ -88,7 +88,7 @@ void test_converter_integer_to_wide_character_conversion() {
     fwprintf(stdout, L"TEST t: %ls\n", (wchar_t*) d);
 
     // Deallocate test wide character data.
-    deallocate_array((void*) &d, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &d, (void*) &c, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -120,7 +120,7 @@ void test_converter_serialise_integer() {
     fwprintf(stdout, L"Test: Destination character array size: %i\n", ds);
 
     // Deallocate destination character array.
-    deallocate_array((void*) &dd, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &dd, (void*) &dc, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -167,7 +167,7 @@ void test_converter_deserialise_cybol_integer_vector() {
     fwprintf(stdout, L"Integer 2: %i\n", *i2);
 
     // Deallocate integer vector.
-    deallocate_array((void*) &d, (void*) &ds, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &d, (void*) &dc, (void*) &ds, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -203,7 +203,7 @@ void test_converter_serialise_integer_vector() {
     fwprintf(stdout, L"Encoded character array size: %i\n", ds);
 
     // Deallocate destination character vector.
-    deallocate_array((void*) &d, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &d, (void*) &dc, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

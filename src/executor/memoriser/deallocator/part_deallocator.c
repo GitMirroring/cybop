@@ -38,12 +38,6 @@
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
-//
-// Forward declarations.
-//
-
-void empty_item(void* p0, void* p1);
-
 /**
  * Deallocates the part.
  *
@@ -99,15 +93,6 @@ void deallocate_part(void* p0) {
 
 fwprintf(stdout, L"TEST deallocate part td: %i\n", *((int*) td));
 
-            // Remove all elements from model.
-            // CAUTION! The necessary "reference" function is
-            // called automatically inside the "empty" function
-            // (and "remove" function, respectively,)
-            // in order to decrement the reference count
-            // for each element with type "element/part",
-            // for rubbish (garbage) collection.
-            empty_item(m, td);
-
             // Deallocate references, name, channel, encoding, language, format, type, model, properties.
             deallocate_item((void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             deallocate_item((void*) &n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -122,7 +107,7 @@ fwprintf(stdout, L"TEST deallocate part td: %i\n", *((int*) td));
 fwprintf(stdout, L"TEST deallocate part: %i\n", *part);
 
             // Deallocate part.
-            deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+            deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
 //?? TEMPORARY TEST
 TEST_PART_REFERENCE_COUNT--;

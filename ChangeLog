@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-02-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add file "array_emptier.c"
+        * Fix bug that references of elements of an array were not decremented recursively in file "array_deallocator.c",
+            for rubbish (garbage) collection (previously only considered in file "part_deallocator.c")
+
 2013-02-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up files "array_remover.c", "array_overwriter.c", "array_inserter.c" and add necessary tests of variable values

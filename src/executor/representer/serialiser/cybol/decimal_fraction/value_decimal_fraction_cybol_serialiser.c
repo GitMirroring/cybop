@@ -128,7 +128,7 @@ void serialise_cybol_fraction_decimal_value(void* p0, void* p1, void* p2) {
     }
 
     // Deallocate temporary array.
-    deallocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &td, (void*) &tc, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* VALUE_DECIMAL_FRACTION_CYBOL_SERIALISER_SOURCE */

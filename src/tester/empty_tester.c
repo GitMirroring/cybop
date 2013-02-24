@@ -96,7 +96,7 @@ void test_empty_3() {
 
     fwprintf(stdout, L"TEST sum: %i\n", sum);
 
-    deallocate_array((void*) &summand, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &summand, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /**
