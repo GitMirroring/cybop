@@ -233,8 +233,10 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array. The destination index is outside the array boundaries.");
-        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries p3: %i\n", *((int*) p3));
-        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries p4: %i\n", *((int*) p4));
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries p3: %i\n", p3);
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p3: %i\n", *((int*) p3));
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries p4: %i\n", p4);
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p4: %i\n", *((int*) p4));
     }
 }
 

@@ -172,8 +172,12 @@ fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT BEGIN: %i\n", TEST_PART_REFERE
         // be negative or zero, but have at least a value of ONE.
         allocate_item((void*) &k, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+        log_write(stdout, L"TEST 1\n");
+
         // Optionalise command line argument options.
         optionalise((void*) &m, k, (void*) LOG_LEVEL, (void*) LOG_OUTPUT, (void*) p1, (void*) &p0);
+
+        log_write(stdout, L"TEST 2\n");
 
         // Orient log output file stream.
         //
@@ -218,8 +222,12 @@ fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT BEGIN: %i\n", TEST_PART_REFERE
         // even though the LOG_OUTPUT pointer would be invalid.
         deoptionalise((void*) LOG_OUTPUT);
 
+        log_write(stdout, L"TEST 3\n");
+
         // Deallocate cybol knowledge file path.
         deallocate_item((void*) &k, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        log_write(stdout, L"TEST 4\n");
 
         // Shutdown global variables.
         unglobalise();
