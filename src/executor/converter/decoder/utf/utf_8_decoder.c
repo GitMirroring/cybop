@@ -309,7 +309,7 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The source is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The source data is null.");
         }
 
     } else {

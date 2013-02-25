@@ -91,7 +91,7 @@ void deallocate_part(void* p0) {
 
         if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deallocate part td: %i\n", *((int*) td));
+fwprintf(stdout, L"TEST deallocate part td pre: %i\n", *((int*) td));
 
             // Deallocate references, name, channel, encoding, language, format, type, model, properties.
             deallocate_item((void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
@@ -104,7 +104,7 @@ fwprintf(stdout, L"TEST deallocate part td: %i\n", *((int*) td));
             deallocate_item((void*) &m, td);
             deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-fwprintf(stdout, L"TEST deallocate part: %i\n", *part);
+fwprintf(stdout, L"TEST deallocate part td post: %i\n", *((int*) td));
 
             // Deallocate part.
             deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
@@ -122,8 +122,7 @@ TEST_PART_REFERENCE_COUNT--;
             if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate part. It is still referenced by other parts.");
-
-fwprintf(stdout, L"ERROR: Could not deallocate part. It is still referenced by other parts: %i\n", *part);
+                fwprintf(stdout, L"ERROR: Could not deallocate part. It is still referenced by other parts: %i\n", *part);
 
             } else {
 
@@ -132,8 +131,7 @@ fwprintf(stdout, L"ERROR: Could not deallocate part. It is still referenced by o
                 // then it is smaller than zero.
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate part. Its references count is negative.");
-
-fwprintf(stdout, L"ERROR: Could not deallocate part. Its references count is negative: %i\n", *part);
+                fwprintf(stdout, L"ERROR: Could not deallocate part. Its references count is negative: %i\n", *part);
             }
         }
 

@@ -284,7 +284,7 @@ void test_modifier_array() {
     fwprintf(stdout, L"TEST s: %i\n", s);
 
     // Remove "llo".
-    remove_array((void*) &w, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s);
+    remove_array((void*) &w, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &c, (void*) &s, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST w: %ls\n", (wchar_t*) w);
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);

@@ -16,6 +16,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-02-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add "adjust count" parametre to function "remove_array", in order to fix bug that if a constant is
+            handed over as "count" parametre to functions "deallocate_array"/"empty_array"/"remove_array",
+            which assign a new "array count" internally, then wrong values and pointers appeared
+        * Fix bug that array was not handed over as pointer reference to "empty_array" in function "deallocate_array"
+
 2013-02-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add file "array_emptier.c"

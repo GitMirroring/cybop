@@ -89,21 +89,27 @@ fwprintf(stdout, L"TEST reference part *rd: %i\n", *((int*) rd));
     // Increment or decrement references counter.
     calculate_integer(rd, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
 
-//?? fwprintf(stdout, L"TEST reference part post *rd: %i\n", *((int*) rd));
+fwprintf(stdout, L"TEST reference part *rd: %i\n", *((int*) rd));
 
-    //?? TEST
-    if (*((int*) rd) < 0) {
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reference part. The references data is negative.");
-        fwprintf(stdout, L"Could not reference part. The references data is negative *rd: %i\n", *((int*) rd));
+    if (res == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &res, rd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deallocate_part((void*) &p);
+        }
     }
 
-    compare_integer_smaller_or_equal((void*) &res, rd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    if (res == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST reference part res: %i\n", res);
+        compare_integer_smaller((void*) &res, rd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deallocate_part((void*) &p);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reference part. The references data is negative.");
+            fwprintf(stdout, L"Could not reference part. The references data is negative *rd: %i\n", *((int*) rd));
+        }
     }
 }
 

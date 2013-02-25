@@ -60,7 +60,7 @@ void empty_item(void* p0, void* p1) {
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
     // Empty item data.
-    empty_array((void*) &d, p1, c, s);
+    empty_array((void*) &d, p1, c, s, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Set data as item element.
     // CAUTION! This IS NECESSARY, because reallocation may have happened

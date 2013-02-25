@@ -44,7 +44,7 @@
  * starting from the given index.
  *
  * The destination size gets adjusted automatically.
- * A new destination count is only assigned,
+ * A new destination count is ONLY assigned,
  * if the "adjust count flag" is set.
  *
  * Example:

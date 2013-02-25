@@ -11,25 +11,22 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE: the reason for the bug is the call of "empty_array" inside "array_deallocator.c"
-        * Fix bug that part elements got deallocated recursively due to rubbish (garbage) collection,
-            when removing a signal from the signal memory array
-            NO THIS SHOULD NOT BE THE CASE! The type "pointer..." is used instead of "part..."
+        * Continue in file "cybol_deserialiser.c" at function call "deserialise_xml"
 
         * See exit(0):
             TEST TEST_ARRAY_REFERENCE_COUNT END: 370
             TEST TEST_ITEM_REFERENCE_COUNT END: 90
             TEST TEST_PART_REFERENCE_COUNT END: 10
         * Correct errors shown by valgrind
+        * Remove "TEST_REFERENCE_COUNT" in files logger.c, array_allocator.c, array_deallocator.c, cyboi.c
+
+        * Use "append" instead of "overwrite" in function "help"
 
         THE FOLLOWING IS PROBABLY NOT NECESSARY, SINCE ARRAYS SHOULD ONLY POINT TO VALID AREAS AND IF A NEW AREA GETS RE/ALLOCATED, MEMSET IS USED ALREADY!
         * either set all removed elements to null in remover/inserter/overwriter using "memset" or create files "array_nuller,c", "item_nuller.c", "part_nuller.c" and call these functions
             (this is important to prevent "wild" or wrong pointers to accidently point to something meaningful
-
         * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
             that become invalid after having shutdown a service and destroyed related objects
-
-        * Remove "TEST_REFERENCE_COUNT" in files logger.c, array_allocator.c, array_deallocator.c, cyboi.c
 
         * Eliminate temporary format and type parametres in file "content_element_part_cybol_deserialiser.c" and replace with locally allocated and deallocated items?
 

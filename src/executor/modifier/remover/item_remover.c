@@ -61,7 +61,7 @@ void remove_item(void* p0, void* p1, void* p2, void* p3) {
 
     // Remove elements from item data.
     // The count and size are adjusted inside.
-    remove_array((void*) &d, p1, p2, p3, c, s);
+    remove_array((void*) &d, p1, p2, p3, c, s, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Set data as item element.
     // CAUTION! This IS NECESSARY, because reallocation may have happened

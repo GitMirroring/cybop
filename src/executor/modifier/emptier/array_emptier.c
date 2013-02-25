@@ -43,8 +43,9 @@
  * @param p1 the type
  * @param p2 the count
  * @param p3 the size
+ * @param p4 the adjust count flag
  */
-void empty_array(void* p0, void* p1, void* p2, void* p3) {
+void empty_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Empty array.");
 
@@ -53,7 +54,7 @@ void empty_array(void* p0, void* p1, void* p2, void* p3) {
     // CAUTION! Hand over the count twice, as
     // count of elements to be removed (third parametre)
     // AND as array count (fifth parametre).
-    remove_array(p0, p1, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p2, p3);
+    remove_array(p0, p1, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p2, p3, p4);
 }
 
 /* ARRAY_EMPTIER_SOURCE */

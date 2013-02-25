@@ -48,6 +48,15 @@
  * FIRST element (behind the area to be removed) since otherwise,
  * overlapping elements might get overwritten.
  *
+ * The destination size is NOT changed.
+ * See comment in source code for reasons!
+ *
+ * A new destination count is ONLY assigned,
+ * if the "adjust count flag" is set.
+ * The reason is that sometimes, constants are handed over
+ * as count, which may NOT be changed. Otherwise, unpredictable
+ * values and pointers would occur in the programme.
+ *
  * Example:
  *
  * array: "Hello, XYZWorld!"
@@ -62,8 +71,9 @@
  * @param p3 the index
  * @param p4 the array count
  * @param p5 the array size
+ * @param p6 the adjust count flag
  */
-void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -77,6 +87,8 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The new destination array count.
         int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Add index.
         calculate_integer_add((void*) &i, p3);
@@ -117,56 +129,61 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
                     // as that would break array boundaries and would copy unpredictable content.
                     copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
 
-                    //
-                    // It was decided NOT to shrink arrays when their size gets smaller,
-                    // in order to be more efficient.
-                    // When an array gets deallocated, there is no use in shrinking it beforehand.
-                    // Those arrays which contain less elements than their size is
-                    // probably won't occupy that much memory space and are left untouched.
-                    //
-                    // However, here comes the source code how shrinking might work:
-                    //
-                    // // The comparison result.
-                    // int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-                    //
-                    // // Test if new size is smaller than array size.
-                    // compare_integer_smaller((void*) &r, (void*) &n, p5);
-                    //
-                    // if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-                    //
-                    //     if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                    //
-                    //         // Shrink array using new count as size.
-                    //         // CAUTION! Due to memory allocation handling, the size MUST NOT
-                    //         // be negative or zero, but have at least a value of ONE.
-                    //         reallocate_array(p0, p4, (void*) &n, p1);
-                    //
-                    //     } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                    //
-                    //         // Set new size to value one.
-                    //         // CAUTION! It is just normal that the calculated new size is zero,
-                    //         // e.g. if a part was emptied and all of its child elements removed.
-                    //         // However, in such cases it has to be made sure,
-                    //         // that allocation size is at least one.
-                    //         n = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                    //
-                    //         // Shrink array using new count as size.
-                    //         // CAUTION! Due to memory allocation handling, the size MUST NOT
-                    //         // be negative or zero, but have at least a value of ONE.
-                    //         reallocate_array(p0, p4, (void*) &n, p1);
-                    //
-                    //     } else {
-                    //
-                    //         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The new size is negative.");
-                    //     }
-                    //
-                    //     // Set new size.
-                    //     copy_integer(p5, (void*) &n);
-                    // }
-                    //
+                    compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-                    // Assign destination array count.
-                    copy_integer(p4, (void*) &nc);
+                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                        //
+                        // It was decided NOT to shrink arrays when their size gets smaller,
+                        // in order to be more efficient.
+                        // When an array gets deallocated, there is no use in shrinking it beforehand.
+                        // Those arrays which contain less elements than their size is
+                        // probably won't occupy that much memory space and are left untouched.
+                        //
+                        // However, here comes the source code how shrinking might work:
+                        //
+                        // // The comparison result.
+                        // int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+                        //
+                        // // Test if new size is smaller than array size.
+                        // compare_integer_smaller((void*) &r, (void*) &n, p5);
+                        //
+                        // if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                        //
+                        //     if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        //
+                        //         // Shrink array using new count as size.
+                        //         // CAUTION! Due to memory allocation handling, the size MUST NOT
+                        //         // be negative or zero, but have at least a value of ONE.
+                        //         reallocate_array(p0, p4, (void*) &n, p1);
+                        //
+                        //     } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        //
+                        //         // Set new size to value one.
+                        //         // CAUTION! It is just normal that the calculated new size is zero,
+                        //         // e.g. if a part was emptied and all of its child elements removed.
+                        //         // However, in such cases it has to be made sure,
+                        //         // that allocation size is at least one.
+                        //         n = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                        //
+                        //         // Shrink array using new count as size.
+                        //         // CAUTION! Due to memory allocation handling, the size MUST NOT
+                        //         // be negative or zero, but have at least a value of ONE.
+                        //         reallocate_array(p0, p4, (void*) &n, p1);
+                        //
+                        //     } else {
+                        //
+                        //         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array inside. The new size is negative.");
+                        //     }
+                        //
+                        //     // Set new size.
+                        //     copy_integer(p5, (void*) &n);
+                        // }
+                        //
+
+                        // Assign destination array count.
+                        copy_integer(p4, (void*) &nc);
+                    }
 
                 } else {
 
@@ -202,8 +219,9 @@ void remove_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
  * @param p3 the index
  * @param p4 the array count
  * @param p5 the array size
+ * @param p6 the adjust count flag
  */
-void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove array.");
 
@@ -216,7 +234,7 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            remove_array_inside(p0, p1, p2, p3, p4, p5);
+            remove_array_inside(p0, p1, p2, p3, p4, p5, p6);
         }
     }
 
@@ -233,9 +251,7 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array. The destination index is outside the array boundaries.");
-        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries p3: %i\n", p3);
         fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p3: %i\n", *((int*) p3));
-        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries p4: %i\n", p4);
         fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p4: %i\n", *((int*) p4));
     }
 }
