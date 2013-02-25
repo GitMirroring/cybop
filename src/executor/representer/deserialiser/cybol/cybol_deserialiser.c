@@ -184,7 +184,13 @@ fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT PRE: %i\n", TEST_PART_REFERENC
             deserialise_xml(m, p, p2, p3);
 
 //?? TEMPORARY TEST
+fwprintf(stdout, L"TEST TEST_ARRAY_REFERENCE_COUNT META: %i\n", TEST_ARRAY_REFERENCE_COUNT);
+fwprintf(stdout, L"TEST TEST_ITEM_REFERENCE_COUNT META: %i\n", TEST_ITEM_REFERENCE_COUNT);
+fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT META: %i\n", TEST_PART_REFERENCE_COUNT);
 deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST TEST_ARRAY_REFERENCE_COUNT META 2: %i\n", TEST_ARRAY_REFERENCE_COUNT);
+fwprintf(stdout, L"TEST TEST_ITEM_REFERENCE_COUNT META 2: %i\n", TEST_ITEM_REFERENCE_COUNT);
+fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT META 2: %i\n", TEST_PART_REFERENCE_COUNT);
 deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

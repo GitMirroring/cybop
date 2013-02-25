@@ -11,6 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue: Search code for "TODO The following model is NOT but SHOULD BE destroyed recursively"
         * Continue in file "cybol_deserialiser.c" at function call "deserialise_xml"
 
         * See exit(0):

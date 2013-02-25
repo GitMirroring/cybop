@@ -101,7 +101,9 @@ fwprintf(stdout, L"TEST deallocate part td pre: %i\n", *((int*) td));
             deallocate_item((void*) &l, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TODO The following model is NOT but SHOULD BE destroyed recursively: %i\n", *((int*) td));
             deallocate_item((void*) &m, td);
+fwprintf(stdout, L"TEST deallocate part td meta: %i\n", *((int*) td));
             deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
 fwprintf(stdout, L"TEST deallocate part td post: %i\n", *((int*) td));
