@@ -23,25 +23,27 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef THREAD_IDENTIFICATION_GLOBALISER_SOURCE
-#define THREAD_IDENTIFICATION_GLOBALISER_SOURCE
+#ifndef REFERENCE_COUNTER_SOURCE
+#define REFERENCE_COUNTER_SOURCE
 
-#include <pthread.h>
+//
+// The global variables.
+//
+// CAUTION! This is just the variable definition.
+// Initialisation happens in directory "controller/globaliser/".
+//
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../variable/type_size/thread_type_size.c"
-#include "../../variable/thread_identification.c"
+/** The array reference counter. */
+static int ARRAY_REFERENCE_COUNTER_ARRAY[1];
+static int* ARRAY_REFERENCE_COUNTER = ARRAY_REFERENCE_COUNTER_ARRAY;
 
-/**
- * Initialises thread identification global variables.
- */
-void globalise_thread_identification() {
+/** The item reference counter. */
+static int ITEM_REFERENCE_COUNTER_ARRAY[1];
+static int* ITEM_REFERENCE_COUNTER = ITEM_REFERENCE_COUNTER_ARRAY;
 
-    *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *TERMINAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *WWW_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *X_WINDOW_SYSTEM_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-}
+/** The part reference counter. */
+static int PART_REFERENCE_COUNTER_ARRAY[1];
+static int* PART_REFERENCE_COUNTER = PART_REFERENCE_COUNTER_ARRAY;
 
-/* THREAD_IDENTIFICATION_GLOBALISER_SOURCE */
+/* REFERENCE_COUNTER_SOURCE */
 #endif

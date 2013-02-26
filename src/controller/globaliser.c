@@ -33,6 +33,7 @@
 #include "../controller/globaliser/process_globaliser.c"
 #include "../controller/globaliser/real_globaliser.c"
 #include "../controller/globaliser/reallocation_factor_globaliser.c"
+#include "../controller/globaliser/reference_counter_globaliser.c"
 #include "../controller/globaliser/service_exit_globaliser.c"
 #include "../controller/globaliser/signal_globaliser.c"
 #include "../controller/globaliser/socket_globaliser.c"
@@ -102,6 +103,7 @@ void globalise() {
     globalise_thread();
     globalise_thread_identification();
     globalise_x_window_system();
+    globalise_reference_counter();
 }
 
 /* GLOBALISER_SOURCE */

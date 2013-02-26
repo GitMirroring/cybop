@@ -23,25 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef THREAD_IDENTIFICATION_GLOBALISER_SOURCE
-#define THREAD_IDENTIFICATION_GLOBALISER_SOURCE
-
-#include <pthread.h>
+#ifndef REFERENCE_COUNTER_GLOBALISER_SOURCE
+#define REFERENCE_COUNTER_GLOBALISER_SOURCE
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../variable/type_size/thread_type_size.c"
-#include "../../variable/thread_identification.c"
+#include "../../variable/reference_counter.c"
 
 /**
- * Initialises thread identification global variables.
+ * Initialises reference counter global variables.
  */
-void globalise_thread_identification() {
+void globalise_reference_counter() {
 
-    *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *TERMINAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *WWW_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *X_WINDOW_SYSTEM_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    *ARRAY_REFERENCE_COUNTER = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    *ITEM_REFERENCE_COUNTER = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    *PART_REFERENCE_COUNTER = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
 
-/* THREAD_IDENTIFICATION_GLOBALISER_SOURCE */
+/* REFERENCE_COUNTER_GLOBALISER_SOURCE */
 #endif

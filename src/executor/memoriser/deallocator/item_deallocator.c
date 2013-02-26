@@ -34,6 +34,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../logger/logger.c"
+#include "../../../variable/reference_counter.c"
 
 /**
  * Deallocates the item.
@@ -73,8 +74,9 @@ void deallocate_item(void* p0, void* p1) {
         // Deallocate item.
         deallocate_array(p0, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
-//?? TEMPORARY TEST
-TEST_ITEM_REFERENCE_COUNT--;
+        // Decrement item reference counter.
+        // CAUTION! This is ONLY needed for debugging.
+        (*ITEM_REFERENCE_COUNTER)--;
 
     } else {
 

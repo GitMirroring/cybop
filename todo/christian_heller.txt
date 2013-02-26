@@ -12,13 +12,6 @@
 #
 
         * Correct errors shown by valgrind
-        * Remove "TEST_PART_REFERENCE_COUNT" in files logger.c, array_allocator.c, array_deallocator.c, cyboi.c
-
-        THE FOLLOWING IS PROBABLY NOT NECESSARY, SINCE ARRAYS SHOULD ONLY POINT TO VALID AREAS AND IF A NEW AREA GETS RE/ALLOCATED, MEMSET IS USED ALREADY!
-        * either set all removed elements to null in remover/inserter/overwriter using "memset" or create files "array_nuller,c", "item_nuller.c", "part_nuller.c" and call these functions
-            (this is important to prevent "wild" or wrong pointers to accidently point to something meaningful
-        * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
-            that become invalid after having shutdown a service and destroyed related objects
 
         * Eliminate temporary format and type parametres in file "content_element_part_cybol_deserialiser.c" and replace with locally allocated and deallocated items?
 
@@ -35,6 +28,9 @@
 
         * Simplify cybol files by using standard attribute values like "utf-8" for encoding etc. inside cyboi
         * Read all cybol attributes and replace cyboi-internal standard value only if attribute exists
+
+        * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
+            that become invalid after having shutdown a service and destroyed related objects
 
         * Check all places where a *NULL_POINTER_STATE_CYBOI_MODEL is handed over as parametre! Search for:
 

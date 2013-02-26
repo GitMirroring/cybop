@@ -195,14 +195,12 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                     // that would destroy allocated memory areas and lead to errors.
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The memory area to be allocated is zero.");
-
-fwprintf(stdout, L"ERROR: Could not reallocate array. The memory area to be allocated is zero: %i\n", *a);
+                    fwprintf(stdout, L"ERROR: Could not reallocate array. The memory area to be allocated is zero: %i\n", *a);
 
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The memory area to be allocated is negative.");
-
-fwprintf(stdout, L"ERROR: Could not reallocate array. The memory area to be allocated is negative: %i\n", *a);
+                    fwprintf(stdout, L"ERROR: Could not reallocate array. The memory area to be allocated is negative: %i\n", *a);
                 }
 
             } else {

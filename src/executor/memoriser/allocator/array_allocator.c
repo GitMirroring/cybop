@@ -36,6 +36,7 @@
 #include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../executor/memoriser/size_determiner.c"
 #include "../../../logger/logger.c"
+#include "../../../variable/reference_counter.c"
 
 /**
  * Allocates the array.
@@ -108,8 +109,9 @@ void allocate_array(void* p0, void* p1, void* p2) {
             // Allocate memory area.
             *a = malloc(tma);
 
-//?? TEMPORARY TEST
-TEST_ARRAY_REFERENCE_COUNT++;
+            // Increment array reference counter.
+            // CAUTION! This is ONLY needed for debugging.
+            (*ARRAY_REFERENCE_COUNTER)++;
 
             if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -127,14 +129,12 @@ TEST_ARRAY_REFERENCE_COUNT++;
         } else if (ma == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate array. The memory area to be allocated is zero.");
-
-fwprintf(stdout, L"ERROR: Could not allocate array. The memory area to be allocated is zero: %i\n", *a);
+            fwprintf(stdout, L"ERROR: Could not allocate array. The memory area to be allocated is zero: %i\n", *a);
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate array. The memory area to be allocated is negative.");
-
-fwprintf(stdout, L"ERROR: Could not allocate array. The memory area to be allocated is negative: %i\n", *a);
+            fwprintf(stdout, L"ERROR: Could not allocate array. The memory area to be allocated is negative: %i\n", *a);
         }
 
     } else {

@@ -27,13 +27,13 @@
 #define ARRAY_DEALLOCATOR_SOURCE
 
 #include <stdlib.h>
-#include <string.h>
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
+#include "../../../variable/reference_counter.c"
 
 //
 // Forward declarations.
@@ -86,8 +86,9 @@ void deallocate_array(void* p0, void* p1, void* p2, void* p3) {
             // and probably set wrong, e.g. outside an allocated area.
             free(*a);
 
-//?? TEMPORARY TEST
-TEST_ARRAY_REFERENCE_COUNT--;
+            // Decrement array reference counter.
+            // CAUTION! This is ONLY needed for debugging.
+            (*ARRAY_REFERENCE_COUNTER)--;
 
         } else {
 

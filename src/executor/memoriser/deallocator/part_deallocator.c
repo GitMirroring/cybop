@@ -37,6 +37,7 @@
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../logger/logger.c"
+#include "../../../variable/reference_counter.c"
 
 /**
  * Deallocates the part.
@@ -111,8 +112,9 @@ void deallocate_part(void* p0) {
             // Deallocate part.
             deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
-//?? TEMPORARY TEST
-TEST_PART_REFERENCE_COUNT--;
+            // Decrement part reference counter.
+            // CAUTION! This is ONLY needed for debugging.
+            (*PART_REFERENCE_COUNTER)--;
 
         } else {
 

@@ -30,6 +30,7 @@
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../logger/logger.c"
+#include "../../../variable/reference_counter.c"
 
 /**
  * Allocates the part.
@@ -96,8 +97,9 @@ void allocate_part(void* p0, void* p1, void* p2) {
             // Allocate part.
             allocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
-//?? TEMPORARY TEST
-TEST_PART_REFERENCE_COUNT++;
+            // Increment part reference counter.
+            // CAUTION! This is ONLY needed for debugging.
+            (*PART_REFERENCE_COUNTER)++;
 
             // Set references, name, channel, encoding, language, format, type, model, properties.
             copy_array_forward(*part, (void*) &r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) REFERENCES_PART_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

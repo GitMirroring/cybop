@@ -44,6 +44,7 @@
 #include "../controller/unglobaliser.c"
 #include "../logger/logger.c"
 #include "../variable/log_setting.c"
+#include "../variable/reference_counter.c"
 
 /**
  * The main entry function.
@@ -84,14 +85,6 @@ int main(int p0, char** p1) {
 
     // Return 1 to indicate an error, by default.
     int r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-//?? TEMPORARY TEST
-TEST_ARRAY_REFERENCE_COUNT = 0;
-TEST_ITEM_REFERENCE_COUNT = 0;
-TEST_PART_REFERENCE_COUNT = 0;
-fwprintf(stdout, L"TEST TEST_ARRAY_REFERENCE_COUNT BEGIN: %i\n", TEST_ARRAY_REFERENCE_COUNT);
-fwprintf(stdout, L"TEST TEST_ITEM_REFERENCE_COUNT BEGIN: %i\n", TEST_ITEM_REFERENCE_COUNT);
-fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT BEGIN: %i\n", TEST_PART_REFERENCE_COUNT);
 
     // There is NO use to test the parametre p0, because it
     // always has at least the value 1, since it also
@@ -158,6 +151,10 @@ fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT BEGIN: %i\n", TEST_PART_REFERE
         orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
+fwprintf(stdout, L"TEST ARRAY_REFERENCE_COUNTER BEGIN: %i\n", *ARRAY_REFERENCE_COUNTER);
+fwprintf(stdout, L"TEST ITEM_REFERENCE_COUNTER BEGIN: %i\n", *ITEM_REFERENCE_COUNTER);
+fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COUNTER);
+
         // The operation mode.
         //
         // CAUTION! It is initialised with the help operation mode,
@@ -218,15 +215,14 @@ fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT BEGIN: %i\n", TEST_PART_REFERE
         // Deallocate cybol knowledge file path.
         deallocate_item((void*) &k, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+fwprintf(stdout, L"TEST ARRAY_REFERENCE_COUNTER END: %i\n", *ARRAY_REFERENCE_COUNTER);
+fwprintf(stdout, L"TEST ITEM_REFERENCE_COUNTER END: %i\n", *ITEM_REFERENCE_COUNTER);
+fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNTER);
+
         // Shutdown global variables.
         unglobalise();
 
         log_write(stdout, L"Information: Exit cyboi normally.\n");
-
-//?? TEMPORARY TEST
-fwprintf(stdout, L"TEST TEST_ARRAY_REFERENCE_COUNT END: %i\n", TEST_ARRAY_REFERENCE_COUNT);
-fwprintf(stdout, L"TEST TEST_ITEM_REFERENCE_COUNT END: %i\n", TEST_ITEM_REFERENCE_COUNT);
-fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT END: %i\n", TEST_PART_REFERENCE_COUNT);
 
         // Set return value to 0, to indicate proper shutdown.
         copy_integer((void*) &r, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);

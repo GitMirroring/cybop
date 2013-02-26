@@ -23,6 +23,8 @@
         * Fix runtime "Bus error" (address buss containing an illegal value) caused by test code
             in file "cybol_deserialiser.c" which lead to destroying some variables twice
         * Adjust log messages
+        * Add files "variable/reference_counter.c" and "controller/globaliser/reference_counter_globaliser.c"
+        * Adjust reference counting for testing purposes
 
 2013-02-25  Christian Heller  <christian.heller@tuxtax.de>
 
