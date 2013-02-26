@@ -89,7 +89,7 @@ fwprintf(stdout, L"TEST reference part *rd: %i\n", *((int*) rd));
     // Increment or decrement references counter.
     calculate_integer(rd, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
 
-fwprintf(stdout, L"TEST reference part *rd: %i\n", *((int*) rd));
+//?? fwprintf(stdout, L"TEST reference part *rd: %i\n", *((int*) rd));
 
     if (res == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

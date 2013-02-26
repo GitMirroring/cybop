@@ -42,7 +42,7 @@
 #include "../logger/logger.c"
 
 /**
- * Initialises the system with an initial signal.
+ * Initialises the system with a startup signal.
  *
  * @param p0 the signal memory item
  * @param p1 the run source item
@@ -50,8 +50,8 @@
  */
 void initialise(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise system with startup signal.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise.");
 
     // The startup signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -93,7 +93,7 @@ void initialise(void* p0, void* p1, void* p2) {
     // Receive startup signal model, properties.
     receive_file(sm, sp, md, mc, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING);
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add startup signal to signal memory.");
 
     // Add part model (signal) to signal memory.
@@ -121,8 +121,6 @@ void initialise(void* p0, void* p1, void* p2) {
     // which are stored/ found in the signal memory.
     // The loop is left as soon as its shutdown flag is set.
     check(p2);
-
-fwprintf(stdout, L"\nTEST initialise begin shutdown s: %i\n", s);
 
     // Deallocate startup signal part.
     deallocate_part((void*) &s);

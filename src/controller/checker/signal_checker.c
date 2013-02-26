@@ -71,9 +71,7 @@
  */
 void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-fwprintf(stdout, L"TEST check signal p0: %i\n", p0);
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check signal.");
 
     // The signal part.

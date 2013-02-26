@@ -35,12 +35,12 @@
  */
 void deoptionalise(void* p0) {
 
-    // CAUTION! DO NOT use logging functionality here!
-    // The logger will not work before its options are set.
-    // Do NOT show the following message, as it would only disturb the user!
-    // log_write((void*) stdout, L"Information: Deoptionalise command line argument options.\n");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deoptionalise.");
 
-    // Deoptionalise log file.
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"(See file 'deoptionaliser.c' for this message.)");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"End log.");
+
     deoptionalise_log_file(p0);
 }
 

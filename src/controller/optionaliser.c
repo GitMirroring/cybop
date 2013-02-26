@@ -26,10 +26,13 @@
 #ifndef OPTIONALISER_SOURCE
 #define OPTIONALISER_SOURCE
 
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../controller/optionaliser/log_file_optionaliser.c"
 #include "../executor/representer/deserialiser/command_line/command_line_deserialiser.c"
+#include "../logger/logger.c"
 
 /**
  * Optionalises the given command line argument options.
@@ -63,6 +66,10 @@ void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     // Optionalise log file handing over terminated log file name item.
     optionalise_log_file(p3, f);
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Begin log.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"(See file 'optionaliser.c' for this message.)");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
 
     // Deallocate terminated log file name item.
     deallocate_item((void*) &f, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

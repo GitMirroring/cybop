@@ -42,7 +42,7 @@
 /**
  * Sends the source to the terminal file.
  *
- * @param p0 the source data
+ * @param p0 the source data (null-terminated)
  * @param p1 the source count
  * @param p2 the internal memory
  */

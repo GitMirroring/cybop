@@ -95,6 +95,7 @@ void check_wait(void* p0, void* p1) {
 
         if (lt != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Wait for an interrupt request.");
 
             //

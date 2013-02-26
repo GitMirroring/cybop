@@ -181,7 +181,7 @@ fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT BEGIN: %i\n", TEST_PART_REFERE
         // since one of the options determines the log output file name.
         orient(*LOG_OUTPUT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Begin log.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Run cyboi.");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Globalised global variables already.");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Optionalised log file already.");
@@ -205,10 +205,7 @@ fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT BEGIN: %i\n", TEST_PART_REFERE
             manage(k);
         }
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deoptionalise log file yet.");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Unglobalise global variables yet.");
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Exit cyboi normally afterwards.");
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"End log.");
 
         // Deoptionalise command line argument options.
         // CAUTION! Hand over the LOG_OUTPUT variable AS REFERENCE!
@@ -224,7 +221,7 @@ fwprintf(stdout, L"TEST TEST_PART_REFERENCE_COUNT BEGIN: %i\n", TEST_PART_REFERE
         // Shutdown global variables.
         unglobalise();
 
-        log_write(stdout, L"\nInformation: Exit cyboi normally.\n");
+        log_write(stdout, L"Information: Exit cyboi normally.\n");
 
 //?? TEMPORARY TEST
 fwprintf(stdout, L"TEST TEST_ARRAY_REFERENCE_COUNT END: %i\n", TEST_ARRAY_REFERENCE_COUNT);
