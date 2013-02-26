@@ -91,22 +91,22 @@ void deallocate_part(void* p0) {
 
         if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deallocate part td pre: %i\n", *((int*) td));
-
             // Deallocate references, name, channel, encoding, language, format, type, model, properties.
-            deallocate_item((void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &e, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &l, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TODO The following model is NOT but SHOULD BE destroyed recursively: %i\n", *((int*) td));
-            deallocate_item((void*) &m, td);
-fwprintf(stdout, L"TEST deallocate part td meta: %i\n", *((int*) td));
+            //
+            // CAUTION! Use REVERSE ORDER as compared to allocation!
+            // This is important for at least "type" and "model",
+            // since the type is needed for model deallocation.
+            // If the type got destroyed before the model,
+            // then model deallocation would not work.
             deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-fwprintf(stdout, L"TEST deallocate part td post: %i\n", *((int*) td));
+            deallocate_item((void*) &m, td);
+            deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &l, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &e, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             // Deallocate part.
             deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);

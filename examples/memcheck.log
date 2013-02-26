@@ -1,34 +1,36 @@
-==13102== Memcheck, a memory error detector
-==13102== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
-==13102== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
-==13102== Command: ../src/controller/cyboi exit/run.cybol
-==13102== Parent PID: 12955
-==13102== 
-==13102== 
-==13102== HEAP SUMMARY:
-==13102==     in use at exit: 4,756 bytes in 370 blocks
-==13102==   total heap usage: 629 allocs, 259 frees, 45,001 bytes allocated
-==13102== 
-==13102== 4,756 (72 direct, 4,684 indirect) bytes in 1 blocks are definitely lost in loss record 370 of 370
-==13102==    at 0x4C28BED: malloc (vg_replace_malloc.c:263)
-==13102==    by 0x4035E2: allocate_array (array_allocator.c:108)
-==13102==    by 0x414C75: allocate_part (part_allocator.c:97)
-==13102==    by 0x4230C9: deserialise_xml_element (element_xml_deserialiser.c:63)
-==13102==    by 0x423455: select_xml_element_content (element_content_xml_selector.c:144)
-==13102==    by 0x4234F3: deserialise_xml_element_content (element_content_xml_deserialiser.c:73)
-==13102==    by 0x4235D3: deserialise_xml (xml_deserialiser.c:66)
-==13102==    by 0x433411: deserialise_cybol (cybol_deserialiser.c:180)
-==13102==    by 0x433D74: deserialise (deserialiser.c:231)
-==13102==    by 0x4340D7: receive_file (file_receiver.c:110)
-==13102==    by 0x437F10: initialise (initialiser.c:94)
-==13102==    by 0x438671: manage (manager.c:333)
-==13102== 
-==13102== LEAK SUMMARY:
-==13102==    definitely lost: 72 bytes in 1 blocks
-==13102==    indirectly lost: 4,684 bytes in 369 blocks
-==13102==      possibly lost: 0 bytes in 0 blocks
-==13102==    still reachable: 0 bytes in 0 blocks
-==13102==         suppressed: 0 bytes in 0 blocks
-==13102== 
-==13102== For counts of detected and suppressed errors, rerun with: -v
-==13102== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 6 from 6)
+==6341== Memcheck, a memory error detector
+==6341== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==6341== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==6341== Command: ../src/controller/cyboi tui/run.cybol
+==6341== Parent PID: 12955
+==6341== 
+==6341== 
+==6341== HEAP SUMMARY:
+==6341==     in use at exit: 216,416 bytes in 4 blocks
+==6341==   total heap usage: 85,548 allocs, 85,544 frees, 16,860,221 bytes allocated
+==6341== 
+==6341== 216,360 bytes in 3 blocks are definitely lost in loss record 2 of 2
+==6341==    at 0x4C28BED: malloc (vg_replace_malloc.c:263)
+==6341==    by 0x5AF663C: vfwprintf (vfprintf.c:1623)
+==6341==    by 0x5B0DE37: fwprintf (fwprintf.c:35)
+==6341==    by 0x40D2AD: send_terminal_stream (stream_terminal_sender.c:80)
+==6341==    by 0x431385: send_terminal (terminal_sender.c:141)
+==6341==    by 0x431868: send_data (sender.c:143)
+==6341==    by 0x432031: apply_send (send.c:230)
+==6341==    by 0x4375CF: handle_operation (operation_handler.c:232)
+==6341==    by 0x436B4F: handle (handler.c:225)
+==6341==    by 0x436C4D: handle_part_element (element_part_handler.c:80)
+==6341==    by 0x436D5E: handle_part (part_handler.c:82)
+==6341==    by 0x4368AF: handle (handler.c:144)
+==6341== 
+==6341== LEAK SUMMARY:
+==6341==    definitely lost: 216,360 bytes in 3 blocks
+==6341==    indirectly lost: 0 bytes in 0 blocks
+==6341==      possibly lost: 0 bytes in 0 blocks
+==6341==    still reachable: 56 bytes in 1 blocks
+==6341==         suppressed: 0 bytes in 0 blocks
+==6341== Reachable blocks (those to which a pointer was found) are not shown.
+==6341== To see them, rerun with: --leak-check=full --show-reachable=yes
+==6341== 
+==6341== For counts of detected and suppressed errors, rerun with: -v
+==6341== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 6 from 6)

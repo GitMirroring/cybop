@@ -60,6 +60,12 @@ void deallocate_item(void* p0, void* p1) {
         copy_array_forward((void*) &s, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
         // Deallocate data, count, size.
+        //
+        // CAUTION! Use REVERSE ORDER as compared to allocation!
+        // This is important since "count" and "size"
+        // are needed for data deallocation.
+        // If they got destroyed before the data,
+        // then data deallocation would not work.
         deallocate_array((void*) &d, c, s, p1);
         deallocate_array((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         deallocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

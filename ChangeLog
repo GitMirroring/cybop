@@ -16,6 +16,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-02-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug in file "part_deallocator.c" where the type needed for deallocation of the model
+            was deallocated before the model, so that part models were not deallocated recursively
+        * Fix runtime "Bus error" (address buss containing an illegal value) caused by test code
+            in file "cybol_deserialiser.c" which lead to destroying some variables twice
+
 2013-02-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add "adjust count" parametre to function "remove_array", in order to fix bug that if a constant is
