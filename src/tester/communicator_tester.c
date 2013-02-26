@@ -206,6 +206,9 @@ void test_wide_character_output() {
     // Set termios attributes.
     tcsetattr(d, TCSANOW, (void*) tw);
 
+    free(to);
+    free(tw);
+
     // The terminated control sequences string.
     void* ts = *NULL_POINTER_STATE_CYBOI_MODEL;
     int tsc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -448,6 +451,9 @@ void test_communicator_console_input() {
 
         // Reset terminal to old settings.
         tcsetattr(d, TCSANOW, (void*) to);
+
+        free(to);
+        free(tn);
 
     } else {
 

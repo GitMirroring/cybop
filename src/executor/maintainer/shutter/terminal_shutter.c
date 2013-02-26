@@ -31,6 +31,7 @@
 #include <stdio.h>
 #include <termios.h>
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -60,7 +61,7 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_STREAM_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_STREAM_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Only deallocate terminal resources if at least one,
+    // Only deallocate terminal resources if AT LEAST ONE,
     // the input- OR output stream internal is NOT null.
     if ((ip != *NULL_POINTER_STATE_CYBOI_MODEL) || (op != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
@@ -121,8 +122,12 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
             }
         }
 
+fwprintf(stdout, L"TEST to free: %i\n", to);
+
         // Deallocate termios settings.
         free(to);
+
+fwprintf(stdout, L"TEST to after free: %i\n", to);
 
         // CAUTION! DO NOT deallocate ip and op because they refer to stdin and stdout of the system!
         // This might be changed at a (much) later point in CYBOI development.

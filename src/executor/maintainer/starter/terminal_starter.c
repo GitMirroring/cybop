@@ -31,6 +31,7 @@
 #include <stdio.h>
 #include <termios.h>
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -93,6 +94,8 @@ void startup_terminal(void* p0) {
 
         // Allocate termios settings.
         to = (struct termios*) malloc(sizeof(struct termios));
+
+fwprintf(stdout, L"TEST to malloc: %i\n", to);
 
         // Initialise terminal internals.
         //

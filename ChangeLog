@@ -25,6 +25,7 @@
         * Adjust log messages
         * Add files "variable/reference_counter.c" and "controller/globaliser/reference_counter_globaliser.c"
         * Adjust reference counting for testing purposes
+        * Verify cleanness of cybol example applications using valgrind tool
 
 2013-02-25  Christian Heller  <christian.heller@tuxtax.de>
 

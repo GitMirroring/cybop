@@ -11,26 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Correct errors shown by valgrind
-
-        * Eliminate temporary format and type parametres in file "content_element_part_cybol_deserialiser.c" and replace with locally allocated and deallocated items?
-
-        * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
-            using the function "copy_part" for deep copying does not make sense, since a part's child nodes change dynamically and are not predictable
-            USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
-            shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
-
-        * Continue xdt deserialiser
-        * Use three xdt processing steps: field-record-bdt/gdt/ldt
-        * Define selector files for record begin and end etc.
-        * Delete files "file_xdt_deserialiser.c", "hierarchy_field_xdt_deserialiser.c", "name_field_xdt_deserialiser.c"
-        * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
-
-        * Simplify cybol files by using standard attribute values like "utf-8" for encoding etc. inside cyboi
-        * Read all cybol attributes and replace cyboi-internal standard value only if attribute exists
-
-        * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
-            that become invalid after having shutdown a service and destroyed related objects
+        * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
+            (appears in function call "fwprintf" of file "stream_terminal_sender.c";
+            but in some application this works just fine, e.g. in "helloworld" with terminal output)
+            --> all "malloc" function calls were already checked; they are freed correctly for terminal
 
         * Check all places where a *NULL_POINTER_STATE_CYBOI_MODEL is handed over as parametre! Search for:
 
@@ -53,8 +37,27 @@
                 a) try out "const" pointers once more (did not work formerly, since some of them need to be changed sometimes
                 b) declare a local variable, assign it with null pointer and hand over as parametre
 
+        * Simplify cybol files by using standard attribute values like "utf-8" for encoding etc. inside cyboi
+        * Read all cybol attributes and replace cyboi-internal standard value only if attribute exists
+
+        * Try out using cyboi for temperature programme of colleagues
+
+        * Continue xdt deserialiser
+        * Use three xdt processing steps: field-record-bdt/gdt/ldt
+        * Define selector files for record begin and end etc.
+        * Delete files "file_xdt_deserialiser.c", "hierarchy_field_xdt_deserialiser.c", "name_field_xdt_deserialiser.c"
+        * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
+
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
+
+        * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
+            using the function "copy_part" for deep copying does not make sense, since a part's child nodes change dynamically and are not predictable
+            USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
+            shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
+
+        * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
+            that become invalid after having shutdown a service and destroyed related objects
 
         * Reactivate x_window_system receive functionality
         * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):

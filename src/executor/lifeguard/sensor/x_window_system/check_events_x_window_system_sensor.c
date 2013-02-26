@@ -54,6 +54,12 @@
  */
 int sense_x_window_system_check_events(pthread_mutex_t* mt, struct _XDisplay* d) {
 
+    // CAUTION! DO NOT log this function call!
+    // This function is executed within a thread, but the
+    // logging is not guaranteed to be thread-safe and might
+    // cause unpredictable programme behaviour.
+    // Also, this function runs in an endless loop and would produce huge log files.
+
     // The mutex and display were already checked
     // for not being null in the calling function,
     // and are therefore not tested here again.

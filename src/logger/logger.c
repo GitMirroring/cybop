@@ -78,23 +78,6 @@
 //
 
 //
-// (The following remark is possibly OUTDATED, since threads are now
-// limited to sensing signals and do NOT use logging anymore.)
-//
-// CAUTION! The logger must not allocate any memory area, since it
-// might be used not only by the main process, but in threads as well.
-// Therefore, a log message array gets allocated at cyboi system startup,
-// and is forwarded as global variable "LOG_MESSAGE" to the logger.
-// Whenever a log message is copied to this array and written to console,
-// a MUTEX has to be set BEFORE, so that the log output does not conflict
-// between the main program flow and threads.
-// Trying to allocate memory in a thread would result in an error like:
-//
-// *** glibc detected *** malloc(): memory corruption (fast): 0x080e0470 ***
-// Aborted
-//
-
-//
 // CAUTION! Performance might suffer if allocating/ deallocating
 // memory for every single log message.
 //
