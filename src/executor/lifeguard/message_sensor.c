@@ -89,6 +89,9 @@ void sense_message(void* p0, void* p1, void* p2) {
         // - handed over to the thread procedure HERE (as internal memory)
         // - deallocated at service shutdown
         //
+        // The second parametre determines attributes for the new thread.
+        // If it is NULL, then the thread is created with default attributes.
+        //
         // The third parametre is the procedure to be called.
         pthread_create((pthread_t*) p1, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p0);
     }

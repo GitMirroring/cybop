@@ -20,6 +20,7 @@
 
         * Simplify cybol files by removing attributes like encoding="utf-8" and language="text/cybol", which are standard
         * Adapt cybol deserialiser in cyboi not to parse "encoding" and "language" attributes anymore, since they always have the same value
+        * Check places where *NULL_POINTER_STATE_CYBOI_MODEL is handed over as parametre, since it is a constant and must not be manipulated
 
 2013-02-26  Christian Heller  <christian.heller@tuxtax.de>
 

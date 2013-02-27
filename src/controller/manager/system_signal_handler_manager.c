@@ -75,6 +75,11 @@ void interrupt_service_system_signal_handler(int p0) {
 
 //??    fwprintf(stdout, L"TEST signal handler terminal irq %i\n", p0);
 
+            // Terminate the calling thread.
+            // The parametre handed over is the return value
+            // that (if the thread is joinable) is available
+            // to another thread in the same process that calls pthread_join(3).
+            // Since this is not needed here, NULL is handed over as value.
             pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
             // CAUTION! The thread CANNOT be reset here with:
@@ -94,6 +99,11 @@ void interrupt_service_system_signal_handler(int p0) {
 
 //??    fwprintf(stdout, L"TEST signal handler x window system irq %i\n", p0);
 
+            // Terminate the calling thread.
+            // The parametre handed over is the return value
+            // that (if the thread is joinable) is available
+            // to another thread in the same process that calls pthread_join(3).
+            // Since this is not needed here, NULL is handed over as value.
             pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
             // CAUTION! The thread CANNOT be reset here with:
@@ -113,6 +123,11 @@ void interrupt_service_system_signal_handler(int p0) {
 
 //??    fwprintf(stdout, L"TEST signal handler www service irq %i\n", p0);
 
+            // Terminate the calling thread.
+            // The parametre handed over is the return value
+            // that (if the thread is joinable) is available
+            // to another thread in the same process that calls pthread_join(3).
+            // Since this is not needed here, NULL is handed over as value.
             pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
             // CAUTION! The thread CANNOT be reset here with:
@@ -132,6 +147,11 @@ void interrupt_service_system_signal_handler(int p0) {
 
 //??    fwprintf(stdout, L"TEST signal handler cyboi service irq %i\n", p0);
 
+            // Terminate the calling thread.
+            // The parametre handed over is the return value
+            // that (if the thread is joinable) is available
+            // to another thread in the same process that calls pthread_join(3).
+            // Since this is not needed here, NULL is handed over as value.
             pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
             // CAUTION! The thread CANNOT be reset here with:
