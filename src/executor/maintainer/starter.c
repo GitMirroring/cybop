@@ -32,6 +32,7 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 //?? #include "../../executor/maintainer/starter/opengl_starter.c"
+#include "../../executor/maintainer/starter/serial_port_starter.c"
 //?? #include "../../executor/maintainer/starter/socket_starter.c"
 #include "../../executor/maintainer/starter/terminal_starter.c"
 //?? #include "../../executor/maintainer/starter/x_window_system_starter.c"
@@ -63,21 +64,45 @@ void startup_service(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) CYBOI_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_terminal(p0);
+/*??
+            // Get server socket internal.
+            i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            get((void*) &s, p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            if (*s == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                // Startup server socket if it does not already exist.
+                startup_socket(p0, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_CYBOI_SERVICE_PORT_MODEL, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
+
+            } else {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The cyboi service is already running.");
+            }
+*/
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            startup_x_window_system(p0);
+            startup_serial_port(p0);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            startup_terminal(p0);
         }
     }
 
@@ -107,25 +132,11 @@ void startup_service(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) CYBOI_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-/*??
-            // Get server socket internal.
-            i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            get((void*) &s, p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-
-            if (*s == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                // Startup server socket if it does not already exist.
-                startup_socket(p0, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_CYBOI_SERVICE_PORT_MODEL, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
-
-            } else {
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The cyboi service is already running.");
-            }
-*/
+//??            startup_x_window_system(p0);
         }
     }
 

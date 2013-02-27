@@ -33,6 +33,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/lifeguard/sensor/serial_port/serial_port_sensor.c"
 //?? #include "../../executor/lifeguard/sensor/socket/socket_sensor.c"
 #include "../../executor/lifeguard/sensor/terminal/terminal_sensor.c"
 //?? #include "../../executor/lifeguard/sensor/x_window_system/x_window_system_sensor.c"
@@ -59,6 +60,7 @@
 //
 
 void sense_cyboi_socket(void* p0);
+void sense_serial_port(void* p0);
 void sense_terminal(void* p0);
 void sense_www_socket(void* p0);
 void sense_x_window_system(void* p0);
@@ -96,6 +98,22 @@ fwprintf(stdout, L"TEST sense cyboi r: %i\n", r);
 
             // Sense incoming message.
 //??            sense_message(p0, (void*) CYBOI_SERVICE_THREAD, (void*) &sense_cyboi_socket);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//?? fwprintf(stdout, L"TEST sense serial port r: %i\n", r);
+
+            // Set handler.
+            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+            // Sense incoming message.
+            sense_message(p0, (void*) SERIAL_PORT_THREAD, (void*) &sense_serial_port);
         }
     }
 

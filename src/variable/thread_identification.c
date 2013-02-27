@@ -39,7 +39,11 @@
 static pthread_t CYBOI_SERVICE_THREAD_ARRAY[1];
 static pthread_t* CYBOI_SERVICE_THREAD = CYBOI_SERVICE_THREAD_ARRAY;
 
-/** The gnu linux console thread. */
+/** The serial port thread. */
+static pthread_t SERIAL_PORT_THREAD_ARRAY[1];
+static pthread_t* SERIAL_PORT_THREAD = SERIAL_PORT_THREAD_ARRAY;
+
+/** The terminal thread. */
 static pthread_t TERMINAL_THREAD_ARRAY[1];
 static pthread_t* TERMINAL_THREAD = TERMINAL_THREAD_ARRAY;
 

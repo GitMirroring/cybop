@@ -52,21 +52,31 @@ void interrupt(void* p0) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p0, (void*) CYBOI_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            interrupt_thread((void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
+            interrupt_thread((void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p0, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            interrupt_thread((void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
+            interrupt_thread((void*) SERIAL_PORT_THREAD, (void*) SERIAL_PORT_EXIT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p0, (void*) TERMINAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            interrupt_thread((void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
         }
     }
 
@@ -82,11 +92,11 @@ void interrupt(void* p0) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) CYBOI_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p0, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            interrupt_thread((void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
+            interrupt_thread((void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
         }
     }
 

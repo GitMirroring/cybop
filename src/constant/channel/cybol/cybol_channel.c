@@ -105,6 +105,11 @@ static wchar_t RMI_CYBOL_CHANNEL_ARRAY[] = {L'r', L'm', L'i'};
 static wchar_t* RMI_CYBOL_CHANNEL = RMI_CYBOL_CHANNEL_ARRAY;
 static int* RMI_CYBOL_CHANNEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The serial-port cybol channel. */
+static wchar_t SERIAL_PORT_CYBOL_CHANNEL_ARRAY[] = {L's', L'e', L'r', L'i', L'a', L'l', L'-', L'p', L'o', L'r', L't'};
+static wchar_t* SERIAL_PORT_CYBOL_CHANNEL = SERIAL_PORT_CYBOL_CHANNEL_ARRAY;
+static int* SERIAL_PORT_CYBOL_CHANNEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The secure file transfer protocol (sftp) cybol channel. */
 static wchar_t SFTP_CYBOL_CHANNEL_ARRAY[] = {L's', L'f', L't', L'p'};
 static wchar_t* SFTP_CYBOL_CHANNEL = SFTP_CYBOL_CHANNEL_ARRAY;
@@ -155,7 +160,7 @@ static wchar_t WWW_CYBOL_CHANNEL_ARRAY[] = {L'w', L'w', L'w'};
 static wchar_t* WWW_CYBOL_CHANNEL = WWW_CYBOL_CHANNEL_ARRAY;
 static int* WWW_CYBOL_CHANNEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The x window system cybol channel. */
+/** The x-window-system cybol channel. */
 static wchar_t X_WINDOW_SYSTEM_CYBOL_CHANNEL_ARRAY[] = {L'x', L'-', L'w', L'i', L'n', L'd', L'o', L'w', L'-', L's', L'y', L's', L't', L'e', L'm'};
 static wchar_t* X_WINDOW_SYSTEM_CYBOL_CHANNEL = X_WINDOW_SYSTEM_CYBOL_CHANNEL_ARRAY;
 static int* X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

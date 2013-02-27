@@ -12,6 +12,9 @@
 #
 
         * Try out using cyboi for temperature programme of colleagues
+        * CONTINUE: serial port sender and receiver
+        * Think through handling of client and server mode for all communication channels
+        * Adapt terminal to client mode (main thread triggers receive/send) and server mode (sensing thread triggers interrupt)
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

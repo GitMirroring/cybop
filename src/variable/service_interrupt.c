@@ -37,7 +37,11 @@
 static int CYBOI_SERVICE_EXIT_ARRAY[1];
 static int* CYBOI_SERVICE_EXIT = CYBOI_SERVICE_EXIT_ARRAY;
 
-/** The gnu linux console exit flag. */
+/** The serial port exit flag. */
+static int SERIAL_PORT_EXIT_ARRAY[1];
+static int* SERIAL_PORT_EXIT = SERIAL_PORT_EXIT_ARRAY;
+
+/** The terminal exit flag. */
 static int TERMINAL_EXIT_ARRAY[1];
 static int* TERMINAL_EXIT = TERMINAL_EXIT_ARRAY;
 
