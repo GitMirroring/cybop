@@ -1,13 +1,13 @@
 <model>
-    <part name="main_window" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/tui/main_window/window.cybol">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.window"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="80,24"/>
+    <part name="main_window" channel="file" format="element/part" model="ui_control/tui/main_window/window.cybol">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.window"/>
+        <property name="position" channel="inline" format="number/integer" model="0,0"/>
+        <property name="size" channel="inline" format="number/integer" model="80,24"/>
     </part>
-    <part name="about_dialogue" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/tui/about_dialogue/window.cybol">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.window"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="80,24"/>
+    <part name="about_dialogue" channel="file" format="element/part" model="ui_control/tui/about_dialogue/window.cybol">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.window"/>
+        <property name="position" channel="inline" format="number/integer" model="0,0"/>
+        <property name="size" channel="inline" format="number/integer" model="80,24"/>
     </part>
 </model>
 

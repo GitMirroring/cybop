@@ -1,8 +1,8 @@
 <model>
-    <part name="test" channel="inline" encoding="utf-8" language="text/cybol" format="run/run" model="">
-        <property name="programme" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="mc"/>
+    <part name="test" channel="inline" format="run/run" model="">
+        <property name="programme" channel="inline" format="text/plain" model="mc"/>
     </part>
-    <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
+    <part name="exit" channel="inline" format="live/exit" model=""/>
 </model>
 
 <!--

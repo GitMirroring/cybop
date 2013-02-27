@@ -1,22 +1,22 @@
 <model>
 <!--
-    <part name="interrupt_x_window_system" channel="inline" encoding="utf-8" language="text/cybol" format="live/interrupt" model="">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="x-window-system"/>
+    <part name="interrupt_x_window_system" channel="inline" format="live/interrupt" model="">
+        <property name="service" channel="inline" format="meta/channel" model="x-window-system"/>
     </part>
 -->
 <!--
-    <part name="interrupt_gnu_linux_console" channel="inline" encoding="utf-8" language="text/cybol" format="live/interrupt" model="">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+    <part name="interrupt_gnu_linux_console" channel="inline" format="live/interrupt" model="">
+        <property name="service" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 -->
 <!--
-    <part name="shutdown_x_window_system" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/shutdown" model="">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="x-window-system"/>
+    <part name="shutdown_x_window_system" channel="inline" format="maintain/shutdown" model="">
+        <property name="service" channel="inline" format="meta/channel" model="x-window-system"/>
     </part>
 -->
 <!--
-    <part name="shutdown_gnu_linux_console" channel="inline" encoding="utf-8" language="text/cybol" format="maintain/shutdown" model="">
-        <property name="service" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
+    <part name="shutdown_gnu_linux_console" channel="inline" format="maintain/shutdown" model="">
+        <property name="service" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 -->
 <!--
@@ -30,17 +30,17 @@
     instances of the Res Medicinae application. But as long as CYBOI does not run as
     operating system and each application is started with its own instance of CYBOI,
     the exit operation is the last one to be called. It cleans up all memory, too.
-    <part name="destroy_ui_control" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/destroy" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control"/>
+    <part name="destroy_ui_control" channel="inline" format="memorise/destroy" model="">
+        <property name="name" channel="inline" format="path/knowledge" model=".ui_control"/>
     </part>
 -->
-    <part name="clean_tui" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
-        <property name="clean" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="clean_tui" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/ansi-escape-code"/>
+        <property name="clean" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>
 
 <!--

@@ -1,8 +1,8 @@
 <model>
-    <part name="url" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="http://www.cybop.org/">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.menu_footer"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="25,0"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="24,1"/>
+    <part name="url" channel="inline" format="text/plain" model="http://www.cybop.org/">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.menu_footer"/>
+        <property name="position" channel="inline" format="number/integer" model="25,0"/>
+        <property name="size" channel="inline" format="number/integer" model="24,1"/>
     </part>
 </model>
 

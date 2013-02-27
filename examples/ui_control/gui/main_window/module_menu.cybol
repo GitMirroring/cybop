@@ -1,12 +1,12 @@
 <model>
-    <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Exit">
-        <property name="layout" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="compass"/>
-        <property name="cell" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="north"/>
-        <property name="style" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.gui_style.menu"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0,0"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0,0,0"/>
-        <property name="mouse_over_action" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model="select"/>
-        <property name="mouse_click_action" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.logic.exit_programme"/>
+    <part name="exit" channel="inline" format="text/plain" model="Exit">
+        <property name="layout" channel="inline" format="text/plain" model="compass"/>
+        <property name="cell" channel="inline" format="text/plain" model="north"/>
+        <property name="style" channel="inline" format="path/knowledge" model=".ui_control.settings.gui_style.menu"/>
+        <property name="position" channel="inline" format="number/integer" model="0,0,0"/>
+        <property name="size" channel="inline" format="number/integer" model="0,0,0"/>
+        <property name="mouse_over_action" channel="inline" format="path/knowledge" model="select"/>
+        <property name="mouse_click_action" channel="inline" format="path/knowledge" model=".ui_control.logic.exit_programme"/>
     </part>
 </model>
 

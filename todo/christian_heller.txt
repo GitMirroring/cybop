@@ -37,9 +37,6 @@
                 a) try out "const" pointers once more (did not work formerly, since some of them need to be changed sometimes
                 b) declare a local variable, assign it with null pointer and hand over as parametre
 
-        * Simplify cybol files by using standard attribute values like "utf-8" for encoding etc. inside cyboi
-        * Read all cybol attributes and replace cyboi-internal standard value only if attribute exists
-
         * Try out using cyboi for temperature programme of colleagues
 
         * Continue xdt deserialiser

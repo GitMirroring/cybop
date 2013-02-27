@@ -1,12 +1,12 @@
 <model>
-    <part name="heading" channel="inline" encoding="utf-8" language="text/cybol" format="string" model="Appendices">
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="knowledge" model="document_generator.styles.chapter_heading"/>
+    <part name="heading" channel="inline" format="string" model="Appendices">
+        <property name="type" channel="inline" format="knowledge" model="document_generator.styles.chapter_heading"/>
     </part>
-    <part name="abbreviations" channel="file" encoding="utf-8" language="text/cybol" format="cybol" model="">
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="knowledge" model="document_generator.styles.section"/>
+    <part name="abbreviations" channel="file" format="cybol" model="">
+        <property name="type" channel="inline" format="knowledge" model="document_generator.styles.section"/>
     </part>
-    <part name="references" channel="file" encoding="utf-8" language="text/cybol" format="cybol" model="">
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="knowledge" model="document_generator.styles.section"/>
+    <part name="references" channel="file" format="cybol" model="">
+        <property name="type" channel="inline" format="knowledge" model="document_generator.styles.section"/>
     </part>
 </model>
 

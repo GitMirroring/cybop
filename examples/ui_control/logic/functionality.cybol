@@ -1,20 +1,20 @@
 <model>
-    <part name="start_mc" channel="inline" encoding="utf-8" language="text/cybol" format="run/run" model="">
-        <property name="programme" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="mc"/>
+    <part name="start_mc" channel="inline" format="run/run" model="">
+        <property name="programme" channel="inline" format="text/plain" model="mc"/>
     </part>
-    <part name="start_dosemu" channel="inline" encoding="utf-8" language="text/cybol" format="run/run" model="">
-        <property name="programme" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="xdosemu"/>
+    <part name="start_dosemu" channel="inline" format="run/run" model="">
+        <property name="programme" channel="inline" format="text/plain" model="xdosemu"/>
 <!--
-        <property name="programme" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="dosemu.bin -E 'call c:\a\apwxms.exe christian\' -X"/>
+        <property name="programme" channel="inline" format="text/plain" model="dosemu.bin -E 'call c:\a\apwxms.exe christian\' -X"/>
 -->
     </part>
-    <part name="show_x_window" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="x-window-system"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.gui"/>
-        <property name="area" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".main_window.menu"/>
+    <part name="show_x_window" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/ansi-escape-code"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".ui_control.gui"/>
+        <property name="area" channel="inline" format="text/plain" model=".main_window.menu"/>
     </part>
 </model>
 

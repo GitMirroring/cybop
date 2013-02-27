@@ -1,10 +1,10 @@
 <model>
-    <part name="string" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Hello, World!">
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,2"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="60,4"/>
-        <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="green"/>
-        <property name="background" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="blue"/>
-        <property name="underline" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="string" channel="inline" format="text/plain" model="Hello, World!">
+        <property name="position" channel="inline" format="number/integer" model="5,2"/>
+        <property name="size" channel="inline" format="number/integer" model="60,4"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 </model>
 

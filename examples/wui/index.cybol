@@ -1,8 +1,8 @@
 <model>
-    <part name="head" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="wui/head.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="head"/>
+    <part name="head" channel="file" format="element/part" model="wui/head.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="head"/>
     </part>
-    <part name="body" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="wui/body.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="body"/>
+    <part name="body" channel="file" format="element/part" model="wui/body.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="body"/>
     </part>
 </model>

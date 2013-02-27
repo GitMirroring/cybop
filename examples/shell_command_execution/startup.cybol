@@ -1,9 +1,9 @@
 <model>
-    <part name="test" channel="inline" encoding="utf-8" language="text/cybol" format="file/list-directory-contents" model="">
-        <property name="all" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-        <property name="long" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="test" channel="inline" format="file/list-directory-contents" model="">
+        <property name="all" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="long" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
+    <part name="exit" channel="inline" format="live/exit" model=""/>
 </model>
 
 <!--

@@ -1,9 +1,9 @@
 <model>
-    <part name="functionality" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/functionality.cybol"/>
-    <part name="handler" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/handler.cybol"/>
-    <part name="lifecycle" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/lifecycle.cybol"/>
-    <part name="translation" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/translation.cybol"/>
-    <part name="user_interface" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/user_interface.cybol"/>
+    <part name="functionality" channel="file" format="element/part" model="ui_control/logic/functionality.cybol"/>
+    <part name="handler" channel="file" format="element/part" model="ui_control/logic/handler.cybol"/>
+    <part name="lifecycle" channel="file" format="element/part" model="ui_control/logic/lifecycle.cybol"/>
+    <part name="translation" channel="file" format="element/part" model="ui_control/logic/translation.cybol"/>
+    <part name="user_interface" channel="file" format="element/part" model="ui_control/logic/user_interface.cybol"/>
 </model>
 
 <!--

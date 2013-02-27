@@ -1,14 +1,14 @@
 <model>
-    <part name="main_window" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/gui/main_window/window.cybol">
-        <property name="shape" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="rectangle"/>
-        <property name="layout" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="root"/>
-        <property name="cell" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="100,100,0"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="800,600,1"/>
-        <property name="background" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="white"/>
-        <property name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="white"/>
-        <property name="title" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Res Medicinae"/>
-        <property name="icon" channel="file" encoding="utf-8" language="text/cybol" format="image/png" model="ui_control/gui/main_window/icon.png"/>
+    <part name="main_window" channel="file" format="element/part" model="ui_control/gui/main_window/window.cybol">
+        <property name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <property name="layout" channel="inline" format="text/plain" model="root"/>
+        <property name="cell" channel="inline" format="text/plain" model=""/>
+        <property name="position" channel="inline" format="number/integer" model="100,100,0"/>
+        <property name="size" channel="inline" format="number/integer" model="800,600,1"/>
+        <property name="background" channel="inline" format="text/plain" model="white"/>
+        <property name="foreground" channel="inline" format="text/plain" model="white"/>
+        <property name="title" channel="inline" format="text/plain" model="Res Medicinae"/>
+        <property name="icon" channel="file" format="image/png" model="ui_control/gui/main_window/icon.png"/>
     </part>
 </model>
 

@@ -1,19 +1,19 @@
 <model>
-    <part name="receive" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="receive">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="cyboi"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".http_communication.logic.handler.www_index_input"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="message/http-request"/>
-        <property name="style" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="stream"/>
+    <part name="receive" channel="inline" format="operation/plain" model="receive">
+        <property name="channel" channel="inline" format="text/plain" model="cyboi"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".http_communication.logic.handler.www_index_input"/>
+        <property name="language" channel="inline" format="text/plain" model="message/http-request"/>
+        <property name="style" channel="inline" format="text/plain" model="stream"/>
     </part>
-    <part name="assemble_command_model" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="add">
-        <property name="summand_1" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".http_communication.logic.wui_index_actions."/>
-        <property name="summand_2" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".http_communication.logic.handler.www_index_input#uri.query.action"/>
-        <property name="sum" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".http_communication.logic.handler.www_index_input_model"/>
-        <property name="abstraction" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="wide_character"/>
+    <part name="assemble_command_model" channel="inline" format="operation/plain" model="add">
+        <property name="summand_1" channel="inline" format="text/plain" model=".http_communication.logic.wui_index_actions."/>
+        <property name="summand_2" channel="inline" format="path/knowledge" model=".http_communication.logic.handler.www_index_input#uri.query.action"/>
+        <property name="sum" channel="inline" format="path/knowledge" model=".http_communication.logic.handler.www_index_input_model"/>
+        <property name="abstraction" channel="inline" format="text/plain" model="wide_character"/>
     </part>
-    <part name="send" channel="inline" encoding="utf-8" language="text/cybol" format="operation/plain" model="send">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="signal"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/reference" model=".http_communication.logic.handler.www_index_input_model"/>
+    <part name="send" channel="inline" format="operation/plain" model="send">
+        <property name="channel" channel="inline" format="text/plain" model="signal"/>
+        <property name="message" channel="inline" format="path/reference" model=".http_communication.logic.handler.www_index_input_model"/>
     </part>
 </model>
 

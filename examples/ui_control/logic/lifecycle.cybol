@@ -1,5 +1,5 @@
 <model>
-    <part name="exit_programme" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/logic/lifecycle/shutdown.cybol"/>
+    <part name="exit_programme" channel="file" format="element/part" model="ui_control/logic/lifecycle/shutdown.cybol"/>
 </model>
 
 <!--

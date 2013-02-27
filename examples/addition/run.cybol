@@ -1,48 +1,48 @@
 <model>
-    <part name="create_result" channel="inline" encoding="utf-8" language="text/cybol" format="memorise/create" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="result"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
-        <property name="element" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="part"/>
+    <part name="create_result" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="result"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
-    <part name="initialise_result" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="inline"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
+    <part name="initialise_result" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="inline"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
         <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "format" property. -->
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="1,1,1"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
+        <property name="message" channel="inline" format="text/plain" model="1,1,1"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".result"/>
     </part>
     <!--
         CAUTION! The "result" integer vector has to be initialised BEFORE this operation.
         If result- and operand vectors had different sizes, they would NOT be added.
     -->
-    <part name="add_operand" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
-        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1,2,3"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    <part name="add_operand" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
     <!-- Write knowledge tree into file. -->
 <!--
-    <part name="test_knowledge_tree" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
-        <property name="receiver" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="TEST_ADDITION.txt"/>
+    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="receiver" channel="inline" format="text/plain" model="TEST_ADDITION.txt"/>
     </part>
 -->
-    <part name="print_result" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
-        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="print_result" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_application" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>
 
 <!--

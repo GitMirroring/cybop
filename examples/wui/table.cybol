@@ -1,14 +1,14 @@
 <model>
-    <part name="table_heading" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="wui/table_heading.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tr"/>
+    <part name="table_heading" channel="file" format="element/part" model="wui/table_heading.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
     </part>
-    <part name="row_0" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="wui/table_row.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tr"/>
+    <part name="row_0" channel="file" format="element/part" model="wui/table_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
     </part>
-    <part name="row_1" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="wui/table_row.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tr"/>
+    <part name="row_1" channel="file" format="element/part" model="wui/table_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
     </part>
-    <part name="row_2" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="wui/table_row.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="tr"/>
+    <part name="row_2" channel="file" format="element/part" model="wui/table_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
     </part>
 </model>

@@ -1,26 +1,26 @@
 <model>
-    <part name="save_current_time_in_file" channel="inline" encoding="utf-8" language="text/cybol" format="run/run" model="">
-        <property name="programme" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="date +%X > time_output_2/time.txt"/>
+    <part name="save_current_time_in_file" channel="inline" format="run/run" model="">
+        <property name="programme" channel="inline" format="text/plain" model="date +%X > time_output_2/time.txt"/>
     </part>
-    <part name="print_stored_time_on_terminal" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="file" encoding="utf-8" language="text/cybol" format="text/plain" model="time_output_2/time.txt"/>
+    <part name="print_stored_time_on_terminal" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="file" format="text/plain" model="time_output_2/time.txt"/>
     </part>
-    <part name="increment_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.count"/>
-        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    <part name="increment_loop_count" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".counter.count"/>
+        <property name="operand" channel="inline" format="number/integer" model="1"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
     <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <part name="compare_loop_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.break"/>
-        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.count"/>
-        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".counter.maximum"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
+    <part name="compare_loop_count" channel="inline" format="compare/greater" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".counter.break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".counter.count"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".counter.maximum"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 </model>
 

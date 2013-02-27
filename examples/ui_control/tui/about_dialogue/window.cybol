@@ -1,70 +1,70 @@
 <model>
-    <part name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,1"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="30,1"/>
+    <part name="name" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="5,1"/>
+        <property name="size" channel="inline" format="number/integer" model="30,1"/>
     </part>
-    <part name="version" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="40,1"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="10,1"/>
+    <part name="version" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="40,1"/>
+        <property name="size" channel="inline" format="number/integer" model="10,1"/>
     </part>
-    <part name="date" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="50,1"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="10,1"/>
+    <part name="date" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="50,1"/>
+        <property name="size" channel="inline" format="number/integer" model="10,1"/>
     </part>
-    <part name="slogan" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,3"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,1"/>
+    <part name="slogan" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="5,3"/>
+        <property name="size" channel="inline" format="number/integer" model="70,1"/>
     </part>
 <!--
-    <part name="logo" channel="inline" encoding="utf-8" language="text/cybol" format="image/png" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.graphic"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,3"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,1"/>
+    <part name="logo" channel="inline" format="image/png" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.graphic"/>
+        <property name="position" channel="inline" format="number/integer" model="5,3"/>
+        <property name="size" channel="inline" format="number/integer" model="70,1"/>
     </part>
 -->
-    <part name="copyright" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,7"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,1"/>
+    <part name="copyright" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="5,7"/>
+        <property name="size" channel="inline" format="number/integer" model="70,1"/>
     </part>
-    <part name="contact" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,9"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,1"/>
+    <part name="contact" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="5,9"/>
+        <property name="size" channel="inline" format="number/integer" model="70,1"/>
     </part>
-    <part name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,11"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,1"/>
+    <part name="description" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="5,11"/>
+        <property name="size" channel="inline" format="number/integer" model="70,1"/>
     </part>
-    <part name="authors_label" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Authors:">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,13"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,1"/>
+    <part name="authors_label" channel="inline" format="text/plain" model="Authors:">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="5,13"/>
+        <property name="size" channel="inline" format="number/integer" model="70,1"/>
     </part>
-    <part name="authors" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,15"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,1"/>
+    <part name="authors" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="5,15"/>
+        <property name="size" channel="inline" format="number/integer" model="70,1"/>
     </part>
-    <part name="helpers" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,17"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,1"/>
+    <part name="helpers" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="5,17"/>
+        <property name="size" channel="inline" format="number/integer" model="70,1"/>
     </part>
-    <part name="licence" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.label"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="5,19"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="70,1"/>
+    <part name="licence" channel="inline" format="text/plain" model="">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.label"/>
+        <property name="position" channel="inline" format="number/integer" model="5,19"/>
+        <property name="size" channel="inline" format="number/integer" model="70,1"/>
     </part>
-    <part name="close_button" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="    OK    ">
-        <property name="super" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.settings.tui.button"/>
-        <property name="position" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="35,22"/>
-        <property name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="10,1"/>
+    <part name="close_button" channel="inline" format="text/plain" model="    OK    ">
+        <property name="super" channel="inline" format="path/knowledge" model=".ui_control.settings.tui.button"/>
+        <property name="position" channel="inline" format="number/integer" model="35,22"/>
+        <property name="size" channel="inline" format="number/integer" model="10,1"/>
     </part>
 </model>
 

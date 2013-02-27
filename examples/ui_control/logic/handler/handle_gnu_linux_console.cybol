@@ -1,24 +1,24 @@
 <model>
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
-    <part name="reset_command" channel="inline" encoding="utf-8" language="text/cybol" format="modify/empty" model="">
-        <property name="part" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.command"/>
+    <part name="reset_command" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".ui_control.temporary.command"/>
     </part>
-    <part name="receive_command" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/receive" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="message/ansi-escape-code"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.command"/>
+    <part name="receive_command" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/ansi-escape-code"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".ui_control.temporary.command"/>
     </part>
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
-    <part name="append_path" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.path"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".ui_control.logic.user_interface.main_window_actions."/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    <part name="append_path" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".ui_control.temporary.path"/>
+        <property name="source" channel="inline" format="text/plain" model=".ui_control.logic.user_interface.main_window_actions."/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="append_command" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.path"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.command"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    <part name="append_command" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".ui_control.temporary.path"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".ui_control.temporary.command"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
@@ -26,9 +26,9 @@
         not find all resources anymore, if they meanwhile have been manipulated by the other signal.
         The "flow/sequence" operation ensures that the given model is executed directly.
     -->
-    <part name="send_command" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
+    <part name="send_command" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".ui_control.temporary.path"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".ui_control.temporary.path"/>
     </part>
 </model>
 

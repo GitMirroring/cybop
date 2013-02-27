@@ -1,38 +1,38 @@
 <model>
-    <part name="heading" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="CYBOL Web User Interface (WUI) Example">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h1"/>
+    <part name="heading" channel="inline" format="text/plain" model="CYBOL Web User Interface (WUI) Example">
+        <property name="tag" channel="inline" format="text/plain" model="h1"/>
     </part>
-    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="This is an example web page created from cybol files.">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
+    <part name="content" channel="inline" format="text/plain" model="This is an example web page created from cybol files.">
+        <property name="tag" channel="inline" format="text/plain" model="p"/>
     </part>
-    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Following is a line break which IS allowed to be serialised as empty tag.">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
+    <part name="content" channel="inline" format="text/plain" model="Following is a line break which IS allowed to be serialised as empty tag.">
+        <property name="tag" channel="inline" format="text/plain" model="p"/>
     </part>
-    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="br"/>
+    <part name="content" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="br"/>
     </part>
-    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Following is an empty div block which is NOT allowed to be serialised as empty tag and hence should contain an opening AND closing tag.">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
+    <part name="content" channel="inline" format="text/plain" model="Following is an empty div block which is NOT allowed to be serialised as empty tag and hence should contain an opening AND closing tag.">
+        <property name="tag" channel="inline" format="text/plain" model="p"/>
     </part>
-    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="div"/>
+    <part name="content" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="div"/>
     </part>
-    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Following is an external text read from a text file. It is preformatted which is indicated by the corresponding cybol property. Moreover, the formatting has to be taken care of in CSS!">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
+    <part name="content" channel="inline" format="text/plain" model="Following is an external text read from a text file. It is preformatted which is indicated by the corresponding cybol property. Moreover, the formatting has to be taken care of in CSS!">
+        <property name="tag" channel="inline" format="text/plain" model="p"/>
     </part>
-    <part name="content" channel="file" encoding="utf-8" language="text/cybol" format="text/plain" model="wui/external_text.txt">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="p"/>
-        <property name="preformatted" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-        <property name="class" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="preformatted"/>
+    <part name="content" channel="file" format="text/plain" model="wui/external_text.txt">
+        <property name="tag" channel="inline" format="text/plain" model="p"/>
+        <property name="preformatted" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="class" channel="inline" format="text/plain" model="preformatted"/>
     </part>
-    <part name="content" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="This link contains a URL with unicode character codes greater 256 that should get encoded using percent encoding.">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a"/>
-        <property name="href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="http://www.The word China in Chinese: 中國 and that is it.cn"/>
+    <part name="content" channel="inline" format="text/plain" model="This link contains a URL with unicode character codes greater 256 that should get encoded using percent encoding.">
+        <property name="tag" channel="inline" format="text/plain" model="a"/>
+        <property name="href" channel="inline" format="text/plain" model="http://www.The word China in Chinese: 中國 and that is it.cn"/>
     </part>
-    <part name="heading" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Example Table">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h4"/>
+    <part name="heading" channel="inline" format="text/plain" model="Example Table">
+        <property name="tag" channel="inline" format="text/plain" model="h4"/>
     </part>
-    <part name="table" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="wui/table.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="table"/>
+    <part name="table" channel="file" format="element/part" model="wui/table.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="table"/>
     </part>
 </model>

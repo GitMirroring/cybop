@@ -1,47 +1,47 @@
 <model>
-    <part name="move_arrow_down" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="move_arrow_down"/>
-        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="move_arrow_down" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="move_arrow_down"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="move_arrow_up" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="move_arrow_up"/>
-        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="move_arrow_up" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="move_arrow_up"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="move_arrow_right" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="move_arrow_right"/>
-        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="move_arrow_right" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="move_arrow_right"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="move_arrow_left" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="move_arrow_left"/>
-        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="move_arrow_left" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="move_arrow_left"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="enter_sub_menu" channel="inline" encoding="utf-8" language="text/cybol" format="communicate/send" model="">
-        <property name="channel" channel="inline" encoding="utf-8" language="text/cybol" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" encoding="utf-8" language="text/cybol" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" encoding="utf-8" language="text/cybol" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="enter_sub_menu"/>
-        <property name="new_line" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="enter_sub_menu" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="enter_sub_menu"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_programme" channel="inline" encoding="utf-8" language="text/cybol" format="live/exit" model=""/>
-    <part name="start_mc" channel="inline" encoding="utf-8" language="text/cybol" format="run/run" model="">
-        <property name="programme" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="mc"/>
+    <part name="exit_programme" channel="inline" format="live/exit" model=""/>
+    <part name="start_mc" channel="inline" format="run/run" model="">
+        <property name="programme" channel="inline" format="text/plain" model="mc"/>
     </part>
 </model>
 

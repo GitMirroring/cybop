@@ -1,11 +1,11 @@
 <model>
-    <part name="node1" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="node1">
-        <property name="a" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a"/>
-        <property name="b" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="b"/>
-        <property name="c" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="c"/>
+    <part name="node1" channel="inline" format="text/plain" model="node1">
+        <property name="a" channel="inline" format="text/plain" model="a"/>
+        <property name="b" channel="inline" format="text/plain" model="b"/>
+        <property name="c" channel="inline" format="text/plain" model="c"/>
     </part>
-    <part name="node2" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="node2"/>
-    <part name="node3" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="node3"/>
+    <part name="node2" channel="inline" format="text/plain" model="node2"/>
+    <part name="node3" channel="inline" format="text/plain" model="node3"/>
 </model>
 
 <!--

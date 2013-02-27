@@ -1,48 +1,48 @@
 <model>
-    <part name="window" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/window.cybol"/>
-    <part name="menu" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu.cybol"/>
-    <part name="menu_header" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu_header.cybol"/>
-    <part name="menu_title" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu_title.cybol"/>
-    <part name="menu_item" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu_item.cybol"/>
-    <part name="menu_footer" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/menu_footer.cybol"/>
-    <part name="label" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/label.cybol"/>
-    <part name="button" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/button.cybol"/>
-    <part name="selection" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="ui_control/settings/tui/selection.cybol"/>
+    <part name="window" channel="file" format="element/part" model="ui_control/settings/tui/window.cybol"/>
+    <part name="menu" channel="file" format="element/part" model="ui_control/settings/tui/menu.cybol"/>
+    <part name="menu_header" channel="file" format="element/part" model="ui_control/settings/tui/menu_header.cybol"/>
+    <part name="menu_title" channel="file" format="element/part" model="ui_control/settings/tui/menu_title.cybol"/>
+    <part name="menu_item" channel="file" format="element/part" model="ui_control/settings/tui/menu_item.cybol"/>
+    <part name="menu_footer" channel="file" format="element/part" model="ui_control/settings/tui/menu_footer.cybol"/>
+    <part name="label" channel="file" format="element/part" model="ui_control/settings/tui/label.cybol"/>
+    <part name="button" channel="file" format="element/part" model="ui_control/settings/tui/button.cybol"/>
+    <part name="selection" channel="file" format="element/part" model="ui_control/settings/tui/selection.cybol"/>
 <!--
-    <part name="tab_order" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
-    <part name="tab_stop" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-    <part name="border_icons" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="system,minimize,maximize,close"/>
-    <part name="border_style" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="none"/>
-    <part name="hint" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="show_hint" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-    <part name="focus" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model=""/>
-    <part name="selected" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model=""/>
-    <part name="visible" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-    <part name="font_charset" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="default"/>
-    <part name="font_colour" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="black"/>
-    <part name="font_height" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="11"/>
-    <part name="font_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Helvetica"/>
-    <part name="font_style" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="bold"/>
-    <part name="read_only" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="horizontal_scroll_bar" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="horizontal_scroll_bar_increment" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="3"/>
-    <part name="vertical_scroll_bar" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="vertical_scroll_bar_increment" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="3"/>
-    <part name="checked" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="bitmap" channel="file" encoding="utf-8" language="text/cybol" format="bmp" model=""/>
-    <part name="on_mouse_down" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="on_mouse_release" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="on_double_click" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="some.command"/>
-    <part name="on_key_press" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="drawing_style" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="transparent"/>
-    <part name="active" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="align" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="left"/>
-    <part name="bevel_inner" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="bevel_outer" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="auto_size" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-    <part name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="shadow" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+    <part name="tab_order" channel="inline" format="number/integer" model="0"/>
+    <part name="tab_stop" channel="inline" format="logicvalue/boolean" model="true"/>
+    <part name="border_icons" channel="inline" format="text/plain" model="system,minimize,maximize,close"/>
+    <part name="border_style" channel="inline" format="text/plain" model="none"/>
+    <part name="hint" channel="inline" format="text/plain" model=""/>
+    <part name="show_hint" channel="inline" format="logicvalue/boolean" model="true"/>
+    <part name="focus" channel="inline" format="logicvalue/boolean" model=""/>
+    <part name="selected" channel="inline" format="logicvalue/boolean" model=""/>
+    <part name="visible" channel="inline" format="logicvalue/boolean" model="true"/>
+    <part name="font_charset" channel="inline" format="text/plain" model="default"/>
+    <part name="font_colour" channel="inline" format="text/plain" model="black"/>
+    <part name="font_height" channel="inline" format="text/plain" model="11"/>
+    <part name="font_name" channel="inline" format="text/plain" model="Helvetica"/>
+    <part name="font_style" channel="inline" format="text/plain" model="bold"/>
+    <part name="read_only" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="horizontal_scroll_bar" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="horizontal_scroll_bar_increment" channel="inline" format="number/integer" model="3"/>
+    <part name="vertical_scroll_bar" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="vertical_scroll_bar_increment" channel="inline" format="number/integer" model="3"/>
+    <part name="checked" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="bitmap" channel="file" format="bmp" model=""/>
+    <part name="on_mouse_down" channel="inline" format="text/plain" model=""/>
+    <part name="on_mouse_release" channel="inline" format="text/plain" model=""/>
+    <part name="on_double_click" channel="inline" format="text/plain" model="some.command"/>
+    <part name="on_key_press" channel="inline" format="text/plain" model=""/>
+    <part name="drawing_style" channel="inline" format="text/plain" model="transparent"/>
+    <part name="active" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="align" channel="inline" format="text/plain" model="left"/>
+    <part name="bevel_inner" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="bevel_outer" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="auto_size" channel="inline" format="logicvalue/boolean" model="true"/>
+    <part name="foreground" channel="inline" format="text/plain" model=""/>
+    <part name="foreground" channel="inline" format="text/plain" model=""/>
+    <part name="shadow" channel="inline" format="logicvalue/boolean" model="false"/>
 -->
 </model>
 

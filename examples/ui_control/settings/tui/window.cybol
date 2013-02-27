@@ -1,8 +1,8 @@
 <model>
-    <part name="background" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="green"/>
-    <part name="foreground" channel="inline" encoding="utf-8" language="text/cybol" format="colour/terminal" model="white"/>
-    <part name="border" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="ascii"/>
-    <part name="bold" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
+    <part name="background" channel="inline" format="colour/terminal" model="green"/>
+    <part name="foreground" channel="inline" format="colour/terminal" model="white"/>
+    <part name="border" channel="inline" format="text/plain" model="ascii"/>
+    <part name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
 </model>
 
 <!--

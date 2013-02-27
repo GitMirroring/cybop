@@ -1,11 +1,11 @@
 <model>
-    <part name="column_0" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Column 1">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="th"/>
+    <part name="column_0" channel="inline" format="text/plain" model="Column 1">
+        <property name="tag" channel="inline" format="text/plain" model="th"/>
     </part>
-    <part name="column_1" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Column 2">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="th"/>
+    <part name="column_1" channel="inline" format="text/plain" model="Column 2">
+        <property name="tag" channel="inline" format="text/plain" model="th"/>
     </part>
-    <part name="column_2" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Column 3">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="th"/>
+    <part name="column_2" channel="inline" format="text/plain" model="Column 3">
+        <property name="tag" channel="inline" format="text/plain" model="th"/>
     </part>
 </model>
