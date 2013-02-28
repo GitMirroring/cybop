@@ -15,6 +15,8 @@
         * CONTINUE: serial port sender and receiver
         * Think through handling of client and server mode for all communication channels
         * Adapt terminal to client mode (main thread triggers receive/send) and server mode (sensing thread triggers interrupt)
+        * CAUTION! stdin is locked in file "message_terminal_sensor.c" running in a sensing thread,
+            so that further input CANNOT be read --> handle/change this somehow
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
