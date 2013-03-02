@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add send/receive files for serial port communication
+
 2013-02-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Simplify cybol files by removing attributes like encoding="utf-8" and language="text/cybol", which are standard

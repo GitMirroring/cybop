@@ -33,6 +33,7 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/receiver/file/file_receiver.c"
+#include "../../executor/communicator/receiver/serial_port/serial_port_receiver.c"
 #include "../../executor/communicator/receiver/terminal/terminal_receiver.c"
 #include "../../executor/communicator/receiver/inline_receiver.c"
 #include "../../executor/communicator/receiver/socket_receiver.c"
@@ -117,6 +118,16 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             receive_inline(p0, p1, p2, p3, p4, p5);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            receive_serial_port(p0, p1, p4, p5, p7);
         }
     }
 

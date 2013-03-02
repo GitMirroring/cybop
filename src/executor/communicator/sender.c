@@ -33,6 +33,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/sender/file/file_sender.c"
 #include "../../executor/communicator/sender/inline/inline_sender.c"
+#include "../../executor/communicator/sender/serial_port/serial_port_sender.c"
 #include "../../executor/communicator/sender/signal/signal_sender.c"
 //?? #include "../../executor/communicator/sender/socket/socket_sender.c"
 #include "../../executor/communicator/sender/terminal/terminal_sender.c"
@@ -131,6 +132,16 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             send_signal(p10, p11);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p14, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            send_serial_port(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         }
     }
 
