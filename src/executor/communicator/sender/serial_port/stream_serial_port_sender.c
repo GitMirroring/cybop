@@ -32,86 +32,124 @@
 #include <wchar.h>
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/communicator/sender/serial_port/elements_stream_serial_port_sender.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Sends the source to the serial port output.
  *
  * @param p0 the destination serial port output file descriptor
- * @param p1 the source data (null-terminated)
+ * @param p1 the source data
  * @param p2 the source count
  */
 void send_serial_port_stream(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* sc = (int*) p2;
+        int* d = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send serial port stream.");
 
-        // Test destination serial port output
-        // since it is used directly below.
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // The break flag.
+        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The data index to start the transfer at.
+        void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The number of bytes transferred.
+        int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            int* d = (int*) p0;
+        // Initialise data index to start the transfer at.
+        copy_pointer((void*) &i, (void*) &p1);
 
-            //
-            // CAUTION! Locking does NOT seem to be necessary here.
-            // The serial RS-232 interface has two independent data wires,
-            // one for input and another one for output.
-            // In case a sensing thread is running for serial input detection,
-            // there is NO problem in sending data here,
-            // since input and output may be accessed in parallel
-            // without having to fear conflicts.
-            //
+        if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // The temporary size_t variable.
-            //
-            // CAUTION! It IS NECESSARY because on 64 Bit machines,
-            // the "size_t" type has a size of 8 Byte,
-            // whereas the "int" type has the usual size of 4 Byte.
-            // When trying to cast between the two, memory errors
-            // will occur and the valgrind memcheck tool report:
-            // "Invalid read of size 8".
-            //
-            // CAUTION! Initialise temporary size_t variable with final int value
-            // JUST BEFORE handing that over to the glibc function requiring it.
-            //
-            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-            // because values are casted to int* internally again.
-            size_t tsc = *sc;
+            // CAUTION! If the loop count handed over as parametre is NULL,
+            // then the break flag will NEVER be set to true, because the loop
+            // variable comparison does (correctly) not consider null values.
+            // Therefore, in this case, the break flag is set to true already here.
+            // Initialising the break flag with true will NOT work either, since it:
+            // a) will be left untouched if a comparison operand is null;
+            // b) would have to be reset to true in each loop cycle.
+            copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
 
-            // Send to serial port.
-            //
-            // CAUTION! The data is NOT necessarily a character string
-            // and a null character is output like any other character.
-            //
-            // The return value is the number of bytes actually written.
-            // This may be equal to the size handed over,
-            // but can always be smaller.
-            // Therefore, the "write" function should always be called
-            // in a loop, iterating until all the data is written.
-            int e = write(*d, p1, tsc);
+        // CAUTION! The send operation does not necessarily
+        // handle all the bytes handed over to it.
+        // It therefore has to be CALLED AGAIN AND AGAIN,
+        // in a loop, until the complete message has been transmitted!
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Test error value.
-            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serial port stream. A write error occured.");
+            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                break;
             }
 
-        } else {
+            send_serial_port_stream_elements(p0, i, p2, (void*) &n);
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serial port stream. The serial port output file descriptor is null.");
+            // Increment byte array index.
+            calculate_pointer_add((void*) &i, (void*) &n);
+            // Decrement byte array count.
+            calculate_integer_subtract(p2, (void*) &n);
+        }
+
+        // Initialise error number.
+        // It is a global variable/ function and other operations
+        // may have set some value that is not wanted here.
+        //
+        // CAUTION! Initialise the error number BEFORE calling
+        // the procedure that might cause an error.
+        copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        // Make sure all data associated with the open file
+        // is written to the device associated with the descriptor.
+        // The function call does not return unless all actions have finished.
+        //
+        // CAUTION! The glibc "write" function is called within
+        // the "send_serial_port_stream_elements" function.
+        // Once "write" returns, the data is enqueued to be written
+        // and can be read back right away, but it is not necessarily
+        // written out to permanent storage immediately. Therefore,
+        // the "fsync" function is called here in order to make sure
+        // the data has been permanently stored before continuing.
+        //
+        // It is more efficient for the system to batch up
+        // consecutive writes and do them all at once when
+        // convenient. Normally, they will always be written
+        // to disk within a minute or less.
+        //
+        // One can use the "O_FSYNC" open mode to make write
+        // always store the data to disk before returning.
+        int e = fsync(*d);
+
+        // Test error value.
+        // The return value of the "fsync" function is zero
+        // if no error occurred; otherwise, it is minus one.
+        if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            if (errno == EBADF) {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serial port stream. The file descriptor is not valid.");
+
+            } else if (errno == EINVAL) {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serial port stream. No synchronization is possible since the system does not implement this.");
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serial port stream. An unknown error occured.");
+            }
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serial port stream. The source count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serial port stream. The serial port output file descriptor is null.");
     }
 }
 

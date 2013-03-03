@@ -33,6 +33,7 @@
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -47,8 +48,8 @@
 /**
  * Receives data stream from serial port.
  *
- * @param p0 the destination data item
- * @param p1 the source serial port file stream
+ * @param p0 the destination item
+ * @param p1 the source serial port file descriptor
  * @param p2 the source serial port mutex
  */
 void receive_serial_port_stream(void* p0, void* p1, void* p2) {
@@ -57,24 +58,6 @@ void receive_serial_port_stream(void* p0, void* p1, void* p2) {
 
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The escape character flag.
-    // CAUTION! This variable HAS TO BE defined here,
-    // since it is used across many loop cycles.
-    int esc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The ansi escape code flag.
-    // CAUTION! This variable HAS TO BE defined here,
-    // since it is used across many loop cycles.
-    int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The input character.
-    //
-    // CAUTION! This variable HAS TO BE defined here,
-    // since it is used across many loop cycles.
-    //
-    // CAUTION! The initial value is set to WEOF,
-    // since it is returned by the fgetwc function by default.
-    // Hence, do NOT assign the following value:
-    // wint_t c = *((wint_t*) NULL_UNICODE_CHARACTER_CODE_MODEL);
-    wint_t c = WEOF;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +66,7 @@ void receive_serial_port_stream(void* p0, void* p1, void* p2) {
             break;
         }
 
-        receive_serial_port_character(p0, p1, p2, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
+        receive_serial_port_character(p0, p1, p2, (void*) &b);
     }
 }
 

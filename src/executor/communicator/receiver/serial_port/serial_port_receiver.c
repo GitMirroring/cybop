@@ -33,6 +33,7 @@
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -65,7 +66,7 @@ void receive_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Allocate decoded message item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Receive byte data via channel.
     receive_serial_port_file(d, p4);
@@ -84,7 +85,7 @@ void receive_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
 /*??
 fwprintf(stdout, L"TEST receive serial port *dc: %i\n", *((int*) dc));
-fwprintf(stdout, L"TEST receive serial port dd: %ls\n", (wchar_t*) dd);
+fwprintf(stdout, L"TEST receive serial port dd: %s\n", (char*) dd);
 */
 
     // Deserialise data.
@@ -100,7 +101,7 @@ fwprintf(stdout, L"TEST receive serial port testd: %ls\n", (wchar_t*) testd);
 */
 
     // Deallocate decoded message item.
-    deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &d, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

@@ -31,6 +31,7 @@
 #include <unistd.h>
 #include <wchar.h>
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -42,7 +43,7 @@
 /**
  * Receives the destination from serial port.
  *
- * @param p0 the destination data item
+ * @param p0 the destination item
  * @param p1 the internal memory data
  */
 void receive_serial_port_file(void* p0, void* p1) {
@@ -55,8 +56,6 @@ void receive_serial_port_file(void* p0, void* p1) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get serial port input file descriptor.
-    // Temporary alternative for testing:
-    // f = (void*) stdin;
     copy_array_forward((void*) &f, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get serial port mutex.
     copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);

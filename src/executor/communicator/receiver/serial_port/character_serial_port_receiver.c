@@ -33,6 +33,7 @@
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -43,214 +44,131 @@
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 
-//
-// Remark:
-//
-// Why is all this ansi escape code detection done here
-// and not only in the corresponding deserialiser?
-//
-// There are at least two reasons:
-//
-// 1 Endless Input
-//
-// If the system tried to read in all characters arriving at the serial port,
-// there would be the danger of endless input causing an endless loop.
-// Therefore, it makes sense to evaluate characters in between,
-// to have a loop break and to let the system execute signals now and then.
-//
-// 2 Dependent Input
-//
-// If an experienced user knows the application user interface by heart
-// he might blindly press the keys to dive into the menu structure.
-// In this case, the first key press possibly relates to another user interface
-// than the second one, e.g. if the first action opens another dialogue.
-// In other words: The second input depends upon the result of the first.
-// For such cases it is important to evaluate the first input
-// before reading in further inputs.
-//
-
 /**
  * Receives a serial port character.
  *
  * @param p0 the destination item
- * @param p1 the source serial port file stream
+ * @param p1 the source serial port file descriptor
  * @param p2 the source serial port mutex
  * @param p3 the loop break flag
- * @param p4 the escape character flag
- * @param p5 the ansi escape code flag
- * @param p6 the input character
  */
-void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        wint_t* c = (wint_t*) p6;
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            int* f = (int*) p1;
 
-            int* aec = (int*) p5;
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port character.");
 
-            if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // The input character.
+            unsigned char c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                int* esc = (int*) p4;
+            // The temporary size_t variable.
+            //
+            // CAUTION! It IS NECESSARY because on 64 Bit machines,
+            // the "size_t" type has a size of 8 Byte,
+            // whereas the "int" type has the usual size of 4 Byte.
+            // When trying to cast between the two, memory errors
+            // will occur and the valgrind memcheck tool report:
+            // "Invalid read of size 8".
+            //
+            // CAUTION! Initialise temporary size_t variable with final int value
+            // JUST BEFORE handing that over to the glibc function requiring it.
+            //
+            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+            // because values are casted to int* internally again.
+            size_t ts = *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
 
-                if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Initialise error number.
+            // It is a global variable/ function and other operations
+            // may have set some value that is not wanted here.
+            //
+            // CAUTION! Initialise the error number BEFORE calling
+            // the function that might cause an error.
+            copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Lock serial port mutex.
+            //
+            // CAUTION! This IS NECESSARY to avoid conflicts with the serial port sensing thread,
+            // which in parallel is trying to detect that some character is available,
+            // what is also called "peeking ahead" at the input.
+            pthread_mutex_lock(p2);
 
-                        FILE* f = (FILE*) p1;
+            // Get character from source input stream of serial port.
+            ssize_t e = read(*f, (void*) &c, ts);
 
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port character.");
+            // Unlock serial port mutex.
+            pthread_mutex_unlock(p2);
 
-                        // Initialise error number.
-                        // It is a global variable/ function and other operations
-                        // may have set some value that is not wanted here.
-                        //
-                        // CAUTION! Initialise the error number BEFORE calling
-                        // the function that might cause an error.
-                        copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            // Test error value.
+            // The return value of the "read" function is
+            // the number of bytes actually read, if no
+            // error occurred; otherwise, it is minus one.
+            if (e > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        // Lock serial port mutex.
-                        //
-                        // CAUTION! This IS NECESSARY to avoid conflicts with the serial port sensing thread,
-                        // which in parallel is trying to detect that some character is available,
-                        // what is also called "peeking ahead" at the input.
-                        pthread_mutex_lock(p2);
+                if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        // Get character from source input stream of serial port.
-                        //
-                        // CAUTION! The multibyte character is converted to a
-                        // wide character internally in glibc function "fgetwc".
-                        //
-                        // CAUTION! Use 'wint_t' instead of 'int' as return type for
-                        // 'getwchar()', since that returns 'WEOF' instead of 'EOF'!
-                        //
-                        // CAUTION! The return value of type "wint_t"
-                        // MAY BE CASTED to "wchar_t".
-                        *c = fgetwc(f);
+//?? fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
 
-                        // Unlock serial port mutex.
-                        pthread_mutex_unlock(p2);
-
-                        // Check for end-of-file condition or read error,
-                        // in which case WEOF (the integer -1) is returned.
-                        //
-                        // It is true, the sense serial port function
-                        // already filters out invalid characters
-                        // recognised by the return value WEOF.
-                        // However, to be on the safe side, they are
-                        // filtered out here once more.
-                        if (*c != WEOF) {
-
-//?? fwprintf(stdout, L"TEST receive serial port character c: %i\n", *c);
-
-                            if (*aec == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                                // Reset ansi escape code flag.
-                                copy_integer(p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                                // Append source character to destination item.
-                                append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-                                // Set loop break flag.
-                                // An escape character followed by a left square bracket character
-                                // were received before. So this is an ansi escape code sequence.
-                                // Since all values have been received, the loop can be left now.
-                                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                            } else if (*esc == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                                // Reset escape character flag.
-                                copy_integer(p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                                // An escape character was received before.
-
-                                if (*c == *((wint_t*) LEFT_SQUARE_BRACKET_UNICODE_CHARACTER_CODE_MODEL)) {
-
-                                    // The escape character received before is
-                                    // followed by an opening square bracket,
-                                    // which means that this is the start of
-                                    // an ansi escape code.
-
-                                    // Set ansi escape code flag.
-                                    copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                                    // Append source character to destination item.
-                                    append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-                                } else {
-
-                                    // This is NOT going to be an escape control sequence.
-                                    // An escape- followed by another, second character
-                                    // (which is not an opening square bracket)
-                                    // has been detected.
-
-                                    // Lock serial port mutex.
-                                    pthread_mutex_lock(p2);
-
-                                    // Unget this character so that it may be
-                                    // processed once more later on.
-                                    ungetwc(*c, f);
-
-                                    // Unlock serial port mutex.
-                                    pthread_mutex_unlock(p2);
-
-                                    // Set loop break flag.
-                                    copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                                }
-
-                            } else if (*c == *((wint_t*) ESCAPE_UNICODE_CHARACTER_CODE_MODEL)) {
-
-                                // Set escape character flag.
-                                copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                                // Copy source character to destination character array.
-                                append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-                            } else {
-
-                                // Copy source character to destination character array.
-                                append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-                                // CAUTION! Do NOT set loop break flag here,
-                                // if more than just one character are
-                                // to be received in a sequence.
-                                // In this case, only a WEOF will break the loop.
-                            }
-
-                        } else {
-
-//?? fwprintf(stdout, L"TEST receive serial port character WEOF: %i\n", WEOF);
-
-                            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from serial port. The character reading failed.");
-
-                            // Set loop break flag.
-                            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port file descriptor is null.");
-                    }
+                    // Append source character to destination item.
+                    append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port mutex is null.");
+                    // Set loop break flag.
+                    // An input character value of zero indicates end-of-file.
+                    // Since all values have been received, the loop can be left now.
+                    copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
 
-            } else {
+            } else if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The escape character mode is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The number of bytes returned is zero.");
+
+                // Set loop break flag.
+                // An input character value of zero indicates end-of-file.
+                // Since all values have been received, the loop can be left now.
+                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            } else if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                if (errno == EAGAIN) {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The O_NONBLOCK flag is set for the file, so that read returned immediately without reading any data.");
+
+                } else if (errno == EBADF) {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The file descriptor is not valid, or is not open for reading.");
+
+                } else if (errno == EINTR) {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The read function was interrupted by a signal while it was waiting for input.");
+
+                } else if (errno == EIO) {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. A hardware error occured.");
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. An unknown error occured.");
+                }
+
+                // Set loop break flag.
+                // An input character value of zero indicates end-of-file.
+                // Since all values have been received, the loop can be left now.
+                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The ansi escape code mode is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port file descriptor is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The input character is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port mutex is null.");
     }
 }
 

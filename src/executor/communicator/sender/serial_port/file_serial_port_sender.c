@@ -31,6 +31,7 @@
 #include <unistd.h>
 #include <wchar.h>
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -42,7 +43,7 @@
 /**
  * Sends the source to the serial port file.
  *
- * @param p0 the source data (null-terminated)
+ * @param p0 the source data
  * @param p1 the source count
  * @param p2 the internal memory
  */
@@ -51,18 +52,12 @@ void send_serial_port_file(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send serial port file.");
 
     // The serial port output file descriptor.
-//??    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // CAUTION! This is a temporary solution.
-    // Normally, EACH cybol application would have to call
-    // the "maintain/startup" operation with channel "serial-port",
-    // in order to be able to output anything on serial port.
-    // As a convenience for cybol developers, the standard
-    // output stream is set as default here.
-    void* f = (void*) stdout;
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get serial port output file descriptor.
-//??    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // It should have been created in the "maintain/startup"
+    // operation with channel "serial-port" before.
+    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     send_serial_port_stream(f, p0, p1);
 }
