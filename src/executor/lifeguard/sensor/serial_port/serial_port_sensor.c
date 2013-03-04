@@ -38,7 +38,6 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/lifeguard/sensor/serial_port/message_serial_port_sensor.c"
-#include "../../../../logger/logger.c"
 
 /**
  * Senses serial port messages.
@@ -58,8 +57,8 @@ void sense_serial_port(void* p0) {
     void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sleep time.
     void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input stream.
-    void* is = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The file descriptor.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get interrupt.
     copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -67,8 +66,8 @@ void sense_serial_port(void* p0) {
     copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get sleep time.
     copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get input stream.
-    copy_array_forward((void*) &is, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get file descriptor.
+    copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,7 +80,7 @@ void sense_serial_port(void* p0) {
         // and processed in the system signal handler procedure
         // (situated in the controller/checker.c module).
 
-        sense_serial_port_message(irq, mt, st, is);
+        sense_serial_port_message(irq, mt, st, f);
     }
 
     // An implicit call to pthread_exit() is made when this thread

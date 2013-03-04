@@ -18,7 +18,8 @@
 
 2013-03-04  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt startup files with open function and attributes for serial port communication
+        * Adapt startup/shutdown files with open/close function and attributes for serial port communication
+        * Prepare cybol example application "temperature"
 
 2013-03-03  Christian Heller  <christian.heller@tuxtax.de>
 

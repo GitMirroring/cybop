@@ -32,63 +32,40 @@
 #include <sys/ioctl.h>
 #include <termios.h>
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/maintainer/starter/serial_port/get_status_serial_port_starter.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/maintainer/starter/serial_port/get_status_serial_port_starter.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Starts up the serial port attributes setter.
  *
- * @param p0 the internal memory data
- * @param p1 the serial port file descriptor
+ * @param p0 the file descriptor
+ * @param p1 the original attributes
+ * @param p2 the baudrate
  */
-void startup_serial_port_attributes(void* p0, void* p1) {
+void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* sp = (int*) p1;
+        int* br = (int*) p2;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port attributes.");
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // The structure of type "struct termios" stores the
-        // entire collection of attributes of a serial port.
-        // It is used with the functions "tcgetattr" and
-        // "tcsetattr" to get and set the attributes.
-        //
+            int* sp = (int*) p0;
 
-        // The original attributes.
-        void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The new attributes.
-        struct termios n;
-
-        // Allocate original attributes.
-        o = malloc(sizeof(struct termios));
-
-//?? fwprintf(stdout, L"TEST startup serial port attributes o: %i\n", o);
-
-        // Initialise error number.
-        // It is a global variable/ function and other operations
-        // may have set some value that is not wanted here.
-        //
-        // CAUTION! Initialise the error number BEFORE calling
-        // the function that might cause an error.
-        copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        // Get original attributes.
-        int e = tcgetattr(*sp, (struct termios*) o);
-
-        if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            // Set serial port original attributes.
-            copy_array_forward(p0, (void*) &o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port attributes set.");
 
             // Initialise new attributes.
+            //
+            // The structure of type "struct termios" stores the
+            // entire collection of attributes of a serial port.
+            // It is used with the functions "tcgetattr" and
+            // "tcsetattr" to get and set the attributes.
             //
             // CAUTION! When setting serial port modes, one should call "tcgetattr" first
             // to get the current modes of the particular serial port device,
@@ -113,7 +90,7 @@ void startup_serial_port_attributes(void* p0, void* p1) {
             // Instead, one should start with the current value of the member
             // and alter only the flags whose values matter in your program,
             // leaving any other flags unchanged.
-            n = *((struct termios*) to);
+            struct termios n = *((struct termios*) p1);
 
             //
             // Manipulate termios attributes.
@@ -142,7 +119,7 @@ void startup_serial_port_attributes(void* p0, void* p1) {
             // Ignore parity.
             n.c_iflag = IGNPAR;
             n.c_oflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            n.c_cflag = baudr | CS8 | CLOCAL | CREAD;
+            n.c_cflag = *br | CS8 | CLOCAL | CREAD;
             n.c_lflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Set number of input characters to be available, before read() will return.
             // If set to zero, one character gets processed right away,
@@ -171,35 +148,11 @@ void startup_serial_port_attributes(void* p0, void* p1) {
             //            Its meaning is to inhibit alteration of the state of the serial port hardware.
             //            It is a BSD extension; it is only supported on BSD systems and the GNU system.
             //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
-            int e = tcsetattr(*sp, TCSANOW, &tn);
+            int e = tcsetattr(*sp, TCSANOW, &n);
 
             if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                // The serial port status.
-                int status = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                // Get the status of bits.
-                int e = ioctl(*sp, TIOCMGET, &status);
-
-                if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // Turn on DTR.
-                    status |= TIOCM_DTR;
-                    // Turn on RTS.
-                    status |= TIOCM_RTS;
-
-                    // Set the status of bits.
-                    int e = ioctl(*sp, TIOCMSET, &status);
-
-                    if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. Could not set the status of bits.");
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. Could not get the status of bits.");
-                }
+                startup_serial_port_status_get(p0);
 
             } else {
 
@@ -208,62 +161,30 @@ void startup_serial_port_attributes(void* p0, void* p1) {
 
                 if (errno == EBADF) {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. The filedes argument is not a valid file descriptor.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The filedes argument is not a valid file descriptor.");
 
                 } else if (errno == ENOTTY) {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. The filedes is not associated with a serial port.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The filedes is not associated with a serial port.");
 
                 } else if (errno == EINVAL) {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. Either the value of the second argument is not valid, or there is something wrong with the data in the third argument.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. Either the value of the second argument is not valid, or there is something wrong with the data in the third argument.");
 
                 } else {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. An unknown error occured.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. An unknown error occured.");
                 }
             }
 
         } else {
 
-            // Close serial port specified by file descriptor.
-            close(*sp);
-
-            if (errno == EBADF) {
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. The filedes argument is not a valid file descriptor.");
-
-            } else if (errno == ENOTTY) {
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. The filedes is not associated with a serial port.");
-
-            } else {
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. An unknown error occured.");
-            }
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The file descriptor is null.");
         }
-
-        //
-        // Although tcgetattr and tcsetattr specify the serial port device with a file descriptor,
-        // the attributes are those of the serial port device itself and not of the file descriptor.
-        // This means that the effects of changing serial port attributes are persistent;
-        // if another process opens the serial port file later on, it will see the changed attributes
-        // even though it doesn't have anything to do with the open file descriptor you originally
-        // specified in changing the attributes.
-        //
-        // Similarly, if a single process has multiple or duplicated file descriptors
-        // for the same serial port device, changing the serial port attributes affects
-        // input and output to all of these file descriptors.
-        // This means, for example, that you can't open one file descriptor or stream
-        // to read from a serial port in the normal line-buffered, echoed mode;
-        // and simultaneously have another file descriptor for the same serial port
-        // that you use to read from it in single-character, non-echoed mode.
-        // Instead, you have to explicitly switch the serial port back and forth between the two modes.
-        //
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes. The serial port file descriptor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The baudrate is null.");
     }
 }
 

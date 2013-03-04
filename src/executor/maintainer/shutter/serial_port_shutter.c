@@ -53,30 +53,25 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown serial port.");
 
-    // The serial port input- and output stream.
-    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The file descriptor.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get serial port input- and output stream.
-    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get file descriptor.
+    copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Only deallocate serial port resources if AT LEAST ONE,
-    // the input- OR output stream internal is NOT null.
-    if ((ip != *NULL_POINTER_STATE_CYBOI_MODEL) || (op != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+    // Only deallocate serial port resources if existent.
+    if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* fi = (int*) f;
 
         // Interrupt serial port service thread.
         interrupt_thread(p1, p2);
 
-        // The original termios settings.
-        void* to = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The original attributes.
+        void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Get serial port internals.
-        copy_array_forward((void*) &to, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-        // Get file descriptor for file stream.
-        // CAUTION! The stream "stdin" must be used instead of "stdout" here!
-        int d = fileno((FILE*) ip);
+        // Get original attributes.
+        copy_array_forward((void*) &o, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
         // Initialise error number.
         // It is a global variable/ function and other operations
@@ -98,9 +93,44 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
         //            Its meaning is to inhibit alteration of the state of the serial port hardware.
         //            It is a BSD extension; it is only supported on BSD systems and the GNU system.
         //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
-        int e = tcsetattr(d, TCSANOW, (struct termios*) to);
+        int e = tcsetattr(*fi, TCSANOW, (struct termios*) o);
 
-        if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // Close file descriptor for the given null-terminated filename.
+            int e = close(*fi);
+
+            // The normal return value from "close" is zero;
+            // a value of minus one is returned in case of failure.
+            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                if (errno == EBADF) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. The filedes argument is not a valid file descriptor.");
+
+                } else if (errno == EINTR) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. The close call was interrupted by a signal.");
+
+                } else if (errno == ENOSPC) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. ENOSPC.");
+
+                } else if (errno == EIO) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. EIO.");
+
+                } else if (errno == EDQUOT) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
+
+                } else {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. An unknown error occured.");
+                }
+            }
+
+        } else {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. The termios settings could not be set.");
 
@@ -122,15 +152,12 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
             }
         }
 
-fwprintf(stdout, L"TEST to free: %i\n", to);
+fwprintf(stdout, L"TEST free o pre: %i\n", o);
 
-        // Deallocate termios settings.
-        free(to);
+        // Deallocate attributes.
+        free(o);
 
-fwprintf(stdout, L"TEST to after free: %i\n", to);
-
-        // CAUTION! DO NOT deallocate ip and op because they refer to stdin and stdout of the system!
-        // This might be changed at a (much) later point in CYBOI development.
+fwprintf(stdout, L"TEST free o post: %i\n", o);
 
     } else {
 

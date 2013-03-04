@@ -32,43 +32,53 @@
 #include <sys/ioctl.h>
 #include <termios.h>
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Starts up the serial port status setter.
  *
- * @param p0 the serial port file descriptor
+ * @param p0 the file descriptor
+ * @param p1 the status
  */
 void startup_serial_port_status_set(void* p0, void* p1) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* sp = (int*) p0;
+        int* s = (int*) p1;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port status set.");
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Turn on DTR.
-        status |= TIOCM_DTR;
-        // Turn on RTS.
-        status |= TIOCM_RTS;
+            int* sp = (int*) p0;
 
-        // Set the status of bits.
-        int e = ioctl(*sp, TIOCMSET, &status);
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port status set.");
 
-        if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            // Turn on DTR.
+            *s |= TIOCM_DTR;
+            // Turn on RTS.
+            *s |= TIOCM_RTS;
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. Could not set the status of bits.");
+            // Set serial port status.
+            int e = ioctl(*sp, TIOCMSET, s);
+
+            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. Could not set serial port status.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. The serial port file descriptor is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes. The serial port file descriptor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. The serial port status is null.");
     }
 }
 

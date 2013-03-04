@@ -32,7 +32,7 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 //?? #include "../../executor/maintainer/starter/opengl_starter.c"
-#include "../../executor/maintainer/starter/serial_port_starter.c"
+#include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
 //?? #include "../../executor/maintainer/starter/socket_starter.c"
 #include "../../executor/maintainer/starter/terminal_starter.c"
 //?? #include "../../executor/maintainer/starter/x_window_system_starter.c"
@@ -48,10 +48,22 @@
  * as that name is already used by low-level socket functionality
  * (/usr/include/i386-linux-gnu/sys/socket.h:232:12).
  *
+ * There may be DOZENS or even HUNDREDS of parametres
+ * handed over to this function. This is due to the
+ * variety of possible settings for communication channels.
+ * The value of unneeded parametres may just be set to NULL.
+ *
  * @param p0 the internal memory data
- * @param p1 the channel
+ * ... cyboi socket
+ * @param p1 the serial port filename data
+ * @param p2 the serial port filename count
+ * @param p3 the serial port baudrate
+ * ... terminal
+ * ... www socket
+ * ... x window system
+ * @param p4 the channel
  */
-void startup_service(void* p0, void* p1) {
+void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup.");
 
@@ -64,7 +76,7 @@ void startup_service(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) CYBOI_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p4, (void*) CYBOI_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -88,17 +100,17 @@ void startup_service(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p4, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_serial_port(p0);
+            startup_serial_port(p0, p1, p2, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -108,7 +120,7 @@ void startup_service(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) WWW_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p4, (void*) WWW_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -132,7 +144,7 @@ void startup_service(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p4, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

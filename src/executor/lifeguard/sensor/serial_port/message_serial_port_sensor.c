@@ -37,7 +37,6 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../logger/logger.c"
 
 /**
  * Senses serial port message.
@@ -45,13 +44,13 @@
  * @param p0 the interrupt
  * @param p1 the mutex
  * @param p2 the sleep time
- * @param p3 the input stream
+ * @param p3 the file descriptor
  */
 void sense_serial_port_message(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        FILE* is = (FILE*) p3;
+        int* f = (int*) p3;
 
         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -71,6 +70,9 @@ void sense_serial_port_message(void* p0, void* p1, void* p2, void* p3) {
                     // cause unpredictable programme behaviour.
                     // Also, this function runs in an endless loop and would produce huge log files.
 
+                    // The input stream created from the given file descriptor.
+                    FILE* is = fdopen(*f, "r+");
+
                     // Lock serial port mutex.
                     //
                     // CAUTION! This lock has to stand not only before the interrupt request is set below,
@@ -78,35 +80,16 @@ void sense_serial_port_message(void* p0, void* p1, void* p2, void* p3) {
                     //
                     // This is because the main thread might be reading characters from the
                     // input stream right now in parallel, while this thread tries to read as well.
-                    //
-                    // This was tested out and lead to errors, because the "ungetwc" function below
-                    // was unexpectedly putting back a character such as ^ (escape) or [
-                    // which (in the case of escape) caused the programme to exit
-                    // and other inputs like arrow down not to be recognised properly.
                     pthread_mutex_lock(mt);
 
-                    // Get character from source input stream of serial port.
+                    // Get character from source input stream of terminal.
                     //
                     // This is just to detect that some character is available,
                     // what is also called "peeking ahead" at the input.
-                    //
-                    // CAUTION! The multibyte character is converted to a
-                    // wide character internally in glibc function "fgetwc".
-                    //
-                    // CAUTION! Use 'wint_t' instead of 'int' as return type for
-                    // 'getwchar()', since that returns 'WEOF' instead of 'EOF'!
-                    //
-                    // CAUTION! The return value of type "wint_t"
-                    // MAY BE CASTED to "wchar_t".
-                    wint_t c = fgetwc(is);
+                    unsigned char c = fgetc(is);
 
-                    // The WEOF constant usually corresponds to the value: -1
-                    //
-                    // CAUTION! However, do NOT compare like the following:
-                    // if (c < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                    // The reason is that wint_t and int comparison might deliver
-                    // wrong results, so that an input is mistakenly assumed below.
-                    if (c == WEOF) {
+                    // The EOF constant usually corresponds to the value: -1
+                    if (c == EOF) {
 
                         // No valid character was returned.
 
@@ -150,9 +133,9 @@ void sense_serial_port_message(void* p0, void* p1, void* p2, void* p3) {
                         // makes the character of input available.
                         // After you read that character, trying to read again will
                         // encounter end of file.
-                        ungetwc(c, is);
+                        ungetc(c, is);
 
-//?? fwprintf(stdout, L"TEST sense serial port c: %lc\n", c);
+//?? fwprintf(stdout, L"TEST sense serial port message c: %c\n", c);
 
                         // Set serial port interrupt request to indicate
                         // that a message has been received via serial port,

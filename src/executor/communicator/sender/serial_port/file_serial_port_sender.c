@@ -54,10 +54,10 @@ void send_serial_port_file(void* p0, void* p1, void* p2) {
     // The serial port output file descriptor.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get serial port output file descriptor.
+    // Get serial port file descriptor.
     // It should have been created in the "maintain/startup"
     // operation with channel "serial-port" before.
-    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     send_serial_port_stream(f, p0, p1);
 }
