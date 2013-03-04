@@ -12,8 +12,7 @@
 #
 
         * CONTINUE: Try out using cyboi for temperature programme of colleagues
-        * Adapt startup/shutdown files with open/close function for serial port communication,
-            considering handling of client and server mode
+        * Adapt shutdown files with close function and attributes for serial port communication
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

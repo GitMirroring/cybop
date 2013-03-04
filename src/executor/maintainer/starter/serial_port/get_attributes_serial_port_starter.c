@@ -23,12 +23,13 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SERIAL_PORT_STARTER_SOURCE
-#define SERIAL_PORT_STARTER_SOURCE
+#ifndef GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
+#define GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
 #include <stdio.h>
+#include <sys/ioctl.h>
 #include <termios.h>
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -37,75 +38,37 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/maintainer/starter/serial_port/set_attributes_serial_port_starter.c"
 #include "../../../logger/logger.c"
 
 /**
- * Starts up the serial port.
+ * Starts up the serial port attributes getter.
  *
  * @param p0 the internal memory data
+ * @param p1 the serial port file descriptor
  */
-void startup_serial_port(void* p0) {
+void startup_serial_port_attributes_get(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The serial port input- and output stream.
-    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* sp = (int*) p1;
 
-    // Get serial port input- and output stream.
-    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    // Only create new serial port resources if both,
-    // input- AND output stream internal are null.
-    if ((ip == *NULL_POINTER_STATE_CYBOI_MODEL) && (op == *NULL_POINTER_STATE_CYBOI_MODEL)) {
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port attributes get.");
 
         //
         // The structure of type "struct termios" stores the
         // entire collection of attributes of a serial port.
         // It is used with the functions "tcgetattr" and
-        // "tcsetattr" to read and set the attributes.
-        //
-        // Data Type: struct termios
-        //
-        // Structure that records all the I/O attributes of a serial port.
-        // The structure includes at least the following members:
-        // tcflag_t c_iflag - A bit mask specifying flags for input modes; see Input Modes.
-        // tcflag_t c_oflag - A bit mask specifying flags for output modes; see Output Modes.
-        // tcflag_t c_cflag - A bit mask specifying flags for control modes; see Control Modes.
-        // tcflag_t c_lflag - A bit mask specifying flags for local modes; see Local Modes.
-        // cc_t c_cc[NCCS] - An array specifying which characters are associated with various control functions; see Special Characters.
-        //
-        // The "struct termios" structure also contains members
-        // which encode input and output transmission speeds,
-        // but the representation is not specified.
-        //
-        // The details of the members of "struct termios" are described following:
-        //
-        // Data Type: tcflag_t - This is an unsigned integer type used to represent the various bit masks for serial port flags.
-        // Data Type: cc_t - This is an unsigned integer type used to represent characters associated with various serial port control functions.
-        // Macro: int NCCS - The value of this macro is the number of elements in the c_cc array.
+        // "tcsetattr" to get and set the attributes.
         //
 
-        // The original termios settings.
-        struct termios* to = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The new termios settings.
-        struct termios tn;
+        // The original attributes.
+        void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The new attributes.
+        struct termios n;
 
-        // Allocate termios settings.
-        to = (struct termios*) malloc(sizeof(struct termios));
-
-fwprintf(stdout, L"TEST to malloc: %i\n", to);
-
-        // Initialise serial port internals.
-        //
-        // CAUTION! The standard input- and output streams are used for now.
-        ip = stdin;
-        op = stdout;
-
-        // Get file descriptor for file stream.
-        // CAUTION! The stream "stdin" must be used instead of "stdout" here!
-        int d = fileno((FILE*) ip);
+        // Allocate original attributes.
+        o = malloc(sizeof(struct termios));
 
         // Initialise error number.
         // It is a global variable/ function and other operations
@@ -115,12 +78,17 @@ fwprintf(stdout, L"TEST to malloc: %i\n", to);
         // the function that might cause an error.
         copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        // Store original termios settings.
-        int e = tcgetattr(d, to);
+        // Get original attributes.
+        int e = tcgetattr(*sp, (struct termios*) o);
 
         if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            // Initialise new termios settings.
+            // Set serial port original attributes.
+            copy_array_forward(p0, (void*) &o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+
+
+            // Initialise new attributes.
             //
             // CAUTION! When setting serial port modes, one should call "tcgetattr" first
             // to get the current modes of the particular serial port device,
@@ -145,7 +113,7 @@ fwprintf(stdout, L"TEST to malloc: %i\n", to);
             // Instead, one should start with the current value of the member
             // and alter only the flags whose values matter in your program,
             // leaving any other flags unchanged.
-            tn = *to;
+            n = *((struct termios*) to);
 
             //
             // Manipulate termios attributes.
@@ -171,76 +139,17 @@ fwprintf(stdout, L"TEST to malloc: %i\n", to);
             // VMIN: the number of bytes of input to be available, before read() will return
             //
 
-            //
-            // Set input mode flags.
-            //
-
-            // Turn off stripping of valid input bytes to seven bits,
-            // so that all eight bits are available for programmes to read.
-            tn.c_iflag &= ~ISTRIP;
-
-            //
-            // Set local mode flags.
-            //
-
-            // Turn off canonical input processing mode.
-            //
-            // POSIX systems support two basic modes of input: canonical and noncanonical.
-            //
-            // canonical:
-            // - serial port input is processed in lines terminated by newline ('\n'), EOF, or EOL characters
-            // - no input can be read until an entire line has been typed by the user
-            // - read function returns at most a single line of input, no matter how many bytes are requested
-            // - operating system provides input editing facilities: some characters are interpreted specially
-            //   to perform editing operations within the current line of text, such as ERASE and KILL
-            // - constants _POSIX_MAX_CANON and MAX_CANON parameterize the maximum number of bytes
-            //   which may appear in a single line of canonical input;
-            //   guaranteed is a maximum line length of at least MAX_CANON bytes,
-            //   but the maximum might be larger, and might even dynamically change size
-            //
-            // noncanonical:
-            // - characters are not grouped into lines
-            // - ERASE and KILL processing is not performed
-            // - granularity with which bytes are read is controlled by the MIN and TIME settings
-            //
-            // Most programs use canonical input mode, because this gives the user
-            // a way to edit input line by line.
-            // The usual reason to use noncanonical mode is when the program accepts
-            // single-character commands or provides its own editing facilities.
-            tn.c_lflag &= ~ICANON;
-            // Turn off echo.
-            tn.c_lflag &= ~ECHO;
-
-            //
-            // Set noncanonical input mode flags.
-            //
-
-            //
-            // In noncanonical input mode, the special editing characters
-            // such as ERASE and KILL are ignored.
-            // The system facilities for the user to edit input are disabled
-            // in noncanonical mode, so that all input characters
-            // (unless they are special for signal or flow-control purposes)
-            // are passed to the application program exactly as typed.
-            // It is up to the application program to give the user
-            // ways to edit the input, if appropriate.
-            //
-            // Noncanonical mode offers special parameters called MIN and TIME
-            // for controlling whether and how long to wait for input to be available.
-            // One can even use them to avoid ever waiting -- to return
-            // immediately with whatever input is available, or with no input.
-            //
-
+            // Ignore parity.
+            n.c_iflag = IGNPAR;
+            n.c_oflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            n.c_cflag = baudr | CS8 | CLOCAL | CREAD;
+            n.c_lflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Set number of input characters to be available, before read() will return.
-            //
-            // CAUTION! This value HAS TO BE set to zero,
-            // so that one key press such as ESCAPE gets processed
-            // right away (e.g. to exit an application),
+            // If set to zero, one character gets processed right away,
             // without waiting for yet another character input.
-            //
-            tn.c_cc[VMIN] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            n.c_cc[VMIN] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Set time to wait before read() will return.
-            tn.c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            n.c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Initialise error number.
             // It is a global variable/ function and other operations
@@ -250,7 +159,7 @@ fwprintf(stdout, L"TEST to malloc: %i\n", to);
             // the function that might cause an error.
             copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-            // Set new termios attributes.
+            // Set new attributes.
             //
             // The second argument specifies how to deal with
             // input and output already queued.
@@ -262,11 +171,40 @@ fwprintf(stdout, L"TEST to malloc: %i\n", to);
             //            Its meaning is to inhibit alteration of the state of the serial port hardware.
             //            It is a BSD extension; it is only supported on BSD systems and the GNU system.
             //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
-            int e = tcsetattr(d, TCSANOW, &tn);
+            int e = tcsetattr(*sp, TCSANOW, &tn);
 
-            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. The termios settings could not be set.");
+                // The serial port status.
+                int status = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+                // Get the status of bits.
+                int e = ioctl(*sp, TIOCMGET, &status);
+
+                if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    // Turn on DTR.
+                    status |= TIOCM_DTR;
+                    // Turn on RTS.
+                    status |= TIOCM_RTS;
+
+                    // Set the status of bits.
+                    int e = ioctl(*sp, TIOCMSET, &status);
+
+                    if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. Could not set the status of bits.");
+                    }
+
+                } else {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. Could not get the status of bits.");
+                }
+
+            } else {
+
+                // Close serial port specified by file descriptor.
+                close(*sp);
 
                 if (errno == EBADF) {
 
@@ -288,7 +226,8 @@ fwprintf(stdout, L"TEST to malloc: %i\n", to);
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. The termios settings could not be stored.");
+            // Close serial port specified by file descriptor.
+            close(*sp);
 
             if (errno == EBADF) {
 
@@ -303,25 +242,6 @@ fwprintf(stdout, L"TEST to malloc: %i\n", to);
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. An unknown error occured.");
             }
         }
-
-/*??
-        // Check for serial port.
-        int l = strcmp("linux", getenv("TERM"));
-
-        if (l == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"This is a serial port.");
-
-        } else {
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"This is a standard serial serial port.");
-        }
-*/
-
-        // Set serial port internals.
-        copy_array_forward(p0, (void*) &ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(p0, (void*) &op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) OUTPUT_STREAM_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(p0, (void*) &to, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         //
         // Although tcgetattr and tcsetattr specify the serial port device with a file descriptor,
@@ -343,12 +263,12 @@ fwprintf(stdout, L"TEST to malloc: %i\n", to);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port. The serial port input or output or both are already running.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes. The serial port file descriptor is null.");
     }
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* SERIAL_PORT_STARTER_SOURCE */
+/* GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE */
 #endif

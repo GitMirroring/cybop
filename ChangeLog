@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt startup files with open function and attributes for serial port communication
+
 2013-03-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add send/receive files for serial port communication
