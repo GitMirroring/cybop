@@ -11,7 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE: Try out using cyboi for temperature programme of colleagues
+        * Test cybol example application "indoor_climate" on microcontroller device
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

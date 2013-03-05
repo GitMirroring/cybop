@@ -32,6 +32,7 @@
 #include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/language/cybol/state/interface_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/message_state_cybol_language.c"
+#include "../../../../constant/language/cybol/state/number_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/text_state_cybol_language.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
@@ -71,6 +72,20 @@ void serialise_cybol_language(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_element(p0, (void*) ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    //
+    // number
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_MODE_NUMBER_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) TERMINAL_MODE_NUMBER_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TERMINAL_MODE_NUMBER_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

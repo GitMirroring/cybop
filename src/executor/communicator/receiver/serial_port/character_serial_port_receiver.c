@@ -156,19 +156,29 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3) {
                 }
 
                 // Set loop break flag.
-                // An input character value of zero indicates end-of-file.
-                // Since all values have been received, the loop can be left now.
+                // CAUTION! If this was not done here,
+                // the loop would run endlessly.
                 copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port file descriptor is null.");
+
+            // Set loop break flag.
+            // CAUTION! If this was not done here,
+            // the loop would run endlessly.
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port mutex is null.");
+
+        // Set loop break flag.
+        // CAUTION! If this was not done here,
+        // the loop would run endlessly.
+        copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

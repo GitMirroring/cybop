@@ -138,6 +138,7 @@ void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
             // Ignore parity.
             n.c_iflag = IGNPAR;
             n.c_oflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+fwprintf(stdout, L"TEST baudrate *brdi: %i\n", *brdi);
             n.c_cflag = *brdi | CS8 | CLOCAL | CREAD;
             n.c_lflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Set number of input characters to be available, before read() will return.

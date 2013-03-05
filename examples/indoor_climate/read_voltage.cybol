@@ -7,6 +7,16 @@
         <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
         <property name="model" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
     </part>
+    <!-- TEST -->
+    <part name="test_voltage_buffer" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+<!--
     <part name="calculate_checksum" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="file" format="element/part" model="indoor_climate/calculate_checksum.cybol"/>
     </part>
@@ -22,6 +32,7 @@
         <property name="true" channel="file" format="element/part" model="indoor_climate/calculate_voltage.cybol"/>
         <property name="false" channel="file" format="element/part" model="indoor_climate/report_checksum_failure.cybol"/>
     </part>
+-->
 </model>
 
 <!--

@@ -100,7 +100,42 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
         //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
         int e = tcsetattr(d, TCSANOW, (struct termios*) to);
 
-        if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // Close file descriptor for the given null-terminated filename.
+            int e = close(d);
+
+            // The normal return value from "close" is zero;
+            // a value of minus one is returned in case of failure.
+            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                if (errno == EBADF) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. The filedes argument is not a valid file descriptor.");
+
+                } else if (errno == EINTR) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. The close call was interrupted by a signal.");
+
+                } else if (errno == ENOSPC) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. ENOSPC.");
+
+                } else if (errno == EIO) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. EIO.");
+
+                } else if (errno == EDQUOT) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
+
+                } else {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. An unknown error occured.");
+                }
+            }
+
+        } else {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. The termios settings could not be set.");
 
