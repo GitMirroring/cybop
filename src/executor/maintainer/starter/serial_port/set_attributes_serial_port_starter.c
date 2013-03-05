@@ -50,47 +50,66 @@
  */
 void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* br = (int*) p2;
+        int* sp = (int*) p0;
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port attributes set.");
 
-            int* sp = (int*) p0;
+        // The serialised baudrate item.
+        void* br = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The serialised baudrate item data.
+        void* brd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port attributes set.");
+        // Allocate serialised baudrate item.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_item((void*) &br, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-            // Initialise new attributes.
-            //
-            // The structure of type "struct termios" stores the
-            // entire collection of attributes of a serial port.
-            // It is used with the functions "tcgetattr" and
-            // "tcsetattr" to get and set the attributes.
-            //
-            // CAUTION! When setting serial port modes, one should call "tcgetattr" first
-            // to get the current modes of the particular serial port device,
-            // modify only those modes that you are really interested in,
-            // and store the result with tcsetattr.
-            //
-            // It's a bad idea to simply initialize a "struct termios" structure
-            // to a chosen set of attributes and pass it directly to "tcsetattr".
-            // The programme may be run years from now, on systems that support
-            // members not documented here. The way to avoid setting these members
-            // to unreasonable values is to avoid changing them.
-            //
-            // What's more, different serial port devices may require
-            // different mode settings in order to function properly.
-            // So you should avoid blindly copying attributes
-            // from one serial port device to another.
-            //
-            // When a member contains a collection of independent flags,
-            // as the c_iflag, c_oflag and c_cflag members do,
-            // even setting the entire member is a bad idea,
-            // because particular operating systems have their own flags.
-            // Instead, one should start with the current value of the member
-            // and alter only the flags whose values matter in your program,
-            // leaving any other flags unchanged.
-            struct termios n = *((struct termios*) p1);
+        // Serialise given baudrate integer parametre into serialised baudrate item.
+        serialise(br, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) LINE_SPEED_NUMBER_STATE_CYBOI_FORMAT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TERMINAL_MODE_NUMBER_STATE_CYBOI_LANGUAGE);
+
+        // Get serialised wide character item data, count.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &brd, br, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+        // Initialise new attributes.
+        //
+        // The structure of type "struct termios" stores the
+        // entire collection of attributes of a serial port.
+        // It is used with the functions "tcgetattr" and
+        // "tcsetattr" to get and set the attributes.
+        //
+        // CAUTION! When setting serial port modes, one should call "tcgetattr" first
+        // to get the current modes of the particular serial port device,
+        // modify only those modes that you are really interested in,
+        // and store the result with tcsetattr.
+        //
+        // It's a bad idea to simply initialize a "struct termios" structure
+        // to a chosen set of attributes and pass it directly to "tcsetattr".
+        // The programme may be run years from now, on systems that support
+        // members not documented here. The way to avoid setting these members
+        // to unreasonable values is to avoid changing them.
+        //
+        // What's more, different serial port devices may require
+        // different mode settings in order to function properly.
+        // So you should avoid blindly copying attributes
+        // from one serial port device to another.
+        //
+        // When a member contains a collection of independent flags,
+        // as the c_iflag, c_oflag and c_cflag members do,
+        // even setting the entire member is a bad idea,
+        // because particular operating systems have their own flags.
+        // Instead, one should start with the current value of the member
+        // and alter only the flags whose values matter in your program,
+        // leaving any other flags unchanged.
+        struct termios n = *((struct termios*) p1);
+
+        if (brd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* brdi = (int*) brd;
 
             //
             // Manipulate termios attributes.
@@ -119,7 +138,7 @@ void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
             // Ignore parity.
             n.c_iflag = IGNPAR;
             n.c_oflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            n.c_cflag = *br | CS8 | CLOCAL | CREAD;
+            n.c_cflag = *brdi | CS8 | CLOCAL | CREAD;
             n.c_lflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // Set number of input characters to be available, before read() will return.
             // If set to zero, one character gets processed right away,
@@ -179,12 +198,17 @@ void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The file descriptor is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The baudrate item data is null.");
         }
+
+        // Deallocate serialised baudrate array.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        deallocate_item((void*) &br, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The baudrate is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The file descriptor is null.");
     }
 }
 

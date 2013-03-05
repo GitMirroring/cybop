@@ -12,13 +12,13 @@
 #
 
         * CONTINUE: Try out using cyboi for temperature programme of colleagues
-        * Adapt cybol example application "temperature"
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
             but in some application this works just fine, e.g. in "helloworld" with terminal output)
             --> all "malloc" function calls were already checked; they are freed correctly for terminal
             --> TODO: check function calls of "realloc" and "free"
+            --> POSSIBLY forgotten to close the terminal file stream
 
         * Continue xdt deserialiser
         * Use three xdt processing steps: field-record-bdt/gdt/ldt

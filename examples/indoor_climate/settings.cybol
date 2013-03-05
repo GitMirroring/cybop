@@ -1,0 +1,29 @@
+<model>
+    <part name="device" channel="inline" format="meta/channel" model="serial-port"/>
+    <part name="device_filename" channel="inline" format="text/plain" model="/dev/ttyACM0"/>
+    <part name="device_baudrate" channel="inline" format="number/integer" model="115200"/>
+    <part name="device_channel" channel="inline" format="text/plain" model="c01"/>
+    <part name="temperature" channel="inline" format="number/integer" model="0"/>
+    <part name="temperature_break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="temperature_count" channel="inline" format="number/integer" model="0"/>
+    <part name="temperature_maximum_count" channel="inline" format="number/integer" model="5"/>
+    <part name="temperature_conversion_factor" channel="inline" format="number/integer" model="10"/>
+    <part name="voltage" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer" channel="inline" format="number/integer" model="0,0,0"/>
+    <part name="voltage_byte_value" channel="inline" format="number/integer" model="256"/>
+    <part name="checksum" channel="inline" format="number/integer" model="0"/>
+    <part name="checksum_comparison" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="checksum_error" channel="inline" format="text/plain" model="Error: The checksum is not valid."/>
+</model>
+
+<!--
+    Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+
+    @version Indoor Climate 1.0.0 2013-03-05
+    @author Ingolf Brunner <ingolf.brunner@ba-leipzig.de>
+    @author Ronny Mauersberger <mauigeyer2@web.de>
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

@@ -157,6 +157,9 @@ static int* FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT = NUMBER_353_INTEGER_STATE
 /** The integer number state cyboi format. */
 static int* INTEGER_NUMBER_STATE_CYBOI_FORMAT = NUMBER_354_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The line speed number state cyboi format. */
+static int* LINE_SPEED_NUMBER_STATE_CYBOI_FORMAT = NUMBER_355_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // path
 //

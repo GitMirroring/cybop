@@ -1,0 +1,44 @@
+<model>
+    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".settings.temperature_break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".settings.temperature_count"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".settings.temperature_maximum_count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
+    </part>
+    <part name="collect_voltages" channel="inline" format="flow/loop" model="">
+        <property name="break" channel="inline" format="path/knowledge" model=".settings.temperature_break"/>
+        <property name="model" channel="file" format="element/part" model="collect_voltages.cybol"/>
+    </part>
+    <part name="calculate_average" channel="inline" format="calculate/divide" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".settings.temperature"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".settings.temperature_maximum_count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="calculate_temperature" channel="inline" format="calculate/divide" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".settings.temperature"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".settings.temperature_conversion_factor"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="print_temperature" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings.temperature"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+
+    @version Indoor Climate 1.0.0 2013-03-05
+    @author Ingolf Brunner <ingolf.brunner@ba-leipzig.de>
+    @author Ronny Mauersberger <mauigeyer2@web.de>
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

@@ -1,0 +1,77 @@
+<model>
+    <part name="create_settings" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="settings"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="initialise_settings" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="indoor_climate/settings.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".settings"/>
+    </part>
+    <!-- Test knowledge tree by writing it into a file. -->
+    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_indoor_climate.txt"/>
+    </part>
+<!--
+    <part name="startup_serial_port" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+        <property name="filename" channel="inline" format="path/knowledge" model=".settings.device_filename"/>
+        <property name="baudrate" channel="inline" format="path/knowledge" model=".settings.device_baudrate"/>
+    </part>
+-->
+<!--
+    <part name="read_temperature" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="file" format="element/part" model="indoor_climate/read_temperature.cybol"/>
+    </part>
+-->
+<!--
+    <part name="read_status" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="file" format="element/part" model="indoor_climate/read_status.cybol"/>
+    </part>
+-->
+<!--
+    <part name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
+        <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+    </part>
+-->
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+</model>
+
+<!--
+    Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+
+    This programme reads the temperature from a microcontroller HB 627.
+    Valid ranges:
+    - voltage: 0 ... 4094 mV
+    - temperature: +2 °C ... 150 °C
+
+    The returned values have the following meaning:
+    buffer[0] - high byte of measurement
+    buffer[1] - low byte of measurement
+    buffer[2] - checksum (buffer[0] + buffer[1])
+
+    The voltage may be calculated by adding high byte and low byte:
+    voltage = (buffer[0] * 256) + buffer[1];
+
+    Mappings:
+    200 mV = 20 °C
+    230 mV = 23 °C
+    234 mV = 23,4 °C
+
+    @version Indoor Climate 1.0.0 2013-03-05
+    @author Ingolf Brunner <ingolf.brunner@ba-leipzig.de>
+    @author Ronny Mauersberger <mauigeyer2@web.de>
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
