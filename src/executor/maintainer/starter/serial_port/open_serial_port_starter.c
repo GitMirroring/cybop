@@ -117,6 +117,13 @@ fwprintf(stdout, L"TEST END --- DELETE LATER ---: %i\n", p0);
 
             int* spi = (int*) sp;
 
+            // Set serial port file descriptor.
+            // CAUTION! Add it as soon as it was allocated above
+            // ALWAYS and not only if opened successfully below.
+            // Otherwise, in case of an error, the shutdown function
+            // freeing it may not find it leading to a memory leak.
+            copy_array_forward(p0, (void*) &sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
             // Initialise error number.
             // It is a global variable/ function and other operations
             // may have set some value that is not wanted here.
@@ -125,8 +132,11 @@ fwprintf(stdout, L"TEST END --- DELETE LATER ---: %i\n", p0);
             // the function that might cause an error.
             copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
+            // Initialise flags.
+            int f = O_RDWR | O_NOCTTY | O_NDELAY;
+
             // Create file descriptor for the given null-terminated filename.
-            *spi = open((char*) p1, O_RDWR | O_NOCTTY | O_NDELAY);
+            *spi = open((char*) p1, f);
 
 fwprintf(stdout, L"TEST open *spi: %i\n", *spi);
 
@@ -137,9 +147,6 @@ fwprintf(stdout, L"TEST open *spi: %i\n", *spi);
             if (*spi >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 startup_serial_port_attributes_get(sp, p2, p0);
-
-                // Set serial port file descriptor.
-                copy_array_forward(p0, (void*) &sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             } else {
 

@@ -1,36 +1,213 @@
-==20144== Memcheck, a memory error detector
-==20144== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
-==20144== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
-==20144== Command: ../src/controller/cyboi tui/run.cybol
-==20144== Parent PID: 12955
-==20144== 
-==20144== 
-==20144== HEAP SUMMARY:
-==20144==     in use at exit: 216,416 bytes in 4 blocks
-==20144==   total heap usage: 69,864 allocs, 69,860 frees, 16,176,925 bytes allocated
-==20144== 
-==20144== 216,360 bytes in 3 blocks are definitely lost in loss record 2 of 2
-==20144==    at 0x4C28BED: malloc (vg_replace_malloc.c:263)
-==20144==    by 0x5AF663C: vfwprintf (vfprintf.c:1623)
-==20144==    by 0x5B0DE37: fwprintf (fwprintf.c:35)
-==20144==    by 0x40DA7D: send_terminal_stream (stream_terminal_sender.c:81)
-==20144==    by 0x4338D5: send_terminal (terminal_sender.c:141)
-==20144==    by 0x43400A: send_data (sender.c:154)
-==20144==    by 0x4347D1: apply_send (send.c:230)
-==20144==    by 0x439CEF: handle_operation (operation_handler.c:231)
-==20144==    by 0x43928F: handle (handler.c:226)
-==20144==    by 0x43938D: handle_part_element (element_part_handler.c:80)
-==20144==    by 0x43948E: handle_part (part_handler.c:81)
-==20144==    by 0x438FEE: handle (handler.c:145)
-==20144== 
-==20144== LEAK SUMMARY:
-==20144==    definitely lost: 216,360 bytes in 3 blocks
-==20144==    indirectly lost: 0 bytes in 0 blocks
-==20144==      possibly lost: 0 bytes in 0 blocks
-==20144==    still reachable: 56 bytes in 1 blocks
-==20144==         suppressed: 0 bytes in 0 blocks
-==20144== Reachable blocks (those to which a pointer was found) are not shown.
-==20144== To see them, rerun with: --leak-check=full --show-reachable=yes
-==20144== 
-==20144== For counts of detected and suppressed errors, rerun with: -v
-==20144== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 6 from 6)
+==12394== Memcheck, a memory error detector
+==12394== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==12394== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==12394== Command: ../src/controller/cyboi indoor_climate/run.cybol
+==12394== Parent PID: 11039
+==12394== 
+--12394-- WARNING: Serious error when reading debug info
+--12394-- When reading debug info from /usr/lib/i386-linux-gnu/fglrx/fglrx-libGL.so.1.2:
+--12394-- Can't make sense of .got section mapping
+==12394== Invalid read of size 4
+==12394==    at 0x80572FD: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8b0 is 0 bytes inside a block of size 4 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x80571AD: deallocate_array (array_deallocator.c:87)
+==12394==    by 0x4D13177: ???
+==12394== 
+==12394== Invalid read of size 4
+==12394==    at 0x43D0DD4: tcsetattr (tcsetattr.c:74)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8e8 is 0 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 4
+==12394==    at 0x43D0DE1: tcsetattr (tcsetattr.c:75)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8ec is 4 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 4
+==12394==    at 0x43D0DE7: tcsetattr (tcsetattr.c:76)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8f0 is 8 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 4
+==12394==    at 0x43D0DED: tcsetattr (tcsetattr.c:77)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8f4 is 12 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 1
+==12394==    at 0x43D0DF3: tcsetattr (tcsetattr.c:78)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8f8 is 16 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 4
+==12394==    at 0x43D0DFA: tcsetattr (tcsetattr.c:85)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8f9 is 17 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 4
+==12394==    at 0x43D0E00: tcsetattr (tcsetattr.c:85)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8fd is 21 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 4
+==12394==    at 0x43D0E06: tcsetattr (tcsetattr.c:85)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac901 is 25 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 4
+==12394==    at 0x43D0E0C: tcsetattr (tcsetattr.c:85)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac905 is 29 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 2
+==12394==    at 0x43D0E12: tcsetattr (tcsetattr.c:85)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac909 is 33 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 1
+==12394==    at 0x43D0E1A: tcsetattr (tcsetattr.c:85)
+==12394==    by 0x805730A: shutdown_serial_port (serial_port_shutter.c:98)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac90b is 35 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid free() / delete / delete[] / realloc()
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8e8 is 0 bytes inside a block of size 60 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x8057322: shutdown_serial_port (serial_port_shutter.c:123)
+==12394==    by 0x80575EB: shutdown_service (shutter.c:75)
+==12394==    by 0x8079D97: apply_shutdown (shutdown.c:73)
+==12394==    by 0x80897D7: handle_operation (operation_handler.c:513)
+==12394==    by 0x8088830: handle (handler.c:226)
+==12394==    by 0x46E31B7: ???
+==12394== 
+==12394== Invalid read of size 4
+==12394==    at 0x8057323: shutdown_serial_port (serial_port_shutter.c:131)
+==12394==    by 0x808A9F6: manage (manager.c:340)
+==12394==    by 0x431AE45: (below main) (libc-start.c:228)
+==12394==  Address 0x4dac8b0 is 0 bytes inside a block of size 4 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x80571AD: deallocate_array (array_deallocator.c:87)
+==12394==    by 0x4D13177: ???
+==12394== 
+==12394== Invalid free() / delete / delete[] / realloc()
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x80571AD: deallocate_array (array_deallocator.c:87)
+==12394==    by 0x46E6D9F: ???
+==12394==  Address 0x4dac8b0 is 0 bytes inside a block of size 4 free'd
+==12394==    at 0x402750C: free (vg_replace_malloc.c:427)
+==12394==    by 0x80571AD: deallocate_array (array_deallocator.c:87)
+==12394==    by 0x4D13177: ???
+==12394== 
+==12394== 
+==12394== HEAP SUMMARY:
+==12394==     in use at exit: 0 bytes in 0 blocks
+==12394==   total heap usage: 59,072 allocs, 59,074 frees, 3,043,320 bytes allocated
+==12394== 
+==12394== All heap blocks were freed -- no leaks are possible
+==12394== 
+==12394== For counts of detected and suppressed errors, rerun with: -v
+==12394== ERROR SUMMARY: 15 errors from 15 contexts (suppressed: 37 from 6)

@@ -11,8 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Test cybol example application "indoor_climate" on microcontroller device
+        * Remove (local on deneb) cybol example application "hedam" which is not needed
+        * Use item for serial port storage in internal memory, since its count and size are needed for deallocation
         * Reset variables in loop cycles of cybol example application "indoor_climate"
+        * Test cybol example application "indoor_climate" on microcontroller device
 
         * Fix memory bug reported by valgrind tool when starting cybol example applications "indoor_climate" (one array is not freed --> happened after adding "overwrite" --> possibly in "realloc"?)
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"

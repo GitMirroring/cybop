@@ -64,41 +64,45 @@ void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
         // "tcsetattr" to get and set the attributes.
         void* o = malloc(sizeof(struct termios));
 
-        // Initialise error number.
-        // It is a global variable/ function and other operations
-        // may have set some value that is not wanted here.
-        //
-        // CAUTION! Initialise the error number BEFORE calling
-        // the function that might cause an error.
-        copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        if (o != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Get original attributes.
-        int e = tcgetattr(*sp, (struct termios*) o);
+            // Initialise error number.
+            // It is a global variable/ function and other operations
+            // may have set some value that is not wanted here.
+            //
+            // CAUTION! Initialise the error number BEFORE calling
+            // the function that might cause an error.
+            copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            // Get original attributes.
+            int e = tcgetattr(*sp, (struct termios*) o);
 
-            // Set serial port original attributes internals.
-            copy_array_forward(p2, (void*) &o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            startup_serial_port_attributes_set(p0, o, p1);
+                // Set serial port original attributes internals.
+                copy_array_forward(p2, (void*) &o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-        } else {
-
-            // Close serial port specified by file descriptor.
-            close(*sp);
-
-            if (errno == EBADF) {
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The filedes argument is not a valid file descriptor.");
-
-            } else if (errno == ENOTTY) {
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The filedes is not associated with a serial port.");
+                startup_serial_port_attributes_set(p0, o, p1);
 
             } else {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. An unknown error occured.");
+                if (errno == EBADF) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The filedes argument is not a valid file descriptor.");
+
+                } else if (errno == ENOTTY) {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The filedes is not associated with a serial port.");
+
+                } else {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. An unknown error occured.");
+                }
             }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The original attributes is null.");
         }
 
     } else {

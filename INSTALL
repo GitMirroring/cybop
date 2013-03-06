@@ -110,12 +110,12 @@ ___________________________
     /home/cybop/src/controller/cyboi ui_control/run.cybol
     /home/cybop/src/controller/cyboi addition_using_serialisation/run.cybol
     /home/cybop/src/controller/cyboi wui/run.cybol
+    /home/cybop/src/controller/cyboi indoor_climate/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via serial port.)
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi http_communication/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi presence/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi character_encoding/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi document_generator/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi gui/run.cybol
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi hedam/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi latex/run.cybol
 
 To make the client-server communication work in the "http_communication" example,
