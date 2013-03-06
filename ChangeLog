@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-06  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt cybol example application "indoor_climate" using "modify/overwrite" operation for accessing buffer elements
+
 2013-03-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt cybol example application "indoor_climate"

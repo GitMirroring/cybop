@@ -9,10 +9,13 @@
     <part name="temperature_maximum_count" channel="inline" format="number/integer" model="5"/>
     <part name="temperature_conversion_factor" channel="inline" format="number/integer" model="10"/>
     <part name="voltage" channel="inline" format="number/integer" model="0"/>
-<!--
     <part name="voltage_buffer" channel="inline" format="number/integer" model="0,0,0"/>
--->
+<!--
     <part name="voltage_buffer" channel="inline" format="number/integer" model="0"/>
+-->
+    <part name="voltage_buffer_high_byte" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_low_byte" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_checksum" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_byte_value" channel="inline" format="number/integer" model="256"/>
     <part name="checksum" channel="inline" format="number/integer" model="0"/>
     <part name="checksum_comparison" channel="inline" format="logicvalue/boolean" model="false"/>

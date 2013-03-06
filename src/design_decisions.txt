@@ -59,6 +59,27 @@ _______________
 - the problem is that nowadays, preformatting is mostly done via css
   classes whose name may vary, so that they cannot be filtered
 
+Accessing Array Elements
+________________________
+
+The following is NOT necessary, since indices may be given to operations like "overwrite" or "add"
+* Find solution for accessing single elements of an array from within cybol
+--> possibly use "overwrite" operation and specify index as property
+--> using a special knowledge path syntax like .settings.buffer[0] is probably NOT possible,
+since a knowledge part (and not integer or character value etc.) is to be returned
+
+Question:
+Should the knowledge path be extended for accessing single array elements?
+
+Example:
+.variables.buffer[0]
+
+Answer:
+No, for two reasons.
+a) The knowledge path always returns a part, never a primitive like integer etc.
+b) The "modify/overwrite" operation has "index" properties, so that
+   single elements of an array may be accessed.
+
 Multiple Formats
 ________________
 

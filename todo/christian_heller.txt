@@ -13,12 +13,8 @@
 
         * Test cybol example application "indoor_climate" on microcontroller device
         * Reset variables in loop cycles of cybol example application "indoor_climate"
-        The following is NOT necessary, since indices may be given to operations like "overwrite" or "add"
-        * Find solution for accessing single elements of an array from within cybol
-            --> possibly use "overwrite" operation and specify index as property
-            --> using a special knowledge path syntax like .settings.buffer[0] is probably NOT possible,
-                since a knowledge part (and not integer or character value etc.) is to be returned
 
+        * Fix memory bug reported by valgrind tool when starting cybol example applications "indoor_climate" (one array is not freed --> happened after adding "overwrite" --> possibly in "realloc"?)
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
             but in some application this works just fine, e.g. in "helloworld" with terminal output)
