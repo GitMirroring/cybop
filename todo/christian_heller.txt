@@ -12,6 +12,8 @@
 #
 
         * Test cybol example application "indoor_climate" on microcontroller device
+        * Reset variables in loop cycles of cybol example application "indoor_climate"
+        The following is NOT necessary, since indices may be given to operations like "overwrite" or "add"
         * Find solution for accessing single elements of an array from within cybol
             --> possibly use "overwrite" operation and specify index as property
             --> using a special knowledge path syntax like .settings.buffer[0] is probably NOT possible,
