@@ -58,107 +58,114 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3) {
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* f = (int*) p1;
+            int* sp = (int*) p1;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port character.");
 
-            // The input character.
-            unsigned char c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            if (*sp >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            // The temporary size_t variable.
-            //
-            // CAUTION! It IS NECESSARY because on 64 Bit machines,
-            // the "size_t" type has a size of 8 Byte,
-            // whereas the "int" type has the usual size of 4 Byte.
-            // When trying to cast between the two, memory errors
-            // will occur and the valgrind memcheck tool report:
-            // "Invalid read of size 8".
-            //
-            // CAUTION! Initialise temporary size_t variable with final int value
-            // JUST BEFORE handing that over to the glibc function requiring it.
-            //
-            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-            // because values are casted to int* internally again.
-            size_t ts = *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
+                // The input character.
+                unsigned char c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            // Initialise error number.
-            // It is a global variable/ function and other operations
-            // may have set some value that is not wanted here.
-            //
-            // CAUTION! Initialise the error number BEFORE calling
-            // the function that might cause an error.
-            copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                // The temporary size_t variable.
+                //
+                // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                // the "size_t" type has a size of 8 Byte,
+                // whereas the "int" type has the usual size of 4 Byte.
+                // When trying to cast between the two, memory errors
+                // will occur and the valgrind memcheck tool report:
+                // "Invalid read of size 8".
+                //
+                // CAUTION! Initialise temporary size_t variable with final int value
+                // JUST BEFORE handing that over to the glibc function requiring it.
+                //
+                // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                // because values are casted to int* internally again.
+                size_t ts = *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
 
-            // Lock serial port mutex.
-            //
-            // CAUTION! This IS NECESSARY to avoid conflicts with the serial port sensing thread,
-            // which in parallel is trying to detect that some character is available,
-            // what is also called "peeking ahead" at the input.
-            pthread_mutex_lock(p2);
+                // Initialise error number.
+                // It is a global variable/ function and other operations
+                // may have set some value that is not wanted here.
+                //
+                // CAUTION! Initialise the error number BEFORE calling
+                // the function that might cause an error.
+                copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-            // Get character from source input stream of serial port.
-            ssize_t e = read(*f, (void*) &c, ts);
+                // Lock serial port mutex.
+                //
+                // CAUTION! This IS NECESSARY to avoid conflicts with the serial port sensing thread,
+                // which in parallel is trying to detect that some character is available,
+                // what is also called "peeking ahead" at the input.
+                pthread_mutex_lock(p2);
 
-            // Unlock serial port mutex.
-            pthread_mutex_unlock(p2);
+                // Get character from source input stream of serial port.
+                ssize_t e = read(*sp, (void*) &c, ts);
 
-            // Test error value.
-            // The return value of the "read" function is
-            // the number of bytes actually read, if no
-            // error occurred; otherwise, it is minus one.
-            if (e > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                // Unlock serial port mutex.
+                pthread_mutex_unlock(p2);
 
-                if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                // Test error value.
+                // The return value of the "read" function is
+                // the number of bytes actually read, if no
+                // error occurred; otherwise, it is minus one.
+                if (e > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 //?? fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
 
-                    // Append source character to destination item.
-                    append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                        // Append source character to destination item.
+                        append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-                } else {
+                    } else {
+
+                        // Set loop break flag.
+                        // An input character value of zero indicates end-of-file.
+                        // Since all values have been received, the loop can be left now.
+                        copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    }
+
+                } else if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The number of bytes returned is zero.");
 
                     // Set loop break flag.
                     // An input character value of zero indicates end-of-file.
                     // Since all values have been received, the loop can be left now.
                     copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                } else if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    if (errno == EAGAIN) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The O_NONBLOCK flag is set for the file, so that read returned immediately without reading any data.");
+
+                    } else if (errno == EBADF) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The file descriptor is not valid, or is not open for reading.");
+
+                    } else if (errno == EINTR) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The read function was interrupted by a signal while it was waiting for input.");
+
+                    } else if (errno == EIO) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. A hardware error occured.");
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. An unknown error occured.");
+                    }
+
+                    // Set loop break flag.
+                    // CAUTION! If this was not done here,
+                    // the loop would run endlessly.
+                    copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
 
-            } else if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The number of bytes returned is zero.");
-
-                // Set loop break flag.
-                // An input character value of zero indicates end-of-file.
-                // Since all values have been received, the loop can be left now.
-                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            } else if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                if (errno == EAGAIN) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The O_NONBLOCK flag is set for the file, so that read returned immediately without reading any data.");
-
-                } else if (errno == EBADF) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The file descriptor is not valid, or is not open for reading.");
-
-                } else if (errno == EINTR) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The read function was interrupted by a signal while it was waiting for input.");
-
-                } else if (errno == EIO) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. A hardware error occured.");
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. An unknown error occured.");
-                }
-
-                // Set loop break flag.
-                // CAUTION! If this was not done here,
-                // the loop would run endlessly.
-                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port file descriptor is zero or negative.");
             }
 
         } else {

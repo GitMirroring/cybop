@@ -86,6 +86,9 @@ void deallocate_array(void* p0, void* p1, void* p2, void* p3) {
             // and probably set wrong, e.g. outside an allocated area.
             free(*a);
 
+            // Reset array to null value.
+            *a = *NULL_POINTER_STATE_CYBOI_MODEL;
+
             // Decrement array reference counter.
             // CAUTION! This is ONLY needed for debugging.
             (*ARRAY_REFERENCE_COUNTER)--;

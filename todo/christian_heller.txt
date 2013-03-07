@@ -11,12 +11,20 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Remove (local on deneb) cybol example application "hedam" which is not needed
+        * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
+            that become invalid after having shutdown a service and destroyed related objects;
+            Example:
+
+            // Set serial port file descriptor.
+            // CAUTION! Assign NULL to the internal memory.
+            // It is ESSENTIAL, since cyboi tests for null pointers.
+            // Otherwise, wild pointers would lead to memory corruption.
+            copy_array_forward(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
         * Use item for serial port storage in internal memory, since its count and size are needed for deallocation
         * Reset variables in loop cycles of cybol example application "indoor_climate"
         * Test cybol example application "indoor_climate" on microcontroller device
 
-        * Fix memory bug reported by valgrind tool when starting cybol example applications "indoor_climate" (one array is not freed --> happened after adding "overwrite" --> possibly in "realloc"?)
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
             but in some application this works just fine, e.g. in "helloworld" with terminal output)
@@ -37,9 +45,6 @@
             using the function "copy_part" for deep copying does not make sense, since a part's child nodes change dynamically and are not predictable
             USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
             shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
-
-        * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
-            that become invalid after having shutdown a service and destroyed related objects
 
         * Reactivate x_window_system receive functionality
         * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):
