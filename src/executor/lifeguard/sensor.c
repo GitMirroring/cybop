@@ -110,7 +110,7 @@ fwprintf(stdout, L"TEST sense cyboi r: %i\n", r);
 //?? fwprintf(stdout, L"TEST sense serial port r: %i\n", r);
 
             // Set handler.
-            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Sense incoming message.
             sense_message(p0, (void*) SERIAL_PORT_THREAD, (void*) &sense_serial_port);

@@ -51,16 +51,16 @@ void receive_serial_port_file(void* p0, void* p1) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port file.");
 
     // The serial port input file descriptor.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial port mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get serial port file descriptor.
-    copy_array_forward((void*) &f, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sp, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get serial port mutex.
     copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    receive_serial_port_stream(p0, f, m);
+    receive_serial_port_stream(p0, sp, m);
 }
 
 /* FILE_SERIAL_PORT_RECEIVER_SOURCE */

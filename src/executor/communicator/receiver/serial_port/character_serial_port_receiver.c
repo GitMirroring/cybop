@@ -166,6 +166,11 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3) {
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port file descriptor is zero or negative.");
+
+                // Set loop break flag.
+                // An input character value of zero indicates end-of-file.
+                // Since all values have been received, the loop can be left now.
+                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
         } else {

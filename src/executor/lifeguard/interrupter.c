@@ -41,62 +41,99 @@
 /**
  * Interrupts the service running at the given channel.
  *
- * @param p0 the channel
+ * @param p0 the internal memory data
+ * @param p1 the channel
  */
-void interrupt(void* p0) {
+void interrupt(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Interrupt.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The internal memory index.
+    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) CYBOI_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) CYBOI_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             interrupt_thread((void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
+
+            // Reset handler.
+            // CAUTION! Assign NULL to the internal memory.
+            // It is ESSENTIAL, since cyboi tests for null pointers.
+            // Otherwise, wild pointers would lead to memory corruption.
+            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) HANDLER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             interrupt_thread((void*) SERIAL_PORT_THREAD, (void*) SERIAL_PORT_EXIT);
+
+            // Reset handler.
+            // CAUTION! Assign NULL to the internal memory.
+            // It is ESSENTIAL, since cyboi tests for null pointers.
+            // Otherwise, wild pointers would lead to memory corruption.
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             interrupt_thread((void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
+
+            // Reset handler.
+            // CAUTION! Assign NULL to the internal memory.
+            // It is ESSENTIAL, since cyboi tests for null pointers.
+            // Otherwise, wild pointers would lead to memory corruption.
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) WWW_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) WWW_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             interrupt_thread((void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
+
+            // Reset handler.
+            // CAUTION! Assign NULL to the internal memory.
+            // It is ESSENTIAL, since cyboi tests for null pointers.
+            // Otherwise, wild pointers would lead to memory corruption.
+            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) HANDLER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p0, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             interrupt_thread((void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
+
+            // Reset handler.
+            // CAUTION! Assign NULL to the internal memory.
+            // It is ESSENTIAL, since cyboi tests for null pointers.
+            // Otherwise, wild pointers would lead to memory corruption.
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 

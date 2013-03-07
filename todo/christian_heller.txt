@@ -11,16 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Assign *NULL_POINTER_STATE_CYBOI_MODEL explicitly for internal memory entries
-            that become invalid after having shutdown a service and destroyed related objects;
-            Example:
-
-            // Set serial port file descriptor.
-            // CAUTION! Assign NULL to the internal memory.
-            // It is ESSENTIAL, since cyboi tests for null pointers.
-            // Otherwise, wild pointers would lead to memory corruption.
-            copy_array_forward(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
         * Use item for serial port storage in internal memory, since its count and size are needed for deallocation
         * Reset variables in loop cycles of cybol example application "indoor_climate"
         * Test cybol example application "indoor_climate" on microcontroller device

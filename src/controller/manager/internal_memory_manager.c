@@ -116,10 +116,15 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3,
         }
 
         // Set null pointer at index.
-        // CAUTION! The "copy" (other than the "overwrite") function does not
-        // check array borders, nor extend the array's size.
+        //
+        // CAUTION! The "copy" (other than the "overwrite") function does
+        // neither check array borders, nor extend the array's size.
         // For faster access, it was used here anyway, presuming that
         // the internal memory was allocated with correct size.
+        //
+        // CAUTION! Assign NULL to the internal memory.
+        // It is ESSENTIAL, since cyboi tests for null pointers.
+        // Otherwise, wild pointers would lead to memory corruption.
         copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         j++;

@@ -51,7 +51,7 @@ void send_terminal_file(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal file.");
 
     // The terminal output file descriptor.
-//??    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+//??    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // CAUTION! This is a temporary solution.
     // Normally, EACH cybol application would have to call
@@ -59,12 +59,12 @@ void send_terminal_file(void* p0, void* p1, void* p2) {
     // in order to be able to output anything on terminal.
     // As a convenience for cybol developers, the standard
     // output stream is set as default here.
-    void* f = (void*) stdout;
+    void* t = (void*) stdout;
 
     // Get terminal output file descriptor.
-//??    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_STREAM_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+//??    copy_array_forward((void*) &t, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_STREAM_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    send_terminal_stream(f, p0, p1);
+    send_terminal_stream(t, p0, p1);
 }
 
 /* FILE_TERMINAL_SENDER_SOURCE */

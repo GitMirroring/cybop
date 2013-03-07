@@ -87,6 +87,8 @@ void deallocate_array(void* p0, void* p1, void* p2, void* p3) {
             free(*a);
 
             // Reset array to null value.
+            // CAUTION! This is ESSENTIAL, since cyboi tests for null pointers.
+            // Otherwise, wild pointers would lead to memory corruption.
             *a = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Decrement array reference counter.

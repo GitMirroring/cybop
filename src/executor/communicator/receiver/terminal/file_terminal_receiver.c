@@ -50,18 +50,18 @@ void receive_terminal_file(void* p0, void* p1) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal file.");
 
     // The terminal input file descriptor.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The terminal mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get terminal input file descriptor.
     // Temporary alternative for testing:
-    // f = (void*) stdin;
-    copy_array_forward((void*) &f, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_STREAM_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // t = (void*) stdin;
+    copy_array_forward((void*) &t, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_STREAM_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get terminal mutex.
     copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    receive_terminal_stream(p0, f, m);
+    receive_terminal_stream(p0, t, m);
 }
 
 /* FILE_TERMINAL_RECEIVER_SOURCE */

@@ -121,19 +121,21 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
                     }
                 }
 
-    fwprintf(stdout, L"TEST free o pre: %i\n", o);
-
-                // Deallocate attributes.
+                // Deallocate original attributes.
                 free(o);
 
-    fwprintf(stdout, L"TEST free o post: %i\n", o);
+                // Reset original attributes.
+                // CAUTION! Assign NULL to the internal memory.
+                // It is ESSENTIAL, since cyboi tests for null pointers.
+                // Otherwise, wild pointers would lead to memory corruption.
+                copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. The original attributes is null.");
             }
 
-            // Close file descriptor for the given null-terminated filename.
+            // Close file descriptor.
             int e = close(*spi);
 
             // The normal return value from "close" is zero;
@@ -176,11 +178,11 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
         int sps = *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
         deallocate_array((void*) &sp, (void*) &spc, (void*) &sps, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-        // Set serial port file descriptor.
+        // Reset serial port file descriptor.
         // CAUTION! Assign NULL to the internal memory.
         // It is ESSENTIAL, since cyboi tests for null pointers.
         // Otherwise, wild pointers would lead to memory corruption.
-        copy_array_forward(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 

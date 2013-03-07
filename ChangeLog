@@ -19,8 +19,9 @@
 2013-03-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Reset array to null value in file "array_deallocator.c"
-        * Assign null pointer explicitly to internal memory's serial port entry after deallocating it
-            in order to fix glibc detected corrupted double-linked list bug with cybol example application "indoor_climate"
+        * Assign null pointer explicitly to internal memory entries after having shut down a service and deallocated related variables,
+            in order to further avoid memory corruption like glibc detected corrupted double-linked list bug
+        * Reset interrupt handlers in file "executor/lifeguard/interrupter.c", which were previously initialised in file "executor/lifeguard/sensor.c"
 
 2013-03-06  Christian Heller  <christian.heller@tuxtax.de>
 

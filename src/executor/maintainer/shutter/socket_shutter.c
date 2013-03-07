@@ -127,6 +127,34 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
             deallocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             // Deallocate communication partner socket address size.
             deallocate((void*) &pas, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+            // Reset socket variables.
+            // CAUTION! Assign NULL to the internal memory.
+            // It is ESSENTIAL, since cyboi tests for null pointers.
+            // Otherwise, wild pointers would lead to memory corruption.
+
+            // Reset socket address of this system.
+            i = *base + *DATA_ADDRESS_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            // Reset communication partner socket address.
+            i = *base + *ADDRESS_COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            // Reset socket address size of this system.
+            i = *base + *SIZE_ADDRESS_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            // Reset communication partner socket address size.
+            i = *base + *ADDRESS_SIZE_COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            // Reset communication partner socket.
+            i = *base + *COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            // Reset character buffer.
+            i = *base + *DATA_CHARACTER_BUFFER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            i = *base + *COUNT_CHARACTER_BUFFER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            i = *base + *SIZE_CHARACTER_BUFFER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 */
 
 /*??
