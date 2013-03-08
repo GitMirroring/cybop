@@ -20,6 +20,10 @@
 
         * Test cybol example application "indoor_climate" on temperature sensor microcontroller device
         * Implement "null_termination" boolean property of operation "communicate/send" in cyboi, needed to send string commands to microcontroller device
+        * Use "modify/empty" instead of "modify/overwrite" for buffer reset
+        * Add file "typecast_decoder.c" to cyboi for converting "unsigned char" to "int" within cybol application,
+            since otherwise, char value pointers are dereferenced to int leading to wrong values
+            and to valgrind reporting "Invalid read of size 4"
 
 2013-03-07  Christian Heller  <christian.heller@tuxtax.de>
 

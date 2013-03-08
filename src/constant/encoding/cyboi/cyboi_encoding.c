@@ -37,28 +37,6 @@
 //
 
 //
-// General.
-//
-
-/** The ascii cyboi encoding. */
-static int* ASCII_CYBOI_ENCODING = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The big-5 cyboi encoding. */
-static int* BIG_5_CYBOI_ENCODING = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The ebcdic cyboi encoding. */
-static int* EBCDIC_CYBOI_ENCODING = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The gb cyboi encoding. */
-static int* GB_CYBOI_ENCODING = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The shift jis cyboi encoding. */
-static int* SHIFT_JIS_CYBOI_ENCODING = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The universal cyboi encoding. */
-static int* UNIVERSAL_CYBOI_ENCODING = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // DOS.
 //
 
@@ -66,50 +44,26 @@ static int* UNIVERSAL_CYBOI_ENCODING = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* DOS_850_CYBOI_ENCODING = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Windows.
+// General.
 //
 
-/** The windows 874 cyboi encoding. */
-static int* WINDOWS_874_CYBOI_ENCODING = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The ascii cyboi encoding. */
+static int* ASCII_CYBOI_ENCODING = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The windows 932 cyboi encoding. */
-static int* WINDOWS_932_CYBOI_ENCODING = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The big-5 cyboi encoding. */
+static int* BIG_5_CYBOI_ENCODING = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The windows 936 cyboi encoding. */
-static int* WINDOWS_936_CYBOI_ENCODING = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The ebcdic cyboi encoding. */
+static int* EBCDIC_CYBOI_ENCODING = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The windows 949 cyboi encoding. */
-static int* WINDOWS_949_CYBOI_ENCODING = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The gb cyboi encoding. */
+static int* GB_CYBOI_ENCODING = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The windows 950 cyboi encoding. */
-static int* WINDOWS_950_CYBOI_ENCODING = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The shift jis cyboi encoding. */
+static int* SHIFT_JIS_CYBOI_ENCODING = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The windows 1250 cyboi encoding. */
-static int* WINDOWS_1250_CYBOI_ENCODING = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The windows 1251 cyboi encoding. */
-static int* WINDOWS_1251_CYBOI_ENCODING = NUMBER_206_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The windows 1252 cyboi encoding. */
-static int* WINDOWS_1252_CYBOI_ENCODING = NUMBER_207_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The windows 1253 cyboi encoding. */
-static int* WINDOWS_1253_CYBOI_ENCODING = NUMBER_208_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The windows 1254 cyboi encoding. */
-static int* WINDOWS_1254_CYBOI_ENCODING = NUMBER_209_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The windows 1255 cyboi encoding. */
-static int* WINDOWS_1255_CYBOI_ENCODING = NUMBER_210_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The windows 1256 cyboi encoding. */
-static int* WINDOWS_1256_CYBOI_ENCODING = NUMBER_211_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The windows 1257 cyboi encoding. */
-static int* WINDOWS_1257_CYBOI_ENCODING = NUMBER_212_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The windows 1258 cyboi encoding. */
-static int* WINDOWS_1258_CYBOI_ENCODING = NUMBER_213_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The universal cyboi encoding. */
+static int* UNIVERSAL_CYBOI_ENCODING = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // ISO 8859.
@@ -164,6 +118,13 @@ static int* ISO_8859_15_CYBOI_ENCODING = NUMBER_315_INTEGER_STATE_CYBOI_MODEL_AR
 static int* ISO_8859_16_CYBOI_ENCODING = NUMBER_316_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// Typecast.
+//
+
+/** The integer typecast cyboi encoding. */
+static int* INTEGER_TYPECAST_CYBOI_ENCODING = NUMBER_400_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // Unicode.
 //
 
@@ -193,6 +154,52 @@ static int* UTF_EBCDIC_CYBOI_ENCODING = NUMBER_507_INTEGER_STATE_CYBOI_MODEL_ARR
 
 /** The utf scsu cyboi encoding. */
 static int* UTF_SCSU_CYBOI_ENCODING = NUMBER_508_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Windows.
+//
+
+/** The windows 874 cyboi encoding. */
+static int* WINDOWS_874_CYBOI_ENCODING = NUMBER_600_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 932 cyboi encoding. */
+static int* WINDOWS_932_CYBOI_ENCODING = NUMBER_601_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 936 cyboi encoding. */
+static int* WINDOWS_936_CYBOI_ENCODING = NUMBER_602_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 949 cyboi encoding. */
+static int* WINDOWS_949_CYBOI_ENCODING = NUMBER_603_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 950 cyboi encoding. */
+static int* WINDOWS_950_CYBOI_ENCODING = NUMBER_604_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 1250 cyboi encoding. */
+static int* WINDOWS_1250_CYBOI_ENCODING = NUMBER_605_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 1251 cyboi encoding. */
+static int* WINDOWS_1251_CYBOI_ENCODING = NUMBER_606_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 1252 cyboi encoding. */
+static int* WINDOWS_1252_CYBOI_ENCODING = NUMBER_607_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 1253 cyboi encoding. */
+static int* WINDOWS_1253_CYBOI_ENCODING = NUMBER_608_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 1254 cyboi encoding. */
+static int* WINDOWS_1254_CYBOI_ENCODING = NUMBER_609_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 1255 cyboi encoding. */
+static int* WINDOWS_1255_CYBOI_ENCODING = NUMBER_610_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 1256 cyboi encoding. */
+static int* WINDOWS_1256_CYBOI_ENCODING = NUMBER_611_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 1257 cyboi encoding. */
+static int* WINDOWS_1257_CYBOI_ENCODING = NUMBER_612_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The windows 1258 cyboi encoding. */
+static int* WINDOWS_1258_CYBOI_ENCODING = NUMBER_613_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CYBOI_ENCODING_CONSTANT_SOURCE */
 #endif

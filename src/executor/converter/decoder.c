@@ -31,6 +31,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/converter/decoder/iso_8859/iso_8859_decoder.c"
+#include "../../executor/converter/decoder/typecast/typecast_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_16_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../executor/converter/decoder/windows/windows_decoder.c"
@@ -72,6 +73,20 @@ void decode(void* p0, void* p1, void* p2, void* p3) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             decode_iso_8859(p0, p1, p2, p3);
+        }
+    }
+
+    //
+    // typecast
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) INTEGER_TYPECAST_CYBOI_ENCODING);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            decode_typecast(p0, p1, p2, p3);
         }
     }
 

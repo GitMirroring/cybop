@@ -11,7 +11,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Is a cybol operation for casting needed? --> try out in a cyboi test function
+        * Add "none" encoding constant; if "none", then use "overwrite" (just one line) to copy source to destination
+        * Add "encoding" property to receive operation in cybol application
+        * Use decoding in serial-port receiver (if int then casted to int; if none, then data remain char, i.e. text/ascii bytes in cybol)
+            and store decoded integer data in new knowledge node
+        * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
+
+        * OPTIONAL: Provide applicator cybol operations for "converter"
         * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
         * Implement temperature sensor query loop in cybol example application "indoor_climate"
         * Provide "usleep" function to cybol:
