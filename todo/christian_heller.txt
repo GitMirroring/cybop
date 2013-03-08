@@ -11,14 +11,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Is a cybol operation for casting needed? --> try out in a cyboi test function
+        * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
+        * Implement temperature sensor query loop in cybol example application "indoor_climate"
         * Provide "usleep" function to cybol:
             #include <unistd.h>
             int usleep(useconds_t usec);
-        * Implement temperature sensor query loop in cybol example application "indoor_climate"
-
         * Use item for serial port storage in internal memory, since its count and size are needed for deallocation
-        * Reset variables in loop cycles of cybol example application "indoor_climate"
-        * Test cybol example application "indoor_climate" on temperature sensor microcontroller device
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

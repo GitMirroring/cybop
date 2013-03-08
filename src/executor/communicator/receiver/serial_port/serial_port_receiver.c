@@ -57,51 +57,19 @@ void receive_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port.");
 
-    // The decoded message item.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The decoded message item data, count.
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // CAUTION! The multibyte character sequence is NOT converted
+    // into wide character here, since serial port data are mostly
+    // to be evaluated bytewise within a cybol application.
+    // The "encoding" parametre is therefore obsolete.
 
-    // Allocate decoded message item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The multibyte character sequence is NOT deserialised
+    // into a cyboi-internal part, since serial port data are mostly
+    // to be evaluated bytewise within a cybol application.
+    // The "language" and "format" parametres are therefore obsolete
+    // (to be deleted in the future).
 
     // Receive byte data via channel.
-    receive_serial_port_file(d, p4);
-
-    // CAUTION! The multibyte character sequence is converted to
-    // wide character internally (in glibc function "fgetwc").
-    // Calling the "decode" or "decode_utf_8" function
-    // is therefore NOT necessary here!
-
-    // Get decoded message item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-/*??
-fwprintf(stdout, L"TEST receive serial port *dc: %i\n", *((int*) dc));
-fwprintf(stdout, L"TEST receive serial port dd: %s\n", (char*) dd);
-*/
-
-    // Deserialise data.
-    deserialise(p0, p1, dd, dc, p2, p3);
-
-/*?? TEST only! Delete later.
-void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
-void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
-copy_array_forward((void*) &testd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-copy_array_forward((void*) &testc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST receive serial port *testc: %i\n", *((int*) testc));
-fwprintf(stdout, L"TEST receive serial port testd: %ls\n", (wchar_t*) testd);
-*/
-
-    // Deallocate decoded message item.
-    deallocate_item((void*) &d, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    receive_serial_port_file(p0, p4);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

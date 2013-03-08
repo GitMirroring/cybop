@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Test cybol example application "indoor_climate" on temperature sensor microcontroller device
+        * Implement "null_termination" boolean property of operation "communicate/send" in cyboi, needed to send string commands to microcontroller device
+
 2013-03-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Reset array to null value in file "array_deallocator.c"

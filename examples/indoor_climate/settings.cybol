@@ -8,15 +8,15 @@
     <part name="temperature_count" channel="inline" format="number/integer" model="0"/>
     <part name="temperature_maximum_count" channel="inline" format="number/integer" model="5"/>
     <part name="temperature_conversion_factor" channel="inline" format="number/integer" model="10"/>
-    <part name="voltage" channel="inline" format="number/integer" model="0"/>
-    <part name="voltage_buffer" channel="inline" format="number/integer" model="0,0,0"/>
-<!--
-    <part name="voltage_buffer" channel="inline" format="number/integer" model="0"/>
--->
-    <part name="voltage_buffer_high_byte" channel="inline" format="number/integer" model="0"/>
-    <part name="voltage_buffer_low_byte" channel="inline" format="number/integer" model="0"/>
-    <part name="voltage_buffer_checksum" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage" channel="inline" format="number/integer" model="-1"/>
+    <part name="voltage_buffer" channel="inline" format="text/ascii" model="0,0,0"/>
+    <part name="voltage_buffer_high_byte" channel="inline" format="text/ascii" model="0"/>
+    <part name="voltage_buffer_low_byte" channel="inline" format="text/ascii" model="0"/>
+    <!-- QUESTION: Should checksum not be an integer, since it may be 255 + 255 which is greater than unsigned char? But the buffer may only contain elements of type unsigned char. -->
+    <part name="voltage_buffer_checksum" channel="inline" format="text/ascii" model="0"/>
     <part name="voltage_byte_value" channel="inline" format="number/integer" model="256"/>
+    <part name="voltage_comparison" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_error" channel="inline" format="text/plain" model="Error: The voltage is not valid."/>
     <part name="checksum" channel="inline" format="number/integer" model="0"/>
     <part name="checksum_comparison" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="checksum_error" channel="inline" format="text/plain" model="Error: The checksum is not valid."/>

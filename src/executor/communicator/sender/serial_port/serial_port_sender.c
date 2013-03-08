@@ -56,8 +56,9 @@
  * @param p7 the language
  * @param p8 the encoding
  * @param p9 the internal memory
+ * @param p10 the null termination flag
  */
-void send_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void send_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send serial port.");
 
@@ -98,6 +99,22 @@ void send_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     // Encode serialised wide character array into encoded character array.
     encode(e, sd, sc, p8);
+
+    // Compare null termination flag.
+    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Add null termination character.
+        // CAUTION! Appending a wide character null termination to the
+        // serialised wide character item above does NOT make sense,
+        // since it WON'T get converted into an ascii character null
+        // termination of the resulting multibyte character sequence.
+        // The encode function above only converts the actual characters
+        // whose count is given, but NOT a null termination character.
+        // Therefore, the null termination is only added here, as ascii character.
+        append_item_element(e, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    }
 
     // Get encoded character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

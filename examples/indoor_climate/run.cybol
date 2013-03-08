@@ -1,26 +1,8 @@
 <model>
-    <!-- TEST -->
-    <part name="test_create" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="test create"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
     <part name="create_settings" channel="inline" format="memorise/create" model="">
         <property name="name" channel="inline" format="text/plain" model="settings"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <!-- TEST -->
-    <part name="test_initialise" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="test initialise"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="initialise_settings" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -41,28 +23,10 @@
         <property name="receiver" channel="inline" format="text/plain" model="test_indoor_climate.txt"/>
     </part>
 -->
-    <!-- TEST -->
-    <part name="test_startup" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="test startup"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
     <part name="startup_serial_port" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
         <property name="filename" channel="inline" format="path/knowledge" model=".settings.device_filename"/>
         <property name="baudrate" channel="inline" format="path/knowledge" model=".settings.device_baudrate"/>
-    </part>
-    <!-- TEST -->
-    <part name="test_read_temperature" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="test read_temperature"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="read_temperature" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="file" format="element/part" model="indoor_climate/read_temperature.cybol"/>
@@ -72,26 +36,8 @@
         <property name="model" channel="file" format="element/part" model="indoor_climate/read_status.cybol"/>
     </part>
 -->
-    <!-- TEST -->
-    <part name="test_shutdown" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="test shutdown"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
     <part name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
         <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
-    </part>
-    <!-- TEST -->
-    <part name="test_exit" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="test exit"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>
