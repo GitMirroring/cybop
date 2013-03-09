@@ -633,7 +633,7 @@ void test_communicator_mesa_opengl() {
 /**
  * Tests the communicator.
  *
- * Sub test procedure call can be activated/ deactivated here
+ * Sub test procedure calls can be activated/ deactivated here
  * by simply commenting/ uncommenting the corresponding lines.
  */
 void test_communicator() {

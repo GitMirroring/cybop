@@ -280,7 +280,7 @@ void test_comparator_part() {
 /**
  * Tests the comparator.
  *
- * Sub test procedure call can be activated/ deactivated here
+ * Sub test procedure calls can be activated/ deactivated here
  * by simply commenting/ uncommenting the corresponding lines.
  */
 void test_comparator() {

@@ -11,14 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Add "none" encoding constant; if "none", then use "overwrite" (just one line) to copy source to destination
-        * Add "encoding" property to receive operation in cybol application
-        * Use decoding in serial-port receiver (if int then casted to int; if none, then data remain char, i.e. text/ascii bytes in cybol)
-            and store decoded integer data in new knowledge node
-        * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
-
-        * OPTIONAL: Provide applicator cybol operations for "converter"
+        * Try out function "test_serial_port" by stepwise uncommenting code
         * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
+        * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
+        * OPTIONAL: Provide applicator cybol operations for "converter"
         * Implement temperature sensor query loop in cybol example application "indoor_climate"
         * Provide "usleep" function to cybol:
             #include <unistd.h>

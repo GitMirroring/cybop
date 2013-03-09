@@ -75,6 +75,16 @@ static wchar_t GB_CYBOL_ENCODING_ARRAY[] = {L'g', L'b'};
 static wchar_t* GB_CYBOL_ENCODING = GB_CYBOL_ENCODING_ARRAY;
 static int* GB_CYBOL_ENCODING_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/*
+ * The none cybol encoding.
+ *
+ * It is used when no encoding is to be applied.
+ * In this case, source data are just copied to the destination.
+ */
+static wchar_t NONE_CYBOL_ENCODING_ARRAY[] = {L'n', L'o', L'n', L'e'};
+static wchar_t* NONE_CYBOL_ENCODING = NONE_CYBOL_ENCODING_ARRAY;
+static int* NONE_CYBOL_ENCODING_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The html coded cybol encoding. */
 /*??
 static wchar_t HTML_CODED_CYBOL_ENCODING_ARRAY[] = {L'h', L't', L'm', L'l', L' ', L'c', L'o', L'd', L'e', L'd'};

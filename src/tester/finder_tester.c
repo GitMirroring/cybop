@@ -414,7 +414,7 @@ void test_finder_array() {
 /**
  * Tests the finder.
  *
- * Sub test procedure call can be activated/ deactivated here
+ * Sub test procedure calls can be activated/ deactivated here
  * by simply commenting/ uncommenting the corresponding lines.
  */
 void test_finder() {

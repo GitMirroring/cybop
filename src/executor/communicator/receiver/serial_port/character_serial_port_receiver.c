@@ -101,6 +101,8 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3) {
                 // Get character from source input stream of serial port.
                 ssize_t e = read(*sp, (void*) &c, ts);
 
+fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
+
                 // Unlock serial port mutex.
                 pthread_mutex_unlock(p2);
 
@@ -111,8 +113,6 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3) {
                 if (e > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-//?? fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
 
                         // Append source character to destination item.
                         append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

@@ -9,28 +9,77 @@
     </part>
     <part name="receive_response" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="typecast-integer"/>
         <property name="model" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
     </part>
     <part name="copy_high_byte" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
         <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-        <property name="type" channel="inline" format="meta/type" model="text/ascii"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="count" channel="inline" format="number/integer" model="1"/>
         <property name="source_index" channel="inline" format="number/integer" model="0"/>
     </part>
     <part name="copy_low_byte" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
         <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-        <property name="type" channel="inline" format="meta/type" model="text/ascii"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="count" channel="inline" format="number/integer" model="1"/>
         <property name="source_index" channel="inline" format="number/integer" model="1"/>
     </part>
     <part name="copy_checksum" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_checksum"/>
         <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-        <property name="type" channel="inline" format="meta/type" model="text/ascii"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="count" channel="inline" format="number/integer" model="1"/>
         <property name="source_index" channel="inline" format="number/integer" model="2"/>
+    </part>
+    <part name="TEST_HIGH_BYTE" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="TEST high byte:"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="TEST_HIGH_BYTE_VALUE" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="TEST_LOW_BYTE" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="TEST low byte:"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="TEST_LOW_BYTE_VALUE" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="TEST_CHECKSUM" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="TEST checksum:"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="TEST_CHECKSUM_VALUE" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_checksum"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 </model>
 

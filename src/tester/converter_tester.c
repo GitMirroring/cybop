@@ -260,7 +260,7 @@ void test_converter_decode_utf_8() {
 /**
  * Tests the converter.
  *
- * Sub test procedure call can be activated/ deactivated here
+ * Sub test procedure calls can be activated/ deactivated here
  * by simply commenting/ uncommenting the corresponding lines.
  */
 void test_converter() {

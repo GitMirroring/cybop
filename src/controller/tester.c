@@ -42,6 +42,7 @@
 #include "../tester/pointer_tester.c"
 #include "../tester/preprocessor_tester.c"
 #include "../tester/referencer_tester.c"
+#include "../tester/serial_port_tester.c"
 #include "../tester/variable_tester.c"
 
 //
@@ -135,6 +136,9 @@ void test() {
     test_memoriser();
     test_modifier();
     test_referencer();
+
+    // Communication.
+    test_serial_port();
 
     // Empty.
     test_empty();
