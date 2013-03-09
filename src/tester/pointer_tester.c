@@ -595,7 +595,7 @@ void test_pointer_addition() {
  */
 void test_pointer() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test pointer handling.");
+//    fwprintf(stdout, L"TEST pointer.\n");
 
 //    test_pointer_null();
 //    test_pointer_cast();

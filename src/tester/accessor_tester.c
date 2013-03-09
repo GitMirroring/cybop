@@ -128,7 +128,7 @@ void test_accessor_array_setter() {
  */
 void test_accessor() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test accessor.");
+//    fwprintf(stdout, L"TEST accessor.\n");
 
 //    test_accessor_size_determiner();
 //    test_accessor_assigner();

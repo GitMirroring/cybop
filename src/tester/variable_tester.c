@@ -77,7 +77,7 @@ void test_type_sizes() {
  */
 void test_variable() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test variable.");
+//    fwprintf(stdout, L"TEST variable.\n");
 
 //    test_type_sizes();
 }

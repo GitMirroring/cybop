@@ -11,7 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Try out function "test_serial_port" by stepwise uncommenting code
+        * Try out function "test_serial_port" --> WORKS FINE!
         * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
         * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
         * OPTIONAL: Provide applicator cybol operations for "converter"

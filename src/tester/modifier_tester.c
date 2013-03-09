@@ -323,11 +323,11 @@ void test_modifier_array() {
  */
 void test_modifier() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test modifier.");
+//    fwprintf(stdout, L"TEST modifier.\n");
 
 //    test_modifier_part_compound();
 //    test_modifier_part_wide_character_insert();
-    test_modifier_array();
+//    test_modifier_array();
 }
 
 /* MODIFIER_TESTER */

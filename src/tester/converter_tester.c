@@ -265,7 +265,7 @@ void test_converter_decode_utf_8() {
  */
 void test_converter() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test converter.");
+//    fwprintf(stdout, L"TEST converter.\n");
 
 //    test_converter_integer_to_wide_character_conversion();
 

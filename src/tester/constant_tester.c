@@ -61,7 +61,7 @@ void test_constant_float() {
  */
 void test_constant() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test constant usage.");
+//    fwprintf(stdout, L"TEST constant.\n");
 
 //    test_constant_float();
 }

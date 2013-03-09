@@ -53,7 +53,7 @@ void test_preprocessor_directives() {
  */
 void test_preprocessor() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test preprocessor.");
+//    fwprintf(stdout, L"TEST preprocessor.\n");
 
 //    test_preprocessor_directives();
 }

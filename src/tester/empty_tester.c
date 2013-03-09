@@ -104,7 +104,7 @@ void test_empty_3() {
  */
 void test_empty() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test empty.");
+//    fwprintf(stdout, L"TEST empty.\n");
 
     // Uncomment below functions as needed,
     // in order for them to be executed.

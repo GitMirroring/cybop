@@ -67,7 +67,7 @@ void test_assembler_register() {
  */
 void test_assembler() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test assembler.");
+//    fwprintf(stdout, L"TEST assembler.\n");
 
 //    test_assembler_register();
 }

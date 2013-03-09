@@ -74,7 +74,7 @@ void test_logger_terminated_message() {
  */
 void test_logger() {
 
-    // A log message is not given as the logging is tested only below.
+//    fwprintf(stdout, L"TEST logger.\n");
 
 //    test_logger_stdout();
 //    test_logger_message();

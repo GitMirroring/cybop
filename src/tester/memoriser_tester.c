@@ -294,7 +294,7 @@ void test_memoriser_array_wide_character() {
  */
 void test_memoriser() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test memoriser.");
+//    fwprintf(stdout, L"TEST memoriser.\n");
 
 //    test_memoriser_array_resizing();
 

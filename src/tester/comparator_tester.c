@@ -285,7 +285,7 @@ void test_comparator_part() {
  */
 void test_comparator() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator.");
+//    fwprintf(stdout, L"TEST comparator.\n");
 
 //    test_comparator_ascii_character();
 //    test_comparator_array();

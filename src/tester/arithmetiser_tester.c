@@ -78,7 +78,7 @@ void test_arithmetiser_multiplicator() {
  */
 void test_arithmetiser() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test arithmetiser.");
+//    fwprintf(stdout, L"TEST arithmetiser.\n");
 
 //    test_arithmetiser_integer_adder();
 //    test_arithmetiser_multiplicator();
