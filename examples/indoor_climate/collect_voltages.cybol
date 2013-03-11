@@ -19,7 +19,7 @@
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
     <part name="read_voltage" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="indoor_climate/read_voltage.cybol"/>
+        <property name="model" channel="file" format="element/part" model="indoor_climate/read_channel.cybol"/>
     </part>
     <part name="compare_voltage" channel="inline" format="compare/greater-or-equal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_comparison"/>

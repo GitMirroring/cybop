@@ -9,8 +9,13 @@
     <part name="temperature_maximum_count" channel="inline" format="number/integer" model="5"/>
     <part name="temperature_conversion_factor" channel="inline" format="number/integer" model="10"/>
     <part name="voltage" channel="inline" format="number/integer" model="-1"/>
+    <part name="voltage_break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_count" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_maximum_count" channel="inline" format="number/integer" model="21"/>
     <!-- The voltage buffer model initially has to be empty, since it gets filled when reading from serial port. -->
     <part name="voltage_buffer" channel="inline" format="number/integer" model=""/>
+    <part name="voltage_buffer_count" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_comparison" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="voltage_buffer_high_byte" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_buffer_low_byte" channel="inline" format="number/integer" model="0"/>
     <!-- QUESTION: Should checksum not be an integer, since it may be 255 + 255 which is greater than unsigned char? But the buffer may only contain elements of type unsigned char. -->

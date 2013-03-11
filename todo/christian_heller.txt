@@ -12,14 +12,16 @@
 #
 
         * Try out function "test_serial_port" --> WORKS FINE!
-        * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
-        * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
-        * OPTIONAL: Provide applicator cybol operations for "converter"
-        * Implement temperature sensor query loop in cybol example application "indoor_climate"
+            /dev/ACM0
+            dereference baudrate
+            set line with typecasts in parentheses
         * Provide "usleep" function to cybol:
             #include <unistd.h>
             int usleep(useconds_t usec);
-        * Use item for serial port storage in internal memory, since its count and size are needed for deallocation
+        * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
+        * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
+        * OPTIONAL: Provide applicator cybol operations for "converter"
+        * Use "item" for serial port storage in internal memory, since its count and size are needed for deallocation
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

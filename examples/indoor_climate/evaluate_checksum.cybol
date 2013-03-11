@@ -1,0 +1,65 @@
+<model>
+    <!--
+        A valid value was returned via serial port from the microcontroller.
+        Therefore, set "voltage_buffer_comparison" to "true",
+        independent from checksum comparison below.
+        The loop is to be left in any case.
+    -->
+    <part name="set_break_flag" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
+        <property name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </part>
+    <!--
+        Reset checksum.
+        CAUTION! This is necessary because the microcontroller does sometimes
+        not return values, so that old values from former loop cycles would be used.
+    -->
+    <part name="reset_checksum" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.checksum"/>
+        <property name="source" channel="inline" format="number/integer" model="-1"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="calculate_checksum" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="file" format="element/part" model="indoor_climate/calculate_checksum.cybol"/>
+    </part>
+<!--
+    <part name="TEST_CHECKSUM_CALCULATED" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings.checksum"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+-->
+    <part name="compare_checksum" channel="inline" format="compare/equal" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".settings.checksum_comparison"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".settings.checksum"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_checksum"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
+    </part>
+    <part name="IGNORE_CHECKSUM_TEST_DELETE_LATER" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="file" format="element/part" model="indoor_climate/calculate_voltage.cybol"/>
+    </part>
+<!--
+    <part name="test_checksum" channel="inline" format="flow/branch" model="">
+        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.checksum_comparison"/>
+        <property name="true" channel="file" format="element/part" model="indoor_climate/calculate_voltage.cybol"/>
+        <property name="false" channel="file" format="element/part" model="indoor_climate/report_checksum_failure.cybol"/>
+    </part>
+-->
+</model>
+
+<!--
+    Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+
+    @version Indoor Climate 1.0.0 2013-03-05
+    @author Ingolf Brunner <ingolf.brunner@ba-leipzig.de>
+    @author Ronny Mauersberger <mauigeyer2@web.de>
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

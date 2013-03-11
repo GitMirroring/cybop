@@ -237,10 +237,16 @@ int ReadChannel(int channel, int cport_nr) {
 
         n = PollComport(cport_nr, buf, 4095);
 
-        if(n > 0) {
+fwprintf(stdout, L"TEST buf[0]: %i\n", buf[0]);
+fwprintf(stdout, L"TEST buf[1]: %i\n", buf[1]);
+fwprintf(stdout, L"TEST buf[2]: %i\n", buf[2]);
+
+        if (n > 0) {
 
             buf[n] = 0;   // always put a "null" at the end of a string!
             checksum = buf[0] + buf[1];
+
+fwprintf(stdout, L"TEST checksum calc: %i\n", checksum);
 
             if (checksum != buf[2]) {
 
@@ -250,6 +256,8 @@ int ReadChannel(int channel, int cport_nr) {
             }
 
             voltage = ((int) buf[0] * 256) + (int) buf[1];
+
+fwprintf(stdout, L"TEST voltage: %i\n", voltage);
 
             return (voltage);
         }
