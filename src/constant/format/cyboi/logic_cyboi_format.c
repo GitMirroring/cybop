@@ -278,8 +278,11 @@ static int* SERIALISE_REPRESENT_LOGIC_CYBOI_FORMAT = NUMBER_921_INTEGER_STATE_CY
 /** The run logic cyboi format. */
 static int* RUN_LOGIC_CYBOI_FORMAT = NUMBER_930_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The sleep run logic cyboi format. */
-static int* SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_931_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The nano sleep run logic cyboi format. */
+static int* NANO_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_931_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The second sleep run logic cyboi format. */
+static int* SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_932_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE */
 #endif

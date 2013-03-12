@@ -32,109 +32,44 @@
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/runner/nano_sleeper.c"
+#include "../../executor/runner/second_sleeper.c"
 
 /**
- * Suspends execution of the calling thread for (at least)
- * the given number of microseconds.
+ * Suspends execution of the calling thread for the given duration.
  *
  * CAUTION! Do NOT rename this function to "sleep", since
  * that name is already used by low-level system functionality.
  *
- * @param p0 the duration data (as nanoseconds)
+ * @param p0 the duration data
+ * @param p1 the operation format
  */
-void sleep_duration(void* p0) {
+void sleep_duration(void* p0, void* p1) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        int* d = (int*) p0;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! DO NOT log this function call!
-        // This function is executed within a thread, but the
-        // logging is not guaranteed to be thread-safe and might
-        // cause unpredictable programme behaviour.
-        // Also, this function runs in an endless loop and would produce huge log files.
-        //
-        // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sleep.");
+        compare_integer_equal((void*) &r, p1, (void*) NANO_SLEEP_RUN_LOGIC_CYBOI_FORMAT);
 
-        // The duration value must be in the range 0 to 999,999,999 nanoseconds.
-        if ((*d >= 0) && (*d < 1000000000)) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The temporary struct timespec variable.
-            struct timespec t;
-
-            // Assign seconds.
-            t.tv_sec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // Assign duration in nanoseconds.
-            t.tv_nsec = *d;
-
-            // Initialise error number.
-            // It is a global variable/ function and other operations
-            // may have set some value that is not wanted here.
-            //
-            // CAUTION! Initialise the error number BEFORE calling
-            // the function that might cause an error.
-            copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-            // Suspend execution of this thread.
-            //
-            // CAUTION! The POSIX.1-2001 standard declares
-            // the "usleep" function obsolete and defines
-            // the "nanosleep" function instead.
-            // POSIX.1-2008 removes the specification of "usleep".
-            //
-            // If the second parametre is null, then the
-            // remaining time is just NOT remembered,
-            // which is not needed here anyway.
-            int e = nanosleep(&t, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-            // Test error value.
-            // The return value of the "nanosleep" function is zero
-            // if no error occurred; otherwise, it is minus one.
-            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                if (errno == EFAULT) {
-
-                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. There is a problem with copying information from user space.");
-                    fwprintf(stdout, L"Could not sleep. There is a problem with copying information from user space. errno: %i\n", errno);
-
-                } else if (errno == EINTR) {
-
-                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. The pause has been interrupted by a signal that was delivered to the thread. The remaining sleep time has been written into *rem so that the thread can easily call nanosleep() again and continue with the pause.");
-                    fwprintf(stdout, L"Could not sleep. The pause has been interrupted by a signal that was delivered to the thread. The remaining sleep time has been written into *rem so that the thread can easily call nanosleep() again and continue with the pause. errno: %i\n", errno);
-
-                } else if (errno == EINVAL) {
-
-                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. The value in the tv_nsec field was not in the range 0 to 999999999 or tv_sec was negative.");
-                    fwprintf(stdout, L"Could not sleep. The value in the tv_nsec field was not in the range 0 to 999999999 or tv_sec was negative. errno: %i\n", errno);
-
-                } else {
-
-                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. An unknown error occured.");
-                    fwprintf(stdout, L"Could not sleep. An unknown error occured. errno: %i\n", errno);
-                }
-            }
-
-        } else if (*d >= 1000000000) {
-
-            // Divide nanoseconds by 1,000,000,000,
-            // in order to receive the value in seconds.
-            int s = *d / 1000000000;
-
-            sleep(s);
-
-        } else {
-
-            // CAUTION! DO NOT log this function call!
-            // This function is executed within a thread, but the
-            // logging is not guaranteed to be thread-safe and might
-            // cause unpredictable programme behaviour.
-            // Also, this function runs in an endless loop and would produce huge log files.
-            //
-            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. The duration is negative.");
-            fwprintf(stdout, L"Could not sleep. The duration is negative.\n");
+            sleep_nano(p0);
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            sleep_second(p0);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // CAUTION! DO NOT log this function call!
         // This function is executed within a thread, but the
@@ -142,8 +77,8 @@ void sleep_duration(void* p0) {
         // cause unpredictable programme behaviour.
         // Also, this function runs in an endless loop and would produce huge log files.
         //
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. The duration is null.");
-        fwprintf(stdout, L"Could not sleep. The duration is null.\n");
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. The operation format is unknown.");
+        fwprintf(stdout, L"Error: Could not sleep. The operation format is unknown.\n");
     }
 }
 

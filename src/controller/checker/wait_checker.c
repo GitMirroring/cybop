@@ -192,7 +192,7 @@ void check_wait(void* p0, void* p1) {
             && (*((int*) w) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
             && (*((int*) x) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
-            sleep_duration(p0);
+            sleep_nano(p0);
         }
 
 /*??

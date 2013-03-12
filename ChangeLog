@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Split "run/sleep" operation into "run/sleep-nano" and "run/sleep-second", since cyboi
+            internally uses "int" whose number range does not suffice when specifying seconds as nanoseconds
+
 2013-03-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement temperature sensor query loop in cybol example application "indoor_climate"

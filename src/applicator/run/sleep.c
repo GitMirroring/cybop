@@ -53,8 +53,9 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the operation format
  */
-void apply_sleep(void* p0, void* p1, void* p2) {
+void apply_sleep(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sleep.");
 
@@ -72,7 +73,7 @@ void apply_sleep(void* p0, void* p1, void* p2) {
     // Get duration part model item data.
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    sleep_duration(dmd);
+    sleep_duration(dmd, p3);
 }
 
 /* SLEEP_SOURCE */

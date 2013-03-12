@@ -92,7 +92,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                 // The global variable should only be manipulated in cyboi's main thread.
                 while (!sense_x_window_system_check_events(p1, p3)) {
 
-                    sleep_duration(p2);
+                    sleep_nano(p2);
                 }
 
                 // Lock x window system mutex.
@@ -119,7 +119,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                     // Also, many window inputs are processed at once in the main thread
                     // and only if there are no further inputs to be read, the irq flag is reset,
                     // so that this endless loop can be left and new inputs detected.
-                    sleep_duration(p2);
+                    sleep_nano(p2);
                 }
 
             } else {

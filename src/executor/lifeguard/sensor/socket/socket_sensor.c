@@ -188,7 +188,7 @@ fwprintf(stdout, L"TEST: sense wait st: %i \n", *((int*) p2));
                             // Sleep as long as the socket interrupt is not handled and reset yet.
                             // This is to give the central processing unit (cpu) some
                             // time to breathe, that is to be idle or to process other signals.
-                            sleep_duration(p2);
+                            sleep_nano(p2);
                         }
 
                     } else {

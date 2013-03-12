@@ -110,7 +110,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                     // Sleep for some time.
                     // This is to give the central processing unit (cpu) some
                     // time to breathe, that is to be idle or to process other signals.
-                    sleep_duration(p2);
+                    sleep_nano(p2);
 
                 } else {
 
@@ -173,7 +173,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                     // Also, many character inputs are processed at once in the main thread
                     // and only if there are no further characters to be read, the irq flag is reset,
                     // so that this endless loop can be left and new inputs detected.
-                    sleep_duration(p2);
+                    sleep_nano(p2);
                 }
 
             } else {

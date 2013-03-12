@@ -57,8 +57,8 @@
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
-    <!-- Sleep for 100 ms = 100000 us = 100000000 ns. -->
-    <part name="sleep" channel="inline" format="run/sleep" model="">
+    <!-- Sleep for 100 ms = 100,000 us = 100,000,000 ns. -->
+    <part name="sleep" channel="inline" format="run/sleep-nano" model="">
         <property name="duration" channel="inline" format="number/integer" model="100000000"/>
     </part>
 </model>

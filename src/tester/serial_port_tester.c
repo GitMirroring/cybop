@@ -49,6 +49,9 @@
 #include "../executor/memoriser/deallocator/part_deallocator.c"
 #include "../executor/modifier/overwriter/item_overwriter.c"
 #include "../executor/modifier/overwriter/part_overwriter.c"
+#include "../executor/runner/nano_sleeper.c"
+#include "../executor/runner/second_sleeper.c"
+#include "../executor/runner/sleeper.c"
 #include "../logger/logger.c"
 
 int Cport[28], error;
@@ -324,6 +327,37 @@ void test_serial_port_temperature() {
 }
 
 /**
+ * Tests the serial port sleep.
+ */
+void test_serial_port_sleep() {
+
+    fwprintf(stdout, L"TEST serial port sleep.\n");
+
+    // The duration.
+    int d = 0;
+
+    fwprintf(stdout, L"TEST serial port sleep for 1 ms ...\n");
+    d = 1000000;
+    sleep_nano((void*) &d);
+
+    fwprintf(stdout, L"TEST serial port sleep for 1 s ...\n");
+    d = 1;
+    sleep_second((void*) &d);
+
+    fwprintf(stdout, L"TEST serial port sleep for 5 s ...\n");
+    d = 5;
+    sleep_second((void*) &d);
+
+    fwprintf(stdout, L"TEST serial port general call sleep for 20 us ...\n");
+    d = 20000;
+    sleep_duration((void*) &d, (void*) NANO_SLEEP_RUN_LOGIC_CYBOI_FORMAT);
+
+    fwprintf(stdout, L"TEST serial port general call sleep for 3 s ...\n");
+    d = 3;
+    sleep_duration((void*) &d, (void*) SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT);
+}
+
+/**
  * Tests the serial port.
  *
  * Sub test procedure calls can be activated/ deactivated here
@@ -333,7 +367,8 @@ void test_serial_port() {
 
     fwprintf(stdout, L"TEST serial port.\n");
 
-    test_serial_port_temperature();
+//    test_serial_port_temperature();
+    test_serial_port_sleep();
 }
 
 /* SERIAL_PORT_TESTER */
