@@ -54,6 +54,7 @@
 #include "../../applicator/represent/deserialise.c"
 #include "../../applicator/represent/serialise.c"
 #include "../../applicator/run/run.c"
+#include "../../applicator/run/sleep.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
@@ -649,6 +650,20 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_run(p0, p1, p3);
         }
     }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) SLEEP_RUN_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_sleep(p0, p1, p3);
+        }
+    }
+
+    //
+    // unknown
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -185,23 +185,23 @@ void manage(void* p0) {
     pthread_mutex_t* x_window_system_mutex = x_window_system_mutex_array;
 
     // The cyboi service sleep time.
-    double cyboi_service_sleep_time_array[1];
-    double* cyboi_service_sleep_time = cyboi_service_sleep_time_array;
+    int cyboi_service_sleep_time_array[1];
+    int* cyboi_service_sleep_time = cyboi_service_sleep_time_array;
     // The serial port sleep time.
-    double serial_port_sleep_time_array[1];
-    double* serial_port_sleep_time = serial_port_sleep_time_array;
+    int serial_port_sleep_time_array[1];
+    int* serial_port_sleep_time = serial_port_sleep_time_array;
     // The signal memory sleep time.
-    double signal_memory_sleep_time_array[1];
-    double* signal_memory_sleep_time = signal_memory_sleep_time_array;
+    int signal_memory_sleep_time_array[1];
+    int* signal_memory_sleep_time = signal_memory_sleep_time_array;
     // The terminal sleep time.
-    double terminal_sleep_time_array[1];
-    double* terminal_sleep_time = terminal_sleep_time_array;
+    int terminal_sleep_time_array[1];
+    int* terminal_sleep_time = terminal_sleep_time_array;
     // The www service sleep time.
-    double www_service_sleep_time_array[1];
-    double* www_service_sleep_time = www_service_sleep_time_array;
+    int www_service_sleep_time_array[1];
+    int* www_service_sleep_time = www_service_sleep_time_array;
     // The x window system sleep time.
-    double x_window_system_sleep_time_array[1];
-    double* x_window_system_sleep_time = x_window_system_sleep_time_array;
+    int x_window_system_sleep_time_array[1];
+    int* x_window_system_sleep_time = x_window_system_sleep_time_array;
 
     //
     // Variable allocation.
@@ -274,17 +274,17 @@ void manage(void* p0) {
     pthread_mutex_init(x_window_system_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Initialise cyboi service sleep time.
-    copy_double((void*) cyboi_service_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
+    copy_integer((void*) cyboi_service_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise serial port sleep time.
-    copy_double((void*) serial_port_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
+    copy_integer((void*) serial_port_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise signal memory sleep time.
-    copy_double((void*) signal_memory_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
+    copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise terminal sleep time.
-    copy_double((void*) terminal_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
+    copy_integer((void*) terminal_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise www service sleep time.
-    copy_double((void*) www_service_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
+    copy_integer((void*) www_service_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise x window system sleep time.
-    copy_double((void*) x_window_system_sleep_time, (void*) NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL);
+    copy_integer((void*) x_window_system_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // System startup.

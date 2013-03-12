@@ -52,7 +52,7 @@
 #include "../../../../executor/accessor/getter/signal_memory_getter.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/memoriser/allocator.c"
-#include "../../../../logger/logger.c"
+#include "../../../../executor/runner/sleeper.c"
 
 //
 // An alternative approach to speed up communication would be to keep
@@ -108,150 +108,137 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             int* ps = (int*) p3;
 
-            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                double* st = (double*) p2;
+                pthread_mutex_t* mt = (pthread_mutex_t*) p1;
 
-                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    pthread_mutex_t* mt = (pthread_mutex_t*) p1;
+                    int* irq = (int*) p0;
 
-                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    // CAUTION! DO NOT log this function call!
+                    // This function is executed within a thread, but the
+                    // logging is not guaranteed to be thread-safe and might
+                    // cause unpredictable programme behaviour.
+                    // Also, this function runs in an endless loop and would produce huge log files.
 
-                        int* irq = (int*) p0;
+fwprintf(stdout, L"TEST: sense (stream) socket server socket: %i \n", *os);
 
-                        // CAUTION! DO NOT log this function call!
-                        // This function is executed within a thread, but the
-                        // logging is not guaranteed to be thread-safe and might
-                        // cause unpredictable programme behaviour.
-                        // Also, this function runs in an endless loop and would produce huge log files.
+                    // Initialise error number.
+                    // It is a global variable/ function and other operations
+                    // may have set some value that is not wanted here.
+                    //
+                    // CAUTION! Initialise the error number BEFORE calling the procedure
+                    // that might cause an error.
+                    //
+                    // CAUTION! Do NOT reset the GLOBAL "errno" variable here!
+                    // All what is said above is true, but is this a THREAD
+                    // and other threads might access the "errno" variable
+                    // at the same time, which would lead to false programme behaviour.
+                    // errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"TEST: sense (stream) socket server socket: %i \n", *os);
+                    // Accept client socket request and store client socket.
+                    //
+                    // Accepting a connection does NOT make the original socket
+                    // part of the connection. Instead, it creates a new socket
+                    // which becomes connected. The normal return value of
+                    // "accept" is the file descriptor for the new socket.
+                    //
+                    // After "accept", the original socket remains open and
+                    // unconnected, and continues listening until it gets closed.
+                    // One can accept further connections with the original
+                    // socket by calling "accept" again -- best done in a loop!
+                    //
+                    // The address "pa" returns information about the name of the
+                    // communication partner socket that initiated the connection.
+                    //
+                    // CAUTION! The "select" procedure was NOT used to make this socket non-blocking,
+                    // because it has some overhead in that other sockets need to be considered
+                    // and their file descriptors handed over as parametre.
+                    //
+                    *ps = accept(*os, (struct sockaddr*) p4, (socklen_t*) p5);
 
-                        // Initialise error number.
-                        // It is a global variable/ function and other operations
-                        // may have set some value that is not wanted here.
-                        //
-                        // CAUTION! Initialise the error number BEFORE calling the procedure
-                        // that might cause an error.
-                        //
-                        // CAUTION! Do NOT reset the GLOBAL "errno" variable here!
-                        // All what is said above is true, but is this a THREAD
-                        // and other threads might access the "errno" variable
-                        // at the same time, which would lead to false programme behaviour.
-                        // errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    if (*ps >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        // Accept client socket request and store client socket.
-                        //
-                        // Accepting a connection does NOT make the original socket
-                        // part of the connection. Instead, it creates a new socket
-                        // which becomes connected. The normal return value of
-                        // "accept" is the file descriptor for the new socket.
-                        //
-                        // After "accept", the original socket remains open and
-                        // unconnected, and continues listening until it gets closed.
-                        // One can accept further connections with the original
-                        // socket by calling "accept" again -- best done in a loop!
-                        //
-                        // The address "pa" returns information about the name of the
-                        // communication partner socket that initiated the connection.
-                        //
-                        // CAUTION! The "select" procedure was NOT used to make this socket non-blocking,
-                        // because it has some overhead in that other sockets need to be considered
-                        // and their file descriptors handed over as parametre.
-                        //
-                        *ps = accept(*os, (struct sockaddr*) p4, (socklen_t*) p5);
+fwprintf(stdout, L"TEST: sense (stream) socket client partner socket ps: %i \n", *ps);
 
-                        if (*ps >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        // CAUTION! Do NOT close client socket here!
+                        // It is stored in the internal memory and only closed
+                        // in the "send_socket" operation, when replying to the client.
+                        // close(*ps);
 
-    fwprintf(stdout, L"TEST: sense (stream) socket client partner socket ps: %i \n", *ps);
+                        // Lock socket mutex.
+                        pthread_mutex_lock(mt);
 
-                            // CAUTION! Do NOT close client socket here!
-                            // It is stored in the internal memory and only closed
-                            // in the "send_socket" operation, when replying to the client.
-                            // close(*ps);
+                        // Set socket interrupt request to indicate
+                        // that a message has been received via socket,
+                        // which may now be processed in the main thread of this system.
+                        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-                            // Lock socket mutex.
-                            pthread_mutex_lock(mt);
+                        // Unlock socket mutex.
+                        pthread_mutex_unlock(mt);
 
-                            // Set socket interrupt request to indicate
-                            // that a message has been received via socket,
-                            // which may now be processed in the main thread of this system.
-                            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+fwprintf(stdout, L"TEST: sense wait st: %i \n", *((int*) p2));
 
-                            // Unlock socket mutex.
-                            pthread_mutex_unlock(mt);
+                        // Access irq as atomic variable.
+                        // CAUTION! Therefore better don't use the following line:
+                        // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                        while (*irq) {
 
-    fwprintf(stdout, L"TEST: sense wait st: %g \n", *st);
-
-                            // Access irq as atomic variable.
-                            // CAUTION! Therefore better don't use the following line:
-                            // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-                            while (*irq) {
-
-                                // Sleep as long as the socket interrupt is not handled and reset yet.
-                                // This is to give the central processing unit (cpu) some
-                                // time to breathe, that is to be idle or to process other signals.
-                                sleep(*st);
-                            }
-
-                        } else {
-
-                            if (errno == EBADF) {
-
-                                // CAUTION! DO NOT log this function call!
-                                // This function is executed within a thread, but the
-                                // logging is not guaranteed to be thread-safe and might
-                                // cause unpredictable programme behaviour.
-                                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The socket argument is not a valid file descriptor.");
-
-                            } else if (errno == ENOTSOCK) {
-
-                                // CAUTION! DO NOT log this function call!
-                                // This function is executed within a thread, but the
-                                // logging is not guaranteed to be thread-safe and might
-                                // cause unpredictable programme behaviour.
-                                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The descriptor socket argument is not a socket.");
-
-                            } else if (errno == EOPNOTSUPP) {
-
-                                // CAUTION! DO NOT log this function call!
-                                // This function is executed within a thread, but the
-                                // logging is not guaranteed to be thread-safe and might
-                                // cause unpredictable programme behaviour.
-                                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The descriptor socket does not support this operation.");
-
-                            } else if (errno == EWOULDBLOCK) {
-
-                                // CAUTION! DO NOT log this function call!
-                                // This function is executed within a thread, but the
-                                // logging is not guaranteed to be thread-safe and might
-                                // cause unpredictable programme behaviour.
-                                //
-                                // CAUTION! Do NOT log the following error!
-                                // The reason is that the socket is non-blocking,
-                                // so that the "accept" procedure returns always,
-                                // even if no connection was established,
-                                // which would unnecessarily fill up the log file.
-                                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The socket has nonblocking mode set, and there are no pending connections immediately available.");
-
-                            } else {
-
-                                // CAUTION! DO NOT log this function call!
-                                // This function is executed within a thread, but the
-                                // logging is not guaranteed to be thread-safe and might
-                                // cause unpredictable programme behaviour.
-                                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. An unknown error occured while accepting a socket connection.");
-                            }
+                            // Sleep as long as the socket interrupt is not handled and reset yet.
+                            // This is to give the central processing unit (cpu) some
+                            // time to breathe, that is to be idle or to process other signals.
+                            sleep_duration(p2);
                         }
 
                     } else {
 
-                        // CAUTION! DO NOT log this function call!
-                        // This function is executed within a thread, but the
-                        // logging is not guaranteed to be thread-safe and might
-                        // cause unpredictable programme behaviour.
-                        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The interrupt is null.");
+                        if (errno == EBADF) {
+
+                            // CAUTION! DO NOT log this function call!
+                            // This function is executed within a thread, but the
+                            // logging is not guaranteed to be thread-safe and might
+                            // cause unpredictable programme behaviour.
+                            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The socket argument is not a valid file descriptor.");
+
+                        } else if (errno == ENOTSOCK) {
+
+                            // CAUTION! DO NOT log this function call!
+                            // This function is executed within a thread, but the
+                            // logging is not guaranteed to be thread-safe and might
+                            // cause unpredictable programme behaviour.
+                            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The descriptor socket argument is not a socket.");
+
+                        } else if (errno == EOPNOTSUPP) {
+
+                            // CAUTION! DO NOT log this function call!
+                            // This function is executed within a thread, but the
+                            // logging is not guaranteed to be thread-safe and might
+                            // cause unpredictable programme behaviour.
+                            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The descriptor socket does not support this operation.");
+
+                        } else if (errno == EWOULDBLOCK) {
+
+                            // CAUTION! DO NOT log this function call!
+                            // This function is executed within a thread, but the
+                            // logging is not guaranteed to be thread-safe and might
+                            // cause unpredictable programme behaviour.
+                            //
+                            // CAUTION! Do NOT log the following error!
+                            // The reason is that the socket is non-blocking,
+                            // so that the "accept" procedure returns always,
+                            // even if no connection was established,
+                            // which would unnecessarily fill up the log file.
+                            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The socket has nonblocking mode set, and there are no pending connections immediately available.");
+
+                        } else {
+
+                            // CAUTION! DO NOT log this function call!
+                            // This function is executed within a thread, but the
+                            // logging is not guaranteed to be thread-safe and might
+                            // cause unpredictable programme behaviour.
+                            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. An unknown error occured while accepting a socket connection.");
+                        }
                     }
 
                 } else {
@@ -260,7 +247,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // This function is executed within a thread, but the
                     // logging is not guaranteed to be thread-safe and might
                     // cause unpredictable programme behaviour.
-                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The mutex is null.");
+                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The interrupt is null.");
                 }
 
             } else {
@@ -269,7 +256,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                 // This function is executed within a thread, but the
                 // logging is not guaranteed to be thread-safe and might
                 // cause unpredictable programme behaviour.
-                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The sleep time is null.");
+                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The mutex is null.");
             }
 
         } else {

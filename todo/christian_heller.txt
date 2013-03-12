@@ -11,13 +11,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Search memory access error
         * Try out function "test_serial_port" --> WORKS FINE!
             /dev/ACM0
             dereference baudrate
             set line with typecasts in parentheses
-        * Provide "usleep" function to cybol:
-            #include <unistd.h>
-            int usleep(useconds_t usec);
         * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
         * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
         * OPTIONAL: Provide applicator cybol operations for "converter"
@@ -205,3 +203,114 @@
         * Optimise performance by NOT comparing every single element of an array for its type,
             but rather ONLY ONCE compare for the type at first and then process all array elements
         * Refactor loops into an own function using function pointers? See "language/loop.c"!
+
+        * Optimise sleeping in sensing threads:
+            (0) usleep
+            usleep(msec * 1000); // Mikrosekunden warten (1ms = 1000Âµs)
+            http://www.die.net/doc/linux/man/man3/usleep.3.html
+            (1) select
+            Relativ portabel ist select(2), das man für diese Zwecke mißbrauchen kann:
+            struct timeval tv;
+            tv.sec = number_of_seconds;
+            tv.usec = number_of_mikro_seconds;
+            select(0, 0, 0, 0, &tv);
+            Allerdings ist nicht gewährleistet, daß die Wartezeit exakt eingehalten
+            wird; unter IRIX-5.3 war die kürzeste Wartezeit immer 10 ms.
+            (2) clock
+            Die C++-Standardbibliothek weiÃ nicht allzuviel von Zeit. Das genaueste
+            dÃ¼rfte die Funktion 'clock()' sein. Daraus kannst du dir mittels
+            busy-waiting eine VerzÃ¶gerung bauen, die, wenn dein System eine so
+            genaue Uhr hat, genauer als eine Sekunde auflÃ¶st. Also sowas:
+            double start = clock() * (1.0 / CLOCKS_PER_SEC);
+            double elapsed;
+            do
+                elapsed = (clock() * (1.0 / CLOCKS_PER_SEC)) - start;
+            while (elapsed < 0.01);
+            FÃ¼r alles Bessere (kein busy-waiting, bessere Genauigkeit usw.) musst du
+            auf systemspezifische Funktionen zurÃ¼ckgreifen (usleep? setitimer?).
+            (3) POSIX Thread
+            Such mal in der posix Thread API.
+            (4) Vielleicht findet man auch was bei boost.
+            (5) Windows
+            Is there a way to suspend the active thread for 1.6 msec?
+            I mean I cannot use sleep, intstead I would like to use something like the linux's usleep.
+            There is no way you can suspend anything in Windows with that accuracy.
+            Even if you just release the thread and immediately put it in the active queue
+            again by means of Sleep(0), it may easily take 50 mS or more before the thread
+            gets the control back because there may be more threads waiting in the queue.
+            Thread switching is usually done every 10 mS in a single core system and every 15 mS
+            in case of a multicore CPU so forget everything about an accuracy better than 50-100 mS.
+            -- other opinion, still for Windows:
+            Maybe you could try a select() call on an unused port.
+            select is a blocking function that takes in a delay with us precision.
+            There isn't going to be any activity on this port since it is unused,
+            and it waits for the desired amount of time.
+            This should work despite the issues pointed above, if you are using only one thread.
+            --
+            usleep() works with microseconds.
+            In windows for getting microsecond precesion you should use QueryPerformanceCounter() winapi function.
+            Here you can find how get that precesion using it.
+            #include <windows.h>
+            void uSleep(int waitTime) {
+                __int64 time1 = 0, time2 = 0, freq = 0;
+                QueryPerformanceCounter((LARGE_INTEGER *) &time1);
+                QueryPerformanceFrequency((LARGE_INTEGER *)&freq);
+                do {
+                    QueryPerformanceCounter((LARGE_INTEGER *) &time2);
+                } while((time2-time1) < waitTime);
+            }
+            (Platform independence)
+            sleep() is not platform-independent.
+            usleep() is not platform-independent either. Also, it takes it's
+            argument in microseconds, not milliseconds. usleep(1000) sleeps for
+            1000 microseconds, that's 1 millisecond, not 1 second. You can't use
+            usleep() to sleep for 1 second -- usleep(1000000) is not valid. See
+            http://linux.die.net/man/3/usleep .
+            Neither sleep() nor usleep() are defined by C++.
+            There is no platform-independent way to sleep in milliseconds (or in any unit).
+            You might find something in boost (e.g. boost::thread::sleep()) or some other library.
+            If you really have protability issue, try using "select". It will work on POSIX systems.
+            (C++ Example)
+            Es geht auch so (auf verschiedenen Unix-Derivaten)
+            C++:
+            #define TRUE          1
+            #define NONE          0                    (oder auch NULL)
+            #define ERRINTR(e)   ((e) == EINTR)
+            int inputWait(msec)
+            int msec;       /*  I:  time to wait [msec] */
+                                    /* ret: <0 if any error */
+            /* procedure waits msec */
+            {
+            struct timeval tv;  /* help variable */
+            int errno2;     /* help variable */
+            int ret;        /* return variable */
+            ret = 0;
+            if (msec >= 1000)
+                {
+                tv.tv_sec = msec / 1000;
+                tv.tv_usec = (msec % 1000)  * 1000;
+                }
+            else
+                {
+                tv.tv_sec = 0;
+                tv.tv_usec = msec * 1000;
+                }
+            while (TRUE)
+                {
+                /* do looping while interrupt by signal catching */
+                if (select(0,NONE,NONE,NONE,&tv) < 0)
+                {
+                errno2 = errno;
+                XBUG(DBG_SELECT) { fprintf(dbgfile,">>>inputWait(): INTR at select(), errno=%d\n",errno); fflush(dbgfile); }
+                if (! ERRINTR(errno2))
+                    break;
+                /* else: EINTR => return looping */
+                }
+                else
+                break;
+                }
+            return(ret);
+            }
+            Der Aufruf select() macht ein blockierendes Warten, bis die Zeitscheibe abgelaufen ist, also analog sleep().
+            Kann man natürlich auch für usec anpassen ;-)
+            http://www.c-plusplus.de/forum/144938-full

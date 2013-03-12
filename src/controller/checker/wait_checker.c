@@ -36,6 +36,7 @@
 #include "../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/copier/integer_copier.c"
+#include "../../executor/runner/sleeper.c"
 #include "../../logger/logger.c"
 
 /**
@@ -46,201 +47,192 @@
  */
 void check_wait(void* p0, void* p1) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The internal memory index.
+    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-        double* sl = (double*) p0;
+    // The cyboi service interrupt request.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serial port interrupt request.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal interrupt request.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The www service interrupt request.
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The x window system interrupt request.
+    void* x = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // The internal memory index.
-        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // Get interrupt requests.
+    //
+    // CAUTION! They actually do not have to be retrieved again each time,
+    // since they were allocated as steady variable at system startup.
+    // That is, it would be possible to retrieve them just once at startup
+    // and forward them as parametres via all function calls.
+    // But this would be tedious, worsen overview and moreover, further services
+    // and interrupt request variables may have to be introduced one day,
+    // which would make it necessary to adapt all function signatures then.
+    // Therefore, these variables are used locally just here.
+    copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &t, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &w, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    copy_array_forward((void*) &x, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-        // The cyboi service interrupt request.
-        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The serial port interrupt request.
-        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The terminal interrupt request.
-        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The www service interrupt request.
-        void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The x window system interrupt request.
-        void* x = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
+    // REMARK! The following variable checks and casts are not indented,
+    // since many more variables may have to be added in the future,
+    // so that indentation would lead to unreadable source code here.
+    //
 
-        // Get interrupt requests.
+    if (x != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+    if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+    if (t != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+    if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Wait for an interrupt request.");
+
         //
-        // CAUTION! They actually do not have to be retrieved again each time,
-        // since they were allocated as steady variable at system startup.
-        // That is, it would be possible to retrieve them just once at startup
-        // and forward them as parametres via all function calls.
-        // But this would be tedious, worsen overview and moreover, further services
-        // and interrupt request variables may have to be introduced one day,
-        // which would make it necessary to adapt all function signatures then.
-        // Therefore, these variables are used locally just here.
-        copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-        copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &t, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &w, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-        copy_array_forward((void*) &x, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
+        // Sleep for some time.
         //
-        // REMARK! The following variable checks and casts are not indented,
-        // since many more variables may have to be added in the future,
-        // so that indentation would lead to unreadable source code here.
+        // If no signals are waiting in the signal memory (queue)
+        // and no hardware requests have been received from either the:
+        // - terminal
+        // - x window system
+        // - www service
+        // - cyboi service
+        // then cpu processing time may be saved by sending the system to sleep.
+        //
+        // Several possibilities have been considered to achieve this:
+        //
+        // 1 pause
+        //
+        // The simplicity of pause can conceal serious timing errors
+        // that can make a program hang mysteriously.
+        // One can't safely use pause to wait until one more signal
+        // arrives, and then resume real work. Even if one arranges
+        // for the signal handler to cooperate by setting a flag,
+        // one still can't use pause reliably.
+        //
+        // Example:
+        // // The irq flag is set by some signal handler.
+        // if (irq == 0) {
+        //     pause();
+        // }
+        // // Do work once the signal arrives.
+        // ...
+        //
+        // This has a bug: the signal could arrive after the variable
+        // irq is checked, but before the call to pause. If no further
+        // signals arrive, the process would never wake up again.
+        //
+        // 2 sleep
+        //
+        // One can put an upper limit on the excess waiting by using
+        // sleep in a loop, instead of using pause.
+        //
+        // Example:
+        // // The irq flag is set by some signal handler.
+        // while (irq == 0) {
+        //     sleep(1);
+        // }
+        // // Do work once the signal arrives.
+        // ...
+        //
+        // For some purposes, that is good enough.
+        //
+        // 3 signals of the operating system
+        //
+        // With a little more complexity, one can wait reliably until
+        // a particular signal handler is run, using sigsuspend.
+        //
+        // Solution in CYBOI
+        //
+        // The signal handler approach was tried out and implemented.
+        // However, when the process was sent to sleep with sigsuspend,
+        // all its threads were sleeping as well. This is a problem,
+        // because the input/output (including user interface control)
+        // is running in special threads. Since these were sleeping,
+        // there was no way to wake up the CYBOI system on user request.
+        //
+        // Another approach was to let the input/output run in their
+        // own process (instead of only a thread), each.
+        // The problem here is resource sharing between the processes.
+        // While threads use the same resources as their parent process,
+        // child processes copy their parent process' resources at
+        // creation and afterwards work independently on their own resources.
+        // This is a problem because CYBOI's signal memory needs to be
+        // accessed by all input/output processes without conflicts.
+        //
+        // Furthermore, the usage of operating system signals enforces
+        // a global interrupt request flag variable. Since a signal
+        // handler procedure may receive only the numeric code of the
+        // signal, but not further parametres, the interrupt request
+        // flag may not be handed over within the internal memory and
+        // a global flag would have to be used, which is undesirable.
+        //
+        // Therefore, the decision fell on the usage of a simple SLEEP
+        // procedure, which seems sufficient for the purposes of CYBOI.
         //
 
-        if (x != *NULL_POINTER_STATE_CYBOI_MODEL) {
+//?? fwprintf(stdout, L"TEST wait *sl: %i\n", *((int*) p0));
 
-        if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        while (
+            (*((int*) c) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            && (*((int*) s) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            && (*((int*) t) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            && (*((int*) w) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            && (*((int*) x) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
-        if (t != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Wait for an interrupt request.");
-
-            //
-            // Sleep for some time.
-            //
-            // If no signals are waiting in the signal memory (queue)
-            // and no hardware requests have been received from either the:
-            // - terminal
-            // - x window system
-            // - www service
-            // - cyboi service
-            // then cpu processing time may be saved by sending the system to sleep.
-            //
-            // Several possibilities have been considered to achieve this:
-            //
-            // 1 pause
-            //
-            // The simplicity of pause can conceal serious timing errors
-            // that can make a program hang mysteriously.
-            // One can't safely use pause to wait until one more signal
-            // arrives, and then resume real work. Even if one arranges
-            // for the signal handler to cooperate by setting a flag,
-            // one still can't use pause reliably.
-            //
-            // Example:
-            // // The irq flag is set by some signal handler.
-            // if (irq == 0) {
-            //     pause();
-            // }
-            // // Do work once the signal arrives.
-            // ...
-            //
-            // This has a bug: the signal could arrive after the variable
-            // irq is checked, but before the call to pause. If no further
-            // signals arrive, the process would never wake up again.
-            //
-            // 2 sleep
-            //
-            // One can put an upper limit on the excess waiting by using
-            // sleep in a loop, instead of using pause.
-            //
-            // Example:
-            // // The irq flag is set by some signal handler.
-            // while (irq == 0) {
-            //     sleep(1);
-            // }
-            // // Do work once the signal arrives.
-            // ...
-            //
-            // For some purposes, that is good enough.
-            //
-            // 3 signals of the operating system
-            //
-            // With a little more complexity, one can wait reliably until
-            // a particular signal handler is run, using sigsuspend.
-            //
-            // Solution in CYBOI
-            //
-            // The signal handler approach was tried out and implemented.
-            // However, when the process was sent to sleep with sigsuspend,
-            // all its threads were sleeping as well. This is a problem,
-            // because the input/output (including user interface control)
-            // is running in special threads. Since these were sleeping,
-            // there was no way to wake up the CYBOI system on user request.
-            //
-            // Another approach was to let the input/output run in their
-            // own process (instead of only a thread), each.
-            // The problem here is resource sharing between the processes.
-            // While threads use the same resources as their parent process,
-            // child processes copy their parent process' resources at
-            // creation and afterwards work independently on their own resources.
-            // This is a problem because CYBOI's signal memory needs to be
-            // accessed by all input/output processes without conflicts.
-            //
-            // Furthermore, the usage of operating system signals enforces
-            // a global interrupt request flag variable. Since a signal
-            // handler procedure may receive only the numeric code of the
-            // signal, but not further parametres, the interrupt request
-            // flag may not be handed over within the internal memory and
-            // a global flag would have to be used, which is undesirable.
-            //
-            // Therefore, the decision fell on the usage of a simple SLEEP
-            // procedure, which seems sufficient for the purposes of CYBOI.
-            //
-
-//?? fwprintf(stdout, L"TEST wait *sl: %f\n", *((double*) sl));
-
-            while (
-                (*((int*) c) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                && (*((int*) s) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                && (*((int*) t) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                && (*((int*) w) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                && (*((int*) x) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
-
-                sleep(*sl);
-            }
+            sleep_duration(p0);
+        }
 
 /*??
-    fwprintf(stdout, L"TEST wait *cyboi_service_irq: %i\n", *((int*) c));
-    fwprintf(stdout, L"TEST wait *serial_port_irq: %i\n", *((int*) s));
-    fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) t));
-    fwprintf(stdout, L"TEST wait *www_service_irq: %i\n", *((int*) w));
-    fwprintf(stdout, L"TEST wait *x_window_system_irq: %i\n", *((int*) x));
+fwprintf(stdout, L"TEST wait *cyboi_service_irq: %i\n", *((int*) c));
+fwprintf(stdout, L"TEST wait *serial_port_irq: %i\n", *((int*) s));
+fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) t));
+fwprintf(stdout, L"TEST wait *www_service_irq: %i\n", *((int*) w));
+fwprintf(stdout, L"TEST wait *x_window_system_irq: %i\n", *((int*) x));
 */
 
-            // The sleep loop above is left as soon as at least one of the
-            // interrupt variables is set to a value other than false (zero).
-            // This may happen if some user action is noted in one of the
-            // receive threads, e.g. terminal, x window system, tcp socket.
-            // In this case, probably a signal was placed in the signal memory and
-            // the corresponding interrupt variable set to true (one).
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The cyboi service interrupt request is null.");
-        }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The serial port interrupt request is null.");
-        }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The terminal interrupt request is null.");
-        }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The www service interrupt request is null.");
-        }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The x window system interrupt request is null.");
-        }
+        // The sleep loop above is left as soon as at least one of the
+        // interrupt variables is set to a value other than false (zero).
+        // This may happen if some user action is noted in one of the
+        // receive threads, e.g. terminal, x window system, tcp socket.
+        // In this case, probably a signal was placed in the signal memory and
+        // the corresponding interrupt variable set to true (one).
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The sleep time is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The cyboi service interrupt request is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The serial port interrupt request is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The terminal interrupt request is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The www service interrupt request is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The x window system interrupt request is null.");
     }
 }
 

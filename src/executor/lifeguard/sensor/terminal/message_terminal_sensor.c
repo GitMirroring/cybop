@@ -37,6 +37,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/runner/sleeper.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -53,139 +54,126 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
 
         FILE* is = (FILE*) p3;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            double* st = (double*) p2;
+            pthread_mutex_t* mt = (pthread_mutex_t*) p1;
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                pthread_mutex_t* mt = (pthread_mutex_t*) p1;
+                volatile sig_atomic_t* irq = (volatile sig_atomic_t*) p0;
 
-                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                // CAUTION! DO NOT log this function call!
+                // This function is executed within a thread, but the
+                // logging is not guaranteed to be thread-safe and might
+                // cause unpredictable programme behaviour.
+                // Also, this function runs in an endless loop and would produce huge log files.
 
-                    volatile sig_atomic_t* irq = (volatile sig_atomic_t*) p0;
+                // Lock terminal mutex.
+                //
+                // CAUTION! This lock has to stand not only before the interrupt request is set below,
+                // BUT ALSO BEFORE the next character is detected in the input stream!
+                //
+                // This is because the main thread might be reading characters from the
+                // input stream right now in parallel, while this thread tries to read as well.
+                //
+                // This was tested out and lead to errors, because the "ungetwc" function below
+                // was unexpectedly putting back a character such as ^ (escape) or [
+                // which (in the case of escape) caused the programme to exit
+                // and other inputs like arrow down not to be recognised properly.
+                pthread_mutex_lock(mt);
 
-                    // CAUTION! DO NOT log this function call!
-                    // This function is executed within a thread, but the
-                    // logging is not guaranteed to be thread-safe and might
-                    // cause unpredictable programme behaviour.
-                    // Also, this function runs in an endless loop and would produce huge log files.
+                // Get character from source input stream of terminal.
+                //
+                // This is just to detect that some character is available,
+                // what is also called "peeking ahead" at the input.
+                //
+                // CAUTION! The multibyte character is converted to a
+                // wide character internally in glibc function "fgetwc".
+                //
+                // CAUTION! Use 'wint_t' instead of 'int' as return type for
+                // 'getwchar()', since that returns 'WEOF' instead of 'EOF'!
+                //
+                // CAUTION! The return value of type "wint_t"
+                // MAY BE CASTED to "wchar_t".
+                wint_t c = fgetwc(is);
 
-                    // Lock terminal mutex.
-                    //
-                    // CAUTION! This lock has to stand not only before the interrupt request is set below,
-                    // BUT ALSO BEFORE the next character is detected in the input stream!
-                    //
-                    // This is because the main thread might be reading characters from the
-                    // input stream right now in parallel, while this thread tries to read as well.
-                    //
-                    // This was tested out and lead to errors, because the "ungetwc" function below
-                    // was unexpectedly putting back a character such as ^ (escape) or [
-                    // which (in the case of escape) caused the programme to exit
-                    // and other inputs like arrow down not to be recognised properly.
-                    pthread_mutex_lock(mt);
+                // The WEOF constant usually corresponds to the value: -1
+                //
+                // CAUTION! However, do NOT compare like the following:
+                // if (c < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                // The reason is that wint_t and int comparison might deliver
+                // wrong results, so that an input is mistakenly assumed below.
+                if (c == WEOF) {
 
-                    // Get character from source input stream of terminal.
-                    //
-                    // This is just to detect that some character is available,
-                    // what is also called "peeking ahead" at the input.
-                    //
-                    // CAUTION! The multibyte character is converted to a
-                    // wide character internally in glibc function "fgetwc".
-                    //
-                    // CAUTION! Use 'wint_t' instead of 'int' as return type for
-                    // 'getwchar()', since that returns 'WEOF' instead of 'EOF'!
-                    //
-                    // CAUTION! The return value of type "wint_t"
-                    // MAY BE CASTED to "wchar_t".
-                    wint_t c = fgetwc(is);
+                    // No valid character was returned.
 
-                    // The WEOF constant usually corresponds to the value: -1
-                    //
-                    // CAUTION! However, do NOT compare like the following:
-                    // if (c < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                    // The reason is that wint_t and int comparison might deliver
-                    // wrong results, so that an input is mistakenly assumed below.
-                    if (c == WEOF) {
-
-                        // No valid character was returned.
-
-                        // Sleep for some time.
-                        // This is to give the central processing unit (cpu) some
-                        // time to breathe, that is to be idle or to process other signals.
-                        sleep(*st);
-
-                    } else {
-
-                        // Unread character, that is push it back on the stream to
-                        // make it available to be input again from the stream, by the
-                        // next call to fgetc or another input function on that stream.
-                        //
-                        // If c is EOF, ungetc does nothing and just returns EOF.
-                        // This lets you call ungetc with the return value of getc
-                        // without needing to check for an error from getc.
-                        //
-                        // The character that you push back doesn't have to be the same
-                        // as the last character that was actually read from the stream.
-                        // In fact, it isn't necessary to actually read any characters
-                        // from the stream before unreading them with ungetc!
-                        // But that is a strange way to write a program;
-                        // usually ungetc is used only to unread a character that was
-                        // just read from the same stream.
-                        //
-                        // The GNU C library only supports one character of pushback.
-                        // In other words, it does not work to call ungetc twice without
-                        // doing input in between.
-                        // Other systems might let you push back multiple characters;
-                        // then reading from the stream retrieves the characters in the
-                        // reverse order that they were pushed.
-                        //
-                        // Pushing back characters doesn't alter the file;
-                        // only the internal buffering for the stream is affected.
-                        // If a file positioning function (such as fseek, fseeko or rewind)
-                        // is called, any pending pushed-back characters are discarded.
-                        //
-                        // Unreading a character on a stream that is at end of file
-                        // clears the end-of-file indicator for the stream, because it
-                        // makes the character of input available.
-                        // After you read that character, trying to read again will
-                        // encounter end of file.
-                        ungetwc(c, is);
-
-//?? fwprintf(stdout, L"TEST sense terminal c: %lc\n", c);
-
-                        // Set terminal interrupt request to indicate
-                        // that a message has been received via terminal,
-                        // which may now be processed in the main thread of this system.
-                        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                    }
-
-                    // Unlock terminal mutex.
-                    pthread_mutex_unlock(mt);
-
-                    // Access irq as atomic variable.
-                    // CAUTION! Therefore better don't use the following line:
-                    // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-                    while (*irq) {
-
-                        // Sleep as long as the terminal interrupt is not handled and reset yet.
-                        //
-                        // This is to give the central processing unit (cpu) some
-                        // time to breathe, that is to be idle or to process other signals.
-                        //
-                        // Also, many character inputs are processed at once in the main thread
-                        // and only if there are no further characters to be read, the irq flag is reset,
-                        // so that this endless loop can be left and new inputs detected.
-                        sleep(*st);
-                    }
+                    // Sleep for some time.
+                    // This is to give the central processing unit (cpu) some
+                    // time to breathe, that is to be idle or to process other signals.
+                    sleep_duration(p2);
 
                 } else {
 
-                    // CAUTION! DO NOT log this function call!
-                    // This function is executed within a thread, but the
-                    // logging is not guaranteed to be thread-safe and might
-                    // cause unpredictable programme behaviour.
-                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The interrupt is null.");
+                    // Unread character, that is push it back on the stream to
+                    // make it available to be input again from the stream, by the
+                    // next call to fgetc or another input function on that stream.
+                    //
+                    // If c is EOF, ungetc does nothing and just returns EOF.
+                    // This lets you call ungetc with the return value of getc
+                    // without needing to check for an error from getc.
+                    //
+                    // The character that you push back doesn't have to be the same
+                    // as the last character that was actually read from the stream.
+                    // In fact, it isn't necessary to actually read any characters
+                    // from the stream before unreading them with ungetc!
+                    // But that is a strange way to write a program;
+                    // usually ungetc is used only to unread a character that was
+                    // just read from the same stream.
+                    //
+                    // The GNU C library only supports one character of pushback.
+                    // In other words, it does not work to call ungetc twice without
+                    // doing input in between.
+                    // Other systems might let you push back multiple characters;
+                    // then reading from the stream retrieves the characters in the
+                    // reverse order that they were pushed.
+                    //
+                    // Pushing back characters doesn't alter the file;
+                    // only the internal buffering for the stream is affected.
+                    // If a file positioning function (such as fseek, fseeko or rewind)
+                    // is called, any pending pushed-back characters are discarded.
+                    //
+                    // Unreading a character on a stream that is at end of file
+                    // clears the end-of-file indicator for the stream, because it
+                    // makes the character of input available.
+                    // After you read that character, trying to read again will
+                    // encounter end of file.
+                    ungetwc(c, is);
+
+//?? fwprintf(stdout, L"TEST sense terminal c: %lc\n", c);
+
+                    // Set terminal interrupt request to indicate
+                    // that a message has been received via terminal,
+                    // which may now be processed in the main thread of this system.
+                    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                }
+
+                // Unlock terminal mutex.
+                pthread_mutex_unlock(mt);
+
+                // Access irq as atomic variable.
+                // CAUTION! Therefore better don't use the following line:
+                // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                while (*irq) {
+
+                    // Sleep as long as the terminal interrupt is not handled and reset yet.
+                    //
+                    // This is to give the central processing unit (cpu) some
+                    // time to breathe, that is to be idle or to process other signals.
+                    //
+                    // Also, many character inputs are processed at once in the main thread
+                    // and only if there are no further characters to be read, the irq flag is reset,
+                    // so that this endless loop can be left and new inputs detected.
+                    sleep_duration(p2);
                 }
 
             } else {
@@ -194,7 +182,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                 // This function is executed within a thread, but the
                 // logging is not guaranteed to be thread-safe and might
                 // cause unpredictable programme behaviour.
-                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The mutex is null.");
+                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The interrupt is null.");
             }
 
         } else {
@@ -203,7 +191,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
             // This function is executed within a thread, but the
             // logging is not guaranteed to be thread-safe and might
             // cause unpredictable programme behaviour.
-            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The sleep time is null.");
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The mutex is null.");
         }
 
     } else {
