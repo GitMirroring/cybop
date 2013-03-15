@@ -92,7 +92,6 @@ void sleep_nano(void* p0) {
                 // If the second parametre is null, then the
                 // remaining time is just NOT remembered,
                 // which is not needed here anyway.
-    fwprintf(stdout, L"TEST sleeper nano *d: %i\n", *d);
                 int e = nanosleep(&t, *NULL_POINTER_STATE_CYBOI_MODEL);
 
                 // Test error value.

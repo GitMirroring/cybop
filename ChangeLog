@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Correct "executor/accessor/counter/" to return item count for primitive data without filtering, since they do not have a name to compare with
+
 2013-03-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Split "run/sleep" operation into "run/sleep-nano" and "run/sleep-second", since cyboi

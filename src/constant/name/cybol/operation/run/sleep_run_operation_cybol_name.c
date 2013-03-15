@@ -30,10 +30,10 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The sleep run operation cybol name. */
-static wchar_t SLEEP_RUN_OPERATION_CYBOL_NAME_ARRAY[] = {L's', L'l', L'e', L'e', L'p'};
-static wchar_t* SLEEP_RUN_OPERATION_CYBOL_NAME = SLEEP_RUN_OPERATION_CYBOL_NAME_ARRAY;
-static int* SLEEP_RUN_OPERATION_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The duration sleep run operation cybol name. */
+static wchar_t DURATION_SLEEP_RUN_OPERATION_CYBOL_NAME_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n'};
+static wchar_t* DURATION_SLEEP_RUN_OPERATION_CYBOL_NAME = DURATION_SLEEP_RUN_OPERATION_CYBOL_NAME_ARRAY;
+static int* DURATION_SLEEP_RUN_OPERATION_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SLEEP_RUN_OPERATION_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

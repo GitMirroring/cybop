@@ -1,8 +1,7 @@
 <model>
     <!--
         A valid value was returned via serial port from the microcontroller.
-        Therefore, set "voltage_buffer_comparison" to "true",
-        independent from checksum comparison below.
+        Therefore, set "voltage_break" to "true", independent from checksum comparison below.
         The loop is to be left in any case.
     -->
     <part name="set_break_flag" channel="inline" format="modify/overwrite" model="">
@@ -23,8 +22,15 @@
     <part name="calculate_checksum" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="file" format="element/part" model="indoor_climate/calculate_checksum.cybol"/>
     </part>
-<!--
     <part name="TEST_CHECKSUM_CALCULATED" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="TEST checksum calculated:"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="TEST_CHECKSUM_CALCULATED_VALUE" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -32,7 +38,6 @@
         <property name="message" channel="inline" format="path/knowledge" model=".settings.checksum"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
--->
     <part name="compare_checksum" channel="inline" format="compare/equal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".settings.checksum_comparison"/>
         <property name="left" channel="inline" format="path/knowledge" model=".settings.checksum"/>

@@ -64,7 +64,6 @@ void sleep_second(void* p0) {
         // The duration value must not be negative.
         if (*d >= 0) {
 
-fwprintf(stdout, L"TEST sleeper second *d: %i\n", *d);
             sleep(*d);
 
         } else {

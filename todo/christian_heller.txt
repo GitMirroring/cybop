@@ -11,12 +11,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Search memory access error
+        * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
         * Try out function "test_serial_port" --> WORKS FINE!
             /dev/ACM0
             dereference baudrate
             set line with typecasts in parentheses
-        * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
         * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
         * OPTIONAL: Provide applicator cybol operations for "converter"
         * Use "item" for serial port storage in internal memory, since its count and size are needed for deallocation
@@ -37,6 +36,7 @@
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
 
+        * Delete file "part_copier.c"
         * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
             using the function "copy_part" for deep copying does not make sense, since a part's child nodes change dynamically and are not predictable
             USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
