@@ -19,6 +19,7 @@
 2013-03-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Correct "executor/accessor/counter/" to return item count for primitive data without filtering, since they do not have a name to compare with
+        * Add "reset" operations to cybol example application "indoor_climate"
 
 2013-03-12  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -101,6 +101,22 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3) {
                 // Get character from source input stream of serial port.
                 ssize_t e = read(*sp, (void*) &c, ts);
 
+                // The byte number as temporary "int" variable.
+                //
+                // The "ssize_t" type is similar to "size_t".
+                // On 64 Bit machines they might have a size of 8 Byte,
+                // whereas the "int" type has the usual size of 4 Byte.
+                // When trying to cast between the two, memory errors
+                // will occur and the valgrind memcheck tool report:
+                // "Invalid read of size 8".
+                //
+                // CAUTION! Initialise variable JUST BEFORE handing
+                // it over to the function requiring it.
+                //
+                // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                // because values are casted to int* internally again.
+                int n = e;
+
 fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
 
                 // Unlock serial port mutex.
@@ -115,7 +131,7 @@ fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
                     if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         // Append source character to destination item.
-                        append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                        append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &n, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                     } else {
 

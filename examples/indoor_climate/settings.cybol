@@ -11,27 +11,44 @@
     <part name="temperature_maximum_count" channel="inline" format="number/integer" model="5"/>
     <part name="temperature_conversion_factor" channel="inline" format="number/integer" model="10"/>
     <!-- voltage -->
-    <part name="voltage" channel="inline" format="number/integer" model="-1"/>
+    <!-- CAUTION! Do NOT use -1 as initial value since otherwise, the sum will be one too small. -->
+    <part name="voltage" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_default" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_break_default" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="voltage_count" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_count_default" channel="inline" format="number/integer" model="0"/>
+<!--
     <part name="voltage_maximum_count" channel="inline" format="number/integer" model="21"/>
+-->
+    <part name="voltage_maximum_count" channel="inline" format="number/integer" model="3"/>
     <part name="voltage_byte_value" channel="inline" format="number/integer" model="256"/>
-    <part name="voltage_comparison" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="voltage_error" channel="inline" format="text/plain" model="Error: The voltage is not valid."/>
     <!-- Sleep for 100 ms = 100,000 us = 100,000,000 ns. -->
     <part name="voltage_sleep" channel="inline" format="number/integer" model="100000000"/>
     <!-- voltage buffer -->
     <!-- The voltage buffer model initially has to be empty, since it gets filled when reading from serial port. -->
     <part name="voltage_buffer" channel="inline" format="number/integer" model=""/>
+    <part name="voltage_buffer_default" channel="inline" format="number/integer" model=""/>
     <part name="voltage_buffer_count" channel="inline" format="number/integer" model="0"/>
-    <part name="voltage_buffer_comparison" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_buffer_count_default" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_buffer_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="voltage_buffer_high_byte" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_high_byte_default" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_buffer_low_byte" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_low_byte_default" channel="inline" format="number/integer" model="0"/>
     <!-- QUESTION: Should checksum not be an integer, since it may be 255 + 255 which is greater than unsigned char? But the buffer may only contain elements of type unsigned char. -->
     <part name="voltage_buffer_checksum" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_checksum_default" channel="inline" format="number/integer" model="0"/>
     <!-- checksum -->
-    <part name="checksum" channel="inline" format="number/integer" model="-1"/>
-    <part name="checksum_comparison" channel="inline" format="logicvalue/boolean" model="false"/>
+    <!-- CAUTION! Do NOT use -1 as initial value since otherwise, the sum will be one too small. -->
+    <part name="checksum" channel="inline" format="number/integer" model="0"/>
+    <part name="checksum_default" channel="inline" format="number/integer" model="0"/>
+    <part name="checksum_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="checksum_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="checksum_error" channel="inline" format="text/plain" model="Error: The checksum is not valid."/>
 </model>
 

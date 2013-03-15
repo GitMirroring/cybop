@@ -1,35 +1,19 @@
 <model>
-    <!-- TEST -->
-    <part name="test_count" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".settings.temperature_count"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <!--
-        Reset voltage.
-        CAUTION! This is necessary because the microcontroller does sometimes
-        not return values, so that old values from former loop cycles would be used.
-    -->
-    <part name="reset_voltage" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="source" channel="inline" format="number/integer" model="-1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    <part name="reset_voltage" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="file" format="element/part" model="indoor_climate/reset_voltage.cybol"/>
     </part>
     <part name="read_voltage" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="file" format="element/part" model="indoor_climate/read_channel.cybol"/>
     </part>
-    <part name="compare_voltage" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_comparison"/>
+    <part name="compare_voltage" channel="inline" format="compare/greater" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
         <property name="left" channel="inline" format="path/knowledge" model=".settings.voltage"/>
         <property name="right" channel="inline" format="number/integer" model="0"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
     <part name="branch_voltage" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_comparison"/>
+        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
         <property name="true" channel="file" format="element/part" model="indoor_climate/add_voltage.cybol"/>
         <property name="false" channel="file" format="element/part" model="indoor_climate/report_voltage_failure.cybol"/>
     </part>

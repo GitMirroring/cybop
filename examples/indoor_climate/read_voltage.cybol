@@ -1,6 +1,11 @@
 <model>
-    <part name="receive_response" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="indoor_climate/receive_response.cybol"/>
+    <part name="reset_voltage_buffer" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="file" format="element/part" model="indoor_climate/reset_voltage_buffer.cybol"/>
+    </part>
+    <part name="receive_response" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="typecast-integer"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
     </part>
     <part name="get_voltage_buffer_count" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
@@ -23,35 +28,23 @@
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="compare_voltage_buffer_count" channel="inline" format="compare/greater" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_comparison"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_criterion"/>
         <property name="left" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
         <property name="right" channel="inline" format="number/integer" model="0"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
-    <part name="TEST_PRE" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="TEST PRE BRANCH"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-<!--
-    <part name="branch" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_comparison"/>
-        <property name="true" channel="file" format="element/part" model="indoor_climate/evaluate_checksum.cybol"/>
-        <!-- CAUTION! Do NOTHING here, since it is normal that not all returned values are valid.
+    <part name="copy_response_elements" channel="inline" format="flow/branch" model="">
+        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_criterion"/>
+        <property name="true" channel="file" format="element/part" model="indoor_climate/copy_response_elements.cybol"/>
+        <!-- CAUTION! Do NOTHING here, since it is normal that not all returned values are valid. -->
         <property name="false" channel="file" format="element/part" model=""/>
     </part>
--->
-    <part name="TEST_POST" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="TEST POST BRANCH"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    <part name="evaluate_checksum" channel="inline" format="flow/branch" model="">
+        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_criterion"/>
+        <property name="true" channel="file" format="element/part" model="indoor_climate/evaluate_checksum.cybol"/>
+        <!-- CAUTION! Do NOTHING here, since it is normal that not all returned values are valid. -->
+        <property name="false" channel="file" format="element/part" model=""/>
     </part>
     <part name="increment_loop_count" channel="inline" format="calculate/add" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_count"/>

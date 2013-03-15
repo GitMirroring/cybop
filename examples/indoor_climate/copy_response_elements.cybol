@@ -1,22 +1,4 @@
 <model>
-    <!--
-        Reset voltage buffer AND count.
-        CAUTION! This is necessary because the microcontroller does sometimes
-        not return values, so that old values from former loop cycles would be used.
-    -->
-    <part name="reset_voltage_buffer" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-    </part>
-    <part name="reset_voltage_buffer_count" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
-        <property name="source" channel="inline" format="number/integer" model="0"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="receive_response" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="typecast-integer"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-    </part>
     <part name="copy_high_byte" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
         <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>

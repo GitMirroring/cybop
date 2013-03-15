@@ -1,0 +1,29 @@
+<model>
+    <!--
+        Reset checksum.
+        CAUTION! This is necessary because the microcontroller does sometimes
+        not return values, so that old values from former loop cycles would be used.
+    -->
+    <part name="reset_checksum" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.checksum"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".settings.checksum_default"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="reset_criterion" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.checksum_criterion"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".settings.checksum_criterion_default"/>
+        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+
+    @version Indoor Climate 1.0.0 2013-03-05
+    @author Ingolf Brunner <ingolf.brunner@ba-leipzig.de>
+    @author Ronny Mauersberger <mauigeyer2@web.de>
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
