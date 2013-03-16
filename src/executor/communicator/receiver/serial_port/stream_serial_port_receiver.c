@@ -51,13 +51,17 @@
  * @param p0 the destination item
  * @param p1 the source serial port file descriptor
  * @param p2 the source serial port mutex
+ * @param p3 the minimum number of bytes to be received in one call of the read function
+ * @param p4 the maximum number of bytes to be received in one call of the read function
  */
-void receive_serial_port_stream(void* p0, void* p1, void* p2) {
+void receive_serial_port_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port.");
 
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The character count.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -66,7 +70,7 @@ void receive_serial_port_stream(void* p0, void* p1, void* p2) {
             break;
         }
 
-        receive_serial_port_character(p0, p1, p2, (void*) &b);
+        receive_serial_port_character(p0, p1, p2, p3, p4, (void*) &c, (void*) &b);
     }
 }
 

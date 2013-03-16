@@ -6,6 +6,7 @@
         <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="typecast-integer"/>
         <property name="model" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
+        <property name="minimum" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_minimum"/>
     </part>
     <part name="get_voltage_buffer_count" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>

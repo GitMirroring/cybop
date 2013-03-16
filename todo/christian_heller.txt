@@ -11,10 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Add "minimum" and "maximum" number of characters to read to cybol operation "communicate/receive",
-            since the cybol example application "indoor_climate" also needs to be able to read zero values,
-            so that using zero as end-of-file character has to be combined with minimum and maximum
-        * Adapt directory "executor/communicator/receiver/serial_port/" accordingly
+        * Make example applications work again (since adding min and max to serial receiver, they don't work anymore)
+
         * Check again if "-1" is needed as default value for voltage and checksum in cybol example application "indoor_climate"
         * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
         * Try out function "test_serial_port" --> WORKS FINE!

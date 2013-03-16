@@ -1,4 +1,5 @@
 <model>
+    <!-- Default values are given for those variables, which have to be reset or manipulated within the programme. -->
     <!-- device -->
     <part name="device" channel="inline" format="meta/channel" model="serial-port"/>
     <part name="device_filename" channel="inline" format="text/plain" model="/dev/ttyACM0"/>
@@ -32,6 +33,7 @@
     <!-- The voltage buffer model initially has to be empty, since it gets filled when reading from serial port. -->
     <part name="voltage_buffer" channel="inline" format="number/integer" model=""/>
     <part name="voltage_buffer_default" channel="inline" format="number/integer" model=""/>
+    <part name="voltage_buffer_minimum" channel="inline" format="number/integer" model="3"/>
     <part name="voltage_buffer_count" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_buffer_count_default" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_buffer_criterion" channel="inline" format="logicvalue/boolean" model="false"/>

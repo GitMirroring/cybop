@@ -20,6 +20,10 @@
 
         * Correct "executor/accessor/counter/" to return item count for primitive data without filtering, since they do not have a name to compare with
         * Add "reset" operations to cybol example application "indoor_climate"
+        * Add "minimum" and "maximum" number of characters to read to cybol operation "communicate/receive",
+            since the cybol example application "indoor_climate" also needs to be able to read zero values,
+            so that using zero as end-of-file character has to be combined with minimum and maximum
+        * Adapt directory "executor/communicator/receiver/serial_port/" accordingly
 
 2013-03-12  Christian Heller  <christian.heller@tuxtax.de>
 

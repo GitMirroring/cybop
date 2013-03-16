@@ -44,9 +44,11 @@
  * Receives the destination from serial port.
  *
  * @param p0 the destination item
- * @param p1 the internal memory data
+ * @param p1 the minimum number of bytes to be received in one call of the read function
+ * @param p2 the maximum number of bytes to be received in one call of the read function
+ * @param p3 the internal memory data
  */
-void receive_serial_port_file(void* p0, void* p1) {
+void receive_serial_port_file(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port file.");
 
@@ -56,11 +58,11 @@ void receive_serial_port_file(void* p0, void* p1) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get serial port file descriptor.
-    copy_array_forward((void*) &sp, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sp, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get serial port mutex.
-    copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &m, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    receive_serial_port_stream(p0, sp, m);
+    receive_serial_port_stream(p0, sp, m, p1, p2);
 }
 
 /* FILE_SERIAL_PORT_RECEIVER_SOURCE */
