@@ -11,14 +11,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Make example applications work again (since adding min and max to serial receiver, they don't work anymore)
-
+        * Try out function "test_serial_port" --> WORKS FINE!
+        * Already checked: baudrate IS OK!
+--
         * Check again if "-1" is needed as default value for voltage and checksum in cybol example application "indoor_climate"
         * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
-        * Try out function "test_serial_port" --> WORKS FINE!
-            /dev/ACM0
-            dereference baudrate
-            set line with typecasts in parentheses
         * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
         * OPTIONAL: Provide applicator cybol operations for "converter"
         * Use "item" for serial port storage in internal memory, since its count and size are needed for deallocation
