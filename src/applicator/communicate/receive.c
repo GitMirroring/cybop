@@ -218,13 +218,14 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
 
 /*??
 fwprintf(stdout, L"TEST receive cmd: %i\n", *((int*) cmd));
+fwprintf(stdout, L"TEST receive emd: %i\n", *((int*) emd));
 fwprintf(stdout, L"TEST receive lmd: %i\n", *((int*) lmd));
 fwprintf(stdout, L"TEST receive fmd: %i\n", *((int*) fmd));
-fwprintf(stdout, L"TEST receive motd: %i\n", *((int*) motd));
-fwprintf(stdout, L"TEST receive INTEGER_NUMBER_STATE_CYBOI_FORMAT: %i\n", *INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 fwprintf(stdout, L"TEST receive mmc: %i\n", *((int*) mmc));
 fwprintf(stdout, L"TEST receive mmd*: %i\n", mmd);
 fwprintf(stdout, L"TEST receive mmd: %i\n", *((int*) mmd));
+fwprintf(stdout, L"TEST receive mimd: %i\n", mimd);
+fwprintf(stdout, L"TEST receive mamd: %i\n", mamd);
 */
 
 /*??

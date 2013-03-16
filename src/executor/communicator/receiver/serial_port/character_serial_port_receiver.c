@@ -101,7 +101,6 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
                     // unsigned char c[max];
                     unsigned char c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                    //
                     // The maximum number of bytes to be read.
                     //
                     // The number of bytes actually read might be less,
@@ -209,13 +208,12 @@ fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
 
                                 // The minimum required number of characters to read
                                 // HAS been reached.
-                                // However, as long as FURTHER VALID characters
-                                // are returned by the "read" function, these
-                                // are appended to the destination as well.
-                                // Zero value characters are now NOT appended anymore,
-                                // since a zero value character indicates end of file.
 
                                 if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                                    // However, as long as FURTHER VALID characters
+                                    // are returned by the "read" function, these
+                                    // are appended to the destination as well.
 
                                     // Append source character to destination item.
                                     // append_item_element(p0, (void*) c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &n, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -226,9 +224,14 @@ fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
 
                                 } else {
 
+                                    // Zero value characters are now NOT appended anymore,
+                                    // since a zero value character indicates end-of-file (EOF).
+                                    // This is contrarily to above, where the minimum
+                                    // had not been reached yet.
+
                                     // Set loop break flag.
-                                    // An input character value of zero indicates end-of-file.
-                                    // Since all values have been received, the loop can be left now.
+                                    // CAUTION! If this was not done here,
+                                    // the loop would run endlessly.
                                     copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                                 }
                             }
@@ -239,8 +242,8 @@ fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
                             // HAS been reached.
 
                             // Set loop break flag.
-                            // An input character value of zero indicates end-of-file.
-                            // Since all values have been received, the loop can be left now.
+                            // CAUTION! If this was not done here,
+                            // the loop would run endlessly.
                             copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                         }
 
@@ -249,8 +252,8 @@ fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The number of bytes returned is zero.");
 
                         // Set loop break flag.
-                        // An input character value of zero indicates end-of-file.
-                        // Since all values have been received, the loop can be left now.
+                        // CAUTION! If this was not done here,
+                        // the loop would run endlessly.
                         copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                     } else if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -287,8 +290,8 @@ fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port file descriptor is zero or negative.");
 
                     // Set loop break flag.
-                    // An input character value of zero indicates end-of-file.
-                    // Since all values have been received, the loop can be left now.
+                    // CAUTION! If this was not done here,
+                    // the loop would run endlessly.
                     copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
 
