@@ -27,6 +27,7 @@
 #ifndef ADD_DOUBLE_CALCULATOR_SOURCE
 #define ADD_DOUBLE_CALCULATOR_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -40,16 +41,11 @@
  */
 void calculate_double_add(void* p0, void* p1) {
 
-
-
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         double* s = (double*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-	  //fwprintf(stdout, L"Double-calculator-Result: %f\n", *((double*)p0));
-	  //fwprintf(stdout, L"Double-calculator-operant: %f\n", *((double*)p1));
 
             double* sum = (double*) p0;
 
@@ -57,7 +53,8 @@ void calculate_double_add(void* p0, void* p1) {
             // It uses functions causing circular references.
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate double add.");
 
-	    *sum = *sum + *s;
+            *sum = *sum + *s;
+
         } else {
 
             // CAUTION! Do NOT call the logger here.

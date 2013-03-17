@@ -24,45 +24,48 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NEGATE_DOUBLE_CALCULATOR_SOURCE
-#define NEGATE_DOUBLE_CALCULATOR_SOURCE
+#ifndef INTEGER_DOUBLE_CASTER_SOURCE
+#define INTEGER_DOUBLE_CASTER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../logger/logger.c"
 
 /**
- * Negates the source (i.e. changes its sign) and stores the result in destination.
+ * Casts the source of type integer to the destination of type double.
+ *
+ * CAUTION! This is a LOSSLESS cast, since
+ * type double has a greater value range.
  *
  * @param p0 the destination
  * @param p1 the source
  */
-void calculate_double_negate(void* p0, void* p1) {
+void cast_double_integer(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        double* s = (double*) p1;
+        int* s = (int*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             double* d = (double*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate double negate.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast double integer.");
 
-            *d = -(*s);
+            *d = (double) *s;
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double negate. The destination is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast double integer. The destination is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double negate. The source is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast double integer. The source is null.");
     }
 }
 
-/* NEGATE_DOUBLE_CALCULATOR_SOURCE */
+/* INTEGER_DOUBLE_CASTER_SOURCE */
 #endif

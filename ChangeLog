@@ -20,6 +20,7 @@
 
         * Debug cybol example application "double"
         * Use "fabs" for "double" instead of "abs" for "int" for "calculate/absolute" cybol operation
+        * Add directory "executor/caster/" for casting various types
 
 2013-03-15  Christian Heller  <christian.heller@tuxtax.de>
 

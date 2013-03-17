@@ -29,6 +29,7 @@
 #include "../tester/accessor_tester.c"
 #include "../tester/arithmetiser_tester.c"
 #include "../tester/assembler_tester.c"
+#include "../tester/caster_tester.c"
 #include "../tester/communicator_tester.c"
 #include "../tester/comparator_tester.c"
 #include "../tester/constant_tester.c"
@@ -128,6 +129,7 @@ void test() {
     // Executor.
     test_accessor();
     test_arithmetiser();
+    test_caster();
     test_communicator();
     test_comparator();
     test_converter();

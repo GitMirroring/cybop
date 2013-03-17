@@ -58,9 +58,9 @@ void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2) {
     void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The old destination item count.
     // CAUTION! This variable is necessary for inserting
-    // integer values, rather than appending them.
-    // While parsing an integer vector, the programme "dives"
-    // into the vector first, so that last values are added first.
+    // values, rather than appending them.
+    // While parsing a vector, the programme "dives" into
+    // the vector first, so that last values are added first.
     // If values were now just appended, the order of
     // vector values would be swapped, which is not wanted.
     // On the other hand, inserting values at the beginning of the

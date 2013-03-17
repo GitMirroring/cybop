@@ -27,6 +27,7 @@
 #ifndef SUBTRACT_DOUBLE_CALCULATOR_SOURCE
 #define SUBTRACT_DOUBLE_CALCULATOR_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -46,7 +47,7 @@ void calculate_double_subtract(void* p0, void* p1) {
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-             double* d = (double*) p0;
+            double* d = (double*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate double subtract.");
 

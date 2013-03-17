@@ -44,7 +44,7 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the wide character data into an double item.
+ * Deserialises the wide character data into a double item.
  *
  * @param p0 the destination item
  * @param p1 the source data
@@ -64,6 +64,12 @@ void deserialise_cybol_fraction_decimal(void* p0, void* p1, void* p2) {
     // Copy source count remaining.
     copy_integer((void*) &c, p2);
 
+    // CAUTION! A copy of source count remaining is forwarded here,
+    // so that the original source value does not get changed.
+    // CAUTION! The source data position does NOT have to be copied,
+    // since the parametre that was handed over is already a copy.
+    // A local copy was made anyway, not to risk parametre falsification.
+    // Its reference is forwarded, as it gets incremented by sub routines inside.
     deserialise_cybol_fraction_decimal_vector(p0, (void*) &d, (void*) &c);
 }
 

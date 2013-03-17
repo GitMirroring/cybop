@@ -27,6 +27,7 @@
 #ifndef MULTIPLY_DOUBLE_CALCULATOR_SOURCE
 #define MULTIPLY_DOUBLE_CALCULATOR_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -46,7 +47,7 @@ void calculate_double_multiply(void* p0, void* p1) {
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-             double* p = (double*) p0;
+            double* p = (double*) p0;
 
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
