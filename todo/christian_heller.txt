@@ -11,13 +11,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Try out function "test_serial_port" --> WORKS FINE!
-        * Already checked: baudrate IS OK!
+        * Verify de-/serialiser "number/fraction-decimal" and calculator for type "double", needed for temperature division
 --
-        * Check again if "-1" is needed as default value for voltage and checksum in cybol example application "indoor_climate"
-        * Implement "number/fraction-decimal" and calculator for type "double", needed for temperature division
-        * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
+        * Try out function "test_serial_port" --> WORKS FINE; baudrate IS OK!
+--
         * OPTIONAL: Provide applicator cybol operations for "converter"
+        * Check again if "-1" is needed as default value for voltage and checksum in cybol example application "indoor_climate"
+        * Test application again with valgrind to see if "Invalid read of size 4" bugs disappeared
         * Use "item" for serial port storage in internal memory, since its count and size are needed for deallocation
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"

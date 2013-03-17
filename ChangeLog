@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug cybol example application "double"
+        * Use "fabs" for "double" instead of "abs" for "int" for "calculate/absolute" cybol operation
+
 2013-03-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Correct "executor/accessor/counter/" to return item count for primitive data without filtering, since they do not have a name to compare with

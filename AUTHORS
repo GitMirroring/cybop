@@ -30,7 +30,7 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Enrico Gallus <enrico.gallus@googlemail.com> (internet protocol- and service port constants)
         * Thomas Thiele (character entity xml model constants)
         * Friedemann Simon (character entity xml model constants)
-        * Falk Müller <falk.mueller@it2009.ba-leipzig.de> (de-/serialiser and calculator for double type)
+        * Falk Müller <falk89@web.de> (de-/serialiser and calculator for double type)
 
 CYBOP Project
         * Christian Heller <christian.heller@tuxtax.de> (administration, website, releases)

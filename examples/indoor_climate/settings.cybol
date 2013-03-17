@@ -6,7 +6,7 @@
     <part name="device_baudrate" channel="inline" format="number/integer" model="115200"/>
     <part name="device_channel" channel="inline" format="text/plain" model="c01"/>
     <!-- temperature -->
-    <part name="temperature" channel="inline" format="number/integer" model="0"/>
+    <part name="temperature" channel="inline" format="number/fraction-decimal" model="0.0"/>
     <part name="temperature_break" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="temperature_count" channel="inline" format="number/integer" model="0"/>
     <part name="temperature_maximum_count" channel="inline" format="number/integer" model="5"/>

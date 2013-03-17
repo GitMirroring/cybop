@@ -24,8 +24,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ABSOLUTE_DOUBLE_CALCULATOR_SOURCE
-#define ABSOLUTE_DOUBLE_CALCULATOR_SOURCE
+#ifndef ABSOLUTE_COMPLEX_CALCULATOR_SOURCE
+#define ABSOLUTE_COMPLEX_CALCULATOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -38,33 +38,34 @@
  * @param p0 the destination
  * @param p1 the source
  */
-void calculate_double_absolute(void* p0, void* p1) {
+void calculate_complex_absolute(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-       double* s = (double*) p1;
+       complex double* s = (complex double*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            double* d = (double*) p0;
+            complex double* d = (complex double*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate double absolute.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate complex absolute.");
 
             // CAUTION! Do NOT use the "abs" function,
             // which is for integer values.
 
-            *d = fabs(*s);
+            // double cabs (complex double z)
+            *d = cabs(*s);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double absolute. The destination is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate complex absolute. The destination is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double absolute. The source is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate complex absolute. The source is null.");
     }
 }
 
-/* ABSOLUTE_DOUBLE_CALCULATOR_SOURCE */
+/* ABSOLUTE_COMPLEX_CALCULATOR_SOURCE */
 #endif
