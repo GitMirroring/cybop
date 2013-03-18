@@ -51,49 +51,24 @@
  * @param p1 the destination properties item
  * @param p2 the minimum number of bytes to be received in one call of the read function
  * @param p3 the maximum number of bytes to be received in one call of the read function
- * @param p4 the encoding
- * @param p5 the internal memory data
+ * @param p4 the internal memory data
  */
-void receive_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void receive_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port.");
 
-    // The decoded message item.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The decoded message item data, count.
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Allocate decoded message item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
     // Receive byte data via channel.
-    receive_serial_port_file(d, p2, p3, p5);
+    receive_serial_port_file(p0, p2, p3, p4);
 
-    // Get decoded message item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // CAUTION! The multibyte character sequence is NOT decoded
+    // into a wide character array, since serial port data are mostly
+    // evaluated bytewise within a cybol application.
+    // The "encoding" parametre is therefore obsolete.
 
-    // Decode data.
-    //
-    // CAUTION! The multibyte character sequence is converted here.
-    // Since serial port data are mostly evaluated bytewise within a
-    // cybol application, the conversion is from unsigned char into
-    // mostly integer or the ascii char elements (bytes) are just copied.
-    decode(p0, dd, dc, p4);
-
-    // CAUTION! The multibyte character sequence is NOT deserialised
-    // into a cyboi-internal part, since serial port data are mostly
-    // to be evaluated bytewise within a cybol application.
+    // CAUTION! The byte data are NOT deserialised into a
+    // cyboi-internal part, since serial port data are mostly
+    // evaluated bytewise within a cybol application.
     // The "language" and "format" parametres are therefore obsolete.
-
-    // Deallocate decoded message item.
-    deallocate_item((void*) &d, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

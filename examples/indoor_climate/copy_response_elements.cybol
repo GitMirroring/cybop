@@ -2,21 +2,21 @@
     <part name="copy_high_byte" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
         <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="type" channel="inline" format="meta/type" model="text/ascii"/>
         <property name="count" channel="inline" format="number/integer" model="1"/>
         <property name="source_index" channel="inline" format="number/integer" model="0"/>
     </part>
     <part name="copy_low_byte" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
         <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="type" channel="inline" format="meta/type" model="text/ascii"/>
         <property name="count" channel="inline" format="number/integer" model="1"/>
         <property name="source_index" channel="inline" format="number/integer" model="1"/>
     </part>
     <part name="copy_checksum" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_checksum"/>
         <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="type" channel="inline" format="meta/type" model="text/ascii"/>
         <property name="count" channel="inline" format="number/integer" model="1"/>
         <property name="source_index" channel="inline" format="number/integer" model="2"/>
     </part>

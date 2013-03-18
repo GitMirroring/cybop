@@ -11,7 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Provide cybol operation "cast/integer-to-double"
+        * Provide cybol operations "cast/character", "cast/double", "cast/integer"
 --
         * Try out function "test_serial_port" --> WORKS FINE; baudrate IS OK!
 --

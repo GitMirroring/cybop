@@ -1,0 +1,34 @@
+<model>
+    <part name="initialise_voltage_buffer_high_byte_default" channel="inline" format="cast/character" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte_default"/>
+        <property name="source" channel="inline" format="number/integer" model="0"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="initialise_voltage_buffer_low_byte_default" channel="inline" format="cast/character" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte_default"/>
+        <property name="source" channel="inline" format="number/integer" model="0"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="initialise_voltage_buffer_checksum_default" channel="inline" format="cast/character" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_checksum_default"/>
+        <property name="source" channel="inline" format="number/integer" model="0"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="initialise_checksum_default" channel="inline" format="cast/character" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.checksum_default"/>
+        <property name="source" channel="inline" format="number/integer" model="0"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+
+    @version Indoor Climate 1.0.0 2013-03-05
+    @author Ingolf Brunner <ingolf.brunner@ba-leipzig.de>
+    @author Ronny Mauersberger <mauigeyer2@web.de>
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

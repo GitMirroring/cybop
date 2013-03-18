@@ -30,6 +30,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/basic/character_calculator.c"
 #include "../../../executor/calculator/basic/double_calculator.c"
 #include "../../../executor/calculator/basic/fraction_calculator.c"
 #include "../../../executor/calculator/basic/integer_calculator.c"
@@ -149,6 +150,20 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             calculate_pointer(p0, p1, p2);
+        }
+    }
+
+    //
+    // text
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            calculate_character(p0, p1, p2);
         }
     }
 

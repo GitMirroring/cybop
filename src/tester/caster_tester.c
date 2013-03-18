@@ -58,12 +58,12 @@ void test_caster_double_integer() {
  */
 void test_caster() {
 
-    fwprintf(stdout, L"TEST caster.\n");
+//    fwprintf(stdout, L"TEST caster.\n");
 
     // Uncomment below functions as needed,
     // in order for them to be executed.
 
-    test_caster_double_integer();
+//    test_caster_double_integer();
 }
 
 /* CASTER_TESTER */

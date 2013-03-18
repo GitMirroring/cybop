@@ -66,7 +66,10 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
     // CAUTION! Set default value. The SSIZE_MAX value is defined in <limits.h>.
     // Another possible common value would be 4096
     // (seen in other source code examples).
-    int max = SSIZE_MAX;
+    // int max = SSIZE_MAX; // CAUTION! If using this constant, then care about overflow, since SSIZE_MAX has a greater value range than int on 64 Bit machines.
+    int max = INT_MAX; // This is the maximum value that can be represented by a signed int. On most machines that the GNU C Library runs on, an int is a 32-bit quantity.
+    // The minimum maximum comparison result.
+    int rminmax = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -85,7 +88,9 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
 
     // CAUTION! The minimum has to be SMALLER than the maximum.
     // Equality IS ALSO possible, e.g. when just reading one character.
-    if (min <= max) {
+    compare_integer_smaller_or_equal((void*) &rminmax, (void*) &min, (void*) &max);
+
+    if (rminmax != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

@@ -86,6 +86,19 @@ static int* REMAINDER_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_526_INTEGER_STATE_CY
 static int* SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_527_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// cast
+//
+
+/** The character cast logic cyboi format. */
+static int* CHARACTER_CAST_LOGIC_CYBOI_FORMAT = NUMBER_530_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The double cast logic cyboi format. */
+static int* DOUBLE_CAST_LOGIC_CYBOI_FORMAT = NUMBER_531_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The integer cast logic cyboi format. */
+static int* INTEGER_CAST_LOGIC_CYBOI_FORMAT = NUMBER_532_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // communicate
 //
 

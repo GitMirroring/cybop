@@ -1,4 +1,12 @@
 <model>
+    <part name="TEST" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="TEST read temperature"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".settings.temperature_break"/>

@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Change format of some variables from "number/integer" into "text/ascii" in cybol example application "indoor_climate"
+        * Adapt files "cybol_deserialiser.c" and "cybol_serialiser.c" to process format "text/ascii"
+        * Add directory "executor/calculator/basic/character/" for arithmetics with type "unsigned char"
+
 2013-03-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug cybol example application "double"

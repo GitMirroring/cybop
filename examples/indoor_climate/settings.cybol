@@ -1,4 +1,11 @@
 <model>
+    <!--
+        CAUTION! All variables with format "text/ascii" initially HAVE TO BE EMPTY.
+        Assigning a hard-coded number as model here will lead to wrong values.
+        The reason is that numbers in format "text/ascii" are interpreted as characters,
+        NOT numbers, so that for example number zero will instead deliver its ascii code,
+        which is hexadecimal 0x30 or decimal 48.
+    -->
     <!-- Default values are given for those variables, which have to be reset or manipulated within the programme. -->
     <!-- device -->
     <part name="device" channel="inline" format="meta/channel" model="serial-port"/>
@@ -31,24 +38,27 @@
     <part name="voltage_sleep" channel="inline" format="number/integer" model="100000000"/>
     <!-- voltage buffer -->
     <!-- The voltage buffer model initially has to be empty, since it gets filled when reading from serial port. -->
-    <part name="voltage_buffer" channel="inline" format="number/integer" model=""/>
-    <part name="voltage_buffer_default" channel="inline" format="number/integer" model=""/>
+    <part name="voltage_buffer" channel="inline" format="text/ascii" model=""/>
     <part name="voltage_buffer_minimum" channel="inline" format="number/integer" model="3"/>
     <part name="voltage_buffer_count" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_buffer_count_default" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_buffer_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="voltage_buffer_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>
-    <part name="voltage_buffer_high_byte" channel="inline" format="number/integer" model="0"/>
-    <part name="voltage_buffer_high_byte_default" channel="inline" format="number/integer" model="0"/>
-    <part name="voltage_buffer_low_byte" channel="inline" format="number/integer" model="0"/>
-    <part name="voltage_buffer_low_byte_default" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_high_byte" channel="inline" format="text/ascii" model=""/>
+    <part name="voltage_buffer_high_byte_default" channel="inline" format="text/ascii" model=""/>
+    <part name="voltage_buffer_low_byte" channel="inline" format="text/ascii" model=""/>
+    <part name="voltage_buffer_low_byte_default" channel="inline" format="text/ascii" model=""/>
     <!-- QUESTION: Should checksum not be an integer, since it may be 255 + 255 which is greater than unsigned char? But the buffer may only contain elements of type unsigned char. -->
-    <part name="voltage_buffer_checksum" channel="inline" format="number/integer" model="0"/>
-    <part name="voltage_buffer_checksum_default" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_checksum" channel="inline" format="text/ascii" model=""/>
+    <part name="voltage_buffer_checksum_default" channel="inline" format="text/ascii" model=""/>
     <!-- checksum -->
-    <!-- CAUTION! Do NOT use -1 as initial value since otherwise, the sum will be one too small. -->
-    <part name="checksum" channel="inline" format="number/integer" model="0"/>
-    <part name="checksum_default" channel="inline" format="number/integer" model="0"/>
+    <!--
+        CAUTION! Do NOT use -1 as initial value since otherwise, the sum will be one too small.
+        Also, the format "text/ascii" gets translated into type "unsigned char",
+        which CANNOT hold negative values!
+    -->
+    <part name="checksum" channel="inline" format="text/ascii" model=""/>
+    <part name="checksum_default" channel="inline" format="text/ascii" model=""/>
     <part name="checksum_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="checksum_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="checksum_error" channel="inline" format="text/plain" model="Error: The checksum is not valid."/>

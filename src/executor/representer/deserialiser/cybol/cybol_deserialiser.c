@@ -31,6 +31,7 @@
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
+#include "../../../../executor/converter/encoder.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/decimal_fraction/decimal_fraction_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
@@ -385,6 +386,30 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     // text
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! The data are available as wide character strings.
+            // They ALL are deserialised uniformly into various formats.
+            //
+            // So do data with format "text/ascii".
+            // Since they are available with type "wchar_t",
+            // they have to get deserialised into "char" here.
+            //
+            // When receiving data over some channel, they are mostly
+            // decoded back into a multibyte character sequence of type "char".
+            // It is true, this double-conversion could be avoided if catching
+            // data with format "text/ascii" in file "file_receiver.c".
+            // But in order to be able to uniformly process all data,
+            // this loss in efficiency is taken.
+
+            encode(p0, p2, p3, (void*) UTF_8_CYBOI_ENCODING);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

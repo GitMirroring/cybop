@@ -1,4 +1,12 @@
 <model>
+    <part name="TEST" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="TEST read channel"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
     <part name="send_request" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -18,14 +26,6 @@
     <part name="collect_voltages" channel="inline" format="flow/loop" model="">
         <property name="break" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
         <property name="model" channel="file" format="element/part" model="indoor_climate/read_voltage.cybol"/>
-    </part>
-    <part name="TEST" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="TEST POST READ CHANNEL"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 </model>
 
