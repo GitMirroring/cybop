@@ -57,6 +57,17 @@
 //
 
 /**
+ * The number/byte state cybol type.
+ *
+ * Byte number (integral data type).
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t BYTE_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'b', L'y', L't', L'e'};
+static wchar_t* BYTE_NUMBER_STATE_CYBOL_FORMAT = BYTE_NUMBER_STATE_CYBOL_FORMAT_ARRAY;
+static int* BYTE_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The number/complex-cartesian state cybol type.
  *
  * Complex number written in cartesian form, that is as

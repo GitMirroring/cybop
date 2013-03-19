@@ -30,7 +30,7 @@
 #include "../../applicator/access/get.c"
 #include "../../applicator/access/indicate.c"
 #include "../../applicator/calculate/calculate.c"
-//?? #include "../../applicator/cast/cast.c"
+#include "../../applicator/cast/cast.c"
 #include "../../applicator/communicate/receive.c"
 #include "../../applicator/communicate/send.c"
 #include "../../applicator/compare/compare.c"
@@ -214,17 +214,35 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // cast
     //
 
-/*??
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) CHARACTER_CAST_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_cast(p0, p1, p3, (void*) CHARACTER_CAST_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) DOUBLE_CAST_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            cast_double(p0, p1, p3, p2);
+            apply_cast(p0, p1, p3, (void*) DOUBLE_CAST_LOGIC_CYBOI_FORMAT);
         }
     }
-*/
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) INTEGER_CAST_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_cast(p0, p1, p3, (void*) INTEGER_CAST_LOGIC_CYBOI_FORMAT);
+        }
+    }
 
     //
     // communicate

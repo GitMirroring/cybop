@@ -11,9 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Provide data format "number/byte" internally mapped into type "text/ascii",
-            in order to be able to initialise "text/ascii" variables inside cybol applications,
-            and to avoid their values being interpreted as ascii code
 --
         * Try out function "test_serial_port" --> WORKS FINE; baudrate IS OK!
 --

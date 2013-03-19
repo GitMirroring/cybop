@@ -23,29 +23,30 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CASTER_SOURCE
-#define CASTER_SOURCE
+#ifndef VALUE_CASTER_SOURCE
+#define VALUE_CASTER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/caster/character_caster.c"
-#include "../../executor/caster/double_caster.c"
-#include "../../executor/caster/integer_caster.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/caster/basic/character_caster.c"
+#include "../../../executor/caster/basic/double_caster.c"
+#include "../../../executor/caster/basic/integer_caster.c"
+#include "../../../logger/logger.c"
 
 /**
- * Casts the source into the destination according to the given destination type.
+ * Casts the source data into the destination data,
+ * according to the given destination type.
  *
  * @param p0 the destination data
  * @param p1 the source data
  * @param p2 the source type
  * @param p3 the destination type
  */
-void cast(void* p0, void* p1, void* p2, void* p3) {
+void cast_value(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast value.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -82,9 +83,37 @@ void cast(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast. The destination type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast value. The destination type is unknown.");
     }
 }
 
-/* CASTER_SOURCE */
+/**
+ * Casts the source data into the destination data,
+ * according to the given destination type,
+ * using the given index to calculate an offset.
+ *
+ * @param p0 the destination data
+ * @param p1 the source data
+ * @param p2 the source type
+ * @param p3 the destination type
+ * @param p4 the index
+ */
+void cast_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast value offset.");
+
+    // The destination value, source value.
+    // CAUTION! They HAVE TO BE initialised with p0 and p1,
+    // since an offset is added below.
+    void* d = p0;
+    void* s = p1;
+
+    // Add offset.
+    add_offset((void*) &d, p3, p4);
+    add_offset((void*) &s, p2, p4);
+
+    cast_value(d, s, p2, p3);
+}
+
+/* VALUE_CASTER_SOURCE */
 #endif

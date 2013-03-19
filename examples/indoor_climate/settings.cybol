@@ -57,8 +57,14 @@
         Also, the format "text/ascii" gets translated into type "unsigned char",
         which CANNOT hold negative values!
     -->
+    <part name="checksum" channel="inline" format="number/byte" model="0"/>
+<!--
+    <part name="checksum" channel="inline" format="number/byte" model="0"/>
     <part name="checksum" channel="inline" format="text/ascii" model=""/>
     <part name="checksum_default" channel="inline" format="text/ascii" model=""/>
+    <part name="checksum_default" channel="inline" format="number/byte" model="0"/>
+-->
+    <part name="checksum_default" channel="inline" format="number/byte" model="0"/>
     <part name="checksum_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="checksum_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="checksum_error" channel="inline" format="text/plain" model="Error: The checksum is not valid."/>

@@ -23,29 +23,30 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ARRAY_CALCULATOR_SOURCE
-#define ARRAY_CALCULATOR_SOURCE
+#ifndef ARRAY_CASTER_SOURCE
+#define ARRAY_CASTER_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/calculator/basic/value_calculator.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/caster/basic/value_caster.c"
 #include "../../../logger/logger.c"
 
 /**
- * Calculates count elements of the result- and operand array.
+ * Casts count elements of the source- to the destination array.
  *
- * @param p0 the result array, which contains the operands BEFORE the operation
- * @param p1 the operand array
- * @param p2 the operation type
- * @param p3 the operand type
+ * @param p0 the destination array
+ * @param p1 the source array
+ * @param p2 the source type
+ * @param p3 the destination type
  * @param p4 the count
  */
-void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void cast_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array elements.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast array elements.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -73,59 +74,59 @@ void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) 
             break;
         }
 
-        calculate_value_offset(p0, p1, p2, p3, (void*) &j);
+        cast_value_offset(p0, p1, p2, p3, (void*) &j);
 
         j++;
     }
 }
 
 /**
- * Calculates count elements of the result- and operand array,
+ * Casts count elements of the source- to the destination array,
  * starting from the given offset.
  *
- * @param p0 the result array, which contains the operands BEFORE the operation
- * @param p1 the operand array
- * @param p2 the operation type
- * @param p3 the operand type
+ * @param p0 the destination array
+ * @param p1 the source array
+ * @param p2 the source type
+ * @param p3 the destination type
  * @param p4 the count
- * @param p5 the result index
- * @param p6 the operand index
+ * @param p5 the destination index
+ * @param p6 the source index
  */
-void calculate_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void cast_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // CAUTION! These null pointer comparisons are IMPORTANT, in order to
     // avoid a system crash if one or both of the two arrays are null!
-    // All other calculate functions are based on this calculate function,
+    // All other cast functions are based on this cast function,
     // so that checking for null pointer right here suffices.
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast array.");
 
-            // The result array, operand array.
+            // The destination array, source array.
             // CAUTION! They HAVE TO BE initialised with p0 and p1,
             // since an offset is added below.
-            void* r = p0;
-            void* o = p1;
+            void* d = p0;
+            void* s = p1;
 
             // Add offset.
-            add_offset((void*) &r, p3, p5);
-            add_offset((void*) &o, p3, p6);
+            add_offset((void*) &d, p3, p5);
+            add_offset((void*) &s, p2, p6);
 
-            calculate_array_elements(r, o, p2, p3, p4);
+            calculate_array_elements(d, s, p2, p3, p4);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The result (operand before operation) array is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast array. The destination array is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The operand array is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast array. The source array is null.");
     }
 }
 
-/* ARRAY_CALCULATOR_SOURCE */
+/* ARRAY_CASTER_SOURCE */
 #endif

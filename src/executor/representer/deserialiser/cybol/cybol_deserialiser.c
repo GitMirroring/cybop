@@ -26,16 +26,17 @@
 #ifndef CYBOL_DESERIALISER_SOURCE
 #define CYBOL_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/converter/encoder.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/decimal_fraction/decimal_fraction_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/boolean_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/byte_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/complex_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/date_time_cybol_deserialiser.c"
@@ -316,6 +317,16 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     // number
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_cybol_byte(p0, p2, p3);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

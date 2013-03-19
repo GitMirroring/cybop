@@ -65,20 +65,31 @@ static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE = NUMBER_20_INTEGER_STATE_CYBOI_
 // number
 //
 
+/**
+ * The byte number state cyboi type.
+ *
+ * CAUTION! The byte number type internally uses
+ * the same size as "unsigned char".
+ * However, it IS NECESSARY to distinguish
+ * between the two, in order to interpret
+ * characters as numbers and NOT ascii codes.
+ */
+static int* BYTE_NUMBER_STATE_CYBOI_TYPE = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The complex number state cyboi type. */
-static int* COMPLEX_NUMBER_STATE_CYBOI_TYPE = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* COMPLEX_NUMBER_STATE_CYBOI_TYPE = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The double number state cyboi type. */
-static int* DOUBLE_NUMBER_STATE_CYBOI_TYPE = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* DOUBLE_NUMBER_STATE_CYBOI_TYPE = NUMBER_32_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The fraction number state cyboi type. */
-static int* FRACTION_NUMBER_STATE_CYBOI_TYPE = NUMBER_32_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* FRACTION_NUMBER_STATE_CYBOI_TYPE = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The integer number state cyboi type. */
-static int* INTEGER_NUMBER_STATE_CYBOI_TYPE = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INTEGER_NUMBER_STATE_CYBOI_TYPE = NUMBER_34_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The unsigned long number state cyboi type. */
-static int* UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE = NUMBER_34_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE = NUMBER_35_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // pointer

@@ -89,6 +89,10 @@ void determine_size(void* p0, void* p1) {
         // number
         //
 
+        } else if (*t == *BYTE_NUMBER_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+
         } else if (*t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE) {
 
             // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part.

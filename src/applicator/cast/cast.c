@@ -34,7 +34,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../executor/accessor/name_getter/array_name_getter.c"
-#include "../../executor/caster/part_caster.c"
+#include "../../executor/caster/all/part_all_caster.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -84,7 +84,7 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Cast value by applying operation.
-    cast_part(d, s, tmd, p3);
+    cast_all_part(d, s, tmd, p3);
 }
 
 /* CAST_SOURCE */

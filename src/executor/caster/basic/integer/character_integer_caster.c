@@ -24,8 +24,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INTEGER_DOUBLE_CASTER_SOURCE
-#define INTEGER_DOUBLE_CASTER_SOURCE
+#ifndef CHARACTER_INTEGER_CASTER_SOURCE
+#define CHARACTER_INTEGER_CASTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -34,38 +34,38 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Casts the source of type integer to the destination of type double.
+ * Casts the source of type character to the destination of type integer.
  *
- * CAUTION! This is a LOSSLESS cast, since
- * type double has a greater value range.
+ * CAUTION! This is a LOSSLESS cast, since type integer
+ * has a larger value range than type unsigned char.
  *
  * @param p0 the destination
  * @param p1 the source
  */
-void cast_double_integer(void* p0, void* p1) {
+void cast_integer_character(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* s = (int*) p1;
+        unsigned char* s = (unsigned char*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            double* d = (double*) p0;
+            int* d = (int*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast double integer.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast integer character.");
 
-            *d = (double) *s;
+            *d = (int) *s;
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast double integer. The destination is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer character. The destination is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast double integer. The source is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer character. The source is null.");
     }
 }
 
-/* INTEGER_DOUBLE_CASTER_SOURCE */
+/* CHARACTER_INTEGER_CASTER_SOURCE */
 #endif

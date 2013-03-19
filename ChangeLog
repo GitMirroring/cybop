@@ -19,6 +19,9 @@
 2013-03-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Provide cybol operations "cast/character", "cast/double", "cast/integer" and extend cyboi accordingly
+        * Provide data format "number/byte" which gets mapped into type "text/ascii" internally,
+            in order to be able to initialise "text/ascii" variables inside cybol applications
+            and to avoid their values being interpreted as ascii code
 
 2013-03-18  Christian Heller  <christian.heller@tuxtax.de>
 
