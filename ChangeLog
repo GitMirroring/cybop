@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Provide cybol operations "cast/character", "cast/double", "cast/integer" and extend cyboi accordingly
+
 2013-03-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Change format of some variables from "number/integer" into "text/ascii" in cybol example application "indoor_climate"

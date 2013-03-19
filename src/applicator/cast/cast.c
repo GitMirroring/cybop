@@ -30,34 +30,23 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/calculation/calculation_operation_cybol_name.c"
+#include "../../constant/name/cybol/operation/cast/cast_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../executor/accessor/name_getter/array_name_getter.c"
-#include "../../executor/calculator/all/part_all_calculator.c"
+#include "../../executor/caster/part_caster.c"
 #include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/overwriter/part_overwriter.c"
 #include "../../logger/logger.c"
 
 /**
- * ?? TODO ??
- *
- * Calculates a result by applying the given operation to the given operands.
+ * Casts a value from one type to another.
  *
  * Expected parametres:
- * - result (required): the knowledge model in which the result is stored; used as first operand
- * - operand (required): the second operand
- * - type (required): the operand type which is equal for both operands
+ * - destination (required): the knowledge model to cast to
+ * - source (required): the knowledge model to cast from
+ * - type (required): the source type
  *
  * Constraints:
- *
- * CAUTION! Do NOT use the "add" operation for characters!
- * They may be concatenated by using the "append" or "overwrite" operation.
- *
- * CAUTION! There are several ways to use addition, with unary or binary operators.
- * This function works like an UNARY operator.
- * The "result" parametre represents the first operand;
- * the "operand" parametre the second.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -66,13 +55,12 @@
  */
 void apply_cast(void* p0, void* p1, void* p2, void* p3) {
 
-/*??
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply cast.");
 
-    // The result part.
-    void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operand part.
-    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The destination part.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -82,12 +70,12 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3) {
     // The type part model item data.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get result part.
-    get_part_knowledge((void*) &r, p0, (void*) RESULT_CALCULATION_OPERATION_CYBOL_NAME, (void*) RESULT_CALCULATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get operand part.
-    get_part_knowledge((void*) &o, p0, (void*) OPERAND_CALCULATION_OPERATION_CYBOL_NAME, (void*) OPERAND_CALCULATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get destination part.
+    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_CAST_OPERATION_CYBOL_NAME, (void*) DESTINATION_CAST_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get source part.
+    get_part_knowledge((void*) &s, p0, (void*) SOURCE_CAST_OPERATION_CYBOL_NAME, (void*) SOURCE_CAST_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get type part.
-    get_part_knowledge((void*) &t, p0, (void*) TYPE_CALCULATION_OPERATION_CYBOL_NAME, (void*) TYPE_CALCULATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &t, p0, (void*) TYPE_CAST_OPERATION_CYBOL_NAME, (void*) TYPE_CAST_OPERATION_CYBOL_NAME_COUNT, p1, p2);
 
     // Get type part model item.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -95,10 +83,9 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3) {
     // Get type part model item data.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Calculate result by applying operation.
-    calculate_all_part(r, o, p3, tmd);
+    // Cast value by applying operation.
+    cast_part(d, s, tmd, p3);
 }
-*/
 
 /* CAST_SOURCE */
 #endif
