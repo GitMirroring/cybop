@@ -14,7 +14,7 @@
 Documentation
 _____________
 
-        * Update cybol specification, which gets automatically generated into html
+        * Update cybol specification (with state and logic), which gets automatically generated into html
         * Create manual for beginners, in order to get accepted as official GNU project
         * Erweitern Handbuch für Einsteiger (LaTeX oder LibreOffice) mit Bezug auf CYBOL Beispielanwendungen
 
@@ -62,5 +62,6 @@ _____
 
         * Make cyboi compilable under windows os (using preprocessor directives)
         * Adapt ansi escape code terminal input/output to windows operating system shell
+        * Make cyboi cross-compilable for various architectures, e.g. ARM processor (using preprocessor directives)
 
         * Identify memory leaks using valgrind
