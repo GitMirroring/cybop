@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug "executor/caster/"
+        * Add "filler" functionality (calling "overwriter" internally) to applicator and executor
+
 2013-03-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Provide cybol operations "cast/character", "cast/double", "cast/integer" and extend cyboi accordingly

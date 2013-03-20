@@ -55,6 +55,9 @@ void cast_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // since they just represent allocated memory.
     // Only the count (actual number of elements) is of interest.
 
+fwprintf(stdout, L"TEST cast all array *p4: %i\n", *((int*) p4));
+fwprintf(stdout, L"TEST cast all array *p5: %i\n", *((int*) p5));
+
     // Compare if integer vectors have the same length.
     compare_integer_equal((void*) &r, p4, p5);
 
