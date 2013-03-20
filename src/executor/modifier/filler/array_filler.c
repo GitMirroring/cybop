@@ -37,13 +37,37 @@
 #include "../../../logger/logger.c"
 
 /**
- * Fills the array.
+ * Fills the array element.
  *
- * @param p0 the destination array (pointer reference)
- * @param p1 the source element
+ * @param p0 the destination data (pointer reference)
+ * @param p1 the source data
  * @param p2 the type
  * @param p3 the count
  * @param p4 the index
+ * @param p5 the destination count
+ * @param p6 the destination size
+ * @param p7 the adjust count flag
+ */
+void fill_array_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Fill array element.");
+
+    // Fill given element repeatedly into array.
+    // The count and size are adjusted inside.
+    // CAUTION! Hand over the count twice, as
+    // count of elements to be removed (third parametre)
+    // AND as array count (fifth parametre).
+    overwrite_array(p0, p1, p2, p3, p4, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5, p6, p7);
+}
+
+/**
+ * Fills the array.
+ *
+ * @param p0 the destination data (pointer reference)
+ * @param p1 the source data
+ * @param p2 the type
+ * @param p3 the count
+ * @param p4 the destination index
  * @param p5 the destination count
  * @param p6 the destination size
  * @param p7 the adjust count flag
@@ -52,12 +76,41 @@ void fill_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Fill array.");
 
-    // Fill given element repeatedly into array.
-    // The count and size are adjusted inside.
-    // CAUTION! Hand over the count twice, as
-    // count of elements to be removed (third parametre)
-    // AND as array count (fifth parametre).
-    overwrite_array(p0, p1, p2, p3, p4, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5, p6, p7);
+    // The loop count.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Initialise loop count with destination index parametre
+    // PLUS the count parametre.
+    calculate_integer_add((void*) &c, p4);
+    calculate_integer_add((void*) &c, p3);
+    // Initialise loop variable with destination index parametre.
+    // That way, all destination entries starting from
+    // the given index parametre are processed.
+    calculate_integer_add((void*) &j, p4);
+
+    // CAUTION! The usual loop count parametre test for NULL
+    // is NOT necessary here, since a local variable is used.
+    // Therefore, the loop count variable comparison will work
+    // and the break flag may be set to true.
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, (void*) &c);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
+        }
+
+        fill_array_element(p0, p1, p2, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, p5, p6, p7);
+
+        // Increment loop variable.
+        calculate_integer_add((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    }
 }
 
 /* ARRAY_FILLER_SOURCE */

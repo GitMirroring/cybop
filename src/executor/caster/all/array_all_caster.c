@@ -37,12 +37,12 @@
 /**
  * Casts all elements of the source- to the destination array.
  *
- * @param p0 the destination array
- * @param p1 the source array
+ * @param p0 the destination data
+ * @param p1 the source data
  * @param p2 the source type
  * @param p3 the destination type
- * @param p4 the destination array count
- * @param p5 the source array count
+ * @param p4 the destination count
+ * @param p5 the source count
  */
 void cast_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
@@ -55,8 +55,10 @@ void cast_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // since they just represent allocated memory.
     // Only the count (actual number of elements) is of interest.
 
+/*??
 fwprintf(stdout, L"TEST cast all array *p4: %i\n", *((int*) p4));
 fwprintf(stdout, L"TEST cast all array *p5: %i\n", *((int*) p5));
+*/
 
     // Compare if integer vectors have the same length.
     compare_integer_equal((void*) &r, p4, p5);

@@ -44,38 +44,65 @@ void test_representer_number_byte() {
 
     fwprintf(stdout, L"TEST representer number byte.\n");
 
-    // The destination item.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The destination item data, count.
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source byte sequence with just one single number.
-    void* sd = (void*) L"123";
-    int sc = *NUMBER_3_INTEGER_STATE_CYBOI_MODEL;
-    // The source byte sequence with many single byte elements.
-//??    void* sd = (void*) L"1,2,3";
-//??    int sc = *NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
+    // The single destination item.
+    void* d1 = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The multi destination item.
+    void* d2 = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The single destination item data, count.
+    void* d1d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* d1c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The multi destination item data, count.
+    void* d2d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* d2c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The single source data as byte sequence with just one number.
+    // CAUTION! Due to the data type, the value has to be in range 0..255.
+    void* s1d = (void*) L"104";
+    int s1c = *NUMBER_3_INTEGER_STATE_CYBOI_MODEL;
+    // The multi source data as byte sequence with many byte elements.
+    // CAUTION! Due to the data type, the values have to be in range 0..255.
+    void* s2d = (void*) L"1,0,4";
+    int s2c = *NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
 
-    // Allocate destination item.
+    // Allocate single destination item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &d1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
+    // Allocate multi destination item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &d2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
 
-    deserialise(d, *NULL_POINTER_STATE_CYBOI_MODEL, sd, (void*) &sc, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
+    // Deserialise single source data.
+    deserialise(d1, *NULL_POINTER_STATE_CYBOI_MODEL, s1d, (void*) &s1c, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
+    // Deserialise multi source data.
+    deserialise(d2, *NULL_POINTER_STATE_CYBOI_MODEL, s2d, (void*) &s2c, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
 
-    // Get destination item data, count.
+    // Get single destination item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &d1d, d1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &d1c, d1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get multi destination item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &d2d, d2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &d2c, d2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST representer number byte dc: %i\n", *((int*) dc));
-    fwprintf(stdout, L"TEST representer number byte dd as char: %c\n", *((char*) dd));
-    fwprintf(stdout, L"TEST representer number byte dd as int: %i\n", *((char*) dd));
+    fwprintf(stdout, L"TEST representer number byte d1c: %i\n", *((int*) d1c));
+    fwprintf(stdout, L"TEST representer number byte d1d as char: %c\n", *((char*) d1d));
+    fwprintf(stdout, L"TEST representer number byte d1d as int: %i\n", *((char*) d1d));
 
-    // Deallocate destination item.
-    deallocate_item((void*) &d, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
+    fwprintf(stdout, L"TEST representer number byte d2c: %i\n", *((int*) d2c));
+    fwprintf(stdout, L"TEST representer number byte d2d element 1 as int: %i\n", *((char*) (d2d + 0)));
+    fwprintf(stdout, L"TEST representer number byte d2d element 2 as int: %i\n", *((char*) (d2d + 1)));
+    fwprintf(stdout, L"TEST representer number byte d2d element 3 as int: %i\n", *((char*) (d2d + 2)));
+
+    // Deallocate single destination item.
+    deallocate_item((void*) &d1, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
+    // Deallocate multi destination item.
+    deallocate_item((void*) &d2, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -86,9 +113,9 @@ void test_representer_number_byte() {
  */
 void test_representer() {
 
-    fwprintf(stdout, L"TEST representer.\n");
+//    fwprintf(stdout, L"TEST representer.\n");
 
-    test_representer_number_byte();
+//    test_representer_number_byte();
 }
 
 /* REPRESENTER_TESTER */

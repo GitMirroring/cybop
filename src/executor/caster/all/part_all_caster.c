@@ -84,7 +84,7 @@ void cast_all_part(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &sm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Cast all elements of the source- into the destination item.
-    calculate_all_item(dm, sm, p2, p3);
+    cast_all_item(dm, sm, p2, p3);
 }
 
 /* PART_ALL_CASTER_SOURCE */

@@ -115,7 +115,12 @@ void cast_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             add_offset((void*) &d, p3, p5);
             add_offset((void*) &s, p2, p6);
 
-            calculate_array_elements(d, s, p2, p3, p4);
+/*??
+fwprintf(stdout, L"TEST cast array *d: %i\n", *((char*) d));
+fwprintf(stdout, L"TEST cast array *s: %i\n", *((int*) s));
+*/
+
+            cast_array_elements(d, s, p2, p3, p4);
 
         } else {
 

@@ -111,7 +111,7 @@ void cast_all_item(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &sc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Cast all elements of the source- into the destination array.
-    calculate_all_array(dd, sd, p2, p3, dc, sc);
+    cast_all_array(dd, sd, p2, p3, dc, sc);
 }
 
 /* ITEM_ALL_CASTER_SOURCE */

@@ -45,7 +45,7 @@
  * The count and size are adjusted automatically.
  *
  * @param p0 the destination part
- * @param p1 the source element
+ * @param p1 the source data
  * @param p2 the type
  * @param p3 the count
  * @param p4 the index

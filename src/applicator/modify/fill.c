@@ -77,6 +77,8 @@ void apply_fill(void* p0, void* p1, void* p2) {
     // The part part type, model item.
     void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The element part model item.
+    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part model item.
@@ -87,6 +89,8 @@ void apply_fill(void* p0, void* p1, void* p2) {
     // The part part type, model item data, count.
     void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The element part model item data.
+    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part model item data.
@@ -108,6 +112,8 @@ void apply_fill(void* p0, void* p1, void* p2) {
     // Get part part type, model item.
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get element part model item.
+    copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get index part model item.
@@ -118,6 +124,8 @@ void apply_fill(void* p0, void* p1, void* p2) {
     // Get part part type, model item data, count.
     copy_array_forward((void*) &ptd, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get element part model item data.
+    copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get count part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get index part model item data.
@@ -146,13 +154,8 @@ void apply_fill(void* p0, void* p1, void* p2) {
     // Set adjust flag to the value that was given as parametre.
     copy_integer((void*) &adjust, amd);
 
-    //?? TODO:
-    //?? Determine source element item data emd!
-
-    // Overwrite the destination- with the source part.
-//??    overwrite_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
-    // Fill part, i.e. remove all of its elements.
-    fill_part(p, emd, ptd, c, i, a);
+    // Fill part up with given element.
+    fill_part(p, emd, ptd, (void*) &count, (void*) &index, (void*) &adjust);
 }
 
 /* FILL_SOURCE */
