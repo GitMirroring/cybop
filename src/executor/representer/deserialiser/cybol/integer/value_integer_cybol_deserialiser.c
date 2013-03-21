@@ -109,6 +109,15 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         // 8 - octal, e.g. 083
         // 10 - decimal, e.g. 1234
         // 16 - hexadecimal, e.g. 3d4 or, optionally, 0x3d4
+        //
+        // If the string is empty, contains only whitespace,
+        // or does not contain an initial substring that
+        // has the expected syntax for an integer in the
+        // specified base, NO conversion is performed.
+        // In this case, strtol returns a value of ZERO and
+        // the value stored in *tailptr is the value of string.
+        // This is ideal for cyboi, since a value of zero is assigned
+        // internally, in case the given cybol model string is empty.
         int i = wcstol((wchar_t*) td, &tail, *nb);
 
         if (errno == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {

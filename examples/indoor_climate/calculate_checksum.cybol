@@ -2,12 +2,12 @@
     <part name="calculate_checksum_1" channel="inline" format="calculate/add" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".settings.checksum"/>
         <property name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="text/ascii"/>
+        <property name="type" channel="inline" format="meta/type" model="number/byte"/>
     </part>
     <part name="calculate_checksum_2" channel="inline" format="calculate/add" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".settings.checksum"/>
         <property name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="text/ascii"/>
+        <property name="type" channel="inline" format="meta/type" model="number/byte"/>
     </part>
 </model>
 

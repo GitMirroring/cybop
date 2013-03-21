@@ -68,37 +68,6 @@
  */
 void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
-/*?? Baudrate original is 115200 but serialised value shown is 4098; may be CORRECT anyway, since the 4098 might represent the system-internal POSIX symbol.
-fwprintf(stdout, L"TEST BEGIN --- DELETE LATER ---: %i\n", p0);
-
-fwprintf(stdout, L"TEST baudrate original *p2: %i\n", *((int*) p2));
-
-        // The serialised baudrate item.
-        void* br = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The serialised baudrate item data.
-        void* brd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Allocate serialised baudrate item.
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        allocate_item((void*) &br, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-        // Serialise given baudrate integer parametre into serialised baudrate item.
-        serialise(br, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) LINE_SPEED_NUMBER_STATE_CYBOI_FORMAT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TERMINAL_MODE_NUMBER_STATE_CYBOI_LANGUAGE);
-
-        // Get serialised wide character item data, count.
-        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-        // Inside the structure, arrays may have been reallocated,
-        // with elements pointing to different memory areas now.
-        copy_array_forward((void*) &brd, br, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            int* brdi = (int*) brd;
-
-fwprintf(stdout, L"TEST baudrate *brdi: %i\n", *brdi);
-
-fwprintf(stdout, L"TEST END --- DELETE LATER ---: %i\n", p0);
-*/
-
     // The serial port file descriptor.
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -138,7 +107,7 @@ fwprintf(stdout, L"TEST END --- DELETE LATER ---: %i\n", p0);
             // Create file descriptor for the given null-terminated filename.
             *spi = open((char*) p1, f);
 
-fwprintf(stdout, L"TEST open *spi: %i\n", *spi);
+//?? fwprintf(stdout, L"TEST open *spi: %i\n", *spi);
 
             // The normal return value from "open" is a
             // non-negative integer file descriptor.

@@ -32,7 +32,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="format" channel="inline" format="meta/format" model="number/byte"/>
         <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
@@ -48,7 +48,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="format" channel="inline" format="meta/format" model="number/byte"/>
         <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
@@ -64,7 +64,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="format" channel="inline" format="meta/format" model="number/byte"/>
         <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_checksum"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>

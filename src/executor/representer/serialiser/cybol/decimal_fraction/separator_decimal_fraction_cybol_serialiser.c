@@ -49,7 +49,7 @@ void serialise_cybol_fraction_decimal_separator(void* p0, void* p1) {
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Test if this is NOT the first value.
-    compare_integer_unequal((void*) &f, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_greater((void*) &f, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

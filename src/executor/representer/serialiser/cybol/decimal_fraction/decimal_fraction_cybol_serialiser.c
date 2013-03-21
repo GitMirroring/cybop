@@ -65,6 +65,11 @@ void serialise_cybol_fraction_decimal(void* p0, void* p1, void* p2) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
+fwprintf(stdout, L"TEST serialise cybol fraction decimal *p2: %i\n", *((int*) p2));
+fwprintf(stdout, L"TEST serialise cybol fraction decimal p1: %i\n", p1);
+fwprintf(stdout, L"TEST serialise cybol fraction decimal *p1: %f\n", *((double*) p1));
+fwprintf(stdout, L"TEST serialise cybol fraction decimal *p1 as int: %i\n", *((int*) p1));
+
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);

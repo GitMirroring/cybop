@@ -55,6 +55,17 @@
 //
 
 /**
+ * The cast/byte logic cybol format.
+ *
+ * Cast value to type byte.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t BYTE_CAST_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L's', L't', L'/', L'b', L'y', L't', L'e'};
+static wchar_t* BYTE_CAST_LOGIC_CYBOL_FORMAT = BYTE_CAST_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* BYTE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The cast/character logic cybol format.
  *
  * Cast value to type character.

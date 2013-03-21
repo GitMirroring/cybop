@@ -229,6 +229,16 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p6, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_byte(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p6, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -294,6 +304,30 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
     //
     // text
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! The data are available in various formats.
+            // They ALL are serialised uniformly into wide character strings.
+            //
+            // So do data with format "text/ascii".
+            // Since they are available with type "char",
+            // they have to get serialised into "wchar_t" here.
+            //
+            // When sending data over some channel, they are mostly
+            // encoded back into a multibyte character sequence of type "char".
+            // It is true, this double-conversion could be avoided if catching
+            // data with format "text/ascii" in file "file_sender.c".
+            // But in order to be able to uniformly process all data,
+            // this loss in efficiency is taken.
+
+            decode(p0, p1, p2, (void*) UTF_8_CYBOI_ENCODING);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

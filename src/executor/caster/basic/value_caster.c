@@ -26,6 +26,7 @@
 #ifndef VALUE_CASTER_SOURCE
 #define VALUE_CASTER_SOURCE
 
+#include "../../../constant/format/cybol/logic/cast_logic_cybol_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -42,7 +43,7 @@
  * @param p0 the destination data
  * @param p1 the source data
  * @param p2 the source type
- * @param p3 the destination type
+ * @param p3 the operation type
  */
 void cast_value(void* p0, void* p1, void* p2, void* p3) {
 
@@ -53,7 +54,7 @@ void cast_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p3, (void*) BYTE_CAST_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -63,7 +64,17 @@ void cast_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p3, (void*) CHARACTER_CAST_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            cast_character(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) DOUBLE_CAST_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -73,7 +84,7 @@ void cast_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p3, (void*) INTEGER_CAST_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +94,7 @@ void cast_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast value. The destination type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast value. The operation type is unknown.");
     }
 }
 
@@ -95,7 +106,7 @@ void cast_value(void* p0, void* p1, void* p2, void* p3) {
  * @param p0 the destination data
  * @param p1 the source data
  * @param p2 the source type
- * @param p3 the destination type
+ * @param p3 the operation type
  * @param p4 the index
  */
 void cast_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {

@@ -7,10 +7,12 @@
     <part name="device_channel" channel="inline" format="text/plain" model="c01"/>
     <!-- temperature -->
     <part name="temperature" channel="inline" format="number/fraction-decimal" model="0.0"/>
+    <part name="temperature_summand" channel="inline" format="number/fraction-decimal" model="0.0"/>
     <part name="temperature_break" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="temperature_count" channel="inline" format="number/integer" model="0"/>
     <part name="temperature_maximum_count" channel="inline" format="number/integer" model="5"/>
-    <part name="temperature_conversion_factor" channel="inline" format="number/integer" model="10"/>
+    <part name="temperature_maximum_count_divisor" channel="inline" format="number/fraction-decimal" model="1.0"/>
+    <part name="temperature_conversion_factor" channel="inline" format="number/fraction-decimal" model="10.0"/>
     <!-- voltage -->
     <!-- CAUTION! Do NOT use -1 as initial value since otherwise, the sum will be one too small. -->
     <part name="voltage" channel="inline" format="number/integer" model="0"/>
@@ -19,10 +21,11 @@
     <part name="voltage_break_default" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="voltage_count" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_count_default" channel="inline" format="number/integer" model="0"/>
-<!--
     <part name="voltage_maximum_count" channel="inline" format="number/integer" model="21"/>
--->
-    <part name="voltage_maximum_count" channel="inline" format="number/integer" model="3"/>
+    <part name="voltage_high_byte" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_high_byte_default" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_low_byte" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_low_byte_default" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_byte_value" channel="inline" format="number/integer" model="256"/>
     <part name="voltage_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="voltage_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>

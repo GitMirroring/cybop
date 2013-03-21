@@ -1,4 +1,12 @@
 <model>
+    <part name="TEST" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="TEST evaluate checksum"/>
+        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
     <!--
         A valid value was returned via serial port from the microcontroller.
         Therefore, set "voltage_break" to "true", independent from checksum comparison below.
@@ -11,22 +19,6 @@
     </part>
     <part name="reset_checksum" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="file" format="element/part" model="indoor_climate/reset_checksum.cybol"/>
-    </part>
-    <part name="TEST_CHECKSUM_CALCULATED_PRE" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="TEST checksum calculated pre:"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="TEST_CHECKSUM_CALCULATED_PRE_VALUE" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".settings.checksum"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="calculate_checksum" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="file" format="element/part" model="indoor_climate/calculate_checksum.cybol"/>
@@ -43,7 +35,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="format" channel="inline" format="meta/format" model="number/byte"/>
         <property name="message" channel="inline" format="path/knowledge" model=".settings.checksum"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>

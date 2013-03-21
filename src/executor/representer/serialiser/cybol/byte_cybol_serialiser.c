@@ -26,6 +26,7 @@
 #ifndef BYTE_CYBOL_SERIALISER_SOURCE
 #define BYTE_CYBOL_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cybol/logic/cast_logic_cybol_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -50,13 +51,27 @@ void serialise_cybol_byte(void* p0, void* p1, void* p2) {
     // The integer item data, count.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The initial integer data.
+    int ii = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate integer item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-    cast_all_item_element(i, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, p2, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Fill integer item with initial number zero byte elements.
+    // The number of elements to fill in is determined by the source count.
+    // CAUTION! This IS NECESSARY in order to ensure that
+    // source- and destination have an equal count of elements.
+    // Otherwise, the elements will not be casted.
+    fill_item(i, (void*) &ii, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    // Cast all source- into destination array elements.
+    // CAUTION! Assigning the destination array to the destination item
+    // is NOT necessary, since a reallocation does NOT happen here.
+    // Neither the count, nor the size of the destination array gets changed.
+    // They already got adjusted while filling the item with initial values above.
+    cast_all_item_element(i, p1, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_CAST_LOGIC_CYBOI_FORMAT, p2, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Get integer item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

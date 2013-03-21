@@ -55,75 +55,66 @@
  */
 void serialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol integer value.");
 
-        int* nb = (int*) p3;
+    // The value.
+    // unsigned long long int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol integer value.");
+    // Get value from vector at index.
+    copy_array_forward((void*) &v, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
-        // The value.
-        // unsigned long long int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //
+    // The temporary array.
+    //
+    // The longest possible integer value defined in the
+    // C programming language currently seems to be:
+    //
+    // unsigned long long int
+    //
+    // Minimum allowed range: 0..+18446744073709551615
+    // Typical allowed range: 0..+18446744073709551615
+    // Typical size [Byte]: 8
+    // Typical size [Bit]: 64
+    //
+    // The range 18446744073709551615 contains 20 digits.
+    // It therefore is sufficient to provide an array of size 256.
+    //
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ts = *NUMBER_256_INTEGER_STATE_CYBOI_MODEL;
 
-        // Get value from vector at index.
-        copy_array_forward((void*) &v, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    // Allocate temporary array.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-        //
-        // The temporary array.
-        //
-        // The longest possible integer value defined in the
-        // C programming language currently seems to be:
-        //
-        // unsigned long long int
-        //
-        // Minimum allowed range: 0..+18446744073709551615
-        // Typical allowed range: 0..+18446744073709551615
-        // Typical size [Byte]: 8
-        // Typical size [Bit]: 64
-        //
-        // The range 18446744073709551615 contains 20 digits.
-        // It therefore is sufficient to provide an array of size 256.
-        //
-        void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-        int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        int ts = *NUMBER_256_INTEGER_STATE_CYBOI_MODEL;
+    // Serialise value according to given number base.
+    serialise_cybol_integer_base(td, (void*) &tc, (void*) &ts, (void*) &v, p3);
 
-        // Allocate temporary array.
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        allocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    if (tc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        // Serialise value according to given number base.
-        serialise_cybol_integer_base(td, (void*) &tc, (void*) &ts, (void*) &v, p3);
+        // The value was converted successfully.
 
-        if (tc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            // The value was converted successfully.
-
-            append_item_element(p0, td, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-        } else {
-
-            // The value returned by the conversion function is negative,
-            // which means that the value was NOT converted successfully.
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol integer value.");
-
-            // CAUTION! A more flexible approach would be to stepwise enlarge
-            // the destination array, until the provided source value matches.
-            // In order to do this, call this function itself recursively.
-            // This is done every time again, until the value
-            // gets finally converted successfully.
-            // The only argument that grows then is the destination size.
-        }
-
-        // Deallocate temporary array.
-        deallocate_array((void*) &td, (void*) &tc, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        append_item_element(p0, td, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol integer value. The number base is null.");
+        // The value returned by the conversion function is negative,
+        // which means that the value was NOT converted successfully.
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol integer value.");
+
+        // CAUTION! A more flexible approach would be to stepwise enlarge
+        // the destination array, until the provided source value matches.
+        // In order to do this, call this function itself recursively.
+        // This is done every time again, until the value
+        // gets finally converted successfully.
+        // The only argument that grows then is the destination size.
     }
+
+    // Deallocate temporary array.
+    deallocate_array((void*) &td, (void*) &tc, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* VALUE_INTEGER_CYBOL_SERIALISER_SOURCE */

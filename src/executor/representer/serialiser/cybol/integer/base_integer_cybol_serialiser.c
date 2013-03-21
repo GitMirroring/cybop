@@ -128,6 +128,11 @@ void serialise_cybol_integer_base(void* p0, void* p1, void* p2, void* p3, void* 
                         }
                     }
 
+                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol integer base. The number base is invalid.");
+                    }
+
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol integer base. The destination data is null.");

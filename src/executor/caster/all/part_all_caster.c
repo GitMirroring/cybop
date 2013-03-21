@@ -43,7 +43,7 @@
  * @param p0 the destination part
  * @param p1 the source array
  * @param p2 the source type
- * @param p3 the destination type
+ * @param p3 the operation type
  * @param p4 the source array count
  * @param p5 the destination part element index
  */
