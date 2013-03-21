@@ -12,9 +12,6 @@
         <property name="message" channel="inline" format="text/plain" model="indoor_climate/settings.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".settings"/>
     </part>
-    <part name="initialise_ascii_settings" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="indoor_climate/initialise_ascii_settings.cybol"/>
-    </part>
     <!-- Test knowledge tree by writing it into a file. -->
 <!--
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
