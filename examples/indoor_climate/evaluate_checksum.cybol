@@ -51,7 +51,7 @@
         <property name="result" channel="inline" format="path/knowledge" model=".settings.checksum_criterion"/>
         <property name="left" channel="inline" format="path/knowledge" model=".settings.checksum"/>
         <property name="right" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_checksum"/>
-        <property name="type" channel="inline" format="meta/type" model="text/ascii"/>
+        <property name="type" channel="inline" format="meta/type" model="number/byte"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
     <part name="test_checksum" channel="inline" format="flow/branch" model="">
