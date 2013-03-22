@@ -1,12 +1,4 @@
 <model>
-    <part name="TEST" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="TEST read voltage"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
     <part name="reset_voltage_buffer" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="file" format="element/part" model="indoor_climate/reset_voltage_buffer.cybol"/>
     </part>
@@ -19,6 +11,7 @@
         <property name="count" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
         <property name="part" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
     </part>
+<!--
     <part name="TEST_VOLTAGE_BUFFER_COUNT" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -35,6 +28,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+-->
     <part name="compare_voltage_buffer_count" channel="inline" format="compare/greater" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_criterion"/>
         <property name="left" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>

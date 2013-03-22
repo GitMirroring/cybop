@@ -6,8 +6,8 @@
     </part>
     <part name="add_voltage" channel="inline" format="calculate/add" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".settings.temperature"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".settings.temperature_summand"/>
+        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </part>
 </model>
 

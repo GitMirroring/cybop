@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug and complete cybol example application "indoor_climate"
+
 2013-03-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Use format "number/byte" instead of "text/ascii" in cybol example application "indoor_climate"

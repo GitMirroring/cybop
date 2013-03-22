@@ -20,6 +20,7 @@
         <property name="count" channel="inline" format="number/integer" model="1"/>
         <property name="source_index" channel="inline" format="number/integer" model="2"/>
     </part>
+<!--
     <part name="TEST_HIGH_BYTE" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -68,6 +69,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_checksum"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+-->
 </model>
 
 <!--

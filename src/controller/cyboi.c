@@ -151,9 +151,11 @@ int main(int p0, char** p1) {
         orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
+/*??
 fwprintf(stdout, L"TEST ARRAY_REFERENCE_COUNTER BEGIN: %i\n", *ARRAY_REFERENCE_COUNTER);
 fwprintf(stdout, L"TEST ITEM_REFERENCE_COUNTER BEGIN: %i\n", *ITEM_REFERENCE_COUNTER);
 fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COUNTER);
+*/
 
         // The operation mode.
         //
@@ -215,9 +217,11 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COU
         // Deallocate cybol knowledge file path.
         deallocate_item((void*) &k, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+/*??
 fwprintf(stdout, L"TEST ARRAY_REFERENCE_COUNTER END: %i\n", *ARRAY_REFERENCE_COUNTER);
 fwprintf(stdout, L"TEST ITEM_REFERENCE_COUNTER END: %i\n", *ITEM_REFERENCE_COUNTER);
 fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNTER);
+*/
 
         // Shutdown global variables.
         unglobalise();
