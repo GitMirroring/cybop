@@ -53,21 +53,30 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown serial port.");
 
-    // The serial port file descriptor.
+    // The serial port file descriptor item.
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serial port file descriptor item data.
+    void* spd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get serial port file descriptor.
+    // Get serial port file descriptor item.
     copy_array_forward((void*) &sp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Only deallocate serial port resources if existent.
     if (sp != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* spi = (int*) sp;
+        // Get serial port file descriptor item data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &spd, sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+        // The serial port file descriptor item data as integer.
+        int* spdi = (int*) spd;
 
         // Interrupt serial port service thread.
         interrupt_thread(p1, p2);
 
-        if (*spi >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (*spdi >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // The original attributes.
             void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,7 +106,7 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
                 //            Its meaning is to inhibit alteration of the state of the serial port hardware.
                 //            It is a BSD extension; it is only supported on BSD systems and the GNU system.
                 //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
-                int e = tcsetattr(*spi, TCSANOW, (struct termios*) o);
+                int e = tcsetattr(*spdi, TCSANOW, (struct termios*) o);
 
                 if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -136,7 +145,7 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
             }
 
             // Close file descriptor.
-            int e = close(*spi);
+            int e = close(*spdi);
 
             // The normal return value from "close" is zero;
             // a value of minus one is returned in case of failure.
@@ -173,10 +182,8 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. The serial port file descriptor is zero or negative.");
         }
 
-        // Deallocate serial port file descriptor.
-        int spc = *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
-        int sps = *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
-        deallocate_array((void*) &sp, (void*) &spc, (void*) &sps, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // Deallocate serial port file descriptor item.
+        deallocate_item((void*) &sp, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Reset serial port file descriptor.
         // CAUTION! Assign NULL to the internal memory.

@@ -44,7 +44,7 @@
 /**
  * Starts up the serial port attributes setter.
  *
- * @param p0 the file descriptor
+ * @param p0 the file descriptor data
  * @param p1 the original attributes
  * @param p2 the baudrate
  */
@@ -109,6 +109,7 @@ void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
 
         if (brd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            // The serialised baudrate item data as integer.
             int* brdi = (int*) brd;
 
             //
@@ -208,7 +209,7 @@ void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The file descriptor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The file descriptor data is null.");
     }
 }
 

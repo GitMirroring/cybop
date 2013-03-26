@@ -68,10 +68,12 @@
  */
 void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
-    // The serial port file descriptor.
+    // The serial port file descriptor item.
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serial port file descriptor item data.
+    void* spd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get serial port file descriptor.
+    // Get serial port file descriptor item.
     copy_array_forward((void*) &sp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Only create new serial port resources if none exist.
@@ -79,14 +81,25 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port open.");
 
-        // Allocate serial port file descriptor.
-        allocate_array((void*) &sp, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // Allocate serial port file descriptor item.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        // CAUTION! Use "item" for serial port storage in internal memory,
+        // since its count and size are needed for deallocation.
+        allocate_item((void*) &sp, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-        if (sp != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Get serial port file descriptor item data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &spd, sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-            int* spi = (int*) sp;
+        if (spd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // Set serial port file descriptor.
+            // The serial port file descriptor item data as integer.
+            int* spdi = (int*) spd;
+
+            // Set serial port file descriptor item.
             // CAUTION! Add it as soon as it was allocated above
             // ALWAYS and not only if opened successfully below.
             // Otherwise, in case of an error, the shutdown function
@@ -105,17 +118,17 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
             int f = O_RDWR | O_NOCTTY | O_NDELAY;
 
             // Create file descriptor for the given null-terminated filename.
-            *spi = open((char*) p1, f);
+            *spdi = open((char*) p1, f);
 
-//?? fwprintf(stdout, L"TEST open *spi: %i\n", *spi);
+//?? fwprintf(stdout, L"TEST open *spdi: %i\n", *spdi);
 
             // The normal return value from "open" is a
             // non-negative integer file descriptor.
             // In the case of an error, a value of
             // minus one is returned instead.
-            if (*spi >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (*spdi >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                startup_serial_port_attributes_get(sp, p2, p0);
+                startup_serial_port_attributes_get(spd, p2, p0);
 
             } else {
 
@@ -202,12 +215,12 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The serial port file descriptor is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The serial port file descriptor item data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. A serial port file descriptor already exists.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. A serial port file descriptor item already exists.");
     }
 }
 

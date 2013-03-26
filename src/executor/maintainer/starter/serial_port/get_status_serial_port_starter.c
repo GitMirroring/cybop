@@ -44,7 +44,7 @@
 /**
  * Starts up the serial port status getter.
  *
- * @param p0 the file descriptor
+ * @param p0 the file descriptor data
  */
 void startup_serial_port_status_get(void* p0) {
 
@@ -70,7 +70,7 @@ void startup_serial_port_status_get(void* p0) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status get. The serial port file descriptor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status get. The serial port file descriptor data is null.");
     }
 }
 

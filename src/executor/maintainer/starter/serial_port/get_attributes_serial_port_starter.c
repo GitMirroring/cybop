@@ -44,7 +44,7 @@
 /**
  * Starts up the serial port attributes getter.
  *
- * @param p0 the file descriptor
+ * @param p0 the file descriptor data
  * @param p1 the baudrate
  * @param p2 the internal memory data
  */
@@ -107,7 +107,7 @@ void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The serial port file descriptor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The serial port file descriptor data is null.");
     }
 }
 

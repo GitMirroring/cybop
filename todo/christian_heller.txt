@@ -11,8 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Use "item" for serial port storage in internal memory, since its count and size are needed for deallocation
-
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
             but in some application this works just fine, e.g. in "helloworld" with terminal output)

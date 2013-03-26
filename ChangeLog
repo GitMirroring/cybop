@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Use "item" for serial port storage in internal memory, since its count and size are needed for deallocation
+
 2013-03-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug and complete cybol example application "indoor_climate"
