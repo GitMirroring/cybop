@@ -72,8 +72,8 @@ void serialise_ansi_escape_code_rectangle(void* p0, void* p1, void* p2, void* p3
     // The right bottom border character.
     wchar_t rbc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
-//??    serialise_ansi_escape_code_border((void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p5, p6);
-//??    serialise_ansi_escape_code_rows(p0, (void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p1, p2, p3, p4);
+    serialise_ansi_escape_code_border((void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p5, p6);
+    serialise_ansi_escape_code_rows(p0, (void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p1, p2, p3, p4);
 }
 
 /* RECTANGLE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

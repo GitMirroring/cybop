@@ -122,7 +122,9 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST ansi p1: %lc\n", *((wchar_t*) p1));
+
+//??            append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -152,11 +154,13 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST ansi space: %lc\n", *SPACE_UNICODE_CHARACTER_CODE_MODEL);
+
             // Append space character everywhere else aside the border.
             // CAUTION! The properties like colour etc. become only visible,
             // if some character is actually printed on screen.
             // Therefore, adding a space character IS NECESSARY here.
-            append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+//??            append_item_element(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 }
