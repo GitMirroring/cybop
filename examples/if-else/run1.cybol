@@ -15,6 +15,9 @@
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".domain.flag"/>
         <property name="true" channel="file" format="element/part" model="if-else/true.cybol"/>

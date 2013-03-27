@@ -64,10 +64,10 @@
         <property name="message" channel="inline" format="text/plain" model="tui/handler.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".handler"/>
     </part>
-    <part name="startup_tui" channel="inline" format="maintain/startup" model="">
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
-    <part name="send_tui" channel="inline" format="communicate/send" model="">
+    <part name="send_terminal" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/ansi-escape-code"/>
@@ -75,6 +75,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".tui.window"/>
         <property name="clean" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+<!--
     <part name="set_cursor" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -82,10 +83,13 @@
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
     </part>
-    <part name="sense_tui_commands" channel="inline" format="live/sense" model="">
+    <part name="sense_commands" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
     </part>
+-->
+    <!-- TEST ONLY -->
+    <part name="exit_programme" channel="inline" format="live/exit" model=""/>
 </model>
 
 <!--

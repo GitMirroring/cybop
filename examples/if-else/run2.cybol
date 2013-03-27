@@ -43,6 +43,9 @@
         <property name="message" channel="inline" format="text/plain" model="if-else/false.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".domain.false_model"/>
     </part>
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".domain.flag"/>
         <property name="true" channel="inline" format="path/knowledge" model=".domain.true_model"/>

@@ -1,4 +1,7 @@
 <model>
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
     <part name="simulate_first_case" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="true" channel="file" format="element/part" model="shell_output_branch/model_a.cybol"/>

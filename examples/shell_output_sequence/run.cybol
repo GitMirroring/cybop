@@ -1,4 +1,7 @@
 <model>
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
     <part name="startup" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="file" format="element/part" model="shell_output_sequence/model.cybol"/>
     </part>

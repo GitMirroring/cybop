@@ -43,7 +43,7 @@
 /**
  * Sends the source elements to the serial port output.
  *
- * @param p0 the destination serial port output file descriptor
+ * @param p0 the destination file descriptor data
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the number of bytes transferred

@@ -54,7 +54,7 @@ void startup_serial_port_status_set(void* p0, void* p1) {
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* sp = (int*) p0;
+            int* d = (int*) p0;
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port status set.");
 
@@ -64,9 +64,12 @@ void startup_serial_port_status_set(void* p0, void* p1) {
             *s |= TIOCM_RTS;
 
             // Set serial port status.
-            int e = ioctl(*sp, TIOCMSET, s);
+            int e = ioctl(*d, TIOCMSET, s);
 
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                // Close serial port on error.
+                close(*d);
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. Could not set serial port status.");
             }

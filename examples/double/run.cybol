@@ -23,6 +23,11 @@
         <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </part>
 
+    <!-- Service startup. -->
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+
     <!-- Addition -->
     <part name="add_operand" channel="inline" format="calculate/add" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".result"/>

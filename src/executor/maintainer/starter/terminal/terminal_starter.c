@@ -23,62 +23,46 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GET_STATUS_SERIAL_PORT_STARTER_SOURCE
-#define GET_STATUS_SERIAL_PORT_STARTER_SOURCE
+#ifndef TERMINAL_STARTER_SOURCE
+#define TERMINAL_STARTER_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
 #include <stdio.h>
-#include <sys/ioctl.h>
 #include <termios.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/starter/serial_port/set_status_serial_port_starter.c"
+#include "../../../../executor/maintainer/starter/terminal/open_terminal_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up the serial port status getter.
+ * Starts up the terminal.
  *
- * @param p0 the file descriptor data
+ * @param p0 the internal memory data
  */
-void startup_serial_port_status_get(void* p0) {
+void startup_terminal(void* p0) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal.");
 
-        int* d = (int*) p0;
+    //
+    // This place might be needed in the future.
+    // In case a special terminal device like /dev/tty0
+    // is given, its file name needs to be handed over
+    // as null-terminated character array.
+    // The file name may be prepared here then by adding
+    // the null-termination.
+    // See "serial_port_starter.c"!
+    //
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port status get.");
-
-        // The serial port status.
-        int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // Get serial port status.
-        int e = ioctl(*d, TIOCMGET, &s);
-
-        if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            startup_serial_port_status_set(p0, (void*) &s);
-
-        } else {
-
-            // Close serial port on error.
-            close(*d);
-
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status get. The retrieval of the status of bits failed.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status get. The serial port file descriptor data is null.");
-    }
+    startup_terminal_open(p0);
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* GET_STATUS_SERIAL_PORT_STARTER_SOURCE */
+/* TERMINAL_STARTER_SOURCE */
 #endif

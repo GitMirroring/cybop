@@ -43,74 +43,94 @@
 /**
  * Sends the source to the terminal output.
  *
- * @param p0 the destination terminal output file descriptor
+ * @param p0 the destination file descriptor data
  * @param p1 the source data (null-terminated)
  * @param p2 the source count
  */
 void send_terminal_stream(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal stream.");
-
-    // Check destination terminal output since it is
-    // used directly by the "fwprintf" function below.
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // CAUTION! Locking does NOT seem to be necessary here.
-        // It is assumed that input- and output stream represent
-        // independent channels that may be accessed in parallel
-        // without having to fear conflicts.
-        // The glibc manual at least said nothing about this.
-        //
+        int* f = (int*) p0;
 
-        // Send to terminal.
-        //
-        // CAUTION! The character data are printed out at once,
-        // using the "fwprintf" function, for two reasons:
-        //
-        // (1) This is more efficient than using a loop and
-        //     writing each single character as done in
-        //     "element_file_sender.c".
-        //
-        // (2) The ansi escape codes are interpreted correctly.
-        //
-        // CAUTION! The placeholder %s is used, since the data are given
-        // as utf-8 multibyte character sequence of type "char".
-        // The placeholder %ls would be WRONG here as it expects data
-        // of type "wchar_t".
-        int e = fwprintf(p0, L"%s", (char*) p1);
+        // The file stream created from the given file descriptor.
+        // CAUTION! The opentype string "r+" means an existing file
+        // is opened for both reading and writing.
+        // The initial contents of the file are unchanged and
+        // the initial file position is at the beginning of the file.
+//??        void* fs = (void*) fdopen(*f, "r+");
 
-        // Test error value.
-        //
-        // CAUTION! The macro WEOF is an integer value that is
-        // returned by fwprintf to indicate an end-of-file
-        // condition, or some other error situation.
-        //
-        // With the GNU library, WEOF is -1. In other libraries,
-        // its value may be some other negative number.
-        //
-        // Therefore, this test checks for negative values in general.
-        // The WEOF symbol which is declared in wchar.h then does
-        // not have to be considered explicitly here anymore.
-        if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        //?? TODO: For some reason, the file descriptor-to-stream conversion above does not work.
+        //?? It causes the terminal not to be able to "fgetwc" characters.
+        //?? (In sensor, "fgetwc" works fine, but not in receiver.)
+        //?? Therefore, "stdout" is used for now.
+        void* fs = (void*) stdout;
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. A write error occured.");
+        if (fs != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal stream.");
+
+            //
+            // CAUTION! Locking does NOT seem to be necessary here.
+            // It is assumed that input- and output stream represent
+            // independent channels that may be accessed in parallel
+            // without having to fear conflicts.
+            // The glibc manual at least said nothing about this.
+            //
+
+            // Send to terminal.
+            //
+            // CAUTION! The character data are printed out at once,
+            // using the "fwprintf" function, for two reasons:
+            //
+            // (1) This is more efficient than using a loop and
+            //     writing each single character as done in
+            //     "element_file_sender.c".
+            //
+            // (2) The ansi escape codes are interpreted correctly.
+            //
+            // CAUTION! The placeholder %s is used, since the data are given
+            // as utf-8 multibyte character sequence of type "char".
+            // The placeholder %ls would be WRONG here as it expects data
+            // of type "wchar_t".
+            int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
+
+            // Test error value.
+            //
+            // CAUTION! The macro WEOF is an integer value that is
+            // returned by fwprintf to indicate an end-of-file
+            // condition, or some other error situation.
+            //
+            // With the GNU library, WEOF is -1. In other libraries,
+            // its value may be some other negative number.
+            //
+            // Therefore, this test checks for negative values in general.
+            // The WEOF symbol which is declared in wchar.h then does
+            // not have to be considered explicitly here anymore.
+            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. A write error occured.");
+            }
+
+            // Flush any buffered output on the stream to the file.
+            //
+            // If this was not done here, the buffered output on the
+            // stream would only get flushed automatically when either:
+            // - one tried to do output and the output buffer is full
+            // - the stream was closed
+            // - the program terminated by calling exit
+            // - a newline was written with the stream being line buffered
+            // - an input operation on any stream actually read data from its file
+            fflush((FILE*) fs);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. The file stream is null.");
         }
-
-        // Flush any buffered output on the stream to the file.
-        //
-        // If this was not done here, the buffered output on the
-        // stream would only get flushed automatically when either:
-        // - one tried to do output and the output buffer is full
-        // - the stream was closed
-        // - the program terminated by calling exit
-        // - a newline was written with the stream being line buffered
-        // - an input operation on any stream actually read data from its file
-        fflush((FILE*) p0);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. The terminal output file descriptor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. The file descriptor data is null.");
     }
 }
 

@@ -14,9 +14,14 @@
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
             but in some application this works just fine, e.g. in "helloworld" with terminal output)
+            --> also happens when "sensing" is deactivated in "tui/run.cybol"
+            --> it definitely has to do with sending a tui
+            --> probably, the reason is serialisation into "message/ansi-escape-code",
+                since with sending deactivated, no memory leaks are reported
+                AND sending to terminal works fine without leaks for "shell_output", "helloworld" etc.
+            ==> bug causing memory leak is in "serialise_ansi_escape_code_rectangle"
             --> all "malloc" function calls were already checked; they are freed correctly for terminal
             --> TODO: check function calls of "realloc" and "free"
-            --> POSSIBLY forgotten to close the terminal file stream
 
         * Continue xdt deserialiser
         * Use three xdt processing steps: field-record-bdt/gdt/ldt

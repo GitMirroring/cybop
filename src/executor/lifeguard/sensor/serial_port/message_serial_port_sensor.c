@@ -30,6 +30,7 @@
 
 #include <pthread.h>
 #include <signal.h>
+#include <stdio.h>
 #include <wchar.h>
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
@@ -45,7 +46,7 @@
  * @param p0 the interrupt
  * @param p1 the mutex
  * @param p2 the sleep time
- * @param p3 the file descriptor
+ * @param p3 the file descriptor data
  */
 void sense_serial_port_message(void* p0, void* p1, void* p2, void* p3) {
 
@@ -67,96 +68,113 @@ void sense_serial_port_message(void* p0, void* p1, void* p2, void* p3) {
                 // cause unpredictable programme behaviour.
                 // Also, this function runs in an endless loop and would produce huge log files.
 
-                // The input stream created from the given file descriptor.
-                FILE* is = fdopen(*f, "r+");
+                // The file stream created from the given file descriptor.
+                // CAUTION! The opentype string "r+" means an existing file
+                // is opened for both reading and writing.
+                // The initial contents of the file are unchanged and
+                // the initial file position is at the beginning of the file.
+                void* fs = (void*) fdopen(*f, "r+");
 
-                // Lock serial port mutex.
-                //
-                // CAUTION! This lock has to stand not only before the interrupt request is set below,
-                // BUT ALSO BEFORE the next character is detected in the input stream!
-                //
-                // This is because the main thread might be reading characters from the
-                // input stream right now in parallel, while this thread tries to read as well.
-                pthread_mutex_lock(mt);
+                if (fs != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                // Get character from source input stream of terminal.
-                //
-                // This is just to detect that some character is available,
-                // what is also called "peeking ahead" at the input.
-                unsigned char c = fgetc(is);
-
-                // The EOF constant usually corresponds to the value: -1
-                if (c == EOF) {
-
-                    // No valid character was returned.
-
-                    // Sleep for some time.
-                    // This is to give the central processing unit (cpu) some
-                    // time to breathe, that is to be idle or to process other signals.
-                    sleep_nano(p2);
-
-                } else {
-
-                    // Unread character, that is push it back on the stream to
-                    // make it available to be input again from the stream, by the
-                    // next call to fgetc or another input function on that stream.
+                    // Lock serial port mutex.
                     //
-                    // If c is EOF, ungetc does nothing and just returns EOF.
-                    // This lets you call ungetc with the return value of getc
-                    // without needing to check for an error from getc.
+                    // CAUTION! This lock has to stand not only before the interrupt request is set below,
+                    // BUT ALSO BEFORE the next character is detected in the input stream!
                     //
-                    // The character that you push back doesn't have to be the same
-                    // as the last character that was actually read from the stream.
-                    // In fact, it isn't necessary to actually read any characters
-                    // from the stream before unreading them with ungetc!
-                    // But that is a strange way to write a program;
-                    // usually ungetc is used only to unread a character that was
-                    // just read from the same stream.
+                    // This is because the main thread might be reading characters from the
+                    // input stream right now in parallel, while this thread tries to read as well.
+                    pthread_mutex_lock(mt);
+
+                    // Get character from source input stream of terminal.
                     //
-                    // The GNU C library only supports one character of pushback.
-                    // In other words, it does not work to call ungetc twice without
-                    // doing input in between.
-                    // Other systems might let you push back multiple characters;
-                    // then reading from the stream retrieves the characters in the
-                    // reverse order that they were pushed.
-                    //
-                    // Pushing back characters doesn't alter the file;
-                    // only the internal buffering for the stream is affected.
-                    // If a file positioning function (such as fseek, fseeko or rewind)
-                    // is called, any pending pushed-back characters are discarded.
-                    //
-                    // Unreading a character on a stream that is at end of file
-                    // clears the end-of-file indicator for the stream, because it
-                    // makes the character of input available.
-                    // After you read that character, trying to read again will
-                    // encounter end of file.
-                    ungetc(c, is);
+                    // This is just to detect that some character is available,
+                    // what is also called "peeking ahead" at the input.
+                    unsigned char c = fgetc((FILE*) fs);
+
+                    // The EOF constant usually corresponds to the value: -1
+                    if (c == EOF) {
+
+                        // No valid character was returned.
+
+                        // Sleep for some time.
+                        // This is to give the central processing unit (cpu) some
+                        // time to breathe, that is to be idle or to process other signals.
+                        sleep_nano(p2);
+
+                    } else {
+
+                        // Unread character, that is push it back on the stream to
+                        // make it available to be input again from the stream, by the
+                        // next call to fgetc or another input function on that stream.
+                        //
+                        // If c is EOF, ungetc does nothing and just returns EOF.
+                        // This lets you call ungetc with the return value of getc
+                        // without needing to check for an error from getc.
+                        //
+                        // The character that you push back doesn't have to be the same
+                        // as the last character that was actually read from the stream.
+                        // In fact, it isn't necessary to actually read any characters
+                        // from the stream before unreading them with ungetc!
+                        // But that is a strange way to write a program;
+                        // usually ungetc is used only to unread a character that was
+                        // just read from the same stream.
+                        //
+                        // The GNU C library only supports one character of pushback.
+                        // In other words, it does not work to call ungetc twice without
+                        // doing input in between.
+                        // Other systems might let you push back multiple characters;
+                        // then reading from the stream retrieves the characters in the
+                        // reverse order that they were pushed.
+                        //
+                        // Pushing back characters doesn't alter the file;
+                        // only the internal buffering for the stream is affected.
+                        // If a file positioning function (such as fseek, fseeko or rewind)
+                        // is called, any pending pushed-back characters are discarded.
+                        //
+                        // Unreading a character on a stream that is at end of file
+                        // clears the end-of-file indicator for the stream, because it
+                        // makes the character of input available.
+                        // After you read that character, trying to read again will
+                        // encounter end of file.
+                        ungetc(c, (FILE*) fs);
 
 //?? fwprintf(stdout, L"TEST sense serial port message c: %c\n", c);
 
-                    // Set serial port interrupt request to indicate
-                    // that a message has been received via serial port,
-                    // which may now be processed in the main thread of this system.
-                    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                }
+                        // Set serial port interrupt request to indicate
+                        // that a message has been received via serial port,
+                        // which may now be processed in the main thread of this system.
+                        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    }
 
-                // Unlock serial port mutex.
-                pthread_mutex_unlock(mt);
+                    // Unlock serial port mutex.
+                    pthread_mutex_unlock(mt);
 
-                // Access irq as atomic variable.
-                // CAUTION! Therefore better don't use the following line:
-                // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-                while (*irq) {
+                    // Access irq as atomic variable.
+                    // CAUTION! Therefore better don't use the following line:
+                    // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                    while (*irq) {
 
-                    // Sleep as long as the serial port interrupt is not handled and reset yet.
-                    //
-                    // This is to give the central processing unit (cpu) some
-                    // time to breathe, that is to be idle or to process other signals.
-                    //
-                    // Also, many character inputs are processed at once in the main thread
-                    // and only if there are no further characters to be read, the irq flag is reset,
-                    // so that this endless loop can be left and new inputs detected.
-                    sleep_nano(p2);
+                        // Sleep as long as the serial port interrupt is not handled and reset yet.
+                        //
+                        // This is to give the central processing unit (cpu) some
+                        // time to breathe, that is to be idle or to process other signals.
+                        //
+                        // Also, many character inputs are processed at once in the main thread
+                        // and only if there are no further characters to be read, the irq flag is reset,
+                        // so that this endless loop can be left and new inputs detected.
+                        sleep_nano(p2);
+                    }
+
+                } else {
+
+fwprintf(stdout, L"ERROR: Could not sense serial port message. The file stream is null. fs: %i\n", fs);
+
+                    // CAUTION! DO NOT log this function call!
+                    // This function is executed within a thread, but the
+                    // logging is not guaranteed to be thread-safe and might
+                    // cause unpredictable programme behaviour.
+                    // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense serial port message. The file stream is null.");
                 }
 
             } else {

@@ -42,7 +42,7 @@
  * Primitive models need a different creation than compound models.
  *
  * Expected parametres:
- * - part (required): the part to be destroyed
+ * - model (required): the part to be destroyed
  *
  * Constraints:
  *

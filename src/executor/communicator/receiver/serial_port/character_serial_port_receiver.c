@@ -49,8 +49,8 @@
  * Receives a serial port character.
  *
  * @param p0 the destination item
- * @param p1 the source serial port file descriptor
- * @param p2 the source serial port mutex
+ * @param p1 the source file descriptor data
+ * @param p2 the source mutex
  * @param p3 the minimum number of bytes to be received in one call of the read function
  * @param p4 the maximum number of bytes to be received in one call of the read function
  * @param p5 the character count
@@ -96,11 +96,11 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
 
             if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* sp = (int*) p1;
+                int* f = (int*) p1;
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port character.");
 
-                if (*sp >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                if (*f >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // The input character.
                     // unsigned char c[max];
@@ -147,8 +147,8 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
                     pthread_mutex_lock(p2);
 
                     // Get character from source input stream of serial port.
-                    // ssize_t e = read(*sp, (void*) c, ts);
-                    ssize_t e = read(*sp, (void*) &c, ts);
+                    // ssize_t e = read(*f, (void*) c, ts);
+                    ssize_t e = read(*f, (void*) &c, ts);
 
                     // Unlock serial port mutex.
                     pthread_mutex_unlock(p2);

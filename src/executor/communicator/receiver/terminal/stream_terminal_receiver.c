@@ -48,8 +48,8 @@
  * Receives data stream from terminal.
  *
  * @param p0 the destination data item
- * @param p1 the source terminal file stream
- * @param p2 the source terminal mutex
+ * @param p1 the source file descriptor data
+ * @param p2 the source mutex
  */
 void receive_terminal_stream(void* p0, void* p1, void* p2) {
 

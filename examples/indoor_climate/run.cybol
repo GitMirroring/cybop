@@ -23,6 +23,9 @@
         <property name="receiver" channel="inline" format="text/plain" model="test_indoor_climate.txt"/>
     </part>
 -->
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
     <part name="startup_serial_port" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
         <property name="filename" channel="inline" format="path/knowledge" model=".settings.device_filename"/>
@@ -36,6 +39,7 @@
         <property name="model" channel="file" format="element/part" model="indoor_climate/read_status.cybol"/>
     </part>
 -->
+    <!-- This call MIGHT BE OPTIONAL, since all services are shutdown implicitly in the "live/exit" operation. -->
     <part name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
         <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
     </part>

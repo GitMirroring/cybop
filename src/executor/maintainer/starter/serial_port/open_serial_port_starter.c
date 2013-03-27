@@ -41,26 +41,8 @@
 #include "../../../../executor/maintainer/starter/serial_port/get_attributes_serial_port_starter.c"
 #include "../../../../logger/logger.c"
 
-//
-// Although tcgetattr and tcsetattr specify the serial port device with a file descriptor,
-// the attributes are those of the serial port device itself and not of the file descriptor.
-// This means that the effects of changing serial port attributes are persistent;
-// if another process opens the serial port file later on, it will see the changed attributes
-// even though it doesn't have anything to do with the open file descriptor you originally
-// specified in changing the attributes.
-//
-// Similarly, if a single process has multiple or duplicated file descriptors
-// for the same serial port device, changing the serial port attributes affects
-// input and output to all of these file descriptors.
-// This means, for example, that you can't open one file descriptor or stream
-// to read from a serial port in the normal line-buffered, echoed mode;
-// and simultaneously have another file descriptor for the same serial port
-// that you use to read from it in single-character, non-echoed mode.
-// Instead, you have to explicitly switch the serial port back and forth between the two modes.
-//
-
 /**
- * Starts up the serial port opener.
+ * Opens the serial port.
  *
  * @param p0 the internal memory data
  * @param p1 the filename (null-terminated)
@@ -88,6 +70,13 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
         // since its count and size are needed for deallocation.
         allocate_item((void*) &sp, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
+        // Set serial port file descriptor item.
+        // CAUTION! Add it as soon as it was allocated above
+        // ALWAYS and not only if opened successfully below.
+        // Otherwise, in case of an error, the shutdown function
+        // freeing it may not find it leading to a memory leak.
+        copy_array_forward(p0, (void*) &sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
         // Get serial port file descriptor item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
@@ -98,13 +87,6 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
             // The serial port file descriptor item data as integer.
             int* spdi = (int*) spd;
-
-            // Set serial port file descriptor item.
-            // CAUTION! Add it as soon as it was allocated above
-            // ALWAYS and not only if opened successfully below.
-            // Otherwise, in case of an error, the shutdown function
-            // freeing it may not find it leading to a memory leak.
-            copy_array_forward(p0, (void*) &sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Initialise error number.
             // It is a global variable/ function and other operations
@@ -122,15 +104,40 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
 //?? fwprintf(stdout, L"TEST open *spdi: %i\n", *spdi);
 
-            // The normal return value from "open" is a
-            // non-negative integer file descriptor.
-            // In the case of an error, a value of
-            // minus one is returned instead.
+            //
+            // Get and set attributes of serial port.
+            //
+            // Although tcgetattr and tcsetattr specify the serial port device with a file descriptor,
+            // the attributes are those of the serial port device itself and not of the file descriptor.
+            // This means that the effects of changing serial port attributes are persistent;
+            // if another process opens the serial port file later on, it will see the changed attributes
+            // even though it doesn't have anything to do with the open file descriptor originally
+            // specified in changing the attributes.
+            //
+            // Similarly, if a single process has multiple or duplicated file descriptors
+            // for the same serial port device, changing the serial port attributes affects
+            // input and output to all of these file descriptors.
+            // This means, for example, that one can't open one file descriptor or stream
+            // to read from a serial port in the normal line-buffered, echoed mode;
+            // and simultaneously have another file descriptor for the same serial port
+            // that one uses to read from it in single-character, non-echoed mode.
+            // Instead, one has to explicitly switch the serial port back and forth between the two modes.
+            //
+            // Therefore, it does not matter whether the input- OR
+            // output file descriptor is specified here. EITHER may be used.
+            // The attribute changes affect the whole serial port,
+            // that is input AND output.
+            //
             if (*spdi >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 startup_serial_port_attributes_get(spd, p2, p0);
 
             } else {
+
+                // The normal return value from "open" is a
+                // non-negative integer file descriptor.
+                // In the case of an error, a value of
+                // minus one is returned instead.
 
                 //
                 // File name errors.
@@ -209,7 +216,7 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. An unknown error occured.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The input- or output file descriptor is invalid.");
                 }
             }
 
@@ -220,7 +227,7 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. A serial port file descriptor item already exists.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The serial port file descriptor item already exists.");
     }
 }
 

@@ -51,15 +51,23 @@ void send_serial_port_file(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send serial port file.");
 
-    // The serial port output file descriptor.
-    void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The file descriptor item.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The file descriptor item data.
+    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get serial port file descriptor.
+    // Get file descriptor item.
     // It should have been created in the "maintain/startup"
     // operation with channel "serial-port" before.
-    copy_array_forward((void*) &sp, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    send_serial_port_stream(sp, p0, p1);
+    // Get file descriptor item data.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    send_serial_port_stream(fd, p0, p1);
 }
 
 /* FILE_SERIAL_PORT_SENDER_SOURCE */

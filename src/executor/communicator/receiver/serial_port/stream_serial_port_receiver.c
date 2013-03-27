@@ -49,8 +49,8 @@
  * Receives data stream from serial port.
  *
  * @param p0 the destination item
- * @param p1 the source serial port file descriptor
- * @param p2 the source serial port mutex
+ * @param p1 the source file descriptor data
+ * @param p2 the source mutex
  * @param p3 the minimum number of bytes to be received in one call of the read function
  * @param p4 the maximum number of bytes to be received in one call of the read function
  */

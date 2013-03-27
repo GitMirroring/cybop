@@ -23,13 +23,12 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
-#define GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
+#ifndef GET_ATTRIBUTES_TERMINAL_STARTER_SOURCE
+#define GET_ATTRIBUTES_TERMINAL_STARTER_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
 #include <stdio.h>
-#include <sys/ioctl.h>
 #include <termios.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -38,23 +37,22 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/starter/serial_port/set_attributes_serial_port_starter.c"
+#include "../../../../executor/maintainer/starter/terminal/set_attributes_terminal_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Gets the serial port attributes.
+ * Gets the terminal attributes.
  *
  * @param p0 the file descriptor data
- * @param p1 the baudrate
- * @param p2 the internal memory data
+ * @param p1 the internal memory data
  */
-void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
+void startup_terminal_attributes_get(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port attributes get.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal attributes get.");
 
         // Allocate original attributes.
         //
@@ -80,42 +78,42 @@ void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
             if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Set original attributes internals.
-                copy_array_forward(p2, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                copy_array_forward(p1, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-                startup_serial_port_attributes_set(p0, a, p1);
+                startup_terminal_attributes_set(p0, a);
 
             } else {
 
-                // Close serial port on error.
+                // Close terminal on error.
                 close(*d);
 
                 if (errno == EBADF) {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The filedes argument is not a valid file descriptor.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes get. The filedes argument is not a valid file descriptor.");
 
                 } else if (errno == ENOTTY) {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The filedes is not associated with a serial port.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes get. The filedes is not associated with a serial port.");
 
                 } else {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. An unknown error occured.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes get. An unknown error occured.");
                 }
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The original attributes is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes get. The original attributes is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The serial port file descriptor data is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes get. The file descriptor data is null.");
     }
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 
-/* GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE */
+/* GET_ATTRIBUTES_TERMINAL_STARTER_SOURCE */
 #endif

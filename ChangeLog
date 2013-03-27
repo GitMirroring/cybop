@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt starter, shutter, sensor, receiver, sender for channels "serial_port" and "terminal"
+
 2013-03-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Use "item" for serial port storage in internal memory, since its count and size are needed for deallocation

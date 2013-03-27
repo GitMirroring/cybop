@@ -21,8 +21,8 @@ _____________
 Project
 _______
 
-        * Update CYBOP poster in DIN A0 format, to be used at conferences and exhibitions
         * Build and actively maintain Debian package for cybop
+        * Update CYBOP poster in DIN A0 format, to be used at conferences and exhibitions
         * Visualise project history using Ajax-based SIMILE timeline tool (ResMedicinae - ResMedLib - CYBOP)
 
 CYBOL
@@ -63,5 +63,6 @@ _____
         * Make cyboi compilable under windows os (using preprocessor directives)
         * Adapt ansi escape code terminal input/output to windows operating system shell
         * Make cyboi cross-compilable for various architectures, e.g. ARM processor (using preprocessor directives)
+        * Factor out some portions of source into libraries (e.g. x window system-specific code), in order to minimise cyboi size for usage in embedded systems
 
         * Identify memory leaks using valgrind

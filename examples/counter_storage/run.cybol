@@ -15,6 +15,9 @@
         <property name="source" channel="file" format="number/integer" model="counter_storage/count.txt"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
     <part name="print_count" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
