@@ -37,7 +37,7 @@
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/lifeguard/interrupter/thread_interrupter.c"
-#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/x_window_system_type_size.c"
 
@@ -51,8 +51,6 @@
  * @param p2 the service thread interrupt
  */
 void shutdown_x_window_system(void* p0, void* p1, void* p2) {
-
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
 
     //
     // CAUTION! The x window system uses a number of synonymous types:
@@ -75,35 +73,37 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
     // Only destroy display if existent.
     if (d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
+
         // Interrupt x window system service thread.
         interrupt_thread(p1, p2);
 
         // The display name.
         void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The screen number item.
+        // The screen number.
         void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The screen.
 //??        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The default colourmap id item.
+        // The default colourmap id.
         void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The background pixel values item.
+        // The background pixel values.
         void* bg = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The foreground pixel values item.
+        // The foreground pixel values.
         void* fg = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The top-level root window item.
+        // The top-level root window.
         void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The menu border bottom graphic context.
         void* gc_menu_border_bottom = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The window item.
+        // The window.
         void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The value mask item.
+        // The value mask.
         void* vm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The values for the attributes defined in the value mask.
         void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The graphic context.
         void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Get x window system items.
+        // Get x window system arrays.
         copy_array_forward((void*) &dn, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DISPLAY_NAME_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         copy_array_forward((void*) &sn, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_NUMBER_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 //??        copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) X_WINDOW_SYSTEM_SCREEN_INTERNAL);
@@ -131,18 +131,23 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
 
 //??        XCloseDisplay((struct _XDisplay*) d);
 
-        // Deallocate x window system items.
+        // Deallocate x window system arrays.
         // CAUTION! Use descending order!
         // Example: The values (v) are destroyed BEFORE the value mask (vm)
         // attributes, since v might still reference vm internally.
+//        deallocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TODO);
 //??        free(v);
-        deallocate_item((void*) &vm, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &fg, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &bg, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &cm, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &sn, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &vm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+//        deallocate_array((void*) &gc_menu_border_bottom, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &r, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &fg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &bg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &cm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+//??        deallocate_array((void*) &s, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+//        deallocate_array((void*) &dn, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+//        deallocate_array((void*) &d, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Reset x window system internals.
         //
