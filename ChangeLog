@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-03-28  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Reactivate x window system startup and shutdown
+
 2013-03-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt starter, shutter, sensor, receiver, sender for channels "serial_port" and "terminal"

@@ -27,15 +27,17 @@
 #define STARTER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/maintainer/starter/opengl/opengl_starter.c"
 #include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
+//?? #include "../../executor/maintainer/starter/socket/socket_starter.c"
 #include "../../executor/maintainer/starter/terminal/terminal_starter.c"
 #include "../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
-//?? #include "../../executor/maintainer/starter/opengl_starter.c"
-//?? #include "../../executor/maintainer/starter/socket_starter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 

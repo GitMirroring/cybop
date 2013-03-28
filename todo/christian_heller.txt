@@ -11,6 +11,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Reactivate x_window_system receive functionality
+        * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):
+            deallocate_array((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        * Debug lost memory errors (see valgrind memcheck log file)
+
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
             but in some application this works just fine, e.g. in "helloworld" with terminal output)
@@ -38,11 +43,6 @@
             using the function "copy_part" for deep copying does not make sense, since a part's child nodes change dynamically and are not predictable
             USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
             shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
-
-        * Reactivate x_window_system receive functionality
-        * Check memory leak in file "x_window_system_shutter.c" caused by line (to be uncommented again):
-            deallocate_array((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        * Debug lost memory errors (see valgrind memcheck log file)
 
         * Reactivate socket functionality
         * Study "libcurl3" library for URL transfer

@@ -27,15 +27,17 @@
 #define SHUTTER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/maintainer/shutter/opengl/opengl_shutter.c"
 #include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
+#include "../../executor/maintainer/shutter/socket/socket_shutter.c"
 #include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
 #include "../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
-//?? #include "../../executor/maintainer/shutter/opengl_shutter.c"
-//?? #include "../../executor/maintainer/shutter/socket_shutter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 

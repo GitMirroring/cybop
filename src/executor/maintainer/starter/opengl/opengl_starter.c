@@ -26,12 +26,12 @@
 #ifndef OPENGL_STARTER_SOURCE
 #define OPENGL_STARTER_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter.c"
-#include "../../../executor/memoriser/allocator.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Starts up the opengl system.

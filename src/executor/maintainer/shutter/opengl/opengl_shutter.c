@@ -26,10 +26,12 @@
 #ifndef OPENGL_SHUTTER_SOURCE
 #define OPENGL_SHUTTER_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/maintainer/shutter/x_window_system_shutter.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Shuts down the opengl system.
