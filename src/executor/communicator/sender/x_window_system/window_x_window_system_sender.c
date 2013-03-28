@@ -60,7 +60,6 @@ void send_x_window_system_window(void* p0) {
     // The mutex.
     void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The display.
-    // It is a subsumption of xserver, screens, hardware (input devices etc.).
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The window.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;

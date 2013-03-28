@@ -28,8 +28,8 @@
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
-#include <pthread.h>
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -48,14 +48,14 @@
  * @param p4 the knowledge memory part
  * @param p5 the format
  * @param p6 the language
- * @param p7 the internal memory
+ * @param p7 the internal memory data
  */
 void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send x window system.");
 
     // Serialise (draw) source knowledge model into window.
-    serialise(p7, p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6);
+//??    serialise(p7, p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6);
 
     // Send serialised window (with drawn content) to x window system.
     send_x_window_system_window(p7);

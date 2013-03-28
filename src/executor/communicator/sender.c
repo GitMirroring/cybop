@@ -172,7 +172,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            send_x_window_system((void*) &p0, p7, p8, p9, p10, p11, p12);
+            send_x_window_system(p1, p2, p3, p4, p5, p6, p8, p10);
         }
     }
 

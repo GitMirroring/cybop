@@ -54,9 +54,9 @@
 // Therefore, the "model_diagram_serialiser.c" module is included here.
 #include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
+#include "../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
 #include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
-#include "../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
 
 /**
  * Serialises the source into the destination, according to the given language.
