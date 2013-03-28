@@ -19,9 +19,10 @@
             --> probably, the reason is serialisation into "message/ansi-escape-code",
                 since with sending deactivated, no memory leaks are reported
                 AND sending to terminal works fine without leaks for "shell_output", "helloworld" etc.
-            ==> bug causing memory leak is in file "character_ansi_escape_code_serialiser.c"
+            --> bug causing memory leak is NOT in one of the files like e.g. "character_ansi_escape_code_serialiser.c" etc.,
+                uncommenting lines sporadically delivers leaks, depending on which cybol application gets executed
             --> all "malloc" function calls were already checked; they are freed correctly for terminal
-            --> TODO: check function calls of "realloc" and "free"
+            ==> TODO: check function calls of "realloc" and "free", since there MIGHT be the bug
 
         * Continue xdt deserialiser
         * Use three xdt processing steps: field-record-bdt/gdt/ldt
