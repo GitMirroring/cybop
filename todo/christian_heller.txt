@@ -86,6 +86,10 @@
         * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
             http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
 
+        * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
+            to find out why file descriptor-to-stream conversion does not work
+            (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
+
         * Include the sources of all documents into the distributable tarball cybop-0.12.0/
             --> really? This will grow it up to 500 MB in size due to the images
         * Write an actual manual that is updated as necessary to reflect the current state of cybop;

@@ -31,13 +31,15 @@
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../logger/logger.c"
-#include "../../../variable/type_size/x_window_system_type_size.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/x_window_system_type_size.c"
 
 /**
  * Starts up the x window system.
@@ -76,18 +78,20 @@ void startup_x_window_system(void* p0) {
         //?? TODO: This has to be built dynamically, later on!
         //?? For now, it is just an empty string.
         void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The screen number.
+        // The screen number item.
         void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The screen.
 //??        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The default colourmap id for allocation on the specified screen.
+        // The default colourmap id item.
+        // For allocation on the specified screen.
         // Most routine allocations of colour should be made out of this colormap.
         void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The background pixel values.
+        // The background pixel values item.
         void* bg = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The foreground pixel values.
+        // The foreground pixel values item.
         void* fg = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The top-level root window for the given display and screen.
+        // The top-level root window item.
+        // For the given display and screen.
         // This is sometimes called the root window of the window manager.
         // Remember, CYBOI itself IS the window manager.
         void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -112,43 +116,69 @@ void startup_x_window_system(void* p0) {
         void* gc_menu_border_bottom = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The menu font graphic context.
         void* gc_menu_font = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The window.
+        // The window item.
         void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The value mask for the graphics context.
+        // The value mask item.
         // It defines the attributes for the graphics context.
         // This argument is the bitwise inclusive OR of zero or more
         // of the valid graphic context component mask bits.
         void* vm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The values for the attributes defined in the value mask.
         void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The graphic context. Each graphic element needs one.
+        // The graphic context.
+        // Each graphic element needs one.
         // It can be used with any destination drawable (window or pixmap)
         // having the same root and depth as the specified drawable.
         // Use with other drawables results in a BadMatch error.
         void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Allocate x window system internals.
+        // The x window system item data, count.
+//??        void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+//??        void* dnd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* snd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* bgd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* fgd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* wd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Allocate x window system items.
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
-        allocate_array((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &cm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &bg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &fg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &r, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &vm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
+        // CAUTION! Use "item" and not just "array" here,
+        // since its count and size are needed for deallocation.
+        allocate_item((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_item((void*) &cm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_item((void*) &bg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
+        allocate_item((void*) &fg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
+        allocate_item((void*) &r, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_item((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_item((void*) &vm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
 //??        v = malloc(*XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE);
+
+        // Get x window system items data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &snd, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &bgd, bg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &fgd, fg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &rd, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &wd, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
         // Initialise x window system internals.
         dn = (void*) "";
         d = (void*) XOpenDisplay((char*) dn);
-        *((int*) sn) = DefaultScreen((struct _XDisplay*) d);
+        *((int*) snd) = DefaultScreen((struct _XDisplay*) d);
 //??        s = (void*) XScreenOfDisplay(*((struct _XDisplay*) d), *((int*) sn));
-        *((int*) cm) = XDefaultColormap((struct _XDisplay*) d, *((int*) sn));
-        *((unsigned long*) bg) = XWhitePixel((struct _XDisplay*) d, *((int*) sn));
-        *((unsigned long*) fg) = XBlackPixel((struct _XDisplay*) d, *((int*) sn));
-        *r = DefaultRootWindow((struct _XDisplay*) d);
-//??        *((int*) r) = XRootWindowOfScreen(s);
+        *((int*) cmd) = XDefaultColormap((struct _XDisplay*) d, *((int*) sn));
+        *((unsigned long*) bgd) = XWhitePixel((struct _XDisplay*) d, *((int*) sn));
+        *((unsigned long*) fgd) = XBlackPixel((struct _XDisplay*) d, *((int*) sn));
+        *((int*) rd) = DefaultRootWindow((struct _XDisplay*) d);
+//??        *((int*) rd) = XRootWindowOfScreen(s);
 /*??
         fn = (void*) "*-helvetica-*-12-*";
         f = (void*) XLoadQueryFont((struct _XDisplay*) d, (char*) fn);
@@ -164,9 +194,9 @@ void startup_x_window_system(void* p0) {
         sh.width = *NUMBER_800_INTEGER_STATE_CYBOI_MODEL;
         sh.height = *NUMBER_600_INTEGER_STATE_CYBOI_MODEL;
         sh.flags = PPosition | PSize;
-        *((int*) w) = XCreateSimpleWindow(d, *((int*) r), sh.x, sh.y, sh.width, sh.height, *NUMBER_5_INTEGER_STATE_CYBOI_MODEL, *((unsigned long*) fg), *((unsigned long*) bg));
-        *((unsigned long*) vm) = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-//??        *((unsigned long*) vm) = GCCapStyle | GCJoinStyle;
+        *((int*) wd) = XCreateSimpleWindow(d, *((int*) r), sh.x, sh.y, sh.width, sh.height, *NUMBER_5_INTEGER_STATE_CYBOI_MODEL, *((unsigned long*) fg), *((unsigned long*) bg));
+        *((unsigned long*) vmd) = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+//??        *((unsigned long*) vmd) = GCCapStyle | GCJoinStyle;
 //??        *((XGCValues*) v) = CapButt | JoinBevel;
         gc = (void*) XCreateGC(d, *((int*) w), *((unsigned long*) vm), (XGCValues*) v);
         gray.red = 49125;
@@ -189,26 +219,26 @@ void startup_x_window_system(void* p0) {
 */
 
         // Assign x window system internals.
-        XSetStandardProperties((struct _XDisplay*) d, *((int*) w), "Application", "Icon", None, *NULL_POINTER_STATE_CYBOI_MODEL, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &sh);
-        XAllocColor((struct _XDisplay*) d, *((int*) cm), &gray);
-        XAllocColor((struct _XDisplay*) d, *((int*) cm), &light_gray);
-        XAllocColor((struct _XDisplay*) d, *((int*) cm), &vlight_gray);
-        XAllocColor((struct _XDisplay*) d, *((int*) cm), &dark_gray);
+        XSetStandardProperties((struct _XDisplay*) d, *((int*) wd), "Application", "Icon", None, *NULL_POINTER_STATE_CYBOI_MODEL, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &sh);
+        XAllocColor((struct _XDisplay*) d, *((int*) cmd), &gray);
+        XAllocColor((struct _XDisplay*) d, *((int*) cmd), &light_gray);
+        XAllocColor((struct _XDisplay*) d, *((int*) cmd), &vlight_gray);
+        XAllocColor((struct _XDisplay*) d, *((int*) cmd), &dark_gray);
 /*??
-        XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc_menu, *((unsigned long*) bg));
+        XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc_menu, *((unsigned long*) bgd));
         XSetForeground((struct _XDisplay*) d, (struct _XGC*) gc_menu, light_gray.pixel);
-        XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_top, *((unsigned long*) bg));
+        XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_top, *((unsigned long*) bgd));
         XSetForeground((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_top, vlight_gray.pixel);
-        XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_bottom, *((unsigned long*) bg));
+        XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_bottom, *((unsigned long*) bgd));
         XSetForeground((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_bottom, dark_gray.pixel);
         XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc_menu_font, light_gray.pixel);
-        XSetForeground((struct _XDisplay*) d, (struct _XGC*) gc_menu_font, *((unsigned long*) fg));
+        XSetForeground((struct _XDisplay*) d, (struct _XGC*) gc_menu_font, *((unsigned long*) fgd));
 */
-        XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc, *((unsigned long*) bg));
-        XSetForeground((struct _XDisplay*) d, (struct _XGC*) gc, *((unsigned long*) fg));
+        XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc, *((unsigned long*) bgd));
+        XSetForeground((struct _XDisplay*) d, (struct _XGC*) gc, *((unsigned long*) fgd));
 //??        XSetFont((struct _XDisplay*) d, (struct _XGC*) gc, fid);
 
-        // Set x window system internals.
+        // Set x window system items.
         // CAUTION! Do NOT use "overwrite_array" function here,
         // since it adapts the array count and size.
         // But the internal array's count and size are CONSTANT.

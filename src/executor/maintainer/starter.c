@@ -33,9 +33,9 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
 #include "../../executor/maintainer/starter/terminal/terminal_starter.c"
+#include "../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
 //?? #include "../../executor/maintainer/starter/opengl_starter.c"
 //?? #include "../../executor/maintainer/starter/socket_starter.c"
-//?? #include "../../executor/maintainer/starter/x_window_system_starter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 

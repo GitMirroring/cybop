@@ -75,7 +75,6 @@
         <property name="message" channel="inline" format="path/knowledge" model=".tui.window"/>
         <property name="clean" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-<!--
     <part name="set_cursor" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -87,9 +86,6 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
     </part>
--->
-    <!-- TEST ONLY -->
-    <part name="exit_programme" channel="inline" format="live/exit" model=""/>
 </model>
 
 <!--

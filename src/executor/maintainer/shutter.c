@@ -33,9 +33,9 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
 #include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
+#include "../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
 //?? #include "../../executor/maintainer/shutter/opengl_shutter.c"
 //?? #include "../../executor/maintainer/shutter/socket_shutter.c"
-//?? #include "../../executor/maintainer/shutter/x_window_system_shutter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
