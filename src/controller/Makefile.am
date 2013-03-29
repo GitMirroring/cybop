@@ -1,4 +1,7 @@
-EXTRA_DIST = checker/ deoptionaliser/ globaliser/ handler/ manager/ optionaliser/ unglobaliser/ checker.c deoptionaliser.c globaliser.c handler.c helper.c informant.c initialiser.c Makefile.am manager.c optionaliser.c orienter.c tester.c unglobaliser.c
+# CAUTION! Do NOT write directory names with a slash "/" at the end.
+# If doing so, the directory names would be added twice,
+# e.g. "cybop/examples/examples/" which is NOT wanted.
+EXTRA_DIST = checker deoptionaliser globaliser handler manager optionaliser unglobaliser checker.c deoptionaliser.c globaliser.c handler.c helper.c informant.c initialiser.c Makefile.am manager.c optionaliser.c orienter.c tester.c unglobaliser.c
 
 bin_PROGRAMS = cyboi
 

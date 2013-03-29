@@ -27,6 +27,8 @@
 #ifndef ABSOLUTE_COMPLEX_CALCULATOR_SOURCE
 #define ABSOLUTE_COMPLEX_CALCULATOR_SOURCE
 
+#include <complex.h>
+
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"

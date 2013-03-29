@@ -18,3 +18,33 @@ Update www/cybop/news.html
 Update www/cybop/index.html
 Commit CVS (website gets updated automatically)
 Announce release in mailing list
+
+==========
+
+Problem when executing "make dist":
+
+...
+make[2]: Entering directory `/home/project/cybop/src/controller'
+gcc -g -O2    deoptionaliser.c   -o deoptionaliser
+/usr/bin/ld: cannot open output file deoptionaliser: Is a directory
+collect2: Fehler: ld gab 1 als Ende-Status zurück
+make[2]: *** [deoptionaliser] Fehler 1
+make[2]: Leaving directory `/home/project/cybop/src/controller'
+make[1]: *** [distdir] Fehler 1
+make[1]: Leaving directory `/home/project/cybop/src'
+make: *** [distdir] Fehler 1
+
+The reason is that in directory "controller", there are equally
+named files and directories. For example, there is a directory
+"deoptionaliser". If file "deoptionaliser.c" is to be compiled
+into file "deoptionaliser", then that latter makes problems,
+because an equally named directory already exists.
+How to solve this?
+(Using "deoptionaliser/" in "Makefile.am" is NOT an option,
+since it wrongly creates two nested directories "deoptionaliser".)
+
+One solution could be to manually add necessary directories
+and files, since "make dist" creates a temporary directory,
+e.g. "cybop-0.14.0", which is later compressed using tar.gz.
+The problematic directories and files could be added to it,
+before starting the previously failed compression manually.

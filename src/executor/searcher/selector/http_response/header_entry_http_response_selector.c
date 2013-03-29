@@ -26,6 +26,7 @@
 #ifndef HEADER_ENTRY_HTTP_RESPONSE_SELECTOR_SOURCE
 #define HEADER_ENTRY_HTTP_RESPONSE_SELECTOR_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -36,6 +37,9 @@
 #include "../../../../constant/name/cyboi/http/header/response_header_http_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/name/http/header/entity_header_http_name.c"
+#include "../../../../constant/name/http/header/general_header_http_name.c"
+#include "../../../../constant/name/http/header/request_header_http_name.c"
+#include "../../../../constant/name/http/header/response_header_http_name.c"
 #include "../../../../constant/name/http/separator_http_name.c"
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
