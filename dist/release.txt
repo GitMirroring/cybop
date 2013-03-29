@@ -5,6 +5,7 @@ Release
 Compile cyboi
 Test cybol applications
 Adapt copyright year in src/ and examples/ and root directory
+Adapt version in configure.ac
 Update ChangeLog
 Commit SVN
 Tag SVN
