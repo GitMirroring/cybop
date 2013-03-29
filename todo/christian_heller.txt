@@ -89,6 +89,7 @@
         * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
             to find out why file descriptor-to-stream conversion does not work
             (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
+            --> probably, the reason is that descriptor-to-stream conversion uses different attributes than "stdin" and "stdout"
 
         * Include the sources of all documents into the distributable tarball cybop-0.12.0/
             --> really? This will grow it up to 500 MB in size due to the images

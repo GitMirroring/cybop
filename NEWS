@@ -7,9 +7,25 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # Christian Heller <christian.heller@tuxtax.de>
 #
-# @version CYBOP 0.12.0 2012-08-22
+# @version CYBOP 0.13.0 2013-03-29
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
+
+CYBOP 0.13.0, 2013-03-29, Christian Heller  <christian.heller@tuxtax.de>
+        * CYBOI:
+            - Implement new version of xdt deserialiser, needed for German medical data formats bdt/gdt/ldt
+            - Add character encodings: ascii, iso-8859-1, iso-8859-15, windows-1252, c0 and c1 control codes of iso 6429
+            - Adjust reference counting to make rubbish (garbage) collection work correctly
+            - Add communication channel "serial_port" for talking to microcontroller device via usb
+            - Add terminal mode line speed serialiser necessary for converting integer to POSIX.1 baudrate symbols
+        * CYBOL:
+            - Simplify cybol files by removing attributes like "encoding" and "language"
+            - Add new operations: run/sleep-second, run/sleep-nano, modify/fill, cast/character, cast/double, cast/integer
+            - Add format "number/byte" in addition to "text/ascii", both internally mapped to "unsigned char"
+            - Add example applications: indoor_climate
+        * Project:
+            - Add cybol editor of Benjamin Teßmar and Sebastian Brückner
+            - Add cybop-python comparison article of Max Brauer
 
 CYBOP 0.12.0, 2012-08-22, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:

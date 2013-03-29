@@ -1,0 +1,18 @@
+
+Release
+=======
+
+Compile cyboi
+Test cybol applications
+Adapt copyright year in src/ and examples/ and root directory
+Update ChangeLog
+Commit SVN
+Tag SVN
+make dist
+Update NEWS subsumpting ChangeLog entries
+Create new file for release in www/cybop/plan/
+Copy content from NEWS to www/cybop/plan/cybop-x.x.x.html
+Update www/cybop/plan/index.html
+Update www/cybop/news.html
+Update www/cybop/index.html
+Commit CVS (website gets updated automatically)

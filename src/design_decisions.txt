@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2012. Christian Heller.
+# Copyright (C) 1999-2013. Christian Heller.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # Christian Heller <christian.heller@tuxtax.de>

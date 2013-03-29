@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2012. Christian Heller.
+ * Copyright (C) 1999-2013. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version CYBOP 0.12.0 2012-08-22
+ * @version CYBOP 0.13.0 2013-03-29
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -60,7 +60,7 @@ static int* SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_21_INTEGER_STATE_CY
 /**
  * The copyright identification cyboi model.
  *
- * Copyright (C) 1999-2012. Christian Heller.
+ * Copyright (C) 1999-2013. Christian Heller.
  */
 static wchar_t COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_ARRAY[] = {L'C', L'o', L'p', L'y', L'r', L'i', L'g', L'h', L't', L' ', L'(', L'C', L')', L' ', L'1', L'9', L'9', L'9', L'-', L'2', L'0', L'1', L'2', L'.', L' ', L'C', L'h', L'r', L'i', L's', L't', L'i', L'a', L'n', L' ', L'H', L'e', L'l', L'l', L'e', L'r', L'.'};
 static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_ARRAY;
