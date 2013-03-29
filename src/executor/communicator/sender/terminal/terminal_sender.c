@@ -54,7 +54,7 @@
  * @param p6 the language indentation
  * @param p7 the language
  * @param p8 the encoding
- * @param p9 the internal memory
+ * @param p9 the internal memory data
  * @param p10 the clean flag
  * @param p11 the new line flag
  */
@@ -97,7 +97,7 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     }
 
     // Serialise source knowledge model into serialised wide character item.
-    serialise(s, p0, p1, p2, p3, p4, p5, p6, p7);
+    serialise(s, p0, p1, p2, p3, p4, p9, p5, p6, p7);
 
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

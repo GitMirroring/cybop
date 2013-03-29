@@ -150,7 +150,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            startup_x_window_system(p0);
+            startup_x_window_system(p0);
         }
     }
 

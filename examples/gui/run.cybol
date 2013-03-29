@@ -50,11 +50,8 @@
     </part>
     <part name="send_gui" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>
-<!--
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/ansi-escape-code"/>
+        <property name="language" channel="inline" format="meta/language" model="message/x-window-system"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
--->
         <property name="message" channel="inline" format="path/knowledge" model=".window"/>
     </part>
 <!--

@@ -47,8 +47,9 @@
  * @param p6 the format
  * @param p7 the language indentation
  * @param p8 the language
+ * @param p9 the internal memory data
  */
-void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send inline.");
 
@@ -59,7 +60,7 @@ void send_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Therefore, data do NOT have to be encoded once more already here.
 
     // Serialise source data according to given type.
-    serialise(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+    serialise(p0, p1, p2, p3, p4, p5, p9, p6, p7, p8);
 }
 
 /* INLINE_SENDER_SOURCE */

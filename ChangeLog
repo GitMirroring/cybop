@@ -19,10 +19,11 @@
 2013-03-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Release CYBOP 0.13.0
+        * Reactivate x window system sender
 
 2013-03-28  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Reactivate x window system startup and shutdown
+        * Reactivate x window system starter and shutter
 
 2013-03-27  Christian Heller  <christian.heller@tuxtax.de>
 

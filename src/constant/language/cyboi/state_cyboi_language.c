@@ -144,6 +144,9 @@ static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_303_INTEGER_STAT
 /** The news message state cyboi language. */
 static int* NEWS_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_304_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The x-window-system message state cyboi language. */
+static int* X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_305_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // model
 //

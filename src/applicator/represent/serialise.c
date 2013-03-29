@@ -53,8 +53,9 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the internal memory data
  */
-void apply_serialise(void* p0, void* p1, void* p2) {
+void apply_serialise(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply serialise.");
 
@@ -131,7 +132,7 @@ void apply_serialise(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Serialise the source- into the destination part.
-    serialise(dm, smd, smc, spd, spc, p2, fmd, imd, lmd);
+    serialise(dm, smd, smc, spd, spc, p2, p3, fmd, imd, lmd);
 }
 
 /* SERIALISE_SOURCE */

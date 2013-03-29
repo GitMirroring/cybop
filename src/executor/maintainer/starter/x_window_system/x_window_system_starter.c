@@ -71,6 +71,8 @@ void startup_x_window_system(void* p0) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
 
+fwprintf(stdout, L"TEST startup x window system d: %i\n", d);
+
         // The display name.
         // An example identifying the second screen of the first
         // display of host computer earth.cybop.org would be:

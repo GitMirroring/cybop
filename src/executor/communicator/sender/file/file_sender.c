@@ -54,8 +54,9 @@
  * @param p7 the language indentation
  * @param p8 the language
  * @param p9 the encoding
+ * @param p10 the internal memory data
  */
-void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send file.");
 
@@ -80,7 +81,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise source knowledge model into serialised wide character array.
-    serialise(s, p1, p2, p3, p4, p5, p6, p7, p8);
+    serialise(s, p1, p2, p3, p4, p5, p10, p6, p7, p8);
 
     // Get serialised wide character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
