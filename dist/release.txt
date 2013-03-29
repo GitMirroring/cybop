@@ -16,3 +16,4 @@ Update www/cybop/plan/index.html
 Update www/cybop/news.html
 Update www/cybop/index.html
 Commit CVS (website gets updated automatically)
+Announce release in mailing list
