@@ -10,6 +10,7 @@ Update ChangeLog
 Commit SVN
 Tag SVN
 make dist
+Update AUTHORS reading ChangeLog entries and todo/* files
 Update NEWS subsumpting ChangeLog entries
 Create new file for release in www/cybop/plan/
 Copy content from NEWS to www/cybop/plan/cybop-x.x.x.html
