@@ -26,7 +26,12 @@
 #ifndef X_WINDOW_SYSTEM_GLOBALISER_SOURCE
 #define X_WINDOW_SYSTEM_GLOBALISER_SOURCE
 
-#include <X11/Xlib.h>
+#ifdef WIN32
+    // win32 lib exists
+    // #include <X11/Xlib.h>
+#else
+    #include <X11/Xlib.h>
+#endif
 
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/type_size/x_window_system_type_size.c"
@@ -36,10 +41,15 @@
  */
 void globalise_x_window_system() {
 
-    // CAUTION! Do NOT use "struct XGCValues" but ONLY "XGCValues".
-    // Otherwise, the compiler brings the error:
-    // "invalid application of 'sizeof' to incomplete type 'struct XGCValues'"
-    *XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE = sizeof(XGCValues);
+    #ifdef WIN32
+        // testvalue, x11 not working ...
+        *XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE = 0;
+    #else
+        // CAUTION! Do NOT use "struct XGCValues" but ONLY "XGCValues".
+        // Otherwise, the compiler brings the error:
+        // "invalid application of 'sizeof' to incomplete type 'struct XGCValues'"
+        *XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE = sizeof(XGCValues);
+    #endif
 }
 
 /* X_WINDOW_SYSTEM_GLOBALISER_SOURCE */

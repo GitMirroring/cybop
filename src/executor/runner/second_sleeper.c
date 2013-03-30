@@ -29,6 +29,10 @@
 #include <errno.h>
 #include <time.h>
 #include <unistd.h>
+#ifdef _WIN32
+    #include <windows.h>
+    #define sleep(n) Sleep(1000 * n)
+#endif
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"

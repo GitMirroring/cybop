@@ -92,7 +92,12 @@ void sleep_nano(void* p0) {
                 // If the second parametre is null, then the
                 // remaining time is just NOT remembered,
                 // which is not needed here anyway.
-                int e = nanosleep(&t, *NULL_POINTER_STATE_CYBOI_MODEL);
+                int e = 1;
+                #ifdef WIN32
+                    // ...
+                #else
+                    e = nanosleep(&t, *NULL_POINTER_STATE_CYBOI_MODEL);
+                #endif
 
                 // Test error value.
                 // The return value of the "nanosleep" function is zero

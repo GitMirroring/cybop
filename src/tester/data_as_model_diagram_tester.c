@@ -29,7 +29,10 @@
 #include <wchar.h>
 
 #include "../executor/communicator/sender/file/stream_file_sender.c"
-#include "../executor/representer/serialiser/model_diagram/content_element_part_model_diagram_serialiser.c"
+#ifdef WIN32
+#else
+    #include "../executor/representer/serialiser/model_diagram/content_element_part_model_diagram_serialiser.c"
+#endif
 #include "../logger/logger.c"
 
 /**
@@ -46,6 +49,8 @@
  */
 void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
+#ifdef WIN32
+#else
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test data as model diagram.");
 
     // The destination file name count, size.
@@ -104,6 +109,7 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate multibyte character stream.
     deallocate_item((void*) &b, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+#endif
 }
 
 /* DATA_AS_MODEL_DIAGRAM_TESTER */

@@ -79,7 +79,11 @@ void optionalise_log_file(void* p0, void* p1) {
             int g = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Set file owner.
-            chown((char*) td, o, g);
+            #ifdef WIN32
+                // ...
+            #else
+                chown((char*) td, o, g);
+            #endif
 
             // The file access rights.
             //?? TODO: When trying to cross-compile cyboi for windows,
@@ -87,7 +91,11 @@ void optionalise_log_file(void* p0, void* p1) {
             int r = S_IRUSR | S_IWUSR; //?? | S_IRGRP | S_IWGRP;
 
             // Set file access rights.
-            chmod((char*) td, r);
+            #ifdef WIN32
+                // ...
+            #else
+                chmod((char*) td, r);
+            #endif
 
         } else {
 

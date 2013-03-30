@@ -26,10 +26,15 @@
 #ifndef SOCKET_GLOBALISER_SOURCE
 #define SOCKET_GLOBALISER_SOURCE
 
-#include <arpa/inet.h>
-#include <netinet/in.h>
+#ifdef WIN32
+    #include <winsock.h>
+    #include <winsock2.h>
+#else
+    #include <arpa/inet.h>
+    #include <netinet/in.h>
+    #include <sys/un.h>
+#endif
 #include <sys/stat.h>
-#include <sys/un.h>
 
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/type_size/socket_type_size.c"
@@ -41,10 +46,17 @@ void globalise_socket() {
 
     *INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in_addr);
     *INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in);
-    *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in6_addr);
-    *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in6);
-    *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_un);
     *SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr);
+    #ifdef WIN32
+        // testvalues
+        *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = 0;
+        *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = 0;
+        *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = 0;
+    #else
+        *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in6_addr);
+        *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in6);
+        *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_un);
+    #endif
 }
 
 /* SOCKET_GLOBALISER_SOURCE */
