@@ -106,7 +106,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//            startup_serial_port(p0, p1, p2, p3);
+            startup_serial_port(p0, p1, p2, p3);
         }
     }
 
@@ -116,7 +116,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//            startup_terminal(p0);
+            startup_terminal(p0);
         }
     }
 

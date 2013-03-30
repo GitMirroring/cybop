@@ -52,9 +52,9 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 //?? #include "../../../../executor/memoriser/allocator.c"
+#include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/socket_type_size.c"
 

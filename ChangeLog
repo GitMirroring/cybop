@@ -15,9 +15,10 @@
 # @version CYBOP 0.13.0 2013-03-29
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
-13-03-30  Tobias Köhler  <tk@snake-universe.tk>
 
-        * Added som preprocessor commands to compile for Windows systems
+2013-03-30  Tobias Köhler  <tk@snake-universe.tk>
+
+        * Added some preprocessor commands to compile for windows systems
 
 2013-03-29  Christian Heller  <christian.heller@tuxtax.de>
 

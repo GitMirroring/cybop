@@ -104,7 +104,7 @@ void shutdown_service(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            shutdown_x_window_system(p0, (void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
+            shutdown_x_window_system(p0, (void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
         }
     }
 

@@ -5,7 +5,6 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # Christian Heller <christian.heller@tuxtax.de>
 #
-# @version CYBOP 0.11.0 2012-01-01
 # @author Falk Müller <falk.mueller@it2009.ba-leipzig.de>
 #
 
