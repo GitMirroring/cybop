@@ -367,9 +367,9 @@ void test_serial_port_sleep() {
  */
 void test_serial_port() {
 
-    fwprintf(stdout, L"TEST serial port.\n");
+//    fwprintf(stdout, L"TEST serial port.\n");
 
-    test_serial_port_temperature();
+//    test_serial_port_temperature();
 //    test_serial_port_sleep();
 }
 

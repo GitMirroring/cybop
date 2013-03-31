@@ -26,8 +26,11 @@
 #ifndef X_WINDOW_SYSTEM_SERIALISER_SOURCE
 #define X_WINDOW_SYSTEM_SERIALISER_SOURCE
 
+/*??
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
+#include <xcb/xcb.h>
+*/
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -36,6 +39,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/x_window_system/element_x_window_system_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -55,27 +59,27 @@ void serialise_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4)
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system.");
 
-/*??
-    // The display, which is a subsumption of
-    // xserver, screens, hardware (input devices etc.).
-    void* di = *NULL_POINTER_STATE_CYBOI_MODEL;
-//??    struct _XDisplay* di = (struct _XDisplay*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connection.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The screen.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The window.
-    int* w = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
-//??    int* w = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
+//??    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The graphic context.
-    struct _XGC* gc = (struct _XGC*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The window attributes.
-    XWindowAttributes wa;
+//??    XWindowAttributes wa;
 
     // Get x window system internals.
-    copy_array_forward((void*) &di, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DISPLAY_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+//??    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &gc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Get window attributes.
-    XGetWindowAttributes(di, *w, &wa);
+//??    XGetWindowAttributes((struct _XDisplay*) d, *((int*) w), &wa);
 
+/*??
     // The source whole size.
     void** wsn = NULL_POINTER_STATE_CYBOI_MODEL;
     void** wsnc = NULL_POINTER_STATE_CYBOI_MODEL;
@@ -177,9 +181,13 @@ void serialise_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4)
 
             break;
         }
+*/
 
-        serialise_x_window_system_element(p0, p1, (void*) &j, p3, p4);
+//??        serialise_x_window_system_element(p0, p1, (void*) &j, p3, p4, d, w, gc);
+        //?? TEST ONLY, DELETE LATER
+        serialise_x_window_system_element(c, s, gc, p1, p2, p3, p4);
 
+/*??
         // Increment loop count.
         j++;
     }

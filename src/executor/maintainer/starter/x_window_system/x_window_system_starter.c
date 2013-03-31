@@ -28,8 +28,12 @@
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
+#include <xcb/xcb.h>
+
+/*??
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
+*/
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -41,6 +45,22 @@
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/x_window_system_type_size.c"
 
+//
+// The X.Org Foundation formed by X.Org and freedesktop.org
+// has an oversight role in X Window System development.
+// XFree86 is still being developed at a very slow pace,
+// but the X.Org Foundation currently sets the standard.
+//
+// http://www.x.org/wiki/Documentation:
+// For low-level X development, the X C Bindings (XCB)
+// provide a clean low-level protocol binding:
+// http://xcb.freedesktop.org/tutorial/
+//
+// Its older cousin Xlib (or libX11), is NOT recommended
+// for new development, but is still very widely used.
+// Xt is a similarly DEPRECATED library for building toolkits.
+//
+
 /**
  * Starts up the x window system.
  *
@@ -48,42 +68,28 @@
  */
 void startup_x_window_system(void* p0) {
 
-    //
-    // CAUTION! The x window system uses a number of synonymous types:
-    // Display* == struct _XDisplay*
-    // GC == struct _XGC*
-    // Window == int
-    // Colormap == int
-    // Font (ID) == int
-    //
-    // CYBOI works with the real types, i.e. those on the right-hand side.
-    //
+    // The connection.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The display.
-    // It is a subsumption of xserver, screens, hardware (input devices etc.).
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // Get connection.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Get display.
-    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DISPLAY_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    // Only create display if not existent.
-    if (d == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Only establish connection if not existent.
+    if (c == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
 
-fwprintf(stdout, L"TEST startup x window system d: %i\n", d);
-
-        // The display name.
-        // An example identifying the second screen of the first
-        // display of host computer earth.cybop.org would be:
-        // char* dn = "earth.cybop.org:0.1"
-        //?? TODO: This has to be built dynamically, later on!
-        //?? For now, it is just an empty string.
-        void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The screen number.
-        void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The screen.
-//??        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The window.
+        void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The graphic context.
+        // CAUTION! It is possible to use more than one
+        // graphical context with a single window,
+        // in order to draw in multiple styles
+        // (different colors, different line widths etc).
+        void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
+/*??
         // The default colourmap id.
         // For allocation on the specified screen.
         // Most routine allocations of colour should be made out of this colormap.
@@ -92,11 +98,6 @@ fwprintf(stdout, L"TEST startup x window system d: %i\n", d);
         void* bg = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The foreground pixel values.
         void* fg = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The top-level root window.
-        // For the given display and screen.
-        // This is sometimes called the root window of the window manager.
-        // Remember, CYBOI itself IS the window manager.
-        void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The font name.
         void* fn = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The font.
@@ -118,8 +119,6 @@ fwprintf(stdout, L"TEST startup x window system d: %i\n", d);
         void* gc_menu_border_bottom = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The menu font graphic context.
         void* gc_menu_font = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The window.
-        void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The value mask.
         // It defines the attributes for the graphics context.
         // This argument is the bitwise inclusive OR of zero or more
@@ -127,35 +126,80 @@ fwprintf(stdout, L"TEST startup x window system d: %i\n", d);
         void* vm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The values for the attributes defined in the value mask.
         void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The graphic context.
-        // Each graphic element needs one.
-        // It can be used with any destination drawable (window or pixmap)
-        // having the same root and depth as the specified drawable.
-        // Use with other drawables results in a BadMatch error.
-        void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
+*/
 
-        // Allocate x window system arrays.
+        // Allocate x window system internals.
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
-        allocate_array((void*) &sn, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+/*??
         allocate_array((void*) &cm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         allocate_array((void*) &bg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
         allocate_array((void*) &fg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &r, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         allocate_array((void*) &vm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
 //??        v = malloc(*XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE);
+*/
 
-        // Initialise x window system internals.
-        dn = (void*) "";
-        d = (void*) XOpenDisplay((char*) dn);
-        *((int*) sn) = DefaultScreen((struct _XDisplay*) d);
-//??        s = (void*) XScreenOfDisplay(*((struct _XDisplay*) d), *((int*) sn));
+        // Open connection.
+        c = (void*) xcb_connect(NULL, NULL);
+
+fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
+
+        // Get first screen.
+        const xcb_setup_t* setup = xcb_get_setup((xcb_connection_t*) c);
+        xcb_screen_iterator_t iter = xcb_setup_roots_iterator(setup);
+        s = iter.data;
+
+fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
+
+        //?? TEST BEGIN
+        xcb_drawable_t windowTEST = ((xcb_screen_t*) s)->root;
+        xcb_gcontext_t gcontext = xcb_generate_id((xcb_connection_t*) c);
+        uint32_t mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
+        uint32_t value[] = { ((xcb_screen_t*) s)->white_pixel, XCB_EVENT_MASK_EXPOSURE };
+        xcb_create_gc((xcb_connection_t*) c, gcontext, windowTEST, mask, value);
+        //?? TEST END
+
+        // Create window.
+        xcb_window_t window = xcb_generate_id((xcb_connection_t*) c);
+        xcb_create_window((xcb_connection_t*) c, // connection
+            XCB_COPY_FROM_PARENT, // depth (same as root)
+            window, // window Id
+            ((xcb_screen_t*) s)->root, // parent window
+            0, 0, // x, y
+            150, 150, // width, height
+            10, // border_width
+            XCB_WINDOW_CLASS_INPUT_OUTPUT, // class
+            ((xcb_screen_t*) s)->root_visual, // visual
+            0, NULL); // masks, not used yet
+        // Store window identification in internal memory.
+        // CAUTION! The xcb_window_t type is defined as follows:
+        // typedef uint32_t xcb_window_t;
+        // It may therefore be stored as integer pointer.
+        *((int*) w) = window;
+
+fwprintf(stdout, L"TEST startup x window system window: %i\n", window);
+
+        // Create graphic context.
+/*??
+        xcb_gcontext_t gcontext = xcb_generate_id((xcb_connection_t*) c);
+        uint32_t mask = XCB_GC_FOREGROUND;
+        uint32_t value[] = { ((xcb_screen_t*) s)->black_pixel };
+        xcb_create_gc((xcb_connection_t*) c, gcontext, window, mask, value);
+*/
+        // Store graphic context identification in internal memory.
+        // CAUTION! The xcb_gcontext_t type is defined as follows:
+        // typedef uint32_t xcb_gcontext_t;
+        // It may therefore be stored as integer pointer.
+        *((int*) gc) = gcontext;
+
+fwprintf(stdout, L"TEST startup x window system gcontext: %i\n", gcontext);
+
+/*??
         *((int*) cm) = XDefaultColormap((struct _XDisplay*) d, *((int*) sn));
         *((unsigned long*) bg) = XWhitePixel((struct _XDisplay*) d, *((int*) sn));
         *((unsigned long*) fg) = XBlackPixel((struct _XDisplay*) d, *((int*) sn));
-        *((int*) r) = DefaultRootWindow((struct _XDisplay*) d);
-//??        *((int*) r) = XRootWindowOfScreen(s);
 /*??
         fn = (void*) "*-helvetica-*-12-*";
         f = (void*) XLoadQueryFont((struct _XDisplay*) d, (char*) fn);
@@ -166,6 +210,7 @@ fwprintf(stdout, L"TEST startup x window system d: %i\n", d);
         }
 */
 
+/*??
         sh.x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         sh.y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         sh.width = *NUMBER_800_INTEGER_STATE_CYBOI_MODEL;
@@ -175,7 +220,7 @@ fwprintf(stdout, L"TEST startup x window system d: %i\n", d);
         *((unsigned long*) vm) = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 //??        *((unsigned long*) vm) = GCCapStyle | GCJoinStyle;
 //??        *((XGCValues*) v) = CapButt | JoinBevel;
-        gc = (void*) XCreateGC(d, *((int*) w), *((unsigned long*) vm), (XGCValues*) v);
+
         gray.red = 49125;
         gray.green = 49125;
         gray.blue = 49125;
@@ -195,6 +240,7 @@ fwprintf(stdout, L"TEST startup x window system d: %i\n", d);
         gc_menu_font = (void*) XCreateGC(d, *((int*) w), *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 */
 
+/*??
         // Assign x window system internals.
         XSetStandardProperties((struct _XDisplay*) d, *((int*) w), "Application", "Icon", None, *NULL_POINTER_STATE_CYBOI_MODEL, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &sh);
         XAllocColor((struct _XDisplay*) d, *((int*) cm), &gray);
@@ -211,27 +257,28 @@ fwprintf(stdout, L"TEST startup x window system d: %i\n", d);
         XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc_menu_font, light_gray.pixel);
         XSetForeground((struct _XDisplay*) d, (struct _XGC*) gc_menu_font, *((unsigned long*) fg));
 */
+/*??
         XSetBackground((struct _XDisplay*) d, (struct _XGC*) gc, *((unsigned long*) bg));
         XSetForeground((struct _XDisplay*) d, (struct _XGC*) gc, *((unsigned long*) fg));
 //??        XSetFont((struct _XDisplay*) d, (struct _XGC*) gc, fi);
+*/
 
         // Set x window system items.
         // CAUTION! Do NOT use "overwrite_array" function here,
         // since it adapts the array count and size.
         // But the internal array's count and size are CONSTANT.
-        copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DISPLAY_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(p0, (void*) &dn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DISPLAY_NAME_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(p0, (void*) &sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_NUMBER_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-//??        copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) X_WINDOW_SYSTEM_SCREEN_INTERNAL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CONNECTION_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(p0, (void*) &w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WINDOW_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(p0, (void*) &gc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+/*??
         copy_array_forward(p0, (void*) &cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) COLOUR_MAP_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &bg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BACKGROUND_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &fg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FOREGROUND_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(p0, (void*) &r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ROOT_WINDOW_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &gc_menu_border_bottom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BOTTOM_BORDER_MENU_GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(p0, (void*) &w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WINDOW_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_MASK_GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &v, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUES_GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(p0, (void*) &gc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+*/
 
     } else {
 

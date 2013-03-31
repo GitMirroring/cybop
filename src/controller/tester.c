@@ -46,6 +46,7 @@
 #include "../tester/representer_tester.c"
 #include "../tester/serial_port_tester.c"
 #include "../tester/variable_tester.c"
+#include "../tester/x_window_system_tester.c"
 
 //
 // Examples for source code testing via log messages.
@@ -143,6 +144,7 @@ void test() {
 
     // Communication.
     test_serial_port();
+    test_x_window_system();
 
     // Empty.
     test_empty();
