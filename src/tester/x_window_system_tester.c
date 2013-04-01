@@ -29,7 +29,6 @@
 #include <xcb/xcb.h>
 
 #include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../logger/logger.c"
 
 /**
  * Tests the x window system drawing.
@@ -38,103 +37,103 @@ void test_x_window_system_drawing() {
 
     fwprintf(stdout, L"TEST x window system drawing.\n");
 
-    /* geometric objects */
-    xcb_point_t          points[] = {
-        {10, 10},
-        {10, 20},
-        {20, 10},
-        {20, 20}};
+    // Geometric objects.
+    xcb_point_t points[] = {
+        { 10, 10 },
+        { 10, 20 },
+        { 20, 10 },
+        { 20, 20 }};
 
-    xcb_point_t          polyline[] = {
-        {50, 10},
-        { 5, 20},     /* rest of points are relative */
-        {25,-20},
-        {10, 10}};
+    xcb_point_t polyline[] = {
+        { 50, 10 },
+        { 5, 20 }, // rest of points are relative
+        { 25, -20 },
+        { 10, 10 }};
 
-    xcb_segment_t        segments[] = {
-        {100, 10, 140, 30},
-        {110, 25, 130, 60}};
+    xcb_segment_t segments[] = {
+        { 100, 10, 140, 30 },
+        { 110, 25, 130, 60 }};
 
-    xcb_rectangle_t      rectangles[] = {
-        { 10, 50, 40, 20},
-        { 80, 50, 10, 40}};
+    xcb_rectangle_t rectangles[] = {
+        { 10, 50, 40, 20 },
+        { 80, 50, 10, 40 }};
 
-    xcb_arc_t            arcs[] = {
-        {10, 100, 60, 40, 0, 90 << 6},
-        {90, 100, 55, 40, 0, 270 << 6}};
+    xcb_arc_t arcs[] = {
+        { 10, 100, 60, 40, 0, 90 << 6 },
+        { 90, 100, 55, 40, 0, 270 << 6 }};
 
+    // Open connection to x server.
+    xcb_connection_t* connection = xcb_connect(NULL, NULL);
 
-    /* Open the connection to the X server */
-    xcb_connection_t *connection = xcb_connect (NULL, NULL);
+    // Get first screen.
+    xcb_screen_t* screen = xcb_setup_roots_iterator(xcb_get_setup(connection)).data;
 
-    /* Get the first screen */
-    xcb_screen_t *screen = xcb_setup_roots_iterator (xcb_get_setup (connection)).data;
+    // Create black (foreground) graphic context.
+    xcb_drawable_t window = screen->root;
+    xcb_gcontext_t foreground = xcb_generate_id(connection);
+    uint32_t mask = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
+    uint32_t values[2] = { screen->black_pixel, 0 };
 
-    /* Create black (foreground) graphic context */
-    xcb_drawable_t  window     = screen->root;
-    xcb_gcontext_t  foreground = xcb_generate_id (connection);
-    uint32_t        mask       = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
-    uint32_t        values[2]  = {screen->black_pixel, 0};
+    xcb_create_gc(connection, foreground, window, mask, values);
 
-    xcb_create_gc (connection, foreground, window, mask, values);
-
-
-    /* Create a window */
-
-    window = xcb_generate_id (connection);
+    // Create window.
+    window = xcb_generate_id(connection);
 
     mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
     values[0] = screen->white_pixel;
     values[1] = XCB_EVENT_MASK_EXPOSURE;
 
-    xcb_create_window (connection,                    /* connection          */
-                        XCB_COPY_FROM_PARENT,          /* depth               */
-                        window,                        /* window Id           */
-                        screen->root,                  /* parent window       */
-                        0, 0,                          /* x, y                */
-                        150, 150,                      /* width, height       */
-                        10,                            /* border_width        */
-                        XCB_WINDOW_CLASS_INPUT_OUTPUT, /* class               */
-                        screen->root_visual,           /* visual              */
-                        mask, values );                /* masks */
+    xcb_create_window(connection, // connection
+        XCB_COPY_FROM_PARENT, // depth (same as root)
+        window, // window id
+        screen->root, // parent window
+        0, 0, // x, y
+        150, 150, // width, height
+        10, // border_width
+        XCB_WINDOW_CLASS_INPUT_OUTPUT, // class
+        screen->root_visual, // visual
+        mask, values); // masks
 
+    // Map window on the screen and flush.
+    xcb_map_window(connection, window);
+    xcb_flush(connection);
 
-    /* Map the window on the screen and flush*/
-    xcb_map_window (connection, window);
-    xcb_flush (connection);
+    // Draw primitives.
+    xcb_generic_event_t* event;
 
+    while (event = xcb_wait_for_event(connection)) {
 
-    /* draw primitives */
-
-    xcb_generic_event_t *event;
-    while (event = xcb_wait_for_event (connection)) {
         switch (event->response_type & ~0x80) {
-        case XCB_EXPOSE:
-            /* We draw the points */
-            xcb_poly_point (connection, XCB_COORD_MODE_ORIGIN, window, foreground, 4, points);
 
-            /* We draw the polygonal line */
-            xcb_poly_line (connection, XCB_COORD_MODE_PREVIOUS, window, foreground, 4, polyline);
+            case XCB_EXPOSE:
 
-            /* We draw the segements */
-            xcb_poly_segment (connection, window, foreground, 2, segments);
+                // Draw points.
+                xcb_poly_point(connection, XCB_COORD_MODE_ORIGIN, window, foreground, 4, points);
 
-            /* draw the rectangles */
-            xcb_poly_rectangle (connection, window, foreground, 2, rectangles);
+                // Draw polygonal line.
+                xcb_poly_line(connection, XCB_COORD_MODE_PREVIOUS, window, foreground, 4, polyline);
 
-            /* draw the arcs */
-            xcb_poly_arc (connection, window, foreground, 2, arcs);
+                // Draw segements.
+                xcb_poly_segment(connection, window, foreground, 2, segments);
 
-            /* flush the request */
-            xcb_flush (connection);
+                // Draw rectangles.
+                xcb_poly_rectangle(connection, window, foreground, 2, rectangles);
 
-            break;
-        default:
-            /* Unknown event type, ignore it */
-            break;
+                // Draw arcs.
+                xcb_poly_arc(connection, window, foreground, 2, arcs);
+
+                // Flush request.
+                xcb_flush(connection);
+
+                break;
+
+            default:
+
+                // Unknown event type, ignore it.
+                break;
         }
 
-        free (event);
+        free(event);
     }
 }
 

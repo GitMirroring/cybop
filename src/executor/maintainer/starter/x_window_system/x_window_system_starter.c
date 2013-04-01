@@ -149,30 +149,29 @@ fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
         // Get first screen.
         const xcb_setup_t* setup = xcb_get_setup((xcb_connection_t*) c);
         xcb_screen_iterator_t iter = xcb_setup_roots_iterator(setup);
-        s = iter.data;
+        s = (void*) iter.data;
 
 fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
 
-        //?? TEST BEGIN
-        xcb_drawable_t windowTEST = ((xcb_screen_t*) s)->root;
-        xcb_gcontext_t gcontext = xcb_generate_id((xcb_connection_t*) c);
+        // Define window background.
         uint32_t mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
-        uint32_t value[] = { ((xcb_screen_t*) s)->white_pixel, XCB_EVENT_MASK_EXPOSURE };
-        xcb_create_gc((xcb_connection_t*) c, gcontext, windowTEST, mask, value);
-        //?? TEST END
+//??        uint32_t values[2] = { ((xcb_screen_t*) s)->white_pixel, XCB_EVENT_MASK_EXPOSURE };
+        uint32_t values[2];
+        values[0] = ((xcb_screen_t*) s)->white_pixel;
+        values[1] = XCB_EVENT_MASK_EXPOSURE;
 
         // Create window.
         xcb_window_t window = xcb_generate_id((xcb_connection_t*) c);
         xcb_create_window((xcb_connection_t*) c, // connection
             XCB_COPY_FROM_PARENT, // depth (same as root)
-            window, // window Id
+            window, // window id
             ((xcb_screen_t*) s)->root, // parent window
             0, 0, // x, y
             150, 150, // width, height
             10, // border_width
             XCB_WINDOW_CLASS_INPUT_OUTPUT, // class
             ((xcb_screen_t*) s)->root_visual, // visual
-            0, NULL); // masks, not used yet
+            mask, values); // masks
         // Store window identification in internal memory.
         // CAUTION! The xcb_window_t type is defined as follows:
         // typedef uint32_t xcb_window_t;
@@ -192,9 +191,9 @@ fwprintf(stdout, L"TEST startup x window system window: %i\n", window);
         // CAUTION! The xcb_gcontext_t type is defined as follows:
         // typedef uint32_t xcb_gcontext_t;
         // It may therefore be stored as integer pointer.
-        *((int*) gc) = gcontext;
+//??        *((int*) gc) = gcontext;
 
-fwprintf(stdout, L"TEST startup x window system gcontext: %i\n", gcontext);
+//?? fwprintf(stdout, L"TEST startup x window system gcontext: %i\n", gcontext);
 
 /*??
         *((int*) cm) = XDefaultColormap((struct _XDisplay*) d, *((int*) sn));

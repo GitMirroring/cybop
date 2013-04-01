@@ -16,13 +16,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Make x window system work
+
 2013-03-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Migrate x window system files from xlib to x c bindings (xcb)
 
 2013-03-30  Tobias Köhler  <tk@snake-universe.tk>
 
-        * Added some preprocessor commands to compile for windows systems
+        * Add some preprocessor commands to compile for windows systems
 
 2013-03-29  Christian Heller  <christian.heller@tuxtax.de>
 

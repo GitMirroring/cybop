@@ -105,38 +105,39 @@ fwprintf(stdout, L"TEST send x window system window w: %i\n", w);
 
             copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-            /* geometric objects */
-            xcb_point_t          points[] = {
-                {10, 10},
-                {10, 20},
-                {20, 10},
-                {20, 20}};
+            // Geometric objects.
+            xcb_point_t points[] = {
+                { 10, 10 },
+                { 10, 20 },
+                { 20, 10 },
+                { 20, 20 }};
 
-            xcb_point_t          polyline[] = {
-                {50, 10},
-                { 5, 20},     /* rest of points are relative */
-                {25,-20},
-                {10, 10}};
+            xcb_point_t polyline[] = {
+                { 50, 10 },
+                { 5, 20 }, // rest of points are relative
+                { 25, -20 },
+                { 10, 10 }};
 
-            xcb_segment_t        segments[] = {
-                {100, 10, 140, 30},
-                {110, 25, 130, 60}};
+            xcb_segment_t segments[] = {
+                { 100, 10, 140, 30 },
+                { 110, 25, 130, 60 }};
 
-            xcb_rectangle_t      rectangles[] = {
-                { 10, 50, 40, 20},
-                { 80, 50, 10, 40}};
+            xcb_rectangle_t rectangles[] = {
+                { 10, 50, 40, 20 },
+                { 80, 50, 10, 40 }};
 
-            xcb_arc_t            arcs[] = {
-                {10, 100, 60, 40, 0, 90 << 6},
-                {90, 100, 55, 40, 0, 270 << 6}};
+            xcb_arc_t arcs[] = {
+                { 10, 100, 60, 40, 0, 90 << 6 },
+                { 90, 100, 55, 40, 0, 270 << 6 }};
 
+            // Create black (foreground) graphic context.
             xcb_gcontext_t foreground = xcb_generate_id((xcb_connection_t*) c);
             uint32_t mask = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
             uint32_t values[2] = { ((xcb_screen_t*) s)->black_pixel, 0 };
             xcb_create_gc((xcb_connection_t*) c, foreground, window, mask, values);
 
-            /* draw primitives */
-            xcb_generic_event_t *event;
+            // Draw primitives.
+            xcb_generic_event_t* event;
 
             while (event = xcb_wait_for_event((xcb_connection_t*) c)) {
 
@@ -144,29 +145,29 @@ fwprintf(stdout, L"TEST send x window system window w: %i\n", w);
 
                     case XCB_EXPOSE:
 
-                        /* We draw the points */
-                        xcb_poly_point ((xcb_connection_t*) c, XCB_COORD_MODE_ORIGIN, window, foreground, 4, points);
+                        // Draw points.
+                        xcb_poly_point((xcb_connection_t*) c, XCB_COORD_MODE_ORIGIN, window, foreground, 4, points);
 
-                        /* We draw the polygonal line */
-                        xcb_poly_line ((xcb_connection_t*) c, XCB_COORD_MODE_PREVIOUS, window, foreground, 4, polyline);
+                        // Draw polygonal line.
+                        xcb_poly_line((xcb_connection_t*) c, XCB_COORD_MODE_PREVIOUS, window, foreground, 4, polyline);
 
-                        /* We draw the segements */
-                        xcb_poly_segment ((xcb_connection_t*) c, window, foreground, 2, segments);
+                        // Draw segements.
+                        xcb_poly_segment((xcb_connection_t*) c, window, foreground, 2, segments);
 
-                        /* draw the rectangles */
-                        xcb_poly_rectangle ((xcb_connection_t*) c, window, foreground, 2, rectangles);
+                        // Draw rectangles.
+                        xcb_poly_rectangle((xcb_connection_t*) c, window, foreground, 2, rectangles);
 
-                        /* draw the arcs */
-                        xcb_poly_arc ((xcb_connection_t*) c, window, foreground, 2, arcs);
+                        // Draw arcs.
+                        xcb_poly_arc((xcb_connection_t*) c, window, foreground, 2, arcs);
 
-                        /* flush the request */
-                        xcb_flush ((xcb_connection_t*) c);
+                        // Flush request.
+                        xcb_flush((xcb_connection_t*) c);
 
                         break;
 
                     default:
 
-                        /* Unknown event type, ignore it */
+                        // Unknown event type, ignore it.
                         break;
                 }
 

@@ -10,7 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Make x window system work (see file "x_window_system_tester.c" which works fine, but when used in cyboi, it doesn't)
+        * Improve x window system
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

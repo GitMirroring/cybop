@@ -134,6 +134,33 @@ void serialise_x_window_system_element(void* p0, void* p1, void* p2, void* p3, v
                 // Draw source element on graphic context.
                 //?? TODO: ...
 
+/*?? CONTINUE HERE!
+                // Geometric objects.
+                xcb_point_t points[] = {
+                    { 10, 10 },
+                    { 10, 20 },
+                    { 20, 10 },
+                    { 20, 20 }};
+
+                xcb_point_t polyline[] = {
+                    { 50, 10 },
+                    { 5, 20 }, // rest of points are relative
+                    { 25, -20 },
+                    { 10, 10 }};
+
+                xcb_segment_t segments[] = {
+                    { 100, 10, 140, 30 },
+                    { 110, 25, 130, 60 }};
+
+                xcb_rectangle_t rectangles[] = {
+                    { 10, 50, 40, 20 },
+                    { 80, 50, 10, 40 }};
+
+                xcb_arc_t arcs[] = {
+                    { 10, 100, 60, 40, 0, 90 << 6 },
+                    { 90, 100, 55, 40, 0, 270 << 6 }};
+*/
+
 /*??
                 // The source part name, type, model, properties.
                 void** n = NULL_POINTER_STATE_CYBOI_MODEL;
