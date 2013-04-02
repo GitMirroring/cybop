@@ -33,6 +33,30 @@
 #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
 #include "../../../../logger/logger.c"
 
+//
+// CAUTION! It is known that Xlib has several unfixable
+// runtime issues that manifest in concurent access situations.
+//
+// This is one among the reasons why Xcb was created in the
+// first place: Fix the problems of Xlib.
+//
+// GLX is specified against Xlib so this might seem
+// like a show stopper when it comes to OpenGL.
+// However there is a Xlib wrapping around Xcb
+// and one can safely use that to interface with GLX
+// and still use Xcb for the rest of the program:
+//
+// http://xcb.freedesktop.org/opengl/
+//
+// I see two possible solutions:
+//
+// Put a XLockDisplay/Mutex around XNextEvent and the GLX calls each;
+// you don't have to lock for ordinary OpenGL, just the functions prefixed glX...
+//
+// Use Xcb to get runtime correct behaviour and follow
+// the guide I linked above to make it work with OpenGL/GLX.
+//
+
 /**
  * Starts up the opengl system.
  *
