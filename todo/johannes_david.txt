@@ -1,0 +1,12 @@
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# Christian Heller <christian.heller@tuxtax.de>
+#
+# @author Johannes David <johannes.david@it2010.ba-leipzig.de>
+#
+
+        * Update cybol api specification with state and logic, which gets automatically generated into html
+        * Create manual for beginners, in order to get accepted as official GNU project

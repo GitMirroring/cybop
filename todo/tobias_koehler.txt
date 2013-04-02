@@ -1,0 +1,15 @@
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# Christian Heller <christian.heller@tuxtax.de>
+#
+# @author Tobias Köhler <tk@snake-universe.tk>
+#
+
+        * Update cybop Debian package
+        * Make cyboi platform-independent using pre-processor defines
+        * Factor out parts of cyboi into special libraries, e.g. x-window-system,
+            in order to minimise cyboi size for usage in embedded systems
+            and to improve portability
