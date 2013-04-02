@@ -28,16 +28,14 @@
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
-#include <X11/Xlib.h>
-//?? #include <X11/Xutil.h>
+#include <xcb/xcb.h>
 #include <pthread.h>
-#include <signal.h>
 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/lifeguard/sensor/x_window_system/check_events_x_window_system_sensor.c"
+//?? #include "../../../../executor/lifeguard/sensor/x_window_system/check_events_x_window_system_sensor.c"
 #include "../../../../executor/runner/sleeper.c"
 
 /**
@@ -46,13 +44,13 @@
  * @param p0 the interrupt
  * @param p1 the mutex
  * @param p2 the sleep time
- * @param p3 the display
+ * @param p3 the connection
  */
 void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        struct _XDisplay* d = (struct _XDisplay*) p3;
+        xcb_connection_t* c = (xcb_connection_t*) p3;
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -68,6 +66,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                 // cause unpredictable programme behaviour.
                 // Also, this function runs in an endless loop and would produce huge log files.
 
+/*??
                 // CAUTION! Do NOT use the following statement directly here:
                 // while (XEventsQueued(*d, QueuedAfterReading) == 0) { ... }
                 //
@@ -94,9 +93,36 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
 
                     sleep_nano(p2);
                 }
+*/
 
                 // Lock x window system mutex.
                 pthread_mutex_lock(mt);
+
+                //?? TEST: either delete this later, or the above!
+                //
+                // Wait for event.
+                //
+                // There are two ways to receive events:
+                // - blocking
+                // - non-blocking
+                //
+                // Since cyboi uses an own thread to detect events,
+                // the "blocking" variant may be used here without problems.
+                //
+                // The "xcb_wait_for_event" function blocks until
+                // an event is queued in the x server,
+                // then dequeues it from the queue,
+                // then returns it as a newly allocated structure.
+                //
+                // CAUTION! It is cyboi's responsibility to FREE
+                // the returned structure.
+                //
+                // The function MAY return null in event of an error.
+                // But other parts of cyboi have to care about that.
+                // Since all variables in cyboi are tested for null
+                // before being used, an error should not cause problems.
+                //
+                xcb_generic_event_t* e = xcb_wait_for_event(c);
 
                 // Set x window system interrupt request to indicate
                 // that a message has been received via x window system,
@@ -146,7 +172,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system message. The display is null.");
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system message. The connection is null.");
     }
 }
 

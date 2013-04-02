@@ -36,7 +36,7 @@
 #include "../../executor/lifeguard/sensor/serial_port/serial_port_sensor.c"
 //?? #include "../../executor/lifeguard/sensor/socket/socket_sensor.c"
 #include "../../executor/lifeguard/sensor/terminal/terminal_sensor.c"
-//?? #include "../../executor/lifeguard/sensor/x_window_system/x_window_system_sensor.c"
+#include "../../executor/lifeguard/sensor/x_window_system/x_window_system_sensor.c"
 #include "../../executor/lifeguard/message_sensor.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
@@ -162,7 +162,7 @@ fwprintf(stdout, L"TEST sense x window system r: %i\n", r);
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Sense incoming message.
-//??            sense_message(p0, (void*) X_WINDOW_SYSTEM_THREAD, (void*) &sense_x_window_system);
+            sense_message(p0, (void*) X_WINDOW_SYSTEM_THREAD, (void*) &sense_x_window_system);
         }
     }
 

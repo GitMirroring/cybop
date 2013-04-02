@@ -50,9 +50,9 @@
  * nothing (void).
  *
  * @param mt the mutex
- * @param d the display
+ * @param c the connection
  */
-int sense_x_window_system_check_events(pthread_mutex_t* mt, struct _XDisplay* d) {
+int sense_x_window_system_check_events(pthread_mutex_t* mt, xcb_connection_t* c) {
 
     // CAUTION! DO NOT log this function call!
     // This function is executed within a thread, but the
@@ -70,33 +70,29 @@ int sense_x_window_system_check_events(pthread_mutex_t* mt, struct _XDisplay* d)
     // Lock x window system mutex.
     pthread_mutex_lock(mt);
 
-    // Check the number of events in the event queue.
-    // XEventsQueued always returns immediately without
-    // input/ output if there are events already in the queue.
+    // Wait for event.
     //
-    // There are three possible modes:
-    // 1 QueuedAlready: XEventsQueued returns the number of events
-    //   already in the event queue (and never performs a system call).
-    //   XEventsQueued with mode QueuedAlready is identical
-    //   to the XQLength function.
-    // 2 QueuedAfterFlush: XEventsQueued returns the number of events
-    //   already in the queue if the number is nonzero. If there are no
-    //   events in the queue, XEventsQueued flushes the output buffer,
-    //   attempts to read more events out of the applications connection,
-    //   and returns the number read.
-    // 3 QueuedAfterReading: XEventsQueued returns the number of events
-    //   already in the queue if the number is nonzero. If there are no
-    //   events in the queue, XEventsQueued attempts to read more events
-    //   out of the applications connection WITHOUT flushing the output
-    //   buffer and returns the number read.
+    // There are two ways to receive events:
+    // - blocking
+    // - non-blocking
     //
-    // The decision fell on mode number 3, because:
-    // - mode number 1 did not display the x window initially, since
-    //   probably no expose events are placed in the queue at startup
-    // - mode number 2 is undesirable, since it would flush the output
-    //   buffer and might thus cause this sense-thread to conflict
-    //   with the send_x_window_system procedure of the main thread
-    n = XEventsQueued(d, QueuedAfterReading);
+    // Since cyboi uses an own thread to detect events,
+    // the "blocking" variant may be used here without problems.
+    //
+    // The "xcb_wait_for_event" function blocks until
+    // an event is queued in the x server,
+    // then dequeues it from the queue,
+    // then returns it as a newly allocated structure.
+    //
+    // CAUTION! It is cyboi's responsibility to FREE
+    // the returned structure.
+    //
+    // The function MAY return null in event of an error.
+    // But other parts of cyboi have to care about that.
+    // Since all variables in cyboi are tested for null
+    // before being used, an error should not cause problems.
+    //
+    xcb_generic_event_t* e = xcb_wait_for_event(c);
 
     // Unlock x window system mutex.
     pthread_mutex_unlock(mt);

@@ -28,14 +28,11 @@
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
-#include <X11/Xlib.h>
-//?? #include <X11/Xutil.h>
-#include <pthread.h>
-#include <signal.h>
-
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/lifeguard/sensor/x_window_system/message_x_window_system_sensor.c"
 
@@ -57,8 +54,8 @@ void sense_x_window_system(void* p0) {
     void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sleep time.
     void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The display.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connection.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get interrupt.
     copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -66,8 +63,8 @@ void sense_x_window_system(void* p0) {
     copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get sleep time.
     copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get display.
-    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DISPLAY_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get connection.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -80,7 +77,7 @@ void sense_x_window_system(void* p0) {
         // and processed in the system signal handler procedure
         // (situated in the controller/checker.c module).
 
-        sense_x_window_system_message(irq, mt, st, d);
+        sense_x_window_system_message(irq, mt, st, c);
     }
 
     // An implicit call to pthread_exit() is made when this thread
