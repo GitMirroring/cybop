@@ -29,14 +29,25 @@ The following (Debian) packages are needed to execute CYBOL applications:
 xorg
 
 The following (Debian) packages are needed to compile CYBOI:
-autotools (autoconf, automake)
-xorg-dev
-xlibs-dev (now possibly contained in xorg-dev)
-glut or freeglut3 or the like
-mesa etc.
+    autotools (autoconf, automake)
+    xorg-dev
+    xlibs-dev (now possibly contained in xorg-dev)
+    libtool
+    glut or freeglut3 or the like
+    mesa etc.
 
+The following (Debian) packages are needed to compile CYBOI for Windows:
+    mingw32
 
-CYBOI Compilation
+The following headers are needed to compile CYBOI for Windows:
+    Pthread-win32 (ftp://sourceware.org/pub/pthreads-win32)
+    X11 (http://docs.google.com/leaf?id=0B4o4WuYAoiUTZmFiNzhiNDUtNGJkNS00OWQxLThlNzctZDcwMDQyMmQ0Y2Fh&hl=en)
+
+The following libraries are needed to compile CYBOI for Windows:
+    libpthreadGC2
+    libX11 and libXau (http://docs.google.com/leaf?id=0B4o4WuYAoiUTNTlmYmMwMDgtMzlmMC00NWNmLWE4M2UtZGIxZTQzMTQyZGZk&hl=en)
+
+CYBOI Compilation Unix
 _________________
 
 - Change into cybop's root directory, e.g.:
@@ -64,6 +75,24 @@ Note, that the configure process and make system are prepared to be used on
 the platforms: GNU/Linux, Windows (mingw environment), Linux 64bits.
 The configure script forces the 32 bits emulation mode by using special options
 of gcc and other binutils. Native 32 bits Linux and Windows was not tested, however.
+
+
+
+CYBOI Compilation Windows
+_________________
+
+- Change into cybop's root directory, e.g.:
+
+    cd /home/cybop
+
+- Clean the object files of any previous compilation (this is optional):
+
+    make clean
+
+- Execute the mingw32 compiler:
+
+    i586-mingw32msvc-gcc src/controller/cyboi.c -o src/controller/cyboi.exe -DPTW32_STATIC_LIB -lpthreadGC2 -lX11 -lXau -lws2_32
+
 
 
 CYBOL Application Execution
