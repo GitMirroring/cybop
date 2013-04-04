@@ -94,7 +94,15 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
             // as utf-8 multibyte character sequence of type "char".
             // The placeholder %ls would be WRONG here as it expects data
             // of type "wchar_t".
-            int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
+            #ifdef WIN32
+                // Todo: 
+                // fwprintf not work in Windows CMD
+                printf("+%s-", (char*) p1);
+                int e = 0;
+            #endif
+            #ifdef GNU_LINUX_OPERATING_SYSTEM
+                int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
+            #endif
 
             // Test error value.
             //
