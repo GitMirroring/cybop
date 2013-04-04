@@ -8,4 +8,7 @@
 # @author Alexander Papenfuß <alexander.papenfuss@it2010.ba-leipzig.de>
 #
 
-        * TODO
+(together with Norman Bestfleisch)
+
+        * Write CYBOL editor in C#
+        * Run under Windows and Linux using Mono

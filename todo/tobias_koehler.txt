@@ -8,6 +8,8 @@
 # @author Tobias Köhler <tk@snake-universe.tk>
 #
 
+(together with Falco Prescher)
+
         * Update cybop Debian package
         * Make cyboi platform-independent using pre-processor defines
         * Factor out parts of cyboi into special libraries, e.g. x-window-system,

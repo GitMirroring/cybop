@@ -8,4 +8,5 @@
 # @author Marcel Wesberg <marcel.wesberg@it2010.ba-leipzig.de>
 #
 
-        * TODO
+        * Add calculator functions for types: pointer, fraction, complex
+        * Add comparator functions for types: double, pointer, fraction, complex

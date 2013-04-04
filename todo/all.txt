@@ -47,13 +47,6 @@ _____
         * Add constants for mime types in directory "cybop/src/constant/format/cybol/"
         * Add constants for unix shell command in directory "src/constant/model/command/"
 
-        * Add missing functions for type "fraction" in directory "src/executor/calculator/basic/"
-        * Add missing functions for type "complex" in directory "src/executor/calculator/basic/"
-
-        * Add missing functions for type "double" in directory "src/executor/comparator/basic/"
-        * Add missing functions for type "fraction" in directory "src/executor/comparator/basic/"
-        * Add missing functions for type "complex" in directory "src/executor/comparator/basic/"
-
         * Implement bit manipulation functions in directory "executor/manipulator/"
 
         * Erstellen verschiedener Layout Manager Algorithmen zur Positionierung grafischer Komponenten (Arithmetik)

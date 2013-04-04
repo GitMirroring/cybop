@@ -8,4 +8,4 @@
 # @author Tim Illner <tim.illner@it2010.ba-leipzig.de>
 #
 
-        * TODO
+        * Create manual for beginners, in order to get accepted as official GNU project

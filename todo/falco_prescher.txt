@@ -8,4 +8,9 @@
 # @author Falco Prescher <falco.prescher@it2010.ba-leipzig.de>
 #
 
-        * TODO
+(together with Tobias Köhler)
+
+        * Make cyboi platform-independent using pre-processor defines
+        * Factor out parts of cyboi into special libraries, e.g. x-window-system,
+            in order to minimise cyboi size for usage in embedded systems
+            and to improve portability

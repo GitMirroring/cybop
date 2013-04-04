@@ -8,4 +8,4 @@
 # @author Michael Dietrich <michael.dietrich@it2010.ba-leipzig.de>
 #
 
-        * TODO
+        * Extend Eclipse IDE to offer CYBOL syntax highlighting and sensitive keyword list
