@@ -26,8 +26,6 @@
 #ifndef TERMINAL_RECEIVER_SOURCE
 #define TERMINAL_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <errno.h>
 #include <wchar.h>
 
@@ -102,9 +100,6 @@ fwprintf(stdout, L"TEST receive terminal testd: %ls\n", (wchar_t*) testd);
     // Deallocate decoded message item.
     deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* TERMINAL_RECEIVER_SOURCE */
 #endif

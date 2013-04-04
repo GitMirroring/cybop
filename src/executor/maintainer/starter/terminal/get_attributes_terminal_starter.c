@@ -26,10 +26,10 @@
 #ifndef GET_ATTRIBUTES_TERMINAL_STARTER_SOURCE
 #define GET_ATTRIBUTES_TERMINAL_STARTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <stdio.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -111,9 +111,6 @@ void startup_terminal_attributes_get(void* p0, void* p1) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes get. The file descriptor data is null.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* GET_ATTRIBUTES_TERMINAL_STARTER_SOURCE */
 #endif

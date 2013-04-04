@@ -26,8 +26,6 @@
 #ifndef SOCKET_RECEIVER_SOURCE
 #define SOCKET_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 /*??
 #include <arpa/inet.h>
 #include <netinet/in.h>
@@ -286,9 +284,6 @@ void apply_receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //?? (It is the client socket to accept, receive data from and attach as parametre to the
     //?? cyboi signal generated later, so that this server may reply to the correct client.)
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* SOCKET_RECEIVER_SOURCE */
 #endif

@@ -26,8 +26,6 @@
 #ifndef SERIAL_PORT_RECEIVER_SOURCE
 #define SERIAL_PORT_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <errno.h>
 #include <wchar.h>
 
@@ -70,9 +68,6 @@ void receive_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // evaluated bytewise within a cybol application.
     // The "language" and "format" parametres are therefore obsolete.
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* SERIAL_PORT_RECEIVER_SOURCE */
 #endif

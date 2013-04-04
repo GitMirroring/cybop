@@ -26,8 +26,6 @@
 #ifndef SOCKET_SHUTTER_SOURCE
 #define SOCKET_SHUTTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -171,9 +169,6 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
     }
 */
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* SOCKET_SHUTTER_SOURCE */
 #endif

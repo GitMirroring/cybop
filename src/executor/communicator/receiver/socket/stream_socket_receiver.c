@@ -26,7 +26,10 @@
 #ifndef STREAM_SOCKET_RECEIVER_SOURCE
 #define STREAM_SOCKET_RECEIVER_SOURCE
 
-#include <sys/socket.h>
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/socket.h>
+#endif
 #include <errno.h>
 #include <stdio.h>
 
@@ -48,7 +51,8 @@
  *           cyboi signal generated later, so that this server may reply to the correct client)
  */
 void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
-
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* ps = (int*) p3;
@@ -162,6 +166,7 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The partner-connected socket of this system is null.");
     }
+#endif
 }
 
 /* STREAM_SOCKET_RECEIVER_SOURCE */

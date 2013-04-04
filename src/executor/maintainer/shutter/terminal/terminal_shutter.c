@@ -29,7 +29,9 @@
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
 #include <stdio.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

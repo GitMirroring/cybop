@@ -26,7 +26,10 @@
 #ifndef DATAGRAM_SOCKET_RECEIVER_SOURCE
 #define DATAGRAM_SOCKET_RECEIVER_SOURCE
 
-#include <sys/socket.h>
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/socket.h>
+#endif
 #include <errno.h>
 #include <stdio.h>
 
@@ -48,7 +51,8 @@
  * @param p5 the original socket of this system
  */
 void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
-
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* os = (int*) p5;
@@ -158,6 +162,7 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The original socket of this system is null.");
     }
+#endif
 }
 
 /* DATAGRAM_SOCKET_RECEIVER_SOURCE */

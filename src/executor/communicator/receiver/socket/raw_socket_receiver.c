@@ -26,7 +26,10 @@
 #ifndef RAW_SOCKET_RECEIVER_SOURCE
 #define RAW_SOCKET_RECEIVER_SOURCE
 
-#include <sys/socket.h>
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/socket.h>
+#endif
 #include <errno.h>
 #include <stdio.h>
 

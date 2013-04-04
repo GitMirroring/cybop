@@ -26,10 +26,10 @@
 #ifndef OPEN_TERMINAL_STARTER_SOURCE
 #define OPEN_TERMINAL_STARTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <stdio.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -154,9 +154,6 @@ void startup_terminal_open(void* p0) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal open. The input- or output item or both already exist.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* OPEN_TERMINAL_STARTER_SOURCE */
 #endif

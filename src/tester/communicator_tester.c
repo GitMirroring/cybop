@@ -26,14 +26,11 @@
 #ifndef COMMUNICATOR_TESTER
 #define COMMUNICATOR_TESTER
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-#include <termios.h>
-/* GNU_LINUX_OPERATING_SYSTEM */
+#ifdef WIN32
+    #include <windows.h>
 #endif
-
-#ifdef CYGWIN_ENVIRONMENT
-#include <windows.h>
-/* CYGWIN_ENVIRONMENT */
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
 #endif
 
 // The opengl library OpenGL32.
@@ -52,7 +49,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <termios.h>
 #include <unistd.h>
 #include <wchar.h>
 

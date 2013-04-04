@@ -26,8 +26,6 @@
 #ifndef SERIAL_PORT_SENSOR_SOURCE
 #define SERIAL_PORT_SENSOR_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <pthread.h>
 #include <signal.h>
 #include <wchar.h>
@@ -98,9 +96,6 @@ void sense_serial_port(void* p0) {
     // However, since this function runs an endless loop waiting for input, it may
     // only be left using an external signal (see comment at "break" condition above).
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* SERIAL_PORT_SENSOR_SOURCE */
 #endif

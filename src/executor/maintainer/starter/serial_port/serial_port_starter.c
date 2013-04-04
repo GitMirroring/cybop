@@ -26,11 +26,11 @@
 #ifndef SERIAL_PORT_STARTER_SOURCE
 #define SERIAL_PORT_STARTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <fcntl.h>
 #include <stdio.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -38,7 +38,10 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/starter/serial_port/open_serial_port_starter.c"
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/starter/serial_port/open_serial_port_starter.c"
+#endif
 #include "../../../../logger/logger.c"
 
 /**
@@ -50,7 +53,8 @@
  * @param p3 the baudrate
  */
 void startup_serial_port(void* p0, void* p1, void* p2, void* p3) {
-
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port.");
 
     // The terminated file name item.
@@ -79,10 +83,8 @@ void startup_serial_port(void* p0, void* p1, void* p2, void* p3) {
 
     // Deallocate terminated file name item.
     deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-}
-
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif
+}
 
 /* SERIAL_PORT_STARTER_SOURCE */
 #endif

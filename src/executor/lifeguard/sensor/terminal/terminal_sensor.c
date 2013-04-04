@@ -26,8 +26,6 @@
 #ifndef TERMINAL_SENSOR_SOURCE
 #define TERMINAL_SENSOR_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <pthread.h>
 #include <signal.h>
 #include <wchar.h>
@@ -99,9 +97,6 @@ void sense_terminal(void* p0) {
     // However, since this function runs an endless loop waiting for input, it may
     // only be left using an external signal (see comment at "break" condition above).
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* TERMINAL_SENSOR_SOURCE */
 #endif

@@ -26,8 +26,6 @@
 #ifndef CHARACTER_TERMINAL_RECEIVER_SOURCE
 #define CHARACTER_TERMINAL_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <stdio.h>
 #include <wchar.h>
 
@@ -265,9 +263,6 @@ fwprintf(stdout, L"ERROR: Could not receive terminal character. The source file 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The input character is null.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* CHARACTER_TERMINAL_RECEIVER_SOURCE */
 #endif

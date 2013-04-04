@@ -26,10 +26,11 @@
 #ifndef EXECUTE_SOURCE
 #define EXECUTE_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
 #include <errno.h>
 #include <sys/types.h>
-#include <sys/wait.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/wait.h>
+#endif
 
 #include "../../constant/model/command/unix_command_model.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -432,9 +433,6 @@ void apply_execute(void* p0, void* p1) {
     }
 */
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* EXECUTE_SOURCE */
 #endif

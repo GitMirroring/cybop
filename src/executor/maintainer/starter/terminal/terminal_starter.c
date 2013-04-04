@@ -26,17 +26,20 @@
 #ifndef TERMINAL_STARTER_SOURCE
 #define TERMINAL_STARTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <stdio.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/starter/terminal/open_terminal_starter.c"
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/starter/terminal/open_terminal_starter.c"
+#endif
 #include "../../../../logger/logger.c"
 
 /**
@@ -58,11 +61,11 @@ void startup_terminal(void* p0) {
     // See "serial_port_starter.c"!
     //
 
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     startup_terminal_open(p0);
-}
-
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif
+}
 
 /* TERMINAL_STARTER_SOURCE */
 #endif

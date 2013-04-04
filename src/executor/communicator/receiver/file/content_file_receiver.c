@@ -26,8 +26,6 @@
 #ifndef CONTENT_FILE_RECEIVER_SOURCE
 #define CONTENT_FILE_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <stdio.h>
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
@@ -88,9 +86,6 @@ void receive_file_content(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive file content. The file stream is null.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* CONTENT_FILE_RECEIVER_SOURCE */
 #endif

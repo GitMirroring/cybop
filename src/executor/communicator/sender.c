@@ -33,11 +33,17 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/sender/file/file_sender.c"
 #include "../../executor/communicator/sender/inline/inline_sender.c"
-#include "../../executor/communicator/sender/serial_port/serial_port_sender.c"
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../executor/communicator/sender/serial_port/serial_port_sender.c"
+#endif
 #include "../../executor/communicator/sender/signal/signal_sender.c"
 //?? #include "../../executor/communicator/sender/socket/socket_sender.c"
 #include "../../executor/communicator/sender/terminal/terminal_sender.c"
-#include "../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
+#endif
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -136,6 +142,8 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         }
     }
 
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p15, (void*) SERIAL_PORT_CYBOI_CHANNEL);
@@ -145,6 +153,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             send_serial_port(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p14);
         }
     }
+#endif
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -166,6 +175,8 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         }
     }
 
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p15, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
@@ -175,6 +186,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             send_x_window_system(p1, p2, p3, p4, p5, p6, p8, p10);
         }
     }
+#endif
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

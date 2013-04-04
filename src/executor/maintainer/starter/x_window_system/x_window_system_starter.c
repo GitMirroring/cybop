@@ -287,6 +287,10 @@ fwprintf(stdout, L"TEST startup x window system window: %i\n", window);
 
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
+#ifdef WIN32
+void startup_x_window_system(void* p0) {
+}
+#endif
 
 /* X_WINDOW_SYSTEM_STARTER_SOURCE */
 #endif

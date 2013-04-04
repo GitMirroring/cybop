@@ -26,8 +26,6 @@
 #ifndef FILE_RECEIVER_SOURCE
 #define FILE_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <stdio.h>
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
@@ -131,9 +129,6 @@ fwprintf(stdout, L"TEST receive file testpd: %ls\n", (wchar_t*) testpd);
     // Deallocate decoded message item.
     deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* FILE_RECEIVER_SOURCE */
 #endif

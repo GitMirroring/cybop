@@ -26,8 +26,6 @@
 #ifndef STREAM_TERMINAL_RECEIVER_SOURCE
 #define STREAM_TERMINAL_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <errno.h>
 #include <wchar.h>
 
@@ -86,9 +84,6 @@ void receive_terminal_stream(void* p0, void* p1, void* p2) {
         receive_terminal_character(p0, p1, p2, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* STREAM_TERMINAL_RECEIVER_SOURCE */
 #endif

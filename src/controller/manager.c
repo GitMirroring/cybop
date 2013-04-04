@@ -337,6 +337,9 @@ void manage(void* p0) {
 
     // Shutdown cyboi service.
     shutdown_socket(i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
+
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     // Shutdown serial port.
     shutdown_serial_port(i, (void*) SERIAL_PORT_THREAD, (void*) SERIAL_PORT_EXIT);
     // Shutdown terminal.
@@ -345,6 +348,7 @@ void manage(void* p0) {
     shutdown_socket(i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
     // Shutdown x window system.
     shutdown_x_window_system(i, (void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
+#endif
 
     //
     // Variable finalisation.

@@ -53,6 +53,8 @@
  */
 void interrupt_service_system_signal_handler(int p0) {
 
+#ifdef WIN32
+#else
     // This thread itself.
     pthread_t t = pthread_self();
 /*??
@@ -187,6 +189,7 @@ void interrupt_service_system_signal_handler(int p0) {
             // "interrupt" procedure where "kill" was called!
         }
     }
+#endif
 }
 
 /**
@@ -200,6 +203,8 @@ void interrupt_service_system_signal_handler(int p0) {
  */
 void startup_system_signal_handler() {
 
+#ifdef WIN32
+#else
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup system signal handler.");
 
     // The signal set (mask).
@@ -269,6 +274,7 @@ void startup_system_signal_handler() {
     // explicitly unblock this signal.
     sigprocmask(SIG_UNBLOCK, &mask, *NULL_POINTER_STATE_CYBOI_MODEL);
 */
+#endif
 }
 
 /* SYSTEM_SIGNAL_HANDLER_MANAGER_SOURCE */

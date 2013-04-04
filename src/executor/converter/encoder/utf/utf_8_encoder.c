@@ -287,7 +287,14 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                     // CAUTION! The fifth parametre may be NULL. In this case, a static
                     // anonymous state only known to the function internally is used instead.
                     // It just indicates where conversion is started.
-                    int n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+                    int n = -1;
+                    #ifdef WIN32
+                        int len = WideCharToMultiByte (65001, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, 0, NULL, NULL);
+                        n =  WideCharToMultiByte (65001, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, len, NULL, NULL);
+                    #endif
+                    #ifdef GNU_LINUX_OPERATING_SYSTEM
+                        n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+                    #endif
 
                     if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -299,17 +306,17 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                         if (errno == EILSEQ) {
 
                             fwprintf(stdout, L"TEST ERROR EILSEQ errno: %i\n", errno);
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. An invalid wide character was encountered.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An invalid wide character was encountered.");
 
                         } else if (errno == EINVAL) {
 
                             fwprintf(stdout, L"TEST ERROR EINVAL errno: %i\n", errno);
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The conversion state is invalid.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The conversion state is invalid.");
 
                         } else {
 
                             fwprintf(stdout, L"TEST ERROR UNKNOWN errno: %i\n", errno);
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. An unknown error occured.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An unknown error occured.");
                         }
                     }
 

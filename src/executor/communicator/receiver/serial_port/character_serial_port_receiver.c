@@ -26,8 +26,6 @@
 #ifndef CHARACTER_SERIAL_PORT_RECEIVER_SOURCE
 #define CHARACTER_SERIAL_PORT_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <errno.h>
 #include <limits.h>
 #include <wchar.h>
@@ -330,9 +328,6 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
         copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* CHARACTER_SERIAL_PORT_RECEIVER_SOURCE */
 #endif

@@ -26,8 +26,6 @@
 #ifndef MESSAGE_TERMINAL_SENSOR_SOURCE
 #define MESSAGE_TERMINAL_SENSOR_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <pthread.h>
 #include <signal.h>
 #include <stdio.h>
@@ -241,9 +239,6 @@ ungetwc(test, (FILE*) fs);
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense terminal message. The input stream is null.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* MESSAGE_TERMINAL_SENSOR_SOURCE */
 #endif

@@ -39,6 +39,8 @@ void test_preprocessor_directives() {
     log_write((void*) stdout, L"GNU_LINUX\n");
 #elif WINDOWS_OPERATING_SYSTEM
     log_write((void*) stdout, L"WINDOWS\n");
+#elif WIN32
+    log_write((void*) stdout, L"WIN32\n");
 #else
     log_write((void*) stdout, L"OTHER\n");
 /* GNU_LINUX_OPERATING_SYSTEM */

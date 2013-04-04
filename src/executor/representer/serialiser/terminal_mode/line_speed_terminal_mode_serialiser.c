@@ -26,13 +26,14 @@
 #ifndef LINE_SPEED_TERMINAL_MODE_SERIALISER_SOURCE
 #define LINE_SPEED_TERMINAL_MODE_SERIALISER_SOURCE
 
-#ifdef CYGWIN_ENVIRONMENT
-#include <windows.h>
-/* CYGWIN_ENVIRONMENT */
+#ifdef WIN32
+    #include <windows.h>
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
 #endif
 
 #include <stdio.h>
-#include <termios.h>
 #include <wchar.h>
 
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
@@ -71,7 +72,8 @@
  * @param p1 the source model data
  */
 void serialise_terminal_mode_line_speed(void* p0, void* p1) {
-
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise terminal mode line speed.");
 
     // The comparison result.
@@ -359,6 +361,7 @@ void serialise_terminal_mode_line_speed(void* p0, void* p1) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise terminal mode line speed. The line speed is unknown.");
     }
+#endif
 }
 
 /* LINE_SPEED_TERMINAL_MODE_SERIALISER_SOURCE */

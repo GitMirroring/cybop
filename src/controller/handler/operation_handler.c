@@ -31,18 +31,27 @@
 #include "../../applicator/access/indicate.c"
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/cast/cast.c"
-#include "../../applicator/communicate/receive.c"
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../applicator/communicate/receive.c"
+ #endif
 #include "../../applicator/communicate/send.c"
 #include "../../applicator/compare/compare.c"
-#include "../../applicator/file/archive_file.c"
-#include "../../applicator/file/copy_file.c"
-#include "../../applicator/file/list_directory_contents.c"
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../applicator/file/archive_file.c"
+    #include "../../applicator/file/copy_file.c"
+    #include "../../applicator/file/list_directory_contents.c"
+ #endif
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
-#include "../../applicator/live/interrupt.c"
-#include "../../applicator/live/sense.c"
-#include "../../applicator/maintain/shutdown.c"
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../applicator/live/interrupt.c"
+    #include "../../applicator/live/sense.c"
+    #include "../../applicator/maintain/shutdown.c"
+ #endif
 #include "../../applicator/maintain/startup.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
@@ -53,8 +62,11 @@
 #include "../../applicator/modify/insert.c"
 #include "../../applicator/modify/overwrite.c"
 #include "../../applicator/modify/remove.c"
-#include "../../applicator/represent/deserialise.c"
-#include "../../applicator/represent/serialise.c"
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../applicator/represent/deserialise.c"
+    #include "../../applicator/represent/serialise.c"
+ #endif
 #include "../../applicator/run/run.c"
 #include "../../applicator/run/sleep.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -77,8 +89,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) HANDLE_OPERATION_MESSAGE_LOG_CYBOI_MODEL, (void*) HANDLE_OPERATION_MESSAGE_LOG_CYBOI_MODEL_COUNT);
 
-//?? fwprintf(stdout, L"TEST handle operation: %i\n", p6);
-//?? fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p6));
+//fwprintf(stdout, L"TEST handle operation: %i\n", p6);
+fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p6));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -249,6 +261,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // communicate
     //
 
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) RECEIVE_COMMUNICATE_LOGIC_CYBOI_FORMAT);
@@ -258,6 +272,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_receive(p0, p1, p3, p2);
         }
     }
+#endif
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -363,6 +378,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // file
     //
 
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) ARCHIVE_FILE_LOGIC_CYBOI_FORMAT);
@@ -392,6 +409,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_list_directory_contents(p0, p1, p3);
         }
     }
+#endif
 
     //
     // flow
@@ -441,6 +459,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) INTERRUPT_LIVE_LOGIC_CYBOI_FORMAT);
@@ -460,6 +480,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_sense(p0, p1, p3, p2);
         }
     }
+#endif
 
 /*??
     //
@@ -541,6 +562,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // maintain
     //
 
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) SHUTDOWN_MAINTAIN_LOGIC_CYBOI_FORMAT);
@@ -550,6 +573,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_shutdown(p0, p1, p3, p2);
         }
     }
+#endif
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -663,6 +687,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // represent
     //
 
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) DESERIALISE_REPRESENT_LOGIC_CYBOI_FORMAT);
@@ -682,6 +708,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_serialise(p0, p1, p3, p2);
         }
     }
+#endif
 
     //
     // run
@@ -723,8 +750,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??    fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown p6: %i\n", p6);
-//??    fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown *p6: %i\n", *((int*) p6));
+        fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown p6: %i\n", p6);
+        fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown *p6: %i\n", *((int*) p6));
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, "Could not handle operation. The operation is unknown.");
     }

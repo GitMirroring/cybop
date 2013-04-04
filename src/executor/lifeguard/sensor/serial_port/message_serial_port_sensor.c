@@ -26,8 +26,6 @@
 #ifndef MESSAGE_SERIAL_PORT_SENSOR_SOURCE
 #define MESSAGE_SERIAL_PORT_SENSOR_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <pthread.h>
 #include <signal.h>
 #include <stdio.h>
@@ -204,9 +202,6 @@ fwprintf(stdout, L"ERROR: Could not sense serial port message. The file stream i
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense serial port message. The input stream is null.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* MESSAGE_SERIAL_PORT_SENSOR_SOURCE */
 #endif

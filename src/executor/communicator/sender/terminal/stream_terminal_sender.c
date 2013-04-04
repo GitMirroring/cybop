@@ -49,9 +49,10 @@
  */
 void send_terminal_stream(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* f = (int*) p0;
+//    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {     // not working !!! (WIN32 p0(DATA_ITEM_STATE_CYBOI_NAME) is NULL)
+
+//        int* f = (int*) p0;
 
         // The file stream created from the given file descriptor.
         // CAUTION! The opentype string "r+" means an existing file
@@ -128,10 +129,10 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. The file stream is null.");
         }
 
-    } else {
+//    } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. The file descriptor data is null.");
-    }
+//        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. The file descriptor data is null.");
+//    }
 }
 
 /* STREAM_TERMINAL_SENDER_SOURCE */

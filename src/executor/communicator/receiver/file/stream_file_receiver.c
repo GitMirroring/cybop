@@ -26,8 +26,6 @@
 #ifndef STREAM_FILE_RECEIVER_SOURCE
 #define STREAM_FILE_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <stdio.h>
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
@@ -126,9 +124,6 @@ void receive_file_stream(void* p0, void* p1, void* p2) {
         deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* STREAM_FILE_RECEIVER_SOURCE */
 #endif

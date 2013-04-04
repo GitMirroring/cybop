@@ -29,24 +29,24 @@
 #include "../tester/accessor_tester.c"
 #include "../tester/arithmetiser_tester.c"
 #include "../tester/assembler_tester.c"
-#include "../tester/caster_tester.c"
+//#include "../tester/caster_tester.c"
 #include "../tester/communicator_tester.c"
 #include "../tester/comparator_tester.c"
 #include "../tester/constant_tester.c"
-#include "../tester/converter_tester.c"
-#include "../tester/copier_tester.c"
+//#include "../tester/converter_tester.c"
+//#include "../tester/copier_tester.c"
 #include "../tester/empty_tester.c"
-#include "../tester/finder_tester.c"
+//#include "../tester/finder_tester.c"
 #include "../tester/logger_tester.c"
 #include "../tester/memoriser_tester.c"
-#include "../tester/modifier_tester.c"
+//#include "../tester/modifier_tester.c"
 #include "../tester/pointer_tester.c"
 #include "../tester/preprocessor_tester.c"
-#include "../tester/referencer_tester.c"
-#include "../tester/representer_tester.c"
-#include "../tester/serial_port_tester.c"
+//#include "../tester/referencer_tester.c"
+//#include "../tester/representer_tester.c"
+//#include "../tester/serial_port_tester.c"
 #include "../tester/variable_tester.c"
-#include "../tester/x_window_system_tester.c"
+//#include "../tester/x_window_system_tester.c"
 
 //
 // Examples for source code testing via log messages.
@@ -131,20 +131,20 @@ void test() {
     // Executor.
     test_accessor();
     test_arithmetiser();
-    test_caster();
+//    test_caster();
     test_communicator();
     test_comparator();
-    test_converter();
-    test_copier();
-    test_finder();
+//    test_converter();
+//    test_copier();
+//    test_finder();
     test_memoriser();
-    test_modifier();
-    test_referencer();
-    test_representer();
+//    test_modifier();
+//    test_referencer();
+//    test_representer();
 
     // Communication.
-    test_serial_port();
-    test_x_window_system();
+//    test_serial_port();
+//    test_x_window_system();
 
     // Empty.
     test_empty();
