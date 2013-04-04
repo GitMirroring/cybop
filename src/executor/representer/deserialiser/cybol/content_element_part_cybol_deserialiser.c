@@ -41,7 +41,7 @@
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
-#ifdef WIN32 // compiler error without this line:
+#ifdef WIN32 // compiler error without this line (but actually forward declaration of "receive_data" below should suffice):
     #include "../../../../executor/communicator/receiver.c"
 #endif
 
