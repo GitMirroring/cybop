@@ -45,7 +45,7 @@ AC_CHECK_LIB([GLU], [main])
 AC_CHECK_LIB([X11], [XOpenDisplay])
 AC_CHECK_LIB([glut], [glutInit])
 AC_CHECK_LIB([pthread], [pthread_exit])
-
+AC_CHECK_LIB([xcb], [xcb_connect])
 
 # Checks for header files.
 AC_PATH_X
