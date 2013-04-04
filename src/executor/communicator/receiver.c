@@ -38,11 +38,11 @@
     #include "../../executor/communicator/receiver/serial_port/serial_port_receiver.c"
 #endif
 #include "../../executor/communicator/receiver/terminal/terminal_receiver.c"
-#include "../../executor/communicator/receiver/inline_receiver.c"
+#include "../../executor/communicator/receiver/inline/inline_receiver.c"
 // not ported to WIN32 at the moment ...
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../executor/communicator/receiver/socket_receiver.c"
-    #include "../../executor/communicator/receiver/x_window_system_receiver.c"
+    #include "../../executor/communicator/receiver/socket/socket_receiver.c"
+    #include "../../executor/communicator/receiver/x_window_system/x_window_system_receiver.c"
 #endif
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"

@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Migrate x window system receiver from xlib to xcb
+
 2013-04-04  Tobias Köhler  <tk@snake-universe.tk>
 
         * Fixed native Windows terminal output

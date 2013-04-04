@@ -28,7 +28,7 @@
 
 #include <stdio.h>
 
-#include "../../../logger/logger.c"
+#include "../../../../logger/logger.c"
 
 //
 // Forward declarations.

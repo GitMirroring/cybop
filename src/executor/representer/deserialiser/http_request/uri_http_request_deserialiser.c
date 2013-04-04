@@ -26,13 +26,14 @@
 #ifndef URI_HTTP_REQUEST_DESERIALISER_SOURCE
 #define URI_HTTP_REQUEST_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cybol/state/text_state_cybol_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
-#include "../../../../constant/format/cybol/state/text_state_cybol_format.c"
-#include "../../../../executor/communicator/receiver/inline_receiver.c"
+#include "../../../../executor/communicator/receiver/inline/inline_receiver.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../executor/modifier/appender/character_deserialiser_part_allocator_item_appender.c"
 #include "../../../../executor/modifier/overwriter/part_overwriter.c"

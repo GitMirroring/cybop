@@ -26,20 +26,24 @@
 #ifndef X_WINDOW_SYSTEM_RECEIVER_SOURCE
 #define X_WINDOW_SYSTEM_RECEIVER_SOURCE
 
+#include <xcb/xcb.h>
+
+/*??
 #include <X11/Xlib.h>
 //?? #include <X11/Xutil.h>
 #include <pthread.h>
 #include <signal.h>
+*/
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
-#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Determine the graphical part's mouse command.
@@ -82,7 +86,7 @@ void sense_x_window_system_mouse_command(void* p0, void* p1, void* p2, void* p3,
 
             if (*b == Button1) {
 
-                if (*t == ButtonPress) {
+                if (*t == XCB_BUTTON_PRESS) {
 
                     // Get actual command belonging to the button and event.
                     get_universal_compound_element_by_name(
@@ -91,7 +95,7 @@ void sense_x_window_system_mouse_command(void* p0, void* p1, void* p2, void* p3,
                         (void*) LEFT_PRESS_COMMAND_GRAPHICAL_USER_INTERFACE_CYBOL_NAME, (void*) LEFT_PRESS_COMMAND_GRAPHICAL_USER_INTERFACE_CYBOL_NAME_COUNT,
                         p16, p17);
 
-                } else if (*t == ButtonRelease) {
+                } else if (*t == XCB_BUTTON_RELEASE) {
 
                     // Get actual command belonging to the button and event.
                     get_universal_compound_element_by_name(
@@ -152,7 +156,7 @@ void sense_x_window_system_command(void* p0, void* p1, void* p2, void* p3, void*
 
         int* t = (int*) p14;
 
-        if ((*t == ButtonPress) || (*t == ButtonRelease)) {
+        if ((*t == XCB_BUTTON_PRESS) || (*t == XCB_BUTTON_RELEASE)) {
 
             sense_x_window_system_mouse_command(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
 
@@ -438,6 +442,8 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 /**
  * Receives the x window system display into a window.
  *
+ * @param p0 the internal memory data
+--
  * @param p0 the destination window (pointer reference)
  * @param p1 the destination count
  * @param p2 the destination size
@@ -529,237 +535,274 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void** tmpdc = NULL_POINTER_STATE_CYBOI_MODEL;
     void** tmpds = NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The event.
-    XEvent e;
-    // The event type.
-    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The signal identification.
     void** id = NULL_POINTER_STATE_CYBOI_MODEL;
+*/
 
-    pthread_mutex_lock(*xmt);
+    // The connection.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get next event.
-    // The XNextEvent function copies the first event from the event queue
-    // into the specified XEvent structure and then removes it from the queue.
-    // If the event queue is empty, XNextEvent flushes the output buffer
-    // and blocks until an event is sensed.
-    XNextEvent(*d, &e);
+    // Get connection.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    pthread_mutex_unlock(*xmt);
+    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Assign event type.
-    t = e.type;
+//??        pthread_mutex_lock(*xmt);
 
-    if (t == Expose) {
+        // Get next event.
+        //
+        // CAUTION! Whenever an event is queued in the x server,
+        // it gets dequeued from the queue here and is then
+        // returned as a newly allocated structure.
+        xcb_generic_event_t* e = xcb_wait_for_event((xcb_connection_t*) c);
 
-        // Expose events are sensed when a window needs to be repainted
-        // when being displayed after having been covered before.
+//??        pthread_mutex_unlock(*xmt);
 
-        // Consider only the last in a row of multiple expose events.
-        if (e.xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // Get actual command belonging to the x window system expose event.
-            get_universal_compound_element_by_name(
-                (void*) &cn, (void*) &cnc, (void*) &cns,
-                (void*) &ca, (void*) &cac, (void*) &cas,
-                (void*) &cm, (void*) &cmc, (void*) &cms,
-                (void*) &cd, (void*) &cdc, (void*) &cds,
-                *c, *cc,
-                (void*) EXPOSE_COMMAND_GRAPHICAL_USER_INTERFACE_CYBOL_NAME, (void*) EXPOSE_COMMAND_GRAPHICAL_USER_INTERFACE_CYBOL_NAME_COUNT,
-                *k, *kc);
+            // Get response type.
+            //
+            // CAUTION! The type of the returned value is "uint8_t".
+            // Since it is just one byte in size, it may be assigned
+            // to an "int" variable of four byte without problems.
+            int t = e->response_type;
 
-    fwprintf(stdout, L"TEST expose sense t: %i\n", t);
+            // Convert type using bit operation AND.
+            // The hexadecimal value 0x80 is decimal 128.
+            //
+            //?? TODO: Why is this conversion necessary?
+            //?? Nothing explained in the tutorials ...
+            t = t & (~0x80);
 
-            // Lock signal memory mutex.
-            pthread_mutex_lock(*smt);
+            if (t == XCB_EXPOSE) {
 
-            // Get new signal identification by incrementing the current maximum signal's one.
-            get_new_signal_identification((void*) &id, *s, *sc);
-
-            // Add signal to signal memory.
-//??            replace_signal_memory(*s, *sc, *ss, ca, cac, cm, cmc, cd, cdc, (void*) &NORMAL_SIGNAL_PRIORITY_MODEL, (void*) id);
-
-            // Set interrupt request flag, in order to notify the signal checker
-            // that a new signal has been placed in the signal memory.
-            **sirq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-            // Unlock signal memory mutex.
-            pthread_mutex_unlock(*smt);
-        }
-
-    } else if (t == MappingNotify) {
-
-        // Mapping change events are sent when the keyboard mapping changes.
-
-//??        XRefreshKeyboardMapping(&e);
-
-    } else if ((t == KeyPress) || (t == KeyRelease)) {
-
-        // Key press events relate to keyboard keys.
+                // Expose events are sensed when a window needs to be repainted
+                // when being displayed after having been covered before.
 
 /*??
-        Example:
-        // Translate the key code to a key symbol.
-        KeySym key_symbol = XKeycodeToKeysym(display, an_event.xkey.keycode, 0);
-        switch (key_symbol) {
-            case XK_1:
-            case XK_KP_1:
-                // '1' key was pressed, either the normal '1',
-                // or the '1' on the keypad. draw the current pixel.
-                XDrawPoint(display, the_win, gc_draw, x, y);
-                break;
-            case XK_Delete:
-                // DEL key was pressed, erase the current pixel.
-                XDrawPoint(display, the_win, gc_erase, x, y);
-                break;
-            default:
-                // Anything else - check if it is a letter key
-                if (key_symbol >= XK_A && key_symbol <= XK_Z) {
-                    int ascii_key = key_symbol - XK_A + 'A';
-                    printf("Key pressed - '%c'\n", ascii_key);
+                // Consider only the last in a row of multiple expose events.
+                if (e.xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    // Get actual command belonging to the x window system expose event.
+                    get_universal_compound_element_by_name(
+                        (void*) &cn, (void*) &cnc, (void*) &cns,
+                        (void*) &ca, (void*) &cac, (void*) &cas,
+                        (void*) &cm, (void*) &cmc, (void*) &cms,
+                        (void*) &cd, (void*) &cdc, (void*) &cds,
+                        *c, *cc,
+                        (void*) EXPOSE_COMMAND_GRAPHICAL_USER_INTERFACE_CYBOL_NAME, (void*) EXPOSE_COMMAND_GRAPHICAL_USER_INTERFACE_CYBOL_NAME_COUNT,
+                        *k, *kc);
+
+            fwprintf(stdout, L"TEST expose sense t: %i\n", t);
+
+                    // Lock signal memory mutex.
+                    pthread_mutex_lock(*smt);
+
+                    // Get new signal identification by incrementing the current maximum signal's one.
+                    get_new_signal_identification((void*) &id, *s, *sc);
+
+                    // Add signal to signal memory.
+        //??            replace_signal_memory(*s, *sc, *ss, ca, cac, cm, cmc, cd, cdc, (void*) &NORMAL_SIGNAL_PRIORITY_MODEL, (void*) id);
+
+                    // Set interrupt request flag, in order to notify the signal checker
+                    // that a new signal has been placed in the signal memory.
+                    **sirq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+                    // Unlock signal memory mutex.
+                    pthread_mutex_unlock(*smt);
                 }
-                if (key_symbol >= XK_a && key_symbol <= XK_z) {
-                    int ascii_key = key_symbol - XK_a + 'a';
-                    printf("Key pressed - '%c'\n", ascii_key);
+*/
+
+/*?? Probably NOT in XCB; was in Xlib!
+            } else if (t == MappingNotify) {
+
+                // Mapping change events are sent when the keyboard mapping changes.
+
+        //??        XRefreshKeyboardMapping(&e);
+*/
+
+            } else if ((t == XCB_BUTTON_PRESS) || (t == XCB_BUTTON_RELEASE)) {
+
+/*??
+            fwprintf(stdout, L"TEST button press sense t: %i\n", t);
+
+                //?? TODO: This is a temporary solution!
+                //?? There is no meta information (such as position or size) known
+                //?? about the gui root node. Therefore, the actual window as its
+                //?? only part element is determined here and handed over to
+                //?? further procedures.
+                get_compound_element_by_index(*r, *rc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL,
+                    (void*) &tmpn, (void*) &tmpnc, (void*) &tmpns,
+                    (void*) &tmpa, (void*) &tmpac, (void*) &tmpas,
+                    (void*) &tmpm, (void*) &tmpmc, (void*) &tmpms,
+                    (void*) &tmpd, (void*) &tmpdc, (void*) &tmpds);
+
+                // Determine command, depending on mouse button and event type.
+                // CAUTION! Hand over command type, model, properties as reference!
+                sense_x_window_system_part(&cn, &cnc, &cns, &ca, &cac, &cas, &cm, &cmc, &cms, &cd, &cdc, &cds,
+                    *tmpm, *tmpmc, &(e.xbutton.x), &(e.xbutton.y), (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL,
+                    &t, &(e.xbutton.button), *k, *kc);
+
+                // Lock signal memory mutex.
+                pthread_mutex_lock(*smt);
+
+                // Get new signal identification by incrementing the current maximum signal's one.
+                get_new_signal_identification((void*) &id, *s, *sc);
+
+                // Add signal to signal memory.
+        //??        replace_signal_memory(*s, *sc, *ss, ca, cac, cm, cmc, cd, cdc, (void*) &NORMAL_SIGNAL_PRIORITY_MODEL, (void*) id);
+
+                // Set interrupt request flag, in order to notify the signal checker
+                // that a new signal has been placed in the signal memory.
+                **sirq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+                // Unlock signal memory mutex.
+                pthread_mutex_unlock(*smt);
+*/
+
+            } else if (t == XCB_MOTION_NOTIFY) {
+
+        /*??
+                //?? The an_event.xmotion.state variable (unsigned int state) contains
+                //?? a mask of the buttons (or keys) held down during this event - if any.
+                //?? This field is a bitwise OR of any of the following:
+                Button1Mask
+                Button2Mask
+                Button3Mask
+                Button4Mask
+                Button5Mask
+                ShiftMask
+                LockMask
+                ControlMask
+                Mod1Mask
+                Mod2Mask
+                Mod3Mask
+                Mod4Mask
+                Mod5Mask
+
+                //?? Example:
+                //?? If the 1st mouse button was held during this event,
+                //?? draw a pixel at the mouse pointer location.
+                if (an_event.xmotion.state & Button1Mask) {
+                    XDrawPoint(display, the_win, gc_draw, x, y);
                 }
-                break;
+        */
+
+            } else if ((t == XCB_ENTER_NOTIFY) || (XCB_LEAVE_NOTIFY)) {
+
+                //?? an_event.xcrossing
+
+            } else if ((t == XCB_KEY_PRESS) || (t == XCB_KEY_RELEASE)) {
+
+                // Key press events relate to keyboard keys.
+
+        /*??
+                Example:
+                // Translate the key code to a key symbol.
+                KeySym key_symbol = XKeycodeToKeysym(display, an_event.xkey.keycode, 0);
+                switch (key_symbol) {
+                    case XK_1:
+                    case XK_KP_1:
+                        // '1' key was pressed, either the normal '1',
+                        // or the '1' on the keypad. draw the current pixel.
+                        XDrawPoint(display, the_win, gc_draw, x, y);
+                        break;
+                    case XK_Delete:
+                        // DEL key was pressed, erase the current pixel.
+                        XDrawPoint(display, the_win, gc_erase, x, y);
+                        break;
+                    default:
+                        // Anything else - check if it is a letter key
+                        if (key_symbol >= XK_A && key_symbol <= XK_Z) {
+                            int ascii_key = key_symbol - XK_A + 'A';
+                            printf("Key pressed - '%c'\n", ascii_key);
+                        }
+                        if (key_symbol >= XK_a && key_symbol <= XK_z) {
+                            int ascii_key = key_symbol - XK_a + 'a';
+                            printf("Key pressed - '%c'\n", ascii_key);
+                        }
+                        break;
+                }
+        */
+
+        /*??
+                KeySym k;
+                char text[10];
+                char str_test[1000];
+                char str_zugriff[1000];
+                char str_menubar[100];
+                //??unsigned long //??double menu_foreground;
+                // The temporary variables.
+            //??    int k;
+                int menu_eintrage_ende;
+                int window;
+                int i = 0, count_menu, count_item, indent_x, indent_y, indent_menu_item_x;
+        */
+
+        /*??
+                i = XLookupString(&e, text, 10, &k, 0);
+
+                //// Das gehoert hier eigentlich nicht her, nur zu Demonstartionszwecken
+                //// Bei Tastendruck 'a' wird erstes Menue gezeichenet, bei b das Zweite, bei c das Dritte
+
+                if (i == 1 && text[0] == 'a') {
+
+                    XClearArea (d, w, 0, 0, 0, 0, True);
+                    Anwendung.menu_bar1.menus[0].angeklickt = 1;
+                    Anwendung.menu_bar1.menus[1].angeklickt = 0;
+                    Anwendung.menu_bar1.menus[2].angeklickt = 0;
+
+                } else if (i == 1 && text[0] == 'b') {
+
+                    XClearArea (d, w, 0, 0, 0, 0, True);
+                    Anwendung.menu_bar1.menus[0].angeklickt = 0;
+                    Anwendung.menu_bar1.menus[1].angeklickt = 1;
+                    Anwendung.menu_bar1.menus[2].angeklickt = 0;
+
+                } else if (i == 1 && text[0] == 'c') {
+
+                    XClearArea (d, w, 0, 0, 0, 0, True);
+                    Anwendung.menu_bar1.menus[0].angeklickt = 0;
+                    Anwendung.menu_bar1.menus[1].angeklickt = 0;
+                    Anwendung.menu_bar1.menus[2].angeklickt = 1;
+                }
+
+                if (i == 1 && text[0] == 'x') {
+
+                    XClearArea (d, w, 0, 0, 0, 0, True);
+
+                    Anwendung.menu_bar1.menus[0].angeklickt = 0;
+                    Anwendung.menu_bar1.menus[1].angeklickt = 0;
+                    Anwendung.menu_bar1.menus[2].angeklickt = 0;
+
+                } else if (i == 1 && text[0] == 'q') {
+
+                    f = 1;
+                }
+        */
+
+                //?? To erase graphical areas (such as an open menu), use:
+                //?? XClearArea (d, w, 0, 0, 0, 0, True);
+
+                //?? What is this useful for?
+                //?? XDrawImageString(e.xexpose.display, e.xexpose.window, gc_menu_font, 100, 100, event.xbutton.x, wcslen(event.xbutton.x));
+            }
+
+            // Deallocate event.
+            //
+            // CAUTION! An event gets created by the xcb library,
+            // but has to be destroyed MANUALLY HERE.
+            free(e);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system. The event is null.");
         }
-*/
 
-/*??
-        KeySym k;
-        char text[10];
-        char str_test[1000];
-        char str_zugriff[1000];
-        char str_menubar[100];
-        //??unsigned long //??double menu_foreground;
-        // The temporary variables.
-    //??    int k;
-        int menu_eintrage_ende;
-        int window;
-        int i = 0, count_menu, count_item, indent_x, indent_y, indent_menu_item_x;
-*/
+    } else {
 
-/*??
-        i = XLookupString(&e, text, 10, &k, 0);
-
-        //// Das gehoert hier eigentlich nicht her, nur zu Demonstartionszwecken
-        //// Bei Tastendruck 'a' wird erstes Menue gezeichenet, bei b das Zweite, bei c das Dritte
-
-        if (i == 1 && text[0] == 'a') {
-
-            XClearArea (d, w, 0, 0, 0, 0, True);
-            Anwendung.menu_bar1.menus[0].angeklickt = 1;
-            Anwendung.menu_bar1.menus[1].angeklickt = 0;
-            Anwendung.menu_bar1.menus[2].angeklickt = 0;
-
-        } else if (i == 1 && text[0] == 'b') {
-
-            XClearArea (d, w, 0, 0, 0, 0, True);
-            Anwendung.menu_bar1.menus[0].angeklickt = 0;
-            Anwendung.menu_bar1.menus[1].angeklickt = 1;
-            Anwendung.menu_bar1.menus[2].angeklickt = 0;
-
-        } else if (i == 1 && text[0] == 'c') {
-
-            XClearArea (d, w, 0, 0, 0, 0, True);
-            Anwendung.menu_bar1.menus[0].angeklickt = 0;
-            Anwendung.menu_bar1.menus[1].angeklickt = 0;
-            Anwendung.menu_bar1.menus[2].angeklickt = 1;
-        }
-
-        if (i == 1 && text[0] == 'x') {
-
-            XClearArea (d, w, 0, 0, 0, 0, True);
-
-            Anwendung.menu_bar1.menus[0].angeklickt = 0;
-            Anwendung.menu_bar1.menus[1].angeklickt = 0;
-            Anwendung.menu_bar1.menus[2].angeklickt = 0;
-
-        } else if (i == 1 && text[0] == 'q') {
-
-            f = 1;
-        }
-*/
-
-        //?? To erase graphical areas (such as an open menu), use:
-        //?? XClearArea (d, w, 0, 0, 0, 0, True);
-
-        //?? What is this useful for?
-        //?? XDrawImageString(e.xexpose.display, e.xexpose.window, gc_menu_font, 100, 100, event.xbutton.x, wcslen(event.xbutton.x));
-
-/*??
-    } else if ((t == ButtonPress) || (t == ButtonRelease)) {
-
-    fwprintf(stdout, L"TEST button press sense t: %i\n", t);
-
-        //?? TODO: This is a temporary solution!
-        //?? There is no meta information (such as position or size) known
-        //?? about the gui root node. Therefore, the actual window as its
-        //?? only part element is determined here and handed over to
-        //?? further procedures.
-        get_compound_element_by_index(*r, *rc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL,
-            (void*) &tmpn, (void*) &tmpnc, (void*) &tmpns,
-            (void*) &tmpa, (void*) &tmpac, (void*) &tmpas,
-            (void*) &tmpm, (void*) &tmpmc, (void*) &tmpms,
-            (void*) &tmpd, (void*) &tmpdc, (void*) &tmpds);
-
-        // Determine command, depending on mouse button and event type.
-        // CAUTION! Hand over command type, model, properties as reference!
-        sense_x_window_system_part(&cn, &cnc, &cns, &ca, &cac, &cas, &cm, &cmc, &cms, &cd, &cdc, &cds,
-            *tmpm, *tmpmc, &(e.xbutton.x), &(e.xbutton.y), (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL,
-            &t, &(e.xbutton.button), *k, *kc);
-
-        // Lock signal memory mutex.
-        pthread_mutex_lock(*smt);
-
-        // Get new signal identification by incrementing the current maximum signal's one.
-        get_new_signal_identification((void*) &id, *s, *sc);
-
-        // Add signal to signal memory.
-//??        replace_signal_memory(*s, *sc, *ss, ca, cac, cm, cmc, cd, cdc, (void*) &NORMAL_SIGNAL_PRIORITY_MODEL, (void*) id);
-
-        // Set interrupt request flag, in order to notify the signal checker
-        // that a new signal has been placed in the signal memory.
-        **sirq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-        // Unlock signal memory mutex.
-        pthread_mutex_unlock(*smt);
-
-    } else if (t == MotionNotify) {
-
-/*??
-        //?? The an_event.xmotion.state variable (unsigned int state) contains
-        //?? a mask of the buttons (or keys) held down during this event - if any.
-        //?? This field is a bitwise OR of any of the following:
-        Button1Mask
-        Button2Mask
-        Button3Mask
-        Button4Mask
-        Button5Mask
-        ShiftMask
-        LockMask
-        ControlMask
-        Mod1Mask
-        Mod2Mask
-        Mod3Mask
-        Mod4Mask
-        Mod5Mask
-
-        //?? Example:
-        //?? If the 1st mouse button was held during this event,
-        //?? draw a pixel at the mouse pointer location.
-        if (an_event.xmotion.state & Button1Mask) {
-            XDrawPoint(display, the_win, gc_draw, x, y);
-        }
-*/
-
-/*??
-    } else if ((t == EnterNotify) || (LeaveNotify)) {
-
-        //?? an_event.xcrossing
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system. The connection is null.");
     }
-*/
 }
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */
