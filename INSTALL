@@ -40,7 +40,7 @@ The following (Debian) packages are needed to compile CYBOI for Windows:
     mingw32
 
 The following headers are needed to compile CYBOI for Windows:
-    Pthread-win32 (ftp://sourceware.org/pub/pthreads-win32)
+    Pthreads-Win32  (ftp://sourceware.org/pub/pthreads-win32)
     X11 (http://docs.google.com/leaf?id=0B4o4WuYAoiUTZmFiNzhiNDUtNGJkNS00OWQxLThlNzctZDcwMDQyMmQ0Y2Fh&hl=en)
 
 The following libraries are needed to compile CYBOI for Windows:
