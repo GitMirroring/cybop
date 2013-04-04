@@ -17,6 +17,8 @@
 
         * Check out possible usage of "const" for constants:
             http://www.noxeos.com/2011/07/29/c-const-static-keywords/
+        * Check possible simplification of constants definition using:
+            int* var = (int[]) { 6 };
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

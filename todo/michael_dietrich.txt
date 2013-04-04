@@ -9,3 +9,5 @@
 #
 
         * Extend Eclipse IDE to offer CYBOL syntax highlighting and sensitive keyword list
+        * Suggest optimisation for constants definition:
+            int* var = (int[]) { 6 };
