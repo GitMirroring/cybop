@@ -60,12 +60,12 @@ int sense_x_window_system_check_events(pthread_mutex_t* mt, xcb_connection_t* c)
     // cause unpredictable programme behaviour.
     // Also, this function runs in an endless loop and would produce huge log files.
 
-    // The mutex and display were already checked
+    // The mutex and connection were already checked
     // for not being null in the calling function,
     // and are therefore not tested here again.
 
-    // The number of events.
-    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The event flag.
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Lock x window system mutex.
     pthread_mutex_lock(mt);
@@ -92,12 +92,12 @@ int sense_x_window_system_check_events(pthread_mutex_t* mt, xcb_connection_t* c)
     // Since all variables in cyboi are tested for null
     // before being used, an error should not cause problems.
     //
-    xcb_generic_event_t* e = xcb_wait_for_event(c);
+//??    r = xcb_test_for_event(c);
 
     // Unlock x window system mutex.
     pthread_mutex_unlock(mt);
 
-    return n;
+    return r;
 }
 
 /* GNU_LINUX_OPERATING_SYSTEM */

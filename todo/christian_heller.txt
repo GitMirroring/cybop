@@ -10,10 +10,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Use "polling" function in sensor instead of "xcb_wait_for_event"?
-            Is there another alternative just peeking ahead WITHOUT removing the event from queue?
+        * Clean up file "x_window_system_receiver.c"
         * Verify if there are conflicts between x window system "sending" and "sensing" with xcb;
             if not, the file "check_events_x_window_system_sensor.c" may be deleted
+        * Use new function "xcb_test_for_event" as soon as release xcb 1.10 is out
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

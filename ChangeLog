@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Send feature request to xcb project for adding a "xcb_test_for_event" function
+
 2013-04-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Migrate x window system receiver from xlib to xcb
