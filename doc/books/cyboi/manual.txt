@@ -1,0 +1,171 @@
+______________________________________________________________________
+
+$RCSfile: manual.txt,v $
+
+Copyright (c) 2002-2005. Christian Heller and the CYBOP developers.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+http://www.cybop.org/
+- Cybernetics Oriented Programming -
+
+@version $Revision: 1.3 $ $Date: 2005/06/14 18:30:46 $ $Author: christian $
+@author Christian Heller <christian.heller@tuxtax.de>
+______________________________________________________________________
+
+
+Cybernetics Oriented Interpreter (CYBOI)
+
+
+Contents
+________
+
+1 Introduction
+2 Usage
+3 Development
+Threads
+
+1 Introduction
+______________
+
+The Cybernetics Oriented Interpreter (CYBOI) is a Virtual Machine (VM) capable
+of running application systems defined in the XML-based Cybernetics Oriented
+Language (CYBOL). It can be seen as connection between the computer hardware on
+one hand, and the abstract knowledge models of CYBOL on the other. In other
+words, CYBOI is the active instance processing passive CYBOL knowledge. A
+compilation is not necessary to change and run CYBOL systems.
+
+The theoretical concepts behind CYBOI and CYBOL are summarised by the name
+Cybernetics Oriented Programming (CYBOP). It is the aim of CYBOP to enable
+developers as well as users themselves to write whole application systems in an
+absolutely flexible, platform-independent way, using the CYBOL (XML) format.
+
+
+2 Usage
+_______
+
+CYBOI cannot be started alone, without additional configuration information.
+A special configuration file has to be given as command-line parameter,
+for successful startup.
+
+To run an application using CYBOI, just type in a shell/ console window:
+
+cyboi configuration.cybol
+
+A number of example applications can be found in /usr/share/doc/cyboi/examples.
+To start one of them with CYBOI, change into the following directory:
+
+cd /usr/share/doc/cyboi
+
+Afterwards, type in a shell/console window:
+
+cyboi examples/exit/configuration.cybol
+cyboi examples/exit_text_file/configuration.cybol
+cyboi examples/exit_cybol_file/configuration.cybol
+cyboi examples/helloworld/configuration.cybol
+
+Read the example CYBOL files to get more information!
+
+
+3 Development
+_____________
+
+CYBOI is written in pure ANSI C, currently tested under Debian GNU/Linux Sarge
+and in the CYGWIN environment under Windows. It currently relies on the
+existence of an Operating System (OS), whose hardware-driving functionality it
+uses. Over the years, CYBOI may take over more and more OS functionality for
+hardware control and -- one day -- even replace the whole OS. The CYBOP
+architecture looks as follows:
+
+CYBOL
+  ^
+  |
+CYBOI
+  |
+OS
+  |
+  v
+Hardware
+
+To compile CYBOI, one has to type:
+
+cd /home/cybop/admin
+make
+
+To clean up the program binaries and object files, one has to type:
+
+make clean
+
+Threads
+_______
+
+> Detecting events by polling periodically is highly inefficient; you
+> really want some mechanism that will block until you recieve an event.
+> So, first of all, I would not recommend adding an "xcb_test_for_event"
+> function, because I don't see any way you could use it without polling.
+[..]
+
+you are right in that this kind of "busy waiting" (loop + sleep) that
+I use is not very efficient. A blocking function would be much nicer.
+However, I cannot use "xcb_wait_for_event" for reasons I explain following.
+
+CYBOI tries to offer all possible communication channels transparently.
+Application programmers should write their programme in CYBOL (XML) only.
+All they have to do is write "send" or "receive" and give a "channel",
+e.g.: inline text, file, terminal, serial_port, x_window_system, socket.
+The rest is done by CYBOI internally.
+
+CYBOI starts up, runs the usual event loop, handles events, shuts down.
+This all in the main thread. Additional threads may be started ONLY for
+detection, but NOT for reception or sending of data. This is to avoid
+memory conflicts. Just a design decision that I wouldn't like to change.
+
+Now, the "detection" threads somehow have to inform the "main" thread,
+if data arrived on some channel. This is done via simple "int" variables,
+something like an internal interrupt request (irq) flag. So I have to
+use "busy waiting" at least on this point of the code.
+
+Detection of the different channels is done like this:
+- terminal: fgetwc + ungetwc
+- serial_port: fgetc + ungetc
+- socket: accept
+- x_window_system: int n = XEventsQueued(d, QueuedAfterReading);
+
+The terminal and serial_port functions are blocking, which is nice.
+But I have to write back the received character with "ungetc". Why?
+Because the receiving of data shall be done in the main thread only.
+For the socket, all that is to be stored is a single integer number
+representing the client socket, which is not that problematic.
+
+Concerning "x_window_system": If using "xcb_wait_for_event", I am
+forced to store the event received in the "detection" thread.
+Then, the main thread gets informed that events are available.
+In the main thread, I would have to use that stored first event
+and receive further events using "xcb_poll_for_event", because the
+main thread is not allowed to block, since further communication
+might occur on other channels.
+
+I'd prefer not to store any event in the "detection" thread.
+It would be nicer to have a function just notifying me if there are
+events available (a simple int flag returned, no event).
+Ideally -- you are right -- that function would be a BLOCKING one!
+So, if you could make "xcb_test_for_event" blocking, even better.
+
+> For your use case, you really want a blocking function like
+> xcb_wait_for_event, but without actually returning the event;
+> it should block until at least one event exists to return.
+
+Yes, exactly. This is what I need. Thanks for clarifying.
+
+> That still seems suboptimal for the purposes of most event loops (which
+[..]
+
+I am aware of the disadvantages of "busy waiting". But this is the
+price of flexibility in CYBOI. All communication channels shall be
+used easily. In effect, CYBOI with its irq flags (between "detection"
+threads and "main" thread) tries to do what is an operating system's task.
