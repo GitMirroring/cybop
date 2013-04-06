@@ -27,8 +27,8 @@
 #define ELEMENT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
 
 #if WIN32
-    void serialise_x_window_system_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
-    }
+void serialise_x_window_system_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+}
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 #include <xcb/xcb.h>

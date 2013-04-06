@@ -553,7 +553,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-//??            pthread_mutex_lock(*m);
+            pthread_mutex_lock((pthread_mutex_t*) m);
 
             // Get next event.
             //
@@ -587,7 +587,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // returned event structure.
             xcb_generic_event_t* e = xcb_poll_for_event((xcb_connection_t*) c);
 
-//??            pthread_mutex_unlock(*m);
+            pthread_mutex_unlock((pthread_mutex_t*) m);
 
             if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

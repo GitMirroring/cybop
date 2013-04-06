@@ -70,6 +70,11 @@ int xcb_test_for_event(xcb_connection_t* c) {
             }
         }
 */
+
+        //?? TEST ONLY! Delete later.
+        //?? This is just to make sure that
+        //?? events are recognised at all for now.
+        xcb_wait_for_event(c);
     }
 
     return r;
