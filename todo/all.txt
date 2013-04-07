@@ -42,6 +42,14 @@ _____
 CYBOI
 _____
 
+        * Windows X11 support
+        * Windows socket support
+        * Ansi escape sequence support for Windows
+            * set background color
+            * set foreground color
+            * set other SGR parameters
+        * Ansi escape sequence support for Windows
+
         * Add constants for unicode character code block in directory "cybop/src/constant/model/character_code/unicode/"
         * Add constants for file formats in directory "src/constant/language/"
         * Add constants for mime types in directory "cybop/src/constant/format/cybol/"

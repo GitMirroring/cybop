@@ -10,8 +10,16 @@
 
 (together with Falco Prescher)
 
-        * Update cybop Debian package
-        * Make cyboi platform-independent using pre-processor defines
-        * Factor out parts of cyboi into special libraries, e.g. x-window-system,
-            in order to minimise cyboi size for usage in embedded systems
-            and to improve portability
+		* Windows X11 support
+		* Windows socket support
+		* Ansi escape sequence support for Windows
+			* set background color
+			* set foreground color
+			* set other SGR parameters
+		* Debian package build scripts (Makefile)
+		* Update cybop Debian package
+		* Make cyboi platform-independent using pre-processor defines
+		* Integrate Windows compile process into makefile
+		* Factor out parts of cyboi into special libraries, e.g. x-window-system,
+			in order to minimise cyboi size for usage in embedded systems
+			and to improve portability
