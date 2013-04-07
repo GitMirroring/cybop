@@ -26,6 +26,8 @@
 #ifndef WINDOW_X_WINDOW_SYSTEM_SENDER_SOURCE
 #define WINDOW_X_WINDOW_SYSTEM_SENDER_SOURCE
 
+#include <xcb/xcb.h>
+
 /*??
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
