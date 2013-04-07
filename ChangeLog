@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-07  Tobias Köhler  <tk@snake-universe.tk>
+
+        * Windows support extended
+
 2013-04-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Send feature request to xcb project for adding a "xcb_test_for_event" function

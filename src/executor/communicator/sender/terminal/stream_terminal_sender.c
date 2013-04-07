@@ -39,7 +39,10 @@
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
-
+#ifdef WIN32
+    #include "ansi_win32.c"
+#endif
+ 
 /**
  * Sends the source to the terminal output.
  *
@@ -97,7 +100,7 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
             #ifdef WIN32
                 // Todo: 
                 // fwprintf not work in Windows CMD
-                printf("+%s-", (char*) p1);
+                cfwprintf(stdout, "%s", (char*) p1);
                 int e = 0;
             #endif
             #ifdef GNU_LINUX_OPERATING_SYSTEM

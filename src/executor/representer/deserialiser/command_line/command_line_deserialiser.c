@@ -26,9 +26,9 @@
 #ifndef COMMAND_LINE_DESERIALISER_SOURCE
 #define COMMAND_LINE_DESERIALISER_SOURCE
 
-#ifdef CYGWIN_ENVIRONMENT
+#ifdef WIN32
 #include <windows.h>
-/* CYGWIN_ENVIRONMENT */
+/* WIN32_ENVIRONMENT */
 #endif
 
 #include <stdio.h>

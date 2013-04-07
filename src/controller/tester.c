@@ -42,7 +42,7 @@
 //#include "../tester/modifier_tester.c"
 #include "../tester/pointer_tester.c"
 #include "../tester/preprocessor_tester.c"
-//#include "../tester/referencer_tester.c"
+#include "../tester/referencer_tester.c"
 //#include "../tester/representer_tester.c"
 //#include "../tester/serial_port_tester.c"
 #include "../tester/variable_tester.c"
@@ -123,10 +123,10 @@ void test() {
     test_variable();
     test_assembler();
     test_pointer();
-    test_preprocessor();
+//    test_preprocessor();
 
     // Logger.
-    test_logger();
+//    test_logger();
 
     // Executor.
     test_accessor();
@@ -137,7 +137,7 @@ void test() {
 //    test_converter();
 //    test_copier();
 //    test_finder();
-    test_memoriser();
+//    test_memoriser();
 //    test_modifier();
 //    test_referencer();
 //    test_representer();

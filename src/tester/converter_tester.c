@@ -75,7 +75,7 @@ void test_converter_integer_to_wide_character_conversion() {
     // for the given input, excluding the trailing null.
     // If not all output fits into the provided buffer,
     // a negative value is returned.
-#ifdef CYGWIN_ENVIRONMENT
+#ifdef WIN32
     c = wsprintfW((wchar_t*) d, L"%i", *NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
 /* CYGWIN_ENVIRONMENT */
 #else

@@ -26,9 +26,8 @@
 #ifndef BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
-#ifdef CYGWIN_ENVIRONMENT
+#ifdef WIN32
 #include <windows.h>
-/* CYGWIN_ENVIRONMENT */
 #endif
 
 #include <stdio.h>

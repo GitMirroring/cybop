@@ -26,9 +26,8 @@
 #ifndef VALUE_INTEGER_CYBOL_SERIALISER_SOURCE
 #define VALUE_INTEGER_CYBOL_SERIALISER_SOURCE
 
-#ifdef CYGWIN_ENVIRONMENT
-#include <windows.h>
-/* CYGWIN_ENVIRONMENT */
+#ifdef WIN32
+    #include <windows.h>
 #endif
 
 #include <stdio.h>

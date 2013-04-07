@@ -26,9 +26,8 @@
 #ifndef COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 #define COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 
-#ifdef CYGWIN_ENVIRONMENT
+#ifdef WIN32
 #include <windows.h>
-/* CYGWIN_ENVIRONMENT */
 #endif
 
 #include <stdio.h>

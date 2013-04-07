@@ -26,9 +26,8 @@
 #ifndef VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE
 #define VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE
 
-#ifdef CYGWIN_ENVIRONMENT
+#ifdef WIN32
 #include <windows.h>
-/* CYGWIN_ENVIRONMENT */
 #endif
 
 #include <errno.h>

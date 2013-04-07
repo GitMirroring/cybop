@@ -31,10 +31,7 @@
 #include "../../applicator/access/indicate.c"
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/cast/cast.c"
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../applicator/communicate/receive.c"
- #endif
+#include "../../applicator/communicate/receive.c"
 #include "../../applicator/communicate/send.c"
 #include "../../applicator/compare/compare.c"
 // not ported to WIN32 at the moment ...
@@ -42,7 +39,7 @@
     #include "../../applicator/file/archive_file.c"
     #include "../../applicator/file/copy_file.c"
     #include "../../applicator/file/list_directory_contents.c"
- #endif
+#endif
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
@@ -51,7 +48,7 @@
     #include "../../applicator/live/interrupt.c"
     #include "../../applicator/live/sense.c"
     #include "../../applicator/maintain/shutdown.c"
- #endif
+#endif
 #include "../../applicator/maintain/startup.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
@@ -63,10 +60,10 @@
 #include "../../applicator/modify/overwrite.c"
 #include "../../applicator/modify/remove.c"
 // not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+//#ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../applicator/represent/deserialise.c"
-    #include "../../applicator/represent/serialise.c"
- #endif
+//    #include "../../applicator/represent/serialise.c"
+//#endif
 #include "../../applicator/run/run.c"
 #include "../../applicator/run/sleep.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -90,7 +87,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) HANDLE_OPERATION_MESSAGE_LOG_CYBOI_MODEL, (void*) HANDLE_OPERATION_MESSAGE_LOG_CYBOI_MODEL_COUNT);
 
 //fwprintf(stdout, L"TEST handle operation: %i\n", p6);
-fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p6));
+//fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p6));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -261,8 +258,6 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p6));
     // communicate
     //
 
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) RECEIVE_COMMUNICATE_LOGIC_CYBOI_FORMAT);
@@ -272,7 +267,6 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p6));
             apply_receive(p0, p1, p3, p2);
         }
     }
-#endif
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -747,10 +741,9 @@ fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p6));
     //
     // unknown
     //
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown p6: %i\n", p6);
+        // fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown p6: %i\n", p6);
         fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown *p6: %i\n", *((int*) p6));
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, "Could not handle operation. The operation is unknown.");

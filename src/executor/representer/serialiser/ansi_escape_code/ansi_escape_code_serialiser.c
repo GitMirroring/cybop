@@ -26,9 +26,9 @@
 #ifndef ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
-#ifdef CYGWIN_ENVIRONMENT
+#ifdef WIN32_ENVIRONMENT
 #include <windows.h>
-/* CYGWIN_ENVIRONMENT */
+/* WIN32_ENVIRONMENT */
 #endif
 
 #include <stdio.h>
