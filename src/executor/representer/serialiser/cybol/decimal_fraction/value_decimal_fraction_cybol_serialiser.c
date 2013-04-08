@@ -92,7 +92,7 @@ void serialise_cybol_fraction_decimal_value(void* p0, void* p1, void* p2) {
     // If not all output fits into the provided buffer,
     // a negative value is returned.
 
-#ifdef CYGWIN_ENVIRONMENT
+#ifdef WIN32
     tc = wsprintfW(td, L"%f", v);
 /* CYGWIN_ENVIRONMENT */
 #else

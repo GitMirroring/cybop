@@ -26,11 +26,9 @@
 #ifndef ELEMENT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
 #define ELEMENT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
 
-#if WIN32
-void serialise_x_window_system_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
-}
+#ifdef WIN32
+    #include <winsock2.h>
 #endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
 #include <xcb/xcb.h>
 
 /*??
@@ -682,8 +680,6 @@ void serialise_x_window_system_element(void* p0, void* p1, void* p2, void* p3, v
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system element. The graphic context is null.");
     }
 }
-
-#endif
 
 /* ELEMENT_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
 #endif

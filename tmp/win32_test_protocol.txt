@@ -28,9 +28,7 @@ addition_using_indices y
 	5 (should print "5")
 
 addition_using_serialisation n
-	0 (should print "7")
-	ERROR: Could not handle operation. The operation is unknown *p6: 920
-	!INFO: serialisation/deserialisation is not implemented(WIN32)
+	77 (should print "7")
 
 character_encoding
 

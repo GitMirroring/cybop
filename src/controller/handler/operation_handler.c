@@ -46,9 +46,9 @@
 // not ported to WIN32 at the moment ...
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../applicator/live/interrupt.c"
-    #include "../../applicator/live/sense.c"
-    #include "../../applicator/maintain/shutdown.c"
 #endif
+#include "../../applicator/live/sense.c"
+#include "../../applicator/maintain/shutdown.c"
 #include "../../applicator/maintain/startup.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
@@ -59,11 +59,8 @@
 #include "../../applicator/modify/insert.c"
 #include "../../applicator/modify/overwrite.c"
 #include "../../applicator/modify/remove.c"
-// not ported to WIN32 at the moment ...
-//#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../applicator/represent/deserialise.c"
-//    #include "../../applicator/represent/serialise.c"
-//#endif
+#include "../../applicator/represent/deserialise.c"
+#include "../../applicator/represent/serialise.c"
 #include "../../applicator/run/run.c"
 #include "../../applicator/run/sleep.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -681,8 +678,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // represent
     //
 
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) DESERIALISE_REPRESENT_LOGIC_CYBOI_FORMAT);
@@ -702,7 +697,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_serialise(p0, p1, p3, p2);
         }
     }
-#endif
 
     //
     // run

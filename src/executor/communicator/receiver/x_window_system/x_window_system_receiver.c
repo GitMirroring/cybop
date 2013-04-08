@@ -26,6 +26,9 @@
 #ifndef X_WINDOW_SYSTEM_RECEIVER_SOURCE
 #define X_WINDOW_SYSTEM_RECEIVER_SOURCE
 
+#ifdef WIN32
+    #include <winsock2.h>
+#endif
 #include <xcb/xcb.h>
 
 /*??

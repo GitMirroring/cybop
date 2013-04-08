@@ -27,7 +27,6 @@
 #define SOCKET_GLOBALISER_SOURCE
 
 #ifdef WIN32
-    #include <winsock.h>
     #include <winsock2.h>
 #else
     #include <arpa/inet.h>

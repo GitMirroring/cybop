@@ -26,10 +26,12 @@
 #ifndef ATTRIBUTES_SERIAL_PORT_SHUTTER_SOURCE
 #define ATTRIBUTES_SERIAL_PORT_SHUTTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
 
 #include <stdio.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+/* GNU_LINUX_OPERATING_SYSTEM */
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -47,6 +49,7 @@
  */
 void shutdown_serial_port_attributes(void* p0, void* p1) {
 
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
@@ -123,10 +126,9 @@ void shutdown_serial_port_attributes(void* p0, void* p1) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port attributes. The serial port file descriptor data is null.");
     }
-}
-
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
+}
 
 /* ATTRIBUTES_SERIAL_PORT_SHUTTER_SOURCE */
 #endif

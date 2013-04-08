@@ -42,11 +42,13 @@ The following (Debian) packages are needed to compile CYBOI for Windows:
 The following headers are needed to compile CYBOI for Windows:
     Pthreads-Win32  (ftp://sourceware.org/pub/pthreads-win32)
     X11 (http://docs.google.com/leaf?id=0B4o4WuYAoiUTZmFiNzhiNDUtNGJkNS00OWQxLThlNzctZDcwMDQyMmQ0Y2Fh&hl=en)
+    xcb
     gnurx (http://sourceforge.net/projects/mingw/files/Other/UserContributed/regex/mingw-regex-2.5.1/mingw-libgnurx-2.5.1-dev.tar.gz/download)
 
 The following libraries are needed to compile CYBOI for Windows:
     libpthreadGC2 (make CROSS=i586-mingw32msvc- clean GC-inlined)
     libX11 and libXau (http://docs.google.com/leaf?id=0B4o4WuYAoiUTNTlmYmMwMDgtMzlmMC00NWNmLWE4M2UtZGIxZTQzMTQyZGZk&hl=en)
+    libxcb
     gnurx (http://sourceforge.net/projects/mingw/files/Other/UserContributed/regex/mingw-regex-2.5.1/mingw-libgnurx-2.5.1-dev.tar.gz/download)
 
 CYBOI Compilation Unix
@@ -93,9 +95,29 @@ _________________
 
 - Execute the mingw32 compiler:
 
-    i586-mingw32msvc-gcc src/controller/cyboi.c -o src/controller/cyboi.exe -DPTW32_STATIC_LIB -lgnurx -lpthreadGC2 -lX11 -lXau -lws2_32
+    i586-mingw32msvc-gcc src/controller/cyboi.c -o src/controller/cyboi.exe -DPTW32_STATIC_LIB -lgnurx -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32
 
-Note windows needs the gnurx library to execute. (http://sourceforge.net/projects/mingw/files/Other/UserContributed/regex/mingw-regex-2.5.1/mingw-libgnurx-2.5.1-bin.tar.gz/download)
+Required windows DLLs:
+    libgnurx-0.dll
+    libXau-6.dll
+    libxcb-1.dll
+    libxcb-composite-0.dll
+    libxcb-damage-0.dll
+    libxcb-dpms-0.dll
+    libxcb-glx-0.dll
+    libxcb-randr-0.dll
+    libxcb-record-0.dll
+    libxcb-render-0.dll
+    libxcb-res-0.dll
+    libxcb-screensaver-0.dll
+    libxcb-shape-0.dll
+    libxcb-shm-0.dll
+    libxcb-sync-0.dll
+    libxcb-xfixes-0.dll
+    libxcb-xinerama-0.dll
+    libxcb-xtest-0.dll
+    libXdmcp-6.dll
+    pthreadGC2.dll
 
 
 CYBOL Application Execution

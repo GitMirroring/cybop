@@ -26,10 +26,11 @@
 #ifndef CLOSE_SERIAL_PORT_SHUTTER_SOURCE
 #define CLOSE_SERIAL_PORT_SHUTTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <stdio.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+/* GNU_LINUX_OPERATING_SYSTEM */
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -60,8 +61,14 @@ void shutdown_serial_port_close(void* p0) {
         // the function that might cause an error.
         copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
+        int e = -1;
         // Close file descriptor.
-        int e = close(*d);
+        #ifdef GNU_LINUX_OPERATING_SYSTEM
+            e = close(*d);
+        #endif
+        #ifdef GNU_LINUX_OPERATING_SYSTEM
+            e = CloseHandle(*d);
+        #endif
 
         // The normal return value from "close" is zero;
         // a value of minus one is returned in case of failure.
@@ -83,10 +90,11 @@ void shutdown_serial_port_close(void* p0) {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. EIO.");
 
+#ifdef GNU_LINUX_OPERATING_SYSTEM
             } else if (errno == EDQUOT) {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
-
+#endif
             } else {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. An unknown error occured.");
@@ -98,9 +106,6 @@ void shutdown_serial_port_close(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. The file descriptor data is null.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* CLOSE_SERIAL_PORT_SHUTTER_SOURCE */
 #endif

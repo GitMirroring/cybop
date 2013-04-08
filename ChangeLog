@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-09  Tobias Köhler  <tk@snake-universe.tk>
+
+        * X11 and XCB for Windows
+
 2013-04-07  Tobias Köhler  <tk@snake-universe.tk>
 
         * Windows support extended

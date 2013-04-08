@@ -26,8 +26,9 @@
 #ifndef X_WINDOW_SYSTEM_SHUTTER_SOURCE
 #define X_WINDOW_SYSTEM_SHUTTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
+#ifdef WIN32
+    #include <winsock2.h>
+#endif
 #include <xcb/xcb.h>
 
 //?? #include <X11/Xlib.h>
@@ -185,9 +186,6 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. There is no x window system running.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* X_WINDOW_SYSTEM_SHUTTER_SOURCE */
 #endif

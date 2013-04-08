@@ -26,8 +26,9 @@
 #ifndef X_WINDOW_SYSTEM_STARTER_SOURCE
 #define X_WINDOW_SYSTEM_STARTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
+#ifdef WIN32
+    #include <winsock2.h>
+#endif
 #include <xcb/xcb.h>
 
 /*??
@@ -284,13 +285,6 @@ fwprintf(stdout, L"TEST startup x window system window: %i\n", window);
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The x window system is already running.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
-#ifdef WIN32
-void startup_x_window_system(void* p0) {
-}
-#endif
 
 /* X_WINDOW_SYSTEM_STARTER_SOURCE */
 #endif

@@ -26,8 +26,10 @@
 #ifndef MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE
 #define MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
 
+#ifdef WIN32
+    #include <winsock2.h>
+#endif
 #include <xcb/xcb.h>
 #include <pthread.h>
 
@@ -199,9 +201,6 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system message. The connection is null.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE */
 #endif

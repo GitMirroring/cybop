@@ -26,8 +26,6 @@
 #ifndef X_WINDOW_SYSTEM_SENSOR_SOURCE
 #define X_WINDOW_SYSTEM_SENSOR_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
@@ -87,9 +85,6 @@ void sense_x_window_system(void* p0) {
     // However, since this function runs an endless loop waiting for input, it may
     // only be left using an external signal (see comment at "break" condition above).
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* X_WINDOW_SYSTEM_SENSOR_SOURCE */
 #endif
