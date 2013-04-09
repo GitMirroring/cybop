@@ -66,6 +66,7 @@ Help and Support
         * Didier Link <didier@famille-link.fr> (autotools-automake-autoconf file creation)
         * Allan "TheForkOfJustice" <theforkofjustice@gmail.com> of Linux for Clinics (ubuntu/ debian packaging)
         * Daniel Fischer via StackOverflow developer portal (hint on memory bug caused by int-to-size_t cast found with valgrind)
+        * Josh Triplett <josh@joshtriplett.org> (various hints on event handling architecture and new function "xcb_block_until_event")
 
 ??
         * Axel Petzka <axel.petzka@it2010.ba-leipzig.de>

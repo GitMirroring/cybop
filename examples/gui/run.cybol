@@ -10,7 +10,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="window/window.cybol"/>
+        <property name="message" channel="inline" format="text/plain" model="gui/window.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".window"/>
     </part>
 -->
@@ -54,18 +54,15 @@
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".window"/>
     </part>
-<!--
-    <part name="sense_gui_commands" channel="inline" format="live/sense" model="">
+    <part name="sense_gui" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>
-        <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
--->
+        <property name="handler" channel="file" format="element/part" model="gui/handler.cybol"/>
 <!--
+        <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
         <property name="root" channel="inline" format="path/knowledge" model=".window"/>
         <property name="commands" channel="inline" format="path/knowledge" model=".actions"/>
 -->
-<!--
     </part>
--->
 </model>
 
 <!--

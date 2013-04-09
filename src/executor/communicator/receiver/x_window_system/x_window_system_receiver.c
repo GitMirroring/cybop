@@ -46,6 +46,7 @@
 #include "../../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -453,7 +454,8 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
  * @param p3 the source display
  * @param p4 the source count
  */
-void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
+//?? void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_x_window_system(void* p0) {
 
 /*??
     // The knowledge memory.
@@ -592,6 +594,8 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             pthread_mutex_unlock((pthread_mutex_t*) m);
 
+    fwprintf(stdout, L"TEST receive x window system e: %i\n", e);
+
             if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // Get response type.
@@ -601,14 +605,23 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // to an "int" variable of four byte without problems.
                 int t = e->response_type;
 
+    fwprintf(stdout, L"TEST receive x window system t: %i\n", t);
+    fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE: %i\n", XCB_EXPOSE);
+
                 // Convert type using bit operation AND.
                 // The hexadecimal value 0x80 is decimal 128.
                 //
                 //?? TODO: Why is this conversion necessary?
                 //?? Nothing explained in the tutorials ...
-                t = t & (~0x80);
+//??                t = t & (~0x80);
+                int t_TEST = t & (~0x80);
+
+    fwprintf(stdout, L"TEST receive x window system t_TEST: %i\n", t_TEST);
 
                 if (t == XCB_EXPOSE) {
+
+                    //?? TEST only!
+//??                    send_x_window_system(*NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOI_LANGUAGE, p0);
 
                     // Expose events are sensed when a window needs to be repainted
                     // when being displayed after having been covered before.
@@ -656,6 +669,8 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     */
 
                 } else if ((t == XCB_BUTTON_PRESS) || (t == XCB_BUTTON_RELEASE)) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_BUTTON_PRESS t: %i\n", t);
 
     /*??
                 fwprintf(stdout, L"TEST button press sense t: %i\n", t);

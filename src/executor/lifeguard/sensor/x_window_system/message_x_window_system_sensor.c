@@ -41,6 +41,8 @@
 #include "../../../../executor/runner/sleeper.c"
 
 /**
+ * Test for availability of an event in the queue.
+ *
  * TEMPORARY implementation of a function.
  *
  * See feature request to xcb library project:
@@ -52,7 +54,7 @@
  * now possibly filed by Julien Danjou in:
  * http://bugs.freedesktop.org/
  */
-int xcb_test_for_event(xcb_connection_t* c) {
+int xcb_block_until_event(xcb_connection_t* c) {
 
     int r = 0;
 
@@ -77,6 +79,8 @@ int xcb_test_for_event(xcb_connection_t* c) {
         //?? This is just to make sure that
         //?? events are recognised at all for now.
         xcb_wait_for_event(c);
+        //?? TEST ONLY! Delete later.
+        r = 1;
     }
 
     return r;
@@ -113,7 +117,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                 //
                 // Test for event.
                 //
-                while (!xcb_test_for_event(c)) {
+                while (!xcb_block_until_event(c)) {
 
                     sleep_nano(p2);
                 }

@@ -36,6 +36,7 @@
 #include "../../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../executor/communicator/sender/x_window_system/window_x_window_system_sender.c"
+#include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**

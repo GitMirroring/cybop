@@ -16,9 +16,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2013-04-09  Tobias Köhler  <tk@snake-universe.tk>
+2013-04-09  Christian Heller  <christian.heller@tuxtax.de>
 
-        * X11 and XCB for Windows
+        * Enable x window system sense and receive with cybol example application "gui"
 
 2013-04-07  Tobias Köhler  <tk@snake-universe.tk>
 

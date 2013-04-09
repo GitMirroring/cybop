@@ -10,10 +10,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Clean up file "x_window_system_receiver.c"
-        * Verify if there are conflicts between x window system "sending" and "sensing" with xcb;
-            if not, the file "check_events_x_window_system_sensor.c" may be deleted
-        * Use new function "xcb_test_for_event" as soon as release xcb 1.10 is out
+        * Test why expose events do arrive, but not button clicks, in file "x_window_system_receiver.c"
+        * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
+        * Use new function "xcb_block_until_event" or "xcb_wait_for_event_noret" testing for events in file "message_x_window_system_sensor.c", as soon as release xcb 1.10 is out
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
@@ -81,6 +80,26 @@
         * Optimise "replace_array" function by replacing offset with constantly growing variable (less addition in loop necessary)
         * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
             http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
+
+        * Optimise signal (event) handling
+            You don't need to get a character to block on a terminal or serial port.
+            You should just select() or poll() or epoll() or similar on the file
+            descriptor.  Likewise with sockets, and in fact you can watch many file
+            descriptors with a single select/poll/epoll/etc.  That'll eliminate the
+            unget.
+
+            Ideally, you should use one of those calls on your main thread rather
+            than flag variables.  If you have to wait on something for which you
+            don't have a file descriptor, you could always spin off a thread and
+            have it write a byte to a pipe when ready, then add the read end of the
+            pipe as another file descriptor to block on.
+
+            You might also look at timerfd, signalfd, and similar calls; those make
+            it possible to include even more things in your select/poll/epoll.
+
+            Depending on your target platforms, you may also find the portable
+            libevent or libev wrappers useful, rather than calling epoll or similar
+            directly.
 
         * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
             to find out why file descriptor-to-stream conversion does not work
