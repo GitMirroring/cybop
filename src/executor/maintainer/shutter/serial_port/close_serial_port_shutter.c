@@ -66,7 +66,7 @@ void shutdown_serial_port_close(void* p0) {
         #ifdef GNU_LINUX_OPERATING_SYSTEM
             e = close(*d);
         #endif
-        #ifdef GNU_LINUX_OPERATING_SYSTEM
+        #ifdef WIN32
             e = CloseHandle(*d);
         #endif
 
