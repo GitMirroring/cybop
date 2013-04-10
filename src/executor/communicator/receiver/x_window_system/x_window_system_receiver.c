@@ -606,7 +606,6 @@ void receive_x_window_system(void* p0) {
                 int t = e->response_type;
 
     fwprintf(stdout, L"TEST receive x window system t: %i\n", t);
-    fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE: %i\n", XCB_EXPOSE);
 
                 // Convert type using bit operation AND.
                 // The hexadecimal value 0x80 is decimal 128.
@@ -619,6 +618,8 @@ void receive_x_window_system(void* p0) {
     fwprintf(stdout, L"TEST receive x window system t_TEST: %i\n", t_TEST);
 
                 if (t == XCB_EXPOSE) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE t: %i\n", t);
 
                     //?? TEST only!
 //??                    send_x_window_system(*NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOI_LANGUAGE, p0);
@@ -672,9 +673,7 @@ void receive_x_window_system(void* p0) {
 
     fwprintf(stdout, L"TEST receive x window system XCB_BUTTON_PRESS t: %i\n", t);
 
-    /*??
-                fwprintf(stdout, L"TEST button press sense t: %i\n", t);
-
+/*??
                     //?? TODO: This is a temporary solution!
                     //?? There is no meta information (such as position or size) known
                     //?? about the gui root node. Therefore, the actual window as its
@@ -687,31 +686,19 @@ void receive_x_window_system(void* p0) {
                         (void*) &tmpd, (void*) &tmpdc, (void*) &tmpds);
 
                     // Determine command, depending on mouse button and event type.
-                    // CAUTION! Hand over command type, model, properties as reference!
+                    // First, determine coordinates of the click within window-panel-sub_panel-etc.-button.
+                    // Then, determine command that was assigned to button as property in cybol.
+                    // Finally, send part pointed to by "command" (knowledge path) as signal to signal memory (queue).
                     sense_x_window_system_part(&cn, &cnc, &cns, &ca, &cac, &cas, &cm, &cmc, &cms, &cd, &cdc, &cds,
                         *tmpm, *tmpmc, &(e.xbutton.x), &(e.xbutton.y), (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL,
                         &t, &(e.xbutton.button), *k, *kc);
-
-                    // Lock signal memory mutex.
-                    pthread_mutex_lock(*smt);
-
-                    // Get new signal identification by incrementing the current maximum signal's one.
-                    get_new_signal_identification((void*) &id, *s, *sc);
-
-                    // Add signal to signal memory.
-            //??        replace_signal_memory(*s, *sc, *ss, ca, cac, cm, cmc, cd, cdc, (void*) &NORMAL_SIGNAL_PRIORITY_MODEL, (void*) id);
-
-                    // Set interrupt request flag, in order to notify the signal checker
-                    // that a new signal has been placed in the signal memory.
-                    **sirq = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-                    // Unlock signal memory mutex.
-                    pthread_mutex_unlock(*smt);
-    */
+*/
 
                 } else if (t == XCB_MOTION_NOTIFY) {
 
-            /*??
+    fwprintf(stdout, L"TEST receive x window system XCB_MOTION_NOTIFY t: %i\n", t);
+
+/*??
                     //?? The an_event.xmotion.state variable (unsigned int state) contains
                     //?? a mask of the buttons (or keys) held down during this event - if any.
                     //?? This field is a bitwise OR of any of the following:
@@ -739,9 +726,13 @@ void receive_x_window_system(void* p0) {
 
                 } else if ((t == XCB_ENTER_NOTIFY) || (XCB_LEAVE_NOTIFY)) {
 
+    fwprintf(stdout, L"TEST receive x window system XCB_ENTER_NOTIFY t: %i\n", t);
+
                     //?? an_event.xcrossing
 
                 } else if ((t == XCB_KEY_PRESS) || (t == XCB_KEY_RELEASE)) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_KEY_PRESS t: %i\n", t);
 
                     // Key press events relate to keyboard keys.
 

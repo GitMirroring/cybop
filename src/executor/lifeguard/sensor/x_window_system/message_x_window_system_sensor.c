@@ -58,17 +58,17 @@ int xcb_block_until_event(xcb_connection_t* c) {
 
     int r = 0;
 
-    if (((void*) c) != NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (((void*) c) != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
 /*??
         struct _xcb_in in = c->in;
         struct event_list* l = in.events;
 
-        if (((void*) l) != NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (((void*) l) != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             xcb_generic_event_t* e = l->event;
 
-            if (((void*) e) != NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (((void*) e) != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 r = 1;
             }
@@ -79,8 +79,13 @@ int xcb_block_until_event(xcb_connection_t* c) {
         //?? This is just to make sure that
         //?? events are recognised at all for now.
         xcb_wait_for_event(c);
-        //?? TEST ONLY! Delete later.
         r = 1;
+/*??
+        void* e = (void*) xcb_poll_for_event((xcb_connection_t*) c);
+        if (e != NULL_POINTER_STATE_CYBOI_MODEL) {
+            r = 1;
+        }
+*/
     }
 
     return r;

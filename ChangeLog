@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Enable all events in mask of window at x window system startup
+
 2013-04-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Enable x window system sense and receive with cybol example application "gui"

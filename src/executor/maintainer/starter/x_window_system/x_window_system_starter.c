@@ -154,12 +154,63 @@ fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
 
 fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
 
-        // Define window background.
+        //
+        // The mask.
+        //
+        // The values that a mask could take are given
+        // by the "xcb_cw_t" enumeration:
+        //
+        // typedef enum {
+        //     XCB_CW_BACK_PIXMAP       = 1L<<0,
+        //     XCB_CW_BACK_PIXEL        = 1L<<1,
+        //     XCB_CW_BORDER_PIXMAP     = 1L<<2,
+        //     XCB_CW_BORDER_PIXEL      = 1L<<3,
+        //     XCB_CW_BIT_GRAVITY       = 1L<<4,
+        //     XCB_CW_WIN_GRAVITY       = 1L<<5,
+        //     XCB_CW_BACKING_STORE     = 1L<<6,
+        //     XCB_CW_BACKING_PLANES    = 1L<<7,
+        //     XCB_CW_BACKING_PIXEL     = 1L<<8,
+        //     XCB_CW_OVERRIDE_REDIRECT = 1L<<9,
+        //     XCB_CW_SAVE_UNDER        = 1L<<10,
+        //     XCB_CW_EVENT_MASK        = 1L<<11,
+        //     XCB_CW_DONT_PROPAGATE    = 1L<<12,
+        //     XCB_CW_COLORMAP          = 1L<<13,
+        //     XCB_CW_CURSOR            = 1L<<14
+        // } xcb_cw_t;
+        //
+        // CAUTION! Be careful when setting the values,
+        // as they HAVE TO FOLLOW the order of
+        // the "xcb_cw_t" enumeration.
+        //
         uint32_t mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
 //??        uint32_t values[2] = { ((xcb_screen_t*) s)->white_pixel, XCB_EVENT_MASK_EXPOSURE };
         uint32_t values[2];
         values[0] = ((xcb_screen_t*) s)->white_pixel;
-        values[1] = XCB_EVENT_MASK_EXPOSURE;
+        // Register for all possible event types.
+        values[1] =
+            // Expose.
+            // - a window that covered part of the current window has moved away, exposing part (or all) of the current window
+            // - the current window was raised above other windows
+            // - the current window was mapped for the first time
+            // - the current window was de-iconified (to 'iconify' a window is to minimize it or send it to the tray such that it is not shown at all)
+            XCB_EVENT_MASK_EXPOSURE
+            // Mouse button press and release.
+            | XCB_EVENT_MASK_BUTTON_PRESS
+            | XCB_EVENT_MASK_BUTTON_RELEASE
+            // Mouse movement.
+            | XCB_EVENT_MASK_POINTER_MOTION // motion with no mouse button held
+            | XCB_EVENT_MASK_BUTTON_MOTION // motion with one or more mouse buttons held
+            | XCB_EVENT_MASK_BUTTON_1_MOTION // motion while only 1st mouse button is held
+            | XCB_EVENT_MASK_BUTTON_2_MOTION // and so on ...
+            | XCB_EVENT_MASK_BUTTON_3_MOTION
+            | XCB_EVENT_MASK_BUTTON_4_MOTION
+            | XCB_EVENT_MASK_BUTTON_5_MOTION
+            // Mouse pointer enter and leave.
+            | XCB_EVENT_MASK_ENTER_WINDOW
+            | XCB_EVENT_MASK_LEAVE_WINDOW
+            // Keyboard press and release (while focus is on window).
+            | XCB_EVENT_MASK_KEY_PRESS
+            | XCB_EVENT_MASK_KEY_RELEASE;
 
         // Create window.
         xcb_window_t window = xcb_generate_id((xcb_connection_t*) c);
