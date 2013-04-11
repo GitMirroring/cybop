@@ -8,6 +8,7 @@
 # @author Michael Dietrich <michael.dietrich@it2010.ba-leipzig.de>
 #
 
-        * Extend Eclipse IDE to offer CYBOL syntax highlighting and sensitive keyword list
+        * Extend Eclipse IDE with plug-in written in Java
+        * Offer CYBOL syntax highlighting and sensitive keyword list
         * Suggest optimisation for constants definition:
             int* var = (int[]) { 6 };

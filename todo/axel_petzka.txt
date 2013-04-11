@@ -8,4 +8,4 @@
 # @author Axel Petzka <axel.petzka@it2010.ba-leipzig.de>
 #
 
-        * TODO
+        * Create cybol editor with web interface using JavaScript and PHP (the latter for file creation only)
