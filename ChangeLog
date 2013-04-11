@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add win32 console serialiser
+
 2013-04-11  Tobias Köhler  <tk@snake-universe.tk>
 
         * Windows X11 test working
