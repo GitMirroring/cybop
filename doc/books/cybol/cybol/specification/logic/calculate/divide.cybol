@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="divide"/>
-    <part name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Divides two numbers of the given format"/>
-    <part name="example" channel="file" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/specification/logic/calculate/divide/example.txt"/>
-    <part name="format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="calculate/divide"/>
-    <part name="properties" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/divide/properties.cybol"/>
-</model>

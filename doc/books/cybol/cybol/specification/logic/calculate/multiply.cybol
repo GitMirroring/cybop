@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="multiply"/>
-    <part name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Multiplies two numbers of the given format."/>
-    <part name="example" channel="file" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/specification/logic/calculate/multiply/example.txt"/>
-    <part name="format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="calculate/multiply"/>
-    <part name="properties" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/multiply/properties.cybol"/>
-</model>

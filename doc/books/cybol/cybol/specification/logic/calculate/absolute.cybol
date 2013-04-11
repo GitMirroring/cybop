@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="absolute"/>
-    <part name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="example" channel="file" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/specification/logic/calculate/absolute/example.txt"/>
-    <part name="format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="calculate/absolute"/>
-    <part name="properties" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/absolute/properties.cybol"/>
-</model>
