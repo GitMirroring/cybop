@@ -26,6 +26,7 @@
 #ifndef WIN32_CONSOLE_SERIALISER_SOURCE
 #define WIN32_CONSOLE_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -33,8 +34,35 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/win32_console/element_win32_console_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
+//?? #include "../../../../executor/representer/serialiser/win32_console/part_win32_console_serialiser.c"
 #include "../../../../logger/logger.c"
+
+// Win32 console applications are often mistaken for MS-DOS applications,
+// especially on Windows 9x and Windows Me. However, a Win32 console
+// application is, virtually, just a special form of a native Win32 application.
+// Indeed, 32-bit Windows can run MS-DOS programs in Win32 console
+// through the use of the NT Virtual DOS Machine (NTVDM).
+//
+// Programmes may access a Win32 console either via high-level functions
+// (such as ReadConsole and WriteConsole) or via low-level functions
+// (e.g. ReadConsoleInput and WriteConsoleOutput).
+// These high-level functions are more limited than a Win32 GUI;
+// for instance it is not possible for a programme to change the color palette,
+// nor is it possible to modify the font used by the console using these functions.
+//
+// The input buffer is a queue where events are stored (from keyboard, mouse etc.).
+// The output buffer is a rectangular grid where characters are stored,
+// together with their attributes. A console window may have several output
+// buffers, only one of which is active (i.e. displayed) for a given moment.
+//
+// Unfortunately, the display mode is locked in background intensity mode,
+// thus BLINKING does NOT work. Also, the UNDERSCORE attribute is NOT available.
 
 /**
  * Serialises the source part into win32 console function calls.
@@ -47,48 +75,29 @@
  */
 void serialise_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
+    // Set current cursor position.
+    // SetConsoleCursorPosition();
+
+    // Set foreground and background colour.
+    // SetConsoleTextAttribute();
+
+    //
+    // Write to screen buffer.
+    //
+    //?? CAUTION! flush needed at the end of all in "send_terminal"?
+    //
+    // The "WriteConsole" function writes characters to the
+    // console screen buffer at the current cursor position.
+    // The cursor position ADVANCES as characters are written.
+    //
+    // Characters are written using the foreground and background
+    // colour attributes associated with the console screen buffer.
+    // Information: To determine the current color attributes and
+    // the current cursor position, use "GetConsoleScreenBufferInfo".
+    //
+    // WriteConsole();
+
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console.");
-
-    // The TODO.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get win32 console internals.
-//??    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TODO_WIN32_CONSOLE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    // The loop count.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
-
-    // Iterate through compound parts.
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        serialise_win32_console_element(p0, p1, (void*) &j, p3, p4);
-
-        // Increment loop count.
-        j++;
-    }
 }
 
 /* WIN32_CONSOLE_SERIALISER_SOURCE */
