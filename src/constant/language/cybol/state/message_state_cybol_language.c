@@ -96,6 +96,13 @@ static wchar_t* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE = NEWS_MESSAGE_STATE_CYBOL_LAN
 static int* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The message/win32-console cybol language.
+ */
+static wchar_t WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'w', L'i', L'n', L'3', L'2', L'-', L'c', L'o', L'n', L's', L'o', L'l', L'e'};
+static wchar_t* WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE = WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static int* WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The message/x-window-system cybol language.
  */
 static wchar_t X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'x', L'-', L'w', L'i', L'n', L'd', L'o', L'w', L'-', L's', L'y', L's', L't', L'e', L'm'};

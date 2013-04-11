@@ -77,6 +77,16 @@ void serialise_cybol_language(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p1, (void*) WIN32_CONSOLE_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p1, (void*) X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
