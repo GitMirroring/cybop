@@ -1,0 +1,5 @@
+<part name="absolute" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/absolute" model="">
+    <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
+    <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1,2,3"/>
+    <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+</part>
