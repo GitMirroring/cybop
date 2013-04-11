@@ -34,19 +34,13 @@
 #include "../../applicator/communicate/receive.c"
 #include "../../applicator/communicate/send.c"
 #include "../../applicator/compare/compare.c"
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../applicator/file/archive_file.c"
-    #include "../../applicator/file/copy_file.c"
-    #include "../../applicator/file/list_directory_contents.c"
-#endif
+#include "../../applicator/file/archive_file.c"
+#include "../../applicator/file/copy_file.c"
+#include "../../applicator/file/list_directory_contents.c"
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../applicator/live/interrupt.c"
-#endif
+#include "../../applicator/live/interrupt.c"
 #include "../../applicator/live/sense.c"
 #include "../../applicator/maintain/shutdown.c"
 #include "../../applicator/maintain/startup.c"
@@ -369,8 +363,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // file
     //
 
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) ARCHIVE_FILE_LOGIC_CYBOI_FORMAT);
@@ -400,7 +392,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_list_directory_contents(p0, p1, p3);
         }
     }
-#endif
 
     //
     // flow
@@ -450,8 +441,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) INTERRUPT_LIVE_LOGIC_CYBOI_FORMAT);
@@ -471,7 +460,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_sense(p0, p1, p3, p2);
         }
     }
-#endif
 
 /*??
     //
@@ -553,8 +541,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // maintain
     //
 
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) SHUTDOWN_MAINTAIN_LOGIC_CYBOI_FORMAT);
@@ -564,7 +550,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_shutdown(p0, p1, p3, p2);
         }
     }
-#endif
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -95,20 +95,21 @@ void printansi(FILE *stream, char *str)
 
     // if SetConsoleTextAttribute is not supported then output the ansi escape sequence 
     if (doSetConsoleTextAttribute == NULL) {
-        printf("\033[%s", str);
+        fprintf(stream, "\033[%s", str);
         return;
     }
 
     // translate the ansi escape sequences
-    if (eval_regex("2J.*", str) == 1)
+    if (eval_regex("2J", str) == 1)
         system("cls");
-    if (eval_regex("([0-9]*;)*[0-9]+m.*", str) == 1)
+//    if (eval_regex("([0-9]*;)*[0-9]+m", str) == 1)
+    if (eval_regex("34m", str) == 1)
     {
-        (*doSetConsoleTextAttribute)(hCon, (0*16)+4); // fore red normal / back black
+        (*doSetConsoleTextAttribute)(hCon, (0*16)+4); // back black / fore red normal
     }
 
     // print the remaining string
-    printf("%s", str);
+    fprintf(stream, "%s", str);
 }
 
 int cfwprintf(FILE *stream, const char *format, ...)
@@ -132,7 +133,7 @@ int cfwprintf(FILE *stream, const char *format, ...)
     {
         // first item never contains an ansi escape sequences
         // if a string begins with a ansi escape sequence then thew first string is empty
-        printf("%s", items[0]);
+        fprintf(stream, "%s", items[0]);
 
         for (i = 1; i < count; i++)
             printansi(stream, items[i]);

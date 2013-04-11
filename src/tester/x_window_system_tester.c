@@ -26,13 +26,20 @@
 #ifndef X_WINDOW_SYSTEM_TESTER
 #define X_WINDOW_SYSTEM_TESTER
 
+#ifdef WIN32
+    #include <winsock2.h>
+#endif
 #include <xcb/xcb.h>
+#ifdef WIN32
+    int initWSA(void);
+#endif
 
 #include "../constant/type/cyboi/state_cyboi_type.c"
 
 /**
  * Tests the x window system drawing.
  */
+
 void test_x_window_system_drawing() {
 
     fwprintf(stdout, L"TEST x window system drawing.\n");
@@ -62,11 +69,39 @@ void test_x_window_system_drawing() {
         { 10, 100, 60, 40, 0, 90 << 6 },
         { 90, 100, 55, 40, 0, 270 << 6 }};
 
+#ifdef WIN32
+    int screenNum,i;
+    int rc;
+
+    rc = initWSA();
+    if(rc != 0)
+    {
+        fprintf(stderr,"Unable to load Winsock: %d\n",rc);
+        return -1;
+    }
+
     // Open connection to x server.
-    xcb_connection_t* connection = xcb_connect(NULL, NULL);
+    xcb_connection_t *connection = xcb_connect ("127.0.0.1:0.0", &screenNum);
+    if (!connection) {
+        fprintf (stderr, "ERROR: can't connect to an X server\n");
+        return -1;
+    }
 
     // Get first screen.
+    xcb_screen_iterator_t iter = xcb_setup_roots_iterator (xcb_get_setup (connection));
+
+    for (i = 0; i < screenNum; ++i) {
+        xcb_screen_next (&iter);
+    }
+
+    xcb_screen_t *screen = iter.data;
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    // Open connection to x server.
+    xcb_connection_t* connection = xcb_connect(NULL, NULL);
+    // Get first screen.
     xcb_screen_t* screen = xcb_setup_roots_iterator(xcb_get_setup(connection)).data;
+#endif
 
     // Create black (foreground) graphic context.
     xcb_drawable_t window = screen->root;

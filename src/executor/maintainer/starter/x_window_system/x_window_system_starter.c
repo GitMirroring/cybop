@@ -31,6 +31,199 @@
 #endif
 #include <xcb/xcb.h>
 
+#ifdef WIN32
+    int initWSA(void);
+
+    static xcb_gc_t
+        getFontGC (xcb_connection_t *connection,
+               xcb_screen_t     *screen,
+               xcb_window_t      window,
+               const char       *fontName );
+    static void
+        testCookie (xcb_void_cookie_t cookie,
+                xcb_connection_t *connection,
+                char *errMessage )
+        {
+        xcb_generic_error_t *error = xcb_request_check (connection, cookie);
+        if (error) 
+           {
+           fprintf (stderr, "ERROR: %s : %d\n", errMessage , error->error_code);
+           xcb_disconnect (connection);
+           exit (-1);
+           }
+        }
+
+
+    static void
+    drawButton (xcb_connection_t *connection,
+                xcb_screen_t     *screen,
+                xcb_window_t      window,
+                int16_t           x1,
+                int16_t           y1,
+                const char       *label )
+    {
+        uint8_t length = strlen (label);
+        int16_t inset = 2;
+        int16_t width = 7 * length + 2 * (inset + 1);
+        int16_t height = 13 + 2 * (inset + 1);
+
+        xcb_point_t points[5];
+        points[0].x = x1;
+        points[0].y = y1;
+        points[1].x = x1 + width;
+        points[1].y = y1;
+        points[2].x = x1 + width;
+        points[2].y = y1 - height;
+        points[3].x = x1;
+        points[3].y = y1 - height;
+        points[4].x = x1;
+        points[4].y = y1;
+
+
+        xcb_gcontext_t gc = getFontGC (connection, screen, window, "7x13");
+
+
+        xcb_void_cookie_t lineCookie = xcb_poly_line_checked (connection,
+                                                              XCB_COORD_MODE_ORIGIN,
+                                                              window,
+                                                              gc,
+                                                              5,
+                                                              points );
+        testCookie (lineCookie, connection, "can't draw lines");
+
+
+        xcb_void_cookie_t textCookie = xcb_image_text_8_checked (connection,
+                                                                 length,
+                                                                 window,
+                                                                 gc,
+                                                                 x1 + inset + 1,
+                                                                 y1 - inset - 1,
+                                                                 label );
+        testCookie (textCookie, connection, "can't paste text");
+
+
+        xcb_void_cookie_t gcCookie = xcb_free_gc (connection, gc);
+        testCookie (gcCookie, connection, "can't free gc");
+    }
+
+
+
+    static void
+    drawText (xcb_connection_t *connection,
+              xcb_screen_t     *screen,
+              xcb_window_t      window,
+              int16_t           x1,
+              int16_t           y1,
+              const char       *label )
+    {
+
+        xcb_gcontext_t gc = getFontGC (connection, screen, window, "7x13");
+
+
+        xcb_void_cookie_t textCookie = xcb_image_text_8_checked (connection,
+                                                                 strlen (label),
+                                                                 window,
+                                                                 gc,
+                                                                 x1,
+                                                                 y1,
+                                                                 label );
+        testCookie(textCookie, connection, "can't paste text");
+
+
+        xcb_void_cookie_t gcCookie = xcb_free_gc (connection, gc);
+        testCookie (gcCookie, connection, "can't free gc");
+    }
+
+
+    static xcb_gc_t
+    getFontGC (xcb_connection_t *connection,
+               xcb_screen_t     *screen,
+               xcb_window_t      window,
+               const char       *fontName )
+    {
+
+        xcb_font_t font = xcb_generate_id (connection);
+        xcb_void_cookie_t fontCookie = xcb_open_font_checked (connection,
+                                                              font,
+                                                              strlen (fontName),
+                                                              fontName );
+        testCookie (fontCookie, connection, "can't open font");
+
+
+        xcb_gcontext_t gc = xcb_generate_id (connection);
+        uint32_t  mask = XCB_GC_FOREGROUND | XCB_GC_BACKGROUND | XCB_GC_FONT;
+        uint32_t value_list[3];
+        value_list[0] = screen->black_pixel;
+        value_list[1] = screen->white_pixel;
+        value_list[2] = font;
+
+
+        xcb_void_cookie_t gcCookie = xcb_create_gc_checked (connection,
+                                                            gc,
+                                                            window,
+                                                            mask,
+                                                            value_list );
+        testCookie (gcCookie, connection, "can't create gc");
+
+
+        fontCookie = xcb_close_font_checked (connection, font);
+        testCookie (fontCookie, connection, "can't close font");
+
+        return gc;
+    }
+
+
+    static void
+    setCursor (xcb_connection_t *connection,
+                xcb_screen_t     *screen,
+                xcb_window_t      window,
+                int               cursorId )
+    {
+        uint32_t mask;
+    xcb_font_t font = xcb_generate_id (connection);
+        xcb_void_cookie_t fontCookie = xcb_open_font_checked (connection,
+                                                              font,
+                                                              strlen ("cursor"),
+                                                              "cursor" );
+        testCookie (fontCookie, connection, "can't open font");
+
+
+        xcb_cursor_t cursor = xcb_generate_id (connection);
+        xcb_create_glyph_cursor (connection,
+                                 cursor,
+                                 font,
+                                 font,
+                                 cursorId,
+                                 cursorId + 1,
+                                 0, 0, 0, 0, 0, 0 );
+
+
+        xcb_gcontext_t gc = xcb_generate_id (connection);
+
+        mask = XCB_GC_FOREGROUND | XCB_GC_BACKGROUND | XCB_GC_FONT;
+        uint32_t values_list[3];
+        values_list[0] = screen->black_pixel;
+        values_list[1] = screen->white_pixel;
+        values_list[2] = font;
+
+        xcb_void_cookie_t gcCookie = xcb_create_gc_checked (connection, gc, window, mask, values_list);
+        testCookie (gcCookie, connection, "can't create gc");
+
+
+        mask = XCB_CW_CURSOR;
+        uint32_t value_list = cursor;
+        xcb_change_window_attributes (connection, window, mask, &value_list);
+
+
+        xcb_free_cursor (connection, cursor);
+
+
+
+        fontCookie = xcb_close_font_checked (connection, font);
+        testCookie (fontCookie, connection, "can't close font");
+    }
+#endif
+
 /*??
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
@@ -142,18 +335,50 @@ void startup_x_window_system(void* p0) {
 //??        v = malloc(*XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE);
 */
 
-        // Open connection.
-        c = (void*) xcb_connect(NULL, NULL);
 
 fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
 
-        // Get first screen.
-        const xcb_setup_t* setup = xcb_get_setup((xcb_connection_t*) c);
-        xcb_screen_iterator_t iter = xcb_setup_roots_iterator(setup);
-        s = (void*) iter.data;
+        #ifdef WIN32
+            int screenNum,i;
+            int rc;
+
+            rc = initWSA();
+            if(rc != 0)
+            {
+                fprintf(stderr,"Unable to load Winsock: %d\n",rc);
+                return -1;
+            }
+
+            // Open connection to x server.
+            xcb_connection_t *c = xcb_connect ("127.0.0.1:0.0", &screenNum);
+            if (!c) {
+                fprintf (stderr, "ERROR: can't connect to an X server\n");
+                return -1;
+            }
+
+            // Get first screen.
+            xcb_screen_iterator_t iter = xcb_setup_roots_iterator (xcb_get_setup (c));
+
+            for (i = 0; i < screenNum; ++i) {
+                xcb_screen_next (&iter);
+            }
+
+            s = (void*) iter.data;
+        #endif
+        #ifdef GNU_LINUX_OPERATING_SYSTEM
+            // Open connection.
+            c = (void*) xcb_connect(NULL, NULL);
+
+            // Get first screen.
+            const xcb_setup_t* setup = xcb_get_setup((xcb_connection_t*) c);
+            xcb_screen_iterator_t iter = xcb_setup_roots_iterator(setup);
+            s = (void*) iter.data;
+
+        #endif
+
 
 fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
-
+        // Define window background.
         //
         // The mask.
         //
@@ -214,6 +439,7 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
 
         // Create window.
         xcb_window_t window = xcb_generate_id((xcb_connection_t*) c);
+
         xcb_create_window((xcb_connection_t*) c, // connection
             XCB_COPY_FROM_PARENT, // depth (same as root)
             window, // window id
@@ -336,6 +562,18 @@ fwprintf(stdout, L"TEST startup x window system window: %i\n", window);
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The x window system is already running.");
     }
 }
+
+#ifdef WIN32
+int initWSA(void)
+{
+    WSADATA wsd;
+    int rc;
+
+    rc = WSAStartup(MAKEWORD(2,2),&wsd);
+
+    return rc;
+}
+#endif
 
 /* X_WINDOW_SYSTEM_STARTER_SOURCE */
 #endif

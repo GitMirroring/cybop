@@ -47,6 +47,8 @@
  */
 void startup_terminal_attributes_set(void* p0, void* p1) {
 
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
@@ -198,6 +200,7 @@ void startup_terminal_attributes_set(void* p0, void* p1) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes set. The file descriptor data is null.");
     }
+#endif
 }
 
 /* SET_ATTRIBUTES_TERMINAL_STARTER_SOURCE */

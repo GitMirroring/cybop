@@ -38,10 +38,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/starter/serial_port/open_serial_port_starter.c"
-#endif
+#include "../../../../executor/maintainer/starter/serial_port/open_serial_port_starter.c"
 #include "../../../../logger/logger.c"
 
 /**

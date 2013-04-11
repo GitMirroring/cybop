@@ -26,8 +26,6 @@
 #ifndef CHECK_EVENTS_X_WINDOW_SYSTEM_SENSOR_SOURCE
 #define CHECK_EVENTS_X_WINDOW_SYSTEM_SENSOR_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <X11/Xlib.h>
 //?? #include <X11/Xutil.h>
 #include <pthread.h>
@@ -99,9 +97,6 @@ int sense_x_window_system_check_events(pthread_mutex_t* mt, xcb_connection_t* c)
 
     return r;
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* CHECK_EVENTS_X_WINDOW_SYSTEM_SENSOR_SOURCE */
 #endif
