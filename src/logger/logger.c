@@ -41,6 +41,8 @@
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../logger/level_name_logger.c"
+#include "../logger/write_logger.c"
 #include "../variable/log_setting.c"
 
 //
@@ -96,103 +98,6 @@ void copy_pointer(void* p0, void* p1);
 void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
- * Writes a terminated log message to the given output stream.
- *
- * CAUTION! The "write" function is not used here, because it expects
- * a multibyte character sequence.
- * The log message, however, is handed over with a null termination wide character,
- * so that it may be passed on to either of the "fputws" or "fwprintf" function.
- * Since it seems simpler and presumably is faster, the decision here fell on the "fputws" function.
- *
- * @param p0 the log output stream
- * @param p1 the log message
- */
-void log_write(void* p0, void* p1) {
-
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        wchar_t* m = (wchar_t*) p1;
-
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            FILE* s = (FILE*) p0;
-
-            fputws(m, s);
-
-        } else {
-
-            // CAUTION! Do NOT call the logger here.
-            // It cannot log itself.
-            // This is commented out, in order to avoid annoying messages.
-            // fputws(L"Error: Could not write terminated log message. The log output stream is null.\n", stdout);
-        }
-
-    } else {
-
-        // CAUTION! Do NOT call the logger here.
-        // It cannot log itself.
-        fputws(L"Error: Could not write terminated log message. The log message is null.\n", stdout);
-    }
-}
-
-/**
- * Gets the log level name.
- *
- * @param p0 the log level name (pointer reference)
- * @param p1 the log level name count
- * @param p2 the log level
- */
-void log_get_level_name(void* p0, void* p1, void* p2) {
-
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) DEBUG_LEVEL_LOG_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_pointer(p0, (void*) &DEBUG_LEVEL_NAME_LOG_CYBOI_MODEL);
-            copy_integer(p1, (void*) DEBUG_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) ERROR_LEVEL_LOG_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_pointer(p0, (void*) &ERROR_LEVEL_NAME_LOG_CYBOI_MODEL);
-            copy_integer(p1, (void*) ERROR_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_pointer(p0, (void*) &INFORMATION_LEVEL_NAME_LOG_CYBOI_MODEL);
-            copy_integer(p1, (void*) INFORMATION_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) WARNING_LEVEL_LOG_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_pointer(p0, (void*) &WARNING_LEVEL_NAME_LOG_CYBOI_MODEL);
-            copy_integer(p1, (void*) WARNING_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT);
-        }
-    }
-}
-
-/**
  * Logs the given message.
  *
  * CAUTION! This function cannot be called "log" as that name
@@ -225,7 +130,7 @@ void log_message(void* p0, void* p1, void* p2) {
         int di = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Add name of the given log level to log entry.
-        log_get_level_name((void*) &ln, (void*) &lnc, p0);
+        log_level_name((void*) &ln, (void*) &lnc, p0);
 
         // CAUTION! Do NOT use the "overwrite_array" function following,
         // since it resizes the destination array to make the message fit.
@@ -305,6 +210,44 @@ void log_message_terminated(void* p0, void* p1) {
     }
 
     log_message(p0, p1, (void*) &c);
+}
+
+/**
+ * Logs a windows system error.
+ *
+ * @param p0 the error code
+ */
+void log_windows_system_error(void* p0) {
+
+#ifdef WIN32
+    // The local handle.
+    HLOCAL l = (HLOCAL) *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Convert error code into message.
+    BOOL b = FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER, (LPCVOID) *NULL_POINTER_STATE_CYBOI_MODEL, e, MAKELANGID(LANG_NEUTRAL, SUBLANG_SYS_DEFAULT), (PTSTR) &l, 0, (va_list*) *NULL_POINTER_STATE_CYBOI_MODEL);
+
+    if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // A network-related error.
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not log windows system error. The FormatMessage function failed.");
+
+        // Load dynamic link library.
+        HMODULE dll = LoadLibraryEx(TEXT("netmsg.dll"), (HANDLE) *NULL_POINTER_STATE_CYBOI_MODEL, DONT_RESOLVE_DLL_REFERENCES);
+
+        if (((void*) dll) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            FormatMessage(FORMAT_MESSAGE_FROM_HMODULE | FORMAT_MESSAGE_FROM_SYSTEM, dll, (DWORD) p0, MAKELANGID(LANG_NEUTRAL, SUBLANG_SYS_DEFAULT), (PTSTR) &l, 0, (va_list*) *NULL_POINTER_STATE_CYBOI_MODEL);
+            FreeLibrary(dll);
+        }
+    }
+
+    if (((void*) l) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        MessageBox((HWND) *NULL_POINTER_STATE_CYBOI_MODEL, (LPCTSTR) LocalLock(l), TEXT("Windows Error in CYBOI"), MB_ICONERROR);
+        LocalFree(l);
+    }
+#endif
 }
 
 /* LOGGER_SOURCE */

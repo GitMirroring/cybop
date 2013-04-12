@@ -1,0 +1,76 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.13.0 2013-03-29
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef WRITE_LOGGER_SOURCE
+#define WRITE_LOGGER_SOURCE
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <wchar.h>
+
+#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+
+/**
+ * Writes a terminated log message to the given output stream.
+ *
+ * CAUTION! The "write" function is not used here, because it expects
+ * a multibyte character sequence.
+ * The log message, however, is handed over with a null termination wide character,
+ * so that it may be passed on to either of the "fputws" or "fwprintf" function.
+ * Since it seems simpler and presumably is faster, the decision here fell on the "fputws" function.
+ *
+ * @param p0 the log output stream
+ * @param p1 the log message
+ */
+void log_write(void* p0, void* p1) {
+
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        wchar_t* m = (wchar_t*) p1;
+
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            FILE* s = (FILE*) p0;
+
+            fputws(m, s);
+
+        } else {
+
+            // CAUTION! Do NOT call the logger here.
+            // It cannot log itself.
+            // This is commented out, in order to avoid annoying messages.
+            // fputws(L"Error: Could not write terminated log message. The log output stream is null.\n", stdout);
+        }
+
+    } else {
+
+        // CAUTION! Do NOT call the logger here.
+        // It cannot log itself.
+        fputws(L"Error: Could not write terminated log message. The log message is null.\n", stdout);
+    }
+}
+
+/* WRITE_LOGGER_SOURCE */
+#endif

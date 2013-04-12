@@ -8,7 +8,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-
 CYBOP Installation
 __________________
 
@@ -21,12 +20,11 @@ __________________
     tar -xvzf cybop-0.9.0.tar.gz
     tar -xvjf cybop-0.9.0.tar.bz2
 
-
 Package and Library Installation
 ________________________________
 
 The following (Debian) packages are needed to execute CYBOL applications:
-xorg
+    xorg
 
 The following (Debian) packages are needed to compile CYBOI:
     autotools (autoconf, automake)
@@ -51,8 +49,8 @@ The following libraries are needed to compile CYBOI for Windows:
     libxcb
     gnurx (http://sourceforge.net/projects/mingw/files/Other/UserContributed/regex/mingw-regex-2.5.1/mingw-libgnurx-2.5.1-dev.tar.gz/download)
 
-CYBOI Compilation Unix
-_________________
+CYBOI Compilation POSIX
+_______________________
 
 - Change into cybop's root directory, e.g.:
 
@@ -80,10 +78,8 @@ the platforms: GNU/Linux, Windows (mingw environment), Linux 64bits.
 The configure script forces the 32 bits emulation mode by using special options
 of gcc and other binutils. Native 32 bits Linux and Windows was not tested, however.
 
-
-
 CYBOI Compilation Windows
-_________________
+_________________________
 
 - Change into cybop's root directory, e.g.:
 
@@ -118,7 +114,6 @@ Required windows DLLs:
     libxcb-xtest-0.dll
     libXdmcp-6.dll
     pthreadGC2.dll
-
 
 CYBOL Application Execution
 ___________________________
@@ -165,11 +160,11 @@ ___________________________
     /home/cybop/src/controller/cyboi addition_using_serialisation/run.cybol
     /home/cybop/src/controller/cyboi wui/run.cybol
     /home/cybop/src/controller/cyboi indoor_climate/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
+*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi gui/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi http_communication/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi presence/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi character_encoding/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi document_generator/run.cybol
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi gui/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi latex/run.cybol
 
 To make the client-server communication work in the "http_communication" example,
@@ -179,7 +174,6 @@ http://localhost:1971/?action=index
 You may also want to have a look at the Res Medicinae project, where more CYBOL
 application modules for the healthcare domain will be provided over the coming years:
 http://www.resmedicinae.org/
-
 
 CYBOI Development
 _________________
@@ -201,7 +195,6 @@ but is this not necessary, since make tests the modification date of each
 source file and that way knows if it has to recompile the executable.
 
 Another point to use make targets for is the generation of the documentation.
-
 
 CYBOP Distribution
 __________________
@@ -226,7 +219,6 @@ __________________
 
     make dist
 
-
 CYBOP Packaging
 _______________
 
@@ -239,7 +231,6 @@ _______________
     checkinstall
 
 - Configure package answering the checkinstall questions
-
 
 Tagging SVN
 ___________

@@ -27,7 +27,7 @@
 #define POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #ifdef WIN32
-#include <windows.h>
+    #include <windows.h>
 #endif
 
 #include <stdio.h>
@@ -59,11 +59,42 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
     // so that 1 has to be added to all positions!
     // Therefore, the coordinates handed over need to be corrected.
 
-    // The corrected y, x.
+    // The y, x coordinates.
     int cy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int cx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+#ifdef WIN32
+    // The standard output.
+    HANDLE o = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    // Correct y, x.
+    if (((void*) o) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // The position coordinates in a console screen buffer.
+        // The origin of the coordinate system (0,0)
+        // is at the top, left cell of the buffer.
+        COORD p;
+        p.X = cx;
+        p.Y = cy;
+
+        BOOL b = SetConsoleCursorPosition(o, p);
+
+        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Get the calling thread's last-error code.
+            DWORD e = GetLastError();
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise ansi escape code position.");
+            log_windows_system_error(e);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise ansi escape code position. The standard output is null.");
+    }
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    // Correct y, x coordinates.
+    // The origin of the coordinate system (1,1)
+    // is at the top, left cell of the terminal.
     calculate_integer_add((void*) &cy, p2);
     calculate_integer_add((void*) &cy, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     calculate_integer_add((void*) &cx, p1);
@@ -78,6 +109,7 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
     append_item_element(p0, (void*) SEMICOLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     serialise_cybol_integer_value(p0, (void*) &cx, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
     append_item_element(p0, (void*) LATIN_CAPITAL_LETTER_H_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#endif
 }
 
 /* POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
