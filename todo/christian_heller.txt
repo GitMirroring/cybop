@@ -10,7 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue win32 console serialiser using win32 functions (see ansi_escape_code serialiser; setting cursor position already prepared)
+        * Continue tui/ansi_escape_code/win32_console serialiser; search for TODO
+        * Add functions to win32 console serialiser
 
         * Debug terminal output in wine, e.g. strange characters and line end \r\n in Windows
 

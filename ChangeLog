@@ -19,7 +19,8 @@
 2013-04-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Introduce general textual user interface (tui) serialiser
-        * Use ansi escape code serialiser and win32 console serialiser only for platform-specific functionality
+        * Use "ansi escape code" serialiser and "win32 console" serialiser only for platform-specific functionality
+        * Adapt cybol example applications using new format "message/tui"
 
 2013-04-12  Christian Heller  <christian.heller@tuxtax.de>
 

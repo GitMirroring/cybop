@@ -26,13 +26,6 @@
 #ifndef RECTANGLE_TUI_SERIALISER_SOURCE
 #define RECTANGLE_TUI_SERIALISER_SOURCE
 
-#ifdef WIN32
-#include <windows.h>
-#endif
-
-#include <stdio.h>
-#include <wchar.h>
-
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"

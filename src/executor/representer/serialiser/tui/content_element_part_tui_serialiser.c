@@ -35,6 +35,13 @@
 #include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
+#ifdef WIN32
+    #include "../../../../executor/representer/serialiser/win32_console/reset_win32_console_serialiser.c"
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/reset_ansi_escape_code_serialiser.c"
+#endif
+
 //
 // Forward declarations.
 //
@@ -64,11 +71,14 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // Append model.
     serialise_tui(p0, p1, p2, p3, p4, p7, p8);
 
-//?? TODO
     // Reset terminal attributes in order to
     // have original settings when leaving cyboi.
-    append_item_element(p0, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(p0, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#ifdef WIN32
+        serialise_win32_console_reset(p0);
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+        serialise_ansi_escape_code_reset(p0);
+#endif
 }
 
 /* CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE */

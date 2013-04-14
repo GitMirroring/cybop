@@ -37,9 +37,11 @@
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
+    #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/position_win32_console_serialiser.c"
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
     #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
 #endif
 
@@ -78,6 +80,14 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     int lp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int cp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int rp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The character to be written.
+    // CAUTION! Initialise with space character,
+    // which is used everywhere else aside the border.
+    // CAUTION! The properties like colour etc. become only visible,
+    // if some character is actually printed on screen.
+    // Therefore, initialising with the space character
+    // IS NECESSARY here.
+    wchar_t ch = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
     // Initialise loop count.
     copy_integer((void*) &c, p7);
@@ -102,7 +112,6 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // Determine horizontal position of x coordinate.
         serialise_tui_position_horizontal((void*) &lp, (void*) &cp, (void*) &rp, (void*) &x, (void*) &li, (void*) &ri);
 
-//?? TODO
 #ifdef WIN32
         serialise_win32_console_position(p0, (void*) &x, p9);
 #endif
@@ -110,8 +119,14 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         serialise_ansi_escape_code_position(p0, (void*) &x, p9);
 #endif
 
-//?? TODO
-        serialise_tui_character(p0, p1, p2, p3, p4, p5, p6, (void*) &lp, (void*) &cp, (void*) &rp, p10, p11, p12);
+        serialise_tui_character((void*) &ch, p1, p2, p3, p4, p5, p6, (void*) &lp, (void*) &cp, (void*) &rp, p10, p11, p12);
+
+#ifdef WIN32
+        serialise_win32_console_character(p0, (void*) &ch);
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+        serialise_ansi_escape_code_character(p0, (void*) &ch);
+#endif
 
         // Increment loop variable.
         x++;

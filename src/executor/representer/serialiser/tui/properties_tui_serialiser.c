@@ -303,7 +303,6 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     serialise_tui_rectangle(p0, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
 
     // Reset position, so that model characters are printed at the origo.
-//?? TODO
 #ifdef WIN32
         serialise_win32_console_position(p0, (void*) &pmdx, (void*) &pmdy);
 #endif
