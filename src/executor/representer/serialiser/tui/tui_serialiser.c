@@ -23,35 +23,27 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef TUI_SERIALISER_SOURCE
+#define TUI_SERIALISER_SOURCE
 
-#ifdef WIN32_ENVIRONMENT
-#include <windows.h>
-/* WIN32_ENVIRONMENT */
-#endif
-
-#include <stdio.h>
-#include <wchar.h>
-
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/part_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/part_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises a part into ansi escape code.
+ * Serialises a part into tui.
  *
  * @param p0 the destination item
  * @param p1 the source model data
@@ -61,9 +53,9 @@
  * @param p5 the knowledge memory part
  * @param p6 the format data
  */
-void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -102,7 +94,7 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_ansi_escape_code_part(p0, p1, p2, p3, p4, p5);
+            serialise_tui_part(p0, p1, p2, p3, p4, p5);
         }
     }
 
@@ -181,9 +173,9 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3, void* p4
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise ansi escape code. The source format is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise tui. The source format is unknown.");
     }
 }
 
-/* ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* TUI_SERIALISER_SOURCE */
 #endif

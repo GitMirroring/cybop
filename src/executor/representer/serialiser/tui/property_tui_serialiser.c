@@ -23,19 +23,20 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PROPERTY_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define PROPERTY_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef PROPERTY_TUI_SERIALISER_SOURCE
+#define PROPERTY_TUI_SERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/content_element_part_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/content_element_part_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the property into ansi escape code.
+ * Serialises the property into tui.
  *
  * Example:
  * printf("\033[1mbold \033[0mswitched off.")
@@ -45,9 +46,9 @@
  * @param p2 the source count
  * @param p3 the flag
  */
-void serialise_ansi_escape_code_property(void* p0, void* p1, void* p2, void* p3) {
+void serialise_tui_property(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code property.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui property.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -56,10 +57,11 @@ void serialise_ansi_escape_code_property(void* p0, void* p1, void* p2, void* p3)
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+//?? TODO
         append_item_element(p0, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
-/* PROPERTY_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* PROPERTY_TUI_SERIALISER_SOURCE */
 #endif

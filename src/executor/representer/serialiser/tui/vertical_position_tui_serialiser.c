@@ -23,21 +23,13 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VERTICAL_POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define VERTICAL_POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef VERTICAL_POSITION_TUI_SERIALISER_SOURCE
+#define VERTICAL_POSITION_TUI_SERIALISER_SOURCE
 
-#ifdef WIN32
-#include <windows.h>
-#endif
-
-#include <stdio.h>
-#include <wchar.h>
-
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -50,9 +42,9 @@
  * @param p4 the top border index
  * @param p5 the bottom border index
  */
-void serialise_ansi_escape_code_position_vertical(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_tui_position_vertical(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code position vertical.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui position vertical.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -89,5 +81,5 @@ void serialise_ansi_escape_code_position_vertical(void* p0, void* p1, void* p2, 
     }
 }
 
-/* VERTICAL_POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* VERTICAL_POSITION_TUI_SERIALISER_SOURCE */
 #endif

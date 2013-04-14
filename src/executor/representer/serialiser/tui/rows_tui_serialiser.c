@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ROWS_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define ROWS_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef ROWS_TUI_SERIALISER_SOURCE
+#define ROWS_TUI_SERIALISER_SOURCE
 
 #ifdef WIN32
 #include <windows.h>
@@ -38,12 +38,12 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/row_ansi_escape_code_serialiser.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/vertical_position_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/row_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/vertical_position_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the rows into ansi escape code.
+ * Serialises the rows into tui.
  *
  * @param p0 the destination item
  * @param p1 the horizontal border character
@@ -57,9 +57,9 @@
  * @param p9 the position y
  * @param p10 the size y
  */
-void serialise_ansi_escape_code_rows(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_tui_rows(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code rows.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui rows.");
 
     // The loop count.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -97,13 +97,13 @@ void serialise_ansi_escape_code_rows(void* p0, void* p1, void* p2, void* p3, voi
         }
 
         // Determine vertical position of y coordinate.
-        serialise_ansi_escape_code_position_vertical((void*) &tp, (void*) &mp, (void*) &bp, (void*) &y, (void*) &ti, (void*) &bi);
-        serialise_ansi_escape_code_row(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) &y, (void*) &tp, (void*) &mp, (void*) &bp);
+        serialise_tui_position_vertical((void*) &tp, (void*) &mp, (void*) &bp, (void*) &y, (void*) &ti, (void*) &bi);
+        serialise_tui_row(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) &y, (void*) &tp, (void*) &mp, (void*) &bp);
 
         // Increment loop variable.
         y++;
     }
 }
 
-/* ROWS_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* ROWS_TUI_SERIALISER_SOURCE */
 #endif

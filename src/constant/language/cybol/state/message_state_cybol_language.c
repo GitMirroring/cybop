@@ -53,13 +53,6 @@
 //
 
 /**
- * The message/ansi-escape-code cybol language.
- */
-static wchar_t ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'a', L'n', L's', L'i', L'-', L'e', L's', L'c', L'a', L'p', L'e', L'-', L'c', L'o', L'd', L'e'};
-static wchar_t* ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOL_LANGUAGE = ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
-static int* ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The message/http cybol language.
  *
  * An HTTP header message.
@@ -96,11 +89,11 @@ static wchar_t* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE = NEWS_MESSAGE_STATE_CYBOL_LAN
 static int* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/win32-console cybol language.
+ * The message/tui cybol language.
  */
-static wchar_t WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'w', L'i', L'n', L'3', L'2', L'-', L'c', L'o', L'n', L's', L'o', L'l', L'e'};
-static wchar_t* WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE = WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
-static int* WIN32_CONSOLE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t TUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L't', L'u', L'i'};
+static wchar_t* TUI_MESSAGE_STATE_CYBOL_LANGUAGE = TUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static int* TUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/x-window-system cybol language.

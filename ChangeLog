@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Introduce general textual user interface (tui) serialiser
+        * Use ansi escape code serialiser and win32 console serialiser only for platform-specific functionality
+
 2013-04-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Split logger into several files and add windows system error log function

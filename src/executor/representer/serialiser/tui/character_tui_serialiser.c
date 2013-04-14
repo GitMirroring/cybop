@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef CHARACTER_TUI_SERIALISER_SOURCE
+#define CHARACTER_TUI_SERIALISER_SOURCE
 
 #ifdef WIN32
 #include <windows.h>
@@ -42,7 +42,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the character into ansi escape code.
+ * Serialises the character into tui.
  *
  * @param p0 the destination item
  * @param p1 the horizontal border character
@@ -58,9 +58,9 @@
  * @param p11 the middle vertical position flag
  * @param p12 the bottom vertical position flag
  */
-void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code character.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui character.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -160,5 +160,5 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2, void* p3
     }
 }
 
-/* CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* CHARACTER_TUI_SERIALISER_SOURCE */
 #endif

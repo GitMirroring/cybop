@@ -129,9 +129,6 @@ static int* VCD_MEDIA_STATE_CYBOI_FORMAT = NUMBER_290_INTEGER_STATE_CYBOI_MODEL_
 // message
 //
 
-/** The ansi escape code message state cyboi language. */
-static int* ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The http message state cyboi language. */
 static int* HTTP_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_301_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -144,8 +141,8 @@ static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_303_INTEGER_STAT
 /** The news message state cyboi language. */
 static int* NEWS_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_304_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The win32-console message state cyboi language. */
-static int* WIN32_CONSOLE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_305_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The tui message state cyboi language. */
+static int* TUI_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_305_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The x-window-system message state cyboi language. */
 static int* X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_306_INTEGER_STATE_CYBOI_MODEL_ARRAY;

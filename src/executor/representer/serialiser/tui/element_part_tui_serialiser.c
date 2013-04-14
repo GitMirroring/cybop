@@ -23,19 +23,20 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef ELEMENT_PART_TUI_SERIALISER_SOURCE
+#define ELEMENT_PART_TUI_SERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/content_element_part_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/content_element_part_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the part element into ansi escape code.
+ * Serialises the part element into tui.
  *
  * @param p0 the destination item
  * @param p1 the source model data
@@ -44,9 +45,9 @@
  * @param p4 the source properties count
  * @param p5 the knowledge memory part
  */
-void serialise_ansi_escape_code_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_tui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code part element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element.");
 
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -76,8 +77,8 @@ void serialise_ansi_escape_code_part_element(void* p0, void* p1, void* p2, void*
 
     // Serialise part element content.
     // CAUTION! Do not forget to hand over whole properties.
-    serialise_ansi_escape_code_part_element_content(p0, md, mc, pd, pc, p3, p4, p5, fd);
+    serialise_tui_part_element_content(p0, md, mc, pd, pc, p3, p4, p5, fd);
 }
 
-/* ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* ELEMENT_PART_TUI_SERIALISER_SOURCE */
 #endif

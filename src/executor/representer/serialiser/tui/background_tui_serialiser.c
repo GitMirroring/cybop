@@ -23,29 +23,29 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BACKGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define BACKGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef BACKGROUND_TUI_SERIALISER_SOURCE
+#define BACKGROUND_TUI_SERIALISER_SOURCE
 
+#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
-#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the terminal background colour into ansi escape code.
+ * Serialises the terminal background colour into tui.
  *
  * @param p0 the destination item
  * @param p1 the source data
  */
-void serialise_ansi_escape_code_background(void* p0, void* p1) {
+void serialise_tui_background(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code background.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui background.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -147,5 +147,5 @@ void serialise_ansi_escape_code_background(void* p0, void* p1) {
     }
 }
 
-/* BACKGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* BACKGROUND_TUI_SERIALISER_SOURCE */
 #endif

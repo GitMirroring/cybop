@@ -27,15 +27,17 @@
 #define DESERIALISER_SOURCE
 
 #include "../../constant/language/cyboi/state_cyboi_language.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/html/html_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_request/http_request_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
 #include "../../executor/representer/deserialiser/latex/latex_deserialiser.c"
+#include "../../executor/representer/deserialiser/tui/tui_deserialiser.c"
 #include "../../executor/representer/deserialiser/uri/uri_deserialiser.c"
 #include "../../executor/representer/deserialiser/xdt/xdt_deserialiser.c"
 #include "../../executor/representer/deserialiser/xml/xml_deserialiser.c"
@@ -123,16 +125,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOI_LANGUAGE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_ansi_escape_code(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p5, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -195,6 +187,16 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
 //??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, t, m, p);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) TUI_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_tui(p0, p2, p3);
         }
     }
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef BORDER_TUI_SERIALISER_SOURCE
+#define BORDER_TUI_SERIALISER_SOURCE
 
 #ifdef WIN32
 #include <windows.h>
@@ -55,9 +55,9 @@
  * @param p6 the border data
  * @param p7 the border count
  */
-void serialise_ansi_escape_code_border(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_tui_border(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code border.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui border.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -124,9 +124,9 @@ void serialise_ansi_escape_code_border(void* p0, void* p1, void* p2, void* p3, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise ansi escape code border. The border model is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise tui border. The border model is unknown.");
     }
 }
 
-/* BORDER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* BORDER_TUI_SERIALISER_SOURCE */
 #endif

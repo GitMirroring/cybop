@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CONTENT_ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define CONTENT_ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE
+#define CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -32,17 +32,17 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/properties_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 //
 // Forward declarations.
 //
 
-void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
- * Serialises the part element content into ansi escape code.
+ * Serialises the part element content into tui.
  *
  * @param p0 the destination item
  * @param p1 the source model data
@@ -54,21 +54,22 @@ void serialise_ansi_escape_code(void* p0, void* p1, void* p2, void* p3, void* p4
  * @param p7 the knowledge memory part
  * @param p8 the format data
  */
-void serialise_ansi_escape_code_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code part element content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
 
     // Append properties.
-    serialise_ansi_escape_code_properties(p0, p3, p4, p5, p6, p7);
+    serialise_tui_properties(p0, p3, p4, p5, p6, p7);
 
     // Append model.
-    serialise_ansi_escape_code(p0, p1, p2, p3, p4, p7, p8);
+    serialise_tui(p0, p1, p2, p3, p4, p7, p8);
 
+//?? TODO
     // Reset terminal attributes in order to
     // have original settings when leaving cyboi.
     append_item_element(p0, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(p0, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_OFF_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* CONTENT_ELEMENT_PART_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE */
 #endif

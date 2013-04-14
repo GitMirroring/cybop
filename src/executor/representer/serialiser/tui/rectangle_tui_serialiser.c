@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RECTANGLE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define RECTANGLE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef RECTANGLE_TUI_SERIALISER_SOURCE
+#define RECTANGLE_TUI_SERIALISER_SOURCE
 
 #ifdef WIN32
 #include <windows.h>
@@ -39,12 +39,12 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/border_ansi_escape_code_serialiser.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/rows_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/border_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/rows_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the rectangle into ansi escape code.
+ * Serialises the rectangle into tui.
  *
  * @param p0 the destination item
  * @param p1 the position x
@@ -54,9 +54,9 @@
  * @param p5 the border data
  * @param p6 the border count
  */
-void serialise_ansi_escape_code_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_tui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code rectangle.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui rectangle.");
 
     // The horizontal border character.
     wchar_t hc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
@@ -71,9 +71,9 @@ void serialise_ansi_escape_code_rectangle(void* p0, void* p1, void* p2, void* p3
     // The right bottom border character.
     wchar_t rbc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
-    serialise_ansi_escape_code_border((void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p5, p6);
-    serialise_ansi_escape_code_rows(p0, (void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p1, p2, p3, p4);
+    serialise_tui_border((void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p5, p6);
+    serialise_tui_rows(p0, (void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p1, p2, p3, p4);
 }
 
-/* RECTANGLE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* RECTANGLE_TUI_SERIALISER_SOURCE */
 #endif

@@ -23,9 +23,10 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PROPERTIES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define PROPERTIES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef PROPERTIES_TUI_SERIALISER_SOURCE
+#define PROPERTIES_TUI_SERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -33,14 +34,21 @@
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/property_ansi_escape_code_serialiser.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/rectangle_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/background_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/foreground_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/property_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/rectangle_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
+#ifdef WIN32
+    #include "../../../../executor/representer/serialiser/win32_console/position_win32_console_serialiser.c"
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
+#endif
+
 /**
- * Serialises the properties into ansi escape code.
+ * Serialises the properties into tui.
  *
  * @param p0 the destination item
  * @param p1 the source properties data
@@ -49,9 +57,9 @@
  * @param p4 the source whole properties count
  * @param p5 the knowledge memory part
  */
-void serialise_ansi_escape_code_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code properties.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui properties.");
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -279,23 +287,30 @@ void serialise_ansi_escape_code_properties(void* p0, void* p1, void* p2, void* p
     calculate_integer_add((void*) &pmdx, (void*) &wpmdx);
     calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
 
+//?? TODO
     // Serialise colours.
-    serialise_ansi_escape_code_background(p0, bgmd);
-    serialise_ansi_escape_code_foreground(p0, fgmd);
+    serialise_tui_background(p0, bgmd);
+    serialise_tui_foreground(p0, fgmd);
 
     // Serialise attributes.
-    serialise_ansi_escape_code_property(p0, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL_COUNT, hmd);
-    serialise_ansi_escape_code_property(p0, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL_COUNT, imd);
-    serialise_ansi_escape_code_property(p0, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL_COUNT, blmd);
-    serialise_ansi_escape_code_property(p0, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL_COUNT, umd);
-    serialise_ansi_escape_code_property(p0, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL_COUNT, bmd);
+    serialise_tui_property(p0, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL_COUNT, hmd);
+    serialise_tui_property(p0, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL_COUNT, imd);
+    serialise_tui_property(p0, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL_COUNT, blmd);
+    serialise_tui_property(p0, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL_COUNT, umd);
+    serialise_tui_property(p0, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL_COUNT, bmd);
 
     // Serialise rectangle border and area.
-    serialise_ansi_escape_code_rectangle(p0, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
+    serialise_tui_rectangle(p0, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
 
     // Reset position, so that model characters are printed at the origo.
-    serialise_ansi_escape_code_position(p0, (void*) &pmdx, (void*) &pmdy);
+//?? TODO
+#ifdef WIN32
+        serialise_win32_console_position(p0, (void*) &pmdx, (void*) &pmdy);
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+        serialise_ansi_escape_code_position(p0, (void*) &pmdx, (void*) &pmdy);
+#endif
 }
 
-/* PROPERTIES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* PROPERTIES_TUI_SERIALISER_SOURCE */
 #endif

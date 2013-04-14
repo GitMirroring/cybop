@@ -26,13 +26,6 @@
 #ifndef ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 #define ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 
-#ifdef WIN32
-#include <windows.h>
-#endif
-
-#include <stdio.h>
-#include <wchar.h>
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"

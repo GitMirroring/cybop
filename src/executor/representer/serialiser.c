@@ -26,17 +26,12 @@
 #ifndef SERIALISER_SOURCE
 #define SERIALISER_SOURCE
 
-#include "../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../constant/language/cyboi/state_cyboi_language.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/html/document_type_html_model.c"
-#include "../../constant/language/cyboi/state_cyboi_language.c"
-// CAUTION! Do NOT include the "content_element_part_ansi_escape_code_serialiser.c" module.
-// It is true, the "serialise_ansi_escape_code_part_element_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-// Therefore, the "ansi_escape_code_serialiser.c" module is included here.
-#include "../../executor/representer/serialiser/ansi_escape_code/ansi_escape_code_serialiser.c"
 #include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 // CAUTION! Do NOT include the "content_element_part_html_serialiser.c" module.
 // It is true, the "serialise_html_part_element_content" function is called from here,
@@ -54,7 +49,12 @@
 // Therefore, the "model_diagram_serialiser.c" module is included here.
 #include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
-#include "../../executor/representer/serialiser/win32_console/win32_console_serialiser.c"
+// CAUTION! Do NOT include the "content_element_part_ansi_escape_code_serialiser.c" module.
+// It is true, the "serialise_ansi_escape_code_part_element_content" function is called from here,
+// but the module dependency hierarchy slightly differs and just goes top-down
+// by module granularity and NOT by call hierarchy.
+// Therefore, the "ansi_escape_code_serialiser.c" module is included here.
+#include "../../executor/representer/serialiser/tui/tui_serialiser.c"
 #include "../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
 #include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
@@ -96,16 +96,6 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) ANSI_ESCAPE_CODE_MESSAGE_STATE_CYBOI_LANGUAGE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_ansi_escape_code_part_element_content(p0, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p7);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p9, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -126,11 +116,11 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) WIN32_CONSOLE_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p9, (void*) TUI_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_win32_console(p6, p1, p2, p3, p4);
+            serialise_tui_part_element_content(p0, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p7);
         }
     }
 

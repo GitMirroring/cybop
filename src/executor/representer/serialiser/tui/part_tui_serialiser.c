@@ -23,43 +23,64 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ELEMENT_WIN32_CONSOLE_SERIALISER_SOURCE
-#define ELEMENT_WIN32_CONSOLE_SERIALISER_SOURCE
+#ifndef PART_TUI_SERIALISER_SOURCE
+#define PART_TUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/tui/element_part_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the source part into win32 console function calls.
+ * Serialises the part into tui.
  *
- * @param p0 the connection
+ * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
+ * @param p5 the knowledge memory part
  */
-void serialise_win32_console_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part.");
 
-//??        TODO* c = (TODO*) p0;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console element.");
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // The TODO variable.
-//??        TODO = *x;
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
-    } else {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console element. The connection is null.");
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
+        }
+
+        serialise_tui_part_element(p0, p1, (void*) &j, p3, p4, p5);
+
+        // Increment loop variable.
+        j++;
     }
 }
 
-/* ELEMENT_WIN32_CONSOLE_SERIALISER_SOURCE */
+/* PART_TUI_SERIALISER_SOURCE */
 #endif

@@ -26,9 +26,6 @@
 #ifndef CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
 #define CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
 
-#include <stdio.h>
-#include <wchar.h>
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
