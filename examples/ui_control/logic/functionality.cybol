@@ -11,7 +11,7 @@
     <part name="show_x_window" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/ansi-escape-code"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".ui_control.gui"/>
         <property name="area" channel="inline" format="text/plain" model=".main_window.menu"/>
