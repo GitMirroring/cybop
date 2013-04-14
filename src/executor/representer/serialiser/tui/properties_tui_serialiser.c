@@ -289,10 +289,17 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
 //?? TODO
     // Serialise colours.
+    // http://msdn.microsoft.com/en-us/library/ms686047(v=vs.85).aspx
+    // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
+    //?? SetConsoleTextAttribute();
     serialise_tui_background(p0, bgmd);
     serialise_tui_foreground(p0, fgmd);
 
     // Serialise attributes.
+    // CAUTION! Under win32 console, unfortunately,
+    // the display mode is locked in background
+    // intensity mode, thus BLINKING does NOT work.
+    // Also, the UNDERSCORE attribute is NOT available.
     serialise_tui_property(p0, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL_COUNT, hmd);
     serialise_tui_property(p0, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL_COUNT, imd);
     serialise_tui_property(p0, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL_COUNT, blmd);

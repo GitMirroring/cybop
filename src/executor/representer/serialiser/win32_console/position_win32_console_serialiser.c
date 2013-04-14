@@ -52,8 +52,6 @@
  */
 void serialise_win32_console_position(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console position.");
-
     // The y, x coordinates.
     int cy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int cx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -66,6 +64,8 @@ void serialise_win32_console_position(void* p0, void* p1, void* p2) {
     HANDLE o = GetStdHandle(STD_OUTPUT_HANDLE);
 
     if (((void*) o) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console position.");
 
         // The position coordinates in a console screen buffer.
         // The origin of the coordinate system (0,0)
