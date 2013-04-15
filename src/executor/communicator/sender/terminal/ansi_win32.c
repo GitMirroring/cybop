@@ -12,7 +12,7 @@ void *getConsoleFunction(char *name) {
    if(kernel32==(HMODULE)0xffffffff) {
       kernel32=LoadLibrary("kernel32.dll");
       if(kernel32==0)
-         return 0; 
+         return 0;
    }
    return GetProcAddress(kernel32,name);
 }
@@ -90,10 +90,10 @@ void printansi(FILE *stream, char *str)
     int i, j;
 
     hCon = GetStdHandle(STD_OUTPUT_HANDLE);
-          
+
     doSetConsoleTextAttribute = getConsoleFunction("SetConsoleTextAttribute");
 
-    // if SetConsoleTextAttribute is not supported then output the ansi escape sequence 
+    // if SetConsoleTextAttribute is not supported then output the ansi escape sequence
     if (doSetConsoleTextAttribute == NULL) {
         fprintf(stream, "\033[%s", str);
         return;

@@ -45,6 +45,10 @@
 #include "../logger/write_logger.c"
 #include "../variable/log_setting.c"
 
+#ifdef WIN32
+    #include <windows.h>
+#endif
+
 //
 // CAUTION! This logger uses some CYBOI functions so that
 // an ENDLESS LOOP might occur, if those functions call
@@ -220,32 +224,37 @@ void log_message_terminated(void* p0, void* p1) {
 void log_windows_system_error(void* p0) {
 
 #ifdef WIN32
-    // The local handle.
-    HLOCAL l = (HLOCAL) *NULL_POINTER_STATE_CYBOI_MODEL;
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Convert error code into message.
-    BOOL b = FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER, (LPCVOID) *NULL_POINTER_STATE_CYBOI_MODEL, e, MAKELANGID(LANG_NEUTRAL, SUBLANG_SYS_DEFAULT), (PTSTR) &l, 0, (va_list*) *NULL_POINTER_STATE_CYBOI_MODEL);
+        DWORD* e = (DWORD*) p0;
 
-    if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // The local handle.
+        HLOCAL l = (HLOCAL) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // A network-related error.
+        // Convert error code into message.
+        BOOL b = FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER, (LPCVOID) *NULL_POINTER_STATE_CYBOI_MODEL, *e, MAKELANGID(LANG_NEUTRAL, SUBLANG_SYS_DEFAULT), (PTSTR) &l, 0, (va_list*) *NULL_POINTER_STATE_CYBOI_MODEL);
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not log windows system error. The FormatMessage function failed.");
+        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Load dynamic link library.
-        HMODULE dll = LoadLibraryEx(TEXT("netmsg.dll"), (HANDLE) *NULL_POINTER_STATE_CYBOI_MODEL, DONT_RESOLVE_DLL_REFERENCES);
+            // A network-related error.
 
-        if (((void*) dll) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not log windows system error. The FormatMessage function failed.");
 
-            FormatMessage(FORMAT_MESSAGE_FROM_HMODULE | FORMAT_MESSAGE_FROM_SYSTEM, dll, (DWORD) p0, MAKELANGID(LANG_NEUTRAL, SUBLANG_SYS_DEFAULT), (PTSTR) &l, 0, (va_list*) *NULL_POINTER_STATE_CYBOI_MODEL);
-            FreeLibrary(dll);
+            // Load dynamic link library.
+            HMODULE dll = LoadLibraryEx(TEXT("netmsg.dll"), (HANDLE) *NULL_POINTER_STATE_CYBOI_MODEL, DONT_RESOLVE_DLL_REFERENCES);
+
+            if (((void*) dll) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                FormatMessage(FORMAT_MESSAGE_FROM_HMODULE | FORMAT_MESSAGE_FROM_SYSTEM, dll, (DWORD) p0, MAKELANGID(LANG_NEUTRAL, SUBLANG_SYS_DEFAULT), (PTSTR) &l, 0, (va_list*) *NULL_POINTER_STATE_CYBOI_MODEL);
+                FreeLibrary(dll);
+            }
         }
-    }
 
-    if (((void*) l) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (((void*) l) != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        MessageBox((HWND) *NULL_POINTER_STATE_CYBOI_MODEL, (LPCTSTR) LocalLock(l), TEXT("Windows Error in CYBOI"), MB_ICONERROR);
-        LocalFree(l);
+            MessageBox((HWND) *NULL_POINTER_STATE_CYBOI_MODEL, (LPCTSTR) LocalLock(l), TEXT("Windows Error in CYBOI"), MB_ICONERROR);
+            LocalFree(l);
+        }
     }
 #endif
 }

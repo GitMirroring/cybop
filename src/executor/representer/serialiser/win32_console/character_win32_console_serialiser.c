@@ -128,7 +128,7 @@ void serialise_win32_console_character(void* p0, void* p1) {
             DWORD e = GetLastError();
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. A windows system error occured.");
-            log_windows_system_error(e);
+            log_windows_system_error((void*) &e);
         }
 
     } else {

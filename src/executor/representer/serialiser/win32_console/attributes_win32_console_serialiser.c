@@ -69,7 +69,7 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
         // The screen information.
         // It is a structure that contains information
         // about the console screen buffer.
-        PCONSOLE_SCREEN_BUFFER_INFO i;
+        CONSOLE_SCREEN_BUFFER_INFO i;
 
         // Get current attributes.
         BOOL b = GetConsoleScreenBufferInfo(o, &i);
@@ -107,7 +107,7 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
                 DWORD e = GetLastError();
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The text attributes could not be set.");
-                log_windows_system_error(e);
+                log_windows_system_error((void*) &e);
             }
 
         } else {
@@ -116,7 +116,7 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
             DWORD e = GetLastError();
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The console screen buffer info could not be retrieved.");
-            log_windows_system_error(e);
+            log_windows_system_error((void*) &e);
         }
 
     } else {
