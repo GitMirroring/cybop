@@ -34,16 +34,15 @@
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/tui/background_tui_serialiser.c"
-#include "../../../../executor/representer/serialiser/tui/foreground_tui_serialiser.c"
-#include "../../../../executor/representer/serialiser/tui/property_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/rectangle_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
+    #include "../../../../executor/representer/serialiser/win32_console/attributes_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/position_win32_console_serialiser.c"
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
     #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
 #endif
 
@@ -287,34 +286,23 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     calculate_integer_add((void*) &pmdx, (void*) &wpmdx);
     calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
 
-//?? TODO
-    // Serialise colours.
-    // http://msdn.microsoft.com/en-us/library/ms686047(v=vs.85).aspx
-    // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
-    //?? SetConsoleTextAttribute();
-    serialise_tui_background(p0, bgmd);
-    serialise_tui_foreground(p0, fgmd);
-
     // Serialise attributes.
-    // CAUTION! Under win32 console, unfortunately,
-    // the display mode is locked in background
-    // intensity mode, thus BLINKING does NOT work.
-    // Also, the UNDERSCORE attribute is NOT available.
-    serialise_tui_property(p0, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL_COUNT, hmd);
-    serialise_tui_property(p0, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL_COUNT, imd);
-    serialise_tui_property(p0, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL_COUNT, blmd);
-    serialise_tui_property(p0, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL_COUNT, umd);
-    serialise_tui_property(p0, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL_COUNT, bmd);
+#ifdef WIN32
+    serialise_win32_console_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    serialise_ansi_escape_code_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
+#endif
 
     // Serialise rectangle border and area.
     serialise_tui_rectangle(p0, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
 
     // Reset position, so that model characters are printed at the origo.
 #ifdef WIN32
-        serialise_win32_console_position(p0, (void*) &pmdx, (void*) &pmdy);
+    serialise_win32_console_position(p0, (void*) &pmdx, (void*) &pmdy);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-        serialise_ansi_escape_code_position(p0, (void*) &pmdx, (void*) &pmdy);
+    serialise_ansi_escape_code_position(p0, (void*) &pmdx, (void*) &pmdy);
 #endif
 }
 

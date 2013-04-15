@@ -1,0 +1,115 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.13.0 2013-03-29
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+
+#ifndef ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#define ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+
+#include <stdio.h>
+#include <wchar.h>
+
+#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/effect_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/colour_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Serialises the attributes into an ansi escape code.
+ *
+ * Example:
+ * printf("\033[1mbold \033[0mswitched off.")
+ *
+ * @param p0 the destination item
+ * @param p1 the source background
+ * @param p2 the source foreground
+ * @param p3 the source hidden
+ * @param p4 the source inverse
+ * @param p5 the source blink
+ * @param p6 the source underline
+ * @param p7 the source bold
+ */
+void serialise_ansi_escape_code_attributes(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code attributes.");
+
+    // The background colour.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The foreground colour.
+    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* fc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The prefix flag.
+    int p = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Get colours.
+    serialise_ansi_escape_code_background((void*) &bd, (void*) &bc, p1);
+    serialise_ansi_escape_code_foreground((void*) &fd, (void*) &fc, p2);
+
+fwprintf(stdout, L"TEST bd: %i\n", bd);
+fwprintf(stdout, L"TEST bd*: %ls\n", (wchar_t*) bd);
+fwprintf(stdout, L"TEST bc: %i\n", bc);
+fwprintf(stdout, L"TEST *bc: %i\n", *((int*) bc));
+
+/*??
+    // Set colours.
+    serialise_ansi_escape_code_colour(p0, bd, bc, (void*) &p);
+    serialise_ansi_escape_code_colour(p0, fd, fc, (void*) &p);
+*/
+
+    // Set further attributes.
+    serialise_ansi_escape_code_effect(p0, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p3);
+    serialise_ansi_escape_code_effect(p0, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p4);
+    serialise_ansi_escape_code_effect(p0, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p5);
+    serialise_ansi_escape_code_effect(p0, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p6);
+    serialise_ansi_escape_code_effect(p0, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p7);
+
+    compare_integer_unequal((void*) &r, (void*) &p, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The prefix flag HAS been set.
+        // That is, attributes have been added.
+        // Therefore, add the suffix here.
+
+        append_item_element(p0, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }
+}
+
+/* ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+#endif
+
+/* GNU_LINUX_OPERATING_SYSTEM */
+#endif

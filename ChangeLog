@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue restructuring tui serialiser
+
 2013-04-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Introduce general textual user interface (tui) serialiser
