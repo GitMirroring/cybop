@@ -36,6 +36,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -119,7 +120,7 @@ void serialise_win32_console_character(void* p0, void* p1) {
         //
         // http://msdn.microsoft.com/en-us/library/dd374101(v=vs.85).aspx
         //
-        BOOL b = WriteConsole(o, p1, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &n, *NULL_POINTER_STATE_CYBOI_MODEL);
+        BOOL b = WriteConsole(o, p1, *PRIMITIVE_STATE_CYBOI_MODEL_COUNT, &n, *NULL_POINTER_STATE_CYBOI_MODEL);
 
         // If the return value is zero, then an error occured.
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

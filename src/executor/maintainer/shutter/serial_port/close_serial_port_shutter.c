@@ -63,12 +63,13 @@ void shutdown_serial_port_close(void* p0) {
 
         int e = -1;
         // Close file descriptor.
-        #ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef GNU_LINUX_OPERATING_SYSTEM
             e = close(*d);
-        #endif
-        #ifdef WIN32
-            e = CloseHandle(*d);
-        #endif
+#endif
+#ifdef WIN32
+            //?? TODO: Use handle instead of file descriptor here!
+//??            e = CloseHandle(*d);
+#endif
 
         // The normal return value from "close" is zero;
         // a value of minus one is returned in case of failure.

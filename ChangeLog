@@ -21,6 +21,8 @@
         * Split ansi_escape_code constants into several files
         * Fix display errors in ansi escape code serialiser
         * Fix missing colour in ansi escape code serialiser
+        * Add new terminal starter and -shutter directories for "unix_terminal" and "win32_console"
+        * Make cyboi compilable using mingw
 
 2013-04-15  Christian Heller  <christian.heller@tuxtax.de>
 

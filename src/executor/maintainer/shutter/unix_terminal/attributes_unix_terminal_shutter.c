@@ -23,13 +23,10 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ATTRIBUTES_TERMINAL_SHUTTER_SOURCE
-#define ATTRIBUTES_TERMINAL_SHUTTER_SOURCE
+#ifndef ATTRIBUTES_UNIX_TERMINAL_SHUTTER_SOURCE
+#define ATTRIBUTES_UNIX_TERMINAL_SHUTTER_SOURCE
 
-#include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
-#endif
+#include <termios.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -40,18 +37,18 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Resets terminal attributes.
+ * Resets unix terminal attributes.
  *
  * @param p0 the file descriptor data
  * @param p1 the internal memory data
  */
-void shutdown_terminal_attributes(void* p0, void* p1) {
+void shutdown_unix_terminal_attributes(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal attributes.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown unix terminal attributes.");
 
         // The original attributes.
         void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -85,23 +82,23 @@ void shutdown_terminal_attributes(void* p0, void* p1) {
 
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal attributes. The termios settings could not be set.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal attributes. The termios settings could not be set.");
 
                 if (errno == EBADF) {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal attributes. The filedes argument is not a valid file descriptor.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal attributes. The filedes argument is not a valid file descriptor.");
 
                 } else if (errno == ENOTTY) {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal attributes. The filedes is not associated with a terminal.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal attributes. The filedes is not associated with a terminal.");
 
                 } else if (errno == EINVAL) {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal attributes. Either the value of the second argument is not valid, or there is something wrong with the data in the third argument.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal attributes. Either the value of the second argument is not valid, or there is something wrong with the data in the third argument.");
 
                 } else {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal attributes. An unknown error occured.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal attributes. An unknown error occured.");
                 }
             }
 
@@ -116,14 +113,14 @@ void shutdown_terminal_attributes(void* p0, void* p1) {
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal attributes. The original attributes is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal attributes. The original attributes is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal attributes. The file descriptor data is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal attributes. The file descriptor data is null.");
     }
 }
 
-/* ATTRIBUTES_TERMINAL_SHUTTER_SOURCE */
+/* ATTRIBUTES_UNIX_TERMINAL_SHUTTER_SOURCE */
 #endif

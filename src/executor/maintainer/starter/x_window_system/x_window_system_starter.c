@@ -45,7 +45,7 @@
                 char *errMessage )
         {
         xcb_generic_error_t *error = xcb_request_check (connection, cookie);
-        if (error) 
+        if (error)
            {
            fprintf (stderr, "ERROR: %s : %d\n", errMessage , error->error_code);
            xcb_disconnect (connection);
@@ -346,14 +346,14 @@ fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
             if(rc != 0)
             {
                 fprintf(stderr,"Unable to load Winsock: %d\n",rc);
-                return -1;
+                return; //?? -1;
             }
 
             // Open connection to x server.
             xcb_connection_t *c = xcb_connect ("127.0.0.1:0.0", &screenNum);
             if (!c) {
                 fprintf (stderr, "ERROR: can't connect to an X server\n");
-                return -1;
+                return; //?? -1;
             }
 
             // Get first screen.

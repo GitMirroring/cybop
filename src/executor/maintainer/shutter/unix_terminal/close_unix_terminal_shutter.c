@@ -23,13 +23,10 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CLOSE_TERMINAL_SHUTTER_SOURCE
-#define CLOSE_TERMINAL_SHUTTER_SOURCE
+#ifndef CLOSE_UNIX_TERMINAL_SHUTTER_SOURCE
+#define CLOSE_UNIX_TERMINAL_SHUTTER_SOURCE
 
 #include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
-#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -40,17 +37,17 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Closes the terminal.
+ * Closes the unix terminal.
  *
  * @param p0 the file descriptor data
  */
-void shutdown_terminal_close(void* p0) {
+void shutdown_unix_terminal_close(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal close.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown unix terminal close.");
 
         // Initialise error number.
         // It is a global variable/ function and other operations
@@ -69,35 +66,35 @@ void shutdown_terminal_close(void* p0) {
 
             if (errno == EBADF) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. The filedes argument is not a valid file descriptor.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal. The filedes argument is not a valid file descriptor.");
 
             } else if (errno == EINTR) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. The close call was interrupted by a signal.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal. The close call was interrupted by a signal.");
 
             } else if (errno == ENOSPC) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. ENOSPC.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal. ENOSPC.");
 
             } else if (errno == EIO) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. EIO.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal. EIO.");
 
             } else if (errno == EDQUOT) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
 
             } else {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal. An unknown error occured.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal. An unknown error occured.");
             }
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown terminal close. The file descriptor data is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal close. The file descriptor data is null.");
     }
 }
 
-/* CLOSE_TERMINAL_SHUTTER_SOURCE */
+/* CLOSE_UNIX_TERMINAL_SHUTTER_SOURCE */
 #endif

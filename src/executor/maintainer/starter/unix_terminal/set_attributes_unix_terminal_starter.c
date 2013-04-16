@@ -23,14 +23,10 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SET_ATTRIBUTES_TERMINAL_STARTER_SOURCE
-#define SET_ATTRIBUTES_TERMINAL_STARTER_SOURCE
+#ifndef SET_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE
+#define SET_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE
 
-#include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
-#endif
-
+#include <termios.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -40,20 +36,18 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Sets the terminal attributes.
+ * Sets the unix terminal attributes.
  *
  * @param p0 the file descriptor data
  * @param p1 the original attributes
  */
-void startup_terminal_attributes_set(void* p0, void* p1) {
+void startup_unix_terminal_attributes_set(void* p0, void* p1) {
 
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal attributes set.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal attributes set.");
 
         // Initialise new attributes.
         //
@@ -180,28 +174,27 @@ void startup_terminal_attributes_set(void* p0, void* p1) {
 
             if (errno == EBADF) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes set. The filedes argument is not a valid file descriptor.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. The filedes argument is not a valid file descriptor.");
 
             } else if (errno == ENOTTY) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes set. The filedes is not associated with a terminal.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. The filedes is not associated with a unix terminal.");
 
             } else if (errno == EINVAL) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes set. Either the value of the second argument is not valid, or there is something wrong with the data in the third argument.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. Either the value of the second argument is not valid, or there is something wrong with the data in the third argument.");
 
             } else {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes set. An unknown error occured.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. An unknown error occured.");
             }
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal attributes set. The file descriptor data is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. The file descriptor data is null.");
     }
-#endif
 }
 
-/* SET_ATTRIBUTES_TERMINAL_STARTER_SOURCE */
+/* SET_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE */
 #endif

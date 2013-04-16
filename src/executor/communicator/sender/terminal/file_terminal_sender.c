@@ -56,7 +56,7 @@ void send_terminal_file(void* p0, void* p1, void* p2) {
     void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get file descriptor item.
-    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_FILE_DESCRIPTOR_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Get file descriptor item data.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

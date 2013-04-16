@@ -26,16 +26,8 @@
 #ifndef TERMINAL_STARTER_SOURCE
 #define TERMINAL_STARTER_SOURCE
 
-#include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
-#endif
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/maintainer/starter/terminal/open_terminal_starter.c"
 #include "../../../../logger/logger.c"
 
@@ -53,8 +45,8 @@ void startup_terminal(void* p0) {
     // In case a special terminal device like /dev/tty0
     // is given, its file name needs to be handed over
     // as null-terminated character array.
-    // The file name may be prepared here then by adding
-    // the null-termination.
+    // The file name may be prepared here then
+    // by adding the null-termination.
     // See "serial_port_starter.c"!
     //
 

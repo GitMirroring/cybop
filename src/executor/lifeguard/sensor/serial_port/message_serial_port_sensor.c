@@ -91,7 +91,7 @@ void sense_serial_port_message(void* p0, void* p1, void* p2, void* p3) {
                     unsigned char c = fgetc((FILE*) fs);
 
                     // The EOF constant usually corresponds to the value: -1
-                    if (c == EOF) {
+                    if (c == ((unsigned char) EOF)) {
 
                         // No valid character was returned.
 
