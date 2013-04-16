@@ -51,7 +51,8 @@ void serialise_ansi_escape_code_colour(void* p0, void* p1, void* p2, void* p3) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // If the source count is greater than zero,
-    // then a colour was assigned before.
+    // then a colour was successfully assigned before.
+    // Testing the colour data may therefore be omitted here.
     compare_integer_greater((void*) &r, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

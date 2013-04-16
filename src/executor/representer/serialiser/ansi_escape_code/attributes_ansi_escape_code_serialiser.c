@@ -79,16 +79,9 @@ void serialise_ansi_escape_code_attributes(void* p0, void* p1, void* p2, void* p
     serialise_ansi_escape_code_background((void*) &bd, (void*) &bc, p1);
     serialise_ansi_escape_code_foreground((void*) &fd, (void*) &fc, p2);
 
-fwprintf(stdout, L"TEST bd: %i\n", bd);
-fwprintf(stdout, L"TEST bd*: %ls\n", (wchar_t*) bd);
-fwprintf(stdout, L"TEST bc: %i\n", bc);
-fwprintf(stdout, L"TEST *bc: %i\n", *((int*) bc));
-
-/*??
     // Set colours.
     serialise_ansi_escape_code_colour(p0, bd, bc, (void*) &p);
     serialise_ansi_escape_code_colour(p0, fd, fc, (void*) &p);
-*/
 
     // Set further attributes.
     serialise_ansi_escape_code_effect(p0, (void*) HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p3);

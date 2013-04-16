@@ -20,6 +20,7 @@
 
         * Split ansi_escape_code constants into several files
         * Fix display errors in ansi escape code serialiser
+        * Fix missing colour in ansi escape code serialiser
 
 2013-04-15  Christian Heller  <christian.heller@tuxtax.de>
 

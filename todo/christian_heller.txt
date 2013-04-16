@@ -10,7 +10,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Fix missing colour in ansi escape code serialiser
         * Add functions to win32 console serialiser
         * Provide windows terminal as parametre to all functions in win32 console serialiser
 --
