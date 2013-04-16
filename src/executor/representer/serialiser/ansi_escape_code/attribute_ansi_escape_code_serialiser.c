@@ -26,6 +26,7 @@
 #ifndef ATTRIBUTE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define ATTRIBUTE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
+#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -60,9 +61,9 @@ void serialise_ansi_escape_code_attribute(void* p0, void* p1, void* p2, void* p3
 
         // The prefix flag was set to "true",
         // i.e. the prefix HAS been added previously.
-        // Therefore, add the separator here instead.
+        // Therefore, add the attribute separator here instead.
 
-        append_item_element(p0, (void*) SEPARATOR_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(p0, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     } else {
 

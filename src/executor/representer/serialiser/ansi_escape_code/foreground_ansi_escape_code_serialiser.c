@@ -26,7 +26,7 @@
 #ifndef FOREGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define FOREGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
+#include "../../../../constant/model/ansi_escape_code/foreground_ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"

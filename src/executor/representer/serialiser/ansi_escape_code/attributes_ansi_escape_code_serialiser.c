@@ -32,6 +32,7 @@
 #include <wchar.h>
 
 #include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
+#include "../../../../constant/model/ansi_escape_code/attribute_ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -90,11 +91,11 @@ fwprintf(stdout, L"TEST *bc: %i\n", *((int*) bc));
 */
 
     // Set further attributes.
-    serialise_ansi_escape_code_effect(p0, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p3);
-    serialise_ansi_escape_code_effect(p0, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p4);
-    serialise_ansi_escape_code_effect(p0, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p5);
-    serialise_ansi_escape_code_effect(p0, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL, (void*) UNDERLINE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p6);
-    serialise_ansi_escape_code_effect(p0, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL, (void*) BOLD_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p7);
+    serialise_ansi_escape_code_effect(p0, (void*) HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p3);
+    serialise_ansi_escape_code_effect(p0, (void*) INVERSE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p4);
+    serialise_ansi_escape_code_effect(p0, (void*) BLINK_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p5);
+    serialise_ansi_escape_code_effect(p0, (void*) UNDERLINE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) UNDERLINE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p6);
+    serialise_ansi_escape_code_effect(p0, (void*) BOLD_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) BOLD_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p7);
 
     compare_integer_unequal((void*) &r, (void*) &p, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 

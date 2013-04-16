@@ -10,15 +10,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue tui/ansi_escape_code/win32_console serialiser; search for TODO
+        * Fix missing colour in ansi escape code serialiser
         * Add functions to win32 console serialiser
+        * Provide windows terminal as parametre to all functions in win32 console serialiser
 --
         mingw32 hat ein eigenes Verzeichnis für libs und includes das liegt in /usr/i586-mingw32msvc/
         In diese Verzeichnisse müssen alle Bibliotheken und Header kopiert werden.
         Damit es aber einfacher ist hab ich mal eben schnell ein Installer gebaut
         (ist wieder in meiner Repo(snake-universe.tk): "win32c").
         Ich schreib die Anleitung noch etwas ausführlicher in der INSTALL.
-        Den Installer hab ich allerdings nicht getestet, sollte aber laufen.
         Info: zum ausführen der exe müssen alle benötigten dlls im selben
         Verzeichnis wie die exe liegen oder in %WINDIR%\system32
         Tobias Köhler
