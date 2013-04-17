@@ -50,8 +50,6 @@
  * @param p3 the baudrate
  */
 void startup_serial_port(void* p0, void* p1, void* p2, void* p3) {
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port.");
 
     // The terminated file name item.
@@ -80,7 +78,6 @@ void startup_serial_port(void* p0, void* p1, void* p2, void* p3) {
 
     // Deallocate terminated file name item.
     deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-#endif
 }
 
 /* SERIAL_PORT_STARTER_SOURCE */

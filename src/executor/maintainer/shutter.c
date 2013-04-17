@@ -84,10 +84,7 @@ void shutdown_service(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
             shutdown_terminal(p0, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
-#endif
         }
     }
 
@@ -107,10 +104,7 @@ void shutdown_service(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
             shutdown_x_window_system(p0, (void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
-#endif
         }
     }
 

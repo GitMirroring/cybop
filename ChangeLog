@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-17  Tobias Köhler  <tk@snake-universe.tk>
+
+        * Windows socket and serial support enhanced
+
 2013-04-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Split ansi_escape_code constants into several files

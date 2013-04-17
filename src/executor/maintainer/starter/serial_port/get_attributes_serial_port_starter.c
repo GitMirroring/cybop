@@ -26,11 +26,33 @@
 #ifndef GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
 #define GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
 
 #include <stdio.h>
-#include <sys/ioctl.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/ioctl.h>
+    #include <termios.h>
+#endif
+#ifdef WIN32
+    // source: sys/termios.h
+
+    #define NCCS        20
+
+    typedef unsigned int    tcflag_t;
+    typedef unsigned char   cc_t;
+    typedef unsigned int    speed_t;
+
+    struct termios {
+        tcflag_t c_iflag;
+        tcflag_t c_oflag;
+        tcflag_t c_cflag;
+        tcflag_t c_lflag;
+        cc_t c_cc[NCCS];
+        speed_t c_ispeed;
+        speed_t c_ospeed;
+    };
+
+    #define TCGETA          0x5405
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -49,7 +71,8 @@
  * @param p2 the internal memory data
  */
 void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
-
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
@@ -112,10 +135,8 @@ void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The serial port file descriptor data is null.");
     }
-}
-
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif
+}
 
 /* GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE */
 #endif

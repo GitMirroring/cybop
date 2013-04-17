@@ -30,6 +30,14 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <wchar.h>
+#ifdef WIN32
+    #include <windows.h>
+ 
+    int fsync (int fd)
+    {
+        return (FlushFileBuffers ((HANDLE) _get_osfhandle (fd))) ? 0 : -1;
+    }
+#endif
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"

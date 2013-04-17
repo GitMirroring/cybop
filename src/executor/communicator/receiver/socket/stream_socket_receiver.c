@@ -26,7 +26,6 @@
 #ifndef STREAM_SOCKET_RECEIVER_SOURCE
 #define STREAM_SOCKET_RECEIVER_SOURCE
 
-// not ported to WIN32 at the moment ...
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include <sys/socket.h>
 #endif
@@ -51,8 +50,6 @@
  *           cyboi signal generated later, so that this server may reply to the correct client)
  */
 void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* ps = (int*) p3;
@@ -124,7 +121,7 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
                         if (errno == EBADF) {
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The socket argument is not a valid file descriptor.");
-
+#ifdef GNU_LINUX_OPERATING_SYSTEM
                         } else if (errno == ENOTSOCK) {
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The descriptor socket is not a socket.");
@@ -133,13 +130,13 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The read operation would block even though nonblocking mode has been set on the socket.");
 
-                        } else if (errno == EINTR) {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The operation was interrupted by a signal before any data was received.");
-
                         } else if (errno == ENOTCONN) {
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The socket was never connected.");
+#endif
+                        } else if (errno == EINTR) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The operation was interrupted by a signal before any data was received.");
 
                         } else {
 
@@ -166,7 +163,6 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The partner-connected socket of this system is null.");
     }
-#endif
 }
 
 /* STREAM_SOCKET_RECEIVER_SOURCE */

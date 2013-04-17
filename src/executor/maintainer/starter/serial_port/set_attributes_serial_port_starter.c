@@ -26,11 +26,24 @@
 #ifndef SET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
 #define SET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
 
 #include <stdio.h>
-#include <sys/ioctl.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/ioctl.h>
+    #include <termios.h>
+#endif
+#ifdef WIN32
+    #include <windows.h>
+    // source: sys/termios.h
+
+    #define IGNPAR          0000004
+    #define CS8             0000060
+    #define CLOCAL          0004000
+    #define CREAD           0000200
+    #define VMIN            6
+    #define VTIME           5
+    #define TCSANOW         0
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -49,6 +62,8 @@
  * @param p2 the baudrate
  */
 void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -211,10 +226,8 @@ void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The file descriptor data is null.");
     }
-}
-
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif
+}
 
 /* SET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE */
 #endif

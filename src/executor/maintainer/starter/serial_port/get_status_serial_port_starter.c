@@ -26,11 +26,12 @@
 #ifndef GET_STATUS_SERIAL_PORT_STARTER_SOURCE
 #define GET_STATUS_SERIAL_PORT_STARTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
 
 #include <stdio.h>
-#include <sys/ioctl.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/ioctl.h>
+    #include <termios.h>
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -47,7 +48,8 @@
  * @param p0 the file descriptor data
  */
 void startup_serial_port_status_get(void* p0) {
-
+// not ported to WIN32 at the moment ...
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
@@ -75,10 +77,8 @@ void startup_serial_port_status_get(void* p0) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status get. The serial port file descriptor data is null.");
     }
-}
-
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif
+}
 
 /* GET_STATUS_SERIAL_PORT_STARTER_SOURCE */
 #endif

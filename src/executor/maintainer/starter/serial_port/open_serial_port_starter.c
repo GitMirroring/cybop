@@ -26,11 +26,16 @@
 #ifndef OPEN_SERIAL_PORT_STARTER_SOURCE
 #define OPEN_SERIAL_PORT_STARTER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #include <fcntl.h>
 #include <stdio.h>
-#include <termios.h>
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#endif
+#ifdef WIN32
+    #define O_NOCTTY    00400       /* do not assign a controlling terminal */
+    #define O_RDWR      2           /* open(name, O_RDWR) opens read/write */
+    #define O_NDELAY    00100000    /* Non-blocking I/O     */
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -161,14 +166,14 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
                 } else if (errno == ENOTDIR) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. A file that is referenced as a directory component in the file name exists, but it isn't a directory.");
-
+#ifdef GNU_LINUX_OPERATING_SYSTEM
                 } else if (errno == ELOOP) {
 
                     // The system has an arbitrary limit on the number
                     // of symbolic links that may be resolved in looking up
                     // a single file name, as a primitive way to detect loops.
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. Too many symbolic links were resolved while trying to look up the file name.");
-
+#endif
                 //
                 // Opening errors.
                 //
@@ -230,9 +235,6 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The serial port file descriptor item already exists.");
     }
 }
-
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 
 /* OPEN_SERIAL_PORT_STARTER_SOURCE */
 #endif
