@@ -23,13 +23,9 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifdef WIN32
-
 #ifndef CHARACTER_WIN32_CONSOLE_SERIALISER_SOURCE
 #define CHARACTER_WIN32_CONSOLE_SERIALISER_SOURCE
 
-#include <stdio.h>
-#include <wchar.h>
 #include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -68,78 +64,101 @@
  * BOOL b = WriteConsole(standard_output_handle, character_array, character_array_count, number_of_characters_written, reserved_always_null);
  *
  * @param p0 the destination item
- * @param p1 the source character
+ * @param p1 the source character data
+ * @param p2 the source character count
  */
-void serialise_win32_console_character(void* p0, void* p1) {
+void serialise_win32_console_character(void* p0, void* p1, void* p2) {
 
-    // Get standard output.
-    HANDLE o = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    if (((void*) o) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        int* sc = (int*) p2;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console character.");
+        // Get standard output.
+        HANDLE o = GetStdHandle(STD_OUTPUT_HANDLE);
 
-        // The number of characters actually written.
-        // It will be handed over below as pointer to a variable.
-        DWORD n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        if (((void*) o) != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // Write to screen buffer.
-        //
-        // The "WriteConsole" function writes characters to the
-        // console screen buffer at the current cursor position.
-        //
-        // CAUTION! The cursor position ADVANCES as characters are written.
-        //
-        // Characters are written using the foreground and background
-        // colour attributes associated with the console screen buffer.
-        // Information: To determine the current color attributes and
-        // the current cursor position, use "GetConsoleScreenBufferInfo".
-        //
-        // The function uses either Unicode characters or
-        // ANSI characters from the console's current code page.
-        // Since cyboi uses wide characters only, there should be no problem.
-        //
-        // Be sure to prefix a Unicode plain text file with a byte order mark.
-        // It informs an application receiving the file that the file is byte-ordered.
-        // Available byte order marks are listed in the following table.
-        // Because Unicode plain text is a sequence of 16-bit code values,
-        // it is sensitive to the byte ordering used when the text is written.
-        // Note: A byte order mark is NOT a control character
-        // that selects the byte order of the text.
-        //
-        // -----------------------------------------
-        // Byte order mark  | Description
-        // -----------------------------------------
-        // EF BB BF         | UTF-8
-        // FF FE            | UTF-16, little endian
-        // FE FF            | UTF-16, big endian
-        // FF FE 00 00      | UTF-32, little endian
-        // 00 00 FE FF      | UTF-32, big-endian
-        // -----------------------------------------
-        //
-        // http://msdn.microsoft.com/en-us/library/dd374101(v=vs.85).aspx
-        //
-        BOOL b = WriteConsole(o, p1, *PRIMITIVE_STATE_CYBOI_MODEL_COUNT, &n, *NULL_POINTER_STATE_CYBOI_MODEL);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console character.");
 
-        // If the return value is zero, then an error occured.
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // The number of characters actually written.
+            // It will be handed over below as pointer to a variable.
+            DWORD n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            // Get the calling thread's last-error code.
-            DWORD e = GetLastError();
+            //
+            // Write to screen buffer.
+            //
+            // The "WriteConsole" function writes characters to the
+            // console screen buffer at the current cursor position.
+            //
+            // CAUTION! The cursor position ADVANCES as characters are written.
+            // But this should not matter, since the position of each
+            // character is set before writing it.
+            //
+            // Characters are written using the foreground and background
+            // colour attributes associated with the console screen buffer.
+            //
+            // There is a Unicode version of the function called "WriteConsoleW".
+            //
+            // However, mind the following bug report:
+            // "WriteConsoleW fails when more than about 26000 characters are written"
+            // http://msdn.microsoft.com/en-us/library/ms687401(v=vs.85).aspx
+            //
+            // While the documentation claims that up to 65536 bytes can be written
+            // (presumably that means 32767 UTF-16 characters + NUL),
+            // the actual limit is smaller. It varies between machines,
+            // but typically is between 26000 and 32000 characters.
+            // Attempting to write more than this in a single call
+            // to WriteConsoleW will fail; see for example:
+            // http://www.mail-archive.com/log4net-dev@logging.apache.org/msg00661.html
+            // and:
+            // http://tahoe-lafs.org/trac/tahoe-lafs/ticket/1232
+            //
+            // It's not clear whether this also applies to WriteConsoleA.
+            // This issue has been submitted to Microsoft Connect at:
+            // https://connect.microsoft.com/VisualStudio/feedback/details/635230/writeconsolew-fails-for-strings-larger-than-about-26000-characters
+            //
+            // The Win32 API provides two approaches for console I/O:
+            // - high-level: Read/WriteConsole and Read/WriteFile functions,
+            // - low-level: requiring access to console screen and input buffers,
+            //   keyboard, mouse, and buffer-resizing events
+            //
+            // Only high-level functions are used here.
+            //
+            // Both WriteConsole and WriteFile can take Unicode parameters.
+            // The difference between them is:
+            // - WriteConsole writes Unicode characters to console,
+            //   but works on console handles only.
+            //   It does not work if the output is redirected to a disk file.
+            // - WriteFile can take a handle of any file, so that the output
+            //   can be redirected to a file or a pipe.
+            //   However, the encoding is assumed to be in the current
+            //   console-output code page.
+            //   A Unicode input array will be displayed as garbage.
+            //
+            // http://automatismo.ru/32ch03g.shtml
+            //
+            BOOL b = WriteConsoleW(o, p1, *sc, &n, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. A windows system error occured.");
-            log_windows_system_error((void*) &e);
+            // If the return value is zero, then an error occured.
+            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // Get the calling thread's last-error code.
+                DWORD e = GetLastError();
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. A windows system error occured.");
+                log_windows_system_error((void*) &e);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. The standard output is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. The standard output is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. The source character count is null.");
     }
 }
 
 /* CHARACTER_WIN32_CONSOLE_SERIALISER_SOURCE */
-#endif
-
-/* WIN32 */
 #endif

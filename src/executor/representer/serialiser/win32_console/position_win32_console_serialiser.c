@@ -23,13 +23,9 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifdef WIN32
-
 #ifndef POSITION_WIN32_CONSOLE_SERIALISER_SOURCE
 #define POSITION_WIN32_CONSOLE_SERIALISER_SOURCE
 
-#include <stdio.h>
-#include <wchar.h>
 #include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -52,13 +48,13 @@
  */
 void serialise_win32_console_position(void* p0, void* p1, void* p2) {
 
-    // The y, x coordinates.
-    int cy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The x, y coordinates.
     int cx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int cy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Initialise y, x coordinates.
-    calculate_integer_add((void*) &cy, p2);
+    // Initialise x, y coordinates.
     calculate_integer_add((void*) &cx, p1);
+    calculate_integer_add((void*) &cy, p2);
 
     // Get standard output.
     HANDLE o = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -93,7 +89,4 @@ void serialise_win32_console_position(void* p0, void* p1, void* p2) {
 }
 
 /* POSITION_WIN32_CONSOLE_SERIALISER_SOURCE */
-#endif
-
-/* WIN32 */
 #endif

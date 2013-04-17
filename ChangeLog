@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new terminal sender directories for "unix_terminal" and "win32_console"
+        * Make colour work in win32 console serialiser
+
 2013-04-17  Tobias Köhler  <tk@snake-universe.tk>
 
         * Improved Windows terminal output

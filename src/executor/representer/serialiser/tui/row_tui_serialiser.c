@@ -122,10 +122,10 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         serialise_tui_character((void*) &ch, p1, p2, p3, p4, p5, p6, (void*) &lp, (void*) &cp, (void*) &rp, p10, p11, p12);
 
 #ifdef WIN32
-        serialise_win32_console_character(p0, (void*) &ch);
+        serialise_win32_console_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-        serialise_ansi_escape_code_character(p0, (void*) &ch);
+        serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 #endif
 
         // Increment loop variable.

@@ -23,8 +23,6 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #ifndef RESET_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define RESET_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
@@ -59,7 +57,4 @@ void serialise_ansi_escape_code_reset(void* p0) {
 }
 
 /* RESET_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif
-
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif

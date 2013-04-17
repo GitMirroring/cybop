@@ -26,11 +26,6 @@
 #ifndef TERMINAL_SENDER_SOURCE
 #define TERMINAL_SENDER_SOURCE
 
-#include <errno.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <wchar.h>
-
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -107,7 +102,16 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+#ifdef WIN32
+        append_item_element(s, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(s, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#endif
+#ifdef MAC
+        append_item_element(s, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+        append_item_element(s, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#endif
     }
 
     // Get serialised wide character item data, count.

@@ -23,13 +23,9 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifdef WIN32
-
 #ifndef ATTRIBUTES_WIN32_CONSOLE_SERIALISER_SOURCE
 #define ATTRIBUTES_WIN32_CONSOLE_SERIALISER_SOURCE
 
-#include <stdio.h>
-#include <wchar.h>
 #include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -37,6 +33,8 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/win32_console/background_win32_console_serialiser.c"
+#include "../../../../executor/representer/serialiser/win32_console/foreground_win32_console_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -66,56 +64,53 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console attributes.");
 
-        // The screen information.
-        // It is a structure that contains information
-        // about the console screen buffer.
-        CONSOLE_SCREEN_BUFFER_INFO i;
+        // The attributes.
+        //
+        // CAUTION! Do NOT get the current attributes using:
+        //
+        // CONSOLE_SCREEN_BUFFER_INFO i;
+        // BOOL b = GetConsoleScreenBufferInfo(o, &i);
+        // WORD a = i.wAttributes;
+        //
+        // The reason is that black colour is defined
+        // by specifying no colour constant at all.
+        // But if the current attributes were used,
+        // then the current (previous) colour would remain,
+        // which is not wanted, if black colour is expected.
+        //
+        WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        // Get current attributes.
-        BOOL b = GetConsoleScreenBufferInfo(o, &i);
+        // Assign colour attributes.
+        //
+        // CAUTION! The attributes are manipulated by
+        // adding new values using the OR operator, e.g.:
+        // *a = *a | FOREGROUND_RED | FOREGROUND_INTENSITY;
+        //
+        serialise_win32_console_background((void*) &a, p1);
+        serialise_win32_console_foreground((void*) &a, p2);
+
+        // Community comment on:
+        // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
+        // COMMON_LVB_UNDERSCORE and COMMON_LVB_REVERSE_VIDEO does not work!
+
+        // Set attributes of characters written to the console screen buffer.
+        //
+        // CAUTION! Under win32 console, unfortunately,
+        // the display mode is locked in background
+        // intensity mode, thus BLINKING does NOT work.
+        // Also, the UNDERSCORE attribute is NOT available.
+        //
+        // http://msdn.microsoft.com/en-us/library/ms686047(v=vs.85).aspx
+        // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
+        BOOL b = SetConsoleTextAttribute(o, a);
 
         // If the return value is zero, then an error occured.
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Get current attributes.
-            WORD a = i.wAttributes;
-
-            // Assign attributes.
-            // CAUTION! The current attributes are manipulated
-            // by adding new values using the OR operator.
-            a = a | FOREGROUND_RED | FOREGROUND_INTENSITY;
-
-            // Community comment on:
-            // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
-            // COMMON_LVB_UNDERSCORE and COMMON_LVB_REVERSE_VIDEO does not work!
-
-            // Set attributes of characters written to the console screen buffer.
-            //
-            // CAUTION! Under win32 console, unfortunately,
-            // the display mode is locked in background
-            // intensity mode, thus BLINKING does NOT work.
-            // Also, the UNDERSCORE attribute is NOT available.
-            //
-            // http://msdn.microsoft.com/en-us/library/ms686047(v=vs.85).aspx
-            // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
-            b = SetConsoleTextAttribute(o, a);
-
-            // If the return value is zero, then an error occured.
-            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Get the calling thread's last-error code.
-                DWORD e = GetLastError();
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The text attributes could not be set.");
-                log_windows_system_error((void*) &e);
-            }
-
-        } else {
+        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Get the calling thread's last-error code.
             DWORD e = GetLastError();
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The console screen buffer info could not be retrieved.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The text attributes could not be set.");
             log_windows_system_error((void*) &e);
         }
 
@@ -126,7 +121,4 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
 }
 
 /* ATTRIBUTES_WIN32_CONSOLE_SERIALISER_SOURCE */
-#endif
-
-/* WIN32 */
 #endif

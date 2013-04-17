@@ -23,13 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #ifndef CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-
-#include <stdio.h>
-#include <wchar.h>
 
 #include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -44,17 +39,15 @@
  * Serialises the character into an ansi escape code.
  *
  * @param p0 the destination item
- * @param p1 the source character
+ * @param p1 the source character data
+ * @param p2 the source character count
  */
-void serialise_ansi_escape_code_character(void* p0, void* p1) {
+void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code character.");
 
-    append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 }
 
 /* CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif
-
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif

@@ -23,8 +23,6 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #ifndef ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
@@ -103,7 +101,4 @@ void serialise_ansi_escape_code_attributes(void* p0, void* p1, void* p2, void* p
 }
 
 /* ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif
-
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif

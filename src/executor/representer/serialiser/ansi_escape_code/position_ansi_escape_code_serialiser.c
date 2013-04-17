@@ -23,8 +23,6 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
 #ifndef POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
@@ -83,7 +81,4 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
 }
 
 /* POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif
-
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif

@@ -36,9 +36,11 @@
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
+    #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/reset_win32_console_serialiser.c"
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
     #include "../../../../executor/representer/serialiser/ansi_escape_code/reset_ansi_escape_code_serialiser.c"
 #endif
 
@@ -65,20 +67,52 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
 
+    // The serialised item.
+    // CAUTION! This variable is necessary,
+    // because translation for unix terminal and
+    // win32 console is done in different ways below.
+    // So, the serialised data are handed over as parametre.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serialised item data, count.
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Allocate serialised item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
     // Append properties.
     serialise_tui_properties(p0, p3, p4, p5, p6, p7);
 
     // Append model.
-    serialise_tui(p0, p1, p2, p3, p4, p7, p8);
+    serialise_tui(s, p1, p2, p3, p4, p7, p8);
+
+    // Get serialised item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+#ifdef WIN32
+    serialise_win32_console_character(p0, sd, sc);
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    serialise_ansi_escape_code_character(p0, sd, sc);
+#endif
 
     // Reset terminal attributes in order to
     // have original settings when leaving cyboi.
 #ifdef WIN32
-        serialise_win32_console_reset(p0);
+    serialise_win32_console_reset(p0);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-        serialise_ansi_escape_code_reset(p0);
+    serialise_ansi_escape_code_reset(p0);
 #endif
+
+    // Deallocate serialised item.
+    deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE */

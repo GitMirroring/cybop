@@ -23,13 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STREAM_TERMINAL_SENDER_SOURCE
-#define STREAM_TERMINAL_SENDER_SOURCE
+#ifndef STREAM_UNIX_TERMINAL_SENDER_SOURCE
+#define STREAM_UNIX_TERMINAL_SENDER_SOURCE
 
 #include <errno.h>
 #include <stdio.h>
-#include <unistd.h>
-#include <wchar.h>
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -39,23 +37,19 @@
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
-#ifdef WIN32
-    #include "ansi_win32.c"
-#endif
- 
+
 /**
- * Sends the source to the terminal output.
+ * Sends the source to the unix terminal output.
  *
- * @param p0 the destination file descriptor data
+ * @param p0 the destination output data
  * @param p1 the source data (null-terminated)
  * @param p2 the source count
  */
-void send_terminal_stream(void* p0, void* p1, void* p2) {
+void send_unix_terminal_stream(void* p0, void* p1, void* p2) {
 
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-//    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {     // not working !!! (WIN32 p0(DATA_ITEM_STATE_CYBOI_NAME) is NULL)
-
-//        int* f = (int*) p0;
+        int* f = (int*) p0;
 
         // The file stream created from the given file descriptor.
         // CAUTION! The opentype string "r+" means an existing file
@@ -72,7 +66,7 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
 
         if (fs != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal stream.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send unix terminal stream.");
 
             //
             // CAUTION! Locking does NOT seem to be necessary here.
@@ -97,15 +91,7 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
             // as utf-8 multibyte character sequence of type "char".
             // The placeholder %ls would be WRONG here as it expects data
             // of type "wchar_t".
-            #ifdef WIN32
-                // Todo: 
-                // fwprintf not work in Windows CMD
-                cfwprintf(stdout, "%s", (char*) p1);
-                int e = 0;
-            #endif
-            #ifdef GNU_LINUX_OPERATING_SYSTEM
-                int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
-            #endif
+            int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
 
             // Test error value.
             //
@@ -121,7 +107,7 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
             // not have to be considered explicitly here anymore.
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. A write error occured.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send unix terminal stream. A write error occured.");
             }
 
             // Flush any buffered output on the stream to the file.
@@ -137,14 +123,14 @@ void send_terminal_stream(void* p0, void* p1, void* p2) {
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. The file stream is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send unix terminal stream. The file stream is null.");
         }
 
-//    } else {
+    } else {
 
-//        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send terminal stream. The file descriptor data is null.");
-//    }
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send unix terminal stream. The output data is null.");
+    }
 }
 
-/* STREAM_TERMINAL_SENDER_SOURCE */
+/* STREAM_UNIX_TERMINAL_SENDER_SOURCE */
 #endif

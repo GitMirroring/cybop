@@ -23,13 +23,9 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifdef WIN32
-
 #ifndef RESET_WIN32_CONSOLE_SERIALISER_SOURCE
 #define RESET_WIN32_CONSOLE_SERIALISER_SOURCE
 
-#include <stdio.h>
-#include <wchar.h>
 #include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -56,7 +52,4 @@ void serialise_win32_console_reset(void* p0) {
 }
 
 /* RESET_WIN32_CONSOLE_SERIALISER_SOURCE */
-#endif
-
-/* WIN32 */
 #endif
