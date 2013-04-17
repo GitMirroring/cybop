@@ -18,6 +18,7 @@
 
 2013-04-17  Tobias Köhler  <tk@snake-universe.tk>
 
+        * Improved Windows terminal output
         * Windows socket and serial support enhanced
 
 2013-04-16  Christian Heller  <christian.heller@tuxtax.de>

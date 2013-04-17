@@ -86,7 +86,7 @@ void serialise_cybol_integer_base(void* p0, void* p1, void* p2, void* p3, void* 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #ifdef WIN32
-                            *dc = printf("%o", *s);
+                            *dc = sprintf(p0, "%o", *s);
 /* CYGWIN_ENVIRONMENT */
 #else
                             *dc = swprintf(p0, *ds, L"%o", *s);
@@ -102,7 +102,7 @@ void serialise_cybol_integer_base(void* p0, void* p1, void* p2, void* p3, void* 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #ifdef WIN32
-                            *dc = printf("%d", *s);
+                            *dc = sprintf(p0, "%d", *s);
 /* CYGWIN_ENVIRONMENT */
 #else
                             *dc = swprintf(p0, *ds, L"%d", *s);
@@ -118,7 +118,7 @@ void serialise_cybol_integer_base(void* p0, void* p1, void* p2, void* p3, void* 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #ifdef WIN32
-                            *dc = printf("%X", *s);
+                            *dc = sprintf(p0, "%X", *s);
 /* CYGWIN_ENVIRONMENT */
 #else
                             *dc = swprintf(p0, *ds, L"%X", *s);
