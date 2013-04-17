@@ -20,8 +20,6 @@ _____________
 Project
 _______
 
-        * Update cybop Debian package
-
         * Make cyboi platform-independent using pre-processor defines
         * Adapt ansi escape code terminal input/output to windows operating system shell
         * Make cyboi cross-compilable for various architectures, e.g. ARM processor (using preprocessor directives)
@@ -42,12 +40,8 @@ _____
 CYBOI
 _____
 
-        * Windows X11 support
-        * Windows socket support
-        * Ansi escape sequence support for Windows
-            * set background color
-            * set foreground color
-            * set other SGR parameters
+        * Port termios to Windows provided serial API(Win32::SerialPort)
+        * Windows X11 support (bug in gui example; no window content)
         * Ansi escape sequence support for Windows
 
         * Add constants for unicode character code block in directory "cybop/src/constant/model/character_code/unicode/"

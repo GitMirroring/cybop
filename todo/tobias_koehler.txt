@@ -10,14 +10,10 @@
 
 (together with Falco Prescher)
 
-		* Windows X11 support
-		* Windows socket support
+		* Port termios to Windows provided serial API(Win32::SerialPort)
+		* Windows X11 support (bug in gui example; no window content)
 		* Ansi escape sequence support for Windows
-			* set background color
-			* set foreground color
-			* set other SGR parameters
 		* Debian package build scripts (Makefile)
-		* Update cybop Debian package
 		* Make cyboi platform-independent using pre-processor defines
 		* Integrate Windows compile process into makefile
 		* Factor out parts of cyboi into special libraries, e.g. x-window-system,
