@@ -42,26 +42,32 @@
  * Example:
  * BOOL b = SetConsoleCursorPosition(standard_output_handle, position_coordinates_structure);
  *
- * @param p0 the destination item
+ * @param p0 the destination win32 console output data
  * @param p1 the source x coordinate
  * @param p2 the source y coordinate
  */
 void serialise_win32_console_position(void* p0, void* p1, void* p2) {
 
-    // The x, y coordinates.
-    int cx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int cy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Initialise x, y coordinates.
-    calculate_integer_add((void*) &cx, p1);
-    calculate_integer_add((void*) &cy, p2);
+        int* d = (int*) p0;
 
-    // Get standard output.
-    HANDLE o = GetStdHandle(STD_OUTPUT_HANDLE);
-
-    if (((void*) o) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Cast DEREFERENCED value to handle.
+        // CAUTION! The output data is stored as int value,
+        // but actually references a win32 console handle.
+        // This is just to be sure that the correct type is used.
+//??        HANDLE dh = (HANDLE) *d; //?? TODO: Figure out why this does not work!
+        HANDLE dh = GetStdHandle(STD_OUTPUT_HANDLE);
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console position.");
+
+        // The x, y coordinates.
+        int cx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int cy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+        // Initialise x, y coordinates.
+        calculate_integer_add((void*) &cx, p1);
+        calculate_integer_add((void*) &cy, p2);
 
         // The position coordinates in a console screen buffer.
         // The origin of the coordinate system (0,0)
@@ -70,7 +76,7 @@ void serialise_win32_console_position(void* p0, void* p1, void* p2) {
         p.X = cx;
         p.Y = cy;
 
-        BOOL b = SetConsoleCursorPosition(o, p);
+        BOOL b = SetConsoleCursorPosition(dh, p);
 
         // If the return value is zero, then an error occured.
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

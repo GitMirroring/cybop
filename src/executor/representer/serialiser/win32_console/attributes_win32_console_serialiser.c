@@ -34,6 +34,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/win32_console/background_win32_console_serialiser.c"
+#include "../../../../executor/representer/serialiser/win32_console/effect_win32_console_serialiser.c"
 #include "../../../../executor/representer/serialiser/win32_console/foreground_win32_console_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -46,7 +47,7 @@
  * The character attributes are of type WORD and may be combined using OR, e.g.:
  * SetConsoleTextAttribute(hStdout, FOREGROUND_RED | FOREGROUND_INTENSITY);
  *
- * @param p0 the destination item
+ * @param p0 the destination win32 console output data
  * @param p1 the source background
  * @param p2 the source foreground
  * @param p3 the source hidden
@@ -57,10 +58,16 @@
  */
 void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    // Get standard output.
-    HANDLE o = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    if (((void*) o) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        int* d = (int*) p0;
+
+        // Cast DEREFERENCED value to handle.
+        // CAUTION! The output data is stored as int value,
+        // but actually references a win32 console handle.
+        // This is just to be sure that the correct type is used.
+//??        HANDLE dh = (HANDLE) *d; //?? TODO: Figure out why this does not work!
+        HANDLE dh = GetStdHandle(STD_OUTPUT_HANDLE);
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console attributes.");
 
@@ -80,7 +87,7 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
         //
         WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        // Assign colour attributes.
+        // Assign colours.
         //
         // CAUTION! The attributes are manipulated by
         // adding new values using the OR operator, e.g.:
@@ -89,9 +96,25 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
         serialise_win32_console_background((void*) &a, p1);
         serialise_win32_console_foreground((void*) &a, p2);
 
+        // The intensity attribute.
+        // It is only necessary, so that both may be handed
+        // over as one combined parametre value to the
+        // "serialise_win32_console_effect" function below.
+        WORD i = BACKGROUND_INTENSITY | FOREGROUND_INTENSITY;
+
+        // Set further attributes.
+        //
+        // - hidden: ??
+        // - inverse: does NOT work (see community comment below)
+        // - blink: ??
+        // - underline: does NOT work (see community comment below)
+        // - bold: understood in cyboi as both, BACKGROUND_INTENSITY and FOREGROUND_INTENSITY
+        //
         // Community comment on:
         // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
         // COMMON_LVB_UNDERSCORE and COMMON_LVB_REVERSE_VIDEO does not work!
+        //
+        serialise_win32_console_effect((void*) &a, (void*) &i, p7);
 
         // Set attributes of characters written to the console screen buffer.
         //
@@ -102,7 +125,7 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
         //
         // http://msdn.microsoft.com/en-us/library/ms686047(v=vs.85).aspx
         // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
-        BOOL b = SetConsoleTextAttribute(o, a);
+        BOOL b = SetConsoleTextAttribute(dh, a);
 
         // If the return value is zero, then an error occured.
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

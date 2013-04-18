@@ -26,7 +26,7 @@
 #ifndef OPEN_WIN32_CONSOLE_STARTER_SOURCE
 #define OPEN_WIN32_CONSOLE_STARTER_SOURCE
 
-#include <stdio.h>
+#include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -46,21 +46,18 @@ void startup_win32_console_open(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        void** o = (void**) p1;
+        int* o = (int*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            void** i = (void**) p0;
+            int* i = (int*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console open.");
 
             // Retrieve handle to specified standard device.
-            HANDLE ih = GetStdHandle(STD_INPUT_HANDLE);
-            HANDLE oh = GetStdHandle(STD_OUTPUT_HANDLE);
-
-            // Set input- and output handle item data as pointer.
-            *i = (void*) ih;
-            *o = (void*) oh;
+            // CAUTION! A win32 console handle is just an int value.
+            *i = (int) GetStdHandle(STD_INPUT_HANDLE);
+            *o = (int) GetStdHandle(STD_OUTPUT_HANDLE);
 
         } else {
 

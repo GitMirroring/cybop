@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new file "state_win32_console_serialiser.c" to remember original attributes
+        * Activate function "serialise_win32_console_reset"
+        * Add new file "effect_win32_console_serialiser.c" evaluating "bold" attribute
+
 2013-04-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new terminal sender directories for "unix_terminal" and "win32_console"

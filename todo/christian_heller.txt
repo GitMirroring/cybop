@@ -10,13 +10,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Provide windows terminal as parametre to all functions in win32 console serialiser;
-            caution: the handle is probably NOT a void*, but an int value --> change in maintainer
-        * Clear up if CONSOLE_SCREEN_BUFFER_INFO is necessary for keeping terminal attributes,
-            so that prompt remains visible after leaving cyboi -- but:
-            How to set black colour then (no rgb value is black)?
+        * Continue handing over windows terminal as parametre to all functions in win32 console serialiser;
+            see also file "rectangle_tui_serialiser.c" and dependencies
+        * Check "bold" attribute again: in win32 both "intensive"? how is it in unix terminal?
         * Add bit manipulation operation files in directory "executor/manipulator/"
-        * Use bit manipulation functions in files "background_win32_console_serialiser.c" and "foreground_win32_console_serialiser.c"
+        * Use bit manipulation functions in files "background_win32_console_serialiser.c", "foreground_win32_console_serialiser.c", "effect_win32_console_serialiser.c"
         * Activate terminal input for win32 console
 --
         mingw32 hat ein eigenes Verzeichnis für libs und includes das liegt in /usr/i586-mingw32msvc/

@@ -26,9 +26,6 @@
 #ifndef ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
-#include <stdio.h>
-#include <wchar.h>
-
 #include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/ansi_escape_code/attribute_ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"

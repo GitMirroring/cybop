@@ -39,13 +39,14 @@
  * Serialises the part into tui.
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
- * @param p5 the knowledge memory part
+ * @param p1 the destination win32 console output data
+ * @param p2 the source model data
+ * @param p3 the source model count
+ * @param p4 the source properties data
+ * @param p5 the source properties count
+ * @param p6 the knowledge memory part
  */
-void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part.");
 
@@ -54,7 +55,7 @@ void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -68,14 +69,14 @@ void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        serialise_tui_part_element(p0, p1, (void*) &j, p3, p4, p5);
+        serialise_tui_part_element(p0, p1, p2, (void*) &j, p4, p5, p6);
 
         // Increment loop variable.
         j++;

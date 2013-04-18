@@ -36,7 +36,7 @@
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
-    //?? TODO
+    //?? TODO: Reset attributes? (Already done in serialiser.)
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/maintainer/shutter/unix_terminal/unix_terminal_shutter.c"
@@ -81,25 +81,15 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) &opd, op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 #ifdef WIN32
-        //?? TODO
+        //?? TODO: Reset attributes? (Already done in serialiser.)
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
         shutdown_unix_terminal(ipd, opd, p0);
 #endif
 
         // Deallocate input- and output item.
-#ifdef WIN32
-        // Since a win32 console handle is just a void* value,
-        // the POINTER_STATE_CYBOI_TYPE constant is used here.
-        deallocate_item((void*) &ip, (void*) POINTER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &op, (void*) POINTER_STATE_CYBOI_TYPE);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-        // Since a unix file descriptor is just an int value,
-        // the INTEGER_NUMBER_STATE_CYBOI_TYPE constant is used here.
         deallocate_item((void*) &ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         deallocate_item((void*) &op, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-#endif
 
         // Reset terminal values.
         // CAUTION! Assign NULL to the internal memory.

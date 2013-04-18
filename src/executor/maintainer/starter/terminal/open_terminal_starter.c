@@ -68,22 +68,20 @@ void startup_terminal_open(void* p0) {
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal open.");
 
         // Allocate input- and output item.
+        //
+        // A unix file descriptor AS WELL AS a win32
+        // console handle is just an int value.
+        // Therefore, the INTEGER_NUMBER_STATE_CYBOI_TYPE
+        // constant may be used here for both.
+        //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
+        //
         // CAUTION! Use "item" for input- and output storage in internal memory,
         // since their counts and sizes are needed for deallocation.
-#ifdef WIN32
-        // Since a win32 console handle is just a void* value,
-        // the POINTER_STATE_CYBOI_TYPE constant is used here.
-        allocate_item((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-        allocate_item((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-        // Since a unix file descriptor is just an int value,
-        // the INTEGER_NUMBER_STATE_CYBOI_TYPE constant is used here.
+        //
         allocate_item((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         allocate_item((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-#endif
 
         // Set input- and output item.
         // CAUTION! Add it as soon as it was allocated above

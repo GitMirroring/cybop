@@ -39,13 +39,14 @@
  * Serialises the part element into tui.
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model index
- * @param p3 the source properties data
- * @param p4 the source properties count
- * @param p5 the knowledge memory part
+ * @param p1 the destination win32 console output data
+ * @param p2 the source model data
+ * @param p3 the source model index
+ * @param p4 the source properties data
+ * @param p5 the source properties count
+ * @param p6 the knowledge memory part
  */
-void serialise_tui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_tui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element.");
 
@@ -63,7 +64,7 @@ void serialise_tui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
     void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part from source whole at current index.
-    copy_array_forward((void*) &part, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward((void*) &part, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
     // Get part format, model, properties item.
     copy_array_forward((void*) &f, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &m, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -77,7 +78,7 @@ void serialise_tui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
 
     // Serialise part element content.
     // CAUTION! Do not forget to hand over whole properties.
-    serialise_tui_part_element_content(p0, md, mc, pd, pc, p3, p4, p5, fd);
+    serialise_tui_part_element_content(p0, p1, md, mc, pd, pc, p4, p5, p6, fd);
 }
 
 /* ELEMENT_PART_TUI_SERIALISER_SOURCE */

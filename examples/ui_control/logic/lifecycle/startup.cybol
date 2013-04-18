@@ -154,14 +154,16 @@
     <part name="startup_tui" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
+<!--
     <part name="startup_gui" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>
     </part>
+-->
     <part name="select_current_menu_item" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="signal"/>
         <property name="message" channel="inline" format="path/knowledge" model=".ui_control.logic.user_interface.select_current_part"/>
     </part>
-    <!-- SUPERFLUOUS, since already called within "select_current_menu_item" above!
+<!-- SUPERFLUOUS, since already called within "select_current_menu_item" above!
     <part name="send_tui" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -170,7 +172,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".ui_control.tui.main_window"/>
         <property name="clean" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    -->
+-->
 <!-- CAUTION! Commented out since a gui window should only be opened upon menu button press.
     <part name="send_gui" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>

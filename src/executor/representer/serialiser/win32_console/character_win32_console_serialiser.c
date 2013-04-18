@@ -63,7 +63,7 @@
  * Example:
  * BOOL b = WriteConsole(standard_output_handle, character_array, character_array_count, number_of_characters_written, reserved_always_null);
  *
- * @param p0 the destination item
+ * @param p0 the destination win32 console output data
  * @param p1 the source character data
  * @param p2 the source character count
  */
@@ -73,85 +73,103 @@ void serialise_win32_console_character(void* p0, void* p1, void* p2) {
 
         int* sc = (int*) p2;
 
-        // Get standard output.
-        HANDLE o = GetStdHandle(STD_OUTPUT_HANDLE);
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (((void*) o) != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console character.");
+                int* d = (int*) p0;
 
-            // The number of characters actually written.
-            // It will be handed over below as pointer to a variable.
-            DWORD n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                // Cast DEREFERENCED value to handle.
+                // CAUTION! The output data is stored as int value,
+                // but actually references a win32 console handle.
+                // This is just to be sure that the correct type is used.
+//??                HANDLE dh = (HANDLE) *d; //?? TODO: Check why this line does NOT work!
+                HANDLE dh = GetStdHandle(STD_OUTPUT_HANDLE);
+/*??
+fwprintf(stdout, L"TEST char d: %i\n", d);
+fwprintf(stdout, L"TEST char *d: %i\n", *d);
+fwprintf(stdout, L"TEST char dh: %i\n", dh);
+*/
 
-            //
-            // Write to screen buffer.
-            //
-            // The "WriteConsole" function writes characters to the
-            // console screen buffer at the current cursor position.
-            //
-            // CAUTION! The cursor position ADVANCES as characters are written.
-            // But this should not matter, since the position of each
-            // character is set before writing it.
-            //
-            // Characters are written using the foreground and background
-            // colour attributes associated with the console screen buffer.
-            //
-            // There is a Unicode version of the function called "WriteConsoleW".
-            //
-            // However, mind the following bug report:
-            // "WriteConsoleW fails when more than about 26000 characters are written"
-            // http://msdn.microsoft.com/en-us/library/ms687401(v=vs.85).aspx
-            //
-            // While the documentation claims that up to 65536 bytes can be written
-            // (presumably that means 32767 UTF-16 characters + NUL),
-            // the actual limit is smaller. It varies between machines,
-            // but typically is between 26000 and 32000 characters.
-            // Attempting to write more than this in a single call
-            // to WriteConsoleW will fail; see for example:
-            // http://www.mail-archive.com/log4net-dev@logging.apache.org/msg00661.html
-            // and:
-            // http://tahoe-lafs.org/trac/tahoe-lafs/ticket/1232
-            //
-            // It's not clear whether this also applies to WriteConsoleA.
-            // This issue has been submitted to Microsoft Connect at:
-            // https://connect.microsoft.com/VisualStudio/feedback/details/635230/writeconsolew-fails-for-strings-larger-than-about-26000-characters
-            //
-            // The Win32 API provides two approaches for console I/O:
-            // - high-level: Read/WriteConsole and Read/WriteFile functions,
-            // - low-level: requiring access to console screen and input buffers,
-            //   keyboard, mouse, and buffer-resizing events
-            //
-            // Only high-level functions are used here.
-            //
-            // Both WriteConsole and WriteFile can take Unicode parameters.
-            // The difference between them is:
-            // - WriteConsole writes Unicode characters to console,
-            //   but works on console handles only.
-            //   It does not work if the output is redirected to a disk file.
-            // - WriteFile can take a handle of any file, so that the output
-            //   can be redirected to a file or a pipe.
-            //   However, the encoding is assumed to be in the current
-            //   console-output code page.
-            //   A Unicode input array will be displayed as garbage.
-            //
-            // http://automatismo.ru/32ch03g.shtml
-            //
-            BOOL b = WriteConsoleW(o, p1, *sc, &n, *NULL_POINTER_STATE_CYBOI_MODEL);
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console character.");
 
-            // If the return value is zero, then an error occured.
-            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                // The number of characters actually written.
+                // It will be handed over below as pointer to a variable.
+                DWORD n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                // Get the calling thread's last-error code.
-                DWORD e = GetLastError();
+                //
+                // Write to screen buffer.
+                //
+                // The "WriteConsole" function writes characters to the
+                // console screen buffer at the current cursor position.
+                //
+                // CAUTION! The cursor position ADVANCES as characters are written.
+                // But this should not matter, since the position of each
+                // character is set before writing it.
+                //
+                // Characters are written using the foreground and background
+                // colour attributes associated with the console screen buffer.
+                //
+                // There is a Unicode version of the function called "WriteConsoleW".
+                //
+                // However, mind the following bug report:
+                // "WriteConsoleW fails when more than about 26000 characters are written"
+                // http://msdn.microsoft.com/en-us/library/ms687401(v=vs.85).aspx
+                //
+                // While the documentation claims that up to 65536 bytes can be written
+                // (presumably that means 32767 UTF-16 characters + NUL),
+                // the actual limit is smaller. It varies between machines,
+                // but typically is between 26000 and 32000 characters.
+                // Attempting to write more than this in a single call
+                // to WriteConsoleW will fail; see for example:
+                // http://www.mail-archive.com/log4net-dev@logging.apache.org/msg00661.html
+                // and:
+                // http://tahoe-lafs.org/trac/tahoe-lafs/ticket/1232
+                //
+                // It's not clear whether this also applies to WriteConsoleA.
+                // This issue has been submitted to Microsoft Connect at:
+                // https://connect.microsoft.com/VisualStudio/feedback/details/635230/writeconsolew-fails-for-strings-larger-than-about-26000-characters
+                //
+                // The Win32 API provides two approaches for console I/O:
+                // - high-level: Read/WriteConsole and Read/WriteFile functions,
+                // - low-level: requiring access to console screen and input buffers,
+                //   keyboard, mouse, and buffer-resizing events
+                //
+                // Only high-level functions are used here.
+                //
+                // Both WriteConsole and WriteFile can take Unicode parameters.
+                // The difference between them is:
+                // - WriteConsole writes Unicode characters to console,
+                //   but works on console handles only.
+                //   It does not work if the output is redirected to a disk file.
+                // - WriteFile can take a handle of any file, so that the output
+                //   can be redirected to a file or a pipe.
+                //   However, the encoding is assumed to be in the current
+                //   console-output code page.
+                //   A Unicode input array will be displayed as garbage.
+                //
+                // http://automatismo.ru/32ch03g.shtml
+                //
+                BOOL b = WriteConsoleW(dh, p1, *sc, &n, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. A windows system error occured.");
-                log_windows_system_error((void*) &e);
+                // If the return value is zero, then an error occured.
+                if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    // Get the calling thread's last-error code.
+                    DWORD e = GetLastError();
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. A windows system error occured.");
+                    log_windows_system_error((void*) &e);
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. The standard output is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. The standard output is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. The source character data is null.");
         }
 
     } else {

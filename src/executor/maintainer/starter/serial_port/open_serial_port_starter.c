@@ -28,13 +28,17 @@
 
 #include <fcntl.h>
 #include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
-#endif
+
 #ifdef WIN32
     #define O_NOCTTY    00400       /* do not assign a controlling terminal */
-    #define O_RDWR      2           /* open(name, O_RDWR) opens read/write */
+    //?? TODO: The following line was commented out,
+    //?? since it caused a compilation warning:
+    //?? open_serial_port_starter.c:36:1: warning: "O_RDWR" redefined
+//??    #define O_RDWR      2           /* open(name, O_RDWR) opens read/write */
     #define O_NDELAY    00100000    /* Non-blocking I/O     */
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"

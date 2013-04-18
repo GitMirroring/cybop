@@ -37,18 +37,62 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Resets the terminal attributes.
+ * Resets the terminal to the original attributes handed over as parametre.
  *
  * Example:
- * ...
+ * BOOL b = SetConsoleTextAttribute(console_output, original_attributes);
  *
- * @param p0 the destination item
+ * @param p0 the destination win32 console output data
+ * @param p1 the source original attributes
  */
-void serialise_win32_console_reset(void* p0) {
+void serialise_win32_console_reset(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console reset.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //?? TODO
+        WORD* s = (WORD*) p1;
+
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* d = (int*) p0;
+
+            // Cast DEREFERENCED value to handle.
+            // CAUTION! The output data is stored as int value,
+            // but actually references a win32 console handle.
+            // This is just to be sure that the correct type is used.
+            HANDLE dh = (HANDLE) *d;
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console reset.");
+
+            // Set attributes of characters written to the console screen buffer.
+            //
+            // CAUTION! Under win32 console, unfortunately,
+            // the display mode is locked in background
+            // intensity mode, thus BLINKING does NOT work.
+            // Also, the UNDERSCORE attribute is NOT available.
+            //
+            // http://msdn.microsoft.com/en-us/library/ms686047(v=vs.85).aspx
+            // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
+            BOOL b = SetConsoleTextAttribute(dh, *s);
+
+            // If the return value is zero, then an error occured.
+            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // Get the calling thread's last-error code.
+                DWORD e = GetLastError();
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console reset. The text attributes could not be set.");
+                log_windows_system_error((void*) &e);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console reset. The standard output is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console reset. The original attributes is null.");
+    }
 }
 
 /* RESET_WIN32_CONSOLE_SERIALISER_SOURCE */

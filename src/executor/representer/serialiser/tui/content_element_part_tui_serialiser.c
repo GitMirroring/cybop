@@ -32,12 +32,15 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
     #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/reset_win32_console_serialiser.c"
+    #include "../../../../executor/representer/serialiser/win32_console/state_win32_console_serialiser.c"
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
@@ -48,24 +51,33 @@
 // Forward declarations.
 //
 
-void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Serialises the part element content into tui.
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
- * @param p5 the source whole properties data
- * @param p6 the source whole properties count
- * @param p7 the knowledge memory part
- * @param p8 the format data
+ * @param p1 the destination win32 console output data
+ * @param p2 the source model data
+ * @param p3 the source model count
+ * @param p4 the source properties data
+ * @param p5 the source properties count
+ * @param p6 the source whole properties data
+ * @param p7 the source whole properties count
+ * @param p8 the knowledge memory part
+ * @param p9 the format data
  */
-void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
+
+#ifdef WIN32
+    // The original attributes.
+    WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    // NOTHING to be done here.
+#endif
 
     // The serialised item.
     // CAUTION! This variable is necessary,
@@ -77,16 +89,29 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+#ifdef WIN32
+    if (a == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        // Only get original attributes,
+        // if they have not been read before.
+
+        serialise_win32_console_state((void*) &a, p1);
+    }
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    // NOTHING to be done here.
+#endif
+
     // Allocate serialised item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append properties.
-    serialise_tui_properties(p0, p3, p4, p5, p6, p7);
+    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8);
 
     // Append model.
-    serialise_tui(s, p1, p2, p3, p4, p7, p8);
+    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9);
 
     // Get serialised item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -96,16 +121,23 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
 #ifdef WIN32
-    serialise_win32_console_character(p0, sd, sc);
+    serialise_win32_console_character(p1, sd, sc);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     serialise_ansi_escape_code_character(p0, sd, sc);
 #endif
 
-    // Reset terminal attributes in order to
-    // have original settings when leaving cyboi.
+    // Reset terminal attributes in order to have
+    // original settings in two situations:
+    // - leaving cyboi
+    // - painting a new part for which
+    //   no properties have been specified
+    //
+    // Therefore, the reset is done not only
+    // once after serialisation, but EVERYTIME
+    // after having painted a part here.
 #ifdef WIN32
-    serialise_win32_console_reset(p0);
+    serialise_win32_console_reset(p1, (void*) &a);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     serialise_ansi_escape_code_reset(p0);
