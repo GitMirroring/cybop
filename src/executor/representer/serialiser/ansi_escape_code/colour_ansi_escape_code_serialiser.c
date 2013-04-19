@@ -38,7 +38,7 @@
 /**
  * Serialises the colour into an ansi escape code sequence.
  *
- * @param p0 the destination item
+ * @param p0 the destination ansi escape code item
  * @param p1 the source colour data
  * @param p2 the source colour count
  * @param p3 the prefix flag

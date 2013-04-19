@@ -56,7 +56,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 /**
  * Serialises the part element content into tui.
  *
- * @param p0 the destination item
+ * @param p0 the destination ansi escape code item
  * @param p1 the destination win32 console output data
  * @param p2 the source model data
  * @param p3 the source model count

@@ -44,7 +44,7 @@
  * Example:
  * printf("\033[%d;%dH", y_row, x_column)
  *
- * @param p0 the destination item
+ * @param p0 the destination ansi escape code item
  * @param p1 the source x coordinate
  * @param p2 the source y coordinate
  */

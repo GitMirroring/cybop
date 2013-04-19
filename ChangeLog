@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Hand over terminal parametre to all functions in win32 console serialiser
+
 2013-04-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new file "state_win32_console_serialiser.c" to remember original attributes

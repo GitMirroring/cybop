@@ -49,7 +49,7 @@
 /**
  * Serialises the properties into tui.
  *
- * @param p0 the destination item
+ * @param p0 the destination ansi escape code item
  * @param p1 the destination win32 console output data
  * @param p2 the source properties data
  * @param p3 the source properties count
@@ -296,7 +296,7 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
 #endif
 
     // Serialise rectangle border and area.
-    serialise_tui_rectangle(p0, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
+    serialise_tui_rectangle(p0, p1, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
 
     // Reset position, so that following model characters are printed at the origo.
 #ifdef WIN32

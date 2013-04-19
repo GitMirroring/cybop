@@ -39,15 +39,16 @@
 /**
  * Serialises the rectangle into tui.
  *
- * @param p0 the destination item
- * @param p1 the position x
- * @param p2 the size x
- * @param p3 the position y
- * @param p4 the size y
- * @param p5 the border data
- * @param p6 the border count
+ * @param p0 the destination ansi escape code item
+ * @param p1 the destination win32 console output data
+ * @param p2 the position x
+ * @param p3 the size x
+ * @param p4 the position y
+ * @param p5 the size y
+ * @param p6 the border data
+ * @param p7 the border count
  */
-void serialise_tui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_tui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui rectangle.");
 
@@ -64,8 +65,8 @@ void serialise_tui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // The right bottom border character.
     wchar_t rbc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
-    serialise_tui_border((void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p5, p6);
-    serialise_tui_rows(p0, (void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p1, p2, p3, p4);
+    serialise_tui_border((void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p6, p7);
+    serialise_tui_rows(p0, p1, (void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p2, p3, p4, p5);
 }
 
 /* RECTANGLE_TUI_SERIALISER_SOURCE */

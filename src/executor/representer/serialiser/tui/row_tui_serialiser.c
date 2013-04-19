@@ -48,21 +48,22 @@
 /**
  * Serialises the row into tui.
  *
- * @param p0 the destination item
- * @param p1 the horizontal border character
- * @param p2 the vertical border character
- * @param p3 the left top border character
- * @param p4 the right top border character
- * @param p5 the left bottom border character
- * @param p6 the right bottom border character
- * @param p7 the position x
- * @param p8 the size x
- * @param p9 the y coordinate
- * @param p10 the top vertical position flag
- * @param p11 the middle vertical position flag
- * @param p12 the bottom vertical position flag
+ * @param p0 the destination ansi escape code item
+ * @param p1 the destination win32 console output data
+ * @param p2 the horizontal border character
+ * @param p3 the vertical border character
+ * @param p4 the left top border character
+ * @param p5 the right top border character
+ * @param p6 the left bottom border character
+ * @param p7 the right bottom border character
+ * @param p8 the position x
+ * @param p9 the size x
+ * @param p10 the y coordinate
+ * @param p11 the top vertical position flag
+ * @param p12 the middle vertical position flag
+ * @param p13 the bottom vertical position flag
  */
-void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui row.");
 
@@ -90,10 +91,10 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     wchar_t ch = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
     // Initialise loop count.
-    copy_integer((void*) &c, p7);
-    calculate_integer_add((void*) &c, p8);
+    copy_integer((void*) &c, p8);
+    calculate_integer_add((void*) &c, p9);
     // Initialise loop variable.
-    copy_integer((void*) &x, p7);
+    copy_integer((void*) &x, p8);
     // Initialise left border index.
     copy_integer((void*) &li, (void*) &x);
     // Initialise right border index.
@@ -113,16 +114,16 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         serialise_tui_position_horizontal((void*) &lp, (void*) &cp, (void*) &rp, (void*) &x, (void*) &li, (void*) &ri);
 
 #ifdef WIN32
-        serialise_win32_console_position(p0, (void*) &x, p9);
+        serialise_win32_console_position(p1, (void*) &x, p10);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-        serialise_ansi_escape_code_position(p0, (void*) &x, p9);
+        serialise_ansi_escape_code_position(p0, (void*) &x, p10);
 #endif
 
-        serialise_tui_character((void*) &ch, p1, p2, p3, p4, p5, p6, (void*) &lp, (void*) &cp, (void*) &rp, p10, p11, p12);
+        serialise_tui_character((void*) &ch, p2, p3, p4, p5, p6, p7, (void*) &lp, (void*) &cp, (void*) &rp, p11, p12, p13);
 
 #ifdef WIN32
-        serialise_win32_console_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        serialise_win32_console_character(p1, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
         serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);

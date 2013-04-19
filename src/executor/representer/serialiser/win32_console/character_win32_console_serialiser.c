@@ -83,13 +83,7 @@ void serialise_win32_console_character(void* p0, void* p1, void* p2) {
                 // CAUTION! The output data is stored as int value,
                 // but actually references a win32 console handle.
                 // This is just to be sure that the correct type is used.
-//??                HANDLE dh = (HANDLE) *d; //?? TODO: Check why this line does NOT work!
-                HANDLE dh = GetStdHandle(STD_OUTPUT_HANDLE);
-/*??
-fwprintf(stdout, L"TEST char d: %i\n", d);
-fwprintf(stdout, L"TEST char *d: %i\n", *d);
-fwprintf(stdout, L"TEST char dh: %i\n", dh);
-*/
+                HANDLE dh = (HANDLE) *d;
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console character.");
 

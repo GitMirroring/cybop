@@ -10,8 +10,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue handing over windows terminal as parametre to all functions in win32 console serialiser;
-            see also file "rectangle_tui_serialiser.c" and dependencies
         * Check "bold" attribute again: in win32 both "intensive"? how is it in unix terminal?
         * Add bit manipulation operation files in directory "executor/manipulator/"
         * Use bit manipulation functions in files "background_win32_console_serialiser.c", "foreground_win32_console_serialiser.c", "effect_win32_console_serialiser.c"

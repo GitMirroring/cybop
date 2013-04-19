@@ -38,7 +38,7 @@
 /**
  * Serialises the effect into an ansi escape code sequence.
  *
- * @param p0 the destination item
+ * @param p0 the destination ansi escape code item
  * @param p1 the source effect data
  * @param p2 the source effect count
  * @param p3 the prefix flag

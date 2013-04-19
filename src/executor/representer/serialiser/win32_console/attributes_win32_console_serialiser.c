@@ -66,8 +66,7 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
         // CAUTION! The output data is stored as int value,
         // but actually references a win32 console handle.
         // This is just to be sure that the correct type is used.
-//??        HANDLE dh = (HANDLE) *d; //?? TODO: Figure out why this does not work!
-        HANDLE dh = GetStdHandle(STD_OUTPUT_HANDLE);
+        HANDLE dh = (HANDLE) *d;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console attributes.");
 

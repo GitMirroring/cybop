@@ -38,7 +38,7 @@
 /**
  * Serialises the character into an ansi escape code.
  *
- * @param p0 the destination item
+ * @param p0 the destination ansi escape code item
  * @param p1 the source character data
  * @param p2 the source character count
  */

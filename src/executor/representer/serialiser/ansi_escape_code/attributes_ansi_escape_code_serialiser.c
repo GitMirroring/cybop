@@ -46,7 +46,7 @@
  * Example:
  * printf("\033[1mbold \033[0mswitched off.")
  *
- * @param p0 the destination item
+ * @param p0 the destination ansi escape code item
  * @param p1 the source background
  * @param p2 the source foreground
  * @param p3 the source hidden
