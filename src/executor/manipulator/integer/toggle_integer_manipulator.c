@@ -1,0 +1,70 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.13.0 2013-03-29
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef TOGGLE_INTEGER_MANIPULATOR_SOURCE
+#define TOGGLE_INTEGER_MANIPULATOR_SOURCE
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Toggles the bit at the given position.
+ *
+ * @param p0 the value
+ * @param p1 the position
+ */
+void manipulate_integer_toggle(void* p0, void* p1) {
+
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* p = (int*) p1;
+
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* v = (int*) p0;
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate integer toggle.");
+
+            // The bit mask.
+            int b = 1 << (*p);
+
+            // Apply exclusive or (xor).
+            *v = *v ^ b;
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer toggle. The value is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer toggle. The position is null.");
+    }
+}
+
+/* TOGGLE_INTEGER_MANIPULATOR_SOURCE */
+#endif

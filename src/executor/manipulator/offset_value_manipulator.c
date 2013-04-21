@@ -23,39 +23,39 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_CALCULATOR_SOURCE
-#define PART_CALCULATOR_SOURCE
+#ifndef OFFSET_VALUE_MANIPULATOR_SOURCE
+#define OFFSET_VALUE_MANIPULATOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/manipulator/basic/value_manipulator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Calculates left- with right part.
+ * Manipulates the bit at the given position.
+ * Uses the given index to calculate an offset.
  *
- * Calculates only the parts' models.
- * Does NOT consider both parts' name, type, properties.
- *
- * This is DEEP CALCULATION, i.e. all child nodes will be calculated as well.
- *
- * @param p0 the result part, which contains the operands BEFORE the operation
- * @param p1 the operand part
+ * @param p0 the value
+ * @param p1 the bit position
  * @param p2 the operation type
+ * @param p3 the operand type
+ * @param p4 the index
  */
-void calculate_part(void* p0, void* p1, void* p2) {
+void manipulate_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate value offset.");
 
-    //
-    // Recursively call a calculation function, which in turn
-    // may call this calculation function and so forth.
-    // This is necessary when processing knowledge tree hierarchies.
-    //
+    // The value.
+    // CAUTION! It HAS TO BE initialised with p0,
+    // since an offset is added below.
+    void* v = p0;
 
-//??    calculate_all_part_all(p0, p1, p2);
+    // Add offset to value.
+    add_offset((void*) &v, p3, p4);
+
+    // Manipulate value.
+    manipulate_value(v, p1, p2, p3);
 }
 
-/* PART_CALCULATOR_SOURCE */
+/* OFFSET_VALUE_MANIPULATOR_SOURCE */
 #endif

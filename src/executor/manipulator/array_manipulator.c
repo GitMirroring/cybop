@@ -23,39 +23,50 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_CALCULATOR_SOURCE
-#define PART_CALCULATOR_SOURCE
+#ifndef ARRAY_MANIPULATOR_SOURCE
+#define ARRAY_MANIPULATOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/manipulator/elements_array_manipulator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Calculates left- with right part.
+ * Manipulates the bit at the given position.
+ * Processes count elements of the value array, starting from the given offset.
  *
- * Calculates only the parts' models.
- * Does NOT consider both parts' name, type, properties.
- *
- * This is DEEP CALCULATION, i.e. all child nodes will be calculated as well.
- *
- * @param p0 the result part, which contains the operands BEFORE the operation
- * @param p1 the operand part
+ * @param p0 the value array
+ * @param p1 the bit position
  * @param p2 the operation type
+ * @param p3 the operand type
+ * @param p4 the count
+ * @param p5 the value index
  */
-void calculate_part(void* p0, void* p1, void* p2) {
+void manipulate_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate part.");
+    // CAUTION! This null pointer comparison is IMPORTANT,
+    // in order to avoid a system crash if the array is null!
 
-    //
-    // Recursively call a calculation function, which in turn
-    // may call this calculation function and so forth.
-    // This is necessary when processing knowledge tree hierarchies.
-    //
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-//??    calculate_all_part_all(p0, p1, p2);
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate array.");
+
+        // The array.
+        // CAUTION! It HAS TO BE initialised with p0,
+        // since an offset is added below.
+        void* a = p0;
+
+        // Add offset.
+        add_offset((void*) &a, p3, p5);
+
+        manipulate_array_elements(a, p1, p2, p3, p4);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate array. The value array is null.");
+    }
 }
 
-/* PART_CALCULATOR_SOURCE */
+/* ARRAY_MANIPULATOR_SOURCE */
 #endif

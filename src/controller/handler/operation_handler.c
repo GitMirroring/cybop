@@ -44,6 +44,7 @@
 #include "../../applicator/live/sense.c"
 #include "../../applicator/maintain/shutdown.c"
 #include "../../applicator/maintain/startup.c"
+//?? #include "../../applicator/manipulate/??.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
 #include "../../applicator/modify/append.c"

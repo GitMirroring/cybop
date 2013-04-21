@@ -19,6 +19,7 @@
 2013-04-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add "modulo" integer calculation operation
+        * Add bit manipulation functions "check", "clear", "set", "toggle"
 
 2013-04-19  Christian Heller  <christian.heller@tuxtax.de>
 

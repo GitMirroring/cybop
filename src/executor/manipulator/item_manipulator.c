@@ -23,39 +23,37 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_CALCULATOR_SOURCE
-#define PART_CALCULATOR_SOURCE
+#ifndef ITEM_MANIPULATOR_SOURCE
+#define ITEM_MANIPULATOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/manipulator/array_manipulator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Calculates left- with right part.
+ * Manipulates the item bit at the given position.
  *
- * Calculates only the parts' models.
- * Does NOT consider both parts' name, type, properties.
- *
- * This is DEEP CALCULATION, i.e. all child nodes will be calculated as well.
- *
- * @param p0 the result part, which contains the operands BEFORE the operation
- * @param p1 the operand part
+ * @param p0 the value item
+ * @param p1 the bit position
  * @param p2 the operation type
+ * @param p3 the operand type
+ * @param p4 the count
+ * @param p5 the value index
  */
-void calculate_part(void* p0, void* p1, void* p2) {
+void manipulate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate item.");
 
-    //
-    // Recursively call a calculation function, which in turn
-    // may call this calculation function and so forth.
-    // This is necessary when processing knowledge tree hierarchies.
-    //
+    // The data.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-//??    calculate_all_part_all(p0, p1, p2);
+    // Get data.
+    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    manipulate_array(d, p1, p2, p3, p4, p5);
 }
 
-/* PART_CALCULATOR_SOURCE */
+/* ITEM_MANIPULATOR_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ARRAY_CALCULATOR_SOURCE
-#define ARRAY_CALCULATOR_SOURCE
+#ifndef ELEMENTS_ARRAY_MANIPULATOR_SOURCE
+#define ELEMENTS_ARRAY_MANIPULATOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -32,21 +32,22 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/calculator/basic/value_calculator.c"
+#include "../../../executor/manipulator/offset_value_manipulator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Calculates count elements of the result- and operand array.
+ * Manipulates the bit at the given position.
+ * Processes count elements of the value array.
  *
- * @param p0 the result array, which contains the operands BEFORE the operation
- * @param p1 the operand array
+ * @param p0 the value array
+ * @param p1 the bit position
  * @param p2 the operation type
  * @param p3 the operand type
  * @param p4 the count
  */
-void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void manipulate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array elements.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate array elements.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -74,59 +75,11 @@ void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) 
             break;
         }
 
-        calculate_value_offset(p0, p1, p2, p3, (void*) &j);
+        manipulate_value_offset(p0, p1, p2, p3, (void*) &j);
 
         j++;
     }
 }
 
-/**
- * Calculates count elements of the result- and operand array,
- * starting from the given offset.
- *
- * @param p0 the result array, which contains the operands BEFORE the operation
- * @param p1 the operand array
- * @param p2 the operation type
- * @param p3 the operand type
- * @param p4 the count
- * @param p5 the result index
- * @param p6 the operand index
- */
-void calculate_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
-
-    // CAUTION! These null pointer comparisons are IMPORTANT, in order to
-    // avoid a system crash if one or both of the two arrays are null!
-    // All other calculate functions are based on this calculate function,
-    // so that checking for null pointer right here suffices.
-
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array.");
-
-            // The result array, operand array.
-            // CAUTION! They HAVE TO BE initialised with p0 and p1,
-            // since an offset is added below.
-            void* r = p0;
-            void* o = p1;
-
-            // Add offset.
-            add_offset((void*) &r, p3, p5);
-            add_offset((void*) &o, p3, p6);
-
-            calculate_array_elements(r, o, p2, p3, p4);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The result (operand before operation) array is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate array. The operand array is null.");
-    }
-}
-
-/* ARRAY_CALCULATOR_SOURCE */
+/* ELEMENTS_ARRAY_MANIPULATOR_SOURCE */
 #endif
