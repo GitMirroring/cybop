@@ -55,31 +55,31 @@
 //
 
 /**
- * The manipulate/get-bit logic cybol format.
+ * The manipulate/check logic cybol format.
  *
- * It corresponds to "BT" assembler command.
+ * It corresponds to the "BT" (bit) or "BTST" (bit test) assembler command.
  *
  * This is a CYBOL extension.
  */
-static wchar_t GET_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'g', L'e', L't', L'-', L'b', L'i', L't'};
-static wchar_t* GET_MANIPULATE_LOGIC_CYBOL_FORMAT = GET_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* GET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'c', L'h', L'e', L'c', L'k'};
+static wchar_t* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT = CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The manipulate/reset-bit logic cybol format.
+ * The manipulate/clear logic cybol format.
  *
- * It corresponds to "BTR" assembler command.
+ * It corresponds to the "BTR" (bit reset) assembler command.
  *
  * This is a CYBOL extension.
  */
-static wchar_t RESET_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L's', L'e', L't', L'-', L'b', L'i', L't'};
-static wchar_t* RESET_MANIPULATE_LOGIC_CYBOL_FORMAT = RESET_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* RESET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'c', L'l', L'e', L'a', L'r'};
+static wchar_t* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT = CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The manipulate/rotate-left logic cybol format.
  *
- * It corresponds to "ROL" assembler command.
+ * It corresponds to the "ROL" (rotate left) assembler command.
  *
  * This is a CYBOL extension.
  */
@@ -90,7 +90,7 @@ static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The manipulate/rotate-right logic cybol format.
  *
- * It corresponds to "ROR" assembler command.
+ * It corresponds to the "ROR" (rotate right) assembler command.
  *
  * This is a CYBOL extension.
  */
@@ -99,20 +99,20 @@ static wchar_t* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = ROTATE_RIGHT_MANIPU
 static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The manipulate/set-bit logic cybol format.
+ * The manipulate/set logic cybol format.
  *
- * It corresponds to "BTS" assembler command.
+ * It corresponds to the "BTS" (bit set) assembler command.
  *
  * This is a CYBOL extension.
  */
-static wchar_t SET_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L's', L'e', L't', L'-', L'b', L'i', L't'};
+static wchar_t SET_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L's', L'e', L't'};
 static wchar_t* SET_MANIPULATE_LOGIC_CYBOL_FORMAT = SET_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* SET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The manipulate/shift-left logic cybol format.
  *
- * It corresponds to "SHL" assembler command.
+ * It corresponds to the "SHL" (shift left) assembler command.
  *
  * This is a CYBOL extension.
  */
@@ -123,13 +123,24 @@ static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
 /**
  * The manipulate/shift-right logic cybol format.
  *
- * It corresponds to "SHR" assembler command.
+ * It corresponds to the "SHR" (shift right) assembler command.
  *
  * This is a CYBOL extension.
  */
 static wchar_t SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L's', L'h', L'i', L'f', L't', L'-', L'r', L'i', L'g', L'h', L't'};
 static wchar_t* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The manipulate/toggle logic cybol format.
+ *
+ * It corresponds to the "CHG" (change) assembler command.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L't', L'o', L'g', L'g', L'l', L'e'};
+static wchar_t* TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT = TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MANIPULATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

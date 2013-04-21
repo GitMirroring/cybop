@@ -227,11 +227,11 @@ static int* STARTUP_MAINTAIN_LOGIC_CYBOI_FORMAT = NUMBER_821_INTEGER_STATE_CYBOI
 // manipulate
 //
 
-/** The get manipulate logic cyboi format. */
-static int* GET_MANIPULATE_LOGIC_CYBOI_FORMAT = NUMBER_850_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The check manipulate logic cyboi format. */
+static int* CHECK_MANIPULATE_LOGIC_CYBOI_FORMAT = NUMBER_850_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The reset manipulate logic cyboi format. */
-static int* RESET_MANIPULATE_LOGIC_CYBOI_FORMAT = NUMBER_851_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The clear manipulate logic cyboi format. */
+static int* CLEAR_MANIPULATE_LOGIC_CYBOI_FORMAT = NUMBER_851_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The rotate left manipulate logic cyboi format. */
 static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOI_FORMAT = NUMBER_852_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -247,6 +247,9 @@ static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOI_FORMAT = NUMBER_855_INTEGER_STATE_
 
 /** The shift right manipulate logic cyboi format. */
 static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOI_FORMAT = NUMBER_856_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The toggle manipulate logic cyboi format. */
+static int* TOGGLE_MANIPULATE_LOGIC_CYBOI_FORMAT = NUMBER_857_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // memorise

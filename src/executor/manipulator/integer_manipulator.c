@@ -26,100 +26,72 @@
 #ifndef INTEGER_MANIPULATOR_SOURCE
 #define INTEGER_MANIPULATOR_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/manipulator/basic/integer/equal_integer_manipulator.c"
-#include "../../../executor/manipulator/basic/integer/greater_integer_manipulator.c"
-#include "../../../executor/manipulator/basic/integer/greater_or_equal_integer_manipulator.c"
-#include "../../../executor/manipulator/basic/integer/smaller_integer_manipulator.c"
-#include "../../../executor/manipulator/basic/integer/smaller_or_equal_integer_manipulator.c"
-#include "../../../executor/manipulator/basic/integer/unequal_integer_manipulator.c"
-#include "../../../logger/logger.c"
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/manipulator/integer/check_integer_manipulator.c"
+#include "../../executor/manipulator/integer/clear_integer_manipulator.c"
+#include "../../executor/manipulator/integer/set_integer_manipulator.c"
+#include "../../executor/manipulator/integer/toggle_integer_manipulator.c"
+#include "../../logger/logger.c"
 
 /**
- * Manipulates the left- with the right integer.
+ * Manipulates the integer value bit at the given position.
  *
- * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left value
- * @param p2 the right value
- * @param p3 the operation type
+ * @param p0 the value
+ * @param p1 the bit position
+ * @param p2 the operation type
  */
-void manipulate_integer(void* p0, void* p1, void* p2, void* p3) {
+void manipulate_integer(void* p0, void* p1, void* p2) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* a = (int*) p3;
+        int* t = (int*) p2;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate integer.");
 
         // The comparison result.
-        // CAUTION! It is used instead of if-else statements.
-        // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*t == *CHECK_MANIPULATE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                manipulate_integer_equal(p0, p1, p2);
+                manipulate_integer_check(p0, p1);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*t == *CLEAR_MANIPULATE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                manipulate_integer_greater_or_equal(p0, p1, p2);
+                manipulate_integer_clear(p0, p1);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*t == *SET_MANIPULATE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                manipulate_integer_greater(p0, p1, p2);
+                manipulate_integer_set(p0, p1);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*t == *TOGGLE_MANIPULATE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                manipulate_integer_smaller_or_equal(p0, p1, p2);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            if (*a == *SMALLER_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                manipulate_integer_smaller(p0, p1, p2);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            if (*a == *UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                manipulate_integer_unequal(p0, p1, p2);
+                manipulate_integer_toggle(p0, p1);
             }
         }
 

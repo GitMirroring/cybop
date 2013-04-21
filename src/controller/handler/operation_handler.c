@@ -44,7 +44,7 @@
 #include "../../applicator/live/sense.c"
 #include "../../applicator/maintain/shutdown.c"
 #include "../../applicator/maintain/startup.c"
-//?? #include "../../applicator/manipulate/??.c"
+#include "../../applicator/manipulate/manipulate.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
 #include "../../applicator/modify/append.c"
@@ -569,6 +569,50 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_startup(p0, p1, p3, p2);
+        }
+    }
+
+    //
+    // manipulate
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) CHECK_MANIPULATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_calculate(p0, p1, p3, (void*) CHECK_MANIPULATE_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) CLEAR_MANIPULATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_calculate(p0, p1, p3, (void*) CLEAR_MANIPULATE_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) SET_MANIPULATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_calculate(p0, p1, p3, (void*) SET_MANIPULATE_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) TOGGLE_MANIPULATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_calculate(p0, p1, p3, (void*) TOGGLE_MANIPULATE_LOGIC_CYBOI_FORMAT);
         }
     }
 

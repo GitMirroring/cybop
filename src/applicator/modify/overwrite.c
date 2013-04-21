@@ -87,7 +87,7 @@ void apply_overwrite(void* p0, void* p1, void* p2) {
     void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The destination index part model.
+    // The destination index part model item.
     void* dim = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source index part model item.
     void* sim = *NULL_POINTER_STATE_CYBOI_MODEL;

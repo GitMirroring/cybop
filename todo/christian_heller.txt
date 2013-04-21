@@ -10,6 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Add remaining bit manipulation operations "rotate-left", "rotate-right" etc.
+
 & AND (Binary operator)
 unsigned int a = 60;    /* 60 = 0011 1100 */
 unsigned int b = 13;        /* 13 = 0000 1101 */
