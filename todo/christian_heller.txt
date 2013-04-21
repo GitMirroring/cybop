@@ -10,6 +10,39 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+& AND (Binary operator)
+unsigned int a = 60;    /* 60 = 0011 1100 */
+unsigned int b = 13;        /* 13 = 0000 1101 */
+unsigned int c = 0;
+c = a & b;                  /* 12 = 0000 1100 */
+
+| inclusive OR
+unsigned int a = 60;    /* 60 = 0011 1100 */
+unsigned int b = 13;        /* 13 = 0000 1101 */
+unsigned int c = 0;
+c = a | b;                  /* 61 = 0011 1101 */
+
+^ exclusive OR (XOR)
+unsigned int a = 60;    /* 60 = 0011 1100 */
+unsigned int b = 13;        /* 13 = 0000 1101 */
+unsigned int c = 0;
+c = a ^ b;                  /* 49 = 0011 0001 */
+
+<< shift left
+unsigned int Value=4;          /*  4 = 0000 0100 */
+unsigned int Shift=2;
+Value = Value << Shift;        /* 16 = 0001 0000 */
+
+>> shift right
+unsigned int Value=16;          /* 16 = 0001 0000 */
+unsigned int Shift=2;
+Value = Value >> Shift;        /* 4 = 0000 0100 */
+
+~ one's complement
+unsigned int Value=4;          /*   4 = 0000 0100 */
+Value = ~ Value;               /* 251 = 1111 1011 */
+
+--
         * Check "bold" attribute again: in win32 both "intensive"? how is it in unix terminal?
         * Add bit manipulation operation files in directory "executor/manipulator/"
         * Use bit manipulation functions in files "background_win32_console_serialiser.c", "foreground_win32_console_serialiser.c", "effect_win32_console_serialiser.c"

@@ -26,8 +26,50 @@
 #ifndef BIT_MANIPULATOR_SOURCE
 #define BIT_MANIPULATOR_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/modifier/copier/integer_copier.c"
+#include "../../logger/logger.c"
+
 // Add Bit operations like NOT, AND, OR, EXCLUSIVE OR, SHIFT LEFT, SHIFT RIGHT.
 // See file "constant/format/cybol/logic/manipulate_logic_cybol_format.c"!
+
+/**
+ * Connects the given values following boolean logic.
+ *
+ * @param p0 the result (number 1 if true; unchanged otherwise)
+ * @param p1 the left value
+ * @param p2 the right value
+ */
+void manipulate_bit_and(void* p0, void* p1, void* p2) {
+
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* rv = (int*) p2;
+
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* lv = (int*) p1;
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify boolean and.");
+
+            if ((*lv) && (*rv)) {
+
+                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean and. The left value is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean and. The right value is null.");
+    }
+}
 
 /* BIT_MANIPULATOR_SOURCE */
 #endif

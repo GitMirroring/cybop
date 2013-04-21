@@ -26,6 +26,7 @@
 #ifndef INTEGER_CALCULATOR_SOURCE
 #define INTEGER_CALCULATOR_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -33,6 +34,7 @@
 #include "../../../executor/calculator/basic/integer/absolute_integer_calculator.c"
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/calculator/basic/integer/divide_integer_calculator.c"
+#include "../../../executor/calculator/basic/integer/modulo_integer_calculator.c"
 #include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../executor/calculator/basic/integer/negate_integer_calculator.c"
 #include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
@@ -79,6 +81,16 @@ void calculate_integer(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             calculate_integer_divide(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) MODULO_CALCULATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            calculate_integer_modulo(p0, p1);
         }
     }
 

@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add "modulo" integer calculation operation
+
 2013-04-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Hand over terminal parametre to all functions in win32 console serialiser

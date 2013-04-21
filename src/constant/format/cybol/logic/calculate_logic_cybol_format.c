@@ -94,6 +94,19 @@ static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT = DIVIDE_CALCULATE_LOGIC_CYB
 static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The calculate/modulo logic cybol format.
+ *
+ * Determine the remainder of an integer division.
+ *
+ * remainder = dividend % divisor
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'm', L'o', L'd', L'u', L'l', L'o'};
+static wchar_t* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT = MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The calculate/multiply logic cybol format.
  *
  * Multiply two numbers.
