@@ -23,52 +23,44 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CLEAR_CHARACTER_MANIPULATOR_SOURCE
-#define CLEAR_CHARACTER_MANIPULATOR_SOURCE
+#ifndef SHIFT_RIGHT_INTEGER_MANIPULATOR_SOURCE
+#define SHIFT_RIGHT_INTEGER_MANIPULATOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/manipulator/character/shift_left_character_manipulator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Clears (in other words: resets) the bit at the given position.
+ * Shifts all bits of value to the right by position.
  *
  * @param p0 the value
  * @param p1 the position
  */
-void manipulate_character_clear(void* p0, void* p1) {
+void manipulate_integer_shift_right(void* p0, void* p1) {
 
-    //
-    // CAUTION! Use "unsigned char" with range 0..+255
-    // and NOT just "char" with range -128..+127 here.
-    //
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        int* p = (int*) p1;
 
-        unsigned char* v = (unsigned char*) p0;
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate character clear.");
+            int* v = (int*) p0;
 
-        // The bit mask.
-        unsigned char b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate integer shift right.");
 
-        // Prepare bit mask.
-        manipulate_character_shift_left((void*) &b, p1);
+            *v = *v >> (*p);
 
-        // Invert bit mask using bitwise NOT operator ~.
-        b = ~b;
+        } else {
 
-        // Apply and.
-        *v = *v & b;
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer shift right. The value is null.");
+        }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate character clear. The value is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer shift right. The position is null.");
     }
 }
 
-/* CLEAR_CHARACTER_MANIPULATOR_SOURCE */
+/* SHIFT_RIGHT_INTEGER_MANIPULATOR_SOURCE */
 #endif

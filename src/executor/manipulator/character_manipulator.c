@@ -33,7 +33,11 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/manipulator/character/check_character_manipulator.c"
 #include "../../executor/manipulator/character/clear_character_manipulator.c"
+#include "../../executor/manipulator/character/rotate_left_character_manipulator.c"
+#include "../../executor/manipulator/character/rotate_right_character_manipulator.c"
 #include "../../executor/manipulator/character/set_character_manipulator.c"
+#include "../../executor/manipulator/character/shift_left_character_manipulator.c"
+#include "../../executor/manipulator/character/shift_right_character_manipulator.c"
 #include "../../executor/manipulator/character/toggle_character_manipulator.c"
 #include "../../logger/logger.c"
 
@@ -77,11 +81,51 @@ void manipulate_character(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            if (*t == *ROTATE_LEFT_MANIPULATE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                manipulate_character_rotate_left(p0, p1);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*t == *ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                manipulate_character_rotate_right(p0, p1);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
             if (*t == *SET_MANIPULATE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 manipulate_character_set(p0, p1);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*t == *SHIFT_LEFT_MANIPULATE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                manipulate_character_shift_left(p0, p1);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*t == *SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                manipulate_character_shift_right(p0, p1);
             }
         }
 

@@ -33,7 +33,11 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/manipulator/integer/check_integer_manipulator.c"
 #include "../../executor/manipulator/integer/clear_integer_manipulator.c"
+#include "../../executor/manipulator/integer/rotate_left_integer_manipulator.c"
+#include "../../executor/manipulator/integer/rotate_right_integer_manipulator.c"
 #include "../../executor/manipulator/integer/set_integer_manipulator.c"
+#include "../../executor/manipulator/integer/shift_left_integer_manipulator.c"
+#include "../../executor/manipulator/integer/shift_right_integer_manipulator.c"
 #include "../../executor/manipulator/integer/toggle_integer_manipulator.c"
 #include "../../logger/logger.c"
 
@@ -77,11 +81,51 @@ void manipulate_integer(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            if (*t == *ROTATE_LEFT_MANIPULATE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                manipulate_integer_rotate_left(p0, p1);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*t == *ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                manipulate_integer_rotate_right(p0, p1);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
             if (*t == *SET_MANIPULATE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 manipulate_integer_set(p0, p1);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*t == *SHIFT_LEFT_MANIPULATE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                manipulate_integer_shift_left(p0, p1);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*t == *SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                manipulate_integer_shift_right(p0, p1);
             }
         }
 

@@ -28,7 +28,9 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/manipulator/integer/shift_left_integer_manipulator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -39,39 +41,33 @@
  */
 void manipulate_integer_check(void* p0, void* p1) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* p = (int*) p1;
+        int* v = (int*) p0;
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate integer check.");
 
-            int* v = (int*) p0;
+        // The bit mask.
+        int b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate integer check.");
+        // Prepare bit mask.
+        manipulate_integer_shift_left((void*) &b, p1);
 
-            // The bit mask.
-            int b = 1 << (*p);
-
-            // Apply and.
-            //
-            // CAUTION! The following code will NOT
-            // get the bit value at position p,
-            // unless the value is of type _Bool (<stdbool.h>).
-            // Therefore, use double-NOT !! as workaround.
-            // The first NOT characterises the number as boolean value.
-            // The second NOT corrects the value back again.
-            //
-            // http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c
-            *v = !!(*v & b);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer check. The value is null.");
-        }
+        // Apply and.
+        //
+        // CAUTION! The following code will NOT
+        // get the bit value at position p,
+        // unless the value is of type _Bool (<stdbool.h>).
+        // Therefore, use double-NOT !! as workaround.
+        // The first NOT characterises the number as boolean value.
+        // The second NOT corrects the value back again.
+        //
+        // http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c
+        *v = !!(*v & b);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer check. The position is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer check. The value is null.");
     }
 }
 

@@ -28,7 +28,9 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/manipulator/character/shift_left_character_manipulator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -44,30 +46,24 @@ void manipulate_character_toggle(void* p0, void* p1) {
     // and NOT just "char" with range -128..+127 here.
     //
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* p = (int*) p1;
+        unsigned char* v = (unsigned char*) p0;
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate character toggle.");
 
-            unsigned char* v = (unsigned char*) p0;
+        // The bit mask.
+        unsigned char b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate character toggle.");
+        // Prepare bit mask.
+        manipulate_character_shift_left((void*) &b, p1);
 
-            // The bit mask.
-            unsigned char b = 1 << (*p);
-
-            // Apply exclusive or (xor).
-            *v = *v ^ b;
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate character toggle. The value is null.");
-        }
+        // Apply exclusive or (xor).
+        *v = *v ^ b;
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate character toggle. The position is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate character toggle. The value is null.");
     }
 }
 
