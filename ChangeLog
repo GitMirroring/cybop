@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add bit logic operations "not", "and", "or", "xor"
+        * Reduce redundancy in bit manipulation functions by using bit logic operations function calls wherever possible
+
 2013-04-22  Tobias Köhler  <tk@snake-universe.tk>
 
         * nanosleep() added for win32
