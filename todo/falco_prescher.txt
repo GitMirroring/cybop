@@ -14,3 +14,4 @@
         * Factor out parts of cyboi into special libraries, e.g. x-window-system,
             in order to minimise cyboi size for usage in embedded systems
             and to improve portability
+        * Provide shell commands in a platform-independent way, usable on posix and win32
