@@ -30,6 +30,7 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/logifier/character/or_character_logifier.c"
 #include "../../../executor/manipulator/character/shift_left_character_manipulator.c"
 #include "../../../logger/logger.c"
 
@@ -46,25 +47,16 @@ void manipulate_character_set(void* p0, void* p1) {
     // and NOT just "char" with range -128..+127 here.
     //
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate character set.");
 
-        unsigned char* v = (unsigned char*) p0;
+    // The bit mask.
+    unsigned char b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate character set.");
+    // Prepare bit mask.
+    manipulate_character_shift_left((void*) &b, p1);
 
-        // The bit mask.
-        unsigned char b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-        // Prepare bit mask.
-        manipulate_character_shift_left((void*) &b, p1);
-
-        // Apply or.
-        *v = *v | b;
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate character set. The value is null.");
-    }
+    // Apply or.
+    logify_character_or(p0, (void*) &b);
 }
 
 /* SET_CHARACTER_MANIPULATOR_SOURCE */

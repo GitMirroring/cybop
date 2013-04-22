@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef OR_BOOLEAN_LOGIFIER_SOURCE
-#define OR_BOOLEAN_LOGIFIER_SOURCE
+#ifndef OR_INTEGER_LOGIFIER_SOURCE
+#define OR_INTEGER_LOGIFIER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -34,39 +34,35 @@
 #include "../../../logger/logger.c"
 
 /**
- * Connects the given values following boolean logic.
+ * Apply bit logic operation (inclusive) or.
  *
- * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left value
- * @param p2 the right value
+ * @param p0 the value
+ * @param p1 the mask
  */
-void logify_boolean_or(void* p0, void* p1, void* p2) {
+void logify_integer_or(void* p0, void* p1) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* rv = (int*) p2;
+        int* m = (int*) p1;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* lv = (int*) p1;
+            int* v = (int*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify boolean or.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify integer or.");
 
-            if ((*lv) || (*rv)) {
-
-                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
+            *v = (*v) | (*m);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean or. The left value is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer or. The value is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean or. The right value is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer or. The mask is null.");
     }
 }
 
-/* OR_BOOLEAN_LOGIFIER_SOURCE */
+/* OR_INTEGER_LOGIFIER_SOURCE */
 #endif

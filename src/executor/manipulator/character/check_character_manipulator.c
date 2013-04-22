@@ -30,6 +30,7 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/logifier/character/and_character_logifier.c"
 #include "../../../executor/manipulator/character/shift_left_character_manipulator.c"
 #include "../../../logger/logger.c"
 
@@ -68,6 +69,8 @@ void manipulate_character_check(void* p0, void* p1) {
         // The second NOT corrects the value back again.
         //
         // http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c
+        //
+        //??logify_character_and(p0, (void*) &b);
         *v = !!(*v & b);
 
     } else {

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NOT_BOOLEAN_LOGIFIER_SOURCE
-#define NOT_BOOLEAN_LOGIFIER_SOURCE
+#ifndef XOR_INTEGER_LOGIFIER_SOURCE
+#define XOR_INTEGER_LOGIFIER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -34,33 +34,35 @@
 #include "../../../logger/logger.c"
 
 /**
- * Negates the given value following boolean logic.
+ * Apply bit logic operation xor (exclusive or).
  *
- * @param p0 the result (number 1 if operand is false; number 0 if operand is true; unchanged if null)
- * @param p1 the value
+ * @param p0 the value
+ * @param p1 the mask
  */
-void logify_boolean_not(void* p0) {
+void logify_integer_xor(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* v = (int*) p1;
+        int* m = (int*) p1;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify boolean not.");
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if !(*v) {
+            int* v = (int*) p0;
 
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify integer xor.");
+
+            *v = (*v) ^ (*m);
 
         } else {
 
-            copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer xor. The left value is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean not. The value is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer xor. The right value is null.");
     }
 }
 
-/* NOT_BOOLEAN_LOGIFIER_SOURCE */
+/* XOR_INTEGER_LOGIFIER_SOURCE */
 #endif

@@ -30,6 +30,7 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/logifier/integer/or_integer_logifier.c"
 #include "../../../executor/manipulator/integer/shift_left_integer_manipulator.c"
 #include "../../../logger/logger.c"
 
@@ -41,25 +42,16 @@
  */
 void manipulate_integer_set(void* p0, void* p1) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate integer set.");
 
-        int* v = (int*) p0;
+    // The bit mask.
+    int b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate integer set.");
+    // Prepare bit mask.
+    manipulate_integer_shift_left((void*) &b, p1);
 
-        // The bit mask.
-        int b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-        // Prepare bit mask.
-        manipulate_integer_shift_left((void*) &b, p1);
-
-        // Apply or.
-        *v = *v | b;
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer set. The value is null.");
-    }
+    // Apply or.
+    logify_integer_or(p0, (void*) &b);
 }
 
 /* SET_INTEGER_MANIPULATOR_SOURCE */

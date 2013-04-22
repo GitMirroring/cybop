@@ -30,6 +30,8 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/logifier/integer/and_integer_logifier.c"
+#include "../../../executor/logifier/integer/not_integer_logifier.c"
 #include "../../../executor/manipulator/integer/shift_left_integer_manipulator.c"
 #include "../../../logger/logger.c"
 
@@ -41,28 +43,19 @@
  */
 void manipulate_integer_clear(void* p0, void* p1) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate integer clear.");
 
-        int* v = (int*) p0;
+    // The bit mask.
+    int b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate integer clear.");
+    // Prepare bit mask.
+    manipulate_integer_shift_left((void*) &b, p1);
 
-        // The bit mask.
-        int b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    // Invert bit mask using NOT operator ~.
+    logify_integer_not((void*) &b);
 
-        // Prepare bit mask.
-        manipulate_integer_shift_left((void*) &b, p1);
-
-        // Invert bit mask using bitwise NOT operator ~.
-        b = ~b;
-
-        // Apply and.
-        *v = *v & b;
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer clear. The value is null.");
-    }
+    // Apply and.
+    logify_integer_and(p0, (void*) &b);
 }
 
 /* CLEAR_INTEGER_MANIPULATOR_SOURCE */

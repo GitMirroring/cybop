@@ -23,41 +23,46 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TOGGLE_CHARACTER_MANIPULATOR_SOURCE
-#define TOGGLE_CHARACTER_MANIPULATOR_SOURCE
+#ifndef AND_CHARACTER_LOGIFIER_SOURCE
+#define AND_CHARACTER_LOGIFIER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/logifier/character/xor_character_logifier.c"
-#include "../../../executor/manipulator/character/shift_left_character_manipulator.c"
+#include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Toggles the bit at the given position.
+ * Apply bit logic operation and.
  *
  * @param p0 the value
- * @param p1 the position
+ * @param p1 the mask
  */
-void manipulate_character_toggle(void* p0, void* p1) {
+void logify_character_and(void* p0, void* p1) {
 
-    //
-    // CAUTION! Use "unsigned char" with range 0..+255
-    // and NOT just "char" with range -128..+127 here.
-    //
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate character toggle.");
+        unsigned char* m = (unsigned char*) p1;
 
-    // The bit mask.
-    unsigned char b = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Prepare bit mask.
-    manipulate_character_shift_left((void*) &b, p1);
+            unsigned char* v = (unsigned char*) p0;
 
-    // Apply exclusive or (xor).
-    logify_character_xor(p0, (void*) &b);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify character and.");
+
+            *v = (*v) & (*m);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character and. The value is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character and. The mask is null.");
+    }
 }
 
-/* TOGGLE_CHARACTER_MANIPULATOR_SOURCE */
+/* AND_CHARACTER_LOGIFIER_SOURCE */
 #endif
