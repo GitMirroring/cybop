@@ -18,6 +18,7 @@
 
 2013-04-22  Tobias Köhler  <tk@snake-universe.tk>
 
+        * Add list directory support for win32
         * Fixed win32 terminal output
 
 2013-04-21  Christian Heller  <christian.heller@tuxtax.de>
