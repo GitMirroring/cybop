@@ -26,6 +26,7 @@
 #ifndef FILE_TERMINAL_SENDER_SOURCE
 #define FILE_TERMINAL_SENDER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -34,7 +35,7 @@
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
-//??    #include "../../../../executor/communicator/sender/win32_console/stream_win32_console_sender.c"
+    #include "../../../../executor/communicator/sender/win32_console/stream_win32_console_sender.c"
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/communicator/sender/unix_terminal/stream_unix_terminal_sender.c"
@@ -66,7 +67,7 @@ void send_terminal_file(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &od, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 #ifdef WIN32
-//??    send_win32_console_stream(od, p0, p1);
+    send_win32_console_stream(od, p0, p1);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     send_unix_terminal_stream(od, p0, p1);

@@ -39,11 +39,6 @@
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
-/*?? TODO: Delete? It is now superfluous!
-#ifdef WIN32
-    #include "ansi_win32.c"
-#endif
-*/
 
 /**
  * Sends the source to the win32 console output.
@@ -54,12 +49,16 @@
  */
 void send_win32_console_stream(void* p0, void* p1, void* p2) {
 
-    //?? TODO: not working !!! (WIN32 p0(DATA_ITEM_STATE_CYBOI_NAME) is NULL)
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        HANDLE o = (HANDLE) p0;
-//??        void* o = (void*) stdout;
+        int* d = (int*) p0;
 
+        // Cast DEREFERENCED value to handle.
+        // CAUTION! The output data is stored as int value,
+        // but actually references a win32 console handle.
+        // This is just to be sure that the correct type is used.
+        HANDLE dh = (HANDLE) *d;
+//??        void* dh = (void*) stdout;
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send win32 console stream.");
 
         //
@@ -86,10 +85,7 @@ void send_win32_console_stream(void* p0, void* p1, void* p2) {
         // The placeholder %ls would be WRONG here as it expects data
         // of type "wchar_t".
 
-//??        int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
-        //?? TODO: fwprintf does not work in Windows CMD
-//??            cfwprintf(stdout, "%s", (char*) p1);
-        int e = 0;
+        int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
 
         // Test error value.
         //
