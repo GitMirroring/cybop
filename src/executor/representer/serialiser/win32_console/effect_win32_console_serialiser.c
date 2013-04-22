@@ -44,23 +44,45 @@
  */
 void serialise_win32_console_effect(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console effect.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    compare_integer_unequal((void*) &r, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        //?? TMP: Replace later with bit manipulation function "manipulate_bit_or" of file "or_bit_manipulator.c"
         WORD* s = (WORD*) p1;
 
-        //?? TMP: Replace later with bit manipulation function "manipulate_bit_or" of file "or_bit_manipulator.c"
-        WORD* d = (WORD*) p0;
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //?? TMP: Replace later with bit manipulation function "manipulate_bit_or" of file "or_bit_manipulator.c"
-        *d = *d | *s;
+            WORD* d = (WORD*) p0;
+
+            // CAUTION! The "logify_integer_or" function is NOT used below,
+            // as it would require too many conversions causing bad performance.
+            // The reason is that "int" parametres are expected,
+            // while the destination data is of type "WORD" (16 bit) and
+            // the win32 constants are of type "uint32" (unsigned).
+            // Also, making a reference of a constant like for example
+            // "&BACKGROUND_BLUE" leads to the following error:
+            // "lvalue required as unary ‘&’ operand".
+            // Therefore, attribute values are OR-combined and
+            // assigned directly (i.e. without function call) below.
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console effect.");
+
+            // The comparison result.
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+            compare_integer_unequal((void*) &r, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                *d = *d | *s;
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console effect. The destination data is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console effect. The destination data is null.");
     }
 }
 

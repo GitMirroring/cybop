@@ -17,7 +17,6 @@
 
         * Think through shell command usage for "unix_shell" as well as "windows_shell"
 
-        * Use bit manipulation functions in files "background_win32_console_serialiser.c", "foreground_win32_console_serialiser.c", "effect_win32_console_serialiser.c"
         * Check "bold" attribute again: in win32 both "intensive"? how is it in unix terminal?
         * Activate terminal input for win32 console
 
