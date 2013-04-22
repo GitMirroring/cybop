@@ -1,85 +1,85 @@
 <model>
 
     <!-- The loop models. -->
-    <part name="topic_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
-    <part name="topic_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
-    <part name="topic_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="category_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
-    <part name="category_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
-    <part name="category_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="operation_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
-    <part name="operation_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
-    <part name="operation_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
-    <part name="properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
-    <part name="properties_index" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="0"/>
-    <part name="properties_break" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="false"/>
+    <part name="topic_count" channel="inline" format="number/integer" model="0"/>
+    <part name="topic_index" channel="inline" format="number/integer" model="0"/>
+    <part name="topic_break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="category_count" channel="inline" format="number/integer" model="0"/>
+    <part name="category_index" channel="inline" format="number/integer" model="0"/>
+    <part name="category_break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="operation_count" channel="inline" format="number/integer" model="0"/>
+    <part name="operation_index" channel="inline" format="number/integer" model="0"/>
+    <part name="operation_break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="properties_count" channel="inline" format="number/integer" model="0"/>
+    <part name="properties_index" channel="inline" format="number/integer" model="0"/>
+    <part name="properties_break" channel="inline" format="logicvalue/boolean" model="false"/>
 
     <!-- The selected part names. -->
-    <part name="selected_topic" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="selected_category" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="selected_operation" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="selected_property" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="selected_topic" channel="inline" format="text/plain" model=""/>
+    <part name="selected_category" channel="inline" format="text/plain" model=""/>
+    <part name="selected_operation" channel="inline" format="text/plain" model=""/>
+    <part name="selected_property" channel="inline" format="text/plain" model=""/>
 
     <!-- The dynamic knowledge path temporary variables. -->
-    <part name="topic_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="topic_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="topic_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="topic_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="topic_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="topic_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="topic_toc_path_div" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="topic_toc_path_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_toc_path_div" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_toc_path_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_content_path_description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_content_path_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_content_path_example" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_content_path_example_div" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_content_path_example_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_toc_path_div" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="operation_toc_path_div_class" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=""/>
-    <part name="operation_toc_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_toc_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_toc_path_href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_content_path" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_content_path_specific" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_content_path_description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_content_path_required" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_content_path_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_content_path_model" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_content_path_tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_required_value" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model=""/>
+    <part name="topic_content_path" channel="inline" format="text/plain" model=""/>
+    <part name="topic_content_path_name" channel="inline" format="text/plain" model=""/>
+    <part name="topic_content_path_anchor" channel="inline" format="text/plain" model=""/>
+    <part name="topic_toc_path" channel="inline" format="text/plain" model=""/>
+    <part name="topic_toc_path_name" channel="inline" format="text/plain" model=""/>
+    <part name="topic_toc_path_href" channel="inline" format="text/plain" model=""/>
+    <part name="topic_toc_path_div" channel="inline" format="text/plain" model=""/>
+    <part name="topic_toc_path_div_class" channel="inline" format="text/plain" model=""/>
+    <part name="category_content_path" channel="inline" format="text/plain" model=""/>
+    <part name="category_content_path_name" channel="inline" format="text/plain" model=""/>
+    <part name="category_content_path_anchor" channel="inline" format="text/plain" model=""/>
+    <part name="category_toc_path" channel="inline" format="text/plain" model=""/>
+    <part name="category_toc_path_name" channel="inline" format="text/plain" model=""/>
+    <part name="category_toc_path_href" channel="inline" format="text/plain" model=""/>
+    <part name="category_toc_path_div" channel="inline" format="text/plain" model=""/>
+    <part name="category_toc_path_div_class" channel="inline" format="text/plain" model=""/>
+    <part name="operation_content_path" channel="inline" format="text/plain" model=""/>
+    <part name="operation_content_path_name" channel="inline" format="text/plain" model=""/>
+    <part name="operation_content_path_anchor" channel="inline" format="text/plain" model=""/>
+    <part name="operation_content_path_description" channel="inline" format="text/plain" model=""/>
+    <part name="operation_content_path_format" channel="inline" format="text/plain" model=""/>
+    <part name="operation_content_path_example" channel="inline" format="text/plain" model=""/>
+    <part name="operation_content_path_example_div" channel="inline" format="text/plain" model=""/>
+    <part name="operation_content_path_example_div_class" channel="inline" format="text/plain" model=""/>
+    <part name="operation_toc_path_div" channel="inline" format="path/knowledge" model=""/>
+    <part name="operation_toc_path_div_class" channel="inline" format="path/knowledge" model=""/>
+    <part name="operation_toc_path" channel="inline" format="text/plain" model=""/>
+    <part name="operation_toc_path_name" channel="inline" format="text/plain" model=""/>
+    <part name="operation_toc_path_href" channel="inline" format="text/plain" model=""/>
+    <part name="property_content_path" channel="inline" format="text/plain" model=""/>
+    <part name="property_content_path_specific" channel="inline" format="text/plain" model=""/>
+    <part name="property_content_path_name" channel="inline" format="text/plain" model=""/>
+    <part name="property_content_path_description" channel="inline" format="text/plain" model=""/>
+    <part name="property_content_path_required" channel="inline" format="text/plain" model=""/>
+    <part name="property_content_path_format" channel="inline" format="text/plain" model=""/>
+    <part name="property_content_path_model" channel="inline" format="text/plain" model=""/>
+    <part name="property_content_path_tag" channel="inline" format="text/plain" model=""/>
+    <part name="property_required_value" channel="inline" format="logicvalue/boolean" model=""/>
 
     <!-- The temporary path links to items. -->
-    <part name="topic_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="topic_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="category_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="operation_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_link" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="property_link_number" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="topic_link" channel="inline" format="text/plain" model=""/>
+    <part name="topic_link_number" channel="inline" format="text/plain" model=""/>
+    <part name="category_link" channel="inline" format="text/plain" model=""/>
+    <part name="category_link_number" channel="inline" format="text/plain" model=""/>
+    <part name="operation_link" channel="inline" format="text/plain" model=""/>
+    <part name="operation_link_number" channel="inline" format="text/plain" model=""/>
+    <part name="property_link" channel="inline" format="text/plain" model=""/>
+    <part name="property_link_number" channel="inline" format="text/plain" model=""/>
 
     <!-- The category properties access. -->
-    <part name="link_spec_properties" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="link_spec_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="link_spec_example" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="link_spec_description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="link_spec_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="link_property_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="link_property_description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="link_property_required" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="link_property_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="link_property_model" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="link_spec_properties" channel="inline" format="text/plain" model=""/>
+    <part name="link_spec_format" channel="inline" format="text/plain" model=""/>
+    <part name="link_spec_example" channel="inline" format="text/plain" model=""/>
+    <part name="link_spec_description" channel="inline" format="text/plain" model=""/>
+    <part name="link_spec_name" channel="inline" format="text/plain" model=""/>
+    <part name="link_property_name" channel="inline" format="text/plain" model=""/>
+    <part name="link_property_description" channel="inline" format="text/plain" model=""/>
+    <part name="link_property_required" channel="inline" format="text/plain" model=""/>
+    <part name="link_property_format" channel="inline" format="text/plain" model=""/>
+    <part name="link_property_model" channel="inline" format="text/plain" model=""/>
 
 </model>

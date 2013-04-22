@@ -1,11 +1,11 @@
 <model>
 <!--
-    <part name="metadata" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/wui/metadata.cybol"/>
+    <part name="metadata" channel="file" format="element/part" model="cybol/wui/metadata.cybol"/>
 -->
     <!-- The html data transfer object (dto) used as temporary buffer for translation. -->
-    <part name="message" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-    <part name="index" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/wui/index.cybol">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="html"/>
+    <part name="message" channel="inline" format="text/plain" model=""/>
+    <part name="index" channel="file" format="element/part" model="cybol/wui/index.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="html"/>
     </part>
     <!-- Further html files may follow here ... -->
 </model>

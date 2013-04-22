@@ -1,6 +1,6 @@
 <model>
-    <part name="operation_toc" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a"/>
-        <property name="href" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="operation_toc" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="a"/>
+        <property name="href" channel="inline" format="text/plain" model=""/>
     </part>
 </model>

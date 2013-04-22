@@ -1,36 +1,36 @@
 <model>
     <!-- build knowledgepath to category name -->
-    <part name="clear_category_content_path_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_name"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    <part name="clear_category_content_path_name" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_content_path_name"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_belonging_category_knowledge_path_to_name" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_name"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    <part name="add_belonging_category_knowledge_path_to_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_content_path_name"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.category_content_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_path_to_name_to_property" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_name"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".category"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    <part name="add_path_to_name_to_property" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_content_path_name"/>
+        <property name="source" channel="inline" format="text/plain" model=".category"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <!-- build knowledgepath to category anchor -->
-    <part name="clear_category_content_path_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_anchor"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    <part name="clear_category_content_path_anchor" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_content_path_anchor"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_belonging_category_knowledge_path_to_anchor" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_anchor"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    <part name="add_belonging_category_knowledge_path_to_anchor" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_content_path_anchor"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.category_content_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_path_to_anchor_to_property" channel="inline" encoding="utf-8" language="text/cybol" format="modify/append" model="">
-        <property name="destination" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.category_content_path_anchor"/>
-        <property name="source" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=".category_anchor#name"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="text/plain"/>
+    <part name="add_path_to_anchor_to_property" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_content_path_anchor"/>
+        <property name="source" channel="inline" format="text/plain" model=".category_anchor#name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
 </model>

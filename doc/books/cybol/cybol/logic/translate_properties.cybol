@@ -1,35 +1,35 @@
 <model>
     <!-- build property global path -->
-    <part name="build_property_specification_global_path" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_spec"/>
+    <part name="build_property_specification_global_path" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_property_spec"/>
     </part>
 
     <!-- build property specification paths -->
-    <part name="build_property_specification_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_spec_path"/>
+    <part name="build_property_specification_paths" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_property_spec_path"/>
     </part>
 
     <!-- build property wui paths -->
-    <part name="build_property_wui_paths" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_wui_path"/>
+    <part name="build_property_wui_paths" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_property_wui_path"/>
     </part>
 
     <!-- fill table row with spec information -->
-    <part name="build_property_wui_row" channel="inline" encoding="utf-8" language="text/cybol" format="flow/sequence" model="">
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".logic.build_property_wui_row"/>
+    <part name="build_property_wui_row" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_property_wui_row"/>
     </part>
 
     <!-- handle property loop after finished property --> 
-    <part name="increment_properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_index"/>
-        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    <part name="increment_properties_count" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".temporary.properties_index"/>
+        <property name="operand" channel="inline" format="number/integer" model="1"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
-    <part name="compare_properties_count" channel="inline" encoding="utf-8" language="text/cybol" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_break"/>
-        <property name="right" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_count"/>
-        <property name="left" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".temporary.properties_index"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="all"/>
+    <part name="compare_properties_count" channel="inline" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".temporary.properties_break"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".temporary.properties_count"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".temporary.properties_index"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 </model>

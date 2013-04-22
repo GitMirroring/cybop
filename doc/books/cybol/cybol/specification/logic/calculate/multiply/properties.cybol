@@ -1,23 +1,23 @@
 <model>
-    <part name="result" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="result"/>
-        <property name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="The product resulting from the multiplication. It initially contains the first factor."/>
-        <property name="required" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer | double | knowledge | encapsulated"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a number or a knowledge model path"/>
+    <part name="result" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="result"/>
+        <property name="description" channel="inline" format="text/plain" model="The product resulting from the multiplication. It initially contains the first factor."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="integer | double | knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a number or a knowledge model path"/>
     </part>
-    <part name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="operand"/>
-        <property name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="The second factor for the multiplication."/>
-        <property name="required" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="integer | double | knowledge | encapsulated"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a number or a knowledge model path"/>
+    <part name="operand" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="operand"/>
+        <property name="description" channel="inline" format="text/plain" model="The second factor for the multiplication."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="integer | double | knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a number or a knowledge model path"/>
     </part>
-    <part name="type" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="type"/>
-        <property name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="The number type. It has to be identical for all parametres."/>
-        <property name="required" channel="inline" encoding="utf-8" language="text/cybol" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="number/integer | number/float | path/knowledge | path/encapsulated"/>
-        <property name="model" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="a mime type format"/>
+    <part name="type" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="type"/>
+        <property name="description" channel="inline" format="text/plain" model="The number type. It has to be identical for all parametres."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer | number/float | path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a mime type format"/>
     </part>
 </model>

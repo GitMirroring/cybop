@@ -1,7 +1,7 @@
 <model>
-    <part name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="negate"/>
-    <part name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Negates a given number."/>
-    <part name="example" channel="file" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/specification/logic/calculate/negate/example.txt"/>
-    <part name="format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="calculate/negate"/>
-    <part name="properties" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/negate/properties.cybol"/>
+    <part name="name" channel="inline" format="text/plain" model="negate"/>
+    <part name="description" channel="inline" format="text/plain" model="Negates a given number."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/calculate/negate/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="calculate/negate"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/calculate/negate/properties.cybol"/>
 </model>

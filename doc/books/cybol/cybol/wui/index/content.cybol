@@ -1,5 +1,5 @@
 <model>
-    <part name="heading" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="CYBOL Specification 2012-08-22 -- Application Programming Interface (API)">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h1"/>
+    <part name="heading" channel="inline" format="text/plain" model="CYBOL Specification 2012-08-22 -- Application Programming Interface (API)">
+        <property name="tag" channel="inline" format="text/plain" model="h1"/>
     </part>
 </model>

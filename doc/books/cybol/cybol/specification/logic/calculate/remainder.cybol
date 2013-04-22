@@ -1,7 +1,7 @@
 <model>
-    <part name="name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="remainder"/>
-    <part name="description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Not implemented yet."/>
-    <part name="example" channel="file" encoding="utf-8" language="text/cybol" format="text/plain" model="cybol/specification/logic/calculate/remainder/example.txt"/>
-    <part name="format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="calculate/remainder"/>
-    <part name="properties" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate/remainder/properties.cybol"/>
+    <part name="name" channel="inline" format="text/plain" model="remainder"/>
+    <part name="description" channel="inline" format="text/plain" model="Not implemented yet."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/calculate/remainder/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="calculate/remainder"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/calculate/remainder/properties.cybol"/>
 </model>

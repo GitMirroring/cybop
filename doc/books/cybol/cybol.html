@@ -18,49 +18,29 @@
                     logic
                 </a>
                 <div class="category_toc">
+                    <a href="#access">
+                        access
+                    </a>
+                    <div class="operation_toc">
+                        <a href="#count">
+                            count
+                        </a>
+                    </div>
+                    <div class="operation_toc">
+                        <a href="#get">
+                            get
+                        </a>
+                    </div>
+                    <div class="operation_toc">
+                        <a href="#indicate">
+                            indicate
+                        </a>
+                    </div>
+                </div>
+                <div class="category_toc">
                     <a href="#calculate">
                         calculate
                     </a>
-                    <div class="operation_toc">
-                        <a href="#absolute">
-                            absolute
-                        </a>
-                    </div>
-                    <div class="operation_toc">
-                        <a href="#add">
-                            add
-                        </a>
-                    </div>
-                    <div class="operation_toc">
-                        <a href="#divide">
-                            divide
-                        </a>
-                    </div>
-                    <div class="operation_toc">
-                        <a href="#multiply">
-                            multiply
-                        </a>
-                    </div>
-                    <div class="operation_toc">
-                        <a href="#negate">
-                            negate
-                        </a>
-                    </div>
-                    <div class="operation_toc">
-                        <a href="#reduce">
-                            reduce
-                        </a>
-                    </div>
-                    <div class="operation_toc">
-                        <a href="#remainder">
-                            remainder
-                        </a>
-                    </div>
-                    <div class="operation_toc">
-                        <a href="#subtract">
-                            subtract
-                        </a>
-                    </div>
                 </div>
                 <div class="category_toc">
                     <a href="#communicate">
@@ -135,37 +115,40 @@
                     logic
                 </h1>
                 <ERROR_MISSING_TAG_NAME>
-                    <a name="calculate">
+                    <a name="access">
                     </a>
                     <h2>
-                        calculate
+                        access
                     </h2>
                     <ERROR_MISSING_TAG_NAME>
-                        <a name="absolute">
+                        <a name="count">
                         </a>
                         <h3>
-                            absolute
+                            count
                         </h3>
                         <h5>
                             Description
                         </h5>
                         <ERROR_MISSING_TAG_NAME>
+                            Count parts of a compound part.
                         </ERROR_MISSING_TAG_NAME>
                         <h5>
                             Format
                         </h5>
                         <ERROR_MISSING_TAG_NAME>
-                            calculate/absolute
+                            access/count
                         </ERROR_MISSING_TAG_NAME>
                         <h5>
                             Example
                         </h5>
                         <div class="operation_example">
-&#x3C;part name=&#x22;absolute&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;calculate/absolute&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;property name=&#x22;operand&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
-    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+&#x3C;part name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;access/count&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.count&#x22;/&#x3E;
+    &#x3C;property name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.application.addressbook&#x22;/&#x3E;
+    &#x3C;property name=&#x22;selection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;prefix&#x22;/&#x3E;
+    &#x3C;property name=&#x22;filter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;student&#x22;/&#x3E;
 &#x3C;/part&#x3E;
+
                         </div>
                         <h5>
                             Properties
@@ -199,10 +182,9 @@
                                     true
                                 </td>
                                 <td>
-                                    integer | double | knowledge | encapsulated
+                                    integer | double | knowledge | path/reference
                                 </td>
                                 <td>
-                                    a number or a knowledge model path
                                 </td>
                             </tr>
                             <tr>
@@ -216,10 +198,9 @@
                                     true
                                 </td>
                                 <td>
-                                    integer | double | knowledge | encapsulated
+                                    integer | double | knowledge | path/reference
                                 </td>
                                 <td>
-                                    a number or a knowledge model path
                                 </td>
                             </tr>
                             <tr>
@@ -233,41 +214,42 @@
                                     true
                                 </td>
                                 <td>
-                                    number/integer | number/float | path/knowledge | path/encapsulated
+                                    number/integer | number/float | path/knowledge | path/reference
                                 </td>
                                 <td>
-                                    a mime type format
                                 </td>
                             </tr>
                         </table>
                     </ERROR_MISSING_TAG_NAME>
                     <ERROR_MISSING_TAG_NAME>
-                        <a name="add">
+                        <a name="get">
                         </a>
                         <h3>
-                            add
+                            get
                         </h3>
                         <h5>
                             Description
                         </h5>
                         <ERROR_MISSING_TAG_NAME>
-                            Adds two numbers of the given format.
+                            Get a part&#x27;s name.
                         </ERROR_MISSING_TAG_NAME>
                         <h5>
                             Format
                         </h5>
                         <ERROR_MISSING_TAG_NAME>
-                            calculate/add
+                            access/get
                         </ERROR_MISSING_TAG_NAME>
                         <h5>
                             Example
                         </h5>
                         <div class="operation_example">
-&#x3C;part name=&#x22;add&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;property name=&#x22;operand&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
-    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+&#x3C;part name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;access/count&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.count&#x22;/&#x3E;
+    &#x3C;property name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.application.addressbook&#x22;/&#x3E;
+    &#x3C;property name=&#x22;selection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;prefix&#x22;/&#x3E;
+    &#x3C;property name=&#x22;filter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;student&#x22;/&#x3E;
 &#x3C;/part&#x3E;
+
                         </div>
                         <h5>
                             Properties
@@ -301,7 +283,7 @@
                                     true
                                 </td>
                                 <td>
-                                    integer | double | knowledge | encapsulated
+                                    integer | double | knowledge | path/reference
                                 </td>
                                 <td>
                                     a number or a knowledge model path
@@ -318,7 +300,7 @@
                                     true
                                 </td>
                                 <td>
-                                    integer | double | knowledge | encapsulated
+                                    integer | double | knowledge | path/reference
                                 </td>
                                 <td>
                                     a number or a knowledge model path
@@ -335,7 +317,7 @@
                                     true
                                 </td>
                                 <td>
-                                    number/integer | number/float | path/knowledge | path/encapsulated
+                                    number/integer | number/float | path/knowledge | path/reference
                                 </td>
                                 <td>
                                     a mime type format
@@ -344,16 +326,16 @@
                         </table>
                     </ERROR_MISSING_TAG_NAME>
                     <ERROR_MISSING_TAG_NAME>
-                        <a name="divide">
+                        <a name="indicate">
                         </a>
                         <h3>
-                            divide
+                            indicate
                         </h3>
                         <h5>
                             Description
                         </h5>
                         <ERROR_MISSING_TAG_NAME>
-                            Divides two numbers of the given format
+                            Indicates if data are empty, i.e. the count is zero. Indicates if data exist, i.e. the count is greater than zero
                         </ERROR_MISSING_TAG_NAME>
                         <h5>
                             Format
@@ -365,11 +347,6 @@
                             Example
                         </h5>
                         <div class="operation_example">
-&#x3C;part name=&#x22;divide&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;calculate/divide&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;property name=&#x22;operand&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
-    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-&#x3C;/part&#x3E;
                         </div>
                         <h5>
                             Properties
@@ -403,7 +380,7 @@
                                     true
                                 </td>
                                 <td>
-                                    integer | double | knowledge | encapsulated
+                                    integer | double | knowledge | path/reference
                                 </td>
                                 <td>
                                     a number or a knowledge model path
@@ -420,7 +397,7 @@
                                     true
                                 </td>
                                 <td>
-                                    integer | double | knowledge | encapsulated
+                                    integer | double | knowledge | path/reference
                                 </td>
                                 <td>
                                     a number or a knowledge model path
@@ -437,7 +414,7 @@
                                     true
                                 </td>
                                 <td>
-                                    number/integer | number/float | path/knowledge | path/encapsulated
+                                    number/integer | number/float | path/knowledge | path/reference
                                 </td>
                                 <td>
                                     a mime type format
@@ -445,403 +422,13 @@
                             </tr>
                         </table>
                     </ERROR_MISSING_TAG_NAME>
-                    <ERROR_MISSING_TAG_NAME>
-                        <a name="multiply">
-                        </a>
-                        <h3>
-                            multiply
-                        </h3>
-                        <h5>
-                            Description
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                            Multiplies two numbers of the given format.
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Format
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                            calculate/multiply
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Example
-                        </h5>
-                        <div class="operation_example">
-&#x3C;part name=&#x22;multiply&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;calculate/multiply&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;property name=&#x22;operand&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
-    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-&#x3C;/part&#x3E;
-                        </div>
-                        <h5>
-                            Properties
-                        </h5>
-                        <table class="property_table" border="1">
-                            <tr>
-                                <th>
-                                    name
-                                </th>
-                                <th>
-                                    description
-                                </th>
-                                <th>
-                                    required
-                                </th>
-                                <th>
-                                    format
-                                </th>
-                                <th>
-                                    model
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    result
-                                </td>
-                                <td>
-                                    The product resulting from the multiplication. It initially contains the first factor.
-                                </td>
-                                <td>
-                                    true
-                                </td>
-                                <td>
-                                    integer | double | knowledge | encapsulated
-                                </td>
-                                <td>
-                                    a number or a knowledge model path
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    operand
-                                </td>
-                                <td>
-                                    The second factor for the multiplication.
-                                </td>
-                                <td>
-                                    true
-                                </td>
-                                <td>
-                                    integer | double | knowledge | encapsulated
-                                </td>
-                                <td>
-                                    a number or a knowledge model path
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    type
-                                </td>
-                                <td>
-                                    The number type. It has to be identical for all parametres.
-                                </td>
-                                <td>
-                                    true
-                                </td>
-                                <td>
-                                    number/integer | number/float | path/knowledge | path/encapsulated
-                                </td>
-                                <td>
-                                    a mime type format
-                                </td>
-                            </tr>
-                        </table>
-                    </ERROR_MISSING_TAG_NAME>
-                    <ERROR_MISSING_TAG_NAME>
-                        <a name="negate">
-                        </a>
-                        <h3>
-                            negate
-                        </h3>
-                        <h5>
-                            Description
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                            Negates a given number.
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Format
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                            calculate/negate
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Example
-                        </h5>
-                        <div class="operation_example">
-&#x3C;part name=&#x22;negate&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;calculate/negate&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;property name=&#x22;operand&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
-    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-&#x3C;/part&#x3E;
-                        </div>
-                        <h5>
-                            Properties
-                        </h5>
-                        <table class="property_table" border="1">
-                            <tr>
-                                <th>
-                                    name
-                                </th>
-                                <th>
-                                    description
-                                </th>
-                                <th>
-                                    required
-                                </th>
-                                <th>
-                                    format
-                                </th>
-                                <th>
-                                    model
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    result
-                                </td>
-                                <td>
-                                    The output resulting from the negation.
-                                </td>
-                                <td>
-                                    true
-                                </td>
-                                <td>
-                                    integer | double | knowledge | encapsulated
-                                </td>
-                                <td>
-                                    a number or a knowledge model path
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    operand
-                                </td>
-                                <td>
-                                    The number which is to negate.
-                                </td>
-                                <td>
-                                    true
-                                </td>
-                                <td>
-                                    integer | double | knowledge | encapsulated
-                                </td>
-                                <td>
-                                    a number or a knowledge model path
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    type
-                                </td>
-                                <td>
-                                    The number type. It has to be identical for all parametres.
-                                </td>
-                                <td>
-                                    true
-                                </td>
-                                <td>
-                                    number/integer | number/float | path/knowledge | path/encapsulated
-                                </td>
-                                <td>
-                                    a mime type format
-                                </td>
-                            </tr>
-                        </table>
-                    </ERROR_MISSING_TAG_NAME>
-                    <ERROR_MISSING_TAG_NAME>
-                        <a name="reduce">
-                        </a>
-                        <h3>
-                            reduce
-                        </h3>
-                        <h5>
-                            Description
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Format
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Example
-                        </h5>
-                        <div class="operation_example">
-                        </div>
-                        <h5>
-                            Properties
-                        </h5>
-                        <table class="property_table" border="1">
-                            <tr>
-                                <th>
-                                    name
-                                </th>
-                                <th>
-                                    description
-                                </th>
-                                <th>
-                                    required
-                                </th>
-                                <th>
-                                    format
-                                </th>
-                                <th>
-                                    model
-                                </th>
-                            </tr>
-                        </table>
-                    </ERROR_MISSING_TAG_NAME>
-                    <ERROR_MISSING_TAG_NAME>
-                        <a name="remainder">
-                        </a>
-                        <h3>
-                            remainder
-                        </h3>
-                        <h5>
-                            Description
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                            Not implemented yet.
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Format
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                            calculate/remainder
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Example
-                        </h5>
-                        <div class="operation_example">
-                        </div>
-                        <h5>
-                            Properties
-                        </h5>
-                        <table class="property_table" border="1">
-                            <tr>
-                                <th>
-                                    name
-                                </th>
-                                <th>
-                                    description
-                                </th>
-                                <th>
-                                    required
-                                </th>
-                                <th>
-                                    format
-                                </th>
-                                <th>
-                                    model
-                                </th>
-                            </tr>
-                        </table>
-                    </ERROR_MISSING_TAG_NAME>
-                    <ERROR_MISSING_TAG_NAME>
-                        <a name="subtract">
-                        </a>
-                        <h3>
-                            subtract
-                        </h3>
-                        <h5>
-                            Description
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                            Subtracts two numbers of the given format.
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Format
-                        </h5>
-                        <ERROR_MISSING_TAG_NAME>
-                            calculate/subtract
-                        </ERROR_MISSING_TAG_NAME>
-                        <h5>
-                            Example
-                        </h5>
-                        <div class="operation_example">
-&#x3C;part name=&#x22;subtract&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;calculate/subtract&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;property name=&#x22;operand&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
-    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; encoding=&#x22;utf-8&#x22; language=&#x22;text/cybol&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-&#x3C;/part&#x3E;
-
-                        </div>
-                        <h5>
-                            Properties
-                        </h5>
-                        <table class="property_table" border="1">
-                            <tr>
-                                <th>
-                                    name
-                                </th>
-                                <th>
-                                    description
-                                </th>
-                                <th>
-                                    required
-                                </th>
-                                <th>
-                                    format
-                                </th>
-                                <th>
-                                    model
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    result
-                                </td>
-                                <td>
-                                    The difference resulting from the subtraction. It initially contains the minuend.
-                                </td>
-                                <td>
-                                    true
-                                </td>
-                                <td>
-                                    integer | double | knowledge | encapsulated
-                                </td>
-                                <td>
-                                    a number or a knowledge model path
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    operand
-                                </td>
-                                <td>
-                                    The subtrahend for the subtraction.
-                                </td>
-                                <td>
-                                    true
-                                </td>
-                                <td>
-                                    integer | double | knowledge | encapsulated
-                                </td>
-                                <td>
-                                    a number or a knowledge model path
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    type
-                                </td>
-                                <td>
-                                    The number type. It has to be identical for all parametres.
-                                </td>
-                                <td>
-                                    true
-                                </td>
-                                <td>
-                                    number/integer | number/float | path/knowledge | path/encapsulated
-                                </td>
-                                <td>
-                                    a mime type format
-                                </td>
-                            </tr>
-                        </table>
-                    </ERROR_MISSING_TAG_NAME>
+                </ERROR_MISSING_TAG_NAME>
+                <ERROR_MISSING_TAG_NAME>
+                    <a name="calculate">
+                    </a>
+                    <h2>
+                        calculate
+                    </h2>
                 </ERROR_MISSING_TAG_NAME>
                 <ERROR_MISSING_TAG_NAME>
                     <a name="communicate">

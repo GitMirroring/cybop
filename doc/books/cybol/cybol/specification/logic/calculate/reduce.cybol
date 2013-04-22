@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="reduce"/>
+    <part name="description" channel="inline" format="text/plain" model="Not implemented yet."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/calculate/reduce/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="calculate/reduce"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/calculate/rereduce/properties.cybol"/>
+</model>

@@ -1,6 +1,6 @@
 <model>
-    <part name="operation_description_header" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="Description">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="h5"/>
+    <part name="operation_description_header" channel="inline" format="text/plain" model="Description">
+        <property name="tag" channel="inline" format="text/plain" model="h5"/>
     </part>
-    <part name="operation_description_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model=""/>
+    <part name="operation_description_name" channel="inline" format="text/plain" model=""/>
 </model>

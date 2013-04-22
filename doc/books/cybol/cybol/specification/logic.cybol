@@ -1,14 +1,17 @@
 <model>
-    <part name="calculate" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/calculate.cybol"/>
-    <part name="communicate" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/communicate.cybol"/>
-    <part name="compare" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/compare.cybol"/>
-    <part name="convert" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/convert.cybol"/>
-    <part name="file" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/file.cybol"/>
-    <part name="flow" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/flow.cybol"/>
-    <part name="live" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/live.cybol"/>
-    <part name="logify" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/logify.cybol"/>
-    <part name="maintain" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/maintain.cybol"/>
-    <part name="manipulate" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/manipulate.cybol"/>
-    <part name="memorise" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/memorise.cybol"/>
-    <part name="modify" channel="file" encoding="utf-8" language="text/cybol" format="element/part" model="cybol/specification/logic/modify.cybol"/>
+<!--
+-->
+    <part name="access" channel="file" format="element/part" model="cybol/specification/logic/access.cybol"/>
+    <part name="calculate" channel="file" format="element/part" model="cybol/specification/logic/calculate.cybol"/>
+    <part name="communicate" channel="file" format="element/part" model="cybol/specification/logic/communicate.cybol"/>
+    <part name="compare" channel="file" format="element/part" model="cybol/specification/logic/compare.cybol"/>
+    <part name="convert" channel="file" format="element/part" model="cybol/specification/logic/convert.cybol"/>
+    <part name="file" channel="file" format="element/part" model="cybol/specification/logic/file.cybol"/>
+    <part name="flow" channel="file" format="element/part" model="cybol/specification/logic/flow.cybol"/>
+    <part name="live" channel="file" format="element/part" model="cybol/specification/logic/live.cybol"/>
+    <part name="logify" channel="file" format="element/part" model="cybol/specification/logic/logify.cybol"/>
+    <part name="maintain" channel="file" format="element/part" model="cybol/specification/logic/maintain.cybol"/>
+    <part name="manipulate" channel="file" format="element/part" model="cybol/specification/logic/manipulate.cybol"/>
+    <part name="memorise" channel="file" format="element/part" model="cybol/specification/logic/memorise.cybol"/>
+    <part name="modify" channel="file" format="element/part" model="cybol/specification/logic/modify.cybol"/>
 </model>

@@ -1,17 +1,17 @@
 <model>
-    <part name="column_name" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="td"/>
+    <part name="column_name" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
     </part>
-    <part name="column_description" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="td"/>
+    <part name="column_description" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
     </part>
-    <part name="column_required" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="td"/>
+    <part name="column_required" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
     </part>
-    <part name="column_format" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="td"/>
+    <part name="column_format" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
     </part>
-    <part name="column_model" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="">
-        <property name="tag" channel="inline" encoding="utf-8" language="text/cybol" format="text/plain" model="td"/>
+    <part name="column_model" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
     </part>
 </model>
