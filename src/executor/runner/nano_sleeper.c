@@ -30,6 +30,57 @@
 #include <time.h>
 #include <unistd.h>
 
+#ifdef WIN32
+    #include <winsock2.h>
+    #include <sys/time.h>
+    #include <time.h>
+    #include <stdlib.h>
+    #include <stdio.h>
+    #include <windows.h>
+
+    static void nanosleep (const struct timespec *requested_delay)
+    {
+        if (requested_delay->tv_sec > 0)
+            /* At least one second. Millisecond resolution is sufficient. */
+            Sleep (requested_delay->tv_sec * 1000 + requested_delay->tv_nsec / 1000000);
+        else
+        {
+
+        /* Use Sleep for the largest part, and busy-loop for the rest. */
+        static double frequency;
+
+        if (frequency == 0)
+        {
+            LARGE_INTEGER freq;
+            if (!QueryPerformanceFrequency (&freq))
+            {
+                /* Cannot use QueryPerformanceCounter. */
+                Sleep (requested_delay->tv_nsec / 1000000);
+                return;
+            }
+            frequency = (double) freq.QuadPart / 1000000000.0;
+        }
+
+        long long expected_counter_difference = requested_delay->tv_nsec * frequency;
+        int sleep_part = (int) requested_delay->tv_nsec / 1000000 - 10;
+        LARGE_INTEGER before;
+        QueryPerformanceCounter (&before);
+        long long expected_counter = before.QuadPart + 
+        expected_counter_difference;
+        
+        if (sleep_part > 0)
+            Sleep (sleep_part);
+            for (;;)
+            {
+                LARGE_INTEGER after;
+                QueryPerformanceCounter (&after);
+                if (after.QuadPart >= expected_counter)
+                break;
+            }
+        }
+    }
+#endif
+
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
@@ -94,7 +145,8 @@ void sleep_nano(void* p0) {
                 // which is not needed here anyway.
                 int e = 1;
                 #ifdef WIN32
-                    // ...
+                    nanosleep(&t);
+                    
                 #else
                     e = nanosleep(&t, *NULL_POINTER_STATE_CYBOI_MODEL);
                 #endif

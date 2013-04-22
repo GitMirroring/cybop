@@ -18,6 +18,7 @@
 
 2013-04-22  Tobias Köhler  <tk@snake-universe.tk>
 
+        * nanosleep() added for win32
         * Add list directory support for win32
         * Fixed win32 terminal output
 
