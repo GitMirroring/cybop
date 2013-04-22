@@ -20,13 +20,13 @@ __________________
     tar -xvzf cybop-0.9.0.tar.gz
     tar -xvjf cybop-0.9.0.tar.bz2
 
-Package and Library Installation
-________________________________
+Package and Library Installation POSIX
+______________________________________
 
-The following (Debian) packages are needed to execute CYBOL applications:
+Debian packages for CYBOL application execution:
     xorg
 
-The following (Debian) packages are needed to compile CYBOI:
+Debian packages for compilation:
     autotools (autoconf, automake)
     xorg-dev
     xlibs-dev (now possibly contained in xorg-dev)
@@ -34,18 +34,63 @@ The following (Debian) packages are needed to compile CYBOI:
     glut or freeglut3 or the like
     mesa etc.
 
-The following (Debian) packages are needed to compile CYBOI for Windows:
+Package and Library Installation Windows
+________________________________________
+
+Required libraries for CYBOL application execution:
+    libXau-6.dll
+    libxcb-1.dll
+    libxcb-composite-0.dll
+    libxcb-damage-0.dll
+    libxcb-dpms-0.dll
+    libxcb-glx-0.dll
+    libxcb-randr-0.dll
+    libxcb-record-0.dll
+    libxcb-render-0.dll
+    libxcb-res-0.dll
+    libxcb-screensaver-0.dll
+    libxcb-shape-0.dll
+    libxcb-shm-0.dll
+    libxcb-sync-0.dll
+    libxcb-xfixes-0.dll
+    libxcb-xinerama-0.dll
+    libxcb-xtest-0.dll
+    libXdmcp-6.dll
+    pthreadGC2.dll
+
+These are also available in SVN, under:
+    cybop/include/i586-mingw32msvc/lib/
+
+They have to be placed in either:
+    %WINDIR%\system32
+
+or in the same directory where the executable (exe) file is, e.g.:
+    cybop/bin/
+
+Debian packages for compilation:
     mingw32
 
-The following headers are needed to compile CYBOI for Windows:
+Headers for compilation:
     Pthreads-Win32  (ftp://sourceware.org/pub/pthreads-win32)
     X11 (http://docs.google.com/leaf?id=0B4o4WuYAoiUTZmFiNzhiNDUtNGJkNS00OWQxLThlNzctZDcwMDQyMmQ0Y2Fh&hl=en)
     xcb
 
-The following libraries are needed to compile CYBOI for Windows:
+These are also available in SVN, under:
+    cybop/include/i586-mingw32msvc/include/
+
+They have to exist or be copied into:
+    /usr/i586-mingw32msvc/include/
+
+Libraries for compilation:
     libpthreadGC2 (make CROSS=i586-mingw32msvc- clean GC-inlined)
     libX11 and libXau (http://docs.google.com/leaf?id=0B4o4WuYAoiUTNTlmYmMwMDgtMzlmMC00NWNmLWE4M2UtZGIxZTQzMTQyZGZk&hl=en)
     libxcb
+
+These are also available in SVN, under:
+    cybop/include/i586-mingw32msvc/lib/
+
+They have to exist or be copied into:
+    /usr/i586-mingw32msvc/lib/
 
 CYBOI Compilation POSIX
 _______________________
@@ -89,28 +134,7 @@ _________________________
 
 - Execute the mingw32 compiler:
 
-    i586-mingw32msvc-gcc src/controller/cyboi.c -o src/controller/cyboi.exe -DPTW32_STATIC_LIB -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32
-
-Required windows DLLs:
-    libXau-6.dll
-    libxcb-1.dll
-    libxcb-composite-0.dll
-    libxcb-damage-0.dll
-    libxcb-dpms-0.dll
-    libxcb-glx-0.dll
-    libxcb-randr-0.dll
-    libxcb-record-0.dll
-    libxcb-render-0.dll
-    libxcb-res-0.dll
-    libxcb-screensaver-0.dll
-    libxcb-shape-0.dll
-    libxcb-shm-0.dll
-    libxcb-sync-0.dll
-    libxcb-xfixes-0.dll
-    libxcb-xinerama-0.dll
-    libxcb-xtest-0.dll
-    libXdmcp-6.dll
-    pthreadGC2.dll
+    i586-mingw32msvc-gcc src/controller/cyboi.c -o src/controller/cyboi.exe -DPTW32_STATIC_LIB -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32 -w
 
 CYBOL Application Execution
 ___________________________

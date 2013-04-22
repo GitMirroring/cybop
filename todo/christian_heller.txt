@@ -10,6 +10,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Comment "send_terminal_win32_console" where error return value has to be placed on extra line (due to missing return value of function called?)
+        * Add new cybol format "cli" (command line interface) in addition to "tui" (using complete screen)
+        * Adapt cybol example applications
+        * Announce in mailing list
+
+        * Think through shell command usage for "unix_shell" as well as "windows_shell"
+
         * Add bit logic operations NOT, AND, OR, XOR etc.
 
 & AND (Binary operator)
@@ -29,17 +36,10 @@ Value = ~ Value;               /* 251 = 1111 1011 */
         * Use bit manipulation functions in files "background_win32_console_serialiser.c", "foreground_win32_console_serialiser.c", "effect_win32_console_serialiser.c"
         * Check "bold" attribute again: in win32 both "intensive"? how is it in unix terminal?
         * Activate terminal input for win32 console
---
-        mingw32 hat ein eigenes Verzeichnis für libs und includes das liegt in /usr/i586-mingw32msvc/
-        In diese Verzeichnisse müssen alle Bibliotheken und Header kopiert werden.
-        Damit es aber einfacher ist hab ich mal eben schnell ein Installer gebaut
-        (ist wieder in meiner Repo(snake-universe.tk): "win32c").
-        Ich schreib die Anleitung noch etwas ausführlicher in der INSTALL.
-        Info: zum ausführen der exe müssen alle benötigten dlls im selben
-        Verzeichnis wie die exe liegen oder in %WINDIR%\system32
-        Tobias Köhler
---
-        * Debug terminal output in wine, e.g. strange characters and line end \r\n in Windows
+
+        * Delete last table column called "model" in cybol specification
+        * Debug html generator to add missing sections
+        * Replace double- with single space in cybol specification
 
         * Process events in file "x_window_system_receiver.c"
         * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
@@ -156,6 +156,8 @@ Value = ~ Value;               /* 251 = 1111 1011 */
             simplen befehl verstecken lassen, ich habe es allerdings noch zu
             Debug-Zwecken aktiviert gelassen.
             Christian Thiele <post@thiele-christian.de>
+
+        * Provide default dialogues (similar to JOptionPane) as cybol applications
 
         * Include the sources of all documents into the distributable tarball cybop-0.12.0/
             --> really? This will grow it up to 500 MB in size due to the images
