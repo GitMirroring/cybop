@@ -51,14 +51,9 @@ void send_win32_console_stream(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* d = (int*) p0;
+        HANDLE o = (HANDLE) p0;
+        void* fs = (void*) stdout;
 
-        // Cast DEREFERENCED value to handle.
-        // CAUTION! The output data is stored as int value,
-        // but actually references a win32 console handle.
-        // This is just to be sure that the correct type is used.
-        HANDLE dh = (HANDLE) *d;
-//??        void* dh = (void*) stdout;
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send win32 console stream.");
 
         //
@@ -85,7 +80,10 @@ void send_win32_console_stream(void* p0, void* p1, void* p2) {
         // The placeholder %ls would be WRONG here as it expects data
         // of type "wchar_t".
 
-        int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
+        // printf("+%s-", (char*) p1);
+
+        int e = NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        e = fprintf((FILE*) fs, "%s", (char*) p1);
 
         // Test error value.
         //

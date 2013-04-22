@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-22  Tobias Köhler  <tk@snake-universe.tk>
+
+        * Fixed win32 terminal output
+
 2013-04-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add bit manipulation functions "shift_left", "shift_right", "rotate_left", "rotate_right"

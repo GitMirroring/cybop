@@ -28,6 +28,10 @@
 
 #include <stdio.h>
 
+#ifdef WIN32
+    #define swprintf _snwprintf
+#endif
+ 
 #include "../constant/channel/cyboi/cyboi_channel.c"
 #include "../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../constant/model/cyboi/state/state_cyboi_model.c"
@@ -75,13 +79,8 @@ void test_converter_integer_to_wide_character_conversion() {
     // for the given input, excluding the trailing null.
     // If not all output fits into the provided buffer,
     // a negative value is returned.
-#ifdef WIN32
-    c = wsprintfW((wchar_t*) d, L"%i", *NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
-/* CYGWIN_ENVIRONMENT */
-#else
+
     c = swprintf((wchar_t*) d, ts, L"%i", *NUMBER_5_INTEGER_STATE_CYBOI_MODEL);
-/* CYGWIN_ENVIRONMENT */
-#endif
 
     fwprintf(stdout, L"TEST ts: %i\n", s);
     fwprintf(stdout, L"TEST tc: %i\n", c);

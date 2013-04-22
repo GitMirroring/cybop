@@ -1,4 +1,4 @@
-binary:	995K Apr 17 12:12 cyboi.exe
+binary:	995K Apr 19 23:07 cyboi_2157.exe
 libs:	75K Apr  6 23:20 libgnurx-0.dll
 		13K Apr  9 00:11 libXau-6.dll
 		104K Apr 9 00:07 libxcb-1.dll
@@ -51,7 +51,7 @@ addition_using_serialisation y
 
 character_encoding
 
-counter n
+counter y
 	1
 	2
 	3
@@ -61,7 +61,7 @@ counter n
 	7
 	8
 	9
-	a?± (print numbers from 1 to 10)
+	10 (print numbers from 1 to 10)
 
 counter_static_model n
 	1
@@ -73,7 +73,7 @@ counter_static_model n
 	7
 	8
 	9
-	a?± (print numbers from 1 to 10)
+	10 (print numbers from 1 to 10)
 
 counter_storage
 	7

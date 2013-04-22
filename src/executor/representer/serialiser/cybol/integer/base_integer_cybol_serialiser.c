@@ -28,6 +28,7 @@
 
 #ifdef WIN32
     #include <windows.h>
+    #define swprintf _snwprintf
 #endif
 
 #include <stdio.h>
@@ -85,13 +86,8 @@ void serialise_cybol_integer_base(void* p0, void* p1, void* p2, void* p3, void* 
 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-#ifdef WIN32
-                            *dc = sprintf(p0, "%o", *s);
-/* CYGWIN_ENVIRONMENT */
-#else
                             *dc = swprintf(p0, *ds, L"%o", *s);
-/* CYGWIN_ENVIRONMENT */
-#endif
+
                         }
                     }
 
@@ -101,13 +97,8 @@ void serialise_cybol_integer_base(void* p0, void* p1, void* p2, void* p3, void* 
 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-#ifdef WIN32
-                            *dc = sprintf(p0, "%d", *s);
-/* CYGWIN_ENVIRONMENT */
-#else
                             *dc = swprintf(p0, *ds, L"%d", *s);
-/* CYGWIN_ENVIRONMENT */
-#endif
+
                         }
                     }
 
@@ -117,13 +108,8 @@ void serialise_cybol_integer_base(void* p0, void* p1, void* p2, void* p3, void* 
 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-#ifdef WIN32
-                            *dc = sprintf(p0, "%X", *s);
-/* CYGWIN_ENVIRONMENT */
-#else
                             *dc = swprintf(p0, *ds, L"%X", *s);
-/* CYGWIN_ENVIRONMENT */
-#endif
+
                         }
                     }
 

@@ -28,7 +28,8 @@
 #define VALUE_DECIMAL_FRACTION_CYBOL_SERIALISER_SOURCE
 
 #ifdef WIN32
-#include <windows.h>
+    #include <windows.h>
+    #define swprintf _snwprintf
 #endif
 
 #include <stdio.h>
@@ -90,15 +91,9 @@ void serialise_cybol_fraction_decimal_value(void* p0, void* p1, void* p2) {
     // The return value is the number of characters generated
     // for the given input, excluding the trailing null.
     // If not all output fits into the provided buffer,
-    // a negative value is returned.
+    // a negative value is return
 
-#ifdef WIN32
-    tc = wsprintfW(td, L"%f", v);
-/* CYGWIN_ENVIRONMENT */
-#else
     tc = swprintf(td, ts, L"%f", v);
-/* CYGWIN_ENVIRONMENT */
-#endif
 
     if (tc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
