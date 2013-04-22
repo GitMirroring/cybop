@@ -23,15 +23,15 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef OR_BOOLEAN_LOGIFIER_SOURCE
-#define OR_BOOLEAN_LOGIFIER_SOURCE
+#ifndef AND_BOOLEAN_LOGIFIER_SOURCE
+#define AND_BOOLEAN_LOGIFIER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/modifier/copier/integer_copier.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../logger/logger.c"
 
 /**
  * Connects the given values following boolean logic.
@@ -40,7 +40,7 @@
  * @param p1 the left value
  * @param p2 the right value
  */
-void logify_boolean_or(void* p0, void* p1, void* p2) {
+void logify_boolean_and(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -50,23 +50,23 @@ void logify_boolean_or(void* p0, void* p1, void* p2) {
 
             int* lv = (int*) p1;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify boolean or.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify boolean and.");
 
-            if ((*lv) || (*rv)) {
+            if ((*lv) && (*rv)) {
 
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean or. The left value is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean and. The left value is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean or. The right value is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean and. The right value is null.");
     }
 }
 
-/* OR_BOOLEAN_LOGIFIER_SOURCE */
+/* AND_BOOLEAN_LOGIFIER_SOURCE */
 #endif
