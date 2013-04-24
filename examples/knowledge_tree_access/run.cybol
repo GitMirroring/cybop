@@ -32,7 +32,7 @@
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".part_2"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>

@@ -55,9 +55,10 @@
  * @param p7 the clear flag
  * @param p8 the newline flag
  * @param p9 the tree level
- * @param p10 the format data
+ * @param p10 the cli flag
+ * @param p11 the format data
  */
-void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui.");
 
@@ -70,7 +71,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) HH_MM_SS_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p11, (void*) HH_MM_SS_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -80,7 +81,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p11, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -94,11 +95,11 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p11, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            serialise_tui_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         }
     }
 
@@ -108,7 +109,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p11, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -122,7 +123,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p11, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -132,7 +133,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p11, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -142,7 +143,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p11, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -152,7 +153,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p11, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -166,7 +167,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p11, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

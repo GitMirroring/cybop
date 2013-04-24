@@ -31,7 +31,7 @@
         <property name="model" channel="inline" format="path/knowledge" model=".temporary.path"/>
     </part>
     <part name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">
-        <property name="programme" channel="inline" format="text/plain" model="sleep 0.5"/>
+        <property name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
     </part>
     <part name="send_tui" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

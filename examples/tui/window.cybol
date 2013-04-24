@@ -4,7 +4,9 @@
         <property name="size" channel="inline" format="number/integer" model="70,10"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- This property is evaluated by win32 console only. -->
+        <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="border" channel="inline" format="text/plain" model="ascii"/>
     </part>
 </model>

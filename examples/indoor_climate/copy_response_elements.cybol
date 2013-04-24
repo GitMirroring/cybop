@@ -24,50 +24,50 @@
     <part name="TEST_HIGH_BYTE" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="TEST high byte:"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="TEST_HIGH_BYTE_VALUE" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="number/byte"/>
         <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="TEST_LOW_BYTE" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="TEST low byte:"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="TEST_LOW_BYTE_VALUE" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="number/byte"/>
         <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="TEST_CHECKSUM" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="TEST checksum:"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="TEST_CHECKSUM_VALUE" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="number/byte"/>
         <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_checksum"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 -->
 </model>

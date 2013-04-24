@@ -65,7 +65,7 @@
  * @param p9 the encoding
  * @param p10 the internal memory data
  * @param p11 the source part (pointer reference)
- * @param p12 the clean flag
+ * @param p12 the clear flag
  * @param p13 the new line flag
  * @param p14 the null termination flag
  * @param p15 the channel

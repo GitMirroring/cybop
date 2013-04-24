@@ -5,10 +5,10 @@
     <part name="print" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Hello, World!"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <!-- This call is OPTIONAL, since the "live/exit" operation below calls it implicitly. -->

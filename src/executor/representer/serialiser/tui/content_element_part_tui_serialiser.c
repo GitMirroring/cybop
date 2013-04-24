@@ -54,7 +54,7 @@
 // Forward declarations.
 //
 
-void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
 
 /**
  * Serialises the part element content into tui.
@@ -71,9 +71,10 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p9 the clear flag
  * @param p10 the newline flag
  * @param p11 the tree level
- * @param p12 the format data
+ * @param p12 the cli flag
+ * @param p13 the format data
  */
-void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
 
@@ -111,12 +112,12 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     serialise_tui_clear(p0, p1, p9, p11);
 
     // Append properties.
-    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9);
+    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p12);
 
     // Increment tree level.
     calculate_integer_add(p11, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-    // Append model.
-    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12);
+    // Append embedded model.
+    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13);
     // Decrement tree level.
     calculate_integer_subtract(p11, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 

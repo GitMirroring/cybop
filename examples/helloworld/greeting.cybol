@@ -6,6 +6,10 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+    <part name="cursor" channel="inline" format="text/plain" model="">
+        <property name="position" channel="inline" format="number/integer" model="0,8"/>
+    </part>
+    <!-- Further windows and dialogues may follow here. -->
 </model>
 
 <!--

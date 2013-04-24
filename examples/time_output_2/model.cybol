@@ -5,7 +5,7 @@
     <part name="print_stored_time_on_terminal" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="file" format="text/plain" model="time_output_2/time.txt"/>
     </part>

@@ -53,6 +53,13 @@
 //
 
 /**
+ * The message/cli cybol language.
+ */
+static wchar_t CLI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'c', L'l', L'i'};
+static wchar_t* CLI_MESSAGE_STATE_CYBOL_LANGUAGE = CLI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static int* CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The message/http cybol language.
  *
  * An HTTP header message.

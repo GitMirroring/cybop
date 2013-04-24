@@ -55,7 +55,7 @@
  * @param p4 the source whole properties data
  * @param p5 the source whole properties count
  * @param p6 the knowledge memory part
- * @param p7 the clear flag
+ * @param p7 the cli flag
  */
 void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
@@ -81,8 +81,10 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     void* bl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The underline part.
     void* u = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The bold part.
+    // The bold part (relating to foreground/text).
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The intense part (relating to background).
+    void* in = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole position part.
     void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole size part.
@@ -110,6 +112,8 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     void* um = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The bold part model item.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The intense part model item.
+    void* inm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole position part model item.
     void* wpm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole size part model item.
@@ -139,6 +143,8 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The bold part model item data.
     void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The intense part model item data.
+    void* inmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole position part model item data.
     void* wpmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole size part model item data.
@@ -169,6 +175,7 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     get_part_knowledge((void*) &bl, p2, (void*) BLINK_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) BLINK_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p3, p6);
     get_part_knowledge((void*) &u, p2, (void*) UNDERLINE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) UNDERLINE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p3, p6);
     get_part_knowledge((void*) &b, p2, (void*) BOLD_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) BOLD_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_knowledge((void*) &in, p2, (void*) INTENSE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) INTENSE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p3, p6);
 
     // Get super part model item.
     copy_array_forward((void*) &superm, super, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -232,6 +239,11 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
         get_part_knowledge((void*) &b, supermd, (void*) BOLD_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) BOLD_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
+    if (in == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        get_part_knowledge((void*) &in, supermd, (void*) INTENSE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) INTENSE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, supermc, p6);
+    }
+
     // Get parts from whole properties.
     get_part_knowledge((void*) &wp, p4, (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) POSITION_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p5, p6);
     get_part_knowledge((void*) &ws, p4, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME, (void*) SIZE_TEXT_USER_INTERFACE_CYBOL_NAME_COUNT, p5, p6);
@@ -247,6 +259,7 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     copy_array_forward((void*) &blm, bl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &um, u, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &inm, in, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get part model items from whole properties.
     copy_array_forward((void*) &wpm, wp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -264,6 +277,7 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     copy_array_forward((void*) &blmd, blm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &umd, um, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &inmd, inm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Get part model item data from whole properties.
     copy_array_forward((void*) &wpmd, wpm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -289,7 +303,7 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     // Serialise attributes.
 #ifdef WIN32
-    serialise_win32_console_attributes(p1, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
+    serialise_win32_console_attributes(p1, bgmd, fgmd, hmd, imd, blmd, umd, bmd, inmd);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     serialise_ansi_escape_code_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
@@ -298,8 +312,16 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // Serialise rectangle border and area.
     serialise_tui_rectangle(p0, p1, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
 
-    // Reset cursor position, so that following
-    // model characters are printed at the origo.
+    // This function call is important for two reasons:
+    //
+    // 1 Reset cursor position, so that following embedded
+    //   model characters are printed at the origo.
+    //
+    // 2 Position the cursor correctly for ZERO-size models.
+    //   Such positioning is necessary for instance to
+    //   place the cursor at a special input field.
+    //   The "serialise_*_character" functions are NOT
+    //   achieving this, since loops won't run with zero count.
     serialise_tui_origo(p0, p1, (void*) &pmdx, (void*) &pmdy, p7);
 }
 

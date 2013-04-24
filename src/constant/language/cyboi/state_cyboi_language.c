@@ -129,6 +129,9 @@ static int* VCD_MEDIA_STATE_CYBOI_FORMAT = NUMBER_290_INTEGER_STATE_CYBOI_MODEL_
 // message
 //
 
+/** The cli message state cyboi language. */
+static int* CLI_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The http message state cyboi language. */
 static int* HTTP_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_301_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

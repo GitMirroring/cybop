@@ -28,7 +28,7 @@
 -->
         <property name="message" channel="inline" format="path/knowledge" model=".text"/>
         <property name="receiver" channel="inline" format="text/plain" model="TEST_CHARACTER_ENCODING.txt"/>
-        <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>

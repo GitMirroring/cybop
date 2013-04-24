@@ -20,7 +20,10 @@
 
         * Split terminal sender for extra handling of win32 console tui
         * Move clear screen and newline functionality from sender into tui serialiser
-        * Adapt all cybol example applications to use language "message/tui" for terminal output
+        * Adapt text user interface cybol example applications to use language "message/tui" for terminal output
+        * Adapt command line interface cybol example applications to use language "message/cli" for terminal output
+        * Add "intense" (background) to already existing "bold" (foreground text) property, the former
+            being evaluated in win32 console only, the latter also by unix terminal via ansi escape code
         * List short and long forms of terms used in cybol and cyboi in new file "src/abbreviation.txt"
 
 2013-04-22  Christian Heller  <christian.heller@tuxtax.de>

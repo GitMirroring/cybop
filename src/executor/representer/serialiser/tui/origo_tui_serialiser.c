@@ -45,7 +45,7 @@
  * @param p1 the destination win32 console output data
  * @param p2 the x coordinate
  * @param p3 the y coordinate
- * @param p4 the clear flag
+ * @param p4 the cli flag
  */
 void serialise_tui_origo(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -54,28 +54,11 @@ void serialise_tui_origo(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Only reset cursor position to origo if
-    // clear terminal screen flag is set.
-    //
-    // Clear flag IS set:
-    //
-    // The terminal screen was cleared before,
-    // so that the output may be written to the origo
-    // (top-left corner of terminal screen).
-    // It is important to reset the cursor position,
-    // since otherwise, text of embedded rectangles
-    // may not be positioned correctly.
-    //
-    // Clear flag is NOT set:
-    //
-    // The terminal screen was not cleared before,
-    // so that the user probably expects the output
-    // to be written at the current prompt and
-    // NOT to appear at the top-left corner.
-    // Therefore, the cursor is NOT reset in this case.
-    //
+    // command line interface (cli) flag is FALSE,
+    // since cursor positioning is NOT wanted for cli.
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #ifdef WIN32

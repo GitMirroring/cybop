@@ -79,6 +79,11 @@ void serialise_ansi_escape_code_attributes(void* p0, void* p1, void* p2, void* p
     serialise_ansi_escape_code_colour(p0, fd, fc, (void*) &p);
 
     // Set further attributes.
+    //
+    // CAUTION! The "bold" attribute influences ONLY
+    // text (foreground) colour, NOT the background.
+    // In win32, on the contrary, there are two different
+    // "intensity" values, for foreground AND background.
     serialise_ansi_escape_code_effect(p0, (void*) HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p3);
     serialise_ansi_escape_code_effect(p0, (void*) INVERSE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p4);
     serialise_ansi_escape_code_effect(p0, (void*) BLINK_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p5);

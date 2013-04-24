@@ -80,7 +80,8 @@ void send_win32_console_stream(void* p0, void* p1, void* p2) {
         // The placeholder %ls would be WRONG here as it expects data
         // of type "wchar_t".
 
-        // printf("+%s-", (char*) p1);
+        //?? TEST ONLY:
+        printf("+%s-", (char*) p1);
 
         // CAUTION! This variable HAS TO BE declared on an extra line,
         // since otherwise, for some unknown reason,

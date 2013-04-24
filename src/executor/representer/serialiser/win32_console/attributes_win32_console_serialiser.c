@@ -54,9 +54,10 @@
  * @param p4 the source inverse
  * @param p5 the source blink
  * @param p6 the source underline
- * @param p7 the source bold
+ * @param p7 the source bold (foreground text colour)
+ * @param p8 the source intense (background colour)
  */
-void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -95,11 +96,17 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
         serialise_win32_console_background((void*) &a, p1);
         serialise_win32_console_foreground((void*) &a, p2);
 
-        // The intensity attribute.
-        // It is only necessary, so that both may be handed
-        // over as one combined parametre value to the
-        // "serialise_win32_console_effect" function below.
-        WORD i = BACKGROUND_INTENSITY | FOREGROUND_INTENSITY;
+        // CAUTION! The "intensity" constants below can NOT be
+        // handed over as reference directly below since then,
+        // the following error occurs:
+        // "lvalue required as unary ‘&’ operand"
+        // Therefore, the following variables had to be
+        // introduced, in order to be forwarded as parametre.
+
+        // The foreground (text) intensity attribute.
+        WORD fi = FOREGROUND_INTENSITY;
+        // The background intensity attribute.
+        WORD bi = BACKGROUND_INTENSITY;
 
         // Set further attributes.
         //
@@ -107,13 +114,15 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
         // - inverse: does NOT work (see community comment below)
         // - blink: ??
         // - underline: does NOT work (see community comment below)
-        // - bold: understood in cyboi as both, BACKGROUND_INTENSITY and FOREGROUND_INTENSITY
+        // - bold: intense foreground text colour
+        // - intense: intense background colour (not supported by ansi escape code)
         //
         // Community comment on:
         // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
         // COMMON_LVB_UNDERSCORE and COMMON_LVB_REVERSE_VIDEO does not work!
         //
-        serialise_win32_console_effect((void*) &a, (void*) &i, p7);
+        serialise_win32_console_effect((void*) &a, (void*) &fi, p7);
+        serialise_win32_console_effect((void*) &a, (void*) &bi, p8);
 
         // Set attributes of characters written to the console screen buffer.
         //
