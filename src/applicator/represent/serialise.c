@@ -132,7 +132,10 @@ void apply_serialise(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Serialise the source- into the destination part.
-    serialise(dm, smd, smc, spd, spc, p2, p3, fmd, imd, lmd);
+    //
+    // CAUTION! Hand over NULL for "clear" and "initial call" flags,
+    // since they are only needed when sending data to a terminal.
+    serialise(dm, smd, smc, spd, spc, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fmd, imd, lmd);
 }
 
 /* SERIALISE_SOURCE */

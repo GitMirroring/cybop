@@ -39,7 +39,7 @@
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".tui.window"/>
-        <property name="clean" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="set_cursor" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

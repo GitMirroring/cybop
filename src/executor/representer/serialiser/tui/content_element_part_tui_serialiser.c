@@ -34,10 +34,13 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/representer/serialiser/tui/clear_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/newline_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
+    #include <windows.h>
     #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/reset_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/state_win32_console_serialiser.c"
@@ -51,7 +54,7 @@
 // Forward declarations.
 //
 
-void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 /**
  * Serialises the part element content into tui.
@@ -65,9 +68,12 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p6 the source whole properties data
  * @param p7 the source whole properties count
  * @param p8 the knowledge memory part
- * @param p9 the format data
+ * @param p9 the clear flag
+ * @param p10 the newline flag
+ * @param p11 the tree level
+ * @param p12 the format data
  */
-void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
 
@@ -90,13 +96,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
 #ifdef WIN32
-    if (a == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-        // Only get original attributes,
-        // if they have not been read before.
-
-        serialise_win32_console_state((void*) &a, p1);
-    }
+    serialise_win32_console_state((void*) &a, p1);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     // NOTHING to be done here.
@@ -107,11 +107,18 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Append properties.
-    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8);
+    // Clear terminal screen.
+    serialise_tui_clear(p0, p1, p9, p11);
 
+    // Append properties.
+    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9);
+
+    // Increment tree level.
+    calculate_integer_add(p11, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     // Append model.
-    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9);
+    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12);
+    // Decrement tree level.
+    calculate_integer_subtract(p11, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     // Get serialised item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -126,6 +133,9 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     serialise_ansi_escape_code_character(p0, sd, sc);
 #endif
+
+    // Append newline.
+    serialise_tui_newline(p0, p10, p11);
 
     // Reset terminal attributes in order to have
     // original settings in two situations:

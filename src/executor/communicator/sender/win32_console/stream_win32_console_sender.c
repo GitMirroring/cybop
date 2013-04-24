@@ -30,6 +30,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <wchar.h>
+#include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -81,6 +82,9 @@ void send_win32_console_stream(void* p0, void* p1, void* p2) {
 
         // printf("+%s-", (char*) p1);
 
+        // CAUTION! This variable HAS TO BE declared on an extra line,
+        // since otherwise, for some unknown reason,
+        // the "fprintf" function does not work properly in windows.
         int e = NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         e = fprintf((FILE*) fs, "%s", (char*) p1);
 

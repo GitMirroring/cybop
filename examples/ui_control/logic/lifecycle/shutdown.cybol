@@ -38,7 +38,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="clean" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>

@@ -35,6 +35,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/communicator/sender/terminal/file_terminal_sender.c"
 #include "../../../../executor/converter/encoder.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -51,8 +52,8 @@
  * @param p7 the language
  * @param p8 the encoding
  * @param p9 the internal memory data
- * @param p10 the clean flag
- * @param p11 the new line flag
+ * @param p10 the clear flag
+ * @param p11 the newline flag
  */
 void send_terminal_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
@@ -83,37 +84,8 @@ void send_terminal_standard(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // and will be forwarded as such to the terminal.
     allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Compare clean flag.
-    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        append_item_element(s, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        append_item_element(s, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    }
-
     // Serialise source knowledge model into serialised wide character item.
-    serialise(s, p0, p1, p2, p3, p4, p9, p5, p6, p7);
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Compare new line flag.
-    compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-#ifdef WIN32
-        append_item_element(s, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(s, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#endif
-#ifdef MAC
-        append_item_element(s, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-        append_item_element(s, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#endif
-    }
+    serialise(s, p0, p1, p2, p3, p4, p9, p10, p11, p5, p6, p7);
 
     // Get serialised wide character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

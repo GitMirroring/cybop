@@ -19,6 +19,9 @@
 2013-04-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Split terminal sender for extra handling of win32 console tui
+        * Move clear screen and newline functionality from sender into tui serialiser
+        * Adapt all cybol example applications to use language "message/tui" for terminal output
+        * List short and long forms of terms used in cybol and cyboi in new file "src/abbreviation.txt"
 
 2013-04-22  Christian Heller  <christian.heller@tuxtax.de>
 

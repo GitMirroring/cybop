@@ -37,7 +37,7 @@
     <part name="print_addition" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Addition: 2.25 + 10.5 = 12.75, 25.5 + 11.11 = 36.61:"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -45,7 +45,7 @@
     <part name="print_addition_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <property name="message" channel="inline" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -60,7 +60,7 @@
     <part name="print_multiplication" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Multiplication: 12.75 * 10.5 = 133.875, 36.61 * 11.11 = 406.7371:"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -68,7 +68,7 @@
     <part name="print_multiplication_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <property name="message" channel="inline" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -83,7 +83,7 @@
     <part name="print_subtraction" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Subtraction: 133.875 - 10.5 = 123.375, 406.7371 - 11.11 = 395.6271:"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -91,7 +91,7 @@
     <part name="print_subtraction_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <property name="message" channel="inline" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -106,7 +106,7 @@
     <part name="print_division" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Division: 123.375 / 10.5 = 11.75, 395.6271 / 11.11 = 35.61:"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -114,7 +114,7 @@
     <part name="print_division_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <property name="message" channel="inline" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -129,7 +129,7 @@
     <part name="print_negation" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Negation: neg 10.5 = -10.5, neg 11.11 = -11.11:"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -137,7 +137,7 @@
     <part name="print_negation_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <property name="message" channel="inline" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -153,7 +153,7 @@
     <part name="print_absolution" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Absolution: abs -10.5 = 10.5, abs -11.11 = 11.11:"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -161,7 +161,7 @@
     <part name="print_absolution_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <property name="message" channel="inline" format="path/knowledge" model=".result"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>

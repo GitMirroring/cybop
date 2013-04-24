@@ -23,35 +23,31 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RESET_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define RESET_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef CLEAR_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#define CLEAR_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
-#include "../../../../constant/model/ansi_escape_code/attribute_ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Resets the terminal attributes.
+ * Clears the terminal.
  *
  * Example:
- * printf("\033[0m")
+ * printf("\033[2J")
  *
  * @param p0 the destination item
  */
-void serialise_ansi_escape_code_reset(void* p0) {
+void serialise_ansi_escape_code_clear(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code reset.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code clear.");
 
-    append_item_element(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(p0, (void*) OFF_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) OFF_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(p0, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    append_item_element(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    append_item_element(p0, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 }
 
-/* RESET_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* CLEAR_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
 #endif

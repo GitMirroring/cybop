@@ -31,7 +31,7 @@
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".greeting.string"/>
-        <property name="clean" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="exit_application" channel="inline" format="live/exit" model=""/>

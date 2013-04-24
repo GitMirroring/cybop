@@ -34,16 +34,15 @@
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/name/cybol/text_user_interface_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/tui/origo_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/rectangle_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
     #include "../../../../executor/representer/serialiser/win32_console/attributes_win32_console_serialiser.c"
-    #include "../../../../executor/representer/serialiser/win32_console/position_win32_console_serialiser.c"
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
 #endif
 
 /**
@@ -56,8 +55,9 @@
  * @param p4 the source whole properties data
  * @param p5 the source whole properties count
  * @param p6 the knowledge memory part
+ * @param p7 the clear flag
  */
-void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui properties.");
 
@@ -298,13 +298,9 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // Serialise rectangle border and area.
     serialise_tui_rectangle(p0, p1, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
 
-    // Reset position, so that following model characters are printed at the origo.
-#ifdef WIN32
-    serialise_win32_console_position(p1, (void*) &pmdx, (void*) &pmdy);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    serialise_ansi_escape_code_position(p0, (void*) &pmdx, (void*) &pmdy);
-#endif
+    // Reset cursor position, so that following
+    // model characters are printed at the origo.
+    serialise_tui_origo(p0, p1, (void*) &pmdx, (void*) &pmdy, p7);
 }
 
 /* PROPERTIES_TUI_SERIALISER_SOURCE */

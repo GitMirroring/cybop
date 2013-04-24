@@ -30,14 +30,14 @@
     <part name="print_node3_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test .test.node3: "/>
     </part>
     <part name="print_node3" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/knowledge"/>
         <property name="message" channel="inline" format="path/knowledge" model=".test.node3"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -45,14 +45,14 @@
     <part name="print_node1_node2_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test .test.node1.node2: "/>
     </part>
     <part name="print_node1_node2" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/knowledge"/>
         <property name="message" channel="inline" format="path/knowledge" model=".test.node1.node2"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -60,14 +60,14 @@
     <part name="print_node1_node1_propc_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test .test.node1.node1#c: "/>
     </part>
     <part name="print_node1_node1_propc" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/knowledge"/>
         <property name="message" channel="inline" format="path/knowledge" model=".test.node1.node1#c"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -75,14 +75,14 @@
     <part name="print_node2_propa_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test .test.node2#a: "/>
     </part>
     <part name="print_node2_propa" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/knowledge"/>
         <property name="message" channel="inline" format="path/knowledge" model=".test.node2#a"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -90,14 +90,14 @@
     <part name="print_node2_propc_node3_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test .test.node2#c.node3: "/>
     </part>
     <part name="print_node2_propc_node3" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/knowledge"/>
         <property name="message" channel="inline" format="path/knowledge" model=".test.node2#c.node3"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -105,14 +105,14 @@
     <part name="print_node2_propc_node1_propb_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test .test.node2#c.node1#b: "/>
     </part>
     <part name="print_node2_propc_node1_propb" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/knowledge"/>
         <property name="message" channel="inline" format="path/knowledge" model=".test.node2#c.node1#b"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -123,14 +123,14 @@
     <part name="print_node1_nodex_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test .test.node1.nodex: "/>
     </part>
     <part name="print_node1_nodex" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/knowledge"/>
         <property name="message" channel="inline" format="path/knowledge" model=".test.node1.nodex"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -141,14 +141,14 @@
     <part name="print_index_node2_propc_node1_propb_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test index .test.[1]#[2].[0]#[1]: "/>
     </part>
     <part name="print_index_node2_propc_node1_propb" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/knowledge"/>
         <property name="message" channel="inline" format="path/knowledge" model=".test.[1]#[2].[0]#[1]"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -159,14 +159,14 @@
     <part name="print_knowledge_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test .test.reference as knowledge: "/>
     </part>
     <part name="print_knowledge" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/knowledge"/>
         <property name="message" channel="inline" format="path/knowledge" model=".test.reference"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -174,14 +174,14 @@
     <part name="print_reference_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Test .test.reference as reference: "/>
     </part>
     <part name="print_reference" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="path/reference"/>
         <property name="message" channel="inline" format="path/reference" model=".test.reference"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>

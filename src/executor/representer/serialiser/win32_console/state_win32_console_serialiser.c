@@ -82,7 +82,7 @@ void serialise_win32_console_state(void* p0, void* p1) {
                 // Get the calling thread's last-error code.
                 DWORD e = GetLastError();
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console state. The console screen buffer info could not be filled.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console state. The console screen buffer info could not be retrieved.");
                 log_windows_system_error((void*) &e);
             }
 

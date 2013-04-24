@@ -53,7 +53,7 @@
  * - namespace (optional, only if channel is http): the namespace of the socket
  * - style (optional, only if channel is http): the style of communication
  * - area (optional, only if type is tui or gui): the user interface area to be repainted
- * - clean (optional, only if type is terminal or tui): the flag indicating whether or not to clear the screen before painting a user interface
+ * - clear (optional, only if type is terminal or tui): the flag indicating whether or not to clear the screen before painting a user interface
  * - new_line (optional, only if channel is terminal): the flag indicating whether or not to add a new line after having printed the message on screen
  * - null_termination (optional, only if channel is serial-port): the flag indicating whether or not to add an ascii null termination character '\0' at the end of the (multibyte) message (after encoding)
  *
@@ -93,7 +93,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The area part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The clean part.
+    // The clear part.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The new line part.
     void* nl = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -114,7 +114,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     void* mp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver part model item.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The clean part model item.
+    // The clear part model item.
     void* clm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The new line part model item.
     void* nlm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -136,7 +136,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mpd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mpc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The clean part model item data.
+    // The clear part model item data.
     void* clmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The new line part model item data.
     void* nlmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -163,8 +163,8 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     get_part_knowledge((void*) &st, p0, (void*) STYLE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) STYLE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get area part.
     get_part_knowledge((void*) &a, p0, (void*) AREA_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) AREA_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get clean flag part.
-    get_part_knowledge((void*) &cl, p0, (void*) CLEAN_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CLEAN_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    // Get clear flag part.
+    get_part_knowledge((void*) &cl, p0, (void*) CLEAR_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CLEAR_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get new line part.
     get_part_knowledge((void*) &nl, p0, (void*) NEW_LINE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) NEW_LINE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
     // Get null termination part.
@@ -184,7 +184,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &mp, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get receiver part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get clean part model item.
+    // Get clear part model item.
     copy_array_forward((void*) &clm, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get new line part model item.
     copy_array_forward((void*) &nlm, nl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -206,7 +206,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mpd, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mpc, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get clean part model item data.
+    // Get clear part model item data.
     copy_array_forward((void*) &clmd, clm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get new line part model item data.
     copy_array_forward((void*) &nlmd, nlm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

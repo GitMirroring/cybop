@@ -81,7 +81,7 @@ void send_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise source knowledge model into serialised wide character array.
-    serialise(s, p1, p2, p3, p4, p5, p10, p6, p7, p8);
+    serialise(s, p1, p2, p3, p4, p5, p10, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p7, p8);
 
     // Get serialised wide character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

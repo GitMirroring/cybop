@@ -65,7 +65,7 @@
     <part name="print_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
         <property name="message" channel="inline" format="path/knowledge" model=".sum"/>
         <property name="new_line" channel="inline" format="logicvalue/boolean" model="true"/>
