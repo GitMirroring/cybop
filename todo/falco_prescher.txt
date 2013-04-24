@@ -15,3 +15,4 @@
             in order to minimise cyboi size for usage in embedded systems
             and to improve portability
         * Provide shell commands in a platform-independent way, usable on posix and win32
+        * Convert shell script "clean_result_directory.sh" to CYBOOL

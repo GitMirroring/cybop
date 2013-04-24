@@ -12,8 +12,12 @@
 
         * Comment "send_terminal_win32_console" where error return value has to be placed on extra line (due to missing return value of function called?)
         * Add new cybol format "cli" (command line interface) in addition to "tui" (using complete screen)
+        * Debug "tui" app where "2J" sequence appears in win32
         * Adapt cybol example applications
         * Announce in mailing list
+
+        * Offer language "text/primitive" or use "text/plain" for converting primitive values with format "number/integer";
+            do not use "text/cybol" anymore for these? see example "counter/model.cybol" | send
 
         * Think through shell command usage for "unix_shell" as well as "windows_shell"
 

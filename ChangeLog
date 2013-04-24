@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Split terminal sender for extra handling of win32 console tui
+
 2013-04-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add bit logic operations "not", "and", "or", "xor"

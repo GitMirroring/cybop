@@ -26,15 +26,15 @@
 #ifndef TERMINAL_SENDER_SOURCE
 #define TERMINAL_SENDER_SOURCE
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/sender/terminal/file_terminal_sender.c"
-#include "../../../../executor/converter/encoder.c"
+#include "../../../../executor/communicator/sender/terminal/standard_terminal_sender.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -58,97 +58,43 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal.");
 
-    // The serialised wide character item.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoded character item.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The serialised wide character item data, count.
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoded character item data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The win32 console flag.
+    int w = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The tui language flag.
+    int t = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Allocate serialised wide character item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate encoded character item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    // CAUTION! Use standard (non-wide) character data here,
-    // since the source is handed over as utf-8 encoded multibyte characters
-    // and will be forwarded as such to the terminal.
-    allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Compare clean flag.
-    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        append_item_element(s, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        append_item_element(s, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    }
-
-    // Serialise source knowledge model into serialised wide character item.
-    serialise(s, p0, p1, p2, p3, p4, p9, p5, p6, p7);
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Compare new line flag.
-    compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
 #ifdef WIN32
-        append_item_element(s, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(s, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Check if platform is win32.
+    copy_integer((void*) &w, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 #endif
-#ifdef MAC
-        append_item_element(s, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-        append_item_element(s, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#endif
+
+    // Check if language is tui.
+    compare_integer_equal((void*) &t, p7, (void*) TUI_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+    logify_boolean_and((void*) &r, w, t);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The platform is win32.
+        // The language is tui.
+        // Only if BOTH are true, the following "serialise"
+        // function call suffices.
+
+        // Serialise source knowledge model into win32 console.
+        //
+        // CAUTION! The tui is drawn DIRECTLY using win32 console function calls,
+        // so that a destination item does NOT need to be handed over.
+        // Therefore, the first parametre value is NULL.
+        serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p9, p5, p6, p7);
+
+    } else {
+
+        // Process all other cases in the standard way.
+
+        send_terminal_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
     }
-
-    // Get serialised wide character item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-    // Encode serialised wide character item data into encoded character item.
-    encode(e, sd, sc, p8);
-
-    // Add null termination character.
-    // CAUTION! Appending a wide character null termination to the
-    // serialised wide character item above does NOT make sense,
-    // since it WON'T get converted into an ascii character null
-    // termination of the resulting multibyte character sequence.
-    // The encode function above only converts the actual characters
-    // whose COUNT is given, but NOT a null termination character.
-    // Therefore, the null termination is only added here, as ascii character.
-    append_item_element(e, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    // Get encoded character item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-    // Write encoded item data to terminal.
-    send_terminal_file(ed, ec, p9);
-
-    // Deallocate serialised wide character item.
-    deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate encoded character item.
-    deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* TERMINAL_SENDER_SOURCE */
