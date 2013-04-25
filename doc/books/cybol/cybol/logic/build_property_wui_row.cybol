@@ -14,7 +14,7 @@
     </part>
     <part name="set_table_row_property" channel="inline" format="modify/overwrite" model="">
         <property name="source" channel="inline" format="text/plain" model="tr"/>
-	<property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_tag"/>
+    <property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_tag"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
@@ -30,18 +30,18 @@
 
     <part name="copy_property_name_information" channel="inline" format="modify/overwrite" model="">
         <property name="source" channel="inline" format="path/reference" model=".temporary.link_property_name"/>
-	<property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_name"/>
+    <property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_name"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="copy_property_description_information" channel="inline" format="modify/overwrite" model="">
         <property name="source" channel="inline" format="path/reference" model=".temporary.link_property_description"/>
-	<property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_description"/>
+    <property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_description"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="copy_property_required_information" channel="inline" format="modify/overwrite" model="">
         <property name="source" channel="inline" format="path/reference" model=".temporary.link_property_required"/>
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.property_required_value"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.property_required_value"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
     <part name="serialise_property_required_value_to_text" channel="inline" format="represent/serialise" model="">
@@ -52,12 +52,12 @@
     </part>
     <part name="copy_property_format_information" channel="inline" format="modify/overwrite" model="">
         <property name="source" channel="inline" format="path/reference" model=".temporary.link_property_format"/>
-	<property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_format"/>
+    <property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_format"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="copy_property_model_information" channel="inline" format="modify/overwrite" model="">
         <property name="source" channel="inline" format="path/reference" model=".temporary.link_property_model"/>
-	<property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_model"/>
+    <property name="destination" channel="inline" format="path/reference" model=".temporary.property_content_path_model"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 </model>

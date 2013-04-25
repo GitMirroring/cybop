@@ -1,22 +1,22 @@
 <model>
     <part name="clear_category" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
         <property name="source" channel="inline" format="text/plain" model=""/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_topic_path_to_category" channel="inline" format="modify/append" model="">
         <property name="source" channel="inline" format="path/knowledge" model=".temporary.topic_link"/>
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_static_pre_to_category_path" channel="inline" format="modify/append" model="">
         <property name="source" channel="inline" format="text/plain" model=".["/>
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="clear_category_link_number" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link_number"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link_number"/>
         <property name="source" channel="inline" format="text/plain" model=""/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
@@ -28,12 +28,12 @@
     </part>
     <part name="add_category_link_number_as_text" channel="inline" format="modify/append" model="">
         <property name="source" channel="inline" format="path/knowledge" model=".temporary.category_link_number"/>
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_post_to_category_link" channel="inline" format="modify/append" model="">
         <property name="source" channel="inline" format="text/plain" model="]"/>
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.category_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 

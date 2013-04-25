@@ -1,44 +1,37 @@
 <model>
-    <!-- build topic access string and set topic name to temp var -->
     <part name="build_topic_index_string" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_topic_index_string"/>
     </part>
-
     <!-- copy template to specific knowledge path in wui.index -->
     <part name="build_topic_to_html" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_topic"/>
     </part>
-
-    <!-- count the categories of the selected topic -->
-    <part name="get_category_count" channel="inline" format="access/count" model="">
+    <part name="count_topic_categories" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".temporary.category_count"/>
         <property name="part" channel="inline" format="path/reference" model=".temporary.topic_link"/>
     </part>
-    
-    <!-- pre execution of category loop check (necessary if no category entry found) -->
-    <part name="exists_category_entries" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.category_count"/>
-        <property name="right" channel="inline" format="number/integer" model="0"/>
+    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".temporary.category_break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".temporary.category_index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".temporary.category_count"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
-    <!-- calls translate_category foreach category in topic part -->
-    <part name="loop_category_translation" channel="inline" format="flow/loop" model="">
+    <part name="translate_categories" channel="inline" format="flow/loop" model="">
         <property name="break" channel="inline" format="path/knowledge" model=".temporary.category_break"/>
         <property name="model" channel="inline" format="path/knowledge" model=".logic.translate_category"/>
     </part>
-
-    <!-- handle topic loop after finished topic --> 
-    <part name="increment_topic_count" channel="inline" format="calculate/add" model="">
+    <part name="increment_index" channel="inline" format="calculate/add" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".temporary.topic_index"/>
         <property name="operand" channel="inline" format="number/integer" model="1"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
-    <part name="compare_topic_count" channel="inline" format="compare/greater-or-equal" model="">
+    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".temporary.topic_break"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".temporary.topic_count"/>
         <property name="left" channel="inline" format="path/knowledge" model=".temporary.topic_index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".temporary.topic_count"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>

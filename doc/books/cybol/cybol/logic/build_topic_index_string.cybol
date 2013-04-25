@@ -1,18 +1,18 @@
 <model>
     <!-- build dynamic knowledge path using index to the current topic -->  
     <part name="clear_topic" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link"/>
         <property name="source" channel="inline" format="text/plain" model=""/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_static_pre_to_topic" channel="inline" format="modify/append" model="">
         <property name="source" channel="inline" format="text/plain" model=".specification.["/>
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="clear_topic_link_number" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link_number"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link_number"/>
         <property name="source" channel="inline" format="text/plain" model=""/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
@@ -24,12 +24,12 @@
     </part>
     <part name="add_topic_link_number_as_text" channel="inline" format="modify/append" model="">
         <property name="source" channel="inline" format="path/knowledge" model=".temporary.topic_link_number"/>
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_post_to_topic_link" channel="inline" format="modify/append" model="">
         <property name="source" channel="inline" format="text/plain" model="]"/>
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.topic_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 

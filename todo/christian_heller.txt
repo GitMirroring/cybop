@@ -13,8 +13,6 @@
         * Debug html generator to add missing sections
         * Replace double- with single space in cybol specification
 
-        * Think through shell command usage for "unix_shell" as well as "windows_shell"
-
         * Activate terminal input for win32 console
 
         * Process events in file "x_window_system_receiver.c"
