@@ -10,9 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Replace double- with single space in cybol specification
-        * Delete last table column called "model" in cybol specification
         * Debug html generator to add missing sections
+        * Replace double- with single space in cybol specification
 
         * Think through shell command usage for "unix_shell" as well as "windows_shell"
 

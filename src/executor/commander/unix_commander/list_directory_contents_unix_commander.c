@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LIST_DIRECTORY_CONTENTS_UNIX_SHELL_SOURCE
-#define LIST_DIRECTORY_CONTENTS_UNIX_SHELL_SOURCE
+#ifndef LIST_DIRECTORY_CONTENTS_UNIX_COMMANDER_SOURCE
+#define LIST_DIRECTORY_CONTENTS_UNIX_COMMANDER_SOURCE
 
 #include <unistd.h>
 
@@ -44,47 +44,10 @@
 /**
  * Lists the directory contents.
  *
- * Expected parametres:
- * - all (optional): the list all option (showing hidden, current . and upper .. directory)
- * - long (optional): the long listing option (showing user rights etc.)
- *
- * Constraints:
- *
  * @param p0 the parametres data
- * @param p1 the parametres count
- * @param p2 the knowledge memory part
  */
+/*??
 void apply_list_directory_contents_unix_shell(void* p0, void* p1, void* p2) {
-
-    // The all part.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The long part.
-    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // The all part model item.
-    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The long part model item.
-    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // The all part model item data.
-    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The long part model item data.
-    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get all part.
-    get_part_knowledge((void*) &a, p0, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-    // Get long part.
-    get_part_knowledge((void*) &l, p0, (void*) LONG_LIST_FILE_OPERATION_CYBOL_NAME, (void*) LONG_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
-
-    // Get all part model item.
-    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get long part model item.
-    copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-    // Get all part model item data.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get long part model item data.
-    copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The arguments item.
     void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -132,11 +95,12 @@ void apply_list_directory_contents_unix_shell(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Execute command line in shell.
-    apply_execute(argd, argc);
+    execute(argd, argc);
 
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
+*/
 
-/* LIST_DIRECTORY_CONTENTS_UNIX_SHELL_SOURCE */
+/* LIST_DIRECTORY_CONTENTS_UNIX_COMMANDER_SOURCE */
 #endif

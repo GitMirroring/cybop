@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_SOURCE
-#define LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_SOURCE
+#ifndef LIST_DIRECTORY_CONTENTS_WINDOWS_COMMANDER_SOURCE
+#define LIST_DIRECTORY_CONTENTS_WINDOWS_COMMANDER_SOURCE
 
 #include <unistd.h>
 
@@ -44,16 +44,11 @@
 /**
  * Lists the directory contents.
  *
- * Expected parametres:
- * - all (optional): the list all option (showing hidden, current . and upper .. directory)
- * - long (optional): the long listing option (showing user rights etc.)
- *
- * Constraints:
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
+/*??
 void apply_list_directory_contents_win32_command(void* p0, void* p1, void* p2) {
 
     printf("%i\n", 0);
@@ -139,11 +134,12 @@ void apply_list_directory_contents_win32_command(void* p0, void* p1, void* p2) {
 
 
     // Execute command line in shell.
-    apply_execute(argd, argc);
+    execute(argd, argc);
 
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
+*/
 
-/* LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_SOURCE */
+/* LIST_DIRECTORY_CONTENTS_WINDOWS_COMMANDER_SOURCE */
 #endif

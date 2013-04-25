@@ -28,7 +28,6 @@
 
 #include <unistd.h>
 
-#include "../../applicator/run/execute.c"
 #include "../../constant/model/command/unix_command_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -36,8 +35,9 @@
 #include "../../constant/name/command_option/unix/archive_unix_command_option_name.c"
 #include "../../constant/name/cybol/operation/file/archive_file_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"
 
 /**
@@ -156,7 +156,7 @@ void apply_archive_file(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Execute command line in shell.
-    apply_execute(argd, argc);
+    execute(argd, argc);
 
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

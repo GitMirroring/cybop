@@ -47,7 +47,7 @@
         <property name="message" channel="inline" format="text/plain" model="cybol/logic.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".logic"/>
     </part>
-    <part name="initialise_temp" channel="inline" format="communicate/receive" model="">
+    <part name="initialise_temporary" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -62,37 +62,37 @@
     </part>
 
     <!-- Generate application main knowledge part tree views (just for test purposes). -->
-    <part name="test_knowledge_tree_spec" channel="inline" format="communicate/send" model="">
+    <part name="test_specification" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".specification"/>
-        <property name="receiver" channel="inline" format="text/plain" model="Specification.txt"/>
+        <property name="receiver" channel="inline" format="text/plain" model="specification.txt"/>
     </part>
-    <part name="test_knowledge_tree_temp" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".temporary"/>
-        <property name="receiver" channel="inline" format="text/plain" model="Temporary.txt"/>
-    </part>
-    <part name="test_knowledge_tree_logic" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".logic"/>
-        <property name="receiver" channel="inline" format="text/plain" model="Logic.txt"/>
-    </part>
-    <part name="test_knowledge_tree_wui_index" channel="inline" format="communicate/send" model="">
+    <part name="test_wui_index" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".wui.index"/>
         <property name="receiver" channel="inline" format="text/plain" model="wui_index.txt"/>
+    </part>
+    <part name="test_logic" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".logic"/>
+        <property name="receiver" channel="inline" format="text/plain" model="logic.txt"/>
+    </part>
+    <part name="test_temporary" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".temporary"/>
+        <property name="receiver" channel="inline" format="text/plain" model="temporary.txt"/>
     </part>
 
     <!-- Print part of knowledge tree as html file. -->

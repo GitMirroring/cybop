@@ -28,7 +28,6 @@
 
 #include <unistd.h>
 
-#include "../../applicator/run/execute.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -36,6 +35,7 @@
 #include "../../constant/name/cybol/operation/run/programme_run_operation_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"
 
 /**
@@ -71,7 +71,7 @@ void apply_run(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Execute command line in shell.
-    apply_execute(pmd, pmc);
+    execute(pmd, pmc);
 }
 
 /* RUN_SOURCE */

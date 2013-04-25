@@ -23,14 +23,11 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EXECUTE_SOURCE
-#define EXECUTE_SOURCE
+#ifndef EXECUTOR_SOURCE
+#define EXECUTOR_SOURCE
 
-#include <errno.h>
 #include <sys/types.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include <sys/wait.h>
-#endif
+#include <errno.h>
 
 #include "../../constant/model/command/unix_command_model.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -41,15 +38,19 @@
 #include "../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../logger/logger.c"
 
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/wait.h>
+#endif
+
 /**
  * Executes the command as process.
  *
  * @param p0 the command data
  * @param p1 the command count
  */
-void apply_execute(void* p0, void* p1) {
+void execute(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply execute.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Execute.");
 
     //?? TODO: Figure out if assembling a shell command line is necessary at all!
     //?? The "system" function call further below does search programmes internally
@@ -77,7 +78,7 @@ void apply_execute(void* p0, void* p1) {
 
     #ifdef GNU_LINUX_OPERATING_SYSTEM
         // Append shell command.
-        append_item_element(c, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);  
+        append_item_element(c, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         // Append shell command.
         append_item_element(c, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(c, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -87,7 +88,7 @@ void apply_execute(void* p0, void* p1) {
     #endif
 
     append_item_element(c, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    
+
     #ifdef GNU_LINUX_OPERATING_SYSTEM
         append_item_element(c, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     #endif
@@ -440,5 +441,5 @@ void apply_execute(void* p0, void* p1) {
 */
 }
 
-/* EXECUTE_SOURCE */
+/* EXECUTOR_SOURCE */
 #endif

@@ -17,8 +17,7 @@
         * Provide shell commands in a platform-independent way, usable on posix and win32
         * Convert shell script "clean_result_directory.sh" to CYBOOL
 
-        * Rename "applicator/file/" into "applicator/shell/"
-        * Rename "win32_command" into "win32_shell"
+        * Rename "applicator/file/" into "applicator/command/"
         * Extract (cut) common (redundant) code from e.g.
             list_directory_contents_unix_shell.c and
             list_directory_contents_win32_command.c and
