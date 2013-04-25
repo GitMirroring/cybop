@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-25  Falco Prescher  <falco.prescher@it2010.ba-leipzig.de>
+
+        * Make cybol shell commands platform independent
+        * Add unix- as well as windows shell commands
+
 2013-04-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Split terminal sender for extra handling of win32 console tui
