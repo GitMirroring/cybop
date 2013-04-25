@@ -58,6 +58,7 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal.");
 
+/*??
     // The win32 console flag.
     int w = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The tui language flag.
@@ -77,7 +78,9 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     logify_boolean_and((void*) &r, (void*) &w, (void*) &t);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+*/
 
+#ifdef WIN32
         // The platform is win32 AND the language is tui.
         // Therefore, the following "serialise" function call suffices.
 
@@ -88,13 +91,16 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         // Therefore, a destination item does NOT need to be handed over,
         // which is why the first parametre is NULL.
         serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p9, p10, p11, p5, p6, p7);
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
 
-    } else {
+//??    } else {
 
         // Process all other cases in the standard way.
 
         send_terminal_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
-    }
+//??    }
+#endif
 }
 
 /* TERMINAL_SENDER_SOURCE */
