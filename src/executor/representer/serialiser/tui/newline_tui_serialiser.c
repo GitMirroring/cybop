@@ -36,10 +36,11 @@
  * Appends a newline to the data.
  *
  * @param p0 the destination ansi escape code item
- * @param p1 the newline flag
- * @param p2 the tree level
+ * @param p1 the destination win32 console output data
+ * @param p2 the newline flag
+ * @param p3 the tree level
  */
-void serialise_tui_newline(void* p0, void* p1, void* p2) {
+void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui newline.");
 
@@ -48,23 +49,29 @@ void serialise_tui_newline(void* p0, void* p1, void* p2) {
     // The newline flag comparison result.
     int n = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &r, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    // Only clear terminal screen if this is the root
-    // tree level, which means that this is the initial
+    // Check if this is the root tree level,
+    // which means that this is the initial
     // (and not a recursive) call of this function.
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &n, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_unequal((void*) &n, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (n != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #ifdef WIN32
-            append_item_element(p0, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // CAUTION! Do NOT use the following source code here:
+            // append_item_element(p0, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // append_item_element(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            //
+            // The reason is that win32 console function calls are used,
+            // but NOT the destination item (encapsulating a wide character array).
+            // Therefore, delegate newline generation to a function.
+            serialise_win32_console_character(p1, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 #endif
 #ifdef MAC
-            append_item_element(p0, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+//??            append_item_element(p0, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
             append_item_element(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

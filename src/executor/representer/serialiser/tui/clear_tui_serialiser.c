@@ -57,8 +57,8 @@ void serialise_tui_clear(void* p0, void* p1, void* p2, void* p3) {
 
     compare_integer_equal((void*) &r, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    // Only clear terminal screen if this is the root
-    // tree level, which means that this is the initial
+    // Check if this is the root tree level,
+    // which means that this is the initial
     // (and not a recursive) call of this function.
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

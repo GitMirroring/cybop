@@ -128,11 +128,6 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST sc: %i\n", sc);
-fwprintf(stdout, L"TEST *sc: %i\n", *((int*) sc));
-fwprintf(stdout, L"TEST sd: %i\n", sd);
-fwprintf(stdout, L"TEST *sd: %ls\n", (wchar_t*) sd);
-
 #ifdef WIN32
     serialise_win32_console_character(p1, sd, sc);
 #endif
@@ -141,7 +136,7 @@ fwprintf(stdout, L"TEST *sd: %ls\n", (wchar_t*) sd);
 #endif
 
     // Append newline.
-    serialise_tui_newline(p0, p10, p11);
+    serialise_tui_newline(p0, p1, p10, p11);
 
     // Reset terminal attributes in order to have
     // original settings in two situations:

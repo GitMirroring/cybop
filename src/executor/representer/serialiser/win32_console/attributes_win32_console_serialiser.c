@@ -76,7 +76,7 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
         // CAUTION! Do NOT get the current attributes using:
         //
         // CONSOLE_SCREEN_BUFFER_INFO i;
-        // BOOL b = GetConsoleScreenBufferInfo(o, &i);
+        // BOOL b = GetConsoleScreenBufferInfo(dh, &i);
         // WORD a = i.wAttributes;
         //
         // The reason is that black colour is defined
@@ -85,7 +85,10 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
         // then the current (previous) colour would remain,
         // which is not wanted, if black colour is expected.
         //
-        WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+//??        WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        CONSOLE_SCREEN_BUFFER_INFO i;
+        /*??BOOL b = */GetConsoleScreenBufferInfo(dh, &i);
+        WORD a = i.wAttributes;
 
         // Assign colours.
         //

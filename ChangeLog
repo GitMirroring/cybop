@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix invisible characters under win32 console caused by initialising attribute variable with zero
+        * Fix newline using win32 console function calls instead of standard output cr+lf
+
 2013-04-25  Falco Prescher  <falco.prescher@it2010.ba-leipzig.de>
 
         * Make cybol shell commands platform independent
