@@ -10,19 +10,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Complete file "newline_tui_serialiser.c" using not only LF, but also CR! (define 3x sequence constants for win32, mac, unix)
-        * Reason for invisible characters is in file "attributes_win32_console_serialiser.c"
-            --> using default attributes makes them visible, but doesn't display colours correctly due to wrong default for black colour
-            --> define default values for black and white??
-        * See terminal_sender commented out code blocks win32 + unix
-        * Make character output work again in win32 console
-            --> Use destination wide character stream or win32 console function calls or both?
-            e.g. newline, character CAUTION! Serialisation of numbers etc. to stream or win32 console "WriteCharacter"?
-            --> problem with "orient" terminal --> if-def out for win32 to test
-        * Activate terminal input for win32 console
-
         * Debug html generator to add missing sections
         * Replace double- with single space in cybol specification
+
+        * Activate terminal input for win32 console
 
         * Process events in file "x_window_system_receiver.c"
         * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted

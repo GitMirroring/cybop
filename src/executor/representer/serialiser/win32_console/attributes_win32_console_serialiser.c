@@ -30,7 +30,6 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/win32_console/background_win32_console_serialiser.c"
@@ -71,80 +70,87 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 console attributes.");
 
-        // The attributes.
-        //
-        // CAUTION! Do NOT get the current attributes using:
-        //
-        // CONSOLE_SCREEN_BUFFER_INFO i;
-        // BOOL b = GetConsoleScreenBufferInfo(dh, &i);
-        // WORD a = i.wAttributes;
-        //
-        // The reason is that black colour is defined
-        // by specifying no colour constant at all.
-        // But if the current attributes were used,
-        // then the current (previous) colour would remain,
-        // which is not wanted, if black colour is expected.
-        //
-//??        WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The console screen buffer info.
         CONSOLE_SCREEN_BUFFER_INFO i;
-        /*??BOOL b = */GetConsoleScreenBufferInfo(dh, &i);
-        WORD a = i.wAttributes;
 
-        // Assign colours.
-        //
-        // CAUTION! The attributes are manipulated by
-        // adding new values using the OR operator, e.g.:
-        // *a = *a | FOREGROUND_RED | FOREGROUND_INTENSITY;
-        //
-        serialise_win32_console_background((void*) &a, p1);
-        serialise_win32_console_foreground((void*) &a, p2);
-
-        // CAUTION! The "intensity" constants below can NOT be
-        // handed over as reference directly below since then,
-        // the following error occurs:
-        // "lvalue required as unary ‘&’ operand"
-        // Therefore, the following variables had to be
-        // introduced, in order to be forwarded as parametre.
-
-        // The foreground (text) intensity attribute.
-        WORD fi = FOREGROUND_INTENSITY;
-        // The background intensity attribute.
-        WORD bi = BACKGROUND_INTENSITY;
-
-        // Set further attributes.
-        //
-        // - hidden: ??
-        // - inverse: does NOT work (see community comment below)
-        // - blink: ??
-        // - underline: does NOT work (see community comment below)
-        // - bold: intense foreground text colour
-        // - intense: intense background colour (not supported by ansi escape code)
-        //
-        // Community comment on:
-        // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
-        // COMMON_LVB_UNDERSCORE and COMMON_LVB_REVERSE_VIDEO does not work!
-        //
-        serialise_win32_console_effect((void*) &a, (void*) &fi, p7);
-        serialise_win32_console_effect((void*) &a, (void*) &bi, p8);
-
-        // Set attributes of characters written to the console screen buffer.
-        //
-        // CAUTION! Under win32 console, unfortunately,
-        // the display mode is locked in background
-        // intensity mode, thus BLINKING does NOT work.
-        // Also, the UNDERSCORE attribute is NOT available.
-        //
-        // http://msdn.microsoft.com/en-us/library/ms686047(v=vs.85).aspx
-        // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
-        BOOL b = SetConsoleTextAttribute(dh, a);
+        // Fill console screen buffer info.
+        BOOL b = GetConsoleScreenBufferInfo(dh, &i);
 
         // If the return value is zero, then an error occured.
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The attributes.
+            // CAUTION! Do NOT just initialise them like:
+            // WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // Otherwise, all values are reset and background
+            // as well as foreground colour set to black,
+            // leading to invisible output.
+            WORD a = i.wAttributes;
+
+            // Assign colours.
+            //
+            // CAUTION! The attributes are manipulated by
+            // adding new values using the OR operator, e.g.:
+            // *a = *a | FOREGROUND_RED | FOREGROUND_INTENSITY;
+            //
+            serialise_win32_console_background((void*) &a, p1);
+            serialise_win32_console_foreground((void*) &a, p2);
+
+            // CAUTION! The "intensity" constants below can NOT be
+            // handed over as reference directly below since then,
+            // the following error occurs:
+            // "lvalue required as unary ‘&’ operand"
+            // Therefore, the following variables had to be
+            // introduced, in order to be forwarded as parametre.
+
+            // The foreground (text) intensity attribute.
+            WORD fi = FOREGROUND_INTENSITY;
+            // The background intensity attribute.
+            WORD bi = BACKGROUND_INTENSITY;
+
+            // Set further attributes.
+            //
+            // - hidden: ??
+            // - inverse: does NOT work (see community comment below)
+            // - blink: ??
+            // - underline: does NOT work (see community comment below)
+            // - bold: intense foreground text colour
+            // - intense: intense background colour (not supported by ansi escape code)
+            //
+            // Community comment on:
+            // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
+            // COMMON_LVB_UNDERSCORE and COMMON_LVB_REVERSE_VIDEO does not work!
+            //
+            serialise_win32_console_effect((void*) &a, (void*) &fi, p7);
+            serialise_win32_console_effect((void*) &a, (void*) &bi, p8);
+
+            // Set attributes of characters written to the console screen buffer.
+            //
+            // CAUTION! Under win32 console, unfortunately,
+            // the display mode is locked in background
+            // intensity mode, thus BLINKING does NOT work.
+            // Also, the UNDERSCORE attribute is NOT available.
+            //
+            // http://msdn.microsoft.com/en-us/library/ms686047(v=vs.85).aspx
+            // http://msdn.microsoft.com/en-us/library/ms682088(v=vs.85).aspx#_win32_character_attributes
+            b = SetConsoleTextAttribute(dh, a);
+
+            // If the return value is zero, then an error occured.
+            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // Get the calling thread's last-error code.
+                DWORD e = GetLastError();
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The text attributes could not be set.");
+                log_windows_system_error((void*) &e);
+            }
+
+        } else {
 
             // Get the calling thread's last-error code.
             DWORD e = GetLastError();
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The text attributes could not be set.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The console screen buffer info could not be retrieved.");
             log_windows_system_error((void*) &e);
         }
 

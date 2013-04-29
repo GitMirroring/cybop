@@ -29,6 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/text/newline_text_model.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../logger/logger.c"
 
@@ -68,13 +69,13 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
             // The reason is that win32 console function calls are used,
             // but NOT the destination item (encapsulating a wide character array).
             // Therefore, delegate newline generation to a function.
-            serialise_win32_console_character(p1, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            serialise_win32_console_character(p1, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT);
 #endif
 #ifdef MAC
-//??            append_item_element(p0, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) MACINTOSH_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MACINTOSH_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
         }
     }

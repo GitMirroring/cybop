@@ -44,8 +44,7 @@
     #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/reset_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/state_win32_console_serialiser.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#else
     #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
     #include "../../../../executor/representer/serialiser/ansi_escape_code/reset_ansi_escape_code_serialiser.c"
 #endif
@@ -54,7 +53,7 @@
 // Forward declarations.
 //
 
-void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12);
 
 /**
  * Serialises the part element content into tui.
@@ -72,19 +71,12 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p10 the newline flag
  * @param p11 the tree level
  * @param p12 the cli flag
- * @param p13 the format data
+ * @param p13 the original attributes
+ * @param p14 the format data
  */
-void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
-
-#ifdef WIN32
-    // The original attributes.
-    WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    // NOTHING to be done here.
-#endif
 
     // The serialised item.
     // CAUTION! This variable is necessary,
@@ -97,10 +89,24 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
 #ifdef WIN32
-    serialise_win32_console_state((void*) &a, p1);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    // NOTHING to be done here.
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_equal((void*) &r, p11, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // If this is the first tui element being processed (tree level zero),
+        // then store the current original win32 console attributes.
+        serialise_win32_console_state(p13, p1);
+
+    } else {
+
+        // If this is any of the following tui elements,
+        // then reset console to original attributes
+        // before actually manipulating them below.
+        serialise_win32_console_reset(p1, p13);
+    }
 #endif
 
     // Allocate serialised item.
@@ -117,7 +123,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // Increment tree level.
     calculate_integer_add(p11, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     // Append embedded model.
-    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13);
+    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14);
     // Decrement tree level.
     calculate_integer_subtract(p11, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
@@ -130,8 +136,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 
 #ifdef WIN32
     serialise_win32_console_character(p1, sd, sc);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#else
     serialise_ansi_escape_code_character(p0, sd, sc);
 #endif
 
@@ -148,9 +153,8 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // once after serialisation, but EVERYTIME
     // after having painted a part here.
 #ifdef WIN32
-    serialise_win32_console_reset(p1, (void*) &a);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+    serialise_win32_console_reset(p1, p13);
+#else
     serialise_ansi_escape_code_reset(p0);
 #endif
 

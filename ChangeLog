@@ -16,6 +16,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-04-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Use newline constants for terminal output on macintosh, unix, windows
+        * Store original terminal attributes, in order to avoid reset of background and foreground to black leading to invisible output
+        * Delete win32 console sender, since functionality is now in win32 console serialiser
+
 2013-04-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix invisible characters under win32 console caused by initialising attribute variable with zero

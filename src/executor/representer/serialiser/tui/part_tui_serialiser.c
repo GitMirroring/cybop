@@ -49,8 +49,9 @@
  * @param p8 the newline flag
  * @param p9 the tree level
  * @param p10 the cli flag
+ * @param p11 the original attributes
  */
-void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part.");
 
@@ -80,7 +81,7 @@ void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             break;
         }
 
-        serialise_tui_part_element(p0, p1, p2, (void*) &j, p4, p5, p6, p7, p8, p9, p10);
+        serialise_tui_part_element(p0, p1, p2, (void*) &j, p4, p5, p6, p7, p8, p9, p10, p11);
 
         // Increment loop variable.
         j++;

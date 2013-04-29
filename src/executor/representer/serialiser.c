@@ -49,12 +49,7 @@
 // Therefore, the "model_diagram_serialiser.c" module is included here.
 #include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
-// CAUTION! Do NOT include the "content_element_part_ansi_escape_code_serialiser.c" module.
-// It is true, the "serialise_ansi_escape_code_part_element_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-// Therefore, the "ansi_escape_code_serialiser.c" module is included here.
-#include "../../executor/representer/serialiser/tui/tui_serialiser.c"
+#include "../../executor/representer/serialiser/tui/initial_tui_serialiser.c"
 #include "../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
 #include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
@@ -102,35 +97,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The output item.
-            void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The output item data.
-            void* opd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The tree level.
-            //
-            // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
-            // since the tree level value gets changed in the following functions!
-            int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            // Get output item.
-            copy_array_forward((void*) &op, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-            // Get output item data.
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            copy_array_forward((void*) &opd, op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            // CAUTION! Handing over the output item is necessary
-            // for serialising into a win32 console, since
-            // win32 console functions have to be called inside.
-            //
-            // CAUTION! The text user interface (tui) serialiser is reused
-            // for the command line interface (cli) language here.
-            // The only difference is the CLI FLAG handed over,
-            // which is used to avoid cursor positioning,
-            // since that is NOT wanted for cli.
-            serialise_tui_part_element_content(p0, opd, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p7, p8, (void*) &l, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
+            serialise_tui_initial(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
         }
     }
 
@@ -160,29 +127,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The output item.
-            void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The output item data.
-            void* opd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The tree level.
-            //
-            // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
-            // since the tree level value gets changed in the following functions!
-            int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            // Get output item.
-            copy_array_forward((void*) &op, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-            // Get output item data.
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            copy_array_forward((void*) &opd, op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            // CAUTION! Handing over the output item is necessary
-            // for serialising into a win32 console, since
-            // win32 console functions have to be called inside.
-            serialise_tui_part_element_content(p0, opd, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p7, p8, (void*) &l, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p9);
+            serialise_tui_initial(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p9);
         }
     }
 
