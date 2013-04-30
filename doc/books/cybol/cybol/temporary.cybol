@@ -1,6 +1,6 @@
 <model>
 
-    <!-- The loop models. -->
+    <!-- The loop parametres. -->
     <part name="topic_count" channel="inline" format="number/integer" model="0"/>
     <part name="topic_index" channel="inline" format="number/integer" model="0"/>
     <part name="topic_break" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -20,7 +20,7 @@
     <part name="selected_operation" channel="inline" format="text/plain" model=""/>
     <part name="selected_property" channel="inline" format="text/plain" model=""/>
 
-    <!-- The dynamic knowledge path temporary variables. -->
+    <!-- The knowledge paths. -->
     <part name="topic_content_path" channel="inline" format="text/plain" model=""/>
     <part name="topic_content_path_name" channel="inline" format="text/plain" model=""/>
     <part name="topic_content_path_anchor" channel="inline" format="text/plain" model=""/>
@@ -45,11 +45,11 @@
     <part name="operation_content_path_example" channel="inline" format="text/plain" model=""/>
     <part name="operation_content_path_example_div" channel="inline" format="text/plain" model=""/>
     <part name="operation_content_path_example_div_class" channel="inline" format="text/plain" model=""/>
-    <part name="operation_toc_path_div" channel="inline" format="path/knowledge" model=""/>
-    <part name="operation_toc_path_div_class" channel="inline" format="path/knowledge" model=""/>
     <part name="operation_toc_path" channel="inline" format="text/plain" model=""/>
     <part name="operation_toc_path_name" channel="inline" format="text/plain" model=""/>
     <part name="operation_toc_path_href" channel="inline" format="text/plain" model=""/>
+    <part name="operation_toc_path_div" channel="inline" format="path/knowledge" model=""/>
+    <part name="operation_toc_path_div_class" channel="inline" format="path/knowledge" model=""/>
     <part name="property_content_path" channel="inline" format="text/plain" model=""/>
     <part name="property_content_path_specific" channel="inline" format="text/plain" model=""/>
     <part name="property_content_path_name" channel="inline" format="text/plain" model=""/>
@@ -60,7 +60,7 @@
     <part name="property_content_path_tag" channel="inline" format="text/plain" model=""/>
     <part name="property_required_value" channel="inline" format="logicvalue/boolean" model=""/>
 
-    <!-- The temporary path links to items. -->
+    <!-- The item links. -->
     <part name="topic_link" channel="inline" format="text/plain" model=""/>
     <part name="topic_link_number" channel="inline" format="text/plain" model=""/>
     <part name="category_link" channel="inline" format="text/plain" model=""/>
@@ -71,11 +71,11 @@
     <part name="property_link_number" channel="inline" format="text/plain" model=""/>
 
     <!-- The category properties access. -->
-    <part name="link_spec_properties" channel="inline" format="text/plain" model=""/>
-    <part name="link_spec_format" channel="inline" format="text/plain" model=""/>
-    <part name="link_spec_example" channel="inline" format="text/plain" model=""/>
-    <part name="link_spec_description" channel="inline" format="text/plain" model=""/>
     <part name="link_spec_name" channel="inline" format="text/plain" model=""/>
+    <part name="link_spec_description" channel="inline" format="text/plain" model=""/>
+    <part name="link_spec_format" channel="inline" format="text/plain" model=""/>
+    <part name="link_spec_properties" channel="inline" format="text/plain" model=""/>
+    <part name="link_spec_example" channel="inline" format="text/plain" model=""/>
     <part name="link_property_name" channel="inline" format="text/plain" model=""/>
     <part name="link_property_description" channel="inline" format="text/plain" model=""/>
     <part name="link_property_required" channel="inline" format="text/plain" model=""/>

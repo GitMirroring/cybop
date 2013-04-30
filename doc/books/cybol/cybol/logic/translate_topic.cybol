@@ -1,12 +1,11 @@
 <model>
-    <part name="build_topic_index_string" channel="inline" format="flow/sequence" model="">
+    <part name="build_index_string" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_topic_index_string"/>
     </part>
-    <!-- copy template to specific knowledge path in wui.index -->
-    <part name="build_topic_to_html" channel="inline" format="flow/sequence" model="">
+    <part name="build_html_template" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_topic"/>
     </part>
-    <part name="count_topic_categories" channel="inline" format="access/count" model="">
+    <part name="count_categories" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".temporary.category_count"/>
         <property name="part" channel="inline" format="path/reference" model=".temporary.topic_link"/>
     </part>
