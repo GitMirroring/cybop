@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-05-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add "tui" state model to cybol specification
+
 2013-04-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Use newline constants for terminal output on macintosh, unix, windows

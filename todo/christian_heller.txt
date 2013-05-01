@@ -12,7 +12,6 @@
 
         * Check if type text/plain or number/integer in file "translate_operation_property.cybol"
         * Debug html generator to add missing sections
-        * Replace double- with single space in cybol specification
 
         * Activate terminal input for win32 console
 

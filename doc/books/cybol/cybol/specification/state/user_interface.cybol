@@ -1,0 +1,3 @@
+<model>
+    <part name="text" channel="file" format="element/part" model="cybol/specification/state/user_interface/text.cybol"/>
+</model>
