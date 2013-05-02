@@ -1,0 +1,3 @@
+<model>
+    <part name="compare" channel="file" format="element/part" model="cybol/specification/logic/compare/compare.cybol"/>
+</model>

@@ -1,0 +1,3 @@
+<model>
+    <part name="cast" channel="file" format="element/part" model="cybol/specification/logic/cast/cast.cybol"/>
+</model>

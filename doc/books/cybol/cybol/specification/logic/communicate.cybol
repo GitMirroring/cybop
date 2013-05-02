@@ -1,0 +1,4 @@
+<model>
+    <part name="receive" channel="file" format="element/part" model="cybol/specification/logic/communicate/receive.cybol"/>
+    <part name="send" channel="file" format="element/part" model="cybol/specification/logic/communicate/send.cybol"/>
+</model>

@@ -1,0 +1,5 @@
+<model>
+    <part name="count" channel="file" format="element/part" model="cybol/specification/logic/access/count.cybol"/>
+    <part name="get" channel="file" format="element/part" model="cybol/specification/logic/access/get.cybol"/>
+    <part name="indicate" channel="file" format="element/part" model="cybol/specification/logic/access/indicate.cybol"/>
+</model>
