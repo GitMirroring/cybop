@@ -1,50 +1,41 @@
 <model>
-
-    <!-- ?? TODO: type text or int?? -->
+    <part name="reset_properties_break" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.properties_break"/>
+        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </part>
+    <part name="reset_properties_count" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.properties_count"/>
+        <property name="source" channel="inline" format="number/integer" model="0"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
     <part name="reset_properties_index" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".temporary.properties_index"/>
         <property name="source" channel="inline" format="number/integer" model="0"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
-
-    <!-- reset properties break -->
-    <part name="reset_property_break" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.properties_break"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
-    <!-- reset properties count -->
-    <part name="reset_property_count" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.properties_count"/>
-        <property name="source" channel="inline" format="number/integer" model="0"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-
-    <!-- count the properties of the selected topic -->
-    <part name="get_properties_count" channel="inline" format="access/count" model="">
+    <part name="count_properties" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".temporary.properties_count"/>
         <property name="part" channel="inline" format="path/reference" model=".temporary.link_spec_properties"/>
     </part>
-
-    <!-- copy operation content table template to wui.index.body.toc -->
-    <part name="copy_wui_operation_table_template" channel="inline" format="communicate/receive" model="">
+    <part name="copy_operation_content_html_template" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="text/plain" model="cybol/wui/template/operation_property_content.cybol"/>
+        <!-- .wui.index.body.toc -->
         <property name="model" channel="inline" format="path/reference" model=".temporary.operation_content_path"/>
     </part>
-
-    <!-- pre execution of loop check (necessary if no topic entry found); break variable initialized with false -->
-    <part name="exists_properties_entries" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.properties_count"/>
-        <property name="right" channel="inline" format="number/integer" model="0"/>
+    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".temporary.properties_break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".temporary.properties_index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".temporary.properties_count"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
-    <part name="loop_properties_translation" channel="inline" format="flow/loop" model="">
+    <part name="loop_properties" channel="inline" format="flow/loop" model="">
         <property name="break" channel="inline" format="path/knowledge" model=".temporary.properties_break"/>
         <property name="model" channel="inline" format="path/knowledge" model=".logic.translate_properties"/>
     </part>

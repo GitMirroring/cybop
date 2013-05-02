@@ -7,7 +7,7 @@
         translate_operation
         translate_properties
     -->
-    <part name="get_topic_count" channel="inline" format="access/count" model="">
+    <part name="count_topics" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".temporary.topic_count"/>
         <property name="part" channel="inline" format="path/knowledge" model=".specification"/>
     </part>

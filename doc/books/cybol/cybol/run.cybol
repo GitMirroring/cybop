@@ -56,12 +56,12 @@
         <property name="model" channel="inline" format="path/knowledge" model=".temporary"/>
     </part>
 
-    <!-- Execute application logic. -->
+    <!-- Translate specification into html. -->
     <part name="translate_specification" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.translate_specification"/>
     </part>
 
-    <!-- Generate application main knowledge part tree views (just for test purposes). -->
+    <!-- Test knowledge tree. -->
     <part name="test_specification" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
