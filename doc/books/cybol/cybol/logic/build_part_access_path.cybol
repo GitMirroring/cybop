@@ -1,12 +1,12 @@
 <model>
-    <part name="clear_operation_spec_name" channel="inline" format="modify/overwrite" model="">
+    <part name="clear_part_spec_name" channel="inline" format="modify/overwrite" model="">
     <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_name"/>
         <property name="source" channel="inline" format="text/plain" model=""/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_path_to_operation_to_name" channel="inline" format="modify/append" model="">
+    <part name="add_path_to_part_to_name" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_name"/>
-    <property name="source" channel="inline" format="path/knowledge" model=".temporary.operation_link"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_seperator_and_name" channel="inline" format="modify/append" model="">
@@ -15,14 +15,14 @@
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
-    <part name="clear_operation_spec_description" channel="inline" format="modify/overwrite" model="">
+    <part name="clear_part_spec_description" channel="inline" format="modify/overwrite" model="">
     <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_description"/>
         <property name="source" channel="inline" format="text/plain" model=""/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_path_to_operation_to_description" channel="inline" format="modify/append" model="">
+    <part name="add_path_to_part_to_description" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_description"/>
-    <property name="source" channel="inline" format="path/knowledge" model=".temporary.operation_link"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_seperator_and_description" channel="inline" format="modify/append" model="">
@@ -31,14 +31,14 @@
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
-    <part name="clear_operation_spec_example" channel="inline" format="modify/overwrite" model="">
+    <part name="clear_part_spec_example" channel="inline" format="modify/overwrite" model="">
     <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_example"/>
         <property name="source" channel="inline" format="text/plain" model=""/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_path_to_operation_to_example" channel="inline" format="modify/append" model="">
+    <part name="add_path_to_part_to_example" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_example"/>
-    <property name="source" channel="inline" format="path/knowledge" model=".temporary.operation_link"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_seperator_and_example" channel="inline" format="modify/append" model="">
@@ -47,14 +47,14 @@
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
-    <part name="clear_operation_spec_format" channel="inline" format="modify/overwrite" model="">
+    <part name="clear_part_spec_format" channel="inline" format="modify/overwrite" model="">
     <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_format"/>
         <property name="source" channel="inline" format="text/plain" model=""/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_path_to_operation_to_format" channel="inline" format="modify/append" model="">
+    <part name="add_path_to_part_to_format" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_format"/>
-    <property name="source" channel="inline" format="path/knowledge" model=".temporary.operation_link"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_seperator_and_format" channel="inline" format="modify/append" model="">
@@ -63,14 +63,14 @@
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
-    <part name="clear_operation_spec_properties" channel="inline" format="modify/overwrite" model="">
+    <part name="clear_part_spec_properties" channel="inline" format="modify/overwrite" model="">
     <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_properties"/>
         <property name="source" channel="inline" format="text/plain" model=""/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="add_path_to_operation_to_properties" channel="inline" format="modify/append" model="">
+    <part name="add_path_to_part_to_properties" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".temporary.link_spec_properties"/>
-    <property name="source" channel="inline" format="path/knowledge" model=".temporary.operation_link"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_link"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="add_seperator_and_properties" channel="inline" format="modify/append" model="">

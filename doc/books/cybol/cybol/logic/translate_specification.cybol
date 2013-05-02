@@ -4,7 +4,7 @@
         translate_specification
         translate_topic
         translate_category
-        translate_operation
+        translate_part
         translate_properties
     -->
     <part name="count_topics" channel="inline" format="access/count" model="">

@@ -18,7 +18,8 @@
 
 2013-05-02  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Fix cybol specification generator by adding forgotten reset of break/count/index that caused not all parts to be processed
+        * Fix missing sections in cybol specification by adding forgotten reset of break/count/index in generator
+        * Rename "operation" into "part" in cybol specification
 
 2013-05-01  Christian Heller  <christian.heller@tuxtax.de>
 

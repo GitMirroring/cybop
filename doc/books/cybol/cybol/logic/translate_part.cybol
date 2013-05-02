@@ -1,0 +1,47 @@
+<model>
+    <!-- Build. -->
+    <part name="build_index_string" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_part_index_string"/>
+    </part>
+    <part name="build_access_path" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_part_access_path"/>
+    </part>
+    <part name="build_part_wui_path" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_part_wui_path"/>
+    </part>
+    <part name="build_part_name" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_part_name"/>
+    </part>
+    <part name="build_part_description" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_part_description"/>
+    </part>
+    <part name="build_part_format" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_part_format"/>
+    </part>
+    <part name="build_part_example" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_part_example"/>
+    </part>
+
+    <!-- Translate. -->
+    <part name="build_part_property" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.translate_part_property"/>
+    </part>
+    <part name="build_part_toc" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.build_part_toc"/>
+    </part>
+
+    <!-- Index. -->
+    <part name="increment_index" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".temporary.part_index"/>
+        <property name="operand" channel="inline" format="number/integer" model="1"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".temporary.part_break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".temporary.part_index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".temporary.part_count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
+    </part>
+</model>

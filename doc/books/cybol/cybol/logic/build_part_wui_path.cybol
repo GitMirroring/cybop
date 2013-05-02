@@ -1,0 +1,166 @@
+<model>
+    <part name="clear_part_wui_name" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.category_content_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_seperator_to_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+    <property name="source" channel="inline" format="text/plain" model="."/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_name_to_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.selected_part"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_part_wui_name_content" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_name"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_name_content" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_name"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_name_content" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_name"/>
+    <property name="source" channel="inline" format="text/plain" model=".part_name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_part_wui_name_anchor" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_anchor"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_name_anchor" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_anchor"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_name_anchor" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_anchor"/>
+    <property name="source" channel="inline" format="text/plain" model=".part_name_anchor#name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_part_wui_description_content" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_description"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_description_content" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_description"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_description_content" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_description"/>
+    <property name="source" channel="inline" format="text/plain" model=".part_description_name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_part_wui_format_content" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_format"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_format_content" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_format"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_format_content" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_format"/>
+    <property name="source" channel="inline" format="text/plain" model=".part_format_name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_part_wui_example_content" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_example_content" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_example_content" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example"/>
+    <property name="source" channel="inline" format="text/plain" model=".part_example_name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_part_wui_example_div" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example_div"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_example_div" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example_div"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_example_div" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example_div"/>
+    <property name="source" channel="inline" format="text/plain" model="#tag"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_part_wui_example_div_class" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example_div_class"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_example_div_class" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example_div_class"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_example_div_class" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_content_path_example_div_class"/>
+    <property name="source" channel="inline" format="text/plain" model="#class"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="clear_part_wui_name_toc" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_toc_path_name"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_name_toc" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_toc_path_name"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_toc_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_name_toc" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_toc_path_name"/>
+    <property name="source" channel="inline" format="text/plain" model=".part_toc"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="clear_part_wui_href_toc" channel="inline" format="modify/overwrite" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_toc_path_href"/>
+        <property name="source" channel="inline" format="text/plain" model=""/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_path_to_part_to_href_toc" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_toc_path_href"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".temporary.part_toc_path"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="add_part_href_toc" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.part_toc_path_href"/>
+    <property name="source" channel="inline" format="text/plain" model=".part_toc#href"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+</model>

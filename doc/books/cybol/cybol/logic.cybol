@@ -14,17 +14,17 @@
     <part name="build_category_content_path" channel="file" format="element/part" model="cybol/logic/build_category_content_path.cybol"/>
     <part name="build_category_toc_path" channel="file" format="element/part" model="cybol/logic/build_category_toc_path.cybol"/>
 
-    <part name="translate_operation" channel="file" format="element/part" model="cybol/logic/translate_operation.cybol"/>
-    <part name="build_operation_index_string" channel="file" format="element/part" model="cybol/logic/build_operation_index_string.cybol"/>
-    <part name="build_operation_access_path" channel="file" format="element/part" model="cybol/logic/build_operation_access_path.cybol"/>
-    <part name="build_operation_wui_path" channel="file" format="element/part" model="cybol/logic/build_operation_wui_path.cybol"/>
-    <part name="build_operation_name" channel="file" format="element/part" model="cybol/logic/build_operation_name.cybol"/>
-    <part name="build_operation_description" channel="file" format="element/part" model="cybol/logic/build_operation_description.cybol"/>
-    <part name="build_operation_format" channel="file" format="element/part" model="cybol/logic/build_operation_format.cybol"/>
-    <part name="build_operation_example" channel="file" format="element/part" model="cybol/logic/build_operation_example.cybol"/>
-    <part name="build_operation_toc" channel="file" format="element/part" model="cybol/logic/build_operation_toc.cybol"/>
+    <part name="translate_part" channel="file" format="element/part" model="cybol/logic/translate_part.cybol"/>
+    <part name="build_part_index_string" channel="file" format="element/part" model="cybol/logic/build_part_index_string.cybol"/>
+    <part name="build_part_access_path" channel="file" format="element/part" model="cybol/logic/build_part_access_path.cybol"/>
+    <part name="build_part_wui_path" channel="file" format="element/part" model="cybol/logic/build_part_wui_path.cybol"/>
+    <part name="build_part_name" channel="file" format="element/part" model="cybol/logic/build_part_name.cybol"/>
+    <part name="build_part_description" channel="file" format="element/part" model="cybol/logic/build_part_description.cybol"/>
+    <part name="build_part_format" channel="file" format="element/part" model="cybol/logic/build_part_format.cybol"/>
+    <part name="build_part_example" channel="file" format="element/part" model="cybol/logic/build_part_example.cybol"/>
+    <part name="build_part_toc" channel="file" format="element/part" model="cybol/logic/build_part_toc.cybol"/>
 
-    <part name="translate_operation_property" channel="file" format="element/part" model="cybol/logic/translate_operation_property.cybol"/>
+    <part name="translate_part_property" channel="file" format="element/part" model="cybol/logic/translate_part_property.cybol"/>
     <part name="translate_properties" channel="file" format="element/part" model="cybol/logic/translate_properties.cybol"/>
     <part name="build_property_spec" channel="file" format="element/part" model="cybol/logic/build_property_spec.cybol"/>
     <part name="build_property_spec_path" channel="file" format="element/part" model="cybol/logic/build_property_spec_path.cybol"/>

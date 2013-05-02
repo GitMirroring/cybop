@@ -22,13 +22,13 @@
     </part>
 
     <!-- Initialise. -->
-    <part name="copy_operation_content_html_template" channel="inline" format="communicate/receive" model="">
+    <part name="copy_part_content_html_template" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="cybol/wui/template/operation_property_content.cybol"/>
-        <property name="model" channel="inline" format="path/reference" model=".temporary.operation_content_path"/>
+        <property name="message" channel="inline" format="text/plain" model="cybol/wui/template/part_property_content.cybol"/>
+        <property name="model" channel="inline" format="path/reference" model=".temporary.part_content_path"/>
     </part>
 
     <!-- Translate. -->

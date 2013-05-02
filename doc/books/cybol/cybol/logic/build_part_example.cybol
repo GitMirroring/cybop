@@ -1,16 +1,16 @@
 <model>
-    <!-- copy operation content template for example -->
-    <part name="copy_wui_operation_example_environment_template" channel="inline" format="communicate/receive" model="">
+    <!-- copy part content template for example -->
+    <part name="copy_wui_part_example_environment_template" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="cybol/wui/template/operation_example_content.cybol"/>
-        <property name="model" channel="inline" format="path/reference" model=".temporary.operation_content_path"/>
+        <property name="message" channel="inline" format="text/plain" model="cybol/wui/template/part_example_content.cybol"/>
+        <property name="model" channel="inline" format="path/reference" model=".temporary.part_content_path"/>
     </part>
-    <!-- copy operation example to html content -->
-    <part name="copy_operation_example" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/reference" model=".temporary.operation_content_path_example"/>
+    <!-- copy part example to html content -->
+    <part name="copy_part_example" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/reference" model=".temporary.part_content_path_example"/>
         <property name="source" channel="inline" format="path/reference" model=".temporary.link_spec_example"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
@@ -19,10 +19,10 @@
         <property name="name" channel="inline" format="text/plain" model="tag"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="element" channel="inline" format="text/plain" model="property"/>
-        <property name="whole" channel="inline" format="path/reference" model=".temporary.operation_content_path_example"/>
+        <property name="whole" channel="inline" format="path/reference" model=".temporary.part_content_path_example"/>
     </part>
     <part name="copy_div_tag_to_knowledge_path" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/reference" model=".temporary.operation_content_path_example_div"/>
+        <property name="destination" channel="inline" format="path/reference" model=".temporary.part_content_path_example_div"/>
         <property name="source" channel="inline" format="text/plain" model="div"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
@@ -31,11 +31,11 @@
         <property name="name" channel="inline" format="text/plain" model="class"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="element" channel="inline" format="text/plain" model="property"/>
-        <property name="whole" channel="inline" format="path/reference" model=".temporary.operation_content_path_example"/>
+        <property name="whole" channel="inline" format="path/reference" model=".temporary.part_content_path_example"/>
     </part>
     <part name="copy_class_to_style_tag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/reference" model=".temporary.operation_content_path_example_div_class"/>
-        <property name="source" channel="inline" format="text/plain" model="operation_example"/>
+        <property name="destination" channel="inline" format="path/reference" model=".temporary.part_content_path_example_div_class"/>
+        <property name="source" channel="inline" format="text/plain" model="part_example"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 </model>

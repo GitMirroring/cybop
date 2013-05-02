@@ -1,6 +1,0 @@
-<model>
-    <part name="operation_description_header" channel="inline" format="text/plain" model="Description">
-        <property name="tag" channel="inline" format="text/plain" model="h5"/>
-    </part>
-    <part name="operation_description_name" channel="inline" format="text/plain" model=""/>
-</model>

@@ -1,0 +1,6 @@
+<model>
+    <part name="part_format_header" channel="inline" format="text/plain" model="Format">
+        <property name="tag" channel="inline" format="text/plain" model="h5"/>
+    </part>
+    <part name="part_format_name" channel="inline" format="text/plain" model=""/>
+</model>

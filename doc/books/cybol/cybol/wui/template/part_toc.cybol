@@ -1,5 +1,5 @@
 <model>
-    <part name="operation_toc" channel="inline" format="text/plain" model="">
+    <part name="part_toc" channel="inline" format="text/plain" model="">
         <property name="tag" channel="inline" format="text/plain" model="a"/>
         <property name="href" channel="inline" format="text/plain" model=""/>
     </part>

@@ -1,8 +1,8 @@
 <model>
-    <part name="operation_example_header" channel="inline" format="text/plain" model="Example">
+    <part name="part_example_header" channel="inline" format="text/plain" model="Example">
         <property name="tag" channel="inline" format="text/plain" model="h5"/>
     </part>
-    <part name="operation_example_name" channel="inline" format="text/plain" model="">
+    <part name="part_example_name" channel="inline" format="text/plain" model="">
         <property name="preformatted" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 </model>

@@ -1,8 +1,8 @@
 <model>
-    <part name="operation_property_header" channel="inline" format="text/plain" model="Properties">
+    <part name="part_property_header" channel="inline" format="text/plain" model="Properties">
         <property name="tag" channel="inline" format="text/plain" model="h5"/>
     </part>
-    <part name="operation_property_table" channel="file" format="element/part" model="cybol/wui/template/property_header.cybol">
+    <part name="part_property_table" channel="file" format="element/part" model="cybol/wui/template/property_header.cybol">
         <property name="tag" channel="inline" format="text/plain" model="table"/>
         <property name="class" channel="inline" format="text/plain" model="property_table"/>
         <property name="border" channel="inline" format="text/plain" model="1"/>
