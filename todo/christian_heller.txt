@@ -10,8 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Check and possibly correct "type" property in all "modify/overwrite" operations
-        * Debug html generator to add missing sections
+        * Fix html generator to add missing sections
 
         * Activate terminal input for win32 console
 
