@@ -28,6 +28,8 @@
         <property name="source" channel="inline" format="number/integer" model="0"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
+
+    <!-- Translate. -->
     <part name="count_parts" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".temporary.category_count"/>
         <property name="part" channel="inline" format="path/reference" model=".temporary.topic_link"/>

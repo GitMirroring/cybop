@@ -1,4 +1,5 @@
 <model>
+    <!-- Build. -->
     <part name="build_index_string" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_operation_index_string"/>
     </part>
@@ -8,24 +9,28 @@
     <part name="build_operation_wui_path" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_operation_wui_path"/>
     </part>
-    <part name="build_operation_name_html_template" channel="inline" format="flow/sequence" model="">
+    <part name="build_operation_name" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_operation_name"/>
     </part>
-    <part name="build_operation_description_html_template" channel="inline" format="flow/sequence" model="">
+    <part name="build_operation_description" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_operation_description"/>
     </part>
-    <part name="build_operation_format_html_template" channel="inline" format="flow/sequence" model="">
+    <part name="build_operation_format" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_operation_format"/>
     </part>
-    <part name="build_operation_example_html_template" channel="inline" format="flow/sequence" model="">
+    <part name="build_operation_example" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_operation_example"/>
     </part>
-    <part name="build_operation_property_html_template" channel="inline" format="flow/sequence" model="">
+
+    <!-- Translate. -->
+    <part name="build_operation_property" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.translate_operation_property"/>
     </part>
-    <part name="build_operation_toc_html_template" channel="inline" format="flow/sequence" model="">
+    <part name="build_operation_toc" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".logic.build_operation_toc"/>
     </part>
+
+    <!-- Index. -->
     <part name="increment_index" channel="inline" format="calculate/add" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".temporary.operation_index"/>
         <property name="operand" channel="inline" format="number/integer" model="1"/>

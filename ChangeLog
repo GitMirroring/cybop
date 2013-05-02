@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-05-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix cybol specification generator by adding forgotten reset of break/count/index that caused not all parts to be processed
+
 2013-05-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add "tui" state model to cybol specification
