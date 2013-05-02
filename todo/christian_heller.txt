@@ -10,7 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Check if type text/plain or number/integer in file "translate_operation_property.cybol"
+        * Check and possibly correct "type" property in all "modify/overwrite" operations
         * Debug html generator to add missing sections
 
         * Activate terminal input for win32 console
