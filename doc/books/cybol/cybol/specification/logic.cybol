@@ -1,8 +1,8 @@
 <model>
 <!--
+-->
     <part name="access" channel="file" format="element/part" model="cybol/specification/logic/access.cybol"/>
     <part name="calculate" channel="file" format="element/part" model="cybol/specification/logic/calculate.cybol"/>
--->
     <part name="cast" channel="file" format="element/part" model="cybol/specification/logic/cast.cybol"/>
     <part name="communicate" channel="file" format="element/part" model="cybol/specification/logic/communicate.cybol"/>
     <part name="compare" channel="file" format="element/part" model="cybol/specification/logic/compare.cybol"/>
