@@ -31,6 +31,7 @@
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
+    #include "../../../../executor/maintainer/starter/win32_display/win32_display_starter.c"
 #else
     #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
 #endif
@@ -45,6 +46,7 @@ void startup_display(void* p0) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup display.");
 
 #ifdef WIN32
+    startup_win32_display(p0);
 #else
     startup_x_window_system(p0);
 #endif

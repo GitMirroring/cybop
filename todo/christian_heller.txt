@@ -10,6 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue win32 display gui
+
         * Activate terminal input for win32 console
 
         * Process events in file "x_window_system_receiver.c"

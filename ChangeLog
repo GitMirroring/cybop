@@ -18,7 +18,8 @@
 
 2013-05-03  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Rename "x-window-system" channel into neutral name "display" and add "gui" language, in order to prepare graphical user interface for win32
+        * Rename "x-window-system" channel into neutral name "display" and add "gui" language
+        * Prepare graphical user interface for win32
 
 2013-05-02  Christian Heller  <christian.heller@tuxtax.de>
 
