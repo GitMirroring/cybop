@@ -1,0 +1,7 @@
+<model>
+    <part name="archive_file" channel="file" format="element/part" model="cybol/specification/logic/file/archive_file.cybol"/>
+    <part name="copy_file" channel="file" format="element/part" model="cybol/specification/logic/file/copy_file.cybol"/>
+    <part name="copy_file_unix_shell" channel="file" format="element/part" model="cybol/specification/logic/file/copy_file_unix_shell.cybol"/>
+    <part name="copy_file_win32_command" channel="file" format="element/part" model="cybol/specification/logic/file/copy_file_win32_command.cybol"/>
+    <part name="list_directory_contents" channel="file" format="element/part" model="cybol/specification/logic/file/list_directory_contents.cybol"/>
+</model>
