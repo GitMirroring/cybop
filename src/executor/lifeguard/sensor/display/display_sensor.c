@@ -23,35 +23,32 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SERVICE_INTERRUPT_SOURCE
-#define SERVICE_INTERRUPT_SOURCE
+#ifndef DISPLAY_SENSOR_SOURCE
+#define DISPLAY_SENSOR_SOURCE
 
-//
-// The global variables.
-//
-// CAUTION! This is just the variable definition.
-// Initialisation happens in directory "controller/globaliser/".
-//
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
-/** The cyboi service exit flag. */
-static int CYBOI_SERVICE_EXIT_ARRAY[1];
-static int* CYBOI_SERVICE_EXIT = CYBOI_SERVICE_EXIT_ARRAY;
+#ifdef WIN32
+#else
+    #include "../../../../executor/lifeguard/sensor/x_window_system/x_window_system_sensor.c"
+#endif
 
-/** The display exit flag. */
-static int DISPLAY_EXIT_ARRAY[1];
-static int* DISPLAY_EXIT = DISPLAY_EXIT_ARRAY;
+/**
+ * Senses display messages.
+ *
+ * @param p0 the internal memory data
+ */
+void sense_display(void* p0) {
 
-/** The serial port exit flag. */
-static int SERIAL_PORT_EXIT_ARRAY[1];
-static int* SERIAL_PORT_EXIT = SERIAL_PORT_EXIT_ARRAY;
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense display.");
 
-/** The terminal exit flag. */
-static int TERMINAL_EXIT_ARRAY[1];
-static int* TERMINAL_EXIT = TERMINAL_EXIT_ARRAY;
+#ifdef WIN32
+#else
+    sense_x_window_system(p0);
+#endif
+}
 
-/** The www service exit flag. */
-static int WWW_SERVICE_EXIT_ARRAY[1];
-static int* WWW_SERVICE_EXIT = WWW_SERVICE_EXIT_ARRAY;
-
-/* SERVICE_INTERRUPT_SOURCE */
+/* DISPLAY_SENSOR_SOURCE */
 #endif

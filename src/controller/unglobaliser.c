@@ -27,6 +27,7 @@
 #define UNGLOBALISER_SOURCE
 
 #include "../controller/unglobaliser/conversion_unglobaliser.c"
+#include "../controller/unglobaliser/display_unglobaliser.c"
 #include "../controller/unglobaliser/integral_unglobaliser.c"
 #include "../controller/unglobaliser/log_unglobaliser.c"
 #include "../controller/unglobaliser/pointer_unglobaliser.c"
@@ -38,7 +39,6 @@
 #include "../controller/unglobaliser/socket_unglobaliser.c"
 #include "../controller/unglobaliser/thread_unglobaliser.c"
 #include "../controller/unglobaliser/thread_identification_unglobaliser.c"
-#include "../controller/unglobaliser/x_window_system_unglobaliser.c"
 
 /**
  * Deallocates global variables.
@@ -53,6 +53,7 @@ void unglobalise() {
     //
 
     unglobalise_conversion();
+    unglobalise_display();
     unglobalise_integral();
     unglobalise_log();
     unglobalise_pointer();
@@ -64,7 +65,6 @@ void unglobalise() {
     unglobalise_socket();
     unglobalise_thread();
     unglobalise_thread_identification();
-    unglobalise_x_window_system();
 }
 
 /* UNGLOBALISER_SOURCE */

@@ -2,7 +2,7 @@
     <part name="user_interface" channel="inline" format="meta/channel" model="terminal"/>
     <part name="tui" channel="file" format="element/part" model="ui_control/settings/tui.cybol"/>
 <!--
-    <part name="user_interface" channel="inline" format="meta/channel" model="x-window-system"/>
+    <part name="user_interface" channel="inline" format="meta/channel" model="display"/>
     <part name="gui" channel="file" format="element/part" model="ui_control/settings/gui.cybol"/>
 -->
 </model>

@@ -23,35 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SERVICE_INTERRUPT_SOURCE
-#define SERVICE_INTERRUPT_SOURCE
+#ifndef DISPLAY_UNGLOBALISER_SOURCE
+#define DISPLAY_UNGLOBALISER_SOURCE
 
-//
-// The global variables.
-//
-// CAUTION! This is just the variable definition.
-// Initialisation happens in directory "controller/globaliser/".
-//
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../controller/unglobaliser/x_window_system_unglobaliser.c"
+#endif
 
-/** The cyboi service exit flag. */
-static int CYBOI_SERVICE_EXIT_ARRAY[1];
-static int* CYBOI_SERVICE_EXIT = CYBOI_SERVICE_EXIT_ARRAY;
+/**
+ * Finalises display global variables.
+ */
+void unglobalise_display() {
 
-/** The display exit flag. */
-static int DISPLAY_EXIT_ARRAY[1];
-static int* DISPLAY_EXIT = DISPLAY_EXIT_ARRAY;
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    unglobalise_x_window_system();
+#endif
+}
 
-/** The serial port exit flag. */
-static int SERIAL_PORT_EXIT_ARRAY[1];
-static int* SERIAL_PORT_EXIT = SERIAL_PORT_EXIT_ARRAY;
-
-/** The terminal exit flag. */
-static int TERMINAL_EXIT_ARRAY[1];
-static int* TERMINAL_EXIT = TERMINAL_EXIT_ARRAY;
-
-/** The www service exit flag. */
-static int WWW_SERVICE_EXIT_ARRAY[1];
-static int* WWW_SERVICE_EXIT = WWW_SERVICE_EXIT_ARRAY;
-
-/* SERVICE_INTERRUPT_SOURCE */
+/* DISPLAY_UNGLOBALISER_SOURCE */
 #endif

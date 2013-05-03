@@ -54,10 +54,23 @@
 
 /**
  * The message/cli cybol language.
+ *
+ * A command line interface message.
+ * This is a CYBOL extension.
  */
 static wchar_t CLI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'c', L'l', L'i'};
 static wchar_t* CLI_MESSAGE_STATE_CYBOL_LANGUAGE = CLI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
 static int* CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The message/gui cybol language.
+ *
+ * A graphical user interface message.
+ * This is a CYBOL extension.
+ */
+static wchar_t GUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'g', L'u', L'i'};
+static wchar_t* GUI_MESSAGE_STATE_CYBOL_LANGUAGE = GUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static int* GUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/http cybol language.
@@ -97,17 +110,13 @@ static int* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CY
 
 /**
  * The message/tui cybol language.
+ *
+ * A text user interface message.
+ * This is a CYBOL extension.
  */
 static wchar_t TUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L't', L'u', L'i'};
 static wchar_t* TUI_MESSAGE_STATE_CYBOL_LANGUAGE = TUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
 static int* TUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The message/x-window-system cybol language.
- */
-static wchar_t X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'x', L'-', L'w', L'i', L'n', L'd', L'o', L'w', L'-', L's', L'y', L's', L't', L'e', L'm'};
-static wchar_t* X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOL_LANGUAGE = X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
-static int* X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MESSAGE_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE */
 #endif

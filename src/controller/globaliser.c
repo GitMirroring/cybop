@@ -27,6 +27,7 @@
 #define GLOBALISER_SOURCE
 
 #include "../controller/globaliser/conversion_globaliser.c"
+#include "../controller/globaliser/display_globaliser.c"
 #include "../controller/globaliser/integral_globaliser.c"
 #include "../controller/globaliser/log_globaliser.c"
 #include "../controller/globaliser/pointer_globaliser.c"
@@ -39,7 +40,6 @@
 #include "../controller/globaliser/socket_globaliser.c"
 #include "../controller/globaliser/thread_globaliser.c"
 #include "../controller/globaliser/thread_identification_globaliser.c"
-#include "../controller/globaliser/x_window_system_globaliser.c"
 
 /**
  * Allocates and initialises global variables.
@@ -91,19 +91,19 @@ void globalise() {
     //
 
     globalise_conversion();
+    globalise_display();
     globalise_integral();
     globalise_log();
     globalise_pointer();
     globalise_process();
     globalise_real();
     globalise_reallocation_factor();
+    globalise_reference_counter();
     globalise_service_exit();
     globalise_signal();
     globalise_socket();
     globalise_thread();
     globalise_thread_identification();
-    globalise_x_window_system();
-    globalise_reference_counter();
 }
 
 /* GLOBALISER_SOURCE */

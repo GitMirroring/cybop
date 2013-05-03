@@ -47,7 +47,7 @@
  * the model AND properties are received TOGETHER, in just one operation.
  *
  * Properties:
- * - channel (required): the channel via which to receive the message (terminal, www, x_window_system etc.)
+ * - channel (required): the channel via which to receive the message (terminal, display, www etc.)
  * - encoding (required): the encoding (utf-8, utf-32 for inline channel etc.)
  * - language (required): the language of the data received (cybol, http_request, xdt etc.)
  * - format (required): the format of the data received (boolean, character, integer etc.)

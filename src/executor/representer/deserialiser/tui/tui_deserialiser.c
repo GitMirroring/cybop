@@ -46,12 +46,8 @@ void deserialise_tui(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise tui.");
 
 #ifdef WIN32
-    //?? TODO
-/* WIN32 */
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#else
     deserialise_ansi_escape_code(p0, p1, p2);
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 }
 

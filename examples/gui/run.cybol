@@ -46,16 +46,16 @@
     </part>
 -->
     <part name="startup_gui" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>
+        <property name="channel" channel="inline" format="meta/channel" model="display"/>
     </part>
     <part name="send_gui" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>
-        <property name="language" channel="inline" format="meta/language" model="message/x-window-system"/>
+        <property name="channel" channel="inline" format="meta/channel" model="display"/>
+        <property name="language" channel="inline" format="meta/language" model="message/gui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".window"/>
     </part>
     <part name="sense_gui" channel="inline" format="live/sense" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>
+        <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="handler" channel="file" format="element/part" model="gui/handler.cybol"/>
 <!--
         <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>

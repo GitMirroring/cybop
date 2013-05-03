@@ -33,11 +33,11 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/maintainer/starter/display/display_starter.c"
 #include "../../executor/maintainer/starter/opengl/opengl_starter.c"
 #include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
 //?? #include "../../executor/maintainer/starter/socket/socket_starter.c"
 #include "../../executor/maintainer/starter/terminal/terminal_starter.c"
-#include "../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -102,6 +102,16 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p4, (void*) DISPLAY_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            startup_display(p0);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p4, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -141,16 +151,6 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The www service is already running.");
             }
 */
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p4, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            startup_x_window_system(p0);
         }
     }
 

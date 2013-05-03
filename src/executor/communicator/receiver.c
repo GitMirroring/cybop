@@ -32,12 +32,12 @@
 #include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/communicator/receiver/display/display_receiver.c"
 #include "../../executor/communicator/receiver/file/file_receiver.c"
 #include "../../executor/communicator/receiver/serial_port/serial_port_receiver.c"
 #include "../../executor/communicator/receiver/terminal/terminal_receiver.c"
 #include "../../executor/communicator/receiver/inline/inline_receiver.c"
 #include "../../executor/communicator/receiver/socket/socket_receiver.c"
-#include "../../executor/communicator/receiver/x_window_system/x_window_system_receiver.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -105,6 +105,17 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p10, (void*) DISPLAY_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            receive_display((void*) &p0, p7, p8, p9, p10, p11, p12);
+            receive_display(p9);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p10, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -150,17 +161,6 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //??            receive_socket(p0, p1, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) &receive_socket_www, p1, p2, p3, p4, p5, p6, p7, p10, p11, p17, p18, p19, p20);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p10, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??            receive_x_window_system((void*) &p0, p7, p8, p9, p10, p11, p12);
-            receive_x_window_system(p9);
         }
     }
 

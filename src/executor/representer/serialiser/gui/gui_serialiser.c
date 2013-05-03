@@ -23,35 +23,36 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SERVICE_INTERRUPT_SOURCE
-#define SERVICE_INTERRUPT_SOURCE
+#ifndef GUI_SERIALISER_SOURCE
+#define GUI_SERIALISER_SOURCE
 
-//
-// The global variables.
-//
-// CAUTION! This is just the variable definition.
-// Initialisation happens in directory "controller/globaliser/".
-//
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
-/** The cyboi service exit flag. */
-static int CYBOI_SERVICE_EXIT_ARRAY[1];
-static int* CYBOI_SERVICE_EXIT = CYBOI_SERVICE_EXIT_ARRAY;
+#ifdef WIN32
+#else
+    #include "../../../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
+#endif
 
-/** The display exit flag. */
-static int DISPLAY_EXIT_ARRAY[1];
-static int* DISPLAY_EXIT = DISPLAY_EXIT_ARRAY;
+/**
+ * Serialises a graphical user interface (gui).
+ *
+ * @param p0 the internal memory data
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ */
+void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-/** The serial port exit flag. */
-static int SERIAL_PORT_EXIT_ARRAY[1];
-static int* SERIAL_PORT_EXIT = SERIAL_PORT_EXIT_ARRAY;
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui.");
 
-/** The terminal exit flag. */
-static int TERMINAL_EXIT_ARRAY[1];
-static int* TERMINAL_EXIT = TERMINAL_EXIT_ARRAY;
+#ifdef WIN32
+#else
+    serialise_x_window_system(p0, p1, p2, p3, p4);
+#endif
+}
 
-/** The www service exit flag. */
-static int WWW_SERVICE_EXIT_ARRAY[1];
-static int* WWW_SERVICE_EXIT = WWW_SERVICE_EXIT_ARRAY;
-
-/* SERVICE_INTERRUPT_SOURCE */
+/* GUI_SERIALISER_SOURCE */
 #endif

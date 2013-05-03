@@ -33,6 +33,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/html/document_type_html_model.c"
 #include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
+#include "../../executor/representer/serialiser/gui/gui_serialiser.c"
 // CAUTION! Do NOT include the "content_element_part_html_serialiser.c" module.
 // It is true, the "serialise_html_part_element_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down
@@ -50,7 +51,6 @@
 #include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 #include "../../executor/representer/serialiser/tui/initial_tui_serialiser.c"
-#include "../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
 #include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
 
@@ -103,6 +103,16 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p11, (void*) GUI_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_gui(p6, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p11, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -128,16 +138,6 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_tui_initial(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p9);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p11, (void*) X_WINDOW_SYSTEM_MESSAGE_STATE_CYBOI_LANGUAGE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_x_window_system(p6, p1, p2, p3, p4);
         }
     }
 

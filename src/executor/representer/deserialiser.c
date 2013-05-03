@@ -33,6 +33,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
+//?? #include "../../executor/representer/deserialiser/gui/gui_deserialiser.c"
 #include "../../executor/representer/deserialiser/html/html_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_request/http_request_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
@@ -101,16 +102,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) GRAPHICAL_INTERFACE_STATE_CYBOI_LANGUAGE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??            deserialise_interface_graphical(p0, p1, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p5, (void*) X_WINAMP_SKIN_INTERFACE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -122,6 +113,16 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //
     // message
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) GUI_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui(p0, p2, p3);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

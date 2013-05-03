@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
+#include "../../../../executor/maintainer/starter/display/display_starter.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -68,9 +68,10 @@ void startup_opengl(void* p0) {
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
 
-    // Startup x window system AT FIRST.
-    // The opengl environment needs its windows to have something to paint on.
-    startup_x_window_system(p0);
+    // Startup display AT FIRST.
+    // The opengl environment needs a window
+    // to have something to paint on.
+    startup_display(p0);
 
 /* GNU_LINUX_OPERATING_SYSTEM */
 #endif

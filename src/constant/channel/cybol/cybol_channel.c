@@ -40,6 +40,11 @@ static wchar_t CYBOI_CYBOL_CHANNEL_ARRAY[] = {L'c', L'y', L'b', L'o', L'i'};
 static wchar_t* CYBOI_CYBOL_CHANNEL = CYBOI_CYBOL_CHANNEL_ARRAY;
 static int* CYBOI_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The display cybol channel. */
+static wchar_t DISPLAY_CYBOL_CHANNEL_ARRAY[] = {L'd', L'i', L's', L'p', L'l', L'a', L'y'};
+static wchar_t* DISPLAY_CYBOL_CHANNEL = DISPLAY_CYBOL_CHANNEL_ARRAY;
+static int* DISPLAY_CYBOL_CHANNEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The file system cybol channel. */
 static wchar_t FILE_SYSTEM_CYBOL_CHANNEL_ARRAY[] = {L'f', L'i', L'l', L'e'};
 static wchar_t* FILE_SYSTEM_CYBOL_CHANNEL = FILE_SYSTEM_CYBOL_CHANNEL_ARRAY;
@@ -159,11 +164,6 @@ static int* TERMINAL_CYBOL_CHANNEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_AR
 static wchar_t WWW_CYBOL_CHANNEL_ARRAY[] = {L'w', L'w', L'w'};
 static wchar_t* WWW_CYBOL_CHANNEL = WWW_CYBOL_CHANNEL_ARRAY;
 static int* WWW_CYBOL_CHANNEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The x-window-system cybol channel. */
-static wchar_t X_WINDOW_SYSTEM_CYBOL_CHANNEL_ARRAY[] = {L'x', L'-', L'w', L'i', L'n', L'd', L'o', L'w', L'-', L's', L'y', L's', L't', L'e', L'm'};
-static wchar_t* X_WINDOW_SYSTEM_CYBOL_CHANNEL = X_WINDOW_SYSTEM_CYBOL_CHANNEL_ARRAY;
-static int* X_WINDOW_SYSTEM_CYBOL_CHANNEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CYBOL_CHANNEL_CONSTANT_SOURCE */
 #endif

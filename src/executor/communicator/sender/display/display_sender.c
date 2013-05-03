@@ -23,39 +23,39 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef OPENGL_SHUTTER_SOURCE
-#define OPENGL_SHUTTER_SOURCE
+#ifndef DISPLAY_SENDER_SOURCE
+#define DISPLAY_SENDER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/shutter/display/display_shutter.c"
 #include "../../../../logger/logger.c"
 
+#ifdef WIN32
+#else
+    #include "../../../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
+#endif
+
 /**
- * Shuts down the opengl system.
+ * Sends the source to the display.
  *
- * This is done in the reverse order that the opengl system was started up.
- *
- * @param p0 the internal memory data
- * @param p1 the service thread
- * @param p2 the service thread interrupt
+ * @param p0 the source model data
+ * @param p1 the source model count
+ * @param p2 the source properties data
+ * @param p3 the source properties count
+ * @param p4 the knowledge memory part
+ * @param p5 the format
+ * @param p6 the language
+ * @param p7 the internal memory data
  */
-void shutdown_opengl(void* p0, void* p1, void* p2, void* p3) {
+void send_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown opengl.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send display.");
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
-    // Shutdown display AT LAST.
-    // The opengl environment needed a window
-    // to have something to paint on.
-    shutdown_display(p0, p1, p2);
-
-/* GNU_LINUX_OPERATING_SYSTEM */
+#ifdef WIN32
+#else
+    send_x_window_system(p0, p1, p2, p3, p4, p5, p6, p7);
 #endif
 }
 
-/* OPENGL_SHUTTER_SOURCE */
+/* DISPLAY_SENDER_SOURCE */
 #endif

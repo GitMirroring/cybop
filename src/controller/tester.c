@@ -35,6 +35,7 @@
 #include "../tester/constant_tester.c"
 //#include "../tester/converter_tester.c"
 //#include "../tester/copier_tester.c"
+//#include "../tester/display_tester.c"
 #include "../tester/empty_tester.c"
 //#include "../tester/finder_tester.c"
 #include "../tester/logger_tester.c"
@@ -46,7 +47,6 @@
 //#include "../tester/representer_tester.c"
 //#include "../tester/serial_port_tester.c"
 #include "../tester/variable_tester.c"
-//#include "../tester/x_window_system_tester.c"
 
 //
 // Examples for source code testing via log messages.
@@ -143,8 +143,8 @@ void test() {
 //    test_representer();
 
     // Communication.
+//    test_display();
 //    test_serial_port();
-//    test_x_window_system();
 
     // Empty.
     test_empty();

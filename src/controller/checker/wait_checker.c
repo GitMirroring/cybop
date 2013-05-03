@@ -52,14 +52,14 @@ void check_wait(void* p0, void* p1) {
 
     // The cyboi service interrupt request.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The display interrupt request.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial port interrupt request.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The terminal interrupt request.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The www service interrupt request.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The x window system interrupt request.
-    void* x = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get interrupt requests.
     //
@@ -74,12 +74,12 @@ void check_wait(void* p0, void* p1) {
     copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    copy_array_forward((void*) &d, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &t, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &w, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-    copy_array_forward((void*) &x, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_X_WINDOW_SYSTEM_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     //
     // REMARK! The following variable checks and casts are not indented,
@@ -87,13 +87,13 @@ void check_wait(void* p0, void* p1) {
     // so that indentation would lead to unreadable source code here.
     //
 
-    if (x != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
     if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
     if (t != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
     if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+    if (d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -106,7 +106,7 @@ void check_wait(void* p0, void* p1) {
         // If no signals are waiting in the signal memory (queue)
         // and no hardware requests have been received from either the:
         // - terminal
-        // - x window system
+        // - display
         // - www service
         // - cyboi service
         // then cpu processing time may be saved by sending the system to sleep.
@@ -187,32 +187,37 @@ void check_wait(void* p0, void* p1) {
 
         while (
             (*((int*) c) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            && (*((int*) d) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
             && (*((int*) s) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
             && (*((int*) t) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            && (*((int*) w) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            && (*((int*) x) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+            && (*((int*) w) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
             sleep_nano(p0);
         }
 
 /*??
 fwprintf(stdout, L"TEST wait *cyboi_service_irq: %i\n", *((int*) c));
+fwprintf(stdout, L"TEST wait *display_irq: %i\n", *((int*) x));
 fwprintf(stdout, L"TEST wait *serial_port_irq: %i\n", *((int*) s));
 fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) t));
 fwprintf(stdout, L"TEST wait *www_service_irq: %i\n", *((int*) w));
-fwprintf(stdout, L"TEST wait *x_window_system_irq: %i\n", *((int*) x));
 */
 
         // The sleep loop above is left as soon as at least one of the
         // interrupt variables is set to a value other than false (zero).
         // This may happen if some user action is noted in one of the
-        // receive threads, e.g. terminal, x window system, tcp socket.
+        // receive threads, e.g. terminal, display, tcp socket.
         // In this case, probably a signal was placed in the signal memory and
         // the corresponding interrupt variable set to true (one).
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The cyboi service interrupt request is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The display interrupt request is null.");
     }
 
     } else {
@@ -228,11 +233,6 @@ fwprintf(stdout, L"TEST wait *x_window_system_irq: %i\n", *((int*) x));
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The www service interrupt request is null.");
-    }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not wait for an interrupt request. The x window system interrupt request is null.");
     }
 }
 

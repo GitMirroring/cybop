@@ -6,7 +6,7 @@
     <part name="show_about_information" channel="file" format="element/part" model="ui_control/logic/user_interface/show_about_information.cybol"/>
     <part name="hide_about_information" channel="file" format="element/part" model="ui_control/logic/user_interface/hide_about_information.cybol"/>
     <part name="refresh_gui" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="x-window-system"/>
+        <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="message" channel="inline" format="path/knowledge" model=".ui_control.gui.main_window"/>
     </part>
 </model>

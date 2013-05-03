@@ -33,11 +33,11 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/maintainer/shutter/display/display_shutter.c"
 #include "../../executor/maintainer/shutter/opengl/opengl_shutter.c"
 #include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
 #include "../../executor/maintainer/shutter/socket/socket_shutter.c"
 #include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
-#include "../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -70,6 +70,16 @@ void shutdown_service(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p1, (void*) DISPLAY_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            shutdown_display(p0, (void*) DISPLAY_THREAD, (void*) DISPLAY_EXIT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p1, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -95,16 +105,6 @@ void shutdown_service(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //??            shutdown_socket(p0, (void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) X_WINDOW_SYSTEM_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            shutdown_x_window_system(p0, (void*) X_WINDOW_SYSTEM_THREAD, (void*) X_WINDOW_SYSTEM_EXIT);
         }
     }
 

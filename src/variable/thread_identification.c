@@ -39,6 +39,10 @@
 static pthread_t CYBOI_SERVICE_THREAD_ARRAY[1];
 static pthread_t* CYBOI_SERVICE_THREAD = CYBOI_SERVICE_THREAD_ARRAY;
 
+/** The display thread. */
+static pthread_t DISPLAY_THREAD_ARRAY[1];
+static pthread_t* DISPLAY_THREAD = DISPLAY_THREAD_ARRAY;
+
 /** The serial port thread. */
 static pthread_t SERIAL_PORT_THREAD_ARRAY[1];
 static pthread_t* SERIAL_PORT_THREAD = SERIAL_PORT_THREAD_ARRAY;
@@ -50,10 +54,6 @@ static pthread_t* TERMINAL_THREAD = TERMINAL_THREAD_ARRAY;
 /** The www service thread. */
 static pthread_t WWW_SERVICE_THREAD_ARRAY[1];
 static pthread_t* WWW_SERVICE_THREAD = WWW_SERVICE_THREAD_ARRAY;
-
-/** The x window system thread. */
-static pthread_t X_WINDOW_SYSTEM_THREAD_ARRAY[1];
-static pthread_t* X_WINDOW_SYSTEM_THREAD = X_WINDOW_SYSTEM_THREAD_ARRAY;
 
 /* THREAD_IDENTIFICATION_SOURCE */
 #endif

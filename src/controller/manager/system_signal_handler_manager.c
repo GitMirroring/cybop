@@ -42,10 +42,10 @@
  *
  * Services run in a separate thread each, for example:
  * - cyboi service
+ * - display
  * - serial port
  * - terminal
  * - www service
- * - x window system
  *
  * This signal handler procedure is used by all threads in the process.
  *
@@ -87,6 +87,30 @@ void interrupt_service_system_signal_handler(int p0) {
 
             // CAUTION! The thread CANNOT be reset here with:
             // *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            // because this line would NOT be reached anymore,
+            // after "pthread_exit" has been called above!
+            // Therefore, do the reset in the corresponding
+            // "interrupt" procedure where "kill" was called!
+        }
+    }
+
+    if (t == *DISPLAY_THREAD) {
+
+//??    fwprintf(stdout, L"TEST signal handler x window system %i\n", p0);
+
+        if (*DISPLAY_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+//??    fwprintf(stdout, L"TEST signal handler x window system irq %i\n", p0);
+
+            // Terminate the calling thread.
+            // The parametre handed over is the return value
+            // that (if the thread is joinable) is available
+            // to another thread in the same process that calls pthread_join(3).
+            // Since this is not needed here, NULL is handed over as value.
+            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
+
+            // CAUTION! The thread CANNOT be reset here with:
+            // *DISPLAY_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             // Therefore, do the reset in the corresponding
@@ -159,30 +183,6 @@ void interrupt_service_system_signal_handler(int p0) {
 
             // CAUTION! The thread CANNOT be reset here with:
             // *WWW_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-            // because this line would NOT be reached anymore,
-            // after "pthread_exit" has been called above!
-            // Therefore, do the reset in the corresponding
-            // "interrupt" procedure where "kill" was called!
-        }
-    }
-
-    if (t == *X_WINDOW_SYSTEM_THREAD) {
-
-//??    fwprintf(stdout, L"TEST signal handler x window system %i\n", p0);
-
-        if (*X_WINDOW_SYSTEM_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-//??    fwprintf(stdout, L"TEST signal handler x window system irq %i\n", p0);
-
-            // Terminate the calling thread.
-            // The parametre handed over is the return value
-            // that (if the thread is joinable) is available
-            // to another thread in the same process that calls pthread_join(3).
-            // Since this is not needed here, NULL is handed over as value.
-            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
-
-            // CAUTION! The thread CANNOT be reset here with:
-            // *X_WINDOW_SYSTEM_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             // Therefore, do the reset in the corresponding

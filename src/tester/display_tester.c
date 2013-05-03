@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef X_WINDOW_SYSTEM_TESTER
-#define X_WINDOW_SYSTEM_TESTER
+#ifndef DISPLAY_TESTER
+#define DISPLAY_TESTER
 
 #ifdef WIN32
     #include <winsock2.h>
@@ -37,12 +37,12 @@
 #include "../constant/type/cyboi/state_cyboi_type.c"
 
 /**
- * Tests the x window system drawing.
+ * Tests the display drawing.
  */
 
-void test_x_window_system_drawing() {
+void test_display_drawing() {
 
-    fwprintf(stdout, L"TEST x window system drawing.\n");
+    fwprintf(stdout, L"TEST display drawing.\n");
 
     // Geometric objects.
     xcb_point_t points[] = {
@@ -173,17 +173,17 @@ void test_x_window_system_drawing() {
 }
 
 /**
- * Tests the x window system.
+ * Tests the display.
  *
  * Sub test procedure calls can be activated/ deactivated here
  * by simply commenting/ uncommenting the corresponding lines.
  */
-void test_x_window_system() {
+void test_display() {
 
-    fwprintf(stdout, L"TEST x window system.\n");
+    fwprintf(stdout, L"TEST display.\n");
 
-    test_x_window_system_drawing();
+    test_display_drawing();
 }
 
-/* X_WINDOW_SYSTEM_TESTER */
+/* DISPLAY_TESTER */
 #endif

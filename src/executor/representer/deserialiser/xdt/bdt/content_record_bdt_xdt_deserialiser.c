@@ -274,7 +274,7 @@ void deserialise_xdt_bdt_record_content(void* p0, void* p1, void* p2, void* p3, 
         // CAUTION! A null pointer is handed over as second-last parametre here.
         // When reading cybol, the only possible two channels are "inline" and "file",
         // but the internal memory (second-last parametre) is only necessary for
-        // "terminal", "x_window_system" and similar channels.
+        // "terminal", "display" and similar channels.
         receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, fd, pld, ped, *NULL_POINTER_STATE_CYBOI_MODEL, pcd);
         // Fill part properties item taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,

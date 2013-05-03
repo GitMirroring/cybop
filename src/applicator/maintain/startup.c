@@ -40,7 +40,7 @@
  * Starts up a service on the given channel.
  *
  * Expected parametres:
- * - channel (required): the channel on which to startup a service (terminal, tcp_socket, unix_socket, x_window_system, ...)
+ * - channel (required): the channel on which to startup a service (terminal, display, tcp_socket, unix_socket, ...)
  * - namespace (optional, only if service is www, cyboi or similar): the namespace of the socket
  * - style (optional, only if service is www or similar): the namespace of the socket
  * - address (optional, only if service is www or similar): the address of hosts communicating with this system via socket

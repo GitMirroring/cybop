@@ -40,7 +40,7 @@
  * Interrupts a service.
  *
  * Expected parametres:
- * - channel (required): the channel whose service is to be interrupted (terminal, www, x_window_system etc.)
+ * - channel (required): the channel whose service is to be interrupted (terminal, display, www etc.)
  *
  * Constraints:
  *
