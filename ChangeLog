@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-05-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare win32 gui event handling
+
 2013-05-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename "x-window-system" channel into neutral name "display" and add "gui" language
