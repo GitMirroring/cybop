@@ -82,7 +82,7 @@ void optionalise_log_file(void* p0, void* p1) {
             #ifdef WIN32
                 // ...
             #else
-                chown((char*) td, o, g);
+                int e = chown((char*) td, o, g);
             #endif
 
             // The file access rights.
