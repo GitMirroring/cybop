@@ -1,0 +1,44 @@
+<model>
+    <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".settings.adc_break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".settings.adc_count"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".settings.adc_maximum_count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
+    </part>
+    <part name="collect_voltages" channel="inline" format="flow/loop" model="">
+        <property name="break" channel="inline" format="path/knowledge" model=".settings.adc_break"/>
+        <property name="model" channel="file" format="element/part" model="adc/collect_voltages.cybol"/>
+    </part>
+    <part name="cast_adc_maximum_count" channel="inline" format="cast/double" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.adc_maximum_count_divisor"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".settings.adc_maximum_count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="calculate_average" channel="inline" format="calculate/divide" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".settings.adc"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".settings.adc_maximum_count_divisor"/>
+        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </part>
+    <part name="calculate_adc" channel="inline" format="calculate/divide" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".settings.adc"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".settings.adc_conversion_factor"/>
+        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </part>
+    <part name="print_adc" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Current adc rounded in voltage:"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_adc_value" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings.adc"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+</model>

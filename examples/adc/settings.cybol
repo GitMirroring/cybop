@@ -1,0 +1,43 @@
+<model>
+    <!-- device -->
+    <part name="device" channel="inline" format="meta/channel" model="serial-port"/>
+    <part name="device_filename" channel="inline" format="text/plain" model="/dev/ttyUSB0"/>
+    <part name="device_baudrate" channel="inline" format="number/integer" model="96000"/>
+    <part name="device_channel" channel="inline" format="text/plain" model="GETADC 2"/>
+    <!-- adc -->
+    <part name="adc" channel="inline" format="number/fraction-decimal" model="0.0"/>
+    <part name="adc_summand" channel="inline" format="number/fraction-decimal" model="0.0"/>
+    <part name="adc_break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="adc_count" channel="inline" format="number/integer" model="0"/>
+    <part name="adc_maximum_count" channel="inline" format="number/integer" model="5"/>
+    <part name="adc_maximum_count_divisor" channel="inline" format="number/fraction-decimal" model="1.0"/>
+    <part name="adc_conversion_factor" channel="inline" format="number/fraction-decimal" model="1.0"/>
+    <!-- voltage -->
+    <part name="voltage" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_default" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_break_default" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_count" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_count_default" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_maximum_count" channel="inline" format="number/integer" model="1023"/>
+    <part name="voltage_high_byte" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_high_byte_default" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_low_byte" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_low_byte_default" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_byte_value" channel="inline" format="number/integer" model="256"/>
+    <part name="voltage_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_error" channel="inline" format="text/plain" model="Error: The voltage is not valid."/>
+    <part name="voltage_sleep" channel="inline" format="number/integer" model="100000000"/>
+    <!-- voltage buffer -->
+    <part name="voltage_buffer" channel="inline" format="number/byte" model=""/>
+    <part name="voltage_buffer_minimum" channel="inline" format="number/integer" model="1"/>
+    <part name="voltage_buffer_count" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_count_default" channel="inline" format="number/integer" model="0"/>
+    <part name="voltage_buffer_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_buffer_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="voltage_buffer_high_byte" channel="inline" format="number/byte" model="0"/>
+    <part name="voltage_buffer_high_byte_default" channel="inline" format="number/byte" model="0"/>
+    <part name="voltage_buffer_low_byte" channel="inline" format="number/byte" model="0"/>
+    <part name="voltage_buffer_low_byte_default" channel="inline" format="number/byte" model="0"/>
+</model>

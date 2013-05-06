@@ -1,0 +1,32 @@
+<model>
+    <part name="reset_voltage" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_default"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="reset_voltage_high_byte" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte_default"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="reset_voltage_low_byte" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte_default"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="reset_break" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_break_default"/>
+        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </part>
+    <part name="reset_count" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_count"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_count_default"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="reset_criterion" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_criterion_default"/>
+        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </part>
+</model>
