@@ -113,7 +113,7 @@ void send_serial_port_stream_elements(void* p0, void* p1, void* p2, void* p3) {
                     // handed over, but can always be smaller.
                     // Therefore, this function "send_serial_port_stream_elements"
                     // is called in a loop, iterating until all the data is written.
-                    *n = write(*d, p1, tsc);
+                    *n = write(*d, (char*) p1, tsc);
 
                     // Test error value.
                     if (*n < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {

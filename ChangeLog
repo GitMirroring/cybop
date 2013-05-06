@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-05-07  Tobias Köhler  <tk@snake-universe.tk>
+
+        * Fix SPI(Serial Port Interface)
+
 2013-05-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare win32 gui event handling
