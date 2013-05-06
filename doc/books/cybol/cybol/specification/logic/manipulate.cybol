@@ -1,0 +1,3 @@
+<model>
+    <part name="manipulate" channel="file" format="element/part" model="cybol/specification/logic/manipulate/manipulate.cybol"/>
+</model>

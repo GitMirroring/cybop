@@ -15,4 +15,6 @@
     <part name="manipulate" channel="file" format="element/part" model="cybol/specification/logic/manipulate.cybol"/>
     <part name="memorise" channel="file" format="element/part" model="cybol/specification/logic/memorise.cybol"/>
     <part name="modify" channel="file" format="element/part" model="cybol/specification/logic/modify.cybol"/>
+    <part name="represent" channel="file" format="element/part" model="cybol/specification/logic/represent.cybol"/>
+    <part name="run" channel="file" format="element/part" model="cybol/specification/logic/run.cybol"/>
 </model>
