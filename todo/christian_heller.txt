@@ -14,6 +14,10 @@
         * Continue x window system serialiser
 
         * Adapt css file of cybol specification document in order to fix the menu's position
+        * Adapt cybol specification document:
+            Replace * with "path/knowledge | path/reference" in format columns
+            Use * as placeholder in format columns, e.g. "number/*"
+        * Rename "number/double" into "number/float" in all cybol example applications
 
         * Continue win32 display gui
 
