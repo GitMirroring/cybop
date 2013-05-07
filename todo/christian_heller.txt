@@ -10,6 +10,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue x window system receiver
+        * Continue x window system serialiser
+
+        * Adapt css file of cybol specification document in order to fix the menu's position
+
         * Continue win32 display gui
 
         * Activate terminal input for win32 console

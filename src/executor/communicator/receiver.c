@@ -34,10 +34,10 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/communicator/receiver/display/display_receiver.c"
 #include "../../executor/communicator/receiver/file/file_receiver.c"
-#include "../../executor/communicator/receiver/serial_port/serial_port_receiver.c"
-#include "../../executor/communicator/receiver/terminal/terminal_receiver.c"
 #include "../../executor/communicator/receiver/inline/inline_receiver.c"
+#include "../../executor/communicator/receiver/serial_port/serial_port_receiver.c"
 #include "../../executor/communicator/receiver/socket/socket_receiver.c"
+#include "../../executor/communicator/receiver/terminal/terminal_receiver.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 

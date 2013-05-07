@@ -28,6 +28,7 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
@@ -51,9 +52,12 @@ void send_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send display.");
 
+    // Serialise (draw) source onto window.
+    serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p7, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6);
+
 #ifdef WIN32
 #else
-    send_x_window_system(p0, p1, p2, p3, p4, p5, p6, p7);
+    send_x_window_system(p7);
 #endif
 }
 

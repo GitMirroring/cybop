@@ -26,8 +26,12 @@
 #ifndef X_WINDOW_SYSTEM_SENDER_SOURCE
 #define X_WINDOW_SYSTEM_SENDER_SOURCE
 
+/*??
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
+#include <pthread.h>
+*/
+#include <xcb/xcb.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,31 +39,78 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/graphical_user_interface_cybol_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../executor/communicator/sender/x_window_system/window_x_window_system_sender.c"
-#include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Sends the source to the x window system.
+ * Updates the x window system window.
  *
- * @param p0 the source model data
- * @param p1 the source model count
- * @param p2 the source properties data
- * @param p3 the source properties count
- * @param p4 the knowledge memory part
- * @param p5 the format
- * @param p6 the language
- * @param p7 the internal memory data
+ * @param p0 the internal memory data
  */
-void send_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void send_x_window_system(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send x window system.");
+    // The mutex.
+//??    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connection.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The window.
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Serialise (draw) source knowledge model into window.
-    serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p7, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6);
+    // Get mutex.
+//??    copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get connection.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get window.
+    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Send serialised window (with drawn content) to x window system.
-    send_x_window_system_window(p7);
+//?? fwprintf(stdout, L"TEST send x window system window c: %i\n", c);
+//?? fwprintf(stdout, L"TEST send x window system window w: %i\n", w);
+
+    // CAUTION! This test is necessary to avoid a "Segmentation fault"!
+    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // CAUTION! This test is necessary to avoid a "Segmentation fault"!
+        if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send x window system.");
+
+            // Lock x window system mutex.
+//??            pthread_mutex_lock((pthread_mutex_t*) mt);
+
+/*??
+            // Request input events (signals) to be put into event queue.
+            XSelectInput((struct _XDisplay*) d, *((int*) w), ExposureMask
+                | KeyPressMask | KeyReleaseMask
+                | ButtonPressMask | ButtonReleaseMask | PointerMotionMask | ButtonMotionMask
+                | Button1MotionMask | Button2MotionMask | Button3MotionMask | Button4MotionMask | Button5MotionMask
+                | EnterWindowMask | LeaveWindowMask);
+*/
+
+            // Use xcb type.
+            xcb_window_t window = *((int*) w);
+
+            // Map window on the screen, in order to make it visible.
+            xcb_map_window((xcb_connection_t*) c, window);
+
+            // Make sure all pending requests to the x server are sent.
+            // This is similar to "fflush" used for standard terminal output.
+            xcb_flush((xcb_connection_t*) c);
+
+            //?? TEST: Hold client until <ctrl>+<c> is pressed,
+            //?? so that the window does not disappear too fast.
+//??            pause();
+
+            // Unlock x window system mutex.
+//??            pthread_mutex_unlock((pthread_mutex_t*) mt);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send x window system. The window is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send x window system. The connection is null.");
+    }
 }
 
 /* X_WINDOW_SYSTEM_SENDER_SOURCE */

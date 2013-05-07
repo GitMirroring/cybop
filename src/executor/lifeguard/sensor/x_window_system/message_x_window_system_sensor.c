@@ -26,7 +26,6 @@
 #ifndef MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE
 #define MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE
 
-
 #ifdef WIN32
     #include <winsock2.h>
 #endif
@@ -45,14 +44,12 @@
  *
  * TEMPORARY implementation of a function.
  *
- * See feature request to xcb library project:
+ * See mailing list discussion in xcb project:
  * http://stackoverflow.com/questions/15775281/need-for-xeventsqueueddisplay-queuedafterreading-in-xcb
- *
- * from: Christian Heller <christian.heller@tuxtax.de>
- * to: Julien Danjou <julien@danjou.info>
- * date: 2013-04-05
- * now possibly filed by Julien Danjou in:
- * http://bugs.freedesktop.org/
+ * http://lists.freedesktop.org/archives/xcb/2013-April/008219.html
+ * http://lists.freedesktop.org/archives/xcb/2013-May/008245.html
+ * http://lists.freedesktop.org/archives/xcb/2013-May/008249.html
+ * http://xcb.freedesktop.org/
  */
 int xcb_block_until_event(xcb_connection_t* c) {
 
