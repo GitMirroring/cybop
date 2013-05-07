@@ -1,5 +1,13 @@
 <model>
     <part name="count" channel="file" format="element/part" model="cybol/specification/logic/access/count.cybol"/>
-    <part name="get" channel="file" format="element/part" model="cybol/specification/logic/access/get.cybol"/>
+    <part name="get-channel (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/access/get-channel.cybol"/>
+    <part name="get-encoding (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/access/get-encoding.cybol"/>
+    <part name="get-format (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/access/get-format.cybol"/>
+    <part name="get-language (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/access/get-language.cybol"/>
+    <part name="get-model (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/access/get-model.cybol"/>
+    <part name="get-name" channel="file" format="element/part" model="cybol/specification/logic/access/get-name.cybol"/>
+    <part name="get-properties (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/access/get-properties.cybol"/>
+    <part name="get-reference (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/access/get-reference.cybol"/>
+    <part name="get-type (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/access/get-type.cybol"/>
     <part name="indicate" channel="file" format="element/part" model="cybol/specification/logic/access/indicate.cybol"/>
 </model>

@@ -3,21 +3,21 @@
         <property name="name" channel="inline" format="text/plain" model="result"/>
         <property name="description" channel="inline" format="text/plain" model="The quotient resulting from the divison. It initially contains the dividend."/>
         <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="integer | double | knowledge | path/reference"/>
+        <property name="format" channel="inline" format="text/plain" model="*"/>
         <property name="model" channel="inline" format="text/plain" model=""/>
     </part>
     <part name="operand" channel="inline" format="text/plain" model="">
         <property name="name" channel="inline" format="text/plain" model="operand"/>
         <property name="description" channel="inline" format="text/plain" model="The divisor for the division."/>
         <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="integer | double | knowledge | path/reference"/>
+        <property name="format" channel="inline" format="text/plain" model="* | number/integer | number/double"/>
         <property name="model" channel="inline" format="text/plain" model=""/>
     </part>
     <part name="type" channel="inline" format="text/plain" model="">
         <property name="name" channel="inline" format="text/plain" model="type"/>
         <property name="description" channel="inline" format="text/plain" model="The number type. It has to be identical for all parametres."/>
         <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="number/integer | number/float | path/knowledge | path/reference"/>
+        <property name="format" channel="inline" format="text/plain" model="* | meta/type"/>
         <property name="model" channel="inline" format="text/plain" model=""/>
     </part>
 </model>
