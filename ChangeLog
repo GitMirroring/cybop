@@ -19,6 +19,7 @@
 2013-05-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up x window system sender
+        * Restructure constants in directory "constant/name/cybol/state/"
 
 2013-05-07  Tobias Köhler  <tk@snake-universe.tk>
 

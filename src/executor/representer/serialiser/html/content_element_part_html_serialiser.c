@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/web_user_interface/tag_web_user_interface_cybol_name.c"
+#include "../../../../constant/name/cybol/state/wui/tag_wui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/character_reference/character_reference_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/begin_tag_html_serialiser.c"
@@ -80,9 +80,9 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     int v = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get tag part by name.
-    get_name_array((void*) &t, p3, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME, (void*) TAG_WEB_USER_INTERFACE_CYBOL_NAME_COUNT, p4);
+    get_name_array((void*) &t, p3, (void*) TAG_WUI_STATE_CYBOL_NAME, (void*) TAG_WUI_STATE_CYBOL_NAME_COUNT, p4);
     // Get preformatted part by name.
-    get_name_array((void*) &p, p3, (void*) PREFORMATTED_WEB_USER_INTERFACE_CYBOL_NAME, (void*) PREFORMATTED_WEB_USER_INTERFACE_CYBOL_NAME_COUNT, p4);
+    get_name_array((void*) &p, p3, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME_COUNT, p4);
 
     // Get tag part model item.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

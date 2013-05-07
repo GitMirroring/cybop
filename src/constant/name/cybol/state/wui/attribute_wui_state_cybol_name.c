@@ -23,29 +23,19 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef X_WINDOW_SYSTEM_RECEIVER_SOURCE
-#define X_WINDOW_SYSTEM_RECEIVER_SOURCE
+#ifndef ATTRIBUTE_WUI_CYBOL_NAME_CONSTANT_SOURCE
+#define ATTRIBUTE_WUI_CYBOL_NAME_CONSTANT_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/communicator/receiver/x_window_system/event_x_window_system_receiver.c"
-#include "../../../../logger/logger.c"
+#include <stddef.h>
 
-/**
- * Receives x window system input.
- *
- * @param p0 the internal memory data
- */
-void receive_x_window_system(void* p0) {
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system.");
+/** The align attribute wui state cybol name. */
+/*??
+static wchar_t ALIGN_ATTRIBUTE_WUI_STATE_CYBOL_NAME_ARRAY[] = {L'a', L'l', L'i', L'g', L'n'};
+static wchar_t* ALIGN_ATTRIBUTE_WUI_STATE_CYBOL_NAME = ALIGN_ATTRIBUTE_WUI_STATE_CYBOL_NAME_ARRAY;
+static int* ALIGN_ATTRIBUTE_WUI_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+*/
 
-    // Receive event.
-    receive_x_window_system_event(p0);
-
-    // Deserialise event into a meaningful command.
-//??    deserialise(p0);
-}
-
-/* X_WINDOW_SYSTEM_RECEIVER_SOURCE */
+/* ATTRIBUTE_WUI_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

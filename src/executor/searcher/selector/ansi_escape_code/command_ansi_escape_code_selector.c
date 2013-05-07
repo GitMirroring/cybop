@@ -26,17 +26,13 @@
 #ifndef COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 #define COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 
-#ifdef WIN32
-#include <windows.h>
-#endif
-
 #include <stdio.h>
 #include <wchar.h>
 
 #include "../../../../constant/model/ansi_escape_code/input_ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
+#include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
@@ -47,7 +43,7 @@
  *
  * This function changes the ansi escape codes into real names as defined by CYBOL.
  * Example: The UP_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL (ESC[A sequence) gets converted into the
- * constant ARROW_UP_KEYBOARD_KEY_CYBOL_NAME with the value "arrow_up", which is used so in CYBOL files.
+ * constant ARROW_UP_KEYBOARD_STATE_CYBOL_NAME with the value "arrow_up", which is used so in CYBOL files.
  *
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
@@ -66,7 +62,7 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) ARROW_DOWN_KEYBOARD_KEY_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_DOWN_KEYBOARD_KEY_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) ARROW_DOWN_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_DOWN_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -76,7 +72,7 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) ARROW_LEFT_KEYBOARD_KEY_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_LEFT_KEYBOARD_KEY_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) ARROW_LEFT_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_LEFT_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -86,7 +82,7 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) ARROW_RIGHT_KEYBOARD_KEY_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_RIGHT_KEYBOARD_KEY_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) ARROW_RIGHT_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_RIGHT_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -96,7 +92,7 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) ARROW_UP_KEYBOARD_KEY_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_UP_KEYBOARD_KEY_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) ARROW_UP_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARROW_UP_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 

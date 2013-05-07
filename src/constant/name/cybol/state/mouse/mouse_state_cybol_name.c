@@ -23,18 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_CONSTANT_SOURCE
-#define ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef MOUSE_STATE_CYBOL_NAME_CONSTANT_SOURCE
+#define MOUSE_STATE_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The align attribute web user interface cybol name. */
-/*??
-static wchar_t ALIGN_ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_ARRAY[] = {L'a', L'l', L'i', L'g', L'n'};
-static wchar_t* ALIGN_ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME = ALIGN_ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_ARRAY;
-static int* ALIGN_ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-*/
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/* ATTRIBUTE_WEB_USER_INTERFACE_CYBOL_NAME_CONSTANT_SOURCE */
+/** The left-press mouse state cybol name. */
+static wchar_t LEFT_PRESS_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'l', L'e', L'f', L't', L'-', L'p', L'r', L'e', L's', L's'};
+static wchar_t* LEFT_PRESS_MOUSE_STATE_CYBOL_NAME = LEFT_PRESS_MOUSE_STATE_CYBOL_NAME_ARRAY;
+static int* LEFT_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The left-release mouse state cybol name. */
+static wchar_t LEFT_RELEASE_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'l', L'e', L'f', L't', L'-', L'r', L'e', L'l', L'e', L'a', L's', L'e'};
+static wchar_t* LEFT_RELEASE_MOUSE_STATE_CYBOL_NAME = LEFT_RELEASE_MOUSE_STATE_CYBOL_NAME_ARRAY;
+static int* LEFT_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* MOUSE_STATE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

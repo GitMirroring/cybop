@@ -26,17 +26,13 @@
 #ifndef CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 #define CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 
-#ifdef WIN32
-#include <windows.h>
-#endif
-
 #include <stdio.h>
 #include <wchar.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
-#include "../../../../constant/name/cybol/keyboard_key_cybol_name.c"
+#include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/character_ansi_escape_code_deserialiser.c"
@@ -48,7 +44,7 @@
  *
  * This function changes the key codes into real names as defined by CYBOL.
  * Example: The LINE_FEED_UNICODE_CHARACTER_CODE_MODEL (<enter> key) gets converted into the
- * constant ENTER_KEYBOARD_KEY_CYBOL_NAME with the value "enter", which is used so in CYBOL files.
+ * constant ENTER_KEYBOARD_STATE_CYBOL_NAME with the value "enter", which is used so in CYBOL files.
  *
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
@@ -67,7 +63,7 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) ENTER_KEYBOARD_KEY_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ENTER_KEYBOARD_KEY_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) ENTER_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ENTER_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -77,7 +73,7 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, (void*) ESCAPE_KEYBOARD_KEY_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_KEYBOARD_KEY_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) ESCAPE_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
