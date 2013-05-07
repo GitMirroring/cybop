@@ -30,7 +30,6 @@
 #include "../../../../constant/encoding/cybol/cybol_encoding.c"
 #include "../../../../constant/encoding/cybol/dos_cybol_encoding.c"
 #include "../../../../constant/encoding/cybol/iso_8859_cybol_encoding.c"
-#include "../../../../constant/encoding/cybol/typecast_cybol_encoding.c"
 #include "../../../../constant/encoding/cybol/unicode_cybol_encoding.c"
 #include "../../../../constant/encoding/cybol/windows_cybol_encoding.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -264,20 +263,6 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             overwrite_item_element(p0, (void*) ISO_8859_16_CYBOI_ENCODING, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        }
-    }
-
-    //
-    // Typecast
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p1, (void*) INTEGER_TYPECAST_CYBOL_ENCODING, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) INTEGER_TYPECAST_CYBOL_ENCODING_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            overwrite_item_element(p0, (void*) INTEGER_TYPECAST_CYBOI_ENCODING, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
