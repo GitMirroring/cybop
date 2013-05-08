@@ -4,7 +4,7 @@
     <part name="divide" channel="file" format="element/part" model="cybol/specification/logic/calculate/divide.cybol"/>
     <part name="multiply" channel="file" format="element/part" model="cybol/specification/logic/calculate/multiply.cybol"/>
     <part name="negate" channel="file" format="element/part" model="cybol/specification/logic/calculate/negate.cybol"/>
-    <part name="reduce" channel="file" format="element/part" model="cybol/specification/logic/calculate/reduce.cybol"/>
-    <part name="remainder" channel="file" format="element/part" model="cybol/specification/logic/calculate/remainder.cybol"/>
+    <part name="reduce (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/calculate/reduce.cybol"/>
+    <part name="remainder (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/calculate/remainder.cybol"/>
     <part name="subtract" channel="file" format="element/part" model="cybol/specification/logic/calculate/subtract.cybol"/>
 </model>
