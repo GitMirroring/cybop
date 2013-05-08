@@ -1,0 +1,79 @@
+<model>
+    <part name="left-press" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="left-press"/>
+        <property name="description" channel="inline" format="text/plain" model="The left mouse button press event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="left-release" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="left-release"/>
+        <property name="description" channel="inline" format="text/plain" model="The left mouse button release event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="left-click" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="left-click"/>
+        <property name="description" channel="inline" format="text/plain" model="The left mouse button click (press + release) event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="middle-press" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="middle-press"/>
+        <property name="description" channel="inline" format="text/plain" model="The middle mouse button press event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="middle-release" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="middle-release"/>
+        <property name="description" channel="inline" format="text/plain" model="The middle mouse button release event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="middle-click" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="middle-click"/>
+        <property name="description" channel="inline" format="text/plain" model="The middle mouse button click (press + release) event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="right-press" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="right-press"/>
+        <property name="description" channel="inline" format="text/plain" model="The right mouse button press event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="right-release" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="right-release"/>
+        <property name="description" channel="inline" format="text/plain" model="The right mouse button release event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="right-click" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="right-click"/>
+        <property name="description" channel="inline" format="text/plain" model="The right mouse button click (press + release) event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="move" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="move"/>
+        <property name="description" channel="inline" format="text/plain" model="The mouse move event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="drag" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="drag"/>
+        <property name="description" channel="inline" format="text/plain" model="The mouse drag (press + move) event."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+</model>

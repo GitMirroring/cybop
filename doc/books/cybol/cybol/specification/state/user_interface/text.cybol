@@ -2,6 +2,5 @@
     <part name="name" channel="inline" format="text/plain" model="tui"/>
     <part name="description" channel="inline" format="text/plain" model="A text user interface element."/>
     <part name="example" channel="file" format="text/plain" model="cybol/specification/state/user_interface/text/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model=""/>
     <part name="properties" channel="file" format="element/part" model="cybol/specification/state/user_interface/text/properties.cybol"/>
 </model>

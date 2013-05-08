@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-05-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt css file of cybol specification document to fixate menu position
+        * Add state models "gui", "wui", "keyboard", "mouse" to cybol specification document
+
 2013-05-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up x window system sender

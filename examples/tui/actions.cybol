@@ -1,8 +1,8 @@
 <model>
-    <part name="arrow_down" channel="inline" format="path/knowledge" model=".logic.move_arrow_down"/>
-    <part name="arrow_up" channel="inline" format="path/knowledge" model=".logic.move_arrow_up"/>
-    <part name="arrow_right" channel="inline" format="path/knowledge" model=".logic.move_arrow_right"/>
-    <part name="arrow_left" channel="inline" format="path/knowledge" model=".logic.move_arrow_left"/>
+    <part name="arrow-down" channel="inline" format="path/knowledge" model=".logic.move_arrow_down"/>
+    <part name="arrow-up" channel="inline" format="path/knowledge" model=".logic.move_arrow_up"/>
+    <part name="arrow-right" channel="inline" format="path/knowledge" model=".logic.move_arrow_right"/>
+    <part name="arrow-left" channel="inline" format="path/knowledge" model=".logic.move_arrow_left"/>
     <part name="enter" channel="inline" format="path/knowledge" model=".logic.enter_sub_menu"/>
     <part name="escape" channel="inline" format="path/knowledge" model=".logic.exit_programme"/>
     <part name="m" channel="inline" format="path/knowledge" model=".logic.start_mc"/>

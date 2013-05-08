@@ -1,0 +1,6 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="mouse"/>
+    <part name="description" channel="inline" format="text/plain" model="A mouse button."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/state/device/mouse/example.txt"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/state/device/mouse/properties.cybol"/>
+</model>

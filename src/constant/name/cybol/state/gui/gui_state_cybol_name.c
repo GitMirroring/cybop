@@ -60,11 +60,6 @@ static wchar_t POSITION_GUI_STATE_CYBOL_NAME_ARRAY[] = {L'p', L'o', L's', L'i', 
 static wchar_t* POSITION_GUI_STATE_CYBOL_NAME = POSITION_GUI_STATE_CYBOL_NAME_ARRAY;
 static int* POSITION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The shape gui state cybol name. */
-static wchar_t SHAPE_GUI_STATE_CYBOL_NAME_ARRAY[] = {L's', L'h', L'a', L'p', L'e'};
-static wchar_t* SHAPE_GUI_STATE_CYBOL_NAME = SHAPE_GUI_STATE_CYBOL_NAME_ARRAY;
-static int* SHAPE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The size gui state cybol name. */
 static wchar_t SIZE_GUI_STATE_CYBOL_NAME_ARRAY[] = {L's', L'i', L'z', L'e'};
 static wchar_t* SIZE_GUI_STATE_CYBOL_NAME = SIZE_GUI_STATE_CYBOL_NAME_ARRAY;

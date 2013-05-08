@@ -2,7 +2,6 @@
 
 <model>
     <part name="main_window" channel="file" abstraction="compound" model="hedam/gui/main_window.cybol">
-        <property name="shape" channel="inline" abstraction="character" model="rectangle"/>
         <property name="layout" channel="inline" abstraction="character" model="root"/>
         <property name="cell" channel="inline" abstraction="character" model=""/>
         <property name="position" channel="inline" abstraction="integer" model="200,200,0"/>

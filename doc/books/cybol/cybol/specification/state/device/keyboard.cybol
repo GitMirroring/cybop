@@ -1,0 +1,6 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="keyboard"/>
+    <part name="description" channel="inline" format="text/plain" model="A keyboard key."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/state/device/keyboard/example.txt"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/state/device/keyboard/properties.cybol"/>
+</model>

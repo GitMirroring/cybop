@@ -10,11 +10,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue x window system receiver
+        * Process events in file "x_window_system_receiver.c"
         * Continue x window system serialiser
         * Rename all in "constant/name/cybol/operation/" into "constant/name/cybol/logic/"
 
-        * Adapt css file of cybol specification document in order to fix the menu's position
         * Adapt cybol specification document:
             Replace * with "path/knowledge | path/reference" in format columns
             Use * as placeholder in format columns, e.g. "number/*"
@@ -24,7 +23,6 @@
 
         * Activate terminal input for win32 console
 
-        * Process events in file "x_window_system_receiver.c"
         * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
         * Use new function "xcb_block_until_event" or "xcb_wait_for_event_noret" testing for events in file "message_x_window_system_sensor.c", as soon as release xcb 1.10 is out
 

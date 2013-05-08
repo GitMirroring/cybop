@@ -1,0 +1,65 @@
+<model>
+    <part name="position" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="position"/>
+        <property name="description" channel="inline" format="text/plain" model="The position (x, y) in unit [pixel], starting from zero, in relation to the surrounding parent element's origo."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer | path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a two-dimensional vector"/>
+    </part>
+    <part name="size" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="size"/>
+        <property name="description" channel="inline" format="text/plain" model="The size (width, height) in unit [pixel], starting from zero."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer | path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a two-dimensional vector"/>
+    </part>
+    <part name="background" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="background"/>
+        <property name="description" channel="inline" format="text/plain" model="The background colour."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="colour/rgb | path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="foreground" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="foreground"/>
+        <property name="description" channel="inline" format="text/plain" model="The foreground colour."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="colour/rgb | path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="layout" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="layout"/>
+        <property name="description" channel="inline" format="text/plain" model="The layout of contained child components."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain | path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="absolute | flow | grid | compass"/>
+    </part>
+    <part name="cell" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="cell"/>
+        <property name="description" channel="inline" format="text/plain" model="The component's cell (position) within the surrounding parent component. Possible values depend on the parent component's layout."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain | number/integer | path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="x, y (absolute) || row,column (grid) || centre | north | south | west | east (compass)"/>
+    </part>
+    <part name="title" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="title"/>
+        <property name="description" channel="inline" format="text/plain" model="The window title."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain | path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="icon" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="icon"/>
+        <property name="description" channel="inline" format="text/plain" model="The window icon."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="image/* | path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="expose" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="expose"/>
+        <property name="description" channel="inline" format="text/plain" model="The expose event to redraw the window content."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge | path/reference"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+</model>
