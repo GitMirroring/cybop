@@ -38,11 +38,13 @@
 }
 
 #toc {
-/*
-    position: fixed;
-*/
     float: left;
+    position: fixed;
+    overflow-y: scroll;
     width: 200px;
+    height: 90%;
+    padding-bottom: 20px;
+    padding-right: 10px;
     font-size: 8pt;
 }
 
