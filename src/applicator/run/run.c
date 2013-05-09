@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/run/programme_run_operation_cybol_name.c"
+#include "../../constant/name/cybol/logic/run/programme_run_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../executor/runner/executor.c"
@@ -63,7 +63,7 @@ void apply_run(void* p0, void* p1, void* p2) {
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get programme part.
-    get_part_knowledge((void*) &p, p0, (void*) PROGRAMME_RUN_OPERATION_CYBOL_NAME, (void*) PROGRAMME_RUN_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &p, p0, (void*) PROGRAMME_RUN_LOGIC_CYBOL_NAME, (void*) PROGRAMME_RUN_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get programme part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get programme part model item data, count.

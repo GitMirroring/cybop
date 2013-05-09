@@ -28,7 +28,7 @@
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/communication/receive_communication_operation_cybol_name.c"
+#include "../../constant/name/cybol/logic/communication/receive_communication_logic_cybol_name.c"
 #include "../../executor/communicator/receiver.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
@@ -145,27 +145,27 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     void* stmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get encoding part.
-    get_part_knowledge((void*) &e, p0, (void*) ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) ENCODING_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &e, p0, (void*) ENCODING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ENCODING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get language part.
-    get_part_knowledge((void*) &l, p0, (void*) LANGUAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) LANGUAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &l, p0, (void*) LANGUAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get format part.
-    get_part_knowledge((void*) &f, p0, (void*) FORMAT_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) FORMAT_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &f, p0, (void*) FORMAT_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) FORMAT_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get message part.
-    get_part_knowledge((void*) &m, p0, (void*) MESSAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) MESSAGE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &m, p0, (void*) MESSAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MESSAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get meta message part.
-    get_part_knowledge((void*) &me, p0, (void*) META_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) META_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &me, p0, (void*) META_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) META_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get model part.
-    get_part_knowledge((void*) &mo, p0, (void*) MODEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) MODEL_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &mo, p0, (void*) MODEL_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MODEL_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get minimum part.
-    get_part_knowledge((void*) &mi, p0, (void*) MINIMUM_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) MINIMUM_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &mi, p0, (void*) MINIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MINIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get maximum part.
-    get_part_knowledge((void*) &ma, p0, (void*) MAXIMUM_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) MAXIMUM_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &ma, p0, (void*) MAXIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MAXIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get root part.
-    get_part_knowledge((void*) &r, p0, (void*) ROOT_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) ROOT_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &r, p0, (void*) ROOT_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ROOT_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get socket communication style part.
-    get_part_knowledge((void*) &st, p0, (void*) STYLE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) STYLE_RECEIVE_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &st, p0, (void*) STYLE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) STYLE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

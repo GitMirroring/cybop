@@ -28,7 +28,7 @@
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/communication/send_communication_operation_cybol_name.c"
+#include "../../constant/name/cybol/logic/communication/send_communication_logic_cybol_name.c"
 #include "../../executor/communicator/sender.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
@@ -144,31 +144,31 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     void* ntmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get encoding part.
-    get_part_knowledge((void*) &e, p0, (void*) ENCODING_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) ENCODING_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &e, p0, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get language part.
-    get_part_knowledge((void*) &l, p0, (void*) LANGUAGE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) LANGUAGE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &l, p0, (void*) LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get format part.
-    get_part_knowledge((void*) &f, p0, (void*) FORMAT_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) FORMAT_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &f, p0, (void*) FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get message part.
-    get_part_knowledge((void*) &m, p0, (void*) MESSAGE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) MESSAGE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &m, p0, (void*) MESSAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MESSAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get receiver part.
-    get_part_knowledge((void*) &r, p0, (void*) RECEIVER_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) RECEIVER_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &r, p0, (void*) RECEIVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) RECEIVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get communication mode part.
-    get_part_knowledge((void*) &mo, p0, (void*) MODE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) MODE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &mo, p0, (void*) MODE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MODE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get socket namespace part.
-    get_part_knowledge((void*) &n, p0, (void*) NAMESPACE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) NAMESPACE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &n, p0, (void*) NAMESPACE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) NAMESPACE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get socket communication style part.
-    get_part_knowledge((void*) &st, p0, (void*) STYLE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) STYLE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &st, p0, (void*) STYLE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) STYLE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get area part.
-    get_part_knowledge((void*) &a, p0, (void*) AREA_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) AREA_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &a, p0, (void*) AREA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) AREA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get clear flag part.
-    get_part_knowledge((void*) &cl, p0, (void*) CLEAR_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) CLEAR_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &cl, p0, (void*) CLEAR_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) CLEAR_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get new line part.
-    get_part_knowledge((void*) &nl, p0, (void*) NEWLINE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) NEWLINE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &nl, p0, (void*) NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get null termination part.
-    get_part_knowledge((void*) &nt, p0, (void*) NULL_TERMINATION_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) NULL_TERMINATION_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &nt, p0, (void*) NULL_TERMINATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) NULL_TERMINATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -225,7 +225,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     void* limd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get language indentation part.
-    get_part_knowledge((void*) &li, lpd, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_OPERATION_CYBOL_NAME_COUNT, lpc, p2);
+    get_part_knowledge((void*) &li, lpd, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, lpc, p2);
     // Get language indentation part model item.
     copy_array_forward((void*) &lim, li, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get language indentation part model item data.

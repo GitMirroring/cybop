@@ -33,7 +33,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/command_option/unix/list_unix_command_option_name.c"
-#include "../../constant/name/cybol/operation/file/list_file_operation_cybol_name.c"
+#include "../../constant/name/cybol/logic/file/list_file_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
@@ -86,9 +86,9 @@ void apply_list_directory_contents(void* p0, void* p1, void* p2) {
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get all part.
-    get_part_knowledge((void*) &a, p0, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME, (void*) ALL_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &a, p0, (void*) ALL_LIST_FILE_LOGIC_CYBOL_NAME, (void*) ALL_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get long part.
-    get_part_knowledge((void*) &l, p0, (void*) LONG_LIST_FILE_OPERATION_CYBOL_NAME, (void*) LONG_LIST_FILE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &l, p0, (void*) LONG_LIST_FILE_LOGIC_CYBOL_NAME, (void*) LONG_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get all part model item.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

@@ -34,7 +34,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/command_option/unix/list_unix_command_option_name.c"
-#include "../../constant/name/cybol/operation/file/list_file_operation_cybol_name.c"
+#include "../../constant/name/cybol/logic/file/list_file_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"

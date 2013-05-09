@@ -30,7 +30,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/flow/sequence_flow_operation_cybol_name.c"
+#include "../../constant/name/cybol/logic/flow/sequence_flow_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
@@ -65,7 +65,7 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get model part.
-    get_part_knowledge((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_OPERATION_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // The direct execution flag.
     // CAUTION! The flag has to be set to true, because otherwise,

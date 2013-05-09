@@ -33,7 +33,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/command_option/unix/archive_unix_command_option_name.c"
-#include "../../constant/name/cybol/operation/file/archive_file_operation_cybol_name.c"
+#include "../../constant/name/cybol/logic/file/archive_file_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
@@ -80,11 +80,11 @@ void apply_archive_file(void* p0, void* p1, void* p2) {
     void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get create part.
-    get_part_knowledge((void*) &c, p0, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &c, p0, (void*) CREATE_ARCHIVE_FILE_LOGIC_CYBOL_NAME, (void*) CREATE_ARCHIVE_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get update part.
-    get_part_knowledge((void*) &u, p0, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &u, p0, (void*) UPDATE_ARCHIVE_FILE_LOGIC_CYBOL_NAME, (void*) UPDATE_ARCHIVE_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get bzip2 part.
-    get_part_knowledge((void*) &b, p0, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &b, p0, (void*) BZIP2_ARCHIVE_FILE_LOGIC_CYBOL_NAME, (void*) BZIP2_ARCHIVE_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get create part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -123,7 +123,7 @@ void apply_archive_file(void* p0, void* p1, void* p2) {
 
             // Append create option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CREATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, (void*) CREATE_ARCHIVE_FILE_LOGIC_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CREATE_ARCHIVE_FILE_LOGIC_CYBOL_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -135,7 +135,7 @@ void apply_archive_file(void* p0, void* p1, void* p2) {
 
             // Append update option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, (void*) UPDATE_ARCHIVE_FILE_LOGIC_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_ARCHIVE_FILE_LOGIC_CYBOL_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -147,7 +147,7 @@ void apply_archive_file(void* p0, void* p1, void* p2) {
 
             // Append bzip2 option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BZIP2_ARCHIVE_FILE_OPERATION_CYBOL_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, (void*) BZIP2_ARCHIVE_FILE_LOGIC_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BZIP2_ARCHIVE_FILE_LOGIC_CYBOL_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

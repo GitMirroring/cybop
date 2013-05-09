@@ -30,7 +30,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/operation/modification/fill_modification_operation_cybol_name.c"
+#include "../../constant/name/cybol/logic/modification/fill_modification_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/filler/part_filler.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
@@ -99,15 +99,15 @@ void apply_fill(void* p0, void* p1, void* p2) {
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part part.
-    get_part_knowledge((void*) &p, p0, (void*) PART_FILL_MODIFICATION_OPERATION_CYBOL_NAME, (void*) PART_FILL_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &p, p0, (void*) PART_FILL_MODIFICATION_LOGIC_CYBOL_NAME, (void*) PART_FILL_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get element part.
-    get_part_knowledge((void*) &e, p0, (void*) ELEMENT_FILL_MODIFICATION_OPERATION_CYBOL_NAME, (void*) ELEMENT_FILL_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &e, p0, (void*) ELEMENT_FILL_MODIFICATION_LOGIC_CYBOL_NAME, (void*) ELEMENT_FILL_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get count part.
-    get_part_knowledge((void*) &c, p0, (void*) COUNT_FILL_MODIFICATION_OPERATION_CYBOL_NAME, (void*) COUNT_FILL_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &c, p0, (void*) COUNT_FILL_MODIFICATION_LOGIC_CYBOL_NAME, (void*) COUNT_FILL_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get index part.
-    get_part_knowledge((void*) &i, p0, (void*) INDEX_FILL_MODIFICATION_OPERATION_CYBOL_NAME, (void*) INDEX_FILL_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &i, p0, (void*) INDEX_FILL_MODIFICATION_LOGIC_CYBOL_NAME, (void*) INDEX_FILL_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get adjust part.
-    get_part_knowledge((void*) &a, p0, (void*) ADJUST_FILL_MODIFICATION_OPERATION_CYBOL_NAME, (void*) ADJUST_FILL_MODIFICATION_OPERATION_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &a, p0, (void*) ADJUST_FILL_MODIFICATION_LOGIC_CYBOL_NAME, (void*) ADJUST_FILL_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get part part type, model item.
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);

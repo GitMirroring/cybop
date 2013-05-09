@@ -12,7 +12,6 @@
 
         * Process events in file "x_window_system_receiver.c"
         * Continue x window system serialiser
-        * Rename all in "constant/name/cybol/operation/" into "constant/name/cybol/logic/"
 
         * Adapt cybol specification document:
             Replace * with "path/knowledge | path/reference" in format columns
