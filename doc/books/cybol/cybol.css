@@ -37,14 +37,22 @@
     height: 1em;
 }
 
+/*
+ * Reset default margin and padding,
+ * which most browsers have by default.
+ */
+document, html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
 #toc {
     float: left;
     position: fixed;
     overflow-y: scroll;
     width: 200px;
-    height: 90%;
-    padding-bottom: 20px;
-    padding-right: 10px;
+    height: 95%;
+    padding: 10px;
     font-size: 8pt;
 }
 
@@ -93,8 +101,10 @@
 }
 
 #content {
-    margin-left: 300px;
-    width: 1000px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 250px;
+    width: 800px;
     font-size: 10pt;
 }
 
