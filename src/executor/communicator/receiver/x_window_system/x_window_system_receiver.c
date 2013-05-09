@@ -28,23 +28,36 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/communicator/receiver/x_window_system/event_x_window_system_receiver.c"
+#include "../../../../executor/representer/deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Receives x window system input.
  *
- * @param p0 the internal memory data
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
+ * @param p2 the format
+ * @param p3 the language
+ * @param p4 the internal memory data
  */
-void receive_x_window_system(void* p0) {
+void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system.");
 
+    // The button mask.
+    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The mouse coordinates.
+    int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
     // Receive event.
-    receive_x_window_system_event(p0);
+    receive_x_window_system_event((void*) &b, (void*) &x, (void*) &y, p4);
 
     // Deserialise event into a meaningful command.
-//??    deserialise(p0);
+    deserialise(p0, p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &b, (void*) &x, (void*) &y, p2, p3);
 }
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */

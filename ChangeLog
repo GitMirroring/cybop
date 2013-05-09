@@ -19,6 +19,7 @@
 2013-05-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename "constant/name/cybol/operation/" into "constant/name/cybol/logic/"
+        * Process events in file "x_window_system_receiver.c" and call deserialiser
 
 2013-05-08  Christian Heller  <christian.heller@tuxtax.de>
 

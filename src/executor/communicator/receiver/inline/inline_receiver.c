@@ -34,7 +34,7 @@
 // Forward declarations.
 //
 
-void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Receives inline into the destination.
@@ -58,7 +58,7 @@ void receive_inline(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // evaluated as inline wide character array.
 
     // Deserialise source data according to given type.
-    deserialise(p0, p1, p2, p3, p4, p5);
+    deserialise(p0, p1, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5);
 }
 
 /* INLINE_RECEIVER_SOURCE */

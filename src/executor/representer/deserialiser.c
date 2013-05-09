@@ -33,7 +33,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
-//?? #include "../../executor/representer/deserialiser/gui/gui_deserialiser.c"
+#include "../../executor/representer/deserialiser/gui/gui_deserialiser.c"
 #include "../../executor/representer/deserialiser/html/html_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_request/http_request_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
@@ -80,10 +80,13 @@
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
- * @param p4 the format
- * @param p5 the language
+ * @param p4 the button mask
+ * @param p5 the x coordinate
+ * @param p6 the y coordinate
+ * @param p7 the format
+ * @param p8 the language
  */
-void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise.");
 
@@ -102,7 +105,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) X_WINAMP_SKIN_INTERFACE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) X_WINAMP_SKIN_INTERFACE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -116,17 +119,17 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) GUI_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) GUI_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            deserialise_gui(p0, p2, p3);
+            deserialise_gui(p0, p4, p5, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -138,7 +141,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -193,7 +196,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) TUI_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) TUI_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -207,7 +210,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) AUTHORITY_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) AUTHORITY_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -217,37 +220,37 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) BDT_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) BDT_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt(p0, p1, p2, p3, p5);
+            deserialise_xdt(p0, p1, p2, p3, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol(p0, p1, p2, p3, p4);
+            deserialise_cybol(p0, p1, p2, p3, p7);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) GDT_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) GDT_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt(p0, p1, p2, p3, p5);
+            deserialise_xdt(p0, p1, p2, p3, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) HTML_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) HTML_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -257,17 +260,17 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) LDT_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) LDT_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt(p0, p1, p2, p3, p5);
+            deserialise_xdt(p0, p1, p2, p3, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) URI_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p8, (void*) URI_TEXT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

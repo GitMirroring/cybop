@@ -39,16 +39,24 @@
  * Deserialises the gui input data into a command.
  *
  * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p1 the button mask
+ * @param p2 the x coordinate
+ * @param p3 the y coordinate
  */
-void deserialise_gui(void* p0, void* p1, void* p2) {
+void deserialise_gui(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui.");
 
+    //?? TODO: Hand over root window part to here.
+    //?? Iterate through part hierarchy
+    // Compare if command for event exists.
+    // If yes, assign event.
+    // Assign event again (overwrite previous one),
+    // if a contained child element has a command.
+
 #ifdef WIN32
 #else
-//??    deserialise_x_window_system(p0, p1, p2);
+//??    deserialise_gui_x_window_system(p0, p1, p2);
 #endif
 }
 

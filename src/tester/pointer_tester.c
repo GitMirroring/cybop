@@ -287,8 +287,7 @@ void test_integer_array() {
 
 /*??
     // Decode (parse) test value and assign to test knowledge model.
-    deserialise((void*) &m, (void*) mc, (void*) ms, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) test, (void*) &testc,
-        *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deserialise((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) test, (void*) &testc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 */
 
 /*?? TODO!

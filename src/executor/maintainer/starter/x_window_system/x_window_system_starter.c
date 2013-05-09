@@ -424,7 +424,7 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
             | XCB_EVENT_MASK_BUTTON_RELEASE
             // Mouse movement.
             | XCB_EVENT_MASK_POINTER_MOTION // motion with no mouse button held
-            | XCB_EVENT_MASK_BUTTON_MOTION // motion with one or more mouse buttons held
+            | XCB_EVENT_MASK_BUTTON_MOTION // motion with one or more of the mouse buttons held
             | XCB_EVENT_MASK_BUTTON_1_MOTION // motion while only 1st mouse button is held
             | XCB_EVENT_MASK_BUTTON_2_MOTION // and so on ...
             | XCB_EVENT_MASK_BUTTON_3_MOTION

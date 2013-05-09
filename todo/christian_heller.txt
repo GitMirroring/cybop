@@ -10,7 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Process events in file "x_window_system_receiver.c"
+        * Implement gui deserialiser
         * Continue x window system serialiser
 
         * Adapt cybol specification document:

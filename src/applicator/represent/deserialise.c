@@ -113,7 +113,7 @@ void apply_deserialise(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Deserialise the source- into the destination part.
-    deserialise(dm, dp, smd, smc, fmd, lmd);
+    deserialise(dm, dp, smd, smc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fmd, lmd);
 }
 
 /* DESERIALISE_SOURCE */

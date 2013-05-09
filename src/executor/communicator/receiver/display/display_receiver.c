@@ -38,15 +38,19 @@
 /**
  * Receives user input to the display.
  *
- * @param p0 the internal memory data
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
+ * @param p2 the format
+ * @param p3 the language
+ * @param p4 the internal memory data
  */
-void receive_display(void* p0) {
+void receive_display(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive display.");
 
 #ifdef WIN32
 #else
-    receive_x_window_system(p0);
+    receive_x_window_system(p0, p1, p2, p3, p4);
 #endif
 }
 
