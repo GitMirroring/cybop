@@ -58,6 +58,7 @@ document, html, body {
 
 #toc h1 {
     text-align: left;
+    font-size: 10pt;
 }
 
 #toc a {
