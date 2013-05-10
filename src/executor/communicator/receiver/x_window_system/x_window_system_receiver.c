@@ -47,6 +47,9 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system.");
 
+    // The event type.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The button mask.
     int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The mouse coordinates.
@@ -54,10 +57,10 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Receive event.
-    receive_x_window_system_event((void*) &b, (void*) &x, (void*) &y, p4);
+    receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &b, (void*) &x, (void*) &y, p4);
 
     // Deserialise event into a meaningful command.
-    deserialise(p0, p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &b, (void*) &x, (void*) &y, p2, p3);
+    deserialise(p0, p1, td, tc, (void*) &b, (void*) &x, (void*) &y, p2, p3);
 }
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */

@@ -1,23 +1,36 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-
 <model>
-    <part name="main_window" channel="file" abstraction="compound" model="hedam/gui/main_window.cybol">
-        <property name="layout" channel="inline" abstraction="character" model="root"/>
-        <property name="cell" channel="inline" abstraction="character" model=""/>
-        <property name="position" channel="inline" abstraction="integer" model="200,200,0"/>
-        <property name="size" channel="inline" abstraction="integer" model="800,600,1"/>
-        <property name="background" channel="inline" abstraction="character" model="white"/>
-        <property name="foreground" channel="inline" abstraction="character" model="white"/>
-        <property name="title" channel="inline" abstraction="character" model="HEDAM"/>
-        <property name="icon" channel="file" abstraction="png" model="hedam/gui/main_window/icon.png"/>
+    <part name="window" channel="file" format="compound" model="gui/window.cybol">
+        <property name="position" channel="inline" format="number/integer" model="200,200"/>
+        <property name="size" channel="inline" format="number/integer" model="800,600"/>
+        <property name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
+        <property name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
+        <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
+        <property name="icon" channel="file" format="png" model="gui/window/icon.png"/>
+        <property name="layout" channel="inline" format="text/plain" model="absolute"/>
     </part>
 </model>
 
 <!--
-    $RCSfile$
+    Copyright (C) 1999-2013. Christian Heller.
 
-    Copyright (c) 2005-2006. Christian Heller.
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
 
-    @version $Revision$ $Date$ $Author$
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    Christian Heller <christian.heller@tuxtax.de>
+
+    @version CYBOP 0.13.0 2013-03-29
     @author Christian Heller <christian.heller@tuxtax.de>
 -->

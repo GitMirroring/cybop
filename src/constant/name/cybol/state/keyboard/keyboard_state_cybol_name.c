@@ -30,21 +30,6 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The enter keyboard state cybol name. */
-static wchar_t ENTER_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'e', L'n', L't', L'e', L'r'};
-static wchar_t* ENTER_KEYBOARD_STATE_CYBOL_NAME = ENTER_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
-static int* ENTER_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The escape keyboard state cybol name. */
-static wchar_t ESCAPE_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'e', L's', L'c', L'a', L'p', L'e'};
-static wchar_t* ESCAPE_KEYBOARD_STATE_CYBOL_NAME = ESCAPE_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
-static int* ESCAPE_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The arrow up keyboard state cybol name. */
-static wchar_t ARROW_UP_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'a', L'r', L'r', L'o', L'w', L'-', L'u', L'p'};
-static wchar_t* ARROW_UP_KEYBOARD_STATE_CYBOL_NAME = ARROW_UP_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
-static int* ARROW_UP_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The arrow down keyboard state cybol name. */
 static wchar_t ARROW_DOWN_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'a', L'r', L'r', L'o', L'w', L'-', L'd', L'o', L'w', L'n'};
 static wchar_t* ARROW_DOWN_KEYBOARD_STATE_CYBOL_NAME = ARROW_DOWN_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
@@ -59,6 +44,31 @@ static int* ARROW_LEFT_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE
 static wchar_t ARROW_RIGHT_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'a', L'r', L'r', L'o', L'w', L'-', L'r', L'i', L'g', L'h', L't'};
 static wchar_t* ARROW_RIGHT_KEYBOARD_STATE_CYBOL_NAME = ARROW_RIGHT_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
 static int* ARROW_RIGHT_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The arrow up keyboard state cybol name. */
+static wchar_t ARROW_UP_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'a', L'r', L'r', L'o', L'w', L'-', L'u', L'p'};
+static wchar_t* ARROW_UP_KEYBOARD_STATE_CYBOL_NAME = ARROW_UP_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
+static int* ARROW_UP_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The enter keyboard state cybol name. */
+static wchar_t ENTER_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'e', L'n', L't', L'e', L'r'};
+static wchar_t* ENTER_KEYBOARD_STATE_CYBOL_NAME = ENTER_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
+static int* ENTER_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The escape keyboard state cybol name. */
+static wchar_t ESCAPE_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'e', L's', L'c', L'a', L'p', L'e'};
+static wchar_t* ESCAPE_KEYBOARD_STATE_CYBOL_NAME = ESCAPE_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
+static int* ESCAPE_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The key-press keyboard state cybol name. */
+static wchar_t KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'k', L'e', L'y', L'-', L'p', L'r', L'e', L's', L's'};
+static wchar_t* KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME = KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
+static int* KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The key-release keyboard state cybol name. */
+static wchar_t KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_ARRAY[] = {L'k', L'e', L'y', L'-', L'r', L'e', L'l', L'e', L'a', L's', L'e'};
+static wchar_t* KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME = KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_ARRAY;
+static int* KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* KEYBOARD_STATE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

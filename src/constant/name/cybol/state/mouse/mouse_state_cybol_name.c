@@ -30,15 +30,20 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The left-press mouse state cybol name. */
-static wchar_t LEFT_PRESS_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'l', L'e', L'f', L't', L'-', L'p', L'r', L'e', L's', L's'};
-static wchar_t* LEFT_PRESS_MOUSE_STATE_CYBOL_NAME = LEFT_PRESS_MOUSE_STATE_CYBOL_NAME_ARRAY;
-static int* LEFT_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The button-press mouse state cybol name. */
+static wchar_t BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'b', L'u', L't', L't', L'o', L'n', L'-', L'p', L'r', L'e', L's', L's'};
+static wchar_t* BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME = BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_ARRAY;
+static int* BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The left-release mouse state cybol name. */
-static wchar_t LEFT_RELEASE_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'l', L'e', L'f', L't', L'-', L'r', L'e', L'l', L'e', L'a', L's', L'e'};
-static wchar_t* LEFT_RELEASE_MOUSE_STATE_CYBOL_NAME = LEFT_RELEASE_MOUSE_STATE_CYBOL_NAME_ARRAY;
-static int* LEFT_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The button-release mouse state cybol name. */
+static wchar_t BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'b', L'u', L't', L't', L'o', L'n', L'-', L'r', L'e', L'l', L'e', L'a', L's', L'e'};
+static wchar_t* BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME = BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_ARRAY;
+static int* BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The motion-notify mouse state cybol name. */
+static wchar_t MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'm', L'o', L't', L'i', L'o', L'n', L'-', L'n', L'o', L't', L'i', L'f', L'y'};
+static wchar_t* MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME = MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_ARRAY;
+static int* MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MOUSE_STATE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

@@ -44,6 +44,9 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
+#include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
+#include "../../../../constant/name/cybol/state/mouse/mouse_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
@@ -354,24 +357,26 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 /**
  * Receives an x window system event.
  *
- * @param p0 the button mask
- * @param p1 the x mouse coordinate
- * @param p2 the y mouse coordinate
- * @param p3 the internal memory data
+ * @param p0 the event type data (pointer reference)
+ * @param p1 the event type count (pointer reference)
+ * @param p2 the button mask
+ * @param p3 the x mouse coordinate
+ * @param p4 the y mouse coordinate
+ * @param p5 the internal memory data
  */
-void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
+void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* y = (int*) p2;
+        int* y = (int*) p4;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* x = (int*) p1;
+            int* x = (int*) p3;
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* b = (int*) p0;
+                int* b = (int*) p2;
 
                 // The connection.
                 void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -379,9 +384,9 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
                 void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                 // Get connection.
-                copy_array_forward((void*) &c, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+                copy_array_forward((void*) &c, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
                 // Get mutex.
-                copy_array_forward((void*) &m, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+                copy_array_forward((void*) &m, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
                 if (m != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -453,6 +458,9 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
 
                 fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE t: %i\n", t);
 
+                                copy_pointer(p0, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME);
+                                copy_pointer(p1, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
                                 xcb_expose_event_t* ev = (xcb_expose_event_t*) e;
 
                                 // Expose events are sensed when a window needs
@@ -466,6 +474,9 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
                             } else if (t == XCB_BUTTON_PRESS) {
 
                 fwprintf(stdout, L"TEST receive x window system XCB_BUTTON_PRESS t: %i\n", t);
+
+                                copy_pointer(p0, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
+                                copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
 
                                 xcb_button_press_event_t* ev = (xcb_button_press_event_t*) e;
 
@@ -509,11 +520,17 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
 
                 fwprintf(stdout, L"TEST receive x window system XCB_BUTTON_RELEASE t: %i\n", t);
 
+                                copy_pointer(p0, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME);
+                                copy_pointer(p1, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT);
+
                                 xcb_button_release_event_t* ev = (xcb_button_release_event_t*) e;
 
                             } else if (t == XCB_MOTION_NOTIFY) {
 
                 fwprintf(stdout, L"TEST receive x window system XCB_MOTION_NOTIFY t: %i\n", t);
+
+                                copy_pointer(p0, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME);
+                                copy_pointer(p1, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT);
 
                                 xcb_motion_notify_event_t* ev = (xcb_motion_notify_event_t*) e;
 
@@ -547,6 +564,9 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
 
                 fwprintf(stdout, L"TEST receive x window system XCB_ENTER_NOTIFY t: %i\n", t);
 
+                                copy_pointer(p0, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
+                                copy_pointer(p1, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
                                 xcb_enter_notify_event_t* ev = (xcb_enter_notify_event_t*) e;
 
                                 //?? an_event.xcrossing
@@ -555,11 +575,17 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
 
                 fwprintf(stdout, L"TEST receive x window system XCB_LEAVE_NOTIFY t: %i\n", t);
 
+                                copy_pointer(p0, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
+                                copy_pointer(p1, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
                                 xcb_leave_notify_event_t* ev = (xcb_leave_notify_event_t*) e;
 
                             } else if (t == XCB_KEY_PRESS) {
 
                 fwprintf(stdout, L"TEST receive x window system XCB_KEY_PRESS t: %i\n", t);
+
+                                copy_pointer(p0, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME);
+                                copy_pointer(p1, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT);
 
                                 // Key press events relate to keyboard keys.
                                 xcb_key_press_event_t* ev = (xcb_key_press_event_t*) e;
@@ -658,6 +684,9 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
                             } else if (t == XCB_KEY_RELEASE) {
 
                 fwprintf(stdout, L"TEST receive x window system XCB_KEY_RELEASE t: %i\n", t);
+
+                                copy_pointer(p0, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME);
+                                copy_pointer(p1, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT);
 
                                 xcb_key_release_event_t* ev = (xcb_key_release_event_t*) e;
                             }
