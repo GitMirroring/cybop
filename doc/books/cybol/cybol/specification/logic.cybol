@@ -1,6 +1,4 @@
 <model>
-<!--
--->
     <part name="access" channel="file" format="element/part" model="cybol/specification/logic/access.cybol"/>
     <part name="calculate" channel="file" format="element/part" model="cybol/specification/logic/calculate.cybol"/>
     <part name="cast" channel="file" format="element/part" model="cybol/specification/logic/cast.cybol"/>

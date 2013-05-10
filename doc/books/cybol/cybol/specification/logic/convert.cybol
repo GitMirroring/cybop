@@ -1,3 +1,4 @@
 <model>
-    <part name="convert (TO DO)" channel="file" format="element/part" model="cybol/specification/logic/convert/convert.cybol"/>
+    <part name="decode (TODO)" channel="file" format="element/part" model="cybol/specification/logic/convert/decode.cybol"/>
+    <part name="encode (TODO)" channel="file" format="element/part" model="cybol/specification/logic/convert/encode.cybol"/>
 </model>
