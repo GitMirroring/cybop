@@ -52,9 +52,8 @@
  * - language (required): the language of the data received (cybol, http_request, xdt etc.)
  * - format (required): the format of the data received (boolean, character, integer etc.)
  * - message (required): the source (knowledge template) from where to receive data
- * - meta message (optional): the source (knowledge template) from where to receive meta data (properties)
+ * - meta (optional): the source (knowledge template) from where to receive meta data (properties)
  * - model (required): the model to be filled with the data received
- * - properties (optional): the properties to be filled with the data received
  * - minimum (optional): the minimum number of bytes to be received in one call of the read function
  * - maximum (optional): the maximum number of bytes to be received in one call of the read function
  * - root (required): the knowledge model that will serve as the root
