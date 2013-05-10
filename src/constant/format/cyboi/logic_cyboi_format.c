@@ -147,17 +147,20 @@ static int* DECODE_CONVERT_LOGIC_CYBOI_FORMAT = NUMBER_650_INTEGER_STATE_CYBOI_M
 static int* ENCODE_CONVERT_LOGIC_CYBOI_FORMAT = NUMBER_651_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// file
+// command
 //
 
-/** The archive file logic cyboi format. */
-static int* ARCHIVE_FILE_LOGIC_CYBOI_FORMAT = NUMBER_700_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The archive command logic cyboi format. */
+static int* ARCHIVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_700_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The copy file logic cyboi format. */
-static int* COPY_FILE_LOGIC_CYBOI_FORMAT = NUMBER_701_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The copy command logic cyboi format. */
+static int* COPY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_701_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The list-directory-contents file logic cyboi format. */
-static int* LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOI_FORMAT = NUMBER_702_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The list-directory-contents command logic cyboi format. */
+static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_702_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The echo command logic cyboi format. */
+static int* ECHO_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_703_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // flow

@@ -45,7 +45,7 @@ static wchar_t DIR_WIN32_COMMAND_MODEL_ARRAY[] = {L'd', L'i', L'r'};
 static wchar_t* DIR_WIN32_COMMAND_MODEL = DIR_WIN32_COMMAND_MODEL_ARRAY;
 static int* DIR_WIN32_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The echo for showing a message win32 command model. */
+/** The echo win32 command model. */
 static wchar_t ECHO_WIN32_COMMAND_MODEL_ARRAY[] = {L'e', L'c', L'h', L'o'};
 static wchar_t* ECHO_WIN32_COMMAND_MODEL = ECHO_WIN32_COMMAND_MODEL_ARRAY;
 static int* ECHO_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;

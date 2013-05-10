@@ -34,9 +34,10 @@
 #include "../../applicator/communicate/receive.c"
 #include "../../applicator/communicate/send.c"
 #include "../../applicator/compare/compare.c"
-#include "../../applicator/file/archive_file.c"
-#include "../../applicator/file/copy_file.c"
-#include "../../applicator/file/list_directory_contents.c"
+#include "../../applicator/command/archive_file.c"
+#include "../../applicator/command/copy_file.c"
+#include "../../applicator/command/echo_message.c"
+#include "../../applicator/command/list_directory_contents.c"
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
@@ -371,12 +372,12 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 */
 
     //
-    // file
+    // command
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) ARCHIVE_FILE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) ARCHIVE_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -386,7 +387,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) COPY_FILE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) COPY_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -396,7 +397,17 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) LIST_DIRECTORY_CONTENTS_FILE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) ECHO_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_echo_message(p0, p1, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

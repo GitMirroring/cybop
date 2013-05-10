@@ -1,0 +1,201 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.13.0 2013-03-29
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef LIST_DIRECTORY_CONTENTS_SOURCE
+#define LIST_DIRECTORY_CONTENTS_SOURCE
+
+#include <unistd.h>
+
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/logic/commander/list_directory_contents_commander_logic_cybol_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../logger/logger.c"
+
+
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../executor/commander/unix_commander/list_directory_contents_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#endif
+
+#ifdef WIN32
+    #include "../../executor/commander/windows_commander/list_directory_contents_windows_commander.c"
+    #include "../../constant/model/command/win32_command_model.c"
+#endif
+
+/**
+ * Lists the directory contents.
+ *
+ * Expected parametres:
+ * - path (optional): the listing for the given path (the default is the current directory)
+ * - all (optional): the list all option (showing hidden, current . and upper .. directory)
+ * - long (optional): the long listing option (showing user rights etc.)
+ * - one row per entry (optional): the listing for showing one file or directory per row
+ * - recursive (optional): the list for all files and directories, looking up all directories recursively for additional files and directories for the listing
+ * - short (optional): the short version of the files and directory listing
+ * - sort by file size (optional): sorts the current listing by file size
+ * - sort by modification date (optional): sorts the current listing by the file and directory modification date
+ * - sort by extension (optional): sorts the current listing alphabetically by file extension
+ *
+ * Constraints:
+ *
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
+ */
+void apply_list_directory_contents(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list directory contents.");
+
+    // The path part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The all part.
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The long part.
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The one row per entry part.
+    void* orpe = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The recursive part.
+    void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The short part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sort by file size part.
+    void* sbfs = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sort by modification date part.
+    void* sbmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sort by extension part.
+    void* sbe = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The path part model item.
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The all part model item.
+    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The long part model item.
+    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The one row per entry part model item.
+    void* orpem = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The recursive part model item.
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The short part model item.
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sort by file size part model item.
+    void* sbfsm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sort by modification date part model item.
+    void* sbmdm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sort by extension part model item.
+    void* sbem = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The path part model item data and count.
+    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The all part model item data.
+    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The long part model item data.
+    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The one row per entry part model item data.
+    void* orpemd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The recursive part model item data.
+    void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The short part model item data.
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sort by file size part model item data.
+    void* sbfsmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sort by modification date part model item data.
+    void* sbmdmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sort by extension part model item data.
+    void* sbemd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get path part.
+    get_part_knowledge((void*) &p, p0, (void*) PATH_LIST_FILE_LOGIC_CYBOL_NAME, (void*) PATH_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get all part.
+    get_part_knowledge((void*) &a, p0, (void*) ALL_LIST_FILE_LOGIC_CYBOL_NAME, (void*) ALL_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get long part.
+    get_part_knowledge((void*) &l, p0, (void*) LONG_LIST_FILE_LOGIC_CYBOL_NAME, (void*) LONG_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get one row per entry part.
+    get_part_knowledge((void*) &orpe, p0, (void*) ONE_ROW_PER_ENTRY_LIST_FILE_LOGIC_CYBOL_NAME, (void*) ONE_ROW_PER_ENTRY_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get recursive part.
+    get_part_knowledge((void*) &r, p0, (void*) RECURSIVE_LIST_FILE_LOGIC_CYBOL_NAME, (void*) RECURSIVE_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get short part.
+    get_part_knowledge((void*) &s, p0, (void*) SHORT_LIST_FILE_LOGIC_CYBOL_NAME, (void*) SHORT_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get sort by file size part.
+    get_part_knowledge((void*) &sbfs, p0, (void*) SORT_BY_FILE_SIZE_LIST_FILE_LOGIC_CYBOL_NAME, (void*) SORT_BY_FILE_SIZE_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get sort by modification date part.
+    get_part_knowledge((void*) &sbmd, p0, (void*) SORT_BY_MODIFICATION_DATE_LIST_FILE_LOGIC_CYBOL_NAME, (void*) SORT_BY_MODIFICATION_DATE_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get sort by extension part.
+    get_part_knowledge((void*) &sbe, p0, (void*) SORT_BY_EXTENSION_LIST_FILE_LOGIC_CYBOL_NAME, (void*) SORT_BY_EXTENSION_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+
+    // Get path part model item.
+    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get all part model item.
+    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get long part model item.
+    copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get one row per entry part model item.
+    copy_array_forward((void*) &orpem, orpe, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get recursive part model item.
+    copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get short part model item.
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get sort by file size part model item.
+    copy_array_forward((void*) &sbfsm, sbfs, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get sort by modification date part model item.
+    copy_array_forward((void*) &sbmdm, sbmd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get sort by extension part model item.
+    copy_array_forward((void*) &sbem, sbe, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
+    // Get path part model item data and count.
+    copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get all part model item data.
+    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get long part model item data.
+    copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get one row per entry part model item data.
+    copy_array_forward((void*) &orpemd, orpem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get recursive part model item data.
+    copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get short part model item data.
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get short by file size part model item data.
+    copy_array_forward((void*) &sbfsmd, sbfsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get sort by modification date part model item data.
+    copy_array_forward((void*) &sbmdmd, sbmdm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get sort by extension part model item data.
+    copy_array_forward((void*) &sbemd, sbem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    list_directory_contents_unix_commander(pmd, pmc, amd, lmd, orpemd, rmd, smd, sbfsmd, sbmdmd, sbemd);
+#endif
+
+#ifdef WIN32
+    list_directory_contents_windows_commander(pmd, pmc, amd, lmd, orpemd, rmd, smd, sbfsmd, sbmdmd, sbemd);
+#endif
+}
+
+/* LIST_DIRECTORY_CONTENTS_SOURCE */
+#endif

@@ -1,0 +1,96 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Christian Heller <christian.heller@tuxtax.de>
+ *
+ * @version CYBOP 0.13.0 2013-03-29
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef ECHO_MESSAGE_SOURCE
+#define ECHO_MESSAGE_SOURCE
+
+#include <unistd.h>
+
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/logic/commander/echo_message_commander_logic_cybol_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../logger/logger.c"
+
+
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../executor/commander/unix_commander/echo_message_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#endif
+
+#ifdef WIN32
+    #include "../../executor/commander/windows_commander/echo_message_windows_commander.c"
+    #include "../../constant/model/command/win32_command_model.c"
+#endif
+
+/**
+ * Echos the message to standard output.
+ *
+ * Expected parametres:
+ * - message (optional): the message which should be directed to the standard output
+ *
+ * Constraints:
+ *
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
+ */
+void apply_echo_message(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply echo message.");
+
+    // The message part.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The message part model item.
+    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The message part model item data and count.
+    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get message part.
+    get_part_knowledge((void*) &m, p0, (void*) MESSAGE_ECHO_COMMANDER_LOGIC_CYBOL_NAME, (void*) MESSAGE_ECHO_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+
+    // Get message part model item.
+    copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
+    // Get message part model item data and count.
+    copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    echo_message_unix_commander(mmd, mmc);
+#endif
+
+#ifdef WIN32
+    echo_message_windows_commander(mmd, mmc);
+#endif
+}
+
+/* ECHO_MESSAGE_SOURCE */
+#endif

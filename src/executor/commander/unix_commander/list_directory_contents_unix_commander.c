@@ -28,26 +28,30 @@
 
 #include <unistd.h>
 
-#include "../../applicator/run/execute.c"
-#include "../../constant/model/command/unix_command_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/command_option/unix/list_unix_command_option_name.c"
-#include "../../constant/name/cybol/logic/file/list_file_logic_cybol_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
-#include "../../logger/logger.c"
-#include "../../variable/reallocation_factor.c"
+#include "../../../executor/runner/executor.c"
+#include "../../../constant/model/command/unix_command_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/name/command_option/unix/list_unix_command_option_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../variable/reallocation_factor.c"
 
 /**
  * Lists the directory contents.
  *
- * @param p0 the parametres data
+ * @param pmd the path model data
+ * @param pmc the path model count
+ * @param amd the all model data
+ * @param lmd the long model data
+ * @param orpemd the one row per entry model data
+ * @param rmd the recursive model data
+ * @param smd the short model data
+ * @param sbfsmd the sort by file size model data
+ * @param sbmdmd the sort by modification date model data
+ * @param sbemd the sort by extension model data
  */
-/*??
-void apply_list_directory_contents_unix_shell(void* p0, void* p1, void* p2) {
+void list_directory_contents_unix_commander(void* pmd, void* pmc, void* amd, void* lmd, void* orpemd, void* rmd, void* smd, void* sbfsmd, void* sbmdmd, void* sbemd) {
 
     // The arguments item.
     void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -63,13 +67,18 @@ void apply_list_directory_contents_unix_shell(void* p0, void* p1, void* p2) {
     // Append command.
     append_item_element(arg, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
+    if (pmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // Append path option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_unequal((void*) &r, amd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append all option.
@@ -78,15 +87,76 @@ void apply_list_directory_contents_unix_shell(void* p0, void* p1, void* p2) {
         }
     }
 
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_unequal((void*) &r, lmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append long option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, (void*) LONG_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LONG_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, orpemd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append one row per entry option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) ONE_ROW_PER_ENTRY_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ONE_ROW_PER_ENTRY_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, rmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append recursive option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) RECURSIVE_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, sbfsmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append sort by file size option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) SORT_BY_FILE_SIZE_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SORT_BY_FILE_SIZE_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, sbmdmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append sort by modification date option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) SORT_BY_MODIFICATION_TIME_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SORT_BY_MODIFICATION_TIME_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, sbemd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append sort by extension option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) SORT_BY_FILE_EXTENSION_LIST_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SORT_BY_FILE_EXTENSION_LIST_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -100,7 +170,6 @@ void apply_list_directory_contents_unix_shell(void* p0, void* p1, void* p2) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-*/
 
 /* LIST_DIRECTORY_CONTENTS_UNIX_COMMANDER_SOURCE */
 #endif

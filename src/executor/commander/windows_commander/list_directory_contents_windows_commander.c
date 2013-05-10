@@ -28,66 +28,35 @@
 
 #include <unistd.h>
 
-#include "../../applicator/run/execute.c"
-#include "../../constant/model/command/win32_command_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/command_option/win32/list_win32_command_option_name.c"
-#include "../../constant/name/cybol/logic/file/list_file_logic_cybol_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
-#include "../../logger/logger.c"
-#include "../../variable/reallocation_factor.c"
+#include "../../../executor/runner/executor.c"
+#include "../../../constant/model/command/win32_command_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/name/command_option/win32/list_win32_command_option_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../variable/reallocation_factor.c"
 
 /**
  * Lists the directory contents.
  *
- * @param p0 the parametres data
- * @param p1 the parametres count
- * @param p2 the knowledge memory part
+ * @param pmd the path model data
+ * @param pmc the path model count
+ * @param amd the all model data
+ * @param lmd the long model data
+ * @param orpemd the one row per entry model data
+ * @param rmd the recursive model data
+ * @param smd the short model data
+ * @param sbfsmd the sort by file size model data
+ * @param sbmdmd the sort by modification date model data
+ * @param sbemd the sort by extension model data
  */
-/*??
-void apply_list_directory_contents_win32_command(void* p0, void* p1, void* p2) {
-
-    printf("%i\n", 0);
-    // The all part.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The long part.
-    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // The all part model item.
-    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The long part model item.
-    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // The all part model item data.
-    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The long part model item data.
-    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get all part.
-    get_part_knowledge((void*) &a, p0, (void*) ALL_LIST_FILE_LOGIC_CYBOL_NAME, (void*) ALL_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-    // Get long part.
-    get_part_knowledge((void*) &l, p0, (void*) LONG_LIST_FILE_LOGIC_CYBOL_NAME, (void*) LONG_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-
-    // Get all part model item.
-    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get long part model item.
-    copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-    // Get all part model item data.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get long part model item data.
-    copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
+void list_directory_contents_windows_commander(void* pmd, void* pmc, void* amd, void* lmd, void* orpemd, void* rmd, void* smd, void* sbfsmd, void* sbmdmd, void* sbemd) {
     // The arguments item.
     void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The arguments item data, count.
     void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* argc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
 
     // Allocate arguments item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -97,13 +66,19 @@ void apply_list_directory_contents_win32_command(void* p0, void* p1, void* p2) {
     // Append command.
     append_item_element(arg, (void*) DIR_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DIR_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
+
+    if (pmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // Append path option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_unequal((void*) &r, amd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append all option.
@@ -112,10 +87,10 @@ void apply_list_directory_contents_win32_command(void* p0, void* p1, void* p2) {
         }
     }
 
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_unequal((void*) &r, lmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append long option.
@@ -128,10 +103,69 @@ void apply_list_directory_contents_win32_command(void* p0, void* p1, void* p2) {
         }
     }
 
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, orpemd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append one row per entry option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) ONE_ROW_PER_ENTRY_LIST_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ONE_ROW_PER_ENTRY_LIST_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, rmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append recursive option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) RECURSIVE_LIST_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_LIST_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, sbfsmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append sort by file size option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) SORT_BY_FILE_SIZE_LIST_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SORT_BY_FILE_SIZE_LIST_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, sbmdmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append sort by modification date option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) SORT_BY_MODIFICATION_TIME_LIST_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SORT_BY_MODIFICATION_TIME_LIST_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, sbemd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append sort by extension option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) SORT_BY_FILE_EXTENSION_LIST_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SORT_BY_FILE_EXTENSION_LIST_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
     // Get arguments item data, count.
     copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
 
     // Execute command line in shell.
     execute(argd, argc);
@@ -139,7 +173,6 @@ void apply_list_directory_contents_win32_command(void* p0, void* p1, void* p2) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-*/
 
 /* LIST_DIRECTORY_CONTENTS_WINDOWS_COMMANDER_SOURCE */
 #endif

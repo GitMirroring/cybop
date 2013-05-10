@@ -27,12 +27,12 @@
 #define COPY_FILE_SOURCE
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "copy_file_unix_shell.c"
+    //#include "copy_file_unix_shell.c"
     #include "../../constant/model/command/unix_command_model.c"
 #endif
 
-#ifdef WIN32_OPERATING_SYSTEM
-    #include "copy_file_win32_command.c"
+#ifdef W32TEST
+    //#include "copy_file_win32_command.c"
     #include "../../constant/model/command/win32_command_model.c"
 #endif
 
@@ -55,11 +55,11 @@ void apply_copy_file(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply copy file.");
 
     #ifdef GNU_LINUX_OPERATING_SYSTEM
-        apply_copy_file_unix_shell(p0, p1, p2);
+        //copy_file_unix_shell(p0, p1, p2);
     #endif
 
-    #ifdef WIN32_OPERATING_SYSTEM
-        apply_copy_file_win32_command(p0, p1, p2);
+    #ifdef W32TEST
+        //copy_file_windows_command(p0, p1, p2);
     #endif
 }
 /* COPY_FILE_SOURCE */

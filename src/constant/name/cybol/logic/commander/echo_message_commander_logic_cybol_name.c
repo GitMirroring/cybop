@@ -23,31 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LIST_FILE_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
-#define LIST_FILE_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
+#define ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/**
- * The all list directory contents file logic cybol name.
- *
- * It indicates that hidden files should be listed
- * as well as the current . and upper .. directory.
- */
-static wchar_t ALL_LIST_FILE_LOGIC_CYBOL_NAME_ARRAY[] = {L'a', L'l', L'l'};
-static wchar_t* ALL_LIST_FILE_LOGIC_CYBOL_NAME = ALL_LIST_FILE_LOGIC_CYBOL_NAME_ARRAY;
-static int* ALL_LIST_FILE_LOGIC_CYBOL_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The message parameter for the echo logic in cybol. */
+static wchar_t MESSAGE_ECHO_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e'};
+static wchar_t* MESSAGE_ECHO_COMMANDER_LOGIC_CYBOL_NAME = MESSAGE_ECHO_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* MESSAGE_ECHO_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The long list directory contents file logic cybol name.
- *
- * It indicates the usage of a long listing including file access rights etc.
- */
-static wchar_t LONG_LIST_FILE_LOGIC_CYBOL_NAME_ARRAY[] = {L'l', L'o', L'n', L'g'};
-static wchar_t* LONG_LIST_FILE_LOGIC_CYBOL_NAME = LONG_LIST_FILE_LOGIC_CYBOL_NAME_ARRAY;
-static int* LONG_LIST_FILE_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/* LIST_FILE_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
+/* ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
