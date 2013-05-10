@@ -1,24 +1,42 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-
 <model>
-    <part name="refresh_gui" channel="inline" abstraction="operation" model="send">
-        <property name="channel" channel="inline" abstraction="character" model="x_window_system"/>
-        <property name="receiver" channel="inline" abstraction="character" model="user"/>
-        <property name="message" channel="inline" abstraction="knowledge" model=".hedam.gui"/>
+    <part name="refresh_gui" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="display"/>
+        <property name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".gui.window"/>
     </part>
-    <part name="show_about_information" channel="inline" abstraction="operation" model="send">
-        <property name="channel" channel="inline" abstraction="character" model="x_window_system"/>
-        <property name="receiver" channel="inline" abstraction="character" model="user"/>
-        <property name="message" channel="inline" abstraction="knowledge" model=".hedam.gui.about"/>
+    <part name="print_message" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="TEST GUI MESSAGE"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="exit_program" channel="file" abstraction="compound" model="hedam/logic/shutdown.cybol"/>
+    <part name="exit_programme" channel="inline" format="live/exit" model=""/>
 </model>
 
 <!--
-    $RCSfile$
+    Copyright (C) 1999-2013. Christian Heller.
 
-    Copyright (c) 2005-2006. Christian Heller.
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
 
-    @version $Revision$ $Date$ $Author$
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    Christian Heller <christian.heller@tuxtax.de>
+
+    @version CYBOP 0.13.0 2013-03-29
     @author Christian Heller <christian.heller@tuxtax.de>
 -->

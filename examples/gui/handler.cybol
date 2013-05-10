@@ -1,8 +1,8 @@
 <model>
-    <part name="receive_command" channel="inline" format="communicate/receive" model="">
+    <part name="receive_action" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="language" channel="inline" format="meta/language" model="message/gui"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".temporary.command"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".gui.action"/>
     </part>
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
@@ -10,11 +10,9 @@
         not find all resources anymore, if they meanwhile have been manipulated by the other signal.
         The "flow/sequence" operation ensures that the given model is executed directly.
     -->
-    <part name="send_gui" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="display"/>
-        <property name="language" channel="inline" format="meta/language" model="message/gui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".window"/>
+    <!-- CAUTION! Use path/reference format here, since the action just points to the actual model to be executed. -->
+    <part name="send_gui" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/reference" model=".gui.action"/>
     </part>
 </model>
 

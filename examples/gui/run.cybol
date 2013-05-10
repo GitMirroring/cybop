@@ -1,67 +1,62 @@
 <model>
-<!--
-    <part name="create_window" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="window"/>
+    <part name="create_gui" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="gui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
-    <part name="initialise_window" channel="inline" format="communicate/receive" model="">
+    <part name="create_logic" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="logic"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="create_handler" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="handler"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="initialise_gui" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="gui/window.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".window"/>
+        <property name="message" channel="inline" format="text/plain" model="gui/gui.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".gui"/>
     </part>
--->
-    <!--
-        CAUTION! Create actions only AFTER having initialised logic above.
-        The logic contains a "user_interface" node that has to be built up
-        before using it as "whole" (parent) node here.
-    -->
-<!--
-    <part name="create_actions" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="actions"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="initialise_actions" channel="inline" format="communicate/receive" model="">
+    <part name="initialise_logic" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="gui/actions.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".actions"/>
+        <property name="message" channel="inline" format="text/plain" model="gui/logic.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".logic"/>
     </part>
--->
+    <part name="initialise_handler" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="gui/handler.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".handler"/>
+    </part>
     <!-- Write knowledge tree into file. -->
-<!--
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".window"/>
-        <property name="receiver" channel="inline" format="text/plain" model="TEST_UI_CONTROL.txt"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".gui"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_gui.txt"/>
     </part>
--->
     <part name="startup_gui" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
     </part>
-    <part name="send_gui" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="display"/>
-        <property name="language" channel="inline" format="meta/language" model="message/gui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".window"/>
+    <part name="send_gui" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic.refresh_gui"/>
     </part>
     <part name="sense_gui" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
-        <property name="handler" channel="file" format="element/part" model="gui/handler.cybol"/>
-<!--
         <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
-        <property name="root" channel="inline" format="path/knowledge" model=".window"/>
-        <property name="commands" channel="inline" format="path/knowledge" model=".actions"/>
--->
+        <property name="root" channel="inline" format="path/knowledge" model=".gui.window"/>
     </part>
 </model>
 

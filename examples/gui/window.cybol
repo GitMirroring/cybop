@@ -1,14 +1,9 @@
 <model>
-    <part name="window" channel="file" format="element/part" model="gui/window.cybol">
-        <property name="position" channel="inline" format="number/integer" model="100,100"/>
-        <property name="size" channel="inline" format="number/integer" model="800,600"/>
-        <property name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
-        <property name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
-        <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
-        <property name="icon" channel="file" format="png" model="gui/window/icon.png"/>
-        <property name="layout" channel="inline" format="text/plain" model="absolute"/>
+    <part name="rectangle" channel="inline" format="text/plain" model="Rectangle Label">
+        <property name="position" channel="inline" format="number/integer" model="100,200"/>
+        <property name="size" channel="inline" format="number/integer" model="300,200"/>
+        <property name="button-release" channel="inline" format="path/knowledge" model=".logic.exit_programme"/>
     </part>
-    <part name="action" channel="inline" format="text/plain" model=""/>
 </model>
 
 <!--

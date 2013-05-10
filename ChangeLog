@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-05-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update "gui" cybol example application
+
 2013-05-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename "constant/name/cybol/operation/" into "constant/name/cybol/logic/"
