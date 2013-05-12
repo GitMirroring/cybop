@@ -2,7 +2,7 @@
     <part name="rectangle" channel="inline" format="text/plain" model="Rectangle Label">
         <property name="position" channel="inline" format="number/integer" model="100,200"/>
         <property name="size" channel="inline" format="number/integer" model="300,200"/>
-        <property name="button-release" channel="inline" format="path/knowledge" model=".logic.exit_programme"/>
+        <property name="button-release" channel="inline" format="path/knowledge" model=".logic.print_message"/>
     </part>
 </model>
 

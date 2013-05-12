@@ -11,9 +11,11 @@
         The "flow/sequence" operation ensures that the given model is executed directly.
     -->
     <!-- CAUTION! Use path/reference format here, since the action just points to the actual model to be executed. -->
-    <part name="send_gui" channel="inline" format="flow/sequence" model="">
+<!--
+    <part name="execute_action" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/reference" model=".gui.action"/>
     </part>
+-->
 </model>
 
 <!--

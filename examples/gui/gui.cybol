@@ -5,8 +5,9 @@
         <property name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
         <property name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
         <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
-        <property name="icon" channel="file" format="png" model="gui/window/icon.png"/>
+        <property name="icon" channel="file" format="png" model="gui/icon.png"/>
         <property name="layout" channel="inline" format="text/plain" model="absolute"/>
+        <property name="expose" channel="inline" format="path/knowledge" model=".logic.refresh_display"/>
     </part>
     <part name="action" channel="inline" format="text/plain" model=""/>
 </model>

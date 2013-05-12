@@ -1,5 +1,5 @@
 <model>
-    <part name="refresh_gui" channel="inline" format="communicate/send" model="">
+    <part name="refresh_display" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="language" channel="inline" format="meta/language" model="message/gui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
@@ -13,6 +13,7 @@
         <property name="message" channel="inline" format="text/plain" model="TEST GUI MESSAGE"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+    <part name="handler" channel="file" format="element/part" model="gui/handler.cybol"/>
     <part name="exit_programme" channel="inline" format="live/exit" model=""/>
 </model>
 
