@@ -58,16 +58,16 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
     int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST receive x window system td: %i\n", td);
+//?? fwprintf(stdout, L"TEST receive x window system td: %i\n", td);
 
     // Receive event.
     receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &b, (void*) &x, (void*) &y, p6);
 
-fwprintf(stdout, L"TEST receive x window system td*: %ls\n", (wchar_t*) td);
-fwprintf(stdout, L"TEST receive x window system td: %i\n", *((int*) tc));
+//?? fwprintf(stdout, L"TEST receive x window system td*: %ls\n", (wchar_t*) td);
+//?? fwprintf(stdout, L"TEST receive x window system td: %i\n", *((int*) tc));
 
     // Deserialise event into a meaningful command.
-//??    deserialise(p0, p1, p2, p3, td, tc, (void*) &b, (void*) &x, (void*) &y, p4, p5);
+    deserialise(p0, p1, p2, p3, td, tc, (void*) &b, (void*) &x, (void*) &y, p4, p5);
 }
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */

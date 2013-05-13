@@ -10,7 +10,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE: Hand over root in applicator-receive
         * Implement gui deserialiser
         * Continue x window system serialiser
 

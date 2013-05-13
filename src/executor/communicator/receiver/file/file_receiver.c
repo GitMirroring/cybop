@@ -105,7 +105,7 @@ fwprintf(stdout, L"TEST receive file dc: %i\n", *((int*) dc));
 */
 
     // Deserialise data via type (language).
-    deserialise(p0, p1, dd, dc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5);
+    deserialise(p0, p1, dd, dc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5);
 
 /*??
 //?? TEST BEGIN
