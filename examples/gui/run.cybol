@@ -10,20 +10,20 @@
         <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
     <part name="initialise_gui" channel="inline" format="communicate/receive" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".gui"/>
+        <property name="message" channel="inline" format="text/plain" model="gui/gui.cybol"/>
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="gui/gui.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".gui"/>
     </part>
     <part name="initialise_logic" channel="inline" format="communicate/receive" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".logic"/>
+        <property name="message" channel="inline" format="text/plain" model="gui/logic.cybol"/>
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="gui/logic.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".logic"/>
     </part>
     <!-- Write knowledge tree into file. -->
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">

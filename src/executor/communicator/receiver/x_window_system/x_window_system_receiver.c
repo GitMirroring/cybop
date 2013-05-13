@@ -39,11 +39,13 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the format
- * @param p3 the language
- * @param p4 the internal memory data
+ * @param p2 the source root window data
+ * @param p3 the source root window count
+ * @param p4 the format
+ * @param p5 the language
+ * @param p6 the internal memory data
  */
-void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system.");
 
@@ -59,13 +61,13 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4) {
 fwprintf(stdout, L"TEST receive x window system td: %i\n", td);
 
     // Receive event.
-    receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &b, (void*) &x, (void*) &y, p4);
+    receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &b, (void*) &x, (void*) &y, p6);
 
 fwprintf(stdout, L"TEST receive x window system td*: %ls\n", (wchar_t*) td);
 fwprintf(stdout, L"TEST receive x window system td: %i\n", *((int*) tc));
 
     // Deserialise event into a meaningful command.
-    deserialise(p0, p1, td, tc, (void*) &b, (void*) &x, (void*) &y, p2, p3);
+//??    deserialise(p0, p1, p2, p3, td, tc, (void*) &b, (void*) &x, (void*) &y, p4, p5);
 }
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */

@@ -3,6 +3,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="language" channel="inline" format="meta/language" model="message/gui"/>
         <property name="model" channel="inline" format="path/knowledge" model=".gui.action"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".gui.window"/>
     </part>
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.

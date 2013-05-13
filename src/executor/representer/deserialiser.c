@@ -80,6 +80,8 @@
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
+ * @param px the event type data
+ * @param px the event type count
  * @param p4 the button mask
  * @param p5 the x coordinate
  * @param p6 the y coordinate
@@ -123,7 +125,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui(p0, p2, p3, p4, p5, p6);
+//??            deserialise_gui(p0, p2, p3, p4, p5, p6);
         }
     }
 

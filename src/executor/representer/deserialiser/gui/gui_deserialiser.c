@@ -44,15 +44,15 @@
  * surrounding container element.
  *
  * @param p0 the destination item
- * @param px the source root window data
- * @param px the source root window count
- * @param p1 the event type data
- * @param p2 the event type count
- * @param p3 the button mask
- * @param p4 the x coordinate
- * @param p5 the y coordinate
+ * @param p1 the source root window data
+ * @param p2 the source root window count
+ * @param p3 the event type data
+ * @param p4 the event type count
+ * @param p5 the button mask
+ * @param p6 the x coordinate
+ * @param p7 the y coordinate
  */
-void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui.");
 
@@ -84,7 +84,7 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
     void* amc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get action part.
-//??    get_part_knowledge((void*) &a, param_prop_data, p1, p2, param_prop_count, knowledge_part);
+//??    get_part_knowledge((void*) &a, ppd-param_prop_data, p3, p4, ppc-param_prop_count, knowledge_part);
     // Get action part model item.
     copy_array_forward(p0, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
