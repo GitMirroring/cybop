@@ -33,10 +33,12 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
-#include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer_comparator.c"
-#include "../../../executor/modifier/copier/array_copier.c"
+#include "../../../executor/comparator/basic/fraction/equal_fraction_comparator.c"
+#include "../../../executor/comparator/basic/fraction/greater_fraction_comparator.c"
+#include "../../../executor/comparator/basic/fraction/greater_or_equal_fraction_comparator.c"
+#include "../../../executor/comparator/basic/fraction/smaller_fraction_comparator.c"
+#include "../../../executor/comparator/basic/fraction/smaller_or_equal_fraction_comparator.c"
+#include "../../../executor/comparator/basic/fraction/unequal_fraction_comparator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -49,61 +51,83 @@
  */
 void compare_fraction(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare fraction.");
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The left numerator, denominator.
-    void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The right numerator, denominator.
-    void* rn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* a = (int*) p3;
 
-    // Get destination numerator, denominator.
-    copy_array_forward((void*) &ln, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
-    // Get source numerator, denominator.
-    copy_array_forward((void*) &rn, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare fraction.");
 
-    if (rd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (rn != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (ld != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (*a == *EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
-                if (ln != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                    // The expanded left numerator, right numerator.
-                    // CAUTION! Initialise with ln and rn, respectively,
-                    // since they are multiplied with their denominators below.
-                    int eln = *((int*) ln);
-                    int ern = *((int*) rn);
-
-                    // Calculate expanded left numerator, right numerator.
-                    // CAUTION! Multiplicate cross-wise.
-                    calculate_integer_multiply((void*) &eln, (void*) &rd);
-                    calculate_integer_multiply((void*) &ern, (void*) &ld);
-
-                    compare_integer(p0, (void*) &eln, (void*) &ern, p3);
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left numerator is null.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left denominator is null.");
+                compare_fraction_equal(p0, p1, p2);
             }
+        }
 
-        } else {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right numerator is null.");
+            if (*a == *SMALLER_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_fraction_smaller(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*a == *GREATER_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_fraction_greater(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_fraction_smaller_or_equal(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_fraction_greater_or_equal(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*a == *UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_fraction_unequal(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The operation type is unknown.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right denominator is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The operation type is null.");
     }
 }
 

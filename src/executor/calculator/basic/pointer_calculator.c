@@ -31,6 +31,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../executor/calculator/basic/pointer/add_pointer_calculator.c"
+#include "../../../executor/calculator/basic/pointer/subtract_pointer_calculator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -57,7 +58,6 @@ void calculate_pointer(void* p0, void* p1, void* p2) {
         }
     }
 
-/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT);
@@ -67,7 +67,6 @@ void calculate_pointer(void* p0, void* p1, void* p2) {
             calculate_pointer_subtract(p0, p1);
         }
     }
-*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

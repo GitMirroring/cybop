@@ -47,24 +47,18 @@ void calculate_pointer_add(void* p0, void* p1) {
 
             void** sum = (void**) p0;
 
-            // CAUTION! Do NOT call the logger here.
-            // It uses functions causing circular references.
-            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer add.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer add.");
 
             *sum = *sum + *s;
 
         } else {
 
-            // CAUTION! Do NOT call the logger here.
-            // It uses functions causing circular references.
-            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The sum is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The sum is null.");
         }
 
     } else {
 
-        // CAUTION! Do NOT call the logger here.
-        // It uses functions causing circular references.
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The summand is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The summand is null.");
     }
 }
 

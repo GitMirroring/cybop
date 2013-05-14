@@ -20,49 +20,47 @@
  * Christian Heller <christian.heller@tuxtax.de>
  *
  * @version CYBOP 0.13.0 2013-03-29
- * @author Falk Müller <falk89@web.de>
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ADD_DOUBLE_CALCULATOR_SOURCE
-#define ADD_DOUBLE_CALCULATOR_SOURCE
+#ifndef SUBTRACT_POINTER_CALCULATOR_SOURCE
+#define SUBTRACT_POINTER_CALCULATOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Adds the summand to the sum double.
+ * Subtracts the subtrahend from the minuend pointer.
  *
- * @param p0 the sum, which is the first summand BEFORE the operation
- * @param p1 the summand
+ * @param p0 the difference, which is the minuend BEFORE the operation
+ * @param p1 the subtrahend
  */
-void calculate_double_add(void* p0, void* p1) {
+void calculate_pointer_subtract(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        double* s = (double*) p1;
+        int* s = (int*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            double* sum = (double*) p0;
+            void** d = (void**) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate double add.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer subtract.");
 
-            *sum = *sum + *s;
+            *d = *d - *s;
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double add. The sum is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer subtract. The difference is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double add. The summand is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer subtract. The subtrahend is null.");
     }
 }
 
-/* ADD_DOUBLE_CALCULATOR_SOURCE */
+/* SUBTRACT_POINTER_CALCULATOR_SOURCE */
 #endif

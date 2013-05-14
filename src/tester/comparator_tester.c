@@ -26,6 +26,7 @@
 #ifndef COMPARATOR_TESTER
 #define COMPARATOR_TESTER
 
+#include "../constant/format/cyboi/logic_cyboi_format.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/comparator/all/array_all_comparator.c"
 #include "../executor/comparator/all/part_all_comparator.c"
@@ -278,6 +279,88 @@ void test_comparator_part() {
 }
 
 /**
+ * Tests the pointer comparator.
+ */
+void test_comparator_pointer() {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator pointer.");
+
+    int i = 1;
+    int n = 2;
+    int p0 = 0;
+    void* p1 = (void*) &i;
+    void* p2 = (void*) &n;
+
+    fwprintf(stdout, L"left  value: %i\n", p1);
+    fwprintf(stdout, L"right value: %i\n", p2);
+
+    p0 = 0;
+    compare_pointer((void*) &p0, &p1, &p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"= result: %i\n", p0);
+
+    p0 = 0;
+    compare_pointer(&p0, &p1, &p2, (void*) SMALLER_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"< result: %i\n", p0);
+
+    p0 = 0;
+    compare_pointer(&p0, &p1, &p2, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"> result: %i\n", p0);
+
+    p0 = 0;
+    compare_pointer(&p0, &p1, &p2, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"<= result: %i\n", p0);
+
+    p0 = 0;
+    compare_pointer(&p0, &p1, &p2, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L">= result: %i\n", p0);
+
+    p0 = 0;
+    compare_pointer(&p0, &p1, &p2, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"<> result: %i\n", p0);
+}
+
+/**
+ * Tests the double comparator.
+ */
+void test_comparator_double() {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator double.");
+
+    double l = 1.2;
+    double r = 1.3;
+    int res = 0;
+
+    fwprintf(stdout, L"left  value: %f\n", l);
+    fwprintf(stdout, L"right value: %f\n", r);
+
+    res = 0;
+    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"= result: %d\n", res);
+
+    res = 0;
+    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) SMALLER_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"< result: %d\n", res);
+
+    res = 0;
+    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"> result: %d\n", res);
+
+    res = 0;
+    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"<= result: %d\n", res);
+
+    res = 0;
+    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L">= result: %d\n", res);
+
+    res = 0;
+    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    fwprintf(stdout, L"<> result: %d\n", res);
+}
+
+
+
+/**
  * Tests the comparator.
  *
  * Sub test procedure calls can be activated/ deactivated here
@@ -290,6 +373,8 @@ void test_comparator() {
 //    test_comparator_ascii_character();
 //    test_comparator_array();
 //    test_comparator_part();
+//    test_comparator_pointer();
+//    test_comparator_double();
 }
 
 /* COMPARATOR_TESTER */

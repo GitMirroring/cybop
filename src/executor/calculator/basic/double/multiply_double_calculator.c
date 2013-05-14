@@ -49,24 +49,18 @@ void calculate_double_multiply(void* p0, void* p1) {
 
             double* p = (double*) p0;
 
-            // CAUTION! Do NOT call the logger here.
-            // It uses functions causing circular references.
-            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate double multiply.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate double multiply.");
 
             *p = *p * *f;
 
         } else {
 
-            // CAUTION! Do NOT call the logger here.
-            // It uses functions causing circular references.
-            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double multiply. The product is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double multiply. The product is null.");
         }
 
     } else {
 
-        // CAUTION! Do NOT call the logger here.
-        // It uses functions causing circular references.
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double multiply. The factor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double multiply. The factor is null.");
     }
 }
 
