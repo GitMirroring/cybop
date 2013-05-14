@@ -45,20 +45,16 @@ void compare_fraction_greater_or_equal(void* p0, void* p1, void* p2) {
     // The left numerator, denominator.
     void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     // The right numerator, denominator.
     void* rn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination numerator.
     copy_array_forward((void*) &ln, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-
-    //Get destination denominator.
+    // Get destination denominator.
     copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
-
     // Get source numerator.
     copy_array_forward((void*) &rn, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-
     // Get source denominator.
     copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 
@@ -82,6 +78,7 @@ void compare_fraction_greater_or_equal(void* p0, void* p1, void* p2) {
                     calculate_integer_multiply((void*) &ern, (void*) &ld);
 
                     if (eln >= ern) {
+
                         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                     }
 
