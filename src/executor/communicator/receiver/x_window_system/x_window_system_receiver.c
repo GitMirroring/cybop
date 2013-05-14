@@ -49,25 +49,33 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system.");
 
+    // The buffer item (array, queue) of e.g. 100 elements.
+    // It is needed to avoid endless display input, so that
+    // the system has the chance to process events in between.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The event type.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The button mask.
-    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The mouse coordinates.
     int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-//?? fwprintf(stdout, L"TEST receive x window system td: %i\n", td);
+    // Buffer events until a null event is reached
+    // or until the buffer is full.
+//??    receive_x_window_system_buffer();
+
+    // Filter out expose events to avoid flickering.
+    // The last expose event is reached when the
+    // next event is either null or another kind of event.
+//??    receive_x_window_system_filter();
 
     // Receive event.
-    receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &b, (void*) &x, (void*) &y, p6);
-
-//?? fwprintf(stdout, L"TEST receive x window system td*: %ls\n", (wchar_t*) td);
-//?? fwprintf(stdout, L"TEST receive x window system td: %i\n", *((int*) tc));
+    receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &m, (void*) &x, (void*) &y, p6);
 
     // Deserialise event into a meaningful command.
-    deserialise(p0, p1, p2, p3, td, tc, (void*) &b, (void*) &x, (void*) &y, p4, p5);
+    deserialise(p0, p1, p2, p3, td, tc, (void*) &m, (void*) &x, (void*) &y, p4, p5);
 }
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */

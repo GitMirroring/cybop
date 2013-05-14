@@ -142,7 +142,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                             // Check for end-of-file condition or read error,
                             // in which case WEOF (the integer -1) is returned.
                             //
-                            // It is true, the sense terminal function
+                            // It is true, the "sense_terminal" function
                             // already filters out invalid characters
                             // recognised by the return value WEOF.
                             // However, to be on the safe side, they are

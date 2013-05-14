@@ -28,12 +28,8 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../executor/representer/deserialiser/gui/part_gui_deserialiser.c"
 #include "../../../../logger/logger.c"
-
-#ifdef WIN32
-#else
-//??    #include "../../../../executor/representer/deserialiser/x_window_system/x_window_system_deserialiser.c"
-#endif
 
 /**
  * Searches an action in the root window handed over.
@@ -57,45 +53,7 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui.");
 
-    //?? TODO:
-
-    // Hand over root window part to here.
-
-    // Iterate through part hierarchy.
-
-    // Get a gui part in loop cycle.
-    // Remember the gui part's properties
-    // (used further below to get the action).
-
-    // The gui part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The gui part model, properties item.
-    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Compare if action for event exists.
-    // If yes, assign event.
-
-    // The action part.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The action part model item.
-    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The action part model item data, count.
-    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* amc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get action part.
-//??    get_part_knowledge((void*) &a, ppd-param_prop_data, p3, p4, ppc-param_prop_count, knowledge_part);
-    // Get action part model item.
-    copy_array_forward(p0, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-    // Assign event again (overwrite previous one),
-    // if a contained child element has an action.
-
-#ifdef WIN32
-#else
-//??    deserialise_gui_x_window_system(p0, p1, p2);
-#endif
+    //?? TODO: See serialise_tui!
 }
 
 /* GUI_DESERIALISER_SOURCE */

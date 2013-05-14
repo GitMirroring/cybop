@@ -42,16 +42,6 @@
  * Gets the source part element given by the source part element index
  * as reference copied to the destination pointer array.
  *
- * CAUTION! The parametre p0 does NOT have to be a reference!
- * It points to a memory area to which the source element is copied.
- * If using a local variable, then the memory area is allocated
- * automatically by the function, on the stack.
- *
- * Example:
- *
- * void* part_reference = *NULL_POINTER_STATE_CYBOI_MODEL;
- * get_part_element((void*) &part_reference, whole_part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j, (void*) MODEL_PART_STATE_CYBOI_NAME);
- *
  * @param p0 the destination element part
  * @param p1 the source part
  * @param p2 the operation type
