@@ -1,7 +1,4 @@
 <model>
-    <part name="print_time" channel="inline" format="run/run" model="">
-        <property name="programme" channel="inline" format="text/plain" model="echo %CD%"/>
-    </part>
     <part name="move_file" channel="inline" format="command/move" model="">
         <property name="source" channel="inline" format="text/plain" model="./shell_command_move_file/original.txt"/>
         <property name="destination" channel="inline" format="text/plain" model="./shell_command_move_file/moved_and_please_do_not_commit_me.txt"/>
