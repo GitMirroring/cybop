@@ -34,7 +34,7 @@ Debian packages for compilation:
     glut or freeglut3 or the like
     mesa etc.
 
-Package and Library Installation Windows
+Package and Library Installation Windows (GCC)
 ________________________________________
 
 Required libraries for CYBOL application execution:
@@ -57,9 +57,6 @@ Required libraries for CYBOL application execution:
     libxcb-xtest-0.dll
     libXdmcp-6.dll
     pthreadGC2.dll
-
-These are also available in SVN, under:
-    cybop/include/i586-mingw32msvc/lib/
 
 They have to be placed in either:
     %WINDIR%\system32
@@ -92,6 +89,17 @@ These are also available in SVN, under:
 They have to exist or be copied into:
     /usr/i586-mingw32msvc/lib/
 
+
+Package and Library Installation OSX
+______________________________________
+
+OSX packages for CYBOL application execution:
+
+OSX packages for compilation:
+    Xcode
+    Autotools (https://gist.github.com/jellybeansoup/4192307)
+
+
 CYBOI Compilation POSIX
 _______________________
 
@@ -121,7 +129,7 @@ the platforms: GNU/Linux, Windows (mingw environment), Linux 64bits.
 The configure script forces the 32 bits emulation mode by using special options
 of gcc and other binutils. Native 32 bits Linux and Windows was not tested, however.
 
-CYBOI Compilation Windows
+CYBOI Compilation Windows (GCC)
 _________________________
 
 - Change into cybop's root directory, e.g.:
@@ -135,6 +143,25 @@ _________________________
 - Execute the mingw32 compiler:
 
     i586-mingw32msvc-gcc src/controller/cyboi.c -o src/controller/cyboi.exe -DPTW32_STATIC_LIB -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32 -w
+
+CYBOI Compilation Windows (MSVC)
+_________________________
+
+
+CYBOI Compilation OSX (gcc)
+_________________________
+
+- Change into cybop's root directory, e.g.:
+
+    cd /home/cybop
+
+- Clean the object files of any previous compilation (this is optional):
+
+    make clean
+
+- Execute the llvm compiler:
+
+    make
 
 CYBOL Application Execution
 ___________________________

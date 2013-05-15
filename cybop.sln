@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cybop", "cybop.vcxproj", "{53997C30-7508-476D-B7A7-78D5F3C54EEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53997C30-7508-476D-B7A7-78D5F3C54EEA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{53997C30-7508-476D-B7A7-78D5F3C54EEA}.Debug|Win32.Build.0 = Debug|Win32
+		{53997C30-7508-476D-B7A7-78D5F3C54EEA}.Release|Win32.ActiveCfg = Release|Win32
+		{53997C30-7508-476D-B7A7-78D5F3C54EEA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

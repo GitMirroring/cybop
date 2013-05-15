@@ -23,10 +23,15 @@ case $host_os in
 	cybop_os_win32=yes
 	AC_MSG_RESULT([Win32])
     ;;
+    darwin*)
+	cybop_os_darwin=yes
+	AC_MSG_RESULT([Darwin])
+    ;;
 esac
 
 AM_CONDITIONAL(LINUX_OPERATING_SYSTEM, [test "$cybop_os_linux" = "yes"])
 AM_CONDITIONAL(WIN32_OPERATING_SYSTEM, [test "$cybop_os_win32" = "yes"])
+AM_CONDITIONAL(DARWIN_OPERATING_SYSTEM, [test "$cybop_os_darwin" = "yes"])
 
 # Checks for programs.
 AC_PROG_CC

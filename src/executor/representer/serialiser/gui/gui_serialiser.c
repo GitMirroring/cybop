@@ -30,8 +30,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
-#else
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
 #endif
 
@@ -48,8 +47,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui.");
 
-#ifdef WIN32
-#else
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     serialise_x_window_system(p0, p1, p2, p3, p4);
 #endif
 }

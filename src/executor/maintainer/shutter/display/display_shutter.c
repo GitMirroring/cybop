@@ -30,8 +30,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
-#else
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
 #endif
 
@@ -46,8 +45,7 @@ void shutdown_display(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown display.");
 
-#ifdef WIN32
-#else
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     shutdown_x_window_system(p0, p1, p2);
 #endif
 }
