@@ -156,11 +156,20 @@ static int* ARCHIVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_700_INTEGER_STATE_CYBOI_
 /** The copy command logic cyboi format. */
 static int* COPY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_701_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The list-directory-contents command logic cyboi format. */
-static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_702_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The echo command logic cyboi format. */
-static int* ECHO_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_703_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ECHO_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_702_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The list-directory-contents command logic cyboi format. */
+static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_703_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The move command logic cyboi format. */
+static int* MOVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_704_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The remove command logic cyboi format. */
+static int* REMOVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_705_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The tape archiver command logic cyboi format. */
+static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_706_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // flow

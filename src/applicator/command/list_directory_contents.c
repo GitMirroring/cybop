@@ -130,23 +130,23 @@ void apply_list_directory_contents(void* p0, void* p1, void* p2) {
     void* sbemd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get path part.
-    get_part_knowledge((void*) &p, p0, (void*) PATH_LIST_FILE_LOGIC_CYBOL_NAME, (void*) PATH_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &p, p0, (void*) PATH_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get all part.
-    get_part_knowledge((void*) &a, p0, (void*) ALL_LIST_FILE_LOGIC_CYBOL_NAME, (void*) ALL_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &a, p0, (void*) ALL_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get long part.
-    get_part_knowledge((void*) &l, p0, (void*) LONG_LIST_FILE_LOGIC_CYBOL_NAME, (void*) LONG_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &l, p0, (void*) LONG_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) LONG_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get one row per entry part.
-    get_part_knowledge((void*) &orpe, p0, (void*) ONE_ROW_PER_ENTRY_LIST_FILE_LOGIC_CYBOL_NAME, (void*) ONE_ROW_PER_ENTRY_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &orpe, p0, (void*) ONE_ROW_PER_ENTRY_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ONE_ROW_PER_ENTRY_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get recursive part.
-    get_part_knowledge((void*) &r, p0, (void*) RECURSIVE_LIST_FILE_LOGIC_CYBOL_NAME, (void*) RECURSIVE_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &r, p0, (void*) RECURSIVE_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get short part.
-    get_part_knowledge((void*) &s, p0, (void*) SHORT_LIST_FILE_LOGIC_CYBOL_NAME, (void*) SHORT_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &s, p0, (void*) SHORT_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SHORT_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get sort by file size part.
-    get_part_knowledge((void*) &sbfs, p0, (void*) SORT_BY_FILE_SIZE_LIST_FILE_LOGIC_CYBOL_NAME, (void*) SORT_BY_FILE_SIZE_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &sbfs, p0, (void*) SORT_BY_FILE_SIZE_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SORT_BY_FILE_SIZE_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get sort by modification date part.
-    get_part_knowledge((void*) &sbmd, p0, (void*) SORT_BY_MODIFICATION_DATE_LIST_FILE_LOGIC_CYBOL_NAME, (void*) SORT_BY_MODIFICATION_DATE_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &sbmd, p0, (void*) SORT_BY_MODIFICATION_DATE_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SORT_BY_MODIFICATION_DATE_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get sort by extension part.
-    get_part_knowledge((void*) &sbe, p0, (void*) SORT_BY_EXTENSION_LIST_FILE_LOGIC_CYBOL_NAME, (void*) SORT_BY_EXTENSION_LIST_FILE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &sbe, p0, (void*) SORT_BY_EXTENSION_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SORT_BY_EXTENSION_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

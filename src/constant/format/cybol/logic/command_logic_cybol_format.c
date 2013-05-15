@@ -99,7 +99,38 @@ static wchar_t LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c
 static wchar_t* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT = LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The command/move logic cybol format.
+ *
+ * Moves a file or directory to a destination path.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t MOVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'm', L'o', L'v', L'e'};
+static wchar_t* MOVE_COMMAND_LOGIC_CYBOL_FORMAT = MOVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The command/remove logic cybol format.
+ *
+ * Removes a file or directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'r', L'e', L'm', L'o', L'v', L'e'};
+static wchar_t* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT = REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/remove logic cybol format.
+ *
+ * Removes a file or directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L't', L'a', L'p', L'e', L'-', L'a', L'r', L'c', L'h', L'i', L'v', L'e', L'r'};
+static wchar_t* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT = TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

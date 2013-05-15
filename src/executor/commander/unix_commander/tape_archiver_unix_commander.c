@@ -23,39 +23,35 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COPY_FILE_WINDOWS_COMMANDER_SOURCE
-#define COPY_FILE_WINDOWS_COMMANDER_SOURCE
+#ifndef TAPE_ARCHIVER_UNIX_COMMANDER_SOURCE
+#define TAPE_ARCHIVER_UNIX_COMMANDER_SOURCE
 
 #include <unistd.h>
 
 #include "../../../executor/runner/executor.c"
-#include "../../../constant/model/command/win32_command_model.c"
+#include "../../../constant/model/command/unix_command_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/command_option/win32/copy_file_win32_command_option_name.c"
+#include "../../../constant/name/command_option/unix/tape_archiver_unix_command_option_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../variable/reallocation_factor.c"
-#include "unix_to_windows_path_adapter_for_windows_commander.c"
 
 /**
- * Copies the file resource to a destination.
+ * Packs/Unpacks a directory or file .
  *
  * @param smd the source path model data
  * @param smc the source path model count
  * @param dmd the destination path model data
  * @param dmc the destination path model count
  * @param fmd the force model data
- * @param imd the interactive model data
- * @param paamd the preserve all attributes model data
- * @param plmd the preserve links model data
- * @param rmd the recursive model data
- * @param umd the verbal model data
+ * @param gmd the gzip model data
+ * @param umd the unpack model data
  * @param vmd the verbal model data
  */
-void copy_file_windows_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, void* imd, void* paamd, void* plmd, void* rmd, void* umd, void* vmd) {
+void tape_archiver_unix_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, void* gmd, void* umd, void* vmd) {
 
-    // The source and destination path argument must be set or the copy file command will not be executed
+    // The source and destination path argument must be set or pack / unpack command wont be executed
     if (smc != *NULL_POINTER_STATE_CYBOI_MODEL && dmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // The arguments item.
@@ -70,16 +66,9 @@ void copy_file_windows_commander(void* smd, void* smc, void* dmd, void* dmc, voi
         allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Append command.
-        append_item_element(arg, (void*) XCOPY_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XCOPY_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-        // Append source and destination path.
-        apply_unix_to_windows_path_adapter_for_windows_commander(smd, smc);
-        apply_unix_to_windows_path_adapter_for_windows_commander(dmd, dmc);
+        append_item_element(arg, (void*) TAPE_ARCHIVER_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TAPE_ARCHIVER_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(arg, dmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, dmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
+        
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -89,55 +78,7 @@ void copy_file_windows_commander(void* smd, void* smc, void* dmd, void* dmc, voi
 
                 // Append force option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                append_item_element(arg, (void*) FORCE_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            }
-        }
-
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_unequal((void*) &r, imd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Append interactive option.
-                append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                append_item_element(arg, (void*) INTERACTIVE_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            }
-        }
-
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_unequal((void*) &r, paamd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Append preserver all attributes option.
-                append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                append_item_element(arg, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            }
-        }
-
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_unequal((void*) &r, plmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Append preserve links option.
-                append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                append_item_element(arg, (void*) PRESERVE_LINKS_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_LINKS_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            }
-        }
-
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_unequal((void*) &r, rmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Append recursive option.
-                append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                append_item_element(arg, (void*) RECURSIVE_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                append_item_element(arg, (void*) FORCE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             }
         }
 
@@ -147,9 +88,14 @@ void copy_file_windows_commander(void* smd, void* smc, void* dmd, void* dmc, voi
             compare_integer_unequal((void*) &r, umd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Append update option.
+                // Append unpack option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                append_item_element(arg, (void*) UPDATE_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                append_item_element(arg, (void*) UNPACK_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UNPACK_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            } else {
+
+                // Append create new arcive option.
+                append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                append_item_element(arg, (void*) CREATE_NEW_ARCHIVE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CREATE_NEW_ARCHIVE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             }
         }
 
@@ -161,14 +107,44 @@ void copy_file_windows_commander(void* smd, void* smc, void* dmd, void* dmc, voi
 
                 // Append verbal option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                append_item_element(arg, (void*) VERBAL_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            } else {
-
-                // Append non verbal option
-                append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                append_item_element(arg, (void*) NON_VERBAL_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NON_VERBAL_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                append_item_element(arg, (void*) VERBAL_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             }
         }
+
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_integer_unequal((void*) &r, gmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // Append gzip option.
+                append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                append_item_element(arg, (void*) GZIP_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GZIP_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            }
+        }
+
+        // Append use file option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, (void*) USE_FILE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) USE_FILE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        // Append source and destination path.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_integer_unequal((void*) &r, umd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // Channel unpack output if it is a unpack operation
+                append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                append_item_element(arg, (void*) DESTINATION_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DESTINATION_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            }
+        }
+
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, dmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, dmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         // Get arguments item data, count.
         copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -182,5 +158,5 @@ void copy_file_windows_commander(void* smd, void* smc, void* dmd, void* dmc, voi
     }
 }
 
-/* COPY_FILE_WIN32_COMMANDER_SOURCE */
+/* TAPE_ARCHIVER_UNIX_COMMANDER_SOURCE */
 #endif

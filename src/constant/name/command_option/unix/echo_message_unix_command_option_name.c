@@ -23,17 +23,12 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
-#define ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#define ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The message parameter for the echo logic in cybol. */
-static wchar_t MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e'};
-static wchar_t* MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME = MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
-static int* MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/* ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
+ /* ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif

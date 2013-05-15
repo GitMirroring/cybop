@@ -31,9 +31,9 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The copy win32 command model. */
-static wchar_t COPY_WIN32_COMMAND_MODEL_ARRAY[] = {L'c', L'o', L'p', L'y'};
-static wchar_t* COPY_WIN32_COMMAND_MODEL = COPY_WIN32_COMMAND_MODEL_ARRAY;
-static int* COPY_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t XCOPY_WIN32_COMMAND_MODEL_ARRAY[] = {L'x', L'c', L'o', L'p', L'y'};
+static wchar_t* XCOPY_WIN32_COMMAND_MODEL = XCOPY_WIN32_COMMAND_MODEL_ARRAY;
+static int* XCOPY_WIN32_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The delete win32 command model. */
 static wchar_t DEL_WIN32_COMMAND_MODEL_ARRAY[] = {L'd', L'e', L'l'};
@@ -49,6 +49,16 @@ static int* DIR_WIN32_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_A
 static wchar_t ECHO_WIN32_COMMAND_MODEL_ARRAY[] = {L'e', L'c', L'h', L'o'};
 static wchar_t* ECHO_WIN32_COMMAND_MODEL = ECHO_WIN32_COMMAND_MODEL_ARRAY;
 static int* ECHO_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The move win32 command model. */
+static wchar_t MOVE_WIN32_COMMAND_MODEL_ARRAY[] = {L'm', L'o', L'v', L'e'};
+static wchar_t* MOVE_WIN32_COMMAND_MODEL = MOVE_WIN32_COMMAND_MODEL_ARRAY;
+static int* MOVE_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The tape archiver win32 command model. */
+static wchar_t SEVEN_ZIP_WIN32_COMMAND_MODEL_ARRAY[] = {L'7', L'z', L'.', L'e', L'x', L'e'};
+static wchar_t* SEVEN_ZIP_WIN32_COMMAND_MODEL = SEVEN_ZIP_WIN32_COMMAND_MODEL_ARRAY;
+static int* SEVEN_ZIP_WIN32_COMMAND_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* WIN32_COMMAND_MODEL_CONSTANT_SOURCE */
 #endif

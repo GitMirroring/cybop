@@ -23,17 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
-#define ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef UNIX_TO_WINDOWS_PATH_ADAPTER_FOR_WINDOWS_COMMANDER_SOURCE
+#define UNIX_TO_WINDOWS_PATH_ADAPTER_FOR_WINDOWS_COMMANDER_SOURCE
 
-#include <stddef.h>
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+/**
+ * Converts unix paths into windows paths.
+ *
+ * @param pmd the path model data
+ * @param pmc the path model count
+ */
+void apply_unix_to_windows_path_adapter_for_windows_commander(char* pmd, int* pmc) {
+    if (pmd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        int character_counter;
 
-/** The message parameter for the echo logic in cybol. */
-static wchar_t MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e'};
-static wchar_t* MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME = MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
-static int* MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+        for (character_counter = 0; character_counter < *pmc; character_counter++) {
+            if ((*(pmd + character_counter)) == '/') {
+                (*(pmd + character_counter)) = '\\';
+            }
+        }
+    }
+}
 
-/* ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
+/* UNIX_TO_WINDOWS_PATH_ADAPTER_FOR_WINDOWS_COMMANDER_SOURCE */
 #endif

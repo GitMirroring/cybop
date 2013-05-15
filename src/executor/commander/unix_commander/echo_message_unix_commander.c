@@ -32,7 +32,7 @@
 #include "../../../constant/model/command/unix_command_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/command_option/unix/echo_unix_command_option_name.c"
+#include "../../../constant/name/command_option/unix/echo_message_unix_command_option_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../variable/reallocation_factor.c"
@@ -56,7 +56,7 @@ void echo_message_unix_commander(void* mmd, void* mmc) {
     allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append command.
-    append_item_element(arg, (void*) ECHO_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ECHO_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(arg, (void*) ECHO_MESSAGE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ECHO_MESSAGE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     if (mmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
