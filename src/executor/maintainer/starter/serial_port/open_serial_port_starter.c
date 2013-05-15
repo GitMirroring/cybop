@@ -30,12 +30,7 @@
 #include <stdio.h>
 
 #ifdef WIN32
-    #define O_NOCTTY    00400       /* do not assign a controlling terminal */
-    //?? TODO: The following line was commented out,
-    //?? since it caused a compilation warning:
-    //?? open_serial_port_starter.c:36:1: warning: "O_RDWR" redefined
-//??    #define O_RDWR      2           /* open(name, O_RDWR) opens read/write */
-    #define O_NDELAY    00100000    /* Non-blocking I/O     */
+    #include <io.h>
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include <termios.h>
@@ -59,6 +54,7 @@
  */
 void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     // The serial port file descriptor item.
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial port file descriptor item data.
@@ -111,7 +107,7 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
             // Create file descriptor for the given null-terminated filename.
             *spdi = open((char*) p1, f);
 
-//?? fwprintf(stdout, L"TEST open *spdi: %i\n", *spdi);
+fwprintf(stdout, L"TEST open *spdi: %i\n", *spdi);
 
             //
             // Get and set attributes of serial port.
@@ -155,6 +151,7 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
                 if (errno == EACCES) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The process does not have search permission for a directory component of the file name.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The process does not have search permission for a directory component of the file name.");
 
                 } else if (errno == ENAMETOOLONG) {
 
@@ -162,22 +159,24 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
                     // on overall file name length, but some file systems
                     // may place limits on the length of a component.
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX.");
 
                 } else if (errno == ENOENT) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. This error is reported when a file referenced as a directory component in the file name doesn't exist, or when a component is a symbolic link whose target file does not exist.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. This error is reported when a file referenced as a directory component in the file name doesn't exist, or when a component is a symbolic link whose target file does not exist.");
 
                 } else if (errno == ENOTDIR) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. A file that is referenced as a directory component in the file name exists, but it isn't a directory.");
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. A file that is referenced as a directory component in the file name exists, but it isn't a directory.");
                 } else if (errno == ELOOP) {
 
                     // The system has an arbitrary limit on the number
                     // of symbolic links that may be resolved in looking up
                     // a single file name, as a primitive way to detect loops.
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. Too many symbolic links were resolved while trying to look up the file name.");
-#endif
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. Too many symbolic links were resolved while trying to look up the file name.");
                 //
                 // Opening errors.
                 //
@@ -185,59 +184,73 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
                 } else if (errno == EACCES) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The file exists but is not readable/writable as requested by the flags argument or the file does not exist and the directory is unwritable so it cannot be created.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The file exists but is not readable/writable as requested by the flags argument or the file does not exist and the directory is unwritable so it cannot be created.");
 
                 } else if (errno == EEXIST) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. Both O_CREAT and O_EXCL are set, and the named file already exists.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. Both O_CREAT and O_EXCL are set, and the named file already exists.");
 
                 } else if (errno == EINTR) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The open operation was interrupted by a signal.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The open operation was interrupted by a signal.");
 
                 } else if (errno == EISDIR) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The flags argument specified write access, and the file is a directory.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The flags argument specified write access, and the file is a directory.");
 
                 } else if (errno == EMFILE) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The process has too many files open.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The process has too many files open.");
 
                 } else if (errno == ENFILE) {
 
                     // This problem cannot happen on the GNU system.
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The entire system, or perhaps the file system which contains the directory, cannot support any additional open files at the moment.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The entire system, or perhaps the file system which contains the directory, cannot support any additional open files at the moment.");
 
                 } else if (errno == ENOENT) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The named file does not exist, and O_CREAT is not specified.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The named file does not exist, and O_CREAT is not specified.");
 
                 } else if (errno == ENOSPC) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The directory or file system that would contain the new file cannot be extended, because there is no disk space left.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The directory or file system that would contain the new file cannot be extended, because there is no disk space left.");
 
                 } else if (errno == ENXIO) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The flags O_NONBLOCK and O_WRONLY are both set in the argument, the file named by filename is a FIFO, and no process has the file open for reading.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The flags O_NONBLOCK and O_WRONLY are both set in the argument, the file named by filename is a FIFO, and no process has the file open for reading.");
 
                 } else if (errno == EROFS) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The file resides on a read-only file system and any of O_WRONLY, O_RDWR, and O_TRUNC are set in the flags argument, or O_CREAT is set and the file does not already exist.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The file resides on a read-only file system and any of O_WRONLY, O_RDWR, and O_TRUNC are set in the flags argument, or O_CREAT is set and the file does not already exist.");
 
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The input- or output file descriptor is invalid.");
+                    fwprintf(stdout, L"%s\n", "Could not startup serial port open. The input- or output file descriptor is invalid.");
                 }
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The serial port file descriptor item data is null.");
+            fwprintf(stdout, L"%s\n", "Could not startup serial port open. The serial port file descriptor item data is null.");
         }
 
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The serial port file descriptor item already exists.");
+        fwprintf(stdout, L"%s\n", "Could not startup serial port open. The serial port file descriptor item already exists.");
     }
+#endif
 }
 
 /* OPEN_SERIAL_PORT_STARTER_SOURCE */
