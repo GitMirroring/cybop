@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Completion>
+  <Group id="tag" icon="icons/tag.png" parent="">
+    <Entry name="&lt;model" description="~model~" template='&lt;model&gt;|&lt;/model&gt;' />
+    <Entry name="&lt;part" description="~part~" template='&lt;part name="|" channel="" format="" model="" /&gt;' />
+    <Entry name="&lt;property" description="~property~" template='&lt;part name="|" channel="" format="" model="" /&gt;' />
+  </Group>
+  <Group id="attribute" icon="icons/attribute.png" parent="part:property">
+    <Entry name="name" description="~name~" template='name="|"' />
+    <Entry name="channel" description="~channel~" template='channel="|"' />
+    <Entry name="format" description="~format~" template='format="|"' />
+    <Entry name="model" description="~model~" template='model="|"' />
+  </Group>
+  <Group id="value" icon="icons/value.png" parent="channel">
+    <Entry name="inline" description="~inline~" template="inline" />
+    <Entry name="file" description="~file~" template="file" />
+  </Group>
+  <Group id="value" icon="icons/value.png" parent="format">
+    <!-- ### logic ### -->
+    <!-- access -->
+    <Entry name="access/count" description="Count parts of a compound part." />
+    <Entry name="access/get" description="Get a part's name." />
+    <Entry name="access/indicate-empty" description="Indicates if data are empty, i.e. the count is zero." />
+    <Entry name="access/indicate-exists" description="Indicates if data exist, i.e. the count is greater than zero." />
+    <!-- calculate -->
+    <Entry name="calculate/absolute" description="Determine the absolute value of a number." />
+    <Entry name="calculate/add" description="Adds two numbers of the given format." />
+    <Entry name="calculate/divide" description="Divides two numbers of the given format." />
+    <Entry name="calculate/modulo" description="Determine the remainder of an integer division." />
+    <Entry name="calculate/multiply" description="Multiplies two numbers of the given format." />
+    <Entry name="calculate/negate" description="Negates a given number." />
+    <Entry name="calculate/reduce" description="Not implemented yet." />
+    <Entry name="calculate/remainder" description="Not implemented yet." />
+    <Entry name="calculate/subtract" description="Subtracts two numbers of the given format." />
+    <!-- cast -->
+    <Entry name="cast/byte" description="Cast value to type byte." />
+    <Entry name="cast/character" description="Cast value to type character." />
+    <Entry name="cast/double" description="Cast value to type double." />
+    <Entry name="cast/integer" description="Cast value to type integer." />
+    <!-- communicate -->
+    <Entry name="communicate/receive" description="Receives a message via the given channel." />
+    <Entry name="communicate/send" description="Sends a message via the given channel." />
+    <!-- compare -->
+    <Entry name="compare/equal" description="Compare for equality: ==" />
+    <Entry name="compare/greater" description="Compare for greaterness: &gt;" />
+    <Entry name="compare/greater-or-equal" description="Compare for greaterness or equality: &gt;=" />
+    <Entry name="compare/smaller" description="Compare for smallerness: &lt;" />
+    <Entry name="compare/smaller-or-equal" description="Compare for smallerness or equality: &lt;=" />
+    <Entry name="compare/unequal" description="Compare for unequality: !=" />
+    <!-- convert -->
+    <Entry name="convert/decode" description="Decode data from a special format into cyboi." />
+    <Entry name="convert/encode" description="Encode data from cyboi into a special format." />
+    <!-- file -->
+    <Entry name="file/archive" description="Archive the given files into a packed format." />
+    <Entry name="file/copy" description="Copy the given file into another." />
+    <Entry name="file/list-directory-contents" description="List contents of the given directory." />
+    <!-- flow -->
+    <Entry name="flow/branch" description="Branch control flow according to a given criterion." />
+    <Entry name="flow/loop" description="Loop control flow until break flag is set." />
+    <Entry name="flow/sequence" description="Process commands as sequence." />
+    <!-- live -->
+    <Entry name="live/exit" description="Exit the cyboi system." />
+    <Entry name="live/interrupt" description="Interrupt a sensing operation." />
+    <Entry name="live/sense" description="Wait for and sense input signals." />
+    <!-- logify -->
+    <Entry name="logify/and" description="Apply a boolean AND operation." />
+    <Entry name="logify/nand" description="Apply a boolean NAND operation." />
+    <Entry name="logify/neg" description="Apply a boolean NEG operation. When used with Bit operands, then this is the TWO'S COMPLEMENT (all bits negated and added one)." />
+    <Entry name="logify/nor" description="Apply a boolean NOR operation." />
+    <Entry name="logify/not" description="Apply a boolean NOT operation. When used with Bit operands, then this is the ONE'S COMPLEMENT (all bits negated)." />
+    <Entry name="logify/or" description="Apply a boolean OR operation." />
+    <Entry name="logify/xnor" description="Apply a boolean XNOR operation." />
+    <Entry name="logify/xor" description="Apply a boolean XOR operation." />
+    <!-- maintain -->
+    <Entry name="maintain/shutdown" description="Shutdown sensing service." />
+    <Entry name="maintain/startup" description="Startup sensing service." />
+    <!-- manipulate -->
+    <Entry name="manipulate/check" description="It corresponds to the 'BT' (bit) or 'BTST' (bit test) assembler command." />
+    <Entry name="manipulate/clear" description="It corresponds to the 'BTR' (bit reset) assembler command." />
+    <Entry name="manipulate/rotate-left" description="It corresponds to the 'ROL' (rotate left) assembler command." />
+    <Entry name="manipulate/rotate-right" description="It corresponds to the 'ROR' (rotate right) assembler command." />
+    <Entry name="manipulate/set" description="It corresponds to the 'BTS' (bit set) assembler command." />
+    <Entry name="manipulate/shift-left" description="It corresponds to the 'SHL' (shift left) assembler command." />
+    <Entry name="manipulate/shift-right" description="It corresponds to the 'SHR' (shift right) assembler command." />
+    <Entry name="manipulate/toggle" description="It corresponds to the 'CHG' (change) assembler command." />
+    <!-- memorise -->
+    <Entry name="memorise/create" description="Create / allocate / reserve memory for data of the given type." />
+    <Entry name="memorise/destroy" description="Destroy / deallocate / free memory of the given data." />
+    <!-- modify -->
+    <Entry name="modify/append" description="Append data to other data." />
+    <Entry name="modify/build" description="Build a list name." />
+    <Entry name="modify/empty" description="Empty all data." />
+    <Entry name="modify/fill" description="Fills places of a container with a given initialisation element." />
+    <Entry name="modify/insert" description="Insert data into other data." />
+    <Entry name="modify/overwrite" description="Overwrite data with other data." />
+    <Entry name="modify/remove" description="Remove data from other data." />
+    <!-- represent -->
+    <Entry name="represent/deserialise" description="Append data to other data." />
+    <Entry name="represent/serialise" description="Append data to other data." />
+    <!-- run -->
+    <Entry name="run/run" description="Run the given program." />
+    <Entry name="run/sleep-nano" description="Suspends execution of the calling thread for nanoseconds. May be lengthened slightly by any system activity or by the time spent processing the call or by the granularity of system timers." />
+    <Entry name="run/sleep-second" description="Suspends execution of the calling thread for seconds. May be lengthened slightly by any system activity or by the time spent processing the call or by the granularity of system timers." />
+  </Group>
+</Completion>

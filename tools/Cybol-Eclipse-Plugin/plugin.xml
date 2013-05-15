@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="Cybol Editor"
+            extensions="cybol"
+            icon="icons/sample.gif"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="cybol_eclipse_plugin.editor.CybolEditor"
+            id="cyboleclipseplugin.editors.CybolEditor">
+      </editor>
+   </extension>
+   
+   
+   <extension
+         point="org.eclipse.ui.editors.annotationTypes">
+      <type
+            name="cybop.error"
+            super="org.eclipse.ui.workbench.texteditor.error"
+            markerType="org.eclipse.jdt.core.problem"
+            markerSeverity="2">
+      </type>
+   </extension>
+   
+   <extension
+         point="org.eclipse.core.resources.markers"
+         id="cybol.error"
+         name="Cybol syntax error">
+      <super type="org.eclipse.core.resources.problemmarker" />
+      <super type="org.eclipse.core.resources.textmarker" />
+      <persistent value="false" />
+   </extension>
+   
+   
+  <extension
+      point="org.eclipse.core.resources.markers"
+      id="MyMarker"
+      name="MyMarkerName">
+    <super type="org.eclipse.core.resources.textmarker" />
+    <persistent value="false" />
+  </extension>
+  
+  <extension
+      point="org.eclipse.ui.editors.annotationTypes">
+    <type
+        super="org.eclipse.ui.workbench.texteditor.error"
+        markerType="Cybol-Eclipse-Plugin.MyMarker"
+        name="MyMarkerAnnotation">
+    </type>
+  </extension>
+  
+  <extension
+      point="org.eclipse.ui.editors.markerAnnotationSpecification">
+    <specification annotationType="MyMarkerAnnotation"
+    colorPreferenceKey="org.eclipse.viatra2.slice.color"
+         colorPreferenceValue="192,255,192"
+         contributesToHeader="false"
+         label="GTASM Slice Marker"
+         overviewRulerPreferenceKey="org.eclipse.viatra2.slice.overview"
+         overviewRulerPreferenceValue="true"
+         presentationLayer="10"
+         verticalRulerPreferenceKey="org.eclipse.viatra2.slice.ruler"
+         verticalRulerPreferenceValue="true">
+    </specification>
+  </extension>
+  
+</plugin>

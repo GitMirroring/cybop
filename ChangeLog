@@ -19,6 +19,7 @@
 2013-05-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Check in Visual_Cybop cybol source editor of Alexander Papenfuß <alexander.papenfuss@it2010.ba-leipzig.de>
+        * Check in Cybol-Eclipse-Plugin source editor of Michael Dietrich <michael.dietrich@it2010.ba-leipzig.de>
 
 2013-05-14  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -705,7 +706,7 @@
 2012-06-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add missing de-/ serialisation code for new "empty" operation
-        * Extend "empty_tester.c" with students
+        * Add file "empty_tester.c"
         * Search bug that some operations are unknown when working with "ui_control" cybol example application
 
 2012-06-20  Christian Heller  <christian.heller@tuxtax.de>
@@ -1491,12 +1492,12 @@
 
 2011-05-07  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add (German language) beginner's manual written by two students
+        * Add (German language) beginner's manual of Stefan Bebber and Enrico Nipper
 
 2011-05-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete file "model_comparator.c"
-        * Add example applications created by student
+        * Add "if-else" cybol example application of Andy Röhr
 
 2011-05-03  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1516,8 +1517,8 @@
 
 2011-04-28  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add udp socket presentation created by students to "tmp" directory
-        * Add "time_output" cybol example applications created by students
+        * Add udp socket presentation of Patrick Westphal to "tmp" directory
+        * Add "time_output" cybol example applications of Jens Rudek and Patrick Sperl
 
 2011-04-26  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2858,10 +2859,8 @@
 
 2007-12-01  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Move suitable functions away from "sense_socket.c" into special communicator files, e.g.:
-            "memoriser/communicator/datagram_socket_communicator.c"
-        * Add warning log message to all top-level files containing only conditions, if no comparison matched:
-            "accessor.c", "allocator.c", "communicator.c" etc.
+        * Move suitable functions away from "sense_socket.c" into special communicator files, e.g. "memoriser/communicator/datagram_socket_communicator.c"
+        * Add warning log message to all top-level files containing only conditions, if no comparison matched, in files "accessor.c", "allocator.c", "communicator.c" etc.
 
 2007-11-24  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2892,9 +2891,8 @@
 
 2007-10-15  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Debug "startup_socket.c" so that buffer size is initialised first,
-            before allocating the buffer; this bug caused the following error
-            when deallocating the character buffer in "shutdown_socket.c":
+        * Debug "startup_socket.c" so that buffer size is initialised first, before allocating the buffer;
+            this bug caused the following error when deallocating the character buffer in "shutdown_socket.c":
             *** glibc detected *** free(): invalid next size (fast): 0x080d6198 ***
                 Aborted
 
@@ -2917,7 +2915,7 @@
 
 2007-10-02  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Extract loop body of "check" function in module "checker.c" and split it into the four functions:
+        * Extract loop body of "check" function in module "checker.c" and split it into the four functions
             "check", "check_signal", "check_handle", "check_wait", in order to gain more clearity
 
 2007-09-20  Christian Heller  <christian.heller@tuxtax.de>
@@ -2926,8 +2924,7 @@
 
 2007-09-19  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add new files: "unicode_character_encoding_constants.c", "utf_8_unicode_character_converter.c",
-            "utf_16_unicode_character_converter.c" and adapt "converter.c" accordingly
+        * Add new files "unicode_character_encoding_constants.c", "utf_8_unicode_character_converter.c", "utf_16_unicode_character_converter.c" and adapt "converter.c" accordingly
 
 2007-09-18  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2939,11 +2936,9 @@
         * Rename "get_new_signal_id" to "get_new_signal_identification"
         * Clean up "get_new_signal_identification" and add "set_new_signal_identification" function in "signal_memory_accessor.c"
         * Correct wrong references to local variables like &p3, that get destroyed when a function is left, in function "set_signal"
-        * Forward signal priority and -identification as references in functions:
-            handle, handle_compound, handle_operation, loop, branch etc.
-        * Eliminate signal identification creation wherever a new signal is generated,
-            and use integer constants instead; the reason is that allocations are not
-            allowed in threads (linux console, x window system, tcp sockets with http requests etc.);
+        * Forward signal priority and -identification as references in functions "handle", "handle_compound", "handle_operation", "loop", "branch" etc.
+        * Eliminate signal identification creation wherever a new signal is generated, and use integer constants instead;
+            the reason is that allocations are not allowed in threads (linux console, x window system, tcp sockets with http requests etc.);
             if the threads allocated a "signal identification" value, this would result in an error like:
                 *** glibc detected *** malloc(): memory corruption (fast): 0x080e0470 ***
                 Aborted
@@ -2996,8 +2991,8 @@
 
         * Add "uri_separator_constants.c"
         * Continue "receive_socket.c"
-        * Complete first working version of "http_request_converter.c":
-            Decode http request line, headers and body, and add the entries to the given model
+        * Complete first working version of file "http_request_converter.c"
+            (decode http request line, headers and body, and add the entries to the given model)
 
 2007-08-24  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -3016,17 +3011,12 @@
 
 2007-08-21  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt "receive.c" and "receive_socket.c" by handing over new parametres: model, details, language
+        * Adapt "receive.c" and "receive_socket.c" by handing over new parametres "model", "details", "language"
 
 2007-08-20  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Create:
-            "html_character_entity_reference_constants.c"
-            "xml_character_entity_reference_constants.c"
-            "character_entity_reference_converter.c"
-        * Rename:
-            "html_character_constants.c" to "numeric_character_reference_constants.c"
-            "html_character_converter.c" to "numeric_character_reference_converter.c"
+        * Create files "html_character_entity_reference_constants.c", "xml_character_entity_reference_constants.c", "character_entity_reference_converter.c"
+        * Rename files "html_character_constants.c" to "numeric_character_reference_constants.c", "html_character_converter.c" to "numeric_character_reference_converter.c"
 
 2007-08-16  Christian Heller  <christian.heller@tuxtax.de>
 
