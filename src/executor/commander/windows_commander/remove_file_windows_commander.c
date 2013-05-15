@@ -104,7 +104,7 @@ void remove_file_windows_commander(void* pmd, void* pmc, void* fmd, void* imd, v
         }
 
         // Append path option.
-        apply_unix_to_windows_path_adapter_for_windows_commander(pmd, pmc);
+        apply_unix_to_windows_path_adapter_for_windows_commander(pmd);
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 

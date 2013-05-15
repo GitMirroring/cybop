@@ -28,17 +28,20 @@
 
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
+#include <string.h>
+
 /**
  * Converts unix paths into windows paths.
+ * Note: It seems that extracting data and count from two or more text/plain, just the first count is saved and the second count is not accessable (TODO: Investigation)
  *
  * @param pmd the path model data
- * @param pmc the path model count
  */
-void apply_unix_to_windows_path_adapter_for_windows_commander(char* pmd, int* pmc) {
+void apply_unix_to_windows_path_adapter_for_windows_commander(char* pmd) {
     if (pmd != *NULL_POINTER_STATE_CYBOI_MODEL) {
         int character_counter;
+        int char_array_length = strlen(pmd);
 
-        for (character_counter = 0; character_counter < *pmc; character_counter++) {
+        for (character_counter = 0; character_counter < char_array_length; character_counter++) {
             if ((*(pmd + character_counter)) == '/') {
                 (*(pmd + character_counter)) = '\\';
             }
