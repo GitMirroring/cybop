@@ -23,4 +23,8 @@
     <part name="read_adc" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="file" format="element/part" model="adc/read_adc.cybol"/>
     </part>
+    <part name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
+        <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+    </part>
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>

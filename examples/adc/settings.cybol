@@ -2,8 +2,8 @@
     <!-- device -->
     <part name="device" channel="inline" format="meta/channel" model="serial-port"/>
     <part name="device_filename" channel="inline" format="text/plain" model="/dev/ttyUSB0"/>
-    <part name="device_baudrate" channel="inline" format="number/integer" model="96000"/>
-    <part name="device_channel" channel="inline" format="text/plain" model="GETADC 2"/>
+    <part name="device_baudrate" channel="inline" format="number/integer" model="4800"/>
+    <part name="device_channel" channel="inline" format="text/plain" model="GETADC 0"/>
     <!-- adc -->
     <part name="adc" channel="inline" format="number/fraction-decimal" model="0.0"/>
     <part name="adc_summand" channel="inline" format="number/fraction-decimal" model="0.0"/>
@@ -31,7 +31,7 @@
     <part name="voltage_sleep" channel="inline" format="number/integer" model="100000000"/>
     <!-- voltage buffer -->
     <part name="voltage_buffer" channel="inline" format="number/byte" model=""/>
-    <part name="voltage_buffer_minimum" channel="inline" format="number/integer" model="1"/>
+    <part name="voltage_buffer_minimum" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_buffer_count" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_buffer_count_default" channel="inline" format="number/integer" model="0"/>
     <part name="voltage_buffer_criterion" channel="inline" format="logicvalue/boolean" model="false"/>
