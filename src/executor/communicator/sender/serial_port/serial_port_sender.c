@@ -91,6 +91,15 @@ void send_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // Serialise source knowledge model into serialised wide character array.
     serialise(s, p0, p1, p2, p3, p4, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7);
 
+    // Compare lineending flag.
+    compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Add lineending character.
+        append_item_element(s, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    }
+
     // Get serialised wide character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -100,15 +109,6 @@ void send_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     // Encode serialised wide character array into encoded character array.
     encode(e, sd, sc, p8);
-
-    // Compare lineending flag.
-    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    // if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // Add lineending character.
-        append_item_element(e, (void*) "\r\n", (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // }
 
     // Compare null termination flag.
     compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
