@@ -1,22 +1,20 @@
 <model>
-    <part name="listing_of_previous_directory" channel="inline" format="command/list-directory-contents" model="">
-        <property name="path" channel="inline" format="text/plain" model=".."/>
-        <property name="all" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="listing_of_previous_directories_recursively" channel="inline" format="command/list-directory-contents" model="">
+        <property name="path" channel="inline" format="text/plain" model="./.."/>
+        <property name="all" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="long" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="one_row_per_entry" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="short" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="sort_by_file_size" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="sort_by_modification" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="sort_by_extension" channel="inline" format="logicvalue/boolean" model="false"/>
     </part>
-    <part name="listing_of_current_directory" channel="inline" format="command/list-directory-contents" model="">
+    <part name="listing_of_files_in_the_current_directory" channel="inline" format="command/list-directory-contents" model="">
         <property name="all" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="long" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="echo_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="ignore me for i am a test"/>
-    </part>
+    <part name="exit" channel="inline" format="live/exit" model=""/>
 </model>
 
 <!--

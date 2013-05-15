@@ -68,7 +68,6 @@ void tape_archiver_windows_commander(void* smd, void* smc, void* dmd, void* dmc,
 
         // Append command.
         append_item_element(arg, (void*) SEVEN_ZIP_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEVEN_ZIP_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
