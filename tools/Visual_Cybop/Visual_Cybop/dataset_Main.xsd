@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dataset_Main" targetNamespace="http://tempuri.org/dataset_Main.xsd" xmlns:mstns="http://tempuri.org/dataset_Main.xsd" xmlns="http://tempuri.org/dataset_Main.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dataset_Main" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dataset_Main" msprop:Generator_UserDSName="dataset_Main">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Node" msprop:Generator_TableClassName="NodeDataTable" msprop:Generator_TableVarName="tableNode" msprop:Generator_TablePropName="Node" msprop:Generator_RowDeletingName="NodeRowDeleting" msprop:Generator_UserTableName="Node" msprop:Generator_RowChangingName="NodeRowChanging" msprop:Generator_RowEvHandlerName="NodeRowChangeEventHandler" msprop:Generator_RowDeletedName="NodeRowDeleted" msprop:Generator_RowEvArgName="NodeRowChangeEvent" msprop:Generator_RowChangedName="NodeRowChanged" msprop:Generator_RowClassName="NodeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Parent_Id" msprop:Generator_ColumnVarNameInTable="columnParent_Id" msprop:Generator_ColumnPropNameInRow="Parent_Id" msprop:Generator_ColumnPropNameInTable="Parent_IdColumn" msprop:Generator_UserColumnName="Parent_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Channel" msprop:Generator_ColumnVarNameInTable="columnChannel" msprop:Generator_ColumnPropNameInRow="Channel" msprop:Generator_ColumnPropNameInTable="ChannelColumn" msprop:Generator_UserColumnName="Channel" type="xs:string" minOccurs="0" />
+              <xs:element name="Format" msprop:Generator_ColumnVarNameInTable="columnFormat" msprop:Generator_ColumnPropNameInRow="Format" msprop:Generator_ColumnPropNameInTable="FormatColumn" msprop:Generator_UserColumnName="Format" type="xs:string" minOccurs="0" />
+              <xs:element name="Model" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" type="xs:string" minOccurs="0" />
+              <xs:element name="NodePath" msprop:Generator_ColumnVarNameInTable="columnNodePath" msprop:Generator_ColumnPropNameInRow="NodePath" msprop:Generator_ColumnPropNameInTable="NodePathColumn" msprop:Generator_UserColumnName="NodePath" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Properties" msprop:Generator_TableClassName="PropertiesDataTable" msprop:Generator_TableVarName="tableProperties" msprop:Generator_TablePropName="Properties" msprop:Generator_RowDeletingName="PropertiesRowDeleting" msprop:Generator_UserTableName="Properties" msprop:Generator_RowChangingName="PropertiesRowChanging" msprop:Generator_RowEvHandlerName="PropertiesRowChangeEventHandler" msprop:Generator_RowDeletedName="PropertiesRowDeleted" msprop:Generator_RowEvArgName="PropertiesRowChangeEvent" msprop:Generator_RowChangedName="PropertiesRowChanged" msprop:Generator_RowClassName="PropertiesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Node_Id" msprop:Generator_ColumnVarNameInTable="columnNode_Id" msprop:Generator_ColumnPropNameInRow="Node_Id" msprop:Generator_ColumnPropNameInTable="Node_IdColumn" msprop:Generator_UserColumnName="Node_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Channel" msprop:Generator_ColumnVarNameInTable="columnChannel" msprop:Generator_ColumnPropNameInRow="Channel" msprop:Generator_ColumnPropNameInTable="ChannelColumn" msprop:Generator_UserColumnName="Channel" type="xs:string" minOccurs="0" />
+              <xs:element name="Format" msprop:Generator_ColumnVarNameInTable="columnFormat" msprop:Generator_ColumnPropNameInRow="Format" msprop:Generator_ColumnPropNameInTable="FormatColumn" msprop:Generator_UserColumnName="Format" type="xs:string" minOccurs="0" />
+              <xs:element name="Model" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:Node" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Properties_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:Properties" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:keyref name="FK_Node_Properties" refer="Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:Properties" />
+      <xs:field xpath="mstns:Node_Id" />
+    </xs:keyref>
+    <xs:keyref name="FK_Node_Node" refer="Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:Node" />
+      <xs:field xpath="mstns:Parent_Id" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>

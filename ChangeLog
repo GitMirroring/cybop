@@ -16,6 +16,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-05-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Check in Visual_Cybop cybol source editor of Alexander Papenfuß <alexander.papenfuss@it2010.ba-leipzig.de>
+
 2013-05-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue gui deserialiser
