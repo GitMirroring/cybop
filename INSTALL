@@ -186,6 +186,13 @@ ___________________________
     /home/cybop/src/controller/cyboi shell_output_branch/run.cybol
     /home/cybop/src/controller/cyboi shell_output_loop/run.cybol
     /home/cybop/src/controller/cyboi shell_command_execution/run.cybol
+    /home/cybop/src/controller/cyboi shell_command_list_directory_contents/run.cybol
+    /home/cybop/src/controller/cyboi shell_command_echo_message/run.cybol
+    /home/cybop/src/controller/cyboi shell_command_copy_file/run.cybol
+    /home/cybop/src/controller/cyboi shell_command_move_file/run.cybol
+    /home/cybop/src/controller/cyboi shell_command_remove_file/run.cybol
+    /home/cybop/src/controller/cyboi shell_command_tape_archiver_unpack/run.cybol
+    /home/cybop/src/controller/cyboi shell_command_tape_archiver_pack/run.cybol
     /home/cybop/src/controller/cyboi programme_execution/run.cybol
     /home/cybop/src/controller/cyboi addition/run.cybol
     /home/cybop/src/controller/cyboi addition_dynamic_model/run.cybol
@@ -205,10 +212,11 @@ ___________________________
     /home/cybop/src/controller/cyboi helloworld/run.cybol
     /home/cybop/src/controller/cyboi tui/run.cybol
     /home/cybop/src/controller/cyboi ui_control/run.cybol
+    /home/cybop/src/controller/cyboi gui/run.cybol
     /home/cybop/src/controller/cyboi addition_using_serialisation/run.cybol
     /home/cybop/src/controller/cyboi wui/run.cybol
     /home/cybop/src/controller/cyboi indoor_climate/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi gui/run.cybol
+    /home/cybop/src/controller/cyboi adc/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi http_communication/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi presence/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi character_encoding/run.cybol
