@@ -8,5 +8,10 @@
 # @author Johannes David <johannes.david@it2010.ba-leipzig.de>
 #
 
-        * Update cybol api specification with state and logic
-        * Generate automatically into html
+       
+	* How to implement constraints in properties.cybol? (e.g. communicate/send) - additional table column? 
+	* Example.txt & properties.cybol incomplete: Check channel (all), format (communicate/send,convert/decode, file/*, from flow/* to the end) & model (all).
+	* * means path/knowledge | path/reference - * better used as placeholder for e.g. number/* (= number/integer | number/double)
+	* more clarity (html/css): 
+	      - more space between properties-table & next content
+	      - yellow follows yellow,  e.g. remove/properties to represent - other color? or black divider?
