@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+<meta name="author" content="axel-petzka">
+<link rel="stylesheet" type="text/css" href="layout.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./cybol_dragndrop.js"></script>
+</head>
+<body>
+
+
+<div id="page">
+  <div id="head">
+    Kopfbereich - ihr Namen oder so
+  </div>
+
+  <div id="left">
+
+  <ul id="list">
+      <li><p>Produkt 1</p></li>
+      <li><p>Produkt 2</p></li>
+      <li><p>Produkt 3</p></li>
+      <li><p>Produkt 4</p></li>
+      <li><p>Produkt 5</p></li>
+      <li><p>Produkt 6</p></li>
+    </ul>
+  </div>
+
+
+  <div id="korb">
+     <h2 class="korb-header">Warenkorb</h2>
+            <div class="korb-content">
+                    <ol>
+                            <li class="placeholder">Produkte hier ablegen!<br></li>
+                    </ol>
+            </div>
+            <div id="trash"><p>Zum enfernen hier ablegen!</p></div>
+  </div>
+
+  <div id="footer">
+    <input type="button" name="buttonAjax" id="buttonAjax" value="submit" />
+    <div id="output"></div>
+  </div>
+</div>
+
+<div id="popup_box">    <!-- PopupBox DIV -->
+    <h1>Insert the parameters</h1>
+    <form>
+         Type: <select id="type"><option>PART</option><option>PROPERTY</option></select>
+         <br>
+         Methhod Name: <input type="text" name="method_name" id="method_name">
+         <br>
+         Model: <input type="text" name="model" id="model">
+         <br>
+         Channel: <select id="channel"><option>inline</option></select>
+         <br>
+         Encoding: <select id="encoding"><option></option><option>utf-8</option></select>
+         <br>
+         Language: <select id="language"><option></option><option>text/cybol</option></select>
+         <br>
+         Format: <input type="text" name="format" id="format">
+         <br>
+         Abstraction: <input type="text" name="abstraction" id="abstraction">
+         <br>
+         <input type="submit">
+    </form>
+    <a id="popupBoxClose">Close</a>
+</div>
+
+</html>
