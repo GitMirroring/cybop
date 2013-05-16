@@ -9,3 +9,8 @@
 #
 
         * Create manual for beginners, in order to get accepted as official GNU project
+
+        * Vorschläge zur Erweiterung der Anleitung für CYBOP-Einsteiger:
+            - Installationsanleitung für das Eclipse-PlugIn von Herrn Dietrich
+            - Einbindung in Windows
+            - Anschluss einiger Links (zum Beispiel zur CYBOL-API) an Punkt "4 upshots"
