@@ -6,7 +6,7 @@ import org.eclipse.jface.text.IDocumentPartitioner;
 import org.eclipse.jface.text.ITypedRegion;
 import org.eclipse.jface.text.TypedRegion;
 
-import cyboleclipseplugin.editor.dom.DocumentNode;
+import cybol_eclipse_plugin.editor.dom.DocumentNode;
 
 
 public final class XMLPartitioner implements IDocumentPartitioner {

@@ -3,7 +3,7 @@ package cybol_eclipse_plugin.editor;
 import java.util.ArrayList;
 import java.util.List;
 
-import cyboleclipseplugin.editor.dom.*;
+import cybol_eclipse_plugin.editor.dom.*;
 
 
 public final class CybolAnalyzer {

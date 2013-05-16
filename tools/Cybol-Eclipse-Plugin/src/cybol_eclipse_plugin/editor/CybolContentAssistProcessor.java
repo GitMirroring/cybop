@@ -65,7 +65,10 @@ public final class CybolContentAssistProcessor implements IContentAssistProcesso
     if ((match = checkRegex("\\s+([\\w\\d\\._:]+)\\s*=\\s*\"([^\"]*)$", textBeforeCursor, 1, 2)) != null ||
         (match = checkRegex("\\s+([\\w\\d\\._:]+)\\s*=\\s*'([^']*)$", textBeforeCursor, 1, 2)) != null) {
       
-      return createValueProposals(match.get(0), match.get(1), offset);
+      if (match != null) {
+        
+        return createValueProposals(match.get(0), match.get(1), offset);
+      }
     }
     
     return createAllProposals(offset);

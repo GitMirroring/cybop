@@ -1,19 +1,14 @@
-package cyboleclipseplugin.editor.dom;
+package cybol_eclipse_plugin.editor.dom;
 
-import java.util.ArrayList;
-
-public class UnknownNode extends Node {
+public class CDATANode extends Node {
   
   
-  public UnknownNode(Node parent, String name) {
+  public CDATANode(Node parent, String name) {
     
     this.name = name;
     this.parent = parent;
     
-    this.children = new ArrayList<>();
-    
     if (parent != null) {
-      
       parent.children.add(this);
       
       this.level = parent.level + 1;
@@ -23,6 +18,6 @@ public class UnknownNode extends Node {
   
   @Override
   public int getNodeType() {
-    return NT_UNKNOWN;
+    return NT_CDATA;
   }
 }

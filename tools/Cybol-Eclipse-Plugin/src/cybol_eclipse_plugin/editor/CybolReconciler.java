@@ -13,7 +13,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
 
 import cybol_eclipse_plugin.editor.Range;
-import cyboleclipseplugin.editor.dom.*;
+import cybol_eclipse_plugin.editor.dom.*;
 
 
 public class CybolReconciler extends Reconciler {

@@ -7,7 +7,7 @@
       <editor
             name="Cybol Editor"
             extensions="cybol"
-            icon="icons/sample.gif"
+            icon="icons/cybop.png"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             class="cybol_eclipse_plugin.editor.CybolEditor"
             id="cyboleclipseplugin.editors.CybolEditor">

@@ -3,7 +3,7 @@ package cybol_eclipse_plugin.editor;
 import org.eclipse.jface.text.IDocument;
 
 import cybol_eclipse_plugin.Debug;
-import cyboleclipseplugin.editor.dom.*;
+import cybol_eclipse_plugin.editor.dom.*;
 
 
 import static cybol_eclipse_plugin.editor.Tokenizer.*;

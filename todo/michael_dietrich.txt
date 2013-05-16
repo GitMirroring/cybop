@@ -10,5 +10,13 @@
 
         * Extend Eclipse IDE with plug-in written in Java
         * Offer CYBOL syntax highlighting and sensitive keyword list
-        * Suggest optimisation for constants definition:
-            int* var = (int[]) { 6 };
+
+        * Autocompletion für property-Tags
+        * komplexere annotations (syntax checking auf fehlerhafte Struktur)
+        * Lexikondaten auf dem aktuellen Stand halten (evtl. automatisch aus doc/books/cybol/cybol/ specification holen)
+        * kleinere Anzeige-Bugs beheben (Race-Conditions zwischen Annotations und Syntax-Highlighting)
+        * Settings-Page für benutzerdefinierte Einstellungen (Farben, Tabweite, ...)
+        * Quickfixes (Automatische Fehlerbehebung durch Auswahliste, wie man es vom Java-Plugin kennt)
+        * Constraint-Tags implementieren
+        * Datei-Links (wenn im model-Attribut auf Dateien verwiesen wird)
+        * Code-Folding (Einklappen von Parts ermöglichen)

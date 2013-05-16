@@ -1,0 +1,13 @@
+Manual for the Installation of the Cybol-Plugin for Eclipse
+
+1. Download the plugin (jar-file) from <enter-address-here>.
+2. Copy the loaded file (Ctrl + C).
+3. Navigate to the directory, where eclipse is installed (e. g.: [Windows] "C:\Program Files\Eclispe", [Linux] "/usr/share/eclipse").
+4. Paste the file into the "plugins" folder (Ctrl + V).
+
+Anleitung zum Installieren des Cybol-Plugins für Eclipse
+
+1. Das Plugin (Jar-File) von <Adresse-hier-eintragen> herunterladen.
+2. Die heruntergeladene Datei kopieren (Strg + C).
+3. In das Verzeichnis navigieren, in dem Eclipse installiert ist (z. B.: [Windows] "C:\Programme\Eclipse", [Linux] "/usr/share/eclipse").
+4. Datei in den Ordner "plugins" einfügen (Strg + V).

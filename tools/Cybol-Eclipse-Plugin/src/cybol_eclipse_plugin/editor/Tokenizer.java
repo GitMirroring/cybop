@@ -264,8 +264,8 @@ public final class Tokenizer {
                   
                   // TODO - fehlerhaftes PI-TAG
                   // Fehler - unerlaubtes Zeichen
-                  throw new InvalidXMLDocumentException(
-                      "Fehler - Attribut oder Ende der Verarbeitungsanweisung erwartet");
+//                  throw new InvalidXMLDocumentException(
+//                      "Fehler - Attribut oder Ende der Verarbeitungsanweisung erwartet");
                 }
               }
             }
@@ -600,7 +600,7 @@ public final class Tokenizer {
         } else {
           
           // Fehler - ungültiges Zeichen
-          throw new InvalidXMLDocumentException("Fehler - ungültiges Zeichen");
+//          throw new InvalidXMLDocumentException("Fehler - ungültiges Zeichen");
         }
         
         // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -616,7 +616,7 @@ public final class Tokenizer {
         } else {
           
           // Fehler - ungültiges Zeichen
-          throw new InvalidXMLDocumentException("Fehler - ungültiges Zeichen");
+//          throw new InvalidXMLDocumentException("Fehler - ungültiges Zeichen");
         }
         
       case TOKEN_EMPTY_TAG :
@@ -631,7 +631,7 @@ public final class Tokenizer {
         } else {
           
           // Fehler - ungültiges Zeichen
-          throw new InvalidXMLDocumentException("Fehler - Ungültiges Zeichen");
+//          throw new InvalidXMLDocumentException("Fehler - Ungültiges Zeichen");
         }
         
         // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////

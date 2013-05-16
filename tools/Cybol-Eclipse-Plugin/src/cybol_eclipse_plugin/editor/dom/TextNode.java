@@ -1,4 +1,4 @@
-package cyboleclipseplugin.editor.dom;
+package cybol_eclipse_plugin.editor.dom;
 
 public final class TextNode extends Node {
   

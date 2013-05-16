@@ -2,8 +2,8 @@
 <Completion>
   <Group id="tag" icon="icons/tag.png" parent="">
     <Entry name="&lt;model" description="~model~" template='&lt;model&gt;|&lt;/model&gt;' />
-    <Entry name="&lt;part" description="~part~" template='&lt;part name="|" channel="" format="" model="" /&gt;' />
-    <Entry name="&lt;property" description="~property~" template='&lt;part name="|" channel="" format="" model="" /&gt;' />
+    <Entry name="&lt;part" description="~part~" template='&lt;part name="|" channel="" format="" model=""&gt;&lt;/part&gt;' />
+    <Entry name="&lt;property" description="~property~" template='&lt;property name="|" channel="" format="" model="" /&gt;' />
   </Group>
   <Group id="attribute" icon="icons/attribute.png" parent="part:property">
     <Entry name="name" description="~name~" template='name="|"' />
@@ -12,8 +12,15 @@
     <Entry name="model" description="~model~" template='model="|"' />
   </Group>
   <Group id="value" icon="icons/value.png" parent="channel">
-    <Entry name="inline" description="~inline~" template="inline" />
-    <Entry name="file" description="~file~" template="file" />
+    <Entry name="cyboi" description="The cyboi cybol channel." />
+    <Entry name="display" description="The display cybol channel." />
+    <Entry name="file" description="The file system cybol channel." />
+    <Entry name="inline" description="The inline cybol channel." />
+    <Entry name="serial-port" description="The serial-port cyboi channel." />
+    <Entry name="signal" description="The signal cyboi channel." />
+    <Entry name="socket" description="The socket cyboi channel." />
+    <Entry name="terminal" description="The terminal cyboi channel." />
+    <Entry name="www" description="The world wide web (www) cybol channel." />
   </Group>
   <Group id="value" icon="icons/value.png" parent="format">
     <!-- ### logic ### -->
@@ -101,5 +108,12 @@
     <Entry name="run/run" description="Run the given program." />
     <Entry name="run/sleep-nano" description="Suspends execution of the calling thread for nanoseconds. May be lengthened slightly by any system activity or by the time spent processing the call or by the granularity of system timers." />
     <Entry name="run/sleep-second" description="Suspends execution of the calling thread for seconds. May be lengthened slightly by any system activity or by the time spent processing the call or by the granularity of system timers." />
+    <!-- ### text ### -->
+    <Entry name="text/plain" description=" This language (media type) is also used for strings (character vectors) in CYBOL." />
+    <!-- TODO! -->
+    <Entry name="number/integer" description="The number/integer cybol format." />
+    <Entry name="number/byte" description="The number/byte cybol format." />
+    <Entry name="logicvalue/boolean" description="The logicvalue/boolean cybol format." />
+    <Entry name="element/part" description="The element/part cybol format." />
   </Group>
 </Completion>
