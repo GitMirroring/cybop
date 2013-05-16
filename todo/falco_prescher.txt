@@ -1,4 +1,4 @@
-#
+﻿#
 # This file lists so-called "TODO" items, in other words open tasks
 # to be worked on in the future.
 #
@@ -22,3 +22,5 @@
             list_directory_contents_unix_shell.c and
             list_directory_contents_win32_command.c and
             move (paste) to list_directory_contents.c
+	* local copy of paths instead of replacing original path
+	* add "replace" container function in directory "executer/modifier"
