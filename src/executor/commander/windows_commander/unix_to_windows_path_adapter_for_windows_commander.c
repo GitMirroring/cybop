@@ -26,24 +26,51 @@
 #ifndef UNIX_TO_WINDOWS_PATH_ADAPTER_FOR_WINDOWS_COMMANDER_SOURCE
 #define UNIX_TO_WINDOWS_PATH_ADAPTER_FOR_WINDOWS_COMMANDER_SOURCE
 
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-
 #include <string.h>
+
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
 /**
  * Converts unix paths into windows paths.
  * Note: It seems that extracting data and count from two or more text/plain, just the first count is saved and the second count is not accessable (TODO: Investigation)
  *
- * @param pmd the path model data
+ * @param p0 the path model data
+ * @param p1 the path model count
  */
-void apply_unix_to_windows_path_adapter_for_windows_commander(char* pmd) {
-    if (pmd != *NULL_POINTER_STATE_CYBOI_MODEL) {
-        int character_counter;
-        int char_array_length = strlen(pmd);
+void apply_unix_to_windows_path_adapter_for_windows_commander(void* p0, void* p1) {
 
-        for (character_counter = 0; character_counter < char_array_length; character_counter++) {
-            if ((*(pmd + character_counter)) == '/') {
-                (*(pmd + character_counter)) = '\\';
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* pmc = (int*) p1;
+
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // The loop variable.
+            int j = 0;
+            // The current position.
+            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The character.
+            wchar_t* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            while (1) {
+
+                if (j >= *pmc) {
+
+                    break;
+                }
+
+                // Add offset.
+                p = p0 + j * (sizeof(wchar_t));
+
+                c = (wchar_t*) p;
+
+                if (*c == *SOLIDUS_UNICODE_CHARACTER_CODE_MODEL) {
+
+                    *c = *REVERSE_SOLIDUS_UNICODE_CHARACTER_CODE_MODEL;
+                }
+
+                // Increment loop variable.
+                j++;
             }
         }
     }

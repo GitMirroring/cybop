@@ -39,7 +39,7 @@
 #include "unix_to_windows_path_adapter_for_windows_commander.c"
 
 /**
- * Packs/Unpacks a directory or file 
+ * Packs/Unpacks a directory or file
  *
  * @param smd the source path model data
  * @param smc the source path model count
@@ -68,7 +68,7 @@ void tape_archiver_windows_commander(void* smd, void* smc, void* dmd, void* dmc,
 
         // Append command.
         append_item_element(arg, (void*) SEVEN_ZIP_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEVEN_ZIP_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        
+
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -117,15 +117,15 @@ void tape_archiver_windows_commander(void* smd, void* smc, void* dmd, void* dmc,
         }
 
         // Append source and destination path.
-        apply_unix_to_windows_path_adapter_for_windows_commander(smd);
-        apply_unix_to_windows_path_adapter_for_windows_commander(dmd);
-        
+        apply_unix_to_windows_path_adapter_for_windows_commander(smd, smc);
+        apply_unix_to_windows_path_adapter_for_windows_commander(dmd, dmc);
+
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             compare_integer_unequal((void*) &r, umd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-                
+
                 // Channel unpack output if it is a unpack operation
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
                 append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);

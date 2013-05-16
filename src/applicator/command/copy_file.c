@@ -36,7 +36,6 @@
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
-
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../executor/commander/unix_commander/copy_file_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
@@ -149,7 +148,6 @@ void apply_copy_file(void* p0, void* p1, void* p2) {
     // Get verbal part.
     get_part_knowledge((void*) &v, p0, (void*) VERBAL_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBAL_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
-
     // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get destination part model item.
@@ -168,7 +166,6 @@ void apply_copy_file(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &um, u, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get verbal part model item.
     copy_array_forward((void*) &vm, v, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
 
     // Get source part model item data and count.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -190,7 +187,6 @@ void apply_copy_file(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &umd, um, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     copy_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, paamd, plmd, rmd, umd, vmd);

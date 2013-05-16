@@ -35,8 +35,8 @@
 #include "../../../constant/name/command_option/win32/copy_file_win32_command_option_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../unix_to_windows_path_adapter_for_windows_commander.c"
 #include "../../../variable/reallocation_factor.c"
-#include "unix_to_windows_path_adapter_for_windows_commander.c"
 
 /**
  * Copies the file resource to a destination.
@@ -73,8 +73,9 @@ void copy_file_windows_commander(void* smd, void* smc, void* dmd, void* dmc, voi
         append_item_element(arg, (void*) XCOPY_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XCOPY_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Append source and destination path.
-        apply_unix_to_windows_path_adapter_for_windows_commander(smd);
-        apply_unix_to_windows_path_adapter_for_windows_commander(dmd);
+        apply_unix_to_windows_path_adapter_for_windows_commander(smd, smc);
+        apply_unix_to_windows_path_adapter_for_windows_commander(dmd, dmc);
+
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
