@@ -13,20 +13,21 @@
         * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
         * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
 
+        * Investigate socket-based communication with "Scratch" visual programming language for pupil projects
+            http://wiki.scratch.mit.edu/wiki/Remote_Sensor_Connections
+            http://wiki.scratch.mit.edu/wiki/Remote_Sensors_Protocol
+
         * Implement gui deserialiser
         * Continue x window system serialiser
+        * Continue win32 display gui
+        * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
+        * Use new function "xcb_block_until_event" or "xcb_wait_for_event_noret" testing for events in file "message_x_window_system_sensor.c", as soon as release xcb 1.10 is out
+        * Activate terminal input for win32 console
 
         * Adapt cybol specification document:
             Replace * with "path/knowledge | path/reference" in format columns
             Use * as placeholder in format columns, e.g. "number/*"
         * Rename "number/double" into "number/float" in all cybol example applications
-
-        * Continue win32 display gui
-
-        * Activate terminal input for win32 console
-
-        * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
-        * Use new function "xcb_block_until_event" or "xcb_wait_for_event_noret" testing for events in file "message_x_window_system_sensor.c", as soon as release xcb 1.10 is out
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
