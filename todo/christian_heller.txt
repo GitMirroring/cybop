@@ -10,6 +10,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
+        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
+
         * Implement gui deserialiser
         * Continue x window system serialiser
 
