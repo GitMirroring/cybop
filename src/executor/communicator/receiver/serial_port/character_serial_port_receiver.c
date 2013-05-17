@@ -174,7 +174,7 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
                     if (e > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 // fwprintf(stdout, L"TEST receive serial port character c[0]: %i\n", c[0]);
-// fwprintf(stdout, L"TEST receive serial port character c: %i\n", c);
+fwprintf(stdout, L"TEST receive serial port character c: %i %c\n", c, c);
 
                         // The maximum comparison result.
                         int rmax = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

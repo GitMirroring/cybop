@@ -134,7 +134,7 @@ void send_serial_port_stream(void* p0, void* p1, void* p2) {
         //
         // One can use the "O_FSYNC" open mode to make write
         // always store the data to disk before returning.
-        int e = fsync(*d);
+/*?? TODO int e = fsync(*d);
 
         // Test error value.
         // The return value of the "fsync" function is zero
@@ -154,6 +154,7 @@ void send_serial_port_stream(void* p0, void* p1, void* p2) {
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serial port stream. An unknown error occured.");
             }
         }
+*/
 
     } else {
 

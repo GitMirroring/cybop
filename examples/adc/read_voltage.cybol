@@ -21,7 +21,7 @@
     <part name="copy_response_elements" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_criterion"/>
         <property name="true" channel="file" format="element/part" model="adc/copy_response_elements.cybol"/>
-        <property name="false" channel="file" format="element/part" model=""/>
+        <property name="false" channel="inline" format="element/part" model=""/>
     </part>
 
     <part name="set_break_flag" channel="inline" format="modify/overwrite" model="">

@@ -9,7 +9,7 @@
     <part name="adc_summand" channel="inline" format="number/fraction-decimal" model="0.0"/>
     <part name="adc_break" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="adc_count" channel="inline" format="number/integer" model="0"/>
-    <part name="adc_maximum_count" channel="inline" format="number/integer" model="5"/>
+    <part name="adc_maximum_count" channel="inline" format="number/integer" model="1"/>
     <part name="adc_maximum_count_divisor" channel="inline" format="number/fraction-decimal" model="1.0"/>
     <part name="adc_conversion_factor" channel="inline" format="number/fraction-decimal" model="1.0"/>
     <!-- voltage -->

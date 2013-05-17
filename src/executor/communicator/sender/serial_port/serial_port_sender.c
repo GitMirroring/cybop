@@ -107,6 +107,10 @@ void send_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+
+    fwprintf(stdout, L"TEST w_char array string: %ls\n", (wchar_t*) sd);
+
+
     // Encode serialised wide character array into encoded character array.
     encode(e, sd, sc, p8);
 
@@ -132,6 +136,10 @@ void send_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+
+    fwprintf(stdout, L"TEST char array string: %s\n", (char*) ed);
+
 
     // Write encoded array to serial port.
     send_serial_port_file(ed, ec, p9);
