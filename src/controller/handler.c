@@ -222,8 +222,15 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Handle primitive operation signal.
-        handle_operation(pd, pc, p1, p2, p3, p5, fd);
+        // CAUTION! This comparison is to improve performance.
+        // It is actually NOT necessary here, since
+        // a null value gets filtered out in the
+        // "handle_operation" function as well.
+        if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // Handle primitive operation signal.
+            handle_operation(pd, pc, p1, p2, p3, p5, fd);
+        }
     }
 }
 

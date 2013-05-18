@@ -430,7 +430,7 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3, void*
 
                         pthread_mutex_unlock((pthread_mutex_t*) m);
 
-                fwprintf(stdout, L"TEST receive x window system e: %i\n", e);
+//??                fwprintf(stdout, L"TEST receive x window system e: %i\n", e);
 
                         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -524,6 +524,19 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3, void*
                                 copy_pointer(p1, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT);
 
                                 xcb_button_release_event_t* ev = (xcb_button_release_event_t*) e;
+
+                                if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                                    // Get button mask.
+                                    *b = ev->state;
+                                    // Get mouse coordinates.
+                                    *x = ev->event_x;
+                                    *y = ev->event_y;
+
+                                } else {
+
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The button press event is null.");
+                                }
 
                             } else if (t == XCB_MOTION_NOTIFY) {
 
@@ -699,6 +712,10 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3, void*
 
                         } else {
 
+                            //?? TODO: Sleep here? The event is null,
+                            // so there are currently no events waiting.
+                            // Don't forget to set mutex before!
+                            // Reset interrupt?
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The event is null.");
                         }
 

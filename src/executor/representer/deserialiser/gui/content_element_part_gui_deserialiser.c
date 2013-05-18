@@ -100,13 +100,6 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
             // Get action part.
             get_part_knowledge((void*) &a, p4, p7, p8, p5, p6);
 
-            // Get action part model item.
-            copy_array_forward(am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-            // Get action part model item data, count.
-            copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &amc, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
             // Get x, y coordinate from position part.
             // CAUTION! Do NOT use the "copy_array_forward" function here,
             // since it is low-level and does not check array boundaries!
@@ -118,24 +111,39 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
             get_part_element((void*) &w, s, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             get_part_element((void*) &h, s, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
+            // Get action part model item.
+            copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
+            // Get action part model item data, count.
+            copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &amc, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
             // Check whether or not the mouse x- and y coordinate
             // are within the gui element's area.
-            if ((*mx >= x) && (*my >= y)) {
+            if ((*mx >= x) && (*my >= y) && (*mx < (x + w)) && (*my < (y + h))) {
 
-                if ((*mx < (x + w)) && (*my < (y + h))) {
+fwprintf(stdout, L"TEST deserialise gui part element content x: %i\n", x);
+fwprintf(stdout, L"TEST deserialise gui part element content y: %i\n", y);
+fwprintf(stdout, L"TEST deserialise gui part element content w: %i\n", w);
+fwprintf(stdout, L"TEST deserialise gui part element content h: %i\n", h);
+fwprintf(stdout, L"TEST deserialise gui part element content *mx: %i\n", *mx);
+fwprintf(stdout, L"TEST deserialise gui part element content *my: %i\n", *my);
 
-                    // Overwrite previous action of parent element
-                    // with that of the contained child element.
-                    // CAUTION! Do NOT assign action if it is null.
-                    // However, this check is already implemented
-                    // inside the called function.
-                    overwrite_item_element(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST deserialise gui part element content amc: %i\n", amc);
+//?? fwprintf(stdout, L"TEST deserialise gui part element content *amc: %i\n", *((int*) amc));
+fwprintf(stdout, L"TEST deserialise gui part element content amd: %ls\n", (wchar_t*) amd);
 
-                    // Process embedded parts recursively.
-                    // CAUTION! Call this function ONLY for elements
-                    // which lie within the gui element's area.
-//??                    deserialise_gui(p0, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14);
-                }
+                // Overwrite previous action of parent element
+                // with that of the contained child element.
+                // CAUTION! Do NOT assign action if it is null.
+                // However, this check is already implemented
+                // inside the called function.
+                overwrite_item_element(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+                // Process embedded parts recursively.
+                // CAUTION! Call this function ONLY for elements
+                // which lie within the gui element's area.
+//??                deserialise_gui(p0, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14);
             }
 
         } else {

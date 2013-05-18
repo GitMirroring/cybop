@@ -53,7 +53,7 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // The buffer item (array, queue) of e.g. 100 elements.
     // It is needed to avoid endless display input, so that
     // the system has the chance to process events in between.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+//??    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The event type.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -75,8 +75,15 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Receive event.
     receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &m, (void*) &x, (void*) &y, p5);
 
+//?? fwprintf(stdout, L"TEST receive x window system td: %ls\n", (wchar_t*) td);
+//?? fwprintf(stdout, L"TEST receive x window system tc: %i\n", *((int*) tc));
+
+//?? fwprintf(stdout, L"TEST receive x window system p0 pre: %ls\n", (wchar_t*) *((void**) p0));
+
     // Deserialise event into a meaningful command.
     deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &x, (void*) &y, p6, p7);
+
+//?? fwprintf(stdout, L"TEST receive x window system p0 post: %ls\n", (wchar_t*) *((void**) p0));
 }
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */
