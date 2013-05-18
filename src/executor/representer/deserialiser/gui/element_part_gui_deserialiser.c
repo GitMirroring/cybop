@@ -40,12 +40,16 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source root window data
- * @param p3 the source root window count
- * @param p6 the knowledge memory part
- * @param p9 the tree level
+ * @param p2 the source gui element data
+ * @param p3 the source gui element index
+ * @param p4 the knowledge memory part
+ * @param p5 the event type data
+ * @param p6 the event type count
+ * @param p7 the button mask
+ * @param p8 the mouse x coordinate
+ * @param p9 the mouse y coordinate
  */
-void deserialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void deserialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui part element.");
 
@@ -77,7 +81,7 @@ void deserialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* 
 
     // Serialise part element content.
     // CAUTION! Do not forget to hand over whole properties.
-//??    deserialise_gui_part_element_content(p0, p1, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, p10, p11, fd);
+    deserialise_gui_part_element_content(p0, p1, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, fd);
 }
 
 /* ELEMENT_PART_GUI_DESERIALISER_SOURCE */

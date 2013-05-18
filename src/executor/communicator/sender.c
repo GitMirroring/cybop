@@ -59,11 +59,11 @@
  * @param p3 the source properties data
  * @param p4 the source properties count
  * @param p5 the knowledge memory part
- * @param p6 the format
- * @param p7 the language indentation
- * @param p8 the language
- * @param p9 the encoding
- * @param p10 the internal memory data
+ * @param p6 the internal memory data
+ * @param p7 the format
+ * @param p8 the language indentation
+ * @param p9 the language
+ * @param p10 the encoding
  * @param p11 the source part (pointer reference)
  * @param p12 the clear flag
  * @param p13 the new line flag
@@ -101,7 +101,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             //
             // CAUTION! The properties are handed over as well,
             // since they will store http headers as meta data.
-            send_socket(p0, p1, *ps, p7, p20, p21, p18, p19, p1, p2);
+            send_socket(p0, p1, *ps, p8, p20, p21, p18, p19, p1, p2);
 */
         }
     }
@@ -112,7 +112,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_display(p1, p2, p3, p4, p5, p6, p8, p10);
+            send_display(p1, p2, p3, p4, p5, p7, p9, p6);
         }
     }
 
@@ -122,7 +122,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_file(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+            send_file(p0, p1, p2, p3, p4, p5, p7, p8, p9, p10, p6);
         }
     }
 
@@ -132,7 +132,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_inline(p0, p1, p2, p3, p4, p5, p6, p7, p8, p10);
+            send_inline(p0, p1, p2, p3, p4, p5, p7, p8, p9, p6);
         }
     }
 
@@ -142,7 +142,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_signal(p10, p11);
+            send_signal(p6, p11);
         }
     }
 
@@ -152,7 +152,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_serial_port(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p14, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            send_serial_port(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p14, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -162,7 +162,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_terminal(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p12, p13);
+            send_terminal(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p12, p13);
         }
     }
 
@@ -172,7 +172,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            send_socket(p0, p1, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) &send_socket_www, p1, p2, p3, p4, p5, p6, p7, p11, p12, p17, p18, p19, p20);
+//??            send_socket(p0, p1, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) &send_socket_www, p1, p2, p3, p4, p5, p7, p8, p11, p12, p17, p18, p19, p20);
         }
     }
 

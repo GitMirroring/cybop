@@ -240,7 +240,7 @@ fwprintf(stdout, L"TEST send mmd*: %i\n", mmd);
 fwprintf(stdout, L"TEST send mmd: %i\n", *((int*) mmd));
 */
 
-    send_data(rm, mmd, mmc, mpd, mpc, p2, fmd, limd, lmd, emd, p3, (void*) &m, clmd, nlmd, ntmd, cmd);
+    send_data(rm, mmd, mmc, mpd, mpc, p2, p3, fmd, limd, lmd, emd, (void*) &m, clmd, nlmd, ntmd, cmd);
 }
 
 /* SEND_SOURCE */

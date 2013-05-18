@@ -55,23 +55,23 @@
  * @param p3 the source model count
  * @param p4 the source properties data
  * @param p5 the source properties count
- * @param p? the event type data
- * @param p? the event type count
- * @param p? the button mask
- * @param p? the x coordinate
- * @param p? the y coordinate
- * @param p? the knowledge memory part
- * @param p? the format data
+ * @param p6 the knowledge memory part
+ * @param p7 the event type data
+ * @param p8 the event type count
+ * @param p9 the button mask
+ * @param p10 the mouse x coordinate
+ * @param p11 the mouse y coordinate
+ * @param p12 the format data
  */
-void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* ey = (int*) p10;
+        int* my = (int*) p11;
 
         if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* ex = (int*) p10;
+            int* mx = (int*) p10;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui part element content.");
 
@@ -94,11 +94,11 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
             int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Get position part.
-            get_part_knowledge((void*) &p, p10/*??ppd-param_prop_data*/, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p11/*??ppc-param_prop_count*/, p12/*??knowledge_part*/);
+            get_part_knowledge((void*) &p, p4, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p5, p6);
             // Get size part.
-            get_part_knowledge((void*) &s, p10/*??ppd-param_prop_data*/, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p11/*??ppc-param_prop_count*/, p12/*??knowledge_part*/);
+            get_part_knowledge((void*) &s, p4, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p5, p6);
             // Get action part.
-            get_part_knowledge((void*) &a, p10/*??ppd-param_prop_data*/, p3, p4, p11/*??ppc-param_prop_count*/, p12/*??knowledge_part*/);
+            get_part_knowledge((void*) &a, p4, p7, p8, p5, p6);
 
             // Get action part model item.
             copy_array_forward(am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -118,14 +118,14 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
             get_part_element((void*) &w, s, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             get_part_element((void*) &h, s, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-            // Test whether or not the event x- and y coordinate
+            // Check whether or not the mouse x- and y coordinate
             // are within the gui element's area.
-            if ((*ex >= x) && (*ey >= y)) {
+            if ((*mx >= x) && (*my >= y)) {
 
-                if ((*ex < (x + w)) && (*ey < (y + h))) {
+                if ((*mx < (x + w)) && (*my < (y + h))) {
 
-                    // Overwrite previous action with that
-                    // of the contained child element.
+                    // Overwrite previous action of parent element
+                    // with that of the contained child element.
                     // CAUTION! Do NOT assign action if it is null.
                     // However, this check is already implemented
                     // inside the called function.

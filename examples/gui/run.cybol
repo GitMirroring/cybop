@@ -26,13 +26,22 @@
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
     </part>
     <!-- Write knowledge tree into file. -->
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+    <part name="test_knowledge_tree_gui" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".gui"/>
-        <property name="receiver" channel="inline" format="text/plain" model="test_gui.txt"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_gui_gui.txt"/>
+    </part>
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree_logic" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".logic"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_gui_logic.txt"/>
     </part>
     <!-- TEST only. Delete later. -->
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">

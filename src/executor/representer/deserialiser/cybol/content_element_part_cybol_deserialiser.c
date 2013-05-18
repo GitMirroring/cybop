@@ -41,6 +41,7 @@
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
+
 #ifdef WIN32 // compiler error without this line (but actually forward declaration of "receive_data" below should suffice):
     #include "../../../../executor/communicator/receiver.c"
 #endif
@@ -50,7 +51,7 @@
 //
 
 void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4);
-void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
+void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
 
 /**
  * Deserialises the cybol part element content.
@@ -338,7 +339,7 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
         // When reading cybol, the only possible two channels are "inline" and "file",
         // but the internal memory (second-last parametre) is only necessary for
         // "terminal", "display" and similar channels.
-        receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fd, pld, ped, *NULL_POINTER_STATE_CYBOI_MODEL, pcd);
+        receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fd, pld, ped, pcd);
         // Fill part properties item taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.

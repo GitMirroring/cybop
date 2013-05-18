@@ -217,7 +217,7 @@ test_item_as_model_diagram((void*) L"TEST_MESSAGE.txt", *NULL_POINTER_STATE_CYBO
 test_item_as_model_diagram((void*) L"TEST_PRE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, mot, mom, mop);
 */
 
-    receive_data(mom, mop, mmd, mmc, mimd, mamd, fmd, lmd, emd, p3, cmd);
+    receive_data(mom, mop, mmd, mmc, p2, p3, mimd, mamd, fmd, lmd, emd, cmd);
 
 /*??
 test_item_as_model_diagram((void*) L"TEST_POST.txt", *NULL_POINTER_STATE_CYBOI_MODEL, mot, mom, mop);

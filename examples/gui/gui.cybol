@@ -7,7 +7,10 @@
         <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
         <property name="icon" channel="file" format="png" model="gui/icon.png"/>
         <property name="layout" channel="inline" format="text/plain" model="absolute"/>
+<!--
         <property name="expose" channel="inline" format="path/knowledge" model=".logic.refresh_display"/>
+-->
+        <property name="button-release" channel="inline" format="path/knowledge" model=".logic.print_message"/>
     </part>
     <part name="action" channel="inline" format="text/plain" model=""/>
 </model>

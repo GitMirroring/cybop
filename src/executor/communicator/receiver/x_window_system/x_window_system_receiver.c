@@ -41,11 +41,12 @@
  * @param p1 the destination properties item
  * @param p2 the source root window data
  * @param p3 the source root window count
- * @param p4 the format
- * @param p5 the language
- * @param p6 the internal memory data
+ * @param p4 the knowledge memory part
+ * @param p5 the internal memory data
+ * @param p6 the format
+ * @param p7 the language
  */
-void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system.");
 
@@ -72,10 +73,10 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
 //??    receive_x_window_system_filter();
 
     // Receive event.
-    receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &m, (void*) &x, (void*) &y, p6);
+    receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &m, (void*) &x, (void*) &y, p5);
 
     // Deserialise event into a meaningful command.
-    deserialise(p0, p1, p2, p3, td, tc, (void*) &m, (void*) &x, (void*) &y, p4, p5);
+    deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &x, (void*) &y, p6, p7);
 }
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */

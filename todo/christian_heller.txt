@@ -10,13 +10,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
-        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
-
-        * Investigate socket-based communication with "Scratch" visual programming language for pupil projects
-            http://wiki.scratch.mit.edu/wiki/Remote_Sensor_Connections
-            http://wiki.scratch.mit.edu/wiki/Remote_Sensors_Protocol
-
         * Implement gui deserialiser
         * Continue x window system serialiser
         * Continue win32 display gui
@@ -28,6 +21,9 @@
             Replace * with "path/knowledge | path/reference" in format columns
             Use * as placeholder in format columns, e.g. "number/*"
         * Rename "number/double" into "number/float" in all cybol example applications
+
+        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
+        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
@@ -47,6 +43,10 @@
         * Define selector files for record begin and end etc.
         * Delete files "file_xdt_deserialiser.c", "hierarchy_field_xdt_deserialiser.c", "name_field_xdt_deserialiser.c"
         * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
+
+        * Investigate socket-based communication with "Scratch" visual programming language for pupil projects
+            http://wiki.scratch.mit.edu/wiki/Remote_Sensor_Connections
+            http://wiki.scratch.mit.edu/wiki/Remote_Sensors_Protocol
 
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
