@@ -10,10 +10,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Complete gui deserialiser (already works with mouse button release)
-            Reset in gui cybol application before receiving the next action,
-            since the previous one is otherwise repeated again and again
-            for null events following afterwards
         * Continue x window system serialiser
         * Continue win32 display gui
         * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted

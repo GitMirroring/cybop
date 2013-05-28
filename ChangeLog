@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-05-28  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Reset action in file "handler.cybol" of gui cybol example application
+        * Complete first working version of gui deserialiser
+
 2013-05-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue gui deserialiser

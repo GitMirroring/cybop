@@ -48,8 +48,9 @@
  * @param p7 the button mask
  * @param p8 the mouse x coordinate
  * @param p9 the mouse y coordinate
+ * @param p10 the loop break flag
  */
-void deserialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void deserialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui part element.");
 
@@ -81,7 +82,7 @@ void deserialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* 
 
     // Serialise part element content.
     // CAUTION! Do not forget to hand over whole properties.
-    deserialise_gui_part_element_content(p0, p1, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, fd);
+    deserialise_gui_part_element_content(p0, p1, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, fd, p10);
 }
 
 /* ELEMENT_PART_GUI_DESERIALISER_SOURCE */

@@ -10,7 +10,6 @@
 <!--
         <property name="expose" channel="inline" format="path/knowledge" model=".logic.refresh_display"/>
 -->
-        <property name="button-release" channel="inline" format="text/plain" model=".logic.print_message"/>
     </part>
     <part name="action" channel="inline" format="text/plain" model=""/>
 </model>

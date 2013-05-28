@@ -26,25 +26,20 @@
 #ifndef CONTENT_ELEMENT_PART_GUI_DESERIALISER_SOURCE
 #define CONTENT_ELEMENT_PART_GUI_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/representer/serialiser/tui/clear_tui_serialiser.c"
-#include "../../../../executor/representer/serialiser/tui/newline_tui_serialiser.c"
-#include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 //
 // Forward declarations.
 //
 
-//?? void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12);
+void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 /**
  * Deserialises the gui part element content into an action.
@@ -62,8 +57,9 @@
  * @param p10 the mouse x coordinate
  * @param p11 the mouse y coordinate
  * @param p12 the format data
+ * @param p13 the loop break flag
  */
-void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -133,6 +129,12 @@ fwprintf(stdout, L"TEST deserialise gui part element content amc: %i\n", amc);
 //?? fwprintf(stdout, L"TEST deserialise gui part element content *amc: %i\n", *((int*) amc));
 fwprintf(stdout, L"TEST deserialise gui part element content amd: %ls\n", (wchar_t*) amd);
 
+                // Set break flag, so that the loop can be left in the next cycle.
+                // The gui element on which the mouse event occured
+                // has been detected, so that further elements on the
+                // same level do not have to be checked in the loop anymore.
+                copy_integer(p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
                 // Overwrite previous action of parent element
                 // with that of the contained child element.
                 // CAUTION! Do NOT assign action if it is null.
@@ -143,7 +145,7 @@ fwprintf(stdout, L"TEST deserialise gui part element content amd: %ls\n", (wchar
                 // Process embedded parts recursively.
                 // CAUTION! Call this function ONLY for elements
                 // which lie within the gui element's area.
-//??                deserialise_gui(p0, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14);
+                deserialise_gui(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11, p12);
             }
 
         } else {

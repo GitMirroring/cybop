@@ -1,7 +1,12 @@
 <model>
+    <!-- If the action was not reset here, then the last valid previous action would be executed again and again, neverendingly. -->
+    <part name="reset_action" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".gui.action"/>
+    </part>
     <part name="receive_action" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="model" channel="inline" format="path/knowledge" model=".gui.action"/>
         <property name="message" channel="inline" format="path/knowledge" model=".gui.window"/>
     </part>
