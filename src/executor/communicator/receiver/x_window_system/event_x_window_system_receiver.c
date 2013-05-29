@@ -467,7 +467,8 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3, void*
                                 // to be repainted, e.g. when being displayed after
                                 // having been covered by another window before.
 
-                                //?? TODO: Consider only the last in a row of multiple expose events.
+                                //?? TODO: Consider only the last in a row of multiple expose events,
+                                // in order to avoid flickering of the display.
                                 //?? if (ev->xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
                                 //?? ... did work in xlib, but not with xcb anymore
 

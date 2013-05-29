@@ -50,7 +50,8 @@ void receive_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive display.");
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef WIN32
+#else
     receive_x_window_system(p0, p1, p2, p3, p4, p5, p6, p7);
 #endif
 }

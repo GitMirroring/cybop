@@ -7,9 +7,7 @@
         <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
         <property name="icon" channel="file" format="png" model="gui/icon.png"/>
         <property name="layout" channel="inline" format="text/plain" model="absolute"/>
-<!--
-        <property name="expose" channel="inline" format="path/knowledge" model=".logic.refresh_display"/>
--->
+        <property name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
     </part>
     <part name="action" channel="inline" format="text/plain" model=""/>
 </model>

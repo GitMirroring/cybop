@@ -37,18 +37,20 @@
 /**
  * Serialises a graphical user interface (gui).
  *
- * @param p0 the internal memory data
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
+ * @param p0 the source model data
+ * @param p1 the source model count
+ * @param p2 the source properties data
+ * @param p3 the source properties count
+ * @param p4 the knowledge memory part
+ * @param p5 the internal memory data
+ * @param p6 the format
  */
-void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui.");
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system(p0, p1, p2, p3, p4);
+    serialise_x_window_system(p0, p1, p2, p3, p4, p5, p6);
 #endif
 }
 

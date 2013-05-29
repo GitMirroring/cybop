@@ -107,7 +107,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui(p6, p1, p2, p3, p4);
+            serialise_gui(p1, p2, p3, p4, p5, p6, p9);
         }
     }
 
