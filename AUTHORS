@@ -4,7 +4,6 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # Christian Heller <christian.heller@tuxtax.de>
 #
-# @version CYBOP 0.13.0 2013-03-29
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
@@ -18,7 +17,8 @@ Cybernetics Oriented Language (CYBOL)
         * Jens Rudek (time output example)
         * Andy Röhr <andy_roehr@gmx.de> (if-else example)
         * Enrico Gallus <enrico.gallus@googlemail.com> (cybol specification generator written in cybol)
-        * Johannes David <johannes.david@it2010.ba-leipzig.de> (Update cybol api specification with state and logic)
+        * Falco Prescher <falco.prescher@it2010.ba-leipzig.de> (shell commands for scripting in unix and win32)
+        * Johannes David <johannes.david@it2010.ba-leipzig.de> (cybol api specification update with state and logic)
 
 Cybernetics Oriented Interpreter (CYBOI)
         * Christian Heller <christian.heller@tuxtax.de> (overall design and implementation of cyboi, first in java, later in c)
@@ -32,6 +32,7 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Thomas Thiele (character entity xml model constants)
         * Friedemann Simon (character entity xml model constants)
         * Falk Müller <falk89@web.de> (de-/serialiser and calculator for double type)
+        * Tobias Köhler <tk@snake-universe.tk> (debian packaging; cross-compilation using pre-processor defines and mingw; serial port communication)
         * Marcel Wesberg <marcel.wesberg@it2010.ba-leipzig.de> (calculator and comparator functions for double, pointer, fraction, complex)
 
 CYBOP Project
@@ -50,15 +51,13 @@ CYBOP Project
         * Patrick Lorenz (opengl tutorial example)
         * Johannes Meinhardt (opengl tutorial example)
         * Max Brauer <max.brauer@inqbus.de> (article comparing cybop double hierarchy with Python meta programming)
-        * Tobias Köhler <tk@snake-universe.tk> (debian packaging; cross-compilation of cyboi using mingw and pre-processor)
-        * Falco Prescher <falco.prescher@it2010.ba-leipzig.de> (cross-compilation of cyboi using mingw and pre-processor)
         * Tim Illner <tim.illner@it2010.ba-leipzig.de> (english beginner's manual)
 
 Tools
         * Benjamin Teßmar <benjamin.tessmar@it2009.ba-leipzig.de> (cybol editor based on mono)
         * Sebastian Brückner <sebastian.brueckner@live.com> (cybol editor based on mono)
         * Alexander Papenfuß <alexander.papenfuss@it2010.ba-leipzig.de> (cybol editor in C# running with mono)
-        * Norman Bestfleisch <norman.bestfleisch@it2010.ba-leipzig.de> (cybol editor in C# running with mono)
+        * Axel Petzka <axel.petzka@it2010.ba-leipzig.de> (cybol editor with web user interface)
         * Michael Dietrich <michael.dietrich@it2010.ba-leipzig.de> (Eclipse extension offering CYBOL syntax highlighting and sensitive keyword list)
 
 Help and Support
@@ -67,6 +66,3 @@ Help and Support
         * Allan "TheForkOfJustice" <theforkofjustice@gmail.com> of Linux for Clinics (ubuntu/ debian packaging)
         * Daniel Fischer via StackOverflow developer portal (hint on memory bug caused by int-to-size_t cast found with valgrind)
         * Josh Triplett <josh@joshtriplett.org> (various hints on event handling architecture and new function "xcb_block_until_event")
-
-??
-        * Axel Petzka <axel.petzka@it2010.ba-leipzig.de>

@@ -7,9 +7,29 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # Christian Heller <christian.heller@tuxtax.de>
 #
-# @version CYBOP 0.13.0 2013-03-29
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
+
+CYBOP 0.14.0, 2013-05-31, Christian Heller  <christian.heller@tuxtax.de>
+        * CYBOI:
+            - Port to win32 api using mingw and pre-processor defines (Tobias Köhler)
+            - Enable terminal output under windows using win32 console functionality
+            - Split logger into several files and add windows system error log function
+            - Fix serial port interface (Tobias Köhler)
+            - Migrate x window system event receiver from xlib to x c bindings (xcb)
+            - Add bit manipulation functions, e.g. "clear", "set", "shift_left", "rotate_right"
+            - Add bit logic operations, e.g. "and", "xor"
+            - Add calculator and comparator for types double and pointer (Marcel Wesberg)
+        * CYBOL:
+            - Add unix- as well as windows shell commands in a platform independent manner (Falco Prescher)
+            - Add language "message/cli" using command-line output, other than "message/tui" which uses whole screen terminal output
+            - Update gui cybol example application
+        * Project:
+            - Update cybol api specification (Johannes David)
+            - Update beginner's manual and translate into English (Tim Illner)
+            - Add cybol source editor "Cybol-Eclipse-Plugin" (Michael Dietrich)
+            - Add cybol source editor "cybol_web_creator" (Axel Petzka)
+            - Add cybol source editor "Visual_Cybop" (Alexander Papenfuß)
 
 CYBOP 0.13.0, 2013-03-29, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:

@@ -4,9 +4,9 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # Christian Heller <christian.heller@tuxtax.de>
 #
-# @version CYBOP 0.13.0 2013-03-29
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
+
 
 CYBOP Installation
 __________________
@@ -17,8 +17,9 @@ __________________
 
 - Extract the cybop-x.x.x.tar.gz or cybop-x.x.x.tar.bz2 file, respectively, e.g.:
 
-    tar -xvzf cybop-0.9.0.tar.gz
-    tar -xvjf cybop-0.9.0.tar.bz2
+    tar -xvzf cybop-0.14.0.tar.gz
+    tar -xvjf cybop-0.14.0.tar.bz2
+
 
 Package and Library Installation POSIX
 ______________________________________
@@ -34,8 +35,9 @@ Debian packages for compilation:
     glut or freeglut3 or the like
     mesa etc.
 
+
 Package and Library Installation Windows (GCC)
-________________________________________
+______________________________________________
 
 Required libraries for CYBOL application execution:
     libXau-6.dll
@@ -91,7 +93,7 @@ They have to exist or be copied into:
 
 
 Package and Library Installation OSX
-______________________________________
+____________________________________
 
 OSX packages for CYBOL application execution:
 
@@ -129,8 +131,9 @@ the platforms: GNU/Linux, Windows (mingw environment), Linux 64bits.
 The configure script forces the 32 bits emulation mode by using special options
 of gcc and other binutils. Native 32 bits Linux and Windows was not tested, however.
 
+
 CYBOI Compilation Windows (GCC)
-_________________________
+_______________________________
 
 - Change into cybop's root directory, e.g.:
 
@@ -144,12 +147,13 @@ _________________________
 
     i586-mingw32msvc-gcc src/controller/cyboi.c -o src/controller/cyboi.exe -DPTW32_STATIC_LIB -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32 -w
 
+
 CYBOI Compilation Windows (MSVC)
-_________________________
+________________________________
 
 
 CYBOI Compilation OSX (gcc)
-_________________________
+___________________________
 
 - Change into cybop's root directory, e.g.:
 
@@ -162,6 +166,7 @@ _________________________
 - Execute the llvm compiler:
 
     make
+
 
 CYBOL Application Execution
 ___________________________
@@ -231,6 +236,7 @@ You may also want to have a look at the Res Medicinae project, where more CYBOL
 application modules for the healthcare domain will be provided over the coming years:
 http://www.resmedicinae.org/
 
+
 CYBOI Development
 _________________
 
@@ -252,12 +258,13 @@ source file and that way knows if it has to recompile the executable.
 
 Another point to use make targets for is the generation of the documentation.
 
+
 CYBOP Distribution
 __________________
 
 - Modify the CYBOP version number in the file configure.ac, e.g.:
 
-    AC_INIT([cybop], [0.9.0], [christian.heller@tuxtax.de])
+    AC_INIT([cybop], [0.14.0], [christian.heller@tuxtax.de])
 
 - Change into cybop's root directory, e.g.:
 
@@ -275,6 +282,7 @@ __________________
 
     make dist
 
+
 CYBOP Packaging
 _______________
 
@@ -287,6 +295,7 @@ _______________
     checkinstall
 
 - Configure package answering the checkinstall questions
+
 
 Tagging SVN
 ___________
