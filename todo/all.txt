@@ -18,9 +18,6 @@ _____________
         * Update cybol api specification with state and logic, which gets automatically generated into html
             - additional table column for constraints in file "properties.cybol", e.g. for "communicate/send"?
             - "example.txt" and "properties.cybol" incomplete: all channels, format (communicate/send,convert/decode, file/*, from flow/* to the end), all models
-            - asterisk * means path/knowledge | path/reference --> * better used as placeholder for e.g. number/* (= number/integer | number/double)
-            - use blank lines between chapters/sections for more clarity, e.g. more space between properties-table and following content
-            - change colour or use black divider: yellow follows yellow, e.g. remove/properties to represent
 
         * Update CYBOP poster in DIN A0 format, to be used at conferences and exhibitions
         * Visualise project history using Ajax-based SIMILE timeline tool (ResMedicinae - ResMedLib - CYBOP)

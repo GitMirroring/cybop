@@ -16,6 +16,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-05-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update cybol api specification using asterisk as placeholder, e.g. number/* (= number/integer | number/double) or path/* (= path/knowledge | path/reference)
+        * Release CYBOP 0.14.0
+
 2013-05-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Reset action in file "handler.cybol" of gui cybol example application
