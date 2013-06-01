@@ -60,8 +60,7 @@
     #define  B3000000 0010015
     #define  B3500000 0010016
     #define  B4000000 0010017
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#else
     #include <termios.h>
 #endif
 
