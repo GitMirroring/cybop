@@ -3,6 +3,7 @@
         <property name="position" channel="inline" format="number/integer" model="50,50"/>
         <property name="size" channel="inline" format="number/integer" model="300,200"/>
         <property name="button-release" channel="inline" format="text/plain" model=".logic.print_message"/>
+        <property name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
     </part>
 </model>
 

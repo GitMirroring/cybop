@@ -456,21 +456,39 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3, void*
 
                             if (t == XCB_EXPOSE) {
 
-                fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE t: %i\n", t);
-
-                                copy_pointer(p0, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME);
-                                copy_pointer(p1, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
-
-                                xcb_expose_event_t* ev = (xcb_expose_event_t*) e;
-
                                 // Expose events are sensed when a window needs
                                 // to be repainted, e.g. when being displayed after
                                 // having been covered by another window before.
 
-                                //?? TODO: Consider only the last in a row of multiple expose events,
-                                // in order to avoid flickering of the display.
-                                //?? if (ev->xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                                //?? ... did work in xlib, but not with xcb anymore
+                fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE t: %i\n", t);
+
+                                xcb_expose_event_t* ev = (xcb_expose_event_t*) e;
+
+                                if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                                    // Consider only the last in a row of multiple expose
+                                    // events, in order to avoid flickering of the display.
+                                    //?? TODO: ... did work in xlib, but not with xcb anymore
+                                    // if (ev->xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+//??                                    if (ev->count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE ev->count: %i\n", ev->count);
+
+                                        copy_pointer(p0, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME);
+                                        copy_pointer(p1, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
+                                        // Get position of area to be redrawn.
+                                        *x = ev->x;
+                                        *y = ev->y;
+                                        // Get size of area to be redrawn.
+//??                                        *w = ev->width;
+//??                                        *h = ev->height;
+//??                                    }
+
+                                } else {
+
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The button press event is null.");
+                                }
 
                             } else if (t == XCB_BUTTON_PRESS) {
 

@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-06-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add a number of event gui deserialiser files
+
 2013-05-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Update cybol api specification using asterisk as placeholder, e.g. number/* (= number/integer | number/double) or path/* (= path/knowledge | path/reference)

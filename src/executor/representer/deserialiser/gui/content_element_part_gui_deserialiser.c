@@ -28,18 +28,17 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
-#include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/deserialiser/gui/button_press_mouse_gui_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui/button_release_mouse_gui_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui/enter_notify_gui_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui/expose_gui_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui/key_press_keyboard_gui_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui/key_release_keyboard_gui_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui/leave_notify_gui_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui/motion_notify_mouse_gui_deserialiser.c"
 #include "../../../../logger/logger.c"
-
-//
-// Forward declarations.
-//
-
-void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 /**
  * Deserialises the gui part element content into an action.
@@ -61,101 +60,89 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  */
 void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui part element content.");
 
-        int* my = (int*) p11;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            int* mx = (int*) p10;
+        compare_all_array((void*) &r, p7, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui part element content.");
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The position part.
-            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The size part.
-            void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The action part.
-            void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The action part model item.
-            void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The action part model item data, count.
-            void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* amc = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The x, y coordinate.
-            int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // The width, height extension.
-            int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            // Get position part.
-            get_part_knowledge((void*) &p, p4, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p5, p6);
-            // Get size part.
-            get_part_knowledge((void*) &s, p4, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p5, p6);
-            // Get action part.
-            get_part_knowledge((void*) &a, p4, p7, p8, p5, p6);
-
-            // Get x, y coordinate from position part.
-            // CAUTION! Do NOT use the "copy_array_forward" function here,
-            // since it is low-level and does not check array boundaries!
-            get_part_element((void*) &x, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            get_part_element((void*) &y, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            // Get width, height extension from size part.
-            // CAUTION! Do NOT use the "copy_array_forward" function here,
-            // since it is low-level and does not check array boundaries!
-            get_part_element((void*) &w, s, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            get_part_element((void*) &h, s, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-            // Get action part model item.
-            copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-            // Get action part model item data, count.
-            copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &amc, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-            // Check whether or not the mouse x- and y coordinate
-            // are within the gui element's area.
-            if ((*mx >= x) && (*my >= y) && (*mx < (x + w)) && (*my < (y + h))) {
-
-fwprintf(stdout, L"TEST deserialise gui part element content x: %i\n", x);
-fwprintf(stdout, L"TEST deserialise gui part element content y: %i\n", y);
-fwprintf(stdout, L"TEST deserialise gui part element content w: %i\n", w);
-fwprintf(stdout, L"TEST deserialise gui part element content h: %i\n", h);
-fwprintf(stdout, L"TEST deserialise gui part element content *mx: %i\n", *mx);
-fwprintf(stdout, L"TEST deserialise gui part element content *my: %i\n", *my);
-
-fwprintf(stdout, L"TEST deserialise gui part element content amc: %i\n", amc);
-//?? fwprintf(stdout, L"TEST deserialise gui part element content *amc: %i\n", *((int*) amc));
-fwprintf(stdout, L"TEST deserialise gui part element content amd: %ls\n", (wchar_t*) amd);
-
-                // Set break flag, so that the loop can be left in the next cycle.
-                // The gui element on which the mouse event occured
-                // has been detected, so that further elements on the
-                // same level do not have to be checked in the loop anymore.
-                copy_integer(p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                // Overwrite previous action of parent element
-                // with that of the contained child element.
-                // CAUTION! Do NOT assign action if it is null.
-                // However, this check is already implemented
-                // inside the called function.
-                overwrite_item_element(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-                // Process embedded parts recursively.
-                // CAUTION! Call this function ONLY for elements
-                // which lie within the gui element's area.
-                deserialise_gui(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11, p12);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui part element content. The event x coordinate is null.");
+            deserialise_gui_expose(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
         }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui part element content. The event y coordinate is null.");
+        compare_all_array((void*) &r, p7, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_gui_mouse_button_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_gui_mouse_button_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_gui_mouse_motion_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_gui_enter_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_gui_leave_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_gui_keyboard_key_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p7, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_gui_keyboard_key_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        }
     }
 }
 
