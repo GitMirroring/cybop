@@ -12,6 +12,7 @@ Update NEWS subsumpting ChangeLog entries
 Commit SVN
 Tag SVN
 make dist
+Upload tarball file to
 Create new file for release in www/cybop/plan/
 Copy content from NEWS to www/cybop/plan/cybop-x.x.x.html
 Update www/cybop/plan/index.html
