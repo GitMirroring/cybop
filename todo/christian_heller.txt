@@ -11,7 +11,7 @@
 #
 
         * Get details of all events in file "event_x_window_system_receiver.c" and adapt number of parametres handed over, e.g. width and height for expose event
-        * Check in file "expose_gui_deserialiser.c" if position and size of area to be drawn are with child element's area, before (possibly) recursively calling child's expose method
+        * Check in file "expose_gui_deserialiser.c" if position and size of area to be drawn are within child element's area, before (possibly) recursively calling child's expose method
         * Continue x window system serialiser
         * Continue win32 display gui
         * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
