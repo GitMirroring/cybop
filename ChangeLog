@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-06-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Get all event properties in file "event_x_window_system_receiver.c"
+
 2013-06-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add a number of event gui deserialiser files

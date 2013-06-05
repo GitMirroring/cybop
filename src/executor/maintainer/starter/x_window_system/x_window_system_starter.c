@@ -262,13 +262,13 @@
  */
 void startup_x_window_system(void* p0) {
 
-    // The connection.
+    // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get connection.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get connexion.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Only establish connection if not existent.
+    // Only establish connexion if not existent.
     if (c == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
@@ -349,8 +349,8 @@ fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
                 return; //?? -1;
             }
 
-            // Open connection to x server.
-            xcb_connection_t *c = xcb_connect ("127.0.0.1:0.0", &screenNum);
+            // Open connexion to x server.
+            xcb_connection_t *c = xcb_connect("127.0.0.1:0.0", &screenNum);
             if (!c) {
                 fprintf (stderr, "ERROR: can't connect to an X server\n");
                 return; //?? -1;
@@ -366,7 +366,7 @@ fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
             s = (void*) iter.data;
         #endif
         #ifdef GNU_LINUX_OPERATING_SYSTEM
-            // Open connection.
+            // Open connexion.
             c = (void*) xcb_connect(NULL, NULL);
 
             // Get first screen.
@@ -440,7 +440,7 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
         // Create window.
         xcb_window_t window = xcb_generate_id((xcb_connection_t*) c);
 
-        xcb_create_window((xcb_connection_t*) c, // connection
+        xcb_create_window((xcb_connection_t*) c, // connexion
             XCB_COPY_FROM_PARENT, // depth (same as root)
             window, // window id
             ((xcb_screen_t*) s)->root, // parent window
@@ -544,7 +544,7 @@ fwprintf(stdout, L"TEST startup x window system window: %i\n", window);
         // CAUTION! Do NOT use "overwrite_array" function here,
         // since it adapts the array count and size.
         // But the internal array's count and size are CONSTANT.
-        copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CONNECTION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WINDOW_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &gc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

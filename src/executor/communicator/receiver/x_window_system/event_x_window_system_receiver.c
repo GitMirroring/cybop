@@ -357,410 +357,559 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
 /**
  * Receives an x window system event.
  *
- * @param p0 the event type data (pointer reference)
- * @param p1 the event type count (pointer reference)
- * @param p2 the button mask
- * @param p3 the x mouse coordinate
- * @param p4 the y mouse coordinate
- * @param p5 the internal memory data
+ * @param p0 the internal memory data
+ * @param p1 the event type data (pointer reference)
+ * @param p2 the event type count (pointer reference)
+ * @param p3 the mouse button or key code
+ * @param p4 the window identification
+ * @param p5 the mouse position x coordinate
+ * @param p6 the mouse position y coordinate
+ * @param p7 the button- or key mask
+ * @param p8 the mouse button identification
+ * @param p9 the expose area x coordinate
+ * @param p10 the expose area y coordinate
+ * @param p11 the expose area width
+ * @param p12 the expose area height
  */
-void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+
+    // The following code sections are NOT indented,
+    // since more may have to be added in future.
+
+    if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* h = (int*) p12;
+
+    if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* w = (int*) p11;
+
+    if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* y = (int*) p10;
+
+    if (p9 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* x = (int*) p9;
+
+    if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* b = (int*) p8;
+
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* m = (int*) p7;
+
+    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* py = (int*) p6;
+
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* px = (int*) p5;
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* y = (int*) p4;
+        int* win = (int*) p4;
 
-        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* x = (int*) p3;
+        int* bk = (int*) p3;
 
-            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The connexion.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-                int* b = (int*) p2;
+    // Get connexion.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get mutex.
+    copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-                // The connection.
-                void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-                // The mutex.
-                void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    if (mt != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                // Get connection.
-                copy_array_forward((void*) &c, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-                // Get mutex.
-                copy_array_forward((void*) &m, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                if (m != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system event.");
 
-                    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            pthread_mutex_lock((pthread_mutex_t*) mt);
 
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system event.");
+            // Get next event.
+            //
+            // A special thread with "sense" function was used to
+            // detect events. But this is the main thread.
+            // The event detected before shall be received here.
+            //
+            // There are two ways to receive events:
+            // - blocking: xcb_wait_for_event
+            // - non-blocking: xcb_poll_for_event
+            //
+            // The "xcb_wait_for_event" function blocks until an event
+            // is queued in the x server, then dequeues it from the
+            // queue, then returns it as a newly allocated structure.
+            //
+            // The "xcb_poll_for_event" function dequeues and returns
+            // an event immediately. It returns NULL if no event is
+            // available at the time of the call. If an error occurs,
+            // the parameter error will be filled with the error status.
+            //
+            // Decision:
+            //
+            // Since this is the main thread, it MUST NOT block.
+            // Therefore, the non-blocking "xcb_poll_for_event"
+            // function is used here.
+            //
+            // CAUTION! Whenever an event is queued in the x server,
+            // it gets dequeued from the queue here and is then
+            // returned as a newly allocated structure.
+            // It is cyboi's responsibility to FREE the
+            // returned event structure.
+            xcb_generic_event_t* e = xcb_poll_for_event((xcb_connection_t*) c);
 
-                        pthread_mutex_lock((pthread_mutex_t*) m);
-
-                        // Get next event.
-                        //
-                        // A special thread with "sense" function was used to
-                        // detect events. But this is the main thread.
-                        // The event detected before shall be received here.
-                        //
-                        // There are two ways to receive events:
-                        // - blocking: xcb_wait_for_event
-                        // - non-blocking: xcb_poll_for_event
-                        //
-                        // The "xcb_wait_for_event" function blocks until an event
-                        // is queued in the x server, then dequeues it from the
-                        // queue, then returns it as a newly allocated structure.
-                        //
-                        // The "xcb_poll_for_event" function dequeues and returns
-                        // an event immediately. It returns NULL if no event is
-                        // available at the time of the call. If an error occurs,
-                        // the parameter error will be filled with the error status.
-                        //
-                        // Decision:
-                        //
-                        // Since this is the main thread, it MUST NOT block.
-                        // Therefore, the non-blocking "xcb_poll_for_event"
-                        // function is used here.
-                        //
-                        // CAUTION! Whenever an event is queued in the x server,
-                        // it gets dequeued from the queue here and is then
-                        // returned as a newly allocated structure.
-                        // It is cyboi's responsibility to FREE the
-                        // returned event structure.
-                        xcb_generic_event_t* e = xcb_poll_for_event((xcb_connection_t*) c);
-
-                        pthread_mutex_unlock((pthread_mutex_t*) m);
+            pthread_mutex_unlock((pthread_mutex_t*) mt);
 
 //??                fwprintf(stdout, L"TEST receive x window system e: %i\n", e);
 
-                        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                            // Get response type.
-                            //
-                            // CAUTION! The type of the returned value is "uint8_t".
-                            // Since it is just one byte in size, it may be assigned
-                            // to an "int" variable of four byte without problems.
-                            int t = e->response_type;
-
-                fwprintf(stdout, L"TEST receive x window system t: %i\n", t);
-
-                            // Convert type using bit operation AND.
-                            // The hexadecimal value 0x80 is decimal 128.
-                            //
-                            //?? TODO: Why is this conversion necessary?
-                            //?? It works correctly also without conversion.
-                            //?? Nothing explained in the tutorials ...
-            //??                t = t & (~0x80);
-                            int t_TEST = t & (~0x80);
-
-                fwprintf(stdout, L"TEST receive x window system t_TEST: %i\n", t_TEST);
-
-                            if (t == XCB_EXPOSE) {
-
-                                // Expose events are sensed when a window needs
-                                // to be repainted, e.g. when being displayed after
-                                // having been covered by another window before.
-
-                fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE t: %i\n", t);
-
-                                xcb_expose_event_t* ev = (xcb_expose_event_t*) e;
-
-                                if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                                    // Consider only the last in a row of multiple expose
-                                    // events, in order to avoid flickering of the display.
-                                    //?? TODO: ... did work in xlib, but not with xcb anymore
-                                    // if (ev->xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-//??                                    if (ev->count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-    fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE ev->count: %i\n", ev->count);
-
-                                        copy_pointer(p0, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME);
-                                        copy_pointer(p1, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
-
-                                        // Get position of area to be redrawn.
-                                        *x = ev->x;
-                                        *y = ev->y;
-                                        // Get size of area to be redrawn.
-//??                                        *w = ev->width;
-//??                                        *h = ev->height;
-//??                                    }
-
-                                } else {
-
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The button press event is null.");
-                                }
-
-                            } else if (t == XCB_BUTTON_PRESS) {
-
-                fwprintf(stdout, L"TEST receive x window system XCB_BUTTON_PRESS t: %i\n", t);
-
-                                copy_pointer(p0, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
-                                copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
-
-                                xcb_button_press_event_t* ev = (xcb_button_press_event_t*) e;
-
-                                if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                                    // Get button mask.
-                                    *b = ev->state;
-                                    // Get mouse coordinates.
-                                    *x = ev->event_x;
-                                    *y = ev->event_y;
-
-                                } else {
-
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The button press event is null.");
-                                }
-
-            /*??
-                                //?? TODO: This is a temporary solution!
-                                //?? There is no meta information (such as position or size) known
-                                //?? about the gui root node. Therefore, the actual window as its
-                                //?? only part element is determined here and handed over to
-                                //?? further procedures.
-                                get_compound_element_by_index(*r, *rc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL,
-                                    (void*) &tmpn, (void*) &tmpnc, (void*) &tmpns,
-                                    (void*) &tmpa, (void*) &tmpac, (void*) &tmpas,
-                                    (void*) &tmpm, (void*) &tmpmc, (void*) &tmpms,
-                                    (void*) &tmpd, (void*) &tmpdc, (void*) &tmpds);
-
-                                //?? TODO: Move the following detection of a command into deserialiser!
-
-                                // Determine command, depending on mouse button and event type.
-                                // First, determine coordinates of the click within window-panel-sub_panel-etc.-button.
-                                // Then, determine command that was assigned to button as property in cybol.
-                                // Finally, send part pointed to by "command" (knowledge path) as signal to signal memory (queue).
-                                sense_x_window_system_part(&cn, &cnc, &cns, &ca, &cac, &cas, &cm, &cmc, &cms, &cd, &cdc, &cds,
-                                    *tmpm, *tmpmc, &(e.xbutton.x), &(e.xbutton.y), (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL,
-                                    &t, &(e.xbutton.button), *k, *kc);
-            */
-
-                            } else if (t == XCB_BUTTON_RELEASE) {
-
-                fwprintf(stdout, L"TEST receive x window system XCB_BUTTON_RELEASE t: %i\n", t);
-
-                                copy_pointer(p0, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME);
-                                copy_pointer(p1, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT);
-
-                                xcb_button_release_event_t* ev = (xcb_button_release_event_t*) e;
-
-                                if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                                    // Get button mask.
-                                    *b = ev->state;
-                                    // Get mouse coordinates.
-                                    *x = ev->event_x;
-                                    *y = ev->event_y;
-
-                                } else {
-
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The button press event is null.");
-                                }
-
-                            } else if (t == XCB_MOTION_NOTIFY) {
-
-                fwprintf(stdout, L"TEST receive x window system XCB_MOTION_NOTIFY t: %i\n", t);
-
-                                copy_pointer(p0, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME);
-                                copy_pointer(p1, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT);
-
-                                xcb_motion_notify_event_t* ev = (xcb_motion_notify_event_t*) e;
-
-            /*??
-                                //?? The an_event.xmotion.state variable (unsigned int state) contains
-                                //?? a mask of the buttons (or keys) held down during this event - if any.
-                                //?? This field is a bitwise OR of any of the following:
-                                Button1Mask
-                                Button2Mask
-                                Button3Mask
-                                Button4Mask
-                                Button5Mask
-                                ShiftMask
-                                LockMask
-                                ControlMask
-                                Mod1Mask
-                                Mod2Mask
-                                Mod3Mask
-                                Mod4Mask
-                                Mod5Mask
-
-                                //?? Example:
-                                //?? If the 1st mouse button was held during this event,
-                                //?? draw a pixel at the mouse pointer location.
-                                if (an_event.xmotion.state & Button1Mask) {
-                                    XDrawPoint(display, the_win, gc_draw, x, y);
-                                }
-                        */
-
-                            } else if (t == XCB_ENTER_NOTIFY) {
-
-                fwprintf(stdout, L"TEST receive x window system XCB_ENTER_NOTIFY t: %i\n", t);
-
-                                copy_pointer(p0, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
-                                copy_pointer(p1, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
-
-                                xcb_enter_notify_event_t* ev = (xcb_enter_notify_event_t*) e;
-
-                                //?? an_event.xcrossing
-
-                            } else if (XCB_LEAVE_NOTIFY) {
-
-                fwprintf(stdout, L"TEST receive x window system XCB_LEAVE_NOTIFY t: %i\n", t);
-
-                                copy_pointer(p0, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
-                                copy_pointer(p1, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
-
-                                xcb_leave_notify_event_t* ev = (xcb_leave_notify_event_t*) e;
-
-                            } else if (t == XCB_KEY_PRESS) {
-
-                fwprintf(stdout, L"TEST receive x window system XCB_KEY_PRESS t: %i\n", t);
-
-                                copy_pointer(p0, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME);
-                                copy_pointer(p1, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT);
-
-                                // Key press events relate to keyboard keys.
-                                xcb_key_press_event_t* ev = (xcb_key_press_event_t*) e;
-
-                        /*??
-                                Example:
-                                // Translate the key code to a key symbol.
-                                KeySym key_symbol = XKeycodeToKeysym(display, an_event.xkey.keycode, 0);
-                                switch (key_symbol) {
-                                    case XK_1:
-                                    case XK_KP_1:
-                                        // '1' key was pressed, either the normal '1',
-                                        // or the '1' on the keypad. draw the current pixel.
-                                        XDrawPoint(display, the_win, gc_draw, x, y);
-                                        break;
-                                    case XK_Delete:
-                                        // DEL key was pressed, erase the current pixel.
-                                        XDrawPoint(display, the_win, gc_erase, x, y);
-                                        break;
-                                    default:
-                                        // Anything else - check if it is a letter key
-                                        if (key_symbol >= XK_A && key_symbol <= XK_Z) {
-                                            int ascii_key = key_symbol - XK_A + 'A';
-                                            printf("Key pressed - '%c'\n", ascii_key);
-                                        }
-                                        if (key_symbol >= XK_a && key_symbol <= XK_z) {
-                                            int ascii_key = key_symbol - XK_a + 'a';
-                                            printf("Key pressed - '%c'\n", ascii_key);
-                                        }
-                                        break;
-                                }
-                        */
-
-                        /*??
-                                KeySym k;
-                                char text[10];
-                                char str_test[1000];
-                                char str_zugriff[1000];
-                                char str_menubar[100];
-                                //??unsigned long //??double menu_foreground;
-                                // The temporary variables.
-                            //??    int k;
-                                int menu_eintrage_ende;
-                                int window;
-                                int i = 0, count_menu, count_item, indent_x, indent_y, indent_menu_item_x;
-                        */
-
-                        /*??
-                                i = XLookupString(&e, text, 10, &k, 0);
-
-                                //// Das gehoert hier eigentlich nicht her, nur zu Demonstartionszwecken
-                                //// Bei Tastendruck 'a' wird erstes Menue gezeichenet, bei b das Zweite, bei c das Dritte
-
-                                if (i == 1 && text[0] == 'a') {
-
-                                    XClearArea (d, w, 0, 0, 0, 0, True);
-                                    Anwendung.menu_bar1.menus[0].angeklickt = 1;
-                                    Anwendung.menu_bar1.menus[1].angeklickt = 0;
-                                    Anwendung.menu_bar1.menus[2].angeklickt = 0;
-
-                                } else if (i == 1 && text[0] == 'b') {
-
-                                    XClearArea (d, w, 0, 0, 0, 0, True);
-                                    Anwendung.menu_bar1.menus[0].angeklickt = 0;
-                                    Anwendung.menu_bar1.menus[1].angeklickt = 1;
-                                    Anwendung.menu_bar1.menus[2].angeklickt = 0;
-
-                                } else if (i == 1 && text[0] == 'c') {
-
-                                    XClearArea (d, w, 0, 0, 0, 0, True);
-                                    Anwendung.menu_bar1.menus[0].angeklickt = 0;
-                                    Anwendung.menu_bar1.menus[1].angeklickt = 0;
-                                    Anwendung.menu_bar1.menus[2].angeklickt = 1;
-                                }
-
-                                if (i == 1 && text[0] == 'x') {
-
-                                    XClearArea (d, w, 0, 0, 0, 0, True);
-
-                                    Anwendung.menu_bar1.menus[0].angeklickt = 0;
-                                    Anwendung.menu_bar1.menus[1].angeklickt = 0;
-                                    Anwendung.menu_bar1.menus[2].angeklickt = 0;
-
-                                } else if (i == 1 && text[0] == 'q') {
-
-                                    f = 1;
-                                }
-                        */
-
-                                //?? To erase graphical areas (such as an open menu), use:
-                                //?? XClearArea (d, w, 0, 0, 0, 0, True);
-
-                                //?? What is this useful for?
-                                //?? XDrawImageString(e.xexpose.display, e.xexpose.window, gc_menu_font, 100, 100, event.xbutton.x, wcslen(event.xbutton.x));
-
-                            } else if (t == XCB_KEY_RELEASE) {
-
-                fwprintf(stdout, L"TEST receive x window system XCB_KEY_RELEASE t: %i\n", t);
-
-                                copy_pointer(p0, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME);
-                                copy_pointer(p1, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT);
-
-                                xcb_key_release_event_t* ev = (xcb_key_release_event_t*) e;
-                            }
-
-                            // Deallocate event.
-                            //
-                            // CAUTION! An event gets created by the xcb library,
-                            // but HAS TO BE destroyed manually here.
-                            free(e);
-
-                        } else {
-
-                            //?? TODO: Sleep here? The event is null,
-                            // so there are currently no events waiting.
-                            // Don't forget to set mutex before!
-                            // Reset interrupt?
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The event is null.");
-                        }
+            if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                // Get response type.
+                //
+                // CAUTION! The type of the returned value is "uint8_t".
+                // Since it is just one byte in size, it may be assigned
+                // to an "int" variable of four byte without problems.
+                int t = (int) e->response_type;
+
+    fwprintf(stdout, L"TEST receive x window system t: %i\n", t);
+
+                // Convert type using bit operation AND.
+                // The hexadecimal value 0x80 is decimal 128.
+                //
+                //?? TODO: Why is this conversion necessary?
+                //?? It works correctly also without conversion.
+                //?? Nothing explained in the tutorials ...
+//??                t = t & (~0x80);
+                int t_TEST = t & (~0x80);
+
+    fwprintf(stdout, L"TEST receive x window system t_TEST: %i\n", t_TEST);
+
+                if (t == XCB_EXPOSE) {
+
+                    // Expose events are sensed when a window needs
+                    // to be repainted, e.g. when being displayed after
+                    // having been covered by another window before.
+
+    fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE t: %i\n", t);
+
+                    xcb_expose_event_t* ev = (xcb_expose_event_t*) e;
+
+                    if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // Consider only the last in a row of multiple expose
+                        // events, in order to avoid flickering of the display.
+                        //?? TODO: ... did work in xlib, but not with xcb anymore
+                        // if (ev->xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+//??                        if (ev->count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE ev->count: %i\n", ev->count);
+
+                            copy_pointer(p1, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME);
+                            copy_pointer(p2, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
+                            // Get window identification.
+                            *win = (int) ev->window;
+                            // Get expose area position.
+                            *x = (int) ev->x;
+                            *y = (int) ev->y;
+                            // Get expose area size.
+                            *w = (int) ev->width;
+                            *h = (int) ev->height;
+//??                    }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The connection is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The expose event is null.");
                     }
 
-                } else {
+                } else if (t == XCB_BUTTON_PRESS) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The mutex is null.");
+    fwprintf(stdout, L"TEST receive x window system XCB_BUTTON_PRESS t: %i\n", t);
+
+                    copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
+                    copy_pointer(p2, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
+
+                    xcb_button_press_event_t* ev = (xcb_button_press_event_t*) e;
+
+                    if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // Get mouse button or keycode.
+                        *bk = (int) ev->detail;
+                        // Get window identification.
+                        *win = (int) ev->event;
+                        // Get mouse coordinates.
+                        *px = (int) ev->event_x;
+                        *py = (int) ev->event_y;
+                        // Get button mask.
+                        *m = (int) ev->state;
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The button press event is null.");
+                    }
+
+                } else if (t == XCB_BUTTON_RELEASE) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_BUTTON_RELEASE t: %i\n", t);
+
+                    copy_pointer(p1, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME);
+                    copy_pointer(p2, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT);
+
+                    xcb_button_release_event_t* ev = (xcb_button_release_event_t*) e;
+
+                    if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // Get mouse button or keycode.
+                        *bk = (int) ev->detail;
+                        // Get window identification.
+                        *win = (int) ev->event;
+                        // Get mouse coordinates.
+                        *px = (int) ev->event_x;
+                        *py = (int) ev->event_y;
+                        // Get button mask.
+                        *m = (int) ev->state;
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The button release event is null.");
+                    }
+
+                } else if (t == XCB_MOTION_NOTIFY) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_MOTION_NOTIFY t: %i\n", t);
+
+                    copy_pointer(p1, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME);
+                    copy_pointer(p2, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT);
+
+                    xcb_motion_notify_event_t* ev = (xcb_motion_notify_event_t*) e;
+
+                    if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // Get mouse button or keycode.
+                        *bk = (int) ev->detail;
+                        // Get window identification.
+                        *win = (int) ev->event;
+                        // Get mouse coordinates.
+                        *px = (int) ev->event_x;
+                        *py = (int) ev->event_y;
+                        // Get button mask.
+                        *m = (int) ev->state;
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The motion notify event is null.");
+                    }
+
+/*??
+                    //?? The an_event.xmotion.state variable (unsigned int state) contains
+                    //?? a mask of the buttons (or keys) held down during this event - if any.
+                    //?? This field is a bitwise OR of any of the following:
+                    Button1Mask
+                    Button2Mask
+                    Button3Mask
+                    Button4Mask
+                    Button5Mask
+                    ShiftMask
+                    LockMask
+                    ControlMask
+                    Mod1Mask
+                    Mod2Mask
+                    Mod3Mask
+                    Mod4Mask
+                    Mod5Mask
+
+                    //?? Example:
+                    //?? If the 1st mouse button was held during this event,
+                    //?? draw a pixel at the mouse pointer location.
+                    if (an_event.xmotion.state & Button1Mask) {
+                        XDrawPoint(display, the_win, gc_draw, x, y);
+                    }
+            */
+
+                } else if (t == XCB_ENTER_NOTIFY) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_ENTER_NOTIFY t: %i\n", t);
+
+                    copy_pointer(p1, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
+                    copy_pointer(p2, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
+                    xcb_enter_notify_event_t* ev = (xcb_enter_notify_event_t*) e;
+
+                    //?? an_event.xcrossing
+
+                    if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // Get mouse button or keycode.
+                        *bk = (int) ev->detail;
+                        // Get window identification.
+                        *win = (int) ev->event;
+                        // Get mouse coordinates.
+                        *px = (int) ev->event_x;
+                        *py = (int) ev->event_y;
+                        // Get button mask.
+                        *m = (int) ev->state;
+                        // Get mouse button identification.
+                        *b = (int) ev->mode;
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The enter notify event is null.");
+                    }
+
+                } else if (XCB_LEAVE_NOTIFY) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_LEAVE_NOTIFY t: %i\n", t);
+
+                    copy_pointer(p1, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
+                    copy_pointer(p2, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
+                    xcb_leave_notify_event_t* ev = (xcb_leave_notify_event_t*) e;
+
+                    if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // Get mouse button or keycode.
+                        *bk = (int) ev->detail;
+                        // Get window identification.
+                        *win = (int) ev->event;
+                        // Get mouse coordinates.
+                        *px = (int) ev->event_x;
+                        *py = (int) ev->event_y;
+                        // Get button mask.
+                        *m = (int) ev->state;
+                        // Get mouse button identification.
+                        *b = (int) ev->mode;
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The leave notify event is null.");
+                    }
+
+                } else if (t == XCB_KEY_PRESS) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_KEY_PRESS t: %i\n", t);
+
+                    copy_pointer(p1, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME);
+                    copy_pointer(p2, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT);
+
+                    // Key press events relate to keyboard keys.
+                    xcb_key_press_event_t* ev = (xcb_key_press_event_t*) e;
+
+                    if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // Get mouse button or keycode.
+                        *bk = (int) ev->detail;
+                        // Get window identification.
+                        *win = (int) ev->event;
+                        // Get mouse coordinates.
+                        *px = (int) ev->event_x;
+                        *py = (int) ev->event_y;
+                        // Get button mask.
+                        *m = (int) ev->state;
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The key press event is null.");
+                    }
+
+            /*??
+                    Example:
+                    // Translate the key code to a key symbol.
+                    KeySym key_symbol = XKeycodeToKeysym(display, an_event.xkey.keycode, 0);
+                    switch (key_symbol) {
+                        case XK_1:
+                        case XK_KP_1:
+                            // '1' key was pressed, either the normal '1',
+                            // or the '1' on the keypad. draw the current pixel.
+                            XDrawPoint(display, the_win, gc_draw, x, y);
+                            break;
+                        case XK_Delete:
+                            // DEL key was pressed, erase the current pixel.
+                            XDrawPoint(display, the_win, gc_erase, x, y);
+                            break;
+                        default:
+                            // Anything else - check if it is a letter key
+                            if (key_symbol >= XK_A && key_symbol <= XK_Z) {
+                                int ascii_key = key_symbol - XK_A + 'A';
+                                printf("Key pressed - '%c'\n", ascii_key);
+                            }
+                            if (key_symbol >= XK_a && key_symbol <= XK_z) {
+                                int ascii_key = key_symbol - XK_a + 'a';
+                                printf("Key pressed - '%c'\n", ascii_key);
+                            }
+                            break;
+                    }
+            */
+
+            /*??
+                    KeySym k;
+                    char text[10];
+                    char str_test[1000];
+                    char str_zugriff[1000];
+                    char str_menubar[100];
+                    //??unsigned long //??double menu_foreground;
+                    // The temporary variables.
+                //??    int k;
+                    int menu_eintrage_ende;
+                    int window;
+                    int i = 0, count_menu, count_item, indent_x, indent_y, indent_menu_item_x;
+            */
+
+            /*??
+                    i = XLookupString(&e, text, 10, &k, 0);
+
+                    //// Das gehoert hier eigentlich nicht her, nur zu Demonstartionszwecken
+                    //// Bei Tastendruck 'a' wird erstes Menue gezeichenet, bei b das Zweite, bei c das Dritte
+
+                    if (i == 1 && text[0] == 'a') {
+
+                        XClearArea (d, w, 0, 0, 0, 0, True);
+                        Anwendung.menu_bar1.menus[0].angeklickt = 1;
+                        Anwendung.menu_bar1.menus[1].angeklickt = 0;
+                        Anwendung.menu_bar1.menus[2].angeklickt = 0;
+
+                    } else if (i == 1 && text[0] == 'b') {
+
+                        XClearArea (d, w, 0, 0, 0, 0, True);
+                        Anwendung.menu_bar1.menus[0].angeklickt = 0;
+                        Anwendung.menu_bar1.menus[1].angeklickt = 1;
+                        Anwendung.menu_bar1.menus[2].angeklickt = 0;
+
+                    } else if (i == 1 && text[0] == 'c') {
+
+                        XClearArea (d, w, 0, 0, 0, 0, True);
+                        Anwendung.menu_bar1.menus[0].angeklickt = 0;
+                        Anwendung.menu_bar1.menus[1].angeklickt = 0;
+                        Anwendung.menu_bar1.menus[2].angeklickt = 1;
+                    }
+
+                    if (i == 1 && text[0] == 'x') {
+
+                        XClearArea (d, w, 0, 0, 0, 0, True);
+
+                        Anwendung.menu_bar1.menus[0].angeklickt = 0;
+                        Anwendung.menu_bar1.menus[1].angeklickt = 0;
+                        Anwendung.menu_bar1.menus[2].angeklickt = 0;
+
+                    } else if (i == 1 && text[0] == 'q') {
+
+                        f = 1;
+                    }
+            */
+
+                    //?? To erase graphical areas (such as an open menu), use:
+                    //?? XClearArea (d, w, 0, 0, 0, 0, True);
+
+                    //?? What is this useful for?
+                    //?? XDrawImageString(e.xexpose.display, e.xexpose.window, gc_menu_font, 100, 100, event.xbutton.x, wcslen(event.xbutton.x));
+
+                } else if (t == XCB_KEY_RELEASE) {
+
+    fwprintf(stdout, L"TEST receive x window system XCB_KEY_RELEASE t: %i\n", t);
+
+                    copy_pointer(p1, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME);
+                    copy_pointer(p2, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT);
+
+                    xcb_key_release_event_t* ev = (xcb_key_release_event_t*) e;
+
+                    if (ev != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // Get mouse button or keycode.
+                        *bk = (int) ev->detail;
+                        // Get window identification.
+                        *win = (int) ev->event;
+                        // Get mouse coordinates.
+                        *px = (int) ev->event_x;
+                        *py = (int) ev->event_y;
+                        // Get button mask.
+                        *m = (int) ev->state;
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The key release event is null.");
+                    }
                 }
+
+                // Deallocate event.
+                //
+                // CAUTION! An event gets created by the xcb library,
+                // but HAS TO BE destroyed manually here.
+                free(e);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The button mask is null.");
+                //?? TODO: Sleep here? The event is null,
+                // so there are currently no events waiting.
+                // Don't forget to set mutex before!
+                // Reset interrupt?
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The event is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The x mouse coordinate is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The connexion is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The y mouse coordinate is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The mutex is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The mouse button or key code is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The id of the window is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The mouse position x coordinate is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The mouse position y coordinate is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The button- or key mask is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The mouse button identification is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The expose area x coordinate is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The expose area y coordinate is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The expose area width is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The expose area height is null.");
     }
 }
 

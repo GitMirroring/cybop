@@ -10,7 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Get details of all events in file "event_x_window_system_receiver.c" and adapt number of parametres handed over, e.g. width and height for expose event
+        * Hand over all parametres of function "receive_x_window_system" to "deserialise_gui"
         * Check in file "expose_gui_deserialiser.c" if position and size of area to be drawn are within child element's area, before (possibly) recursively calling child's expose method
         * Continue x window system serialiser
         * Continue win32 display gui

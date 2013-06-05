@@ -53,33 +53,37 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // The buffer item (array, queue) of e.g. 100 elements.
     // It is needed to avoid endless display input, so that
     // the system has the chance to process events in between.
-//??    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+//??    void* buf = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The event type string data, count.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mouse button or keycode of the physical key on the keyboard.
+    // Possible types are: xcb_button_t, uint8_t, xcb_keycode_t
     int bk = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The id of the window where event occured.
+    // The identification of the window where event occured.
     // This is needed if the application uses more
     // than just one window, e.g. dialogue windows.
     // In this case, the application registers
     // for events on all of these several windows.
-    xcb_window_t win = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The actual type is: xcb_window_t
+    int win = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The mouse position (x, y).
     int px = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int py = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The button- or key mask.
     int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The mouse button identification.
+    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The origo (x, y) of the area that needs to be redrawn.
     int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The expansion (width, height) of the area that needs to be redrawn.
+    // The size (width, height) of the area that needs to be redrawn.
     int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Buffer events until a null event is reached
     // or until the buffer is full.
-//??    receive_x_window_system_buffer();
+//??    receive_x_window_system_buffer(buf);
 
     // Filter out expose events to avoid flickering.
     // The last expose event is reached when the
@@ -87,17 +91,13 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
 //??    receive_x_window_system_filter();
 
     // Receive event.
-    receive_x_window_system_event((void*) &td, (void*) &tc, (void*) &m, (void*) &px, (void*) &py, p5);
-
-//?? fwprintf(stdout, L"TEST receive x window system td: %ls\n", (wchar_t*) td);
-//?? fwprintf(stdout, L"TEST receive x window system tc: %i\n", *((int*) tc));
-
-//?? fwprintf(stdout, L"TEST receive x window system p0 pre: %ls\n", (wchar_t*) *((void**) p0));
+    receive_x_window_system_event(p5, (void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h);
 
     // Deserialise event into a meaningful command.
+    //?? TODO: Comment in or delete later.
+    //?? However, "gui" is probably ALWAYS used as language in conjunction with the x window system.
     deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
-
-//?? fwprintf(stdout, L"TEST receive x window system p0 post: %ls\n", (wchar_t*) *((void**) p0));
+//??    deserialise_gui(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
 }
 
 /* X_WINDOW_SYSTEM_RECEIVER_SOURCE */

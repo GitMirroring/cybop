@@ -52,7 +52,7 @@ void sense_x_window_system(void* p0) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sleep time.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The connection.
+    // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get interrupt.
@@ -61,8 +61,8 @@ void sense_x_window_system(void* p0) {
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get sleep time.
     copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get connection.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNECTION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get connexion.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
