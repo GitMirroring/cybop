@@ -153,15 +153,15 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                 }
 */
 
-                // Lock x window system mutex.
+                // Lock display mutex.
                 pthread_mutex_lock(mt);
 
-                // Set x window system interrupt request to indicate
-                // that a message has been received via x window system,
+                // Set display interrupt request to indicate
+                // that a message has been received via display,
                 // which may now be processed in the main thread of this system.
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-                // Unlock x window system mutex.
+                // Unlock display mutex.
                 pthread_mutex_unlock(mt);
 
                 // Access irq as atomic variable.
@@ -169,7 +169,7 @@ void sense_x_window_system_message(void* p0, void* p1, void* p2, void* p3) {
                 // while (*irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
                 while (*irq) {
 
-                    // Sleep as long as the x window system interrupt is not handled and reset yet.
+                    // Sleep as long as the display interrupt is not handled and reset yet.
                     //
                     // This is to give the central processing unit (cpu) some
                     // time to breathe, that is to be idle or to process other signals.

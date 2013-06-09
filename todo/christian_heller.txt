@@ -10,6 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue win32 gui: starter + sensor + receiver
+        * Find out why some functions are unknown in starter --> check compiler options (libs) with Tobias Köhler
         * Hand over all parametres of function "receive_x_window_system" to "deserialise_gui"
         * Check in file "expose_gui_deserialiser.c" if position and size of area to be drawn are within child element's area, before (possibly) recursively calling child's expose method
         * Continue x window system serialiser

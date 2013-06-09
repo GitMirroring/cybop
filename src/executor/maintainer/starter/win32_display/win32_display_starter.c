@@ -65,7 +65,7 @@
  *   returns immediatly. That means once the call to PostMessage()
  *   is done the message may or may not have been processed yet.
  * - SendMessage() sends the message directly to the window and
- *   does not return untill the window has finished processing it.
+ *   does not return until the window has finished processing it.
  *
  * Example:
  *
@@ -118,6 +118,19 @@ LRESULT CALLBACK WndProc(HWND w, UINT m, WPARAM p, LPARAM l) {
         COLORREF bg = RGB(255, 255, 0);
         // The foreground colour.
         COLORREF fg = RGB(255, 0, 0);
+
+        //?? TODO: Compiling the following lines with mingw brings the following error:
+        //
+        // christian@uranus:/home/project/cybop$ i586-mingw32msvc-gcc src/controller/cyboi.c -o src/controller/cyboi.exe -DPTW32_STATIC_LIB -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32 -w
+        // /tmp/cccHo74K.o:cyboi.c:(.text+0x40b5f): undefined reference to `_CreateSolidBrush@4'
+        // /tmp/cccHo74K.o:cyboi.c:(.text+0x40b77): undefined reference to `_CreatePen@12'
+        // /tmp/cccHo74K.o:cyboi.c:(.text+0x40b93): undefined reference to `_Rectangle@20'
+        // collect2: ld returned 1 exit status
+        //
+        // Some web forums report that there are problems
+        // compiling with cygwin or mingw.
+        //
+
 //        HBRUSH br = CreateSolidBrush(bg);
 //        HPEN pe = CreatePen(PS_SOLID, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, fg);
 //        BOOL b = Rectangle(dc, 50, 50, 400, 300);
@@ -247,10 +260,10 @@ void startup_win32_display(void* p0) {
     // The style.
     DWORD s = (DWORD) WS_OVERLAPPEDWINDOW;
     // The position (x, y) and size (width, height).
-    int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL; //?? CW_USEDEFAULT;
-    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL; //?? CW_USEDEFAULT;
-    int w = 800; //?? CW_USEDEFAULT;
-    int h = 600; //?? CW_USEDEFAULT;
+    int x = *NUMBER_200_INTEGER_STATE_CYBOI_MODEL; //?? CW_USEDEFAULT;
+    int y = *NUMBER_200_INTEGER_STATE_CYBOI_MODEL; //?? CW_USEDEFAULT;
+    int w = 400; //?? CW_USEDEFAULT;
+    int h = 300; //?? CW_USEDEFAULT;
     // The parent window.
     HWND p = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The menu.
@@ -310,6 +323,8 @@ fwprintf(stdout, L"TEST wnd: %i\n", wnd);
 
     if (b > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST valid message: %i\n", b);
+
         // A valid message was retrieved.
 
         //
@@ -361,9 +376,13 @@ fwprintf(stdout, L"TEST wnd: %i\n", wnd);
 
     } else if (b == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST zero message: %i\n", b);
+
         // The WM_QUIT message was retrieved.
 
     } else {
+
+fwprintf(stdout, L"TEST negative message: %i\n", b);
 
         // An error occured.
 
