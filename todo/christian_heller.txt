@@ -10,6 +10,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        install apt new mingw, also mingw-pthread deb package
+        following links are possibly not needed anymore ?? (compiling works without them) --> adapt INSTALL of cyboi project:
+        /usr/bin/i686-w64-mingw32-ld: cannot find -lxcb
+        /usr/bin/i686-w64-mingw32-ld: cannot find -lX11
+        /usr/bin/i686-w64-mingw32-ld: cannot find -lXau
+
         * Continue win32 gui: starter + sensor + receiver
         * Find out why some functions are unknown in starter --> check compiler options (libs) with Tobias Köhler
         * Hand over all parametres of function "receive_x_window_system" to "deserialise_gui"
