@@ -23,42 +23,20 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DISPLAY_STARTER_SOURCE
-#define DISPLAY_STARTER_SOURCE
+#ifndef EVENT_WIN32_DISPLAY_RECEIVER_SOURCE
+#define EVENT_WIN32_DISPLAY_RECEIVER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
+#include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
+#include "../../../../constant/name/cybol/state/mouse/mouse_state_cybol_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-#ifdef DARWIN
-//??    #include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
-#endif
-#ifdef WIN32
-    #include "../../../../executor/maintainer/starter/win32_display/win32_display_starter.c"
-#endif
-
-/**
- * Starts up the display.
- *
- * @param p0 the internal memory data
- */
-void startup_display(void* p0) {
-
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup display.");
-
-#ifdef DARWIN
-    startup_darwin_display(p0);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    startup_x_window_system(p0);
-#endif
-#ifdef WIN32
-    startup_win32_display(p0);
-#endif
-}
-
-/* DISPLAY_STARTER_SOURCE */
+/* EVENT_WIN32_DISPLAY_RECEIVER_SOURCE */
 #endif

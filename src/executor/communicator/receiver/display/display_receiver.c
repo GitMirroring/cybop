@@ -33,6 +33,9 @@
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/communicator/receiver/x_window_system/x_window_system_receiver.c"
 #endif
+#ifdef WIN32
+    #include "../../../../executor/communicator/receiver/win32_display/win32_display_receiver.c"
+#endif
 
 /**
  * Receives user input to the display.
@@ -50,9 +53,11 @@ void receive_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive display.");
 
-#ifdef WIN32
-#else
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     receive_x_window_system(p0, p1, p2, p3, p4, p5, p6, p7);
+#endif
+#ifdef WIN32
+    receive_win32_display(p0, p1, p2, p3, p4, p5, p6, p7);
 #endif
 }
 

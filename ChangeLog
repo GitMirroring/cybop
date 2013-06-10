@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-06-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare win32 gdi32 for usage in "win32_display_receiver"
+
 2013-06-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Get all event properties in file "event_x_window_system_receiver.c"

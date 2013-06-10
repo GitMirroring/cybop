@@ -145,8 +145,11 @@ _______________________________
 
 - Execute the mingw32 compiler:
 
-    i586-mingw32msvc-gcc src/controller/cyboi.c -o src/controller/cyboi.exe -DPTW32_STATIC_LIB -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32 -w
+    i686-w64-mingw32-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -DPTW32_STATIC_LIB -lpthreadGC2 -lws2_32 -lgdi32 -w
 
+- OLD:
+
+    i586-mingw32msvc-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -DPTW32_STATIC_LIB -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32 -w
 
 CYBOI Compilation Windows (MSVC)
 ________________________________

@@ -23,42 +23,33 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DISPLAY_STARTER_SOURCE
-#define DISPLAY_STARTER_SOURCE
+#ifndef WIN32_DISPLAY_RECEIVER_SOURCE
+#define WIN32_DISPLAY_RECEIVER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/communicator/receiver/win32_display/event_win32_display_receiver.c"
+#include "../../../../executor/representer/deserialiser.c"
 #include "../../../../logger/logger.c"
 
-#ifdef DARWIN
-//??    #include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
-#endif
-#ifdef WIN32
-    #include "../../../../executor/maintainer/starter/win32_display/win32_display_starter.c"
-#endif
-
 /**
- * Starts up the display.
+ * Receives win32 display input.
  *
- * @param p0 the internal memory data
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
+ * @param p2 the source root window data
+ * @param p3 the source root window count
+ * @param p4 the knowledge memory part
+ * @param p5 the internal memory data
+ * @param p6 the format
+ * @param p7 the language
  */
-void startup_display(void* p0) {
+void receive_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup display.");
-
-#ifdef DARWIN
-    startup_darwin_display(p0);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    startup_x_window_system(p0);
-#endif
-#ifdef WIN32
-    startup_win32_display(p0);
-#endif
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display.");
 }
 
-/* DISPLAY_STARTER_SOURCE */
+/* WIN32_DISPLAY_RECEIVER_SOURCE */
 #endif
