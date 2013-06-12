@@ -137,9 +137,9 @@ LRESULT CALLBACK WndProc(HWND w, UINT m, WPARAM p, LPARAM l) {
 
     } else if (m == WM_RBUTTONDOWN) {
 
-        int x = GET_X_LPARAM(lParam);
+//??        int x = GET_X_LPARAM(lParam);
 
-        fwprintf(stdout, L"TEST reg c: %i\n", c);
+//??        fwprintf(stdout, L"TEST reg c: %i\n", c);
 
     } else if (m == WM_MBUTTONDOWN) {
 
