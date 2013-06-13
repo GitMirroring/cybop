@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-06-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move win32 message comparison from starter to receiver
+
 2013-06-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare win32 gdi32 for usage in "win32_display_receiver"

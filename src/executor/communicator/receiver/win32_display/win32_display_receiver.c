@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/communicator/receiver/win32_display/event_win32_display_receiver.c"
+#include "../../../../executor/communicator/receiver/win32_display/messages_win32_display_receiver.c"
 #include "../../../../executor/representer/deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -48,7 +48,44 @@
  */
 void receive_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display.");
+
+    // The buffer item (array, queue) of e.g. 100 elements.
+    // It is needed to avoid endless display input, so that
+    // the system has the chance to process events in between.
+//??    void* buf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The event type string data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mouse button or keycode of the physical key on the keyboard.
+    // Possible types are: xcb_button_t, uint8_t, xcb_keycode_t
+    int bk = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The identification of the window where event occured.
+    // This is needed if the application uses more
+    // than just one window, e.g. dialogue windows.
+    // In this case, the application registers
+    // for events on all of these several windows.
+    // The actual type is: xcb_window_t
+    int win = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The mouse position (x, y).
+    int px = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int py = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The button- or key mask.
+    int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The mouse button identification.
+    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The origo (x, y) of the area that needs to be redrawn.
+    int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The size (width, height) of the area that needs to be redrawn.
+    int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Receive messages.
+    receive_win32_display_messages(p5, (void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h);
+
+    // Deserialise event into a meaningful command.
+//??    deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
 }
 
 /* WIN32_DISPLAY_RECEIVER_SOURCE */

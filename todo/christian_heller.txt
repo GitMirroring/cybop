@@ -10,13 +10,19 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Move win32 message queries from starter to receiver
+        * Move message comparisons from file "callback_message_win32_display_receiver.c" to "message_win32_display_receiver.c"
+            (However, the callback file is still necessary to forward to any unknown messages)
+        * How to hand over many parametres, if callback only allows four of them?
+            --> either use CreateWindowEx last parametre
+            --> or, just catch messages (events) in file "message_win32_display_receiver.c"
+                BEFORE calling function "DispatchMessage", since the latter actually invokes the callback function
+
         * Hand over all parametres of function "receive_x_window_system" to "deserialise_gui"
         * Check in file "expose_gui_deserialiser.c" if position and size of area to be drawn are within child element's area, before (possibly) recursively calling child's expose method
         * Continue x window system serialiser
-        * Continue win32 display gui
         * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
         * Use new function "xcb_block_until_event" or "xcb_wait_for_event_noret" testing for events in file "message_x_window_system_sensor.c", as soon as release xcb 1.10 is out
+
         * Activate terminal input for win32 console
 
         * Adapt cybol specification document:

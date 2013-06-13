@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EVENT_WIN32_DISPLAY_RECEIVER_SOURCE
-#define EVENT_WIN32_DISPLAY_RECEIVER_SOURCE
+#ifndef MESSAGES_WIN32_DISPLAY_RECEIVER_SOURCE
+#define MESSAGES_WIN32_DISPLAY_RECEIVER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -36,7 +36,43 @@
 #include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
 #include "../../../../constant/name/cybol/state/mouse/mouse_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/communicator/receiver/win32_display/message_win32_display_receiver.c"
 #include "../../../../logger/logger.c"
 
-/* EVENT_WIN32_DISPLAY_RECEIVER_SOURCE */
+/**
+ * Receives win32 display messages.
+ *
+ * @param p0 the internal memory data
+ * @param p1 the event type data (pointer reference)
+ * @param p2 the event type count (pointer reference)
+ * @param p3 the mouse button or key code
+ * @param p4 the window identification
+ * @param p5 the mouse position x coordinate
+ * @param p6 the mouse position y coordinate
+ * @param p7 the button- or key mask
+ * @param p8 the mouse button identification
+ * @param p9 the expose area x coordinate
+ * @param p10 the expose area y coordinate
+ * @param p11 the expose area width
+ * @param p12 the expose area height
+ */
+void receive_win32_display_messages(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display messages.");
+
+    // The loop break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
+        }
+
+        receive_win32_display_message(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &b);
+    }
+}
+
+/* MESSAGES_WIN32_DISPLAY_RECEIVER_SOURCE */
 #endif
