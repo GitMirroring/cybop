@@ -98,6 +98,9 @@ fwprintf(stdout, L"TEST wnd: %i\n", wnd);
     // Display window.
     ShowWindow(wnd, o);
 
+    // Send WM_PAINT message to the window in order
+    // to make sure its contents gets refreshed.
+
     UpdateWindow(wnd);
 }
 

@@ -26,6 +26,10 @@
 #ifndef WAIT_CHECKER_SOURCE
 #define WAIT_CHECKER_SOURCE
 
+#ifdef WIN32
+#include <windows.h>
+#endif
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -60,6 +64,29 @@ void check_wait(void* p0, void* p1) {
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The www service interrupt request.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+#ifdef WIN32
+    // The message structure.
+    //
+    // It just serves as placeholder here, since
+    // the message is read and removed only later,
+    // in the main thread.
+    MSG msg;
+
+    // The window.
+    //
+    // CAUTION! It is initialised with null,
+    // so that not only the main window's messages,
+    // but all messages of the thread are received.
+    //
+    // This is important if using a dialogue window
+    // besides the main window, for example.
+    // CYBOI will then have to find out internally,
+    // to which window a message belongs.
+    // It thus has to keep a list of existing windows
+    // in a container structure stored in internal memory.
+    HWND wnd = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
+#endif
 
     // Get interrupt requests.
     //
@@ -185,14 +212,54 @@ void check_wait(void* p0, void* p1) {
 
 //?? fwprintf(stdout, L"TEST wait *sl: %i\n", *((int*) p0));
 
+/*??
         while (
             (*((int*) c) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
             && (*((int*) d) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
             && (*((int*) s) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
             && (*((int*) t) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
             && (*((int*) w) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+*/
 
-            sleep_nano(p0);
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (
+            (*((int*) c) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            || (*((int*) d) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            || (*((int*) s) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            || (*((int*) t) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+            || (*((int*) w) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+
+                break;
+
+#ifdef WIN32
+            // Moving the following code to an own thread in files
+            // "win32_display_sensor.c" and "message_win32_display_sensor.c"
+            // does NOT work, since the "PeekMessage" function
+            // checks the message queue of the calling thread ONLY.
+            // If it was called within an external "sensing" thread,
+            // then messages of the main thread (to which all windows belong)
+            // would never get recognised.
+            //
+            // Therefore, this main thread has to check for messages.
+            } else if (PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_NOREMOVE)) {
+
+                // CAUTION! Setting a mutex is NOT necessary here,
+                // since this is the main thread and no other threads
+                // are writing to the interrupt request variable.
+
+                // Set display interrupt request to indicate
+                // that a message has been received via display,
+                // which may now be processed in the main thread of this system.
+                copy_integer(d, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                break;
+
+#endif
+            } else {
+
+                sleep_nano(p0);
+            }
         }
 
 /*??

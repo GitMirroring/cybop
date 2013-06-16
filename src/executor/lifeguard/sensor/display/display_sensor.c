@@ -30,9 +30,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
-    #include "../../../../executor/lifeguard/sensor/win32_display/win32_display_sensor.c"
-#else
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/lifeguard/sensor/x_window_system/x_window_system_sensor.c"
 #endif
 
@@ -45,9 +43,7 @@ void sense_display(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense display.");
 
-#ifdef WIN32
-    sense_win32_display(p0);
-#else
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     sense_x_window_system(p0);
 #endif
 }

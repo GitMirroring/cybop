@@ -10,13 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Find out why messages do not arrive in "win32_display_sensor.c"
-        * Move message comparisons from file "callback_message_win32_display_receiver.c" to "message_win32_display_receiver.c"
-            (However, the callback file is still necessary to forward to any unknown messages)
-        * How to hand over many parametres, if callback only allows four of them?
-            --> either use CreateWindowEx last parametre
-            --> or, just catch messages (events) in file "message_win32_display_receiver.c"
-                BEFORE calling function "DispatchMessage", since the latter actually invokes the callback function
+        * Handle windows modal operations specially; e.g. window resizing leads to endless loop; see comment on bottom of file "callback_message_win32_display_receiver.c"
+        * Continue win32 display receiver
 
         * Hand over all parametres of function "receive_x_window_system" to "deserialise_gui"
         * Check in file "expose_gui_deserialiser.c" if position and size of area to be drawn are within child element's area, before (possibly) recursively calling child's expose method

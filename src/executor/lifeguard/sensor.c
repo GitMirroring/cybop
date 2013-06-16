@@ -112,8 +112,10 @@ fwprintf(stdout, L"TEST sense - display r: %i\n", r);
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
+#ifdef GNU_LINUX_OPERATING_SYSTEM
             // Sense incoming message.
             sense_message(p0, (void*) DISPLAY_THREAD, (void*) &sense_display);
+#endif
         }
     }
 

@@ -93,7 +93,6 @@ LRESULT CALLBACK receive_win32_display_message_callback(HWND w, UINT m, WPARAM w
 
 fwprintf(stdout, L"TEST receive win32 callback: %i\n", r);
 
-/*??
     if (m == WM_PAINT) {
 
         // Paint the window's client area.
@@ -132,61 +131,54 @@ fwprintf(stdout, L"TEST receive win32 callback: %i\n", r);
 
         EndPaint(w, &ps);
 
-    } else if (m == WM_LBUTTONDOWN) {
-
-        // The MAX_PATH macro defines the maximum length of
-        // a buffer needed to store a filename under Win32.
-        char szFileName[MAX_PATH];
-        HINSTANCE hInstance = GetModuleHandle(NULL);
-
-        GetModuleFileName(hInstance, szFileName, MAX_PATH);
-        MessageBox(w, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
-
-    } else if (m == WM_RBUTTONDOWN) {
-
-        int x = GET_X_LPARAM(lp);
-        int y = GET_Y_LPARAM(lp);
-
-        fwprintf(stdout, L"TEST WM_RBUTTONDOWN x: %i\n", x);
-        fwprintf(stdout, L"TEST WM_RBUTTONDOWN y: %i\n", y);
-
-    } else if (m == WM_MBUTTONDOWN) {
-
-    } else if (m == WM_KEYDOWN) {
-
-        if (wp == VK_ESCAPE) {
-
-            PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-
-    } else if (m == WM_SIZE) {
-
-        // Set size and position of the window.
-
-    } else if (m == WM_CLOSE) {
-
-//??        PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        DestroyWindow(w);
-
-    } else if (m == WM_CREATE) {
-
-        // Initialize the window.
-
-    } else if (m == WM_DESTROY) {
-
-        // Clean up window-specific data objects.
-        PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
     } else {
-*/
 
         // Continue with the default processing,
         // if none of the above messages matched.
         r = DefWindowProc(w, m, wp, lp);
-//??    }
+    }
 
     return r;
 }
+
+//
+// There are a number of modal operations that happen on windows.
+// Win32 Modal operations refer to functions that put an
+// application into a "mode" by starting their own event
+// processing loop until the mode finishes.
+// Common application modes include:
+// - drag and drop operations
+// - move/size operations
+// - anytime a dialog pops up that needs input
+//   before the application can continue.
+//
+// So what is happening is: Your message loop is NOT being run.
+// Your window recieved a WM_LBUTTONDOWN message
+// that you passed to DefWindowProc.
+// DefWindowProc determined that the user was trying
+// to size or move the window interactively and
+// entered a sizing/moving modal function.
+// This function is in a message processing loop
+// watching for mouse messages so that it can intercept
+// them to provide the interactive sizing experience,
+// and will only exit when the sizing operation completes --
+// typically by the user releasing the held button,
+// or by pressing escape.
+//
+// You get notified of this: DefWindowProc sends a
+// WM_ENTERSIZEMOVE and WM_EXITSIZEMOVE messages as it
+// enters and exits the modal event processing loop.
+//
+// To continue to generate "idle" messages, typically create
+// a timer (SetTimer) before calling a modal function --
+// or when getting a message that DefWindowProc is
+// entering a modal function -- the modal loop will
+// continue to dispatch WM_TIMER messages ...
+// and call the idle proc from the timer message handler.
+// Destroy the timer when the modal function returns.
+//
+// http://stackoverflow.com/questions/3102074/win32-my-application-freezes-while-the-user-resizes-the-window
+//
 
 /* EVENT_WIN32_DISPLAY_RECEIVER_SOURCE */
 #endif

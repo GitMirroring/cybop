@@ -69,7 +69,7 @@ fwprintf(stdout, L"TEST receive win32: %i\n", p13);
 
     // The window.
     //
-    // CAUTION! It is initialised with null,
+    // CAUTION! It is initialised with NULL,
     // so that not only the main window's messages,
     // but all messages of the thread are received.
     //
@@ -96,7 +96,7 @@ fwprintf(stdout, L"TEST receive win32: %i\n", p13);
     //
     BOOL a = PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_REMOVE);
 
-    if (a > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (a != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 fwprintf(stdout, L"TEST valid message: %i\n", a);
 
@@ -117,43 +117,49 @@ fwprintf(stdout, L"TEST valid message: %i\n", a);
         // The additional message parametres of type LPARAM.
         LPARAM lp = msg.lParam;
 
-        if (m == WM_PAINT) {
+/*??
+WM_ACTIVATE Sent when a window is activated or becomes the focus.
+WM_CLOSE Sent when a window is closed.
+WM_CREATE Sent when a window is first created. Used for window initialisation.
+WM_DESTROY Sent when a window is about to be destroyed.
+WM_MOVE Sent when a window has been moved.
+WM_MOUSEMOVE Sent when the mouse has been moved.
+WM_KEYUP Sent when a key is released.
+WM_KEYDOWN Sent when a key is pressed.
+WM_TIMER Sent when a timer event occurs.
+WM_USER Allows you to send messages.
+WM_PAINT Sent when a window needs repainting.
+WM_QUIT Sent when a Windows application is finally terminating.
+WM_SIZE Sent when a window has changed size.
+*/
 
+        if (m == WM_QUIT) {
+
+            // Set loop break flag.
+            copy_integer(p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            //?? TODO: Also set global "break" flag here, in order to exit cyboi?
+
+        } else if (m == WM_PAINT) {
+
+            //
             // Paint the window's client area.
-
-            // This is the place where graphics device interface (gdi)
-            // drawing primitives may be used.
             //
-            // The following objects are part of the gdi:
-            // - pen
-            // - brush
-            // - font
-            // - palette
-            // - region
-            // - bitmap
+            // CAUTION! The window content is ONLY painted properly
+            // when catching the WM_PAINT message in the CALLBACK
+            // function "receive_win32_display_message_callback",
+            // and NOT here!
             //
-            // They get parameterised through the
-            // corresponding "Create" function call.
-            // They get bound to a device context and
-            // activated through the "SelectObject" function.
-            // At the end, "DeleteObject" should
-            // be called to release the object.
-
-            // The paint structure.
-            PAINTSTRUCT ps;
-            // The device context (dc).
-            HDC dc = BeginPaint(w, &ps);
-
-            // The background colour.
-            COLORREF bg = RGB(255, 255, 0);
-            // The foreground colour.
-            COLORREF fg = RGB(255, 0, 0);
-
-            HBRUSH br = CreateSolidBrush(bg);
-            HPEN pe = CreatePen(PS_SOLID, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, fg);
-            BOOL b = Rectangle(dc, 50, 50, 200, 100);
-
-            EndPaint(w, &ps);
+            // Perhaps this is related to the following effect:
+            //
+            // The "PeekMessage" function normally does NOT remove
+            // WM_PAINT messages from the queue. They remain
+            // in the queue until they are processed.
+            // However, if a WM_PAINT message has a NULL update
+            // region, "PeekMessage" DOES remove it from the queue.
+            //
+            // http://msdn.microsoft.com/en-us/library/windows/desktop/ms644943(v=vs.85).aspx
+            //
 
         } else if (m == WM_LBUTTONDOWN) {
 
@@ -180,11 +186,22 @@ fwprintf(stdout, L"TEST valid message: %i\n", a);
             if (wp == VK_ESCAPE) {
 
                 PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+                //?? TODO: Alternative to send message to windows to exit.
+                //?? PostMessage(w, WM_DESTROY, 0, 0);
             }
 
         } else if (m == WM_SIZE) {
 
             // Set size and position of the window.
+
+        } else if (m == WM_ENTERSIZEMOVE) {
+
+            //?? TODO
+
+        } else if (m == WM_EXITSIZEMOVE) {
+
+            //?? TODO
 
         } else if (m == WM_CLOSE) {
 
@@ -200,37 +217,37 @@ fwprintf(stdout, L"TEST valid message: %i\n", a);
             // Clean up window-specific data objects.
             PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        } else if (m == WM_QUIT) {
-
-            //?? TODO
-
         } else {
 
             //
-            // Translate virtual-key messages into character messages.
-            // The character messages are posted to the calling thread's
+            // Translate any virtual accelerator keys.
+            //
+            // They get translated into character messages,
+            // in order for keystrokes being delivered correctly.
+            //
+            // The character message is posted to the calling thread's
             // message queue, to be read the next time the thread
-            // calls the GetMessage or PeekMessage function.
+            // calls the "GetMessage" or "PeekMessage" function.
             //
             // This step is actually optional, but certain
             // things won't work if it's not there.
             //
-            // Example:
-            //
-            // Generating WM_CHAR messages to go
-            // along with WM_KEYDOWN messages.
+            // Example: Generating WM_CHAR messages to
+            // go along with WM_KEYDOWN messages.
             //
             TranslateMessage(&msg);
 
             //
-            // Send message out to the window
+            // Send message to windows procedure.
+            //
+            // The message is sent out to the window
             // where the message (event) occured.
-            // Call back the window's "WndProc" procedure.
+            // That window's "WndProc" procedure is called back.
             //
             // CAUTION! The window's "WndProc" procedure
             // is NOT magically called by the system.
             // It is called indirectly through the programme,
-            // by calling "DispatchMessage".
+            // by calling "DispatchMessage" HERE.
             //
             // Alternatively, one could use "GetWindowLong" on
             // the window handle that the message is destined for
@@ -239,7 +256,7 @@ fwprintf(stdout, L"TEST valid message: %i\n", a);
             //
             // WNDPROC fWndProc = (WNDPROC) GetWindowLong(Msg.hwnd, GWL_WNDPROC);
             // fWndProc(Msg.hwnd, Msg.message, Msg.wParam, Msg.lParam);
--            //
+            //
             // http://www.winprog.org/tutorial/message_loop.html
             //
             // The author of the above-mentioned article
@@ -254,26 +271,11 @@ fwprintf(stdout, L"TEST valid message: %i\n", a);
             DispatchMessage(&msg);
         }
 
-    } else if (a == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    } else {
 
         // No messages are available.
 
 fwprintf(stdout, L"TEST no message available: %i\n", a);
-
-        // Set loop break flag.
-        copy_integer(p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    } else {
-
-fwprintf(stdout, L"TEST negative message: %i\n", a);
-
-        // An error occured.
-
-        // Get the calling thread's last-error code.
-        DWORD e = GetLastError();
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 display. The message retrieval failed.");
-        log_windows_system_error((void*) &e);
 
         // Set loop break flag.
         copy_integer(p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

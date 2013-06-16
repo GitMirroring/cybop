@@ -15,10 +15,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-06-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Process "WM_PAINT" message in callback function and other messages in file "message_win32_display_receiver.c"
+        * Find out that function "PeekMessage" only checks for messages in calling "sensing" thread, so that the main thread's messages are not recognised
+        * Move message detection code from file "message_win32_display_sensor.c" to "wait_checker.c" using active polling in the main thread
+        * Delete win32 display sensor executor directory
+
 2013-06-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Use function "pthread_equal" for thread comparison, since posix uses a scalar value, but libpthreads-mingw-w64 (win32) uses a struct
-        * Use new global variable "pthread_t DEFAULT_THREAD" for comparison, in order to find out whether or not a thread was created already
+        * Add new global variable "pthread_t DEFAULT_THREAD" for comparison, in order to find out whether or not a thread was created already
 
 2013-06-14  Christian Heller  <christian.heller@tuxtax.de>
 
