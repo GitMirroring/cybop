@@ -26,6 +26,8 @@
 #ifndef MESSAGE_WIN32_DISPLAY_RECEIVER_SOURCE
 #define MESSAGE_WIN32_DISPLAY_RECEIVER_SOURCE
 
+#include <windowsx.h>
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -60,23 +62,39 @@ void receive_win32_display_message(void* p0, void* p1, void* p2, void* p3, void*
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display message.");
 
-    // The message.
+fwprintf(stdout, L"TEST receive win32: %i\n", p13);
+
+    // The message structure.
     MSG msg;
+
+    // The window.
+    //
+    // CAUTION! It is initialised with null,
+    // so that not only the main window's messages,
+    // but all messages of the thread are received.
+    //
+    // This is important if using a dialogue window
+    // besides the main window, for example.
+    // CYBOI will then have to find out internally,
+    // to which window a message belongs.
+    // It thus has to keep a list of existing windows
+    // in a container structure stored in internal memory.
+    HWND wnd = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Get message from application's message queue.
     //
-    // The return value indicates message availability:
-    // nonzero - a message is available
-    // zero - no messages are available
+    // Using "PeekMessage", one can choose between "PM_NOREMOVE" and
+    // "PM_REMOVE", to be handed over as last argument.
     //
-    // Possible function alternatives:
-    // - blocking:
-    //   GetMessage(&msg, (HWND) *NULL_POINTER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    // - non-blocking:
-    //   PeekMessage(&msg, (HWND) *NULL_POINTER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_REMOVE);
+    // CAUTION! DO remove the message from the queue with flag PM_REMOVE here!
+    // It was detected in the sensing thread and may be removed and processed now.
     //
-    BOOL a = PeekMessage(&msg, (HWND) *NULL_POINTER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_REMOVE);
+    // IF a message is available, the return value is NONZERO (TRUE).
+    // If NO messages are available, the return value is ZERO (FALSE).
+    // The loop sleeps if no messages are available.
+    //
+    BOOL a = PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_REMOVE);
 
     if (a > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -90,17 +108,103 @@ fwprintf(stdout, L"TEST valid message: %i\n", a);
         // has only four fixed parametres, but many
         // more have to be set here.
 
-/*??
-        if (msg.message == WM_QUIT) {
+        // The window where the message occured.
+        HWND w = msg.hwnd;
+        // The message.
+        UINT m = msg.message;
+        // The additional message parametres of type WPARAM.
+        WPARAM wp = msg.wParam;
+        // The additional message parametres of type LPARAM.
+        LPARAM lp = msg.lParam;
 
-            //?? TODO
+        if (m == WM_PAINT) {
 
-        } else if (msg.message == WM_QUIT) {
+            // Paint the window's client area.
+
+            // This is the place where graphics device interface (gdi)
+            // drawing primitives may be used.
+            //
+            // The following objects are part of the gdi:
+            // - pen
+            // - brush
+            // - font
+            // - palette
+            // - region
+            // - bitmap
+            //
+            // They get parameterised through the
+            // corresponding "Create" function call.
+            // They get bound to a device context and
+            // activated through the "SelectObject" function.
+            // At the end, "DeleteObject" should
+            // be called to release the object.
+
+            // The paint structure.
+            PAINTSTRUCT ps;
+            // The device context (dc).
+            HDC dc = BeginPaint(w, &ps);
+
+            // The background colour.
+            COLORREF bg = RGB(255, 255, 0);
+            // The foreground colour.
+            COLORREF fg = RGB(255, 0, 0);
+
+            HBRUSH br = CreateSolidBrush(bg);
+            HPEN pe = CreatePen(PS_SOLID, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, fg);
+            BOOL b = Rectangle(dc, 50, 50, 200, 100);
+
+            EndPaint(w, &ps);
+
+        } else if (m == WM_LBUTTONDOWN) {
+
+            // The MAX_PATH macro defines the maximum length of
+            // a buffer needed to store a filename under Win32.
+            char szFileName[MAX_PATH];
+            HINSTANCE hInstance = GetModuleHandle(NULL);
+
+            GetModuleFileName(hInstance, szFileName, MAX_PATH);
+            MessageBox(w, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
+
+        } else if (m == WM_RBUTTONDOWN) {
+
+            int x = GET_X_LPARAM(lp);
+            int y = GET_Y_LPARAM(lp);
+
+            fwprintf(stdout, L"TEST WM_RBUTTONDOWN x: %i\n", x);
+            fwprintf(stdout, L"TEST WM_RBUTTONDOWN y: %i\n", y);
+
+        } else if (m == WM_MBUTTONDOWN) {
+
+        } else if (m == WM_KEYDOWN) {
+
+            if (wp == VK_ESCAPE) {
+
+                PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            }
+
+        } else if (m == WM_SIZE) {
+
+            // Set size and position of the window.
+
+        } else if (m == WM_CLOSE) {
+
+    //??        PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            DestroyWindow(w);
+
+        } else if (m == WM_CREATE) {
+
+            // Initialize the window.
+
+        } else if (m == WM_DESTROY) {
+
+            // Clean up window-specific data objects.
+            PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        } else if (m == WM_QUIT) {
 
             //?? TODO
 
         } else {
-*/
 
             //
             // Translate virtual-key messages into character messages.
@@ -135,7 +239,7 @@ fwprintf(stdout, L"TEST valid message: %i\n", a);
             //
             // WNDPROC fWndProc = (WNDPROC) GetWindowLong(Msg.hwnd, GWL_WNDPROC);
             // fWndProc(Msg.hwnd, Msg.message, Msg.wParam, Msg.lParam);
-            //
+-            //
             // http://www.winprog.org/tutorial/message_loop.html
             //
             // The author of the above-mentioned article
@@ -148,9 +252,7 @@ fwprintf(stdout, L"TEST valid message: %i\n", a);
             // Therefore, it is NOT used here.
             //
             DispatchMessage(&msg);
-/*??
         }
-*/
 
     } else if (a == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

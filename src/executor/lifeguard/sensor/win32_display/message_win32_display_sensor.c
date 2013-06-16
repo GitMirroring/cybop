@@ -69,7 +69,7 @@ void sense_win32_display_message(void* p0, void* p1, void* p2) {
             //
             // CAUTION! It is initialised with null,
             // so that not only the main window's messages,
-            // but all message of the thread are received.
+            // but all messages of the thread are received.
             //
             // This is important if using a dialogue window
             // besides the main window, for example.
@@ -77,10 +77,10 @@ void sense_win32_display_message(void* p0, void* p1, void* p2) {
             // to which window a message belongs.
             // It thus has to keep a list of existing windows
             // in a container structure stored in internal memory.
-            HWND w = *NULL_POINTER_STATE_CYBOI_MODEL;
+            HWND w = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
 
             //
-            // Check for message.
+            // Get message from application's message queue.
             //
             // The Win32 API:
             // http://msdn.microsoft.com/en-us/library/windows/desktop/ms632590(v=vs.85).aspx
@@ -99,17 +99,21 @@ void sense_win32_display_message(void* p0, void* p1, void* p2) {
             // Using "PeekMessage", one can choose between "PM_NOREMOVE" and
             // "PM_REMOVE", to be handed over as last argument.
             //
-            // CAUTION! Do NOT remove the message from the queue with flag PM_REMOVE.
+            // CAUTION! Do NOT remove the message from the queue with flag PM_REMOVE here!
             // The message is read and removed only later, in the main thread.
             //
             // IF a message is available, the return value is NONZERO (TRUE).
             // If NO messages are available, the return value is ZERO (FALSE).
             // The loop sleeps if no messages are available.
             //
+fwprintf(stdout, L"TEST sense win32 display message time: %i\n", *((int*) p2));
             while (!PeekMessage(&m, w, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_NOREMOVE)) {
 
+fwprintf(stdout, L"TEST sense win32 display message loop: %i\n", irq);
                 sleep_nano(p2);
             }
+
+fwprintf(stdout, L"TEST sense win32 display message post: %i\n", *((int*) p2));
 
             // Lock display mutex.
             pthread_mutex_lock(mt);

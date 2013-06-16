@@ -29,11 +29,12 @@ Debian packages for CYBOL application execution:
 
 Debian packages for compilation:
     autotools (autoconf, automake)
-    xorg-dev
-    xlibs-dev (now possibly contained in xorg-dev)
-    libtool
     glut or freeglut3 or the like
+    libpthreads-mingw-w64
+    libtool
     mesa etc.
+    xlibs-dev (now possibly contained in xorg-dev)
+    xorg-dev
 
 
 Package and Library Installation Windows (GCC)

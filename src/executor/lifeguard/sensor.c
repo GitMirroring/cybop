@@ -89,7 +89,7 @@ void sense(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST sense cyboi r: %i\n", r);
+fwprintf(stdout, L"TEST sense - cyboi r: %i\n", r);
 
             // Set handler.
             copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -107,7 +107,7 @@ fwprintf(stdout, L"TEST sense cyboi r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST sense x window system r: %i\n", r);
+fwprintf(stdout, L"TEST sense - display r: %i\n", r);
 
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -123,7 +123,7 @@ fwprintf(stdout, L"TEST sense x window system r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST sense serial port r: %i\n", r);
+//?? fwprintf(stdout, L"TEST sense - serial port r: %i\n", r);
 
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -139,7 +139,7 @@ fwprintf(stdout, L"TEST sense x window system r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST sense terminal r: %i\n", r);
+//?? fwprintf(stdout, L"TEST sense - terminal r: %i\n", r);
 
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -155,7 +155,7 @@ fwprintf(stdout, L"TEST sense x window system r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST sense www r: %i\n", r);
+fwprintf(stdout, L"TEST sense - www r: %i\n", r);
 
             // Set handler.
             i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *HANDLER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;

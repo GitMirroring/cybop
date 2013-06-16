@@ -10,6 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Find out why messages do not arrive in "win32_display_sensor.c"
         * Move message comparisons from file "callback_message_win32_display_receiver.c" to "message_win32_display_receiver.c"
             (However, the callback file is still necessary to forward to any unknown messages)
         * How to hand over many parametres, if callback only allows four of them?

@@ -42,9 +42,9 @@ static int* NAME_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_40_INTEGER_STATE_CYBO
 /**
  * The version identification cyboi model.
  *
- * 0.12.0
+ * 0.15.0
  */
-static wchar_t VERSION_IDENTIFICATION_CYBOI_MODEL_ARRAY[] = {L'0', L'.', L'1', L'2', L'.', L'0'};
+static wchar_t VERSION_IDENTIFICATION_CYBOI_MODEL_ARRAY[] = {L'0', L'.', L'1', L'5', L'.', L'0'};
 static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = VERSION_IDENTIFICATION_CYBOI_MODEL_ARRAY;
 static int* VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -62,7 +62,7 @@ static int* SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_21_INTEGER_STATE_CY
  *
  * Copyright (C) 1999-2013. Christian Heller.
  */
-static wchar_t COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_ARRAY[] = {L'C', L'o', L'p', L'y', L'r', L'i', L'g', L'h', L't', L' ', L'(', L'C', L')', L' ', L'1', L'9', L'9', L'9', L'-', L'2', L'0', L'1', L'2', L'.', L' ', L'C', L'h', L'r', L'i', L's', L't', L'i', L'a', L'n', L' ', L'H', L'e', L'l', L'l', L'e', L'r', L'.'};
+static wchar_t COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_ARRAY[] = {L'C', L'o', L'p', L'y', L'r', L'i', L'g', L'h', L't', L' ', L'(', L'C', L')', L' ', L'1', L'9', L'9', L'9', L'-', L'2', L'0', L'1', L'3', L'.', L' ', L'C', L'h', L'r', L'i', L's', L't', L'i', L'a', L'n', L' ', L'H', L'e', L'l', L'l', L'e', L'r', L'.'};
 static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_ARRAY;
 static int* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

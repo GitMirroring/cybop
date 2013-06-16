@@ -85,7 +85,7 @@ fwprintf(stdout, L"TEST i: %i\n", i);
     // The additional application data.
     LPVOID a = (LPVOID) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The opening style.
-    int o = SW_MAXIMIZE;
+    int o = SW_SHOWNORMAL; //?? SW_MAXIMIZE;
 //??    int o = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Register window class.

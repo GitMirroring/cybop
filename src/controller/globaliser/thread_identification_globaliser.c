@@ -36,15 +36,46 @@
  * Initialises thread identification global variables.
  */
 void globalise_thread_identification() {
-#ifdef WIN32
-    // ...
-#else
-    *CYBOI_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *DISPLAY_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *SERIAL_PORT_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *TERMINAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    *WWW_SERVICE_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-#endif
+
+    //
+    // Initialise threads.
+    //
+    // CAUTION! The default thread does NOT
+    // get initialised.
+    //
+    // It is left empty on purpose, since it
+    // is used for comparison only further below.
+    //
+    // CAUTION! Do NOT assign an integer value here.
+    // The pthread implementation under mingw win32
+    // uses a struct and NOT a scalar value.
+    //
+    // Otherwise, the compiler reports the error:
+    // incompatible types when assigning to type ‘pthread_t’ from type ‘int’
+    //
+    // And when trying to cast, the compiler reports the error:
+    // conversion to non-scalar type requested
+    //
+    // Originally pthread_t was defined as a pointer
+    // (to the opaque pthread_t_struct) and later it was
+    // changed to a struct containing the original pointer
+    // plus a sequence counter. This is allowed under both
+    // the original POSIX Threads Standard and the current
+    // Single Unix Specification.
+    //
+    // Other pthreads implementations, such as Sun's,
+    // use an int as the handle but do guarantee uniqueness
+    // within the process scope. Win32 scalar typed thread
+    // handles also guarantee uniqueness in system scope.
+    //
+    // http://sourceware.org/pthreads-win32/faq.html
+    //
+
+    *CYBOI_SERVICE_THREAD = DEFAULT_THREAD;
+    *DISPLAY_THREAD = DEFAULT_THREAD;
+    *SERIAL_PORT_THREAD = DEFAULT_THREAD;
+    *TERMINAL_THREAD = DEFAULT_THREAD;
+    *WWW_SERVICE_THREAD = DEFAULT_THREAD;
 }
 
 /* THREAD_IDENTIFICATION_GLOBALISER_SOURCE */

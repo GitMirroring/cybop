@@ -87,10 +87,13 @@
  * @param p the additional message parametres of type WPARAM
  * @param l the additional message parametres of type LPARAM
  */
-LRESULT CALLBACK receive_win32_display_message_callback(HWND w, UINT m, WPARAM p, LPARAM l) {
+LRESULT CALLBACK receive_win32_display_message_callback(HWND w, UINT m, WPARAM wp, LPARAM lp) {
 
     LRESULT r = (LRESULT) 0;
 
+fwprintf(stdout, L"TEST receive win32 callback: %i\n", r);
+
+/*??
     if (m == WM_PAINT) {
 
         // Paint the window's client area.
@@ -141,8 +144,8 @@ LRESULT CALLBACK receive_win32_display_message_callback(HWND w, UINT m, WPARAM p
 
     } else if (m == WM_RBUTTONDOWN) {
 
-        int x = GET_X_LPARAM(l);
-        int y = GET_Y_LPARAM(l);
+        int x = GET_X_LPARAM(lp);
+        int y = GET_Y_LPARAM(lp);
 
         fwprintf(stdout, L"TEST WM_RBUTTONDOWN x: %i\n", x);
         fwprintf(stdout, L"TEST WM_RBUTTONDOWN y: %i\n", y);
@@ -151,7 +154,7 @@ LRESULT CALLBACK receive_win32_display_message_callback(HWND w, UINT m, WPARAM p
 
     } else if (m == WM_KEYDOWN) {
 
-        if (p == VK_ESCAPE) {
+        if (wp == VK_ESCAPE) {
 
             PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
@@ -175,11 +178,12 @@ LRESULT CALLBACK receive_win32_display_message_callback(HWND w, UINT m, WPARAM p
         PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     } else {
+*/
 
         // Continue with the default processing,
         // if none of the above messages matched.
-        r = DefWindowProc(w, m, p, l);
-    }
+        r = DefWindowProc(w, m, wp, lp);
+//??    }
 
     return r;
 }

@@ -35,6 +35,15 @@
 // Initialisation happens in directory "controller/globaliser/".
 //
 
+/**
+ * The empty default thread.
+ *
+ * CAUTION! It is used for comparison only,
+ * in order to find out whether or not
+ * a thread was created already.
+ */
+static pthread_t DEFAULT_THREAD;
+
 /** The cyboi service thread. */
 static pthread_t CYBOI_SERVICE_THREAD_ARRAY[1];
 static pthread_t* CYBOI_SERVICE_THREAD = CYBOI_SERVICE_THREAD_ARRAY;
