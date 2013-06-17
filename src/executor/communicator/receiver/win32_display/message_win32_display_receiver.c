@@ -117,30 +117,63 @@ fwprintf(stdout, L"TEST valid message: %i\n", a);
         // The additional message parametres of type LPARAM.
         LPARAM lp = msg.lParam;
 
-/*??
-WM_ACTIVATE Sent when a window is activated or becomes the focus.
-WM_CLOSE Sent when a window is closed.
-WM_CREATE Sent when a window is first created. Used for window initialisation.
-WM_DESTROY Sent when a window is about to be destroyed.
-WM_MOVE Sent when a window has been moved.
-WM_MOUSEMOVE Sent when the mouse has been moved.
-WM_KEYUP Sent when a key is released.
-WM_KEYDOWN Sent when a key is pressed.
-WM_TIMER Sent when a timer event occurs.
-WM_USER Allows you to send messages.
-WM_PAINT Sent when a window needs repainting.
-WM_QUIT Sent when a Windows application is finally terminating.
-WM_SIZE Sent when a window has changed size.
-*/
+        if (m == WM_ACTIVATE) {
 
-        if (m == WM_QUIT) {
+            // Sent when a window is activated or becomes the focus.
 
-            // Set loop break flag.
-            copy_integer(p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        } else if (m == WM_CLOSE) {
 
-            //?? TODO: Also set global "break" flag here, in order to exit cyboi?
+            // Sent when a window is closed.
+
+    //??        PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            DestroyWindow(w);
+
+        } else if (m == WM_CREATE) {
+
+            // Sent when a window is first created. Used for window initialisation.
+
+        } else if (m == WM_DESTROY) {
+
+            // Sent when a window is about to be destroyed.
+
+            // Clean up window-specific data objects.
+            PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        } else if (m == WM_MOVE) {
+
+            // Sent when a window has been moved.
+
+        } else if (m == WM_MOUSEMOVE) {
+
+            // Sent when the mouse has been moved.
+
+        } else if (m == WM_KEYUP) {
+
+            // Sent when a key is released.
+
+        } else if (m == WM_KEYDOWN) {
+
+            // Sent when a key is pressed.
+
+            if (wp == VK_ESCAPE) {
+
+                PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+                //?? TODO: Alternative to send message to windows to exit.
+                //?? PostMessage(w, WM_DESTROY, 0, 0);
+            }
+
+        } else if (m == WM_TIMER) {
+
+            // Sent when a timer event occurs.
+
+        } else if (m == WM_USER) {
+
+            // Allows you to send messages.
 
         } else if (m == WM_PAINT) {
+
+            // Sent when a window needs repainting.
 
             //
             // Paint the window's client area.
@@ -160,6 +193,21 @@ WM_SIZE Sent when a window has changed size.
             //
             // http://msdn.microsoft.com/en-us/library/windows/desktop/ms644943(v=vs.85).aspx
             //
+
+        } else if (m == WM_QUIT) {
+
+            // Sent when a Windows application is finally terminating.
+
+            // Set loop break flag.
+            copy_integer(p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            //?? TODO: Also set global "break" flag here, in order to exit cyboi?
+
+        } else if (m == WM_SIZE) {
+
+            // Sent when a window has changed size.
+
+//?? ========== sort the following alphabetically into above ===
 
         } else if (m == WM_LBUTTONDOWN) {
 
@@ -181,20 +229,6 @@ WM_SIZE Sent when a window has changed size.
 
         } else if (m == WM_MBUTTONDOWN) {
 
-        } else if (m == WM_KEYDOWN) {
-
-            if (wp == VK_ESCAPE) {
-
-                PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-                //?? TODO: Alternative to send message to windows to exit.
-                //?? PostMessage(w, WM_DESTROY, 0, 0);
-            }
-
-        } else if (m == WM_SIZE) {
-
-            // Set size and position of the window.
-
         } else if (m == WM_ENTERSIZEMOVE) {
 
             //?? TODO
@@ -202,20 +236,6 @@ WM_SIZE Sent when a window has changed size.
         } else if (m == WM_EXITSIZEMOVE) {
 
             //?? TODO
-
-        } else if (m == WM_CLOSE) {
-
-    //??        PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            DestroyWindow(w);
-
-        } else if (m == WM_CREATE) {
-
-            // Initialize the window.
-
-        } else if (m == WM_DESTROY) {
-
-            // Clean up window-specific data objects.
-            PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         } else {
 
