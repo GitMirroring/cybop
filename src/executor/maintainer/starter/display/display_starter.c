@@ -31,13 +31,13 @@
 #include "../../../../logger/logger.c"
 
 #ifdef DARWIN
-//??    #include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
+    #include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
 #endif
 #ifdef WIN32
     #include "../../../../executor/maintainer/starter/win32_display/win32_display_starter.c"
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
 #endif
 
 /**
@@ -52,11 +52,11 @@ void startup_display(void* p0) {
 #ifdef DARWIN
     startup_darwin_display(p0);
 #endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    startup_x_window_system(p0);
-#endif
 #ifdef WIN32
     startup_win32_display(p0);
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    startup_x_window_system(p0);
 #endif
 }
 

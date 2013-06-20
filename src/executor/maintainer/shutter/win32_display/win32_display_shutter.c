@@ -23,44 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DISPLAY_SHUTTER_SOURCE
-#define DISPLAY_SHUTTER_SOURCE
+#ifndef WIN32_DISPLAY_SHUTTER_SOURCE
+#define WIN32_DISPLAY_SHUTTER_SOURCE
+
+#include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-#ifdef DARWIN
-    #include "../../../../executor/maintainer/shutter/darwin_display/darwin_display_shutter.c"
-#endif
-#ifdef WIN32
-    #include "../../../../executor/maintainer/shutter/win32_display/win32_display_shutter.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
-#endif
-
 /**
- * Shuts down the display.
+ * Shuts down the win32 display.
  *
  * @param p0 the internal memory data
- * @param p1 the service thread
- * @param p2 the service thread interrupt
  */
-void shutdown_display(void* p0, void* p1, void* p2) {
+void shutdown_win32_display(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown display.");
-
-#ifdef DARWIN
-    shutdown_darwin_display(p0);
-#endif
-#ifdef WIN32
-    shutdown_win32_display(p0);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    shutdown_x_window_system(p0, p1, p2);
-#endif
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown win32 display.");
 }
 
-/* DISPLAY_SHUTTER_SOURCE */
+/* WIN32_DISPLAY_SHUTTER_SOURCE */
 #endif

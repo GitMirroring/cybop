@@ -27,7 +27,7 @@
 #define WAIT_CHECKER_SOURCE
 
 #ifdef WIN32
-#include <windows.h>
+    #include <windows.h>
 #endif
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -212,15 +212,6 @@ void check_wait(void* p0, void* p1) {
 
 //?? fwprintf(stdout, L"TEST wait *sl: %i\n", *((int*) p0));
 
-/*??
-        while (
-            (*((int*) c) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            && (*((int*) d) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            && (*((int*) s) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            && (*((int*) t) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            && (*((int*) w) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
-*/
-
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (
@@ -233,15 +224,19 @@ void check_wait(void* p0, void* p1) {
                 break;
 
 #ifdef WIN32
-            // Moving the following code to an own thread in files
+            // CAUTION! Moving the following code to an own thread in files
             // "win32_display_sensor.c" and "message_win32_display_sensor.c"
             // does NOT work, since the "PeekMessage" function
-            // checks the message queue of the calling thread ONLY.
+            // checks the message queue of the CALLING thread ONLY.
             // If it was called within an external "sensing" thread,
-            // then messages of the main thread (to which all windows belong)
-            // would never get recognised.
-            //
+            // then messages of the cyboi main thread
+            // (to which all windows belong) would never get recognised.
             // Therefore, this main thread has to check for messages.
+            //
+            // CAUTION! The message MUST NOT be removed here,
+            // since it has to be read again in a "receive" function,
+            // where the actual processing happens.
+            // This call here is just made to detect available messages.
             } else if (PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_NOREMOVE)) {
 
                 // CAUTION! Setting a mutex is NOT necessary here,

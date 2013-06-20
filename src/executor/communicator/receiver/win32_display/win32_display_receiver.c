@@ -81,6 +81,8 @@ void receive_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST receive win32 display: %i\n", p5);
+
     // Receive messages.
     receive_win32_display_messages(p5, (void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h);
 

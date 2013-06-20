@@ -37,6 +37,7 @@
 #include "../../../../constant/name/cybol/state/mouse/mouse_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/communicator/receiver/win32_display/message_win32_display_receiver.c"
+#include "../../../../executor/communicator/receiver/win32_display/process_win32_display_receiver.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -60,6 +61,8 @@ void receive_win32_display_messages(void* p0, void* p1, void* p2, void* p3, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display messages.");
 
+    // The message.
+    MSG m;
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -70,7 +73,21 @@ void receive_win32_display_messages(void* p0, void* p1, void* p2, void* p3, void
             break;
         }
 
-        receive_win32_display_message(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &b);
+        //
+        // CAUTION! Process event (message) first,
+        // before trying to retrieve the next one.
+        //
+        // The reason is that an initial event (message)
+        // was probably already retrieved in file "wait_checker.c".
+        // It HAS TO BE processed before getting a next.
+        //
+        // If no more events are available, the break
+        // flag is set, so that the loop may be left
+        // before trying to process an empty event.
+        //
+
+        receive_win32_display_process(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &b, (void*) &m);
+        receive_win32_display_message((void*) &b, (void*) &m);
     }
 }
 
