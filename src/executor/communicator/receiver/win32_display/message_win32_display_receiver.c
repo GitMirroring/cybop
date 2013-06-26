@@ -30,23 +30,16 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
-#include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
-#include "../../../../constant/name/cybol/state/mouse/mouse_state_cybol_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Receives a win32 display message.
  *
  * @param p0 the message
- * @param p1 the loop break flag
  */
-void receive_win32_display_message(void* p0, void* p1) {
+void receive_win32_display_message(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -81,15 +74,7 @@ void receive_win32_display_message(void* p0, void* p1) {
         // If NO messages are available, the return value is ZERO (FALSE).
         // The loop sleeps if no messages are available.
         //
-        BOOL b = PeekMessage(m, w, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_REMOVE);
-
-        if (b == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            // No messages are available.
-
-            // Set loop break flag.
-            copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        PeekMessage(m, w, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_REMOVE);
 
     } else {
 

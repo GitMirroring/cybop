@@ -37,7 +37,6 @@
 #include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
 #include "../../../../constant/name/cybol/state/mouse/mouse_state_cybol_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -56,9 +55,8 @@
  * @param p10 the expose area width
  * @param p11 the expose area height
  * @param p12 the message
- * @param p13 the loop break flag
  */
-void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     // The following code sections are NOT indented,
     // since more may have to be added in future.
@@ -200,6 +198,9 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
 
             // Sent when a key is pressed.
 
+            // The additional message parametres of type WPARAM.
+            WPARAM wp = msg->wParam;
+
             if (wp == VK_ESCAPE) {
 
                 PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -218,8 +219,8 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
 
         } else if (m == WM_LBUTTONDOWN) {
 
-            copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
-            copy_pointer(p2, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
+            copy_pointer(p0, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
 
             // Get window where the message occured (identification).
             *win = (int) msg->hwnd;
@@ -239,6 +240,9 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             *px = GET_X_LPARAM(lp);
             *py = GET_Y_LPARAM(lp);
 
+            fwprintf(stdout, L"TEST WM_LBUTTONDOWN x: %i\n", *px);
+            fwprintf(stdout, L"TEST WM_LBUTTONDOWN y: %i\n", *py);
+
             // The additional message parametres of type WPARAM (button mask).
 //??            *m = (int) msg->wParam;
 
@@ -250,7 +254,7 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             HINSTANCE hInstance = GetModuleHandle(NULL);
 
             GetModuleFileName(hInstance, szFileName, MAX_PATH);
-            MessageBox(w, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
+            MessageBox(*win, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
 
         } else if (m == WM_MBUTTONDOWN) {
 
@@ -289,12 +293,12 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
 
             // Sent when a Windows application is finally terminating.
 
-            // Set loop break flag.
-            copy_integer(p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            //?? TODO: Also set global "break" flag here, in order to exit cyboi?
+            //?? TODO: Set global "break" flag here, in order to exit cyboi?
 
         } else if (m == WM_RBUTTONDOWN) {
+
+            // The additional message parametres of type LPARAM.
+            LPARAM lp = msg->lParam;
 
             int x = GET_X_LPARAM(lp);
             int y = GET_Y_LPARAM(lp);

@@ -19,7 +19,7 @@
 
         * Fix bug in file "thread_interrupter.c" so that comparison and reset are done using DEFAULT_THREAD
         * Continue win32 display receiver
-        * Extend x window system receiver with loop checking for available messages
+        * Clean up x window system receiver
 
 2013-06-17  Christian Heller  <christian.heller@tuxtax.de>
 

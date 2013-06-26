@@ -30,7 +30,8 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/communicator/receiver/win32_display/messages_win32_display_receiver.c"
+#include "../../../../executor/communicator/receiver/win32_display/message_win32_display_receiver.c"
+#include "../../../../executor/communicator/receiver/win32_display/process_win32_display_receiver.c"
 #include "../../../../executor/representer/deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -50,10 +51,8 @@ void receive_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display.");
 
-    // The buffer item (array, queue) of e.g. 100 elements.
-    // It is needed to avoid endless display input, so that
-    // the system has the chance to process events in between.
-//??    void* buf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The message.
+    MSG msg;
     // The event type string data, count.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -81,13 +80,23 @@ void receive_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST receive win32 display: %i\n", p5);
+    //
+    // CAUTION! A loop is NOT used here, since the
+    // main thread's signal/event/message loop
+    // repeatedly calls this function when necessary.
+    //
 
-    // Receive messages.
-    receive_win32_display_messages(p5, (void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h);
+    // Receive message.
+    receive_win32_display_message((void*) &msg);
+
+    // Process message.
+    receive_win32_display_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &msg);
 
     // Deserialise event into a meaningful command.
-//??    deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
+    //?? TODO: Comment in or delete later.
+    //?? However, "gui" is probably ALWAYS used as language in conjunction with the x window system.
+    deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
+//??    deserialise_gui(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
 }
 
 /* WIN32_DISPLAY_RECEIVER_SOURCE */

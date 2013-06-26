@@ -44,27 +44,31 @@
  * Receives an x window system event.
  *
  * @param p0 the event (pointer reference)
- * @param p1 the connexion
- * @param p2 the mutex
- * @param p3 the loop break flag
+ * @param p1 the internal memory data
  */
-void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
+void receive_x_window_system_event(void* p0, void* p1) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        pthread_mutex_t* mt = (pthread_mutex_t*) p2;
+        void** e = (void**) p0;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system event.");
 
-            xcb_connection_t* c = (xcb_connection_t*) p1;
+        // The connexion.
+        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The mutex.
+        void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Get connexion.
+        copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        // Get mutex.
+        copy_array_forward((void*) &mt, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-                void** e = (void**) p0;
+        if (mt != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system event.");
+            if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                pthread_mutex_lock(mt);
+                pthread_mutex_lock((pthread_mutex_t*) mt);
 
                 // Get next event.
                 //
@@ -96,31 +100,23 @@ void receive_x_window_system_event(void* p0, void* p1, void* p2, void* p3) {
                 // returned as a newly allocated structure.
                 // It is cyboi's responsibility to FREE the
                 // returned event structure.
-                *e = (void*) xcb_poll_for_event(c);
+                *e = (void*) xcb_poll_for_event((xcb_connection_t*) c);
 
-                pthread_mutex_unlock(mt);
-
-                if (*e == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    // No messages are available.
-
-                    // Set loop break flag.
-                    copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                }
+                pthread_mutex_unlock((pthread_mutex_t*) mt);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The event is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The connexion is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The connexion is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The mutex is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The mutex is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive x window system event. The event is null.");
     }
 }
 

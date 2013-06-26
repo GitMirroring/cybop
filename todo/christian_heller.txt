@@ -10,7 +10,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Handle windows modal operations specially; e.g. window resizing leads to endless loop; see comment on bottom of file "callback_message_win32_display_receiver.c"
         * Continue win32 display receiver
 
         * Hand over all parametres of function "receive_x_window_system" to "deserialise_gui"

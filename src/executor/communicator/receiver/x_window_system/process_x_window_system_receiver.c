@@ -358,9 +358,8 @@ void sense_x_window_system_part(void* p0, void* p1, void* p2, void* p3, void* p4
  * @param p10 the expose area width
  * @param p11 the expose area height
  * @param p12 the event
- * @param p13 the loop break flag
  */
-void receive_x_window_system_process(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void receive_x_window_system_process(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     // The following code sections are NOT indented,
     // since more may have to be added in future.
@@ -466,8 +465,8 @@ fwprintf(stdout, L"TEST receive x window system XCB_EXPOSE ev->count: %i\n", ev-
 
 fwprintf(stdout, L"TEST receive x window system XCB_BUTTON_PRESS t: %i\n", t);
 
-            copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
-            copy_pointer(p2, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
+            copy_pointer(p0, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
 
             xcb_button_press_event_t* ev = (xcb_button_press_event_t*) e;
 
@@ -724,7 +723,7 @@ fwprintf(stdout, L"TEST receive x window system XCB_KEY_RELEASE t: %i\n", t);
         //
         // CAUTION! An event gets created by the xcb library,
         // but HAS TO BE destroyed manually here.
-        free((void*) e);
+        free(p12);
 
     } else {
 

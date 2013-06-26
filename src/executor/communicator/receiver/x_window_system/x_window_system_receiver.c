@@ -31,6 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/communicator/receiver/x_window_system/event_x_window_system_receiver.c"
+#include "../../../../executor/communicator/receiver/x_window_system/process_x_window_system_receiver.c"
 #include "../../../../executor/representer/deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -50,10 +51,8 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system.");
 
-    // The buffer item (array, queue) of e.g. 100 elements.
-    // It is needed to avoid endless display input, so that
-    // the system has the chance to process events in between.
-//??    void* buf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The event.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The event type string data, count.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -81,17 +80,17 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
     int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Buffer events until a null event is reached
-    // or until the buffer is full.
-//??    receive_x_window_system_buffer(buf);
-
-    // Filter out expose events to avoid flickering.
-    // The last expose event is reached when the
-    // next event is either null or another kind of event.
-//??    receive_x_window_system_filter();
+    //
+    // CAUTION! A loop is NOT used here, since the
+    // main thread's signal/event/message loop
+    // repeatedly calls this function when necessary.
+    //
 
     // Receive event.
-    receive_x_window_system_event(p5, (void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h);
+    receive_x_window_system_event((void*) &e, p5);
+
+    // Process event.
+    receive_x_window_system_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, e);
 
     // Deserialise event into a meaningful command.
     //?? TODO: Comment in or delete later.
