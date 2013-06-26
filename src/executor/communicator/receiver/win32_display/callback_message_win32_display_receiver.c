@@ -141,44 +141,5 @@ fwprintf(stdout, L"TEST receive win32 callback: %i\n", r);
     return r;
 }
 
-//
-// There are a number of modal operations that happen on windows.
-// Win32 Modal operations refer to functions that put an
-// application into a "mode" by starting their own event
-// processing loop until the mode finishes.
-// Common application modes include:
-// - drag and drop operations
-// - move/size operations
-// - anytime a dialog pops up that needs input
-//   before the application can continue.
-//
-// So what is happening is: Your message loop is NOT being run.
-// Your window recieved a WM_LBUTTONDOWN message
-// that you passed to DefWindowProc.
-// DefWindowProc determined that the user was trying
-// to size or move the window interactively and
-// entered a sizing/moving modal function.
-// This function is in a message processing loop
-// watching for mouse messages so that it can intercept
-// them to provide the interactive sizing experience,
-// and will only exit when the sizing operation completes --
-// typically by the user releasing the held button,
-// or by pressing escape.
-//
-// You get notified of this: DefWindowProc sends a
-// WM_ENTERSIZEMOVE and WM_EXITSIZEMOVE messages as it
-// enters and exits the modal event processing loop.
-//
-// To continue to generate "idle" messages, typically create
-// a timer (SetTimer) before calling a modal function --
-// or when getting a message that DefWindowProc is
-// entering a modal function -- the modal loop will
-// continue to dispatch WM_TIMER messages ...
-// and call the idle proc from the timer message handler.
-// Destroy the timer when the modal function returns.
-//
-// http://stackoverflow.com/questions/3102074/win32-my-application-freezes-while-the-user-resizes-the-window
-//
-
 /* EVENT_WIN32_DISPLAY_RECEIVER_SOURCE */
 #endif

@@ -63,7 +63,6 @@ void sense_message(void* p0, void* p1, void* p2) {
         //
         // CAUTION! The pthread implementation under
         // mingw win32 uses a struct and NOT a scalar value.
-        //
         int r = pthread_equal(DEFAULT_THREAD, *t);
 
         // CAUTION! Create thread ONLY if NOT existent.

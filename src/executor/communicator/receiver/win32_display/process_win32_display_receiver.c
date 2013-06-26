@@ -33,39 +33,81 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
 #include "../../../../constant/name/cybol/state/mouse/mouse_state_cybol_name.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Processes a win32 display message.
  *
- * @param p0 the internal memory data
- * @param p1 the event type data (pointer reference)
- * @param p2 the event type count (pointer reference)
- * @param p3 the mouse button or key code
- * @param p4 the window identification
- * @param p5 the mouse position x coordinate
- * @param p6 the mouse position y coordinate
- * @param p7 the button- or key mask
- * @param p8 the mouse button identification
- * @param p9 the expose area x coordinate
- * @param p10 the expose area y coordinate
- * @param p11 the expose area width
- * @param p12 the expose area height
+ * @param p0 the event type data (pointer reference)
+ * @param p1 the event type count (pointer reference)
+ * @param p2 the mouse button or key code
+ * @param p3 the window identification
+ * @param p4 the mouse position x coordinate
+ * @param p5 the mouse position y coordinate
+ * @param p6 the button- or key mask
+ * @param p7 the mouse button identification
+ * @param p8 the expose area x coordinate
+ * @param p9 the expose area y coordinate
+ * @param p10 the expose area width
+ * @param p11 the expose area height
+ * @param p12 the message
  * @param p13 the loop break flag
- * @param p14 the message
  */
-void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display process.");
+    // The following code sections are NOT indented,
+    // since more may have to be added in future.
 
-    if (p14 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        MSG* msg = (MSG*) p14;
+        MSG* msg = (MSG*) p12;
+
+    if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* h = (int*) p11;
+
+    if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* w = (int*) p10;
+
+    if (p9 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* y = (int*) p9;
+
+    if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* x = (int*) p8;
+
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* b = (int*) p7;
+
+    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* m = (int*) p6;
+
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* py = (int*) p5;
+
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* px = (int*) p4;
+
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* win = (int*) p3;
+
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* bk = (int*) p2;
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display process.");
 
         // CAUTION! Process messages here and NOT
         // in a callback function, as suggested by win32.
@@ -73,24 +115,29 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
         // has only four fixed parametres, but many
         // more have to be set here.
 
-        // The window where the message occured.
-        HWND w = msg->hwnd;
         // The message.
         UINT m = msg->message;
+
+/*?? EXAMPLE usage of parametres; delete later!
+        // The window where the message occured.
+        HWND w = msg->hwnd;
         // The additional message parametres of type WPARAM.
         WPARAM wp = msg->wParam;
         // The additional message parametres of type LPARAM.
         LPARAM lp = msg->lParam;
+*/
 
         if (m == WM_ACTIVATE) {
 
             // Sent when a window is activated or becomes the focus.
 
+        } else if (m == WM_CHAR) {
+
         } else if (m == WM_CLOSE) {
 
             // Sent when a window is closed.
 
-    //??        PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+//??            PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             DestroyWindow(w);
 
         } else if (m == WM_CREATE) {
@@ -104,17 +151,50 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             // Clean up window-specific data objects.
             PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        } else if (m == WM_MOVE) {
+        } else if (m == WM_ENTERSIZEMOVE) {
 
-            // Sent when a window has been moved.
+            //
+            // There are a number of modal operations that happen on windows.
+            // Win32 Modal operations refer to functions that put an
+            // application into a "mode" by starting their own event
+            // processing loop until the mode finishes.
+            // Common application modes include:
+            // - drag and drop operations
+            // - move/size operations
+            // - anytime a dialog pops up that needs input
+            //   before the application can continue.
+            //
+            // So what is happening is: Your message loop is NOT being run.
+            // Your window recieved a WM_LBUTTONDOWN message
+            // that you passed to DefWindowProc.
+            // DefWindowProc determined that the user was trying
+            // to size or move the window interactively and
+            // entered a sizing/moving modal function.
+            // This function is in a message processing loop
+            // watching for mouse messages so that it can intercept
+            // them to provide the interactive sizing experience,
+            // and will only exit when the sizing operation completes --
+            // typically by the user releasing the held button,
+            // or by pressing escape.
+            //
+            // You get notified of this: DefWindowProc sends a
+            // WM_ENTERSIZEMOVE and WM_EXITSIZEMOVE messages as it
+            // enters and exits the modal event processing loop.
+            //
+            // To continue to generate "idle" messages, typically create
+            // a timer (SetTimer) before calling a modal function --
+            // or when getting a message that DefWindowProc is
+            // entering a modal function -- the modal loop will
+            // continue to dispatch WM_TIMER messages ...
+            // and call the idle proc from the timer message handler.
+            // Destroy the timer when the modal function returns.
+            //
+            // http://stackoverflow.com/questions/3102074/win32-my-application-freezes-while-the-user-resizes-the-window
+            //
 
-        } else if (m == WM_MOUSEMOVE) {
+        } else if (m == WM_EXITSIZEMOVE) {
 
-            // Sent when the mouse has been moved.
-
-        } else if (m == WM_KEYUP) {
-
-            // Sent when a key is released.
+            //?? TODO
 
         } else if (m == WM_KEYDOWN) {
 
@@ -128,13 +208,59 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
                 //?? PostMessage(w, WM_DESTROY, 0, 0);
             }
 
-        } else if (m == WM_TIMER) {
+        } else if (m == WM_KEYUP) {
 
-            // Sent when a timer event occurs.
+            // Sent when a key is released.
 
-        } else if (m == WM_USER) {
+        } else if (m == WM_KILLFOCUS) {
 
-            // Allows you to send messages.
+            // May be used to hide and delete the caret (cursor).
+
+        } else if (m == WM_LBUTTONDOWN) {
+
+            copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
+            copy_pointer(p2, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
+
+            // Get window where the message occured (identification).
+            *win = (int) msg->hwnd;
+
+            // The additional message parametres of type LPARAM.
+            LPARAM lp = msg->lParam;
+
+            // Get mouse coordinates.
+            //
+            // CAUTION! Do NOT use the LOWORD or HIWORD macros to
+            // extract the x- and y- coordinates of the cursor position
+            // because these macros return incorrect results
+            // on systems with multiple monitors.
+            // Systems with multiple monitors can have negative
+            // x- and y- coordinates, and LOWORD and HIWORD treat
+            // the coordinates as unsigned quantities.
+            *px = GET_X_LPARAM(lp);
+            *py = GET_Y_LPARAM(lp);
+
+            // The additional message parametres of type WPARAM (button mask).
+//??            *m = (int) msg->wParam;
+
+//?? --
+
+            // The MAX_PATH macro defines the maximum length of
+            // a buffer needed to store a filename under Win32.
+            char szFileName[MAX_PATH];
+            HINSTANCE hInstance = GetModuleHandle(NULL);
+
+            GetModuleFileName(hInstance, szFileName, MAX_PATH);
+            MessageBox(w, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
+
+        } else if (m == WM_MBUTTONDOWN) {
+
+        } else if (m == WM_MOUSEMOVE) {
+
+            // Sent when the mouse has been moved.
+
+        } else if (m == WM_MOVE) {
+
+            // Sent when a window has been moved.
 
         } else if (m == WM_PAINT) {
 
@@ -168,22 +294,6 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
 
             //?? TODO: Also set global "break" flag here, in order to exit cyboi?
 
-        } else if (m == WM_SIZE) {
-
-            // Sent when a window has changed size.
-
-//?? ========== sort the following alphabetically into above ===
-
-        } else if (m == WM_LBUTTONDOWN) {
-
-            // The MAX_PATH macro defines the maximum length of
-            // a buffer needed to store a filename under Win32.
-            char szFileName[MAX_PATH];
-            HINSTANCE hInstance = GetModuleHandle(NULL);
-
-            GetModuleFileName(hInstance, szFileName, MAX_PATH);
-            MessageBox(w, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
-
         } else if (m == WM_RBUTTONDOWN) {
 
             int x = GET_X_LPARAM(lp);
@@ -192,15 +302,21 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             fwprintf(stdout, L"TEST WM_RBUTTONDOWN x: %i\n", x);
             fwprintf(stdout, L"TEST WM_RBUTTONDOWN y: %i\n", y);
 
-        } else if (m == WM_MBUTTONDOWN) {
+        } else if (m == WM_SETFOCUS) {
 
-        } else if (m == WM_ENTERSIZEMOVE) {
+            // May be used to create and display the caret (cursor).
 
-            //?? TODO
+        } else if (m == WM_SIZE) {
 
-        } else if (m == WM_EXITSIZEMOVE) {
+            // Sent when a window has changed size.
 
-            //?? TODO
+        } else if (m == WM_TIMER) {
+
+            // Sent when a timer event occurs.
+
+        } else if (m == WM_USER) {
+
+            // Allows you to send messages.
 
         } else {
 
@@ -255,6 +371,56 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             //
             DispatchMessage(msg);
         }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The mouse button or key code is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The id of the window is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The mouse position x coordinate is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The mouse position y coordinate is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The button- or key mask is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The mouse button identification is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The expose area x coordinate is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The expose area y coordinate is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The expose area width is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 display process. The expose area height is null.");
+    }
 
     } else {
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MESSAGES_WIN32_DISPLAY_RECEIVER_SOURCE
-#define MESSAGES_WIN32_DISPLAY_RECEIVER_SOURCE
+#ifndef EVENTS_X_WINDOW_SYSTEM_RECEIVER_SOURCE
+#define EVENTS_X_WINDOW_SYSTEM_RECEIVER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -36,12 +36,12 @@
 #include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
 #include "../../../../constant/name/cybol/state/mouse/mouse_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/receiver/win32_display/message_win32_display_receiver.c"
-#include "../../../../executor/communicator/receiver/win32_display/process_win32_display_receiver.c"
+#include "../../../../executor/communicator/receiver/x_window_system/event_x_window_system_receiver.c"
+#include "../../../../executor/communicator/receiver/x_window_system/process_x_window_system_receiver.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Receives win32 display messages.
+ * Receives x window system events.
  *
  * @param p0 the internal memory data
  * @param p1 the event type data (pointer reference)
@@ -57,12 +57,23 @@
  * @param p11 the expose area width
  * @param p12 the expose area height
  */
-void receive_win32_display_messages(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void receive_x_window_system_events(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display messages.");
+    // The connexion.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    xcb_generic_event_t* e = (xcb_generic_event_t*) p0;
 
-    // The message.
-    MSG m;
+    // Get connexion.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get mutex.
+    copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive x window system events.");
+
+    // The event.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -73,15 +84,15 @@ void receive_win32_display_messages(void* p0, void* p1, void* p2, void* p3, void
             break;
         }
 
-        // Get next message (event).
-        receive_win32_display_message((void*) &m, (void*) &b);
+        // Get next event.
+        receive_x_window_system_event((void*) &e, (void*) &b);
 
-        // Process message (event).
+        // Process event.
         // If no more events are available, the break
         // flag is set, so that the loop may be left.
-        receive_win32_display_process(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &m, (void*) &b);
+        receive_x_window_system_process(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, e, (void*) &b);
     }
 }
 
-/* MESSAGES_WIN32_DISPLAY_RECEIVER_SOURCE */
+/* EVENTS_X_WINDOW_SYSTEM_RECEIVER_SOURCE */
 #endif

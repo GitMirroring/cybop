@@ -15,6 +15,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-06-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug in file "thread_interrupter.c" so that comparison and reset are done using DEFAULT_THREAD
+        * Continue win32 display receiver
+        * Extend x window system receiver with loop checking for available messages
+
 2013-06-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Process "WM_PAINT" message in callback function and other messages in file "message_win32_display_receiver.c"

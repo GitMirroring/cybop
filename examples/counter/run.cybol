@@ -63,8 +63,8 @@
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
+    <!-- The break condition has to be GREATER-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <part name="compare_loop_count" channel="inline" format="compare/greater" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".counter.break"/>
         <property name="left" channel="inline" format="path/knowledge" model=".counter.count"/>
         <property name="right" channel="inline" format="path/knowledge" model=".counter.maximum"/>

@@ -40,8 +40,8 @@
 /**
  * Interrupts the thread.
  *
- * @param p0 the service thread
- * @param p1 the service thread interrupt
+ * @param p0 the thread
+ * @param p1 the thread interrupt
  */
 void interrupt_thread(void* p0, void* p1) {
 
@@ -51,12 +51,17 @@ void interrupt_thread(void* p0, void* p1) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Interrupt thread.");
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // Compare thread identifications.
+        //
+        // Returns a non-zero value (true) if t1 and t2
+        // are equal and zero if they are unequal (false).
+        //
+        // CAUTION! The pthread implementation under
+        // mingw win32 uses a struct and NOT a scalar value.
+        int r = pthread_equal(DEFAULT_THREAD, *t);
 
-        compare_integer_unequal((void*) &r, p0, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // CAUTION! Kill thread ONLY if EXISTENT.
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Set thread interrupt flag for signal handler.
             copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -88,7 +93,7 @@ void interrupt_thread(void* p0, void* p1) {
             // other entities exist that may access the parametres.
 
             // Reset thread.
-            copy_integer(p0, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+            *t = DEFAULT_THREAD;
 
             // Reset thread interrupt flag for signal handler.
             copy_integer(p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

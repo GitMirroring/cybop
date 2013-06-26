@@ -43,16 +43,16 @@
 /**
  * Receives a win32 display message.
  *
- * @param p0 the loop break flag
- * @param p1 the message
+ * @param p0 the message
+ * @param p1 the loop break flag
  */
 void receive_win32_display_message(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display message.");
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        MSG* m = (MSG*) p0;
 
-        MSG* m = (MSG*) p1;
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 display message.");
 
         // The window.
         //
@@ -88,7 +88,7 @@ void receive_win32_display_message(void* p0, void* p1) {
             // No messages are available.
 
             // Set loop break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
     } else {
