@@ -18,7 +18,7 @@
 2013-06-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug in file "thread_interrupter.c" so that comparison and reset are done using DEFAULT_THREAD
-        * Continue win32 display receiver
+        * Connect win32 display receiver to gui deserialiser
         * Clean up x window system receiver
 
 2013-06-17  Christian Heller  <christian.heller@tuxtax.de>

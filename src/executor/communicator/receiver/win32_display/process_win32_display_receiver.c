@@ -113,8 +113,8 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
         // has only four fixed parametres, but many
         // more have to be set here.
 
-        // The message.
-        UINT m = msg->message;
+        // The message type.
+        UINT t = msg->message;
 
 /*?? EXAMPLE usage of parametres; delete later!
         // The window where the message occured.
@@ -125,31 +125,31 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
         LPARAM lp = msg->lParam;
 */
 
-        if (m == WM_ACTIVATE) {
+        if (t == WM_ACTIVATE) {
 
             // Sent when a window is activated or becomes the focus.
 
-        } else if (m == WM_CHAR) {
+        } else if (t == WM_CHAR) {
 
-        } else if (m == WM_CLOSE) {
+        } else if (t == WM_CLOSE) {
 
             // Sent when a window is closed.
 
 //??            PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             DestroyWindow(w);
 
-        } else if (m == WM_CREATE) {
+        } else if (t == WM_CREATE) {
 
             // Sent when a window is first created. Used for window initialisation.
 
-        } else if (m == WM_DESTROY) {
+        } else if (t == WM_DESTROY) {
 
             // Sent when a window is about to be destroyed.
 
             // Clean up window-specific data objects.
             PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        } else if (m == WM_ENTERSIZEMOVE) {
+        } else if (t == WM_ENTERSIZEMOVE) {
 
             //
             // There are a number of modal operations that happen on windows.
@@ -190,13 +190,14 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             // http://stackoverflow.com/questions/3102074/win32-my-application-freezes-while-the-user-resizes-the-window
             //
 
-        } else if (m == WM_EXITSIZEMOVE) {
+        } else if (t == WM_EXITSIZEMOVE) {
 
-            //?? TODO
-
-        } else if (m == WM_KEYDOWN) {
+        } else if (t == WM_KEYDOWN) {
 
             // Sent when a key is pressed.
+
+            copy_pointer(p0, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT);
 
             // The additional message parametres of type WPARAM.
             WPARAM wp = msg->wParam;
@@ -209,15 +210,21 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
                 //?? PostMessage(w, WM_DESTROY, 0, 0);
             }
 
-        } else if (m == WM_KEYUP) {
+        } else if (t == WM_KEYUP) {
 
             // Sent when a key is released.
 
-        } else if (m == WM_KILLFOCUS) {
+            copy_pointer(p0, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT);
+
+        } else if (t == WM_KILLFOCUS) {
 
             // May be used to hide and delete the caret (cursor).
 
-        } else if (m == WM_LBUTTONDOWN) {
+            copy_pointer(p0, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
+        } else if (t == WM_LBUTTONDOWN) {
 
             copy_pointer(p0, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
             copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
@@ -240,33 +247,52 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             *px = GET_X_LPARAM(lp);
             *py = GET_Y_LPARAM(lp);
 
-            fwprintf(stdout, L"TEST WM_LBUTTONDOWN x: %i\n", *px);
-            fwprintf(stdout, L"TEST WM_LBUTTONDOWN y: %i\n", *py);
+            // The additional message parametres of type WPARAM (button mask).
+            *m = (int) msg->wParam;
+
+        } else if (t == WM_LBUTTONUP) {
+
+            copy_pointer(p0, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT);
+
+            // Get window where the message occured (identification).
+            *win = (int) msg->hwnd;
+
+            // The additional message parametres of type LPARAM.
+            LPARAM lp = msg->lParam;
+
+            // Get mouse coordinates.
+            //
+            // CAUTION! Do NOT use the LOWORD or HIWORD macros to
+            // extract the x- and y- coordinates of the cursor position
+            // because these macros return incorrect results
+            // on systems with multiple monitors.
+            // Systems with multiple monitors can have negative
+            // x- and y- coordinates, and LOWORD and HIWORD treat
+            // the coordinates as unsigned quantities.
+            *px = GET_X_LPARAM(lp);
+            *py = GET_Y_LPARAM(lp);
 
             // The additional message parametres of type WPARAM (button mask).
-//??            *m = (int) msg->wParam;
+            *m = (int) msg->wParam;
 
-//?? --
+        } else if (t == WM_MBUTTONDOWN) {
 
-            // The MAX_PATH macro defines the maximum length of
-            // a buffer needed to store a filename under Win32.
-            char szFileName[MAX_PATH];
-            HINSTANCE hInstance = GetModuleHandle(NULL);
+            copy_pointer(p0, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
 
-            GetModuleFileName(hInstance, szFileName, MAX_PATH);
-            MessageBox(*win, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
-
-        } else if (m == WM_MBUTTONDOWN) {
-
-        } else if (m == WM_MOUSEMOVE) {
+        } else if (t == WM_MOUSEMOVE) {
 
             // Sent when the mouse has been moved.
 
-        } else if (m == WM_MOVE) {
+            copy_pointer(p0, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT);
+
+        } else if (t == WM_MOVE) {
 
             // Sent when a window has been moved.
 
-        } else if (m == WM_PAINT) {
+        } else if (t == WM_PAINT) {
 
             // Sent when a window needs repainting.
 
@@ -289,13 +315,19 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             // http://msdn.microsoft.com/en-us/library/windows/desktop/ms644943(v=vs.85).aspx
             //
 
-        } else if (m == WM_QUIT) {
+//??            copy_pointer(p0, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME);
+//??            copy_pointer(p1, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
+        } else if (t == WM_QUIT) {
 
             // Sent when a Windows application is finally terminating.
 
             //?? TODO: Set global "break" flag here, in order to exit cyboi?
 
-        } else if (m == WM_RBUTTONDOWN) {
+        } else if (t == WM_RBUTTONDOWN) {
+
+            copy_pointer(p0, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
 
             // The additional message parametres of type LPARAM.
             LPARAM lp = msg->lParam;
@@ -306,19 +338,22 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             fwprintf(stdout, L"TEST WM_RBUTTONDOWN x: %i\n", x);
             fwprintf(stdout, L"TEST WM_RBUTTONDOWN y: %i\n", y);
 
-        } else if (m == WM_SETFOCUS) {
+        } else if (t == WM_SETFOCUS) {
 
             // May be used to create and display the caret (cursor).
 
-        } else if (m == WM_SIZE) {
+            copy_pointer(p0, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
+            copy_pointer(p1, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+
+        } else if (t == WM_SIZE) {
 
             // Sent when a window has changed size.
 
-        } else if (m == WM_TIMER) {
+        } else if (t == WM_TIMER) {
 
             // Sent when a timer event occurs.
 
-        } else if (m == WM_USER) {
+        } else if (t == WM_USER) {
 
             // Allows you to send messages.
 

@@ -414,7 +414,7 @@ void receive_x_window_system_process(void* p0, void* p1, void* p2, void* p3, voi
         //
         // CAUTION! The type of the returned value is "uint8_t".
         // Since it is just one byte in size, it may be assigned
-        // to an "int" variable of four byte without problems.
+        // to an "int" variable of four byte without loss.
         int t = (int) e->response_type;
 
 fwprintf(stdout, L"TEST receive x window system t: %i\n", t);
