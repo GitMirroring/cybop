@@ -26,11 +26,6 @@
 #ifndef X_WINDOW_SYSTEM_SENDER_SOURCE
 #define X_WINDOW_SYSTEM_SENDER_SOURCE
 
-/*??
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-#include <pthread.h>
-*/
 #include <xcb/xcb.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -59,7 +54,7 @@ void send_x_window_system(void* p0) {
     // Get connexion.
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get window.
-    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
 //?? fwprintf(stdout, L"TEST send x window system window c: %i\n", c);
 //?? fwprintf(stdout, L"TEST send x window system window w: %i\n", w);

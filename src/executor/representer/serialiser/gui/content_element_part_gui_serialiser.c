@@ -23,45 +23,46 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DISPLAY_SENDER_SOURCE
-#define DISPLAY_SENDER_SOURCE
+#ifndef CONTENT_ELEMENT_PART_GUI_SERIALISER_SOURCE
+#define CONTENT_ELEMENT_PART_GUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/representer/serialiser.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/gui/properties_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
-    #include "../../../../executor/communicator/sender/win32_display/win32_display_sender.c"
-#else
-    #include "../../../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
-#endif
+//
+// Forward declarations.
+//
+
+void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
- * Sends the source to the display.
+ * Serialises the part element content into gui.
  *
  * @param p0 the source model data
  * @param p1 the source model count
  * @param p2 the source properties data
  * @param p3 the source properties count
- * @param p4 the knowledge memory part
- * @param p5 the format
- * @param p6 the language
+ * @param p4 the source whole properties data
+ * @param p5 the source whole properties count
+ * @param p6 the knowledge memory part
  * @param p7 the internal memory data
+ * @param p8 the format data
  */
-void send_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send display.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part element content.");
 
-    // Serialise (draw) source onto window.
-    serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p7, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6);
+    // Append properties.
+    serialise_gui_properties(p2, p3, p4, p5, p6);
 
-#ifdef WIN32
-    send_win32_display(p7);
-#else
-    send_x_window_system(p7);
-#endif
+    // Serialise embedded model.
+    serialise_gui(p0, p1, p2, p3, p6, p7, p8);
 }
 
-/* DISPLAY_SENDER_SOURCE */
+/* CONTENT_ELEMENT_PART_GUI_SERIALISER_SOURCE */
 #endif

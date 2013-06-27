@@ -84,9 +84,6 @@ fwprintf(stdout, L"TEST mo: %i\n", mo);
 fwprintf(stdout, L"TEST i: %i\n", i);
     // The additional application data.
     LPVOID a = (LPVOID) *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The opening style.
-    int o = SW_SHOWNORMAL; //?? SW_MAXIMIZE;
-//??    int o = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Register window class.
     startup_win32_display_register((void*) i, (void*) c);
@@ -95,13 +92,8 @@ fwprintf(stdout, L"TEST pre create: %i\n", i);
     HWND wnd = CreateWindowEx(e, c, t, s, x, y, w, h, p, m, i, a);
 fwprintf(stdout, L"TEST wnd: %i\n", wnd);
 
-    // Display window.
-    ShowWindow(wnd, o);
-
-    // Send WM_PAINT message to the window in order
-    // to make sure its contents gets refreshed.
-
-    UpdateWindow(wnd);
+    // Set window.
+    copy_array_forward(p0, (void*) &wnd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* WIN32_DISPLAY_STARTER_SOURCE */

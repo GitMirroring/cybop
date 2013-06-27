@@ -43,7 +43,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises a part into tui.
+ * Serialises a part into text user interface (tui).
  *
  * @param p0 the destination ansi escape code item
  * @param p1 the destination win32 console output data
@@ -57,7 +57,7 @@
  * @param p9 the tree level
  * @param p10 the cli flag
  * @param p11 the original attributes
- * @param p12 the format data
+ * @param p12 the format
  */
 void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 

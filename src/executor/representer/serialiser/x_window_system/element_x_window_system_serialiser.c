@@ -32,13 +32,10 @@
 #include <xcb/xcb.h>
 
 /*??
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <sys/time.h>
-#include <X11/Xlib.h>
 */
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -53,7 +50,7 @@
 /**
  * Serialises the source part into the x window system.
  *
- * @param p0 the connection
+ * @param p0 the connexion
  * @param p1 the screen
  * @param p2 the window
  * @param p3 the graphic context
@@ -140,7 +137,7 @@ void serialise_x_window_system_element(void* p0, void* p1, void* p2, void* p3, v
 
 /*??
                     // Change graphic context.
-                    xcb_change_gc(c, // the xcb connection
+                    xcb_change_gc(c, // the xcb connexion
                         gcontext, // the graphic context
                         mask, // value mask specifying components of the graphic context that have to be set
                         values); // value as specified by value mask
@@ -488,7 +485,7 @@ void serialise_x_window_system_element(void* p0, void* p1, void* p2, void* p3, v
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system element. The connection is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system element. The connexion is null.");
                 }
 
             } else {

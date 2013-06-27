@@ -15,6 +15,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-06-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt display sender for "x window system" and "win32 display"
+        * Extend gui serialiser
+
 2013-06-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug in file "thread_interrupter.c" so that comparison and reset are done using DEFAULT_THREAD

@@ -10,23 +10,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Write gui serialiser (win32 display receiver ready)
+        * Fix runtime bug in gui serialiser
+        * Extend gui serialiser for "x window system" and "win32 display"
 
-        * Hand over all parametres of function "receive_x_window_system" to "deserialise_gui"
-        * Check in file "expose_gui_deserialiser.c" if position and size of area to be drawn are within child element's area, before (possibly) recursively calling child's expose method
-        * Continue x window system serialiser
         * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
         * Use new function "xcb_block_until_event" or "xcb_wait_for_event_noret" testing for events in file "message_x_window_system_sensor.c", as soon as release xcb 1.10 is out
 
         * Activate terminal input for win32 console
-
-        * Adapt cybol specification document:
-            Replace * with "path/knowledge | path/reference" in format columns
-            Use * as placeholder in format columns, e.g. "number/*"
-        * Rename "number/double" into "number/float" in all cybol example applications
-
-        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
-        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
@@ -47,12 +37,15 @@
         * Delete files "file_xdt_deserialiser.c", "hierarchy_field_xdt_deserialiser.c", "name_field_xdt_deserialiser.c"
         * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
 
+        * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
+            --> possibly, state and logic models need to be handled differently (at least path/reference)
+
+        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
+        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
+
         * Investigate socket-based communication with "Scratch" visual programming language for pupil projects
             http://wiki.scratch.mit.edu/wiki/Remote_Sensor_Connections
             http://wiki.scratch.mit.edu/wiki/Remote_Sensors_Protocol
-
-        * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
-            --> possibly, state and logic models need to be handled differently (at least path/reference)
 
         * Delete file "part_copier.c"
         * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
@@ -123,6 +116,8 @@
             to find out why file descriptor-to-stream conversion does not work
             (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
             --> probably, the reason is that descriptor-to-stream conversion uses different attributes than "stdin" and "stdout"
+
+        * Rename "number/double" into "number/float" in all cybol example applications
 
         * Check out possible usage of "const" for constants:
             http://www.noxeos.com/2011/07/29/c-const-static-keywords/

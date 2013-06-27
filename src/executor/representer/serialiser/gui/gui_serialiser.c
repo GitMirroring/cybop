@@ -28,14 +28,17 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/date_time_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/gui/part_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/serialiser/x_window_system/x_window_system_serialiser.c"
-#endif
-
 /**
- * Serialises a graphical user interface (gui).
+ * Serialises a part into graphical user interface (gui).
  *
  * @param p0 the source model data
  * @param p1 the source model count
@@ -47,11 +50,125 @@
  */
 void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui.");
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system(p0, p1, p2, p3, p4, p5, p6);
-#endif
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // datetime
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) HH_MM_SS_DATETIME_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            serialise_hhmmss_date_time(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_ddmmyyyy_date_time(p0, p2, p3);
+        }
+    }
+
+    //
+    // element
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_gui_part(p0, p1, p2, p3, p4, p5);
+        }
+    }
+
+    //
+    // logicvalue
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_boolean(p0, p2, p3);
+        }
+    }
+
+    //
+    // number
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_complex(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_fraction_decimal(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            serialise_vulgar_fraction(p0, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_integer(p0, p2, p3, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    //
+    // text
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise tui. The source format is unknown.");
+    }
 }
 
 /* GUI_SERIALISER_SOURCE */
