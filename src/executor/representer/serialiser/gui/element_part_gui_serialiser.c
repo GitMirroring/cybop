@@ -49,6 +49,8 @@ void serialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part element.");
 
+fwprintf(stdout, L"TEST serialise gui part element: %i\n", p5);
+
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part format, model, properties item.

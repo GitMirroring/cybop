@@ -206,16 +206,8 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4) 
     calculate_integer_add((void*) &pmdx, (void*) &wpmdx);
     calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
 
-    // Serialise attributes.
-#ifdef WIN32
-//??    serialise_win32_console_attributes(p1, bgmd, fgmd, hmd, imd, blmd, umd, bmd, inmd);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-//??    serialise_ansi_escape_code_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
-#endif
-
     // Serialise rectangle border and area.
-    serialise_gui_rectangle((void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy);
+    serialise_gui_rectangle((void*) &pmdx, (void*) &pmdy, (void*) &smdx, (void*) &smdy);
 }
 
 /* PROPERTIES_GUI_SERIALISER_SOURCE */

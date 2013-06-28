@@ -10,7 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Fix runtime bug in gui serialiser
+        * Continue gui serialiser
         * Extend gui serialiser for "x window system" and "win32 display"
 
         * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
