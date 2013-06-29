@@ -36,80 +36,113 @@
 /**
  * Serialises the rectangle into gui.
  *
- * @param p0 the position x
- * @param p1 the position y
- * @param p2 the width
- * @param p3 the height
+ * @param p0 the connexion
+ * @param p1 the screen
+ * @param p2 the window
+ * @param p3 the graphic context
+ * @param p4 the position x
+ * @param p5 the position y
+ * @param p6 the width
+ * @param p7 the height
  */
-void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3) {
+void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* h = (int*) p3;
+        int* h = (int*) p7;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* w = (int*) p2;
+            int* w = (int*) p6;
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* y = (int*) p1;
+                int* y = (int*) p5;
 
-                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    int* x = (int*) p0;
+                    int* x = (int*) p4;
 
-                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui rectangle.");
+                    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-/*??
-                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                        xcb_gcontext_t* gc = (xcb_gcontext_t*) p3;
 
-                        xcb_connection_t* c = (xcb_connection_t*) p0;
-                        // The screen.
-                        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-                        // Use xcb type for window.
-                        xcb_drawable_t d = *w;
-                        // Use xcb type.
-                        xcb_gcontext_t gcontext = *gc;
-                        // Adjust value mask.
-                        //
-                        // CAUTION! It is possible to set several attributes
-                        // at the same time by OR'ing these values in valuemask.
-                        uint32_t mask = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND | XCB_GC_FONT;
-                        // Adjust value mask values.
-                        //
-                        // CAUTION! The valuelist has to be an array which
-                        // lists the value for the respective attributes.
-                        // These values must be in the same order
-                        // as masks listed above.
-                        uint32_t values[2];
-                        // The rectangle.
-                        xcb_rectangle_t r;
+                        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                        // Let x server generate an identification for graphic context.
-                        xcb_gcontext_t gc = xcb_generate_id(c);
-                        // Create graphic context.
-                        xcb_create_gc(c, gc, d, mask, values);
-                        // Change graphic context.
-                        //?? xcb_change_gc(c, gc, mask, values);
-                        // Initialise values.
-                        values[0] = s->white_pixel;
-                        values[1] = s->black_pixel;
-//??                        values[2] = font;
-                        // Initialise rectangle.
-                        r.x = *x;
-                        r.y = *y;
-                        r.width = *w;
-                        r.height = *h;
+                            xcb_drawable_t* d = (xcb_drawable_t*) p2;
 
-                        // Draw rectangle.
-                        xcb_poly_rectangle(c, d, gc, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &r);
+                            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                                xcb_screen_t* s = (xcb_screen_t*) p1;
+
+                                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                                    xcb_connection_t* c = (xcb_connection_t*) p0;
+
+                                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui rectangle.");
+
+fwprintf(stdout, L"TEST serialise gui rectangle h: %i\n", *((int*) h));
+fwprintf(stdout, L"TEST serialise gui rectangle w: %i\n", *((int*) w));
+fwprintf(stdout, L"TEST serialise gui rectangle y: %i\n", *((int*) y));
+fwprintf(stdout, L"TEST serialise gui rectangle x: %i\n", *((int*) x));
+fwprintf(stdout, L"TEST serialise gui rectangle gc: %i\n", gc);
+fwprintf(stdout, L"TEST serialise gui rectangle d: %i\n", d);
+fwprintf(stdout, L"TEST serialise gui rectangle s: %i\n", s);
+fwprintf(stdout, L"TEST serialise gui rectangle c: %i\n", c);
+
+                                    // Adjust value mask.
+                                    //
+                                    // CAUTION! It is possible to set several attributes
+                                    // at the same time by OR'ing these values in valuemask.
+//??                                    uint32_t m = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND | XCB_GC_FONT;
+                                    uint32_t m = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
+                                    // Adjust values.
+                                    //
+                                    // CAUTION! The valuelist has to be an array which
+                                    // lists the value for the respective attributes.
+                                    // These values must be in the same order
+                                    // as given in the mask above.
+//??                                    uint32_t v[2];
+                                    uint32_t v[2] = {s->black_pixel, 0};
+                                    // The rectangle.
+                                    xcb_rectangle_t r;
+
+                                    // Change graphic context.
+                                    *gc = xcb_generate_id(c);
+                                    xcb_create_gc(c, *gc, *d, m, v);
+//??                                    xcb_change_gc(c, *gc, m, v);
+                                    // Initialise values.
+//??                                    v[0] = s->white_pixel;
+//??                                    v[1] = s->black_pixel;
+//??                                    v[2] = font;
+                                    // Initialise rectangle.
+                                    r.x = *x;
+                                    r.y = *y;
+                                    r.width = *w;
+                                    r.height = *h;
+
+                                    // Draw rectangle.
+                                    xcb_poly_rectangle(c, *d, *gc, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &r);
+
+                                } else {
+
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The connexion is null.");
+                                }
+
+                            } else {
+
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The screen is null.");
+                            }
+
+                        } else {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The window is null.");
+                        }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The connexion is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The graphic context is null.");
                     }
-*/
 
                 } else {
 

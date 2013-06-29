@@ -33,7 +33,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/html/document_type_html_model.c"
 #include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
-#include "../../executor/representer/serialiser/gui/gui_serialiser.c"
+#include "../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
 // CAUTION! Do NOT include the "content_element_part_html_serialiser.c" module.
 // It is true, the "serialise_html_part_element_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down
@@ -107,7 +107,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui(p1, p2, p3, p4, p5, p6, p9);
+            serialise_gui_initial(p1, p2, p3, p4, p5, p6, p9);
         }
     }
 

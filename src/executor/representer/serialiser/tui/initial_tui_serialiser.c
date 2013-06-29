@@ -49,7 +49,7 @@
  * @param p7 the clear flag
  * @param p8 the newline flag
  * @param p9 the cli flag
- * @param p10 the format data
+ * @param p10 the format
  */
 void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
