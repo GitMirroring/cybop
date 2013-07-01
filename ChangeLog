@@ -15,6 +15,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-07-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move x window system event detection from sensing thread into file "wait_checker.c",
+            since the xcb developers do not plan to add a function like "xcb_test_for_event" soon
+
 2013-06-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt display sender for "x window system" and "win32 display"

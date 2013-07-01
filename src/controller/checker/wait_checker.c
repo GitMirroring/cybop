@@ -28,6 +28,8 @@
 
 #ifdef WIN32
     #include <windows.h>
+#elif defined GNU_LINUX_OPERATING_SYSTEM
+    #include <xcb/xcb.h>
 #endif
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -66,6 +68,8 @@ void check_wait(void* p0, void* p1) {
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
 #ifdef WIN32
+    // The return value.
+    BOOL b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The message structure.
     //
     // It just serves as placeholder here, since
@@ -86,6 +90,10 @@ void check_wait(void* p0, void* p1) {
     // It thus has to keep a list of existing windows
     // in a container structure stored in internal memory.
     HWND wnd = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
+#elif defined GNU_LINUX_OPERATING_SYSTEM
+    // The connexion.
+    void* con = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* evt = *NULL_POINTER_STATE_CYBOI_MODEL;
 #endif
 
     // Get interrupt requests.
@@ -107,6 +115,10 @@ void check_wait(void* p0, void* p1) {
     copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &w, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    // Get connexion.
+    copy_array_forward((void*) &con, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+#endif
 
     //
     // REMARK! The following variable checks and casts are not indented,
@@ -223,36 +235,86 @@ void check_wait(void* p0, void* p1) {
 
                 break;
 
-#ifdef WIN32
-            // CAUTION! Moving the following code to an own thread in files
-            // "win32_display_sensor.c" and "message_win32_display_sensor.c"
-            // does NOT work, since the "PeekMessage" function
-            // checks the message queue of the CALLING thread ONLY.
-            // If it was called within an external "sensing" thread,
-            // then messages of the cyboi main thread
-            // (to which all windows belong) would never get recognised.
-            // Therefore, this main thread has to check for messages.
-            //
-            // CAUTION! The message MUST NOT be removed here,
-            // since it has to be read again in a "receive" function,
-            // where the actual processing happens.
-            // This call here is just made to detect available messages.
-            } else if (PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_NOREMOVE)) {
-
-                // CAUTION! Setting a mutex is NOT necessary here,
-                // since this is the main thread and no other threads
-                // are writing to the interrupt request variable.
-
-                // Set display interrupt request to indicate
-                // that a message has been received via display,
-                // which may now be processed in the main thread of this system.
-                copy_integer(d, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                break;
-
-#endif
             } else {
 
+#ifdef WIN32
+                // CAUTION! Moving the following code to an own thread in files
+                // "win32_display_sensor.c" and "message_win32_display_sensor.c"
+                // does NOT work, since the "PeekMessage" function
+                // checks the message queue of the CALLING thread ONLY.
+                //
+                // If it was called within an external "sensing" thread,
+                // then messages of the cyboi main thread
+                // (to which all windows belong) would never get recognised.
+                // Therefore, this main thread has to check for messages.
+                //
+                // CAUTION! The message MUST NOT be removed here,
+                // since it has to be read again in a "receive" function,
+                // where the actual processing happens.
+                // This call here is just made to detect available messages.
+                b = PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_NOREMOVE);
+
+                if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    // CAUTION! Setting a mutex is NOT necessary here,
+                    // since this is the main thread and no other threads
+                    // are writing to the interrupt request variable.
+
+                    // Set display interrupt request to indicate
+                    // that a message has been received via display,
+                    // which may now be processed in the main thread of this system.
+                    copy_integer(d, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                    break;
+                }
+
+#elif defined GNU_LINUX_OPERATING_SYSTEM
+                evt = (void*) xcb_poll_for_event((xcb_connection_t*) con);
+
+                // Get next event available from the server.
+                // If none is available, NULL gets returned.
+                //
+                // CAUTION! The event gets REMOVED from the queue
+                // by the "xcb_poll_for_event" function.
+                // It therefore HAS TO BE STORED temporarily
+                // in internal memory, in order to be able to
+                // process it later on in "executor/receiver/".
+                //
+                // The ideal solution would be a blocking xcb function
+                // running in an own sensing thread in files
+                // "x_window_system_sensor.c" and "message_x_window_system_sensor.c".
+                //
+                // The xcb developers have been asked to add a function like
+                // "xcb_test_for_event" that would return on availability
+                // of an event WITHOUT ACTUALLY REMOVING the event from the queue.
+                // However, the xcb developers did not like the idea for now.
+                //
+                // See mailing list discussion in xcb project:
+                // http://stackoverflow.com/questions/15775281/need-for-xeventsqueueddisplay-queuedafterreading-in-xcb
+                // http://lists.freedesktop.org/archives/xcb/2013-April/008219.html
+                // http://lists.freedesktop.org/archives/xcb/2013-May/008245.html
+                // http://lists.freedesktop.org/archives/xcb/2013-May/008249.html
+                // http://xcb.freedesktop.org/
+                //
+                // Therefore, this workaround here in the main thread is necessary.
+                if (evt != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    // Store event in internal memory.
+                    copy_array_forward(p1, (void*) &evt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+                    // CAUTION! Setting a mutex is NOT necessary here,
+                    // since this is the main thread and no other threads
+                    // are writing to the interrupt request variable.
+
+                    // Set display interrupt request to indicate
+                    // that a message has been received via display,
+                    // which may now be processed in the main thread of this system.
+                    copy_integer(d, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                    break;
+                }
+
+#endif
                 sleep_nano(p0);
             }
         }

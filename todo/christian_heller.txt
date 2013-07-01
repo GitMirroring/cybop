@@ -10,12 +10,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Change mask and values in gui serialiser? Rectangle is drawn only on expose, otherwise not.
-            Move code into "expose" event in order to draw everything correctly?
+        * Follow xcb tutorial for how to change mask and values in file "rectangle_gui_serialiser.c"
+        * Follow xcb tutorial for how to add font and text
         * Extend gui serialiser for "x window system" and "win32 display"
-
-        * Verify if there are conflicts between x window system "sending" and "sensing" with xcb; if not, the file "check_events_x_window_system_sensor.c" may be deleted
-        * Use new function "xcb_block_until_event" or "xcb_wait_for_event_noret" testing for events in file "message_x_window_system_sensor.c", as soon as release xcb 1.10 is out
+        * Specify gui component in cybol property "shape" or "super"?
 
         * Activate terminal input for win32 console
 

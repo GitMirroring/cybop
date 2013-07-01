@@ -94,7 +94,7 @@ fwprintf(stdout, L"TEST serialise gui rectangle c: %i\n", c);
                                     //
                                     // CAUTION! It is possible to set several attributes
                                     // at the same time by OR'ing these values in valuemask.
-//??                                    uint32_t m = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND | XCB_GC_FONT;
+//??                                    uint32_t m = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND; //?? | XCB_GC_FONT;
                                     uint32_t m = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
                                     // Adjust values.
                                     //
@@ -102,24 +102,33 @@ fwprintf(stdout, L"TEST serialise gui rectangle c: %i\n", c);
                                     // lists the value for the respective attributes.
                                     // These values must be in the same order
                                     // as given in the mask above.
-//??                                    uint32_t v[2];
-                                    uint32_t v[2] = {s->black_pixel, 0};
+                                    uint32_t v[2];
                                     // The rectangle.
                                     xcb_rectangle_t r;
 
-                                    // Change graphic context.
-                                    *gc = xcb_generate_id(c);
-                                    xcb_create_gc(c, *gc, *d, m, v);
-//??                                    xcb_change_gc(c, *gc, m, v);
                                     // Initialise values.
-//??                                    v[0] = s->white_pixel;
-//??                                    v[1] = s->black_pixel;
+                                    // CAUTION! Initialise values BEFORE using them
+                                    // in function calls further below.
+                                    // Otherwise, drawings will not be displayed.
+                                    v[0] = s->black_pixel;
+                                    v[1] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+/*??
+                                    v[0] = s->white_pixel;
+                                    v[1] = s->black_pixel;
 //??                                    v[2] = font;
+*/
                                     // Initialise rectangle.
                                     r.x = *x;
                                     r.y = *y;
                                     r.width = *w;
                                     r.height = *h;
+
+                                    // Create graphic context.
+                                    // CAUTION! The "xcb_change_gc" function call
+                                    // does not work for some unknown reason.
+                                    // xcb_change_gc(c, *gc, m, v);
+                                    *gc = xcb_generate_id(c);
+                                    xcb_create_gc(c, *gc, *d, m, v);
 
                                     // Draw rectangle.
                                     xcb_poly_rectangle(c, *d, *gc, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &r);

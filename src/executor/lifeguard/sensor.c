@@ -113,8 +113,19 @@ fwprintf(stdout, L"TEST sense - display r: %i\n", r);
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
+            //?? As long as xcb does not offer a blocking
+            //?? "xcb_test_for_event" function, a sensing thread
+            //?? may NOT be used.
+            //?? See file "wait_checker.c" instead,
+            //?? where the event queue gets checked
+            //?? in the main thread now.
+            //??
+            //?? If this changes in the future and
+            //?? xcb offers a "test" or "check" function,
+            //?? then the following line may be activated again.
+
             // Sense incoming message.
-            sense_message(p0, (void*) DISPLAY_THREAD, (void*) &sense_display);
+//??            sense_message(p0, (void*) DISPLAY_THREAD, (void*) &sense_display);
 #endif
         }
     }

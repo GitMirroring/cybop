@@ -44,7 +44,17 @@ void sense_display(void* p0) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense display.");
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    sense_x_window_system(p0);
+    //?? As long as xcb does not offer a blocking
+    //?? "xcb_test_for_event" function, a sensing thread
+    //?? may NOT be used.
+    //?? See file "wait_checker.c" instead,
+    //?? where the event queue gets checked
+    //?? in the main thread now.
+    //??
+    //?? If this changes in the future and
+    //?? xcb offers a "test" or "check" function,
+    //?? then the following line may be activated again.
+//??    sense_x_window_system(p0);
 #endif
 }
 

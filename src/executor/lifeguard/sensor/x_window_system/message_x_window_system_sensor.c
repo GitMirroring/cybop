@@ -26,9 +26,6 @@
 #ifndef MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE
 #define MESSAGE_X_WINDOW_SYSTEM_SENSOR_SOURCE
 
-#ifdef WIN32
-    #include <winsock2.h>
-#endif
 #include <xcb/xcb.h>
 #include <pthread.h>
 

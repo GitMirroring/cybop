@@ -86,8 +86,29 @@ void receive_x_window_system(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // repeatedly calls this function when necessary.
     //
 
-    // Receive event.
-    receive_x_window_system_event((void*) &e, p5);
+    // Get event from internal memory.
+    // CAUTION! This has to be done FIRST,
+    // before trying to receive an event via
+    // "receive_x_window_system_event" below.
+    // The reason is that file "wait_checker.c"
+    // polls for events in the main thread and
+    // stores a found event in internal memory.
+    // So, that one has to be processed first here.
+    copy_array_forward((void*) &e, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+    // Reset event in internal memory.
+    // CAUTION! This IS important since otherwise,
+    // the same old event would be processed again and again.
+    copy_array_forward(p5, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+    if (e == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // Receive event.
+        // CAUTION! This should actually NEVER be called.
+        // See comment above.
+fwprintf(stdout, L"TEST receive x window system SHOULD NEVER BE CALLED: %i\n", e);
+        receive_x_window_system_event((void*) &e, p5);
+    }
 
     // Process event.
     receive_x_window_system_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, e);
