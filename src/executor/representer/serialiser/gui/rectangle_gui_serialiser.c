@@ -90,18 +90,14 @@ fwprintf(stdout, L"TEST serialise gui rectangle d: %i\n", d);
 fwprintf(stdout, L"TEST serialise gui rectangle s: %i\n", s);
 fwprintf(stdout, L"TEST serialise gui rectangle c: %i\n", c);
 
-                                    // Adjust value mask.
-                                    //
+                                    // The value mask.
                                     // CAUTION! It is possible to set several attributes
                                     // at the same time by OR'ing these values in valuemask.
 //??                                    uint32_t m = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND; //?? | XCB_GC_FONT;
                                     uint32_t m = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
-                                    // Adjust values.
-                                    //
-                                    // CAUTION! The valuelist has to be an array which
-                                    // lists the value for the respective attributes.
-                                    // These values must be in the same order
-                                    // as given in the mask above.
+                                    // The values.
+                                    // CAUTION! They have to be in the
+                                    // SAME ORDER as given in the mask above.
                                     uint32_t v[2];
                                     // The rectangle.
                                     xcb_rectangle_t r;
