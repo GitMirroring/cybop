@@ -17,7 +17,7 @@
 
 2013-07-03  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Optimise file "wait_checker.c"
+        * Optimise file "wait_checker.c" and add file "sense_checker.c"
 
 2013-07-01  Christian Heller  <christian.heller@tuxtax.de>
 

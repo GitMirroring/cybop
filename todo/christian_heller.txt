@@ -10,12 +10,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Set "enabled" flags in "sensor.c" to de/activate sensing for single channels in file "sense_checker.c"?
+        * Activate terminal input for win32 console
+
         * Follow xcb tutorial for how to change mask and values in file "rectangle_gui_serialiser.c"
         * Follow xcb tutorial for how to add font and text
         * Extend gui serialiser for "x window system" and "win32 display"
         * Specify gui component in cybol property "shape" or "super"?
-
-        * Activate terminal input for win32 console
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

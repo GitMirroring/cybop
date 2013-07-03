@@ -164,7 +164,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // No interrupt request was detected, so that the cyboi system
         // can be sent to sleep now, in order to save cpu time.
 
-        check_wait(p3, p0);
+        check_wait(p0, p3);
     }
 }
 
