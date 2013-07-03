@@ -11,7 +11,7 @@
 #
 
         * Set "enabled" flags in "sensor.c" to de/activate sensing for single channels in file "sense_checker.c"?
-        * Activate terminal input for win32 console
+        * Activate terminal input for win32 console using functions "PeekConsoleInput" and "ReadConsoleInput"
 
         * Follow xcb tutorial for how to change mask and values in file "rectangle_gui_serialiser.c"
         * Follow xcb tutorial for how to add font and text
