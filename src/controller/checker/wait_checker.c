@@ -26,12 +26,6 @@
 #ifndef WAIT_CHECKER_SOURCE
 #define WAIT_CHECKER_SOURCE
 
-#ifdef WIN32
-    #include <windows.h>
-#elif defined GNU_LINUX_OPERATING_SYSTEM
-    #include <xcb/xcb.h>
-#endif
-
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -40,10 +34,92 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../executor/lifeguard/sensor/display/display_sensor.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/copier/integer_copier.c"
 #include "../../executor/runner/sleeper.c"
 #include "../../logger/logger.c"
+
+//
+// If no signals are waiting in the signal memory (queue)
+// and no hardware requests have been received from either the:
+// - terminal
+// - display
+// - www service
+// - cyboi service
+// then cpu processing time may be saved by sending the system to sleep.
+//
+// Several possibilities have been considered to achieve this:
+//
+// 1 pause
+//
+// The simplicity of pause can conceal serious timing errors
+// that can make a program hang mysteriously.
+// One can't safely use pause to wait until one more signal
+// arrives, and then resume real work. Even if one arranges
+// for the signal handler to cooperate by setting a flag,
+// one still can't use pause reliably.
+//
+// Example:
+// // The irq flag is set by some signal handler.
+// if (irq == 0) {
+//     pause();
+// }
+// // Do work once the signal arrives.
+// ...
+//
+// This has a bug: the signal could arrive after the variable
+// irq is checked, but before the call to pause. If no further
+// signals arrive, the process would never wake up again.
+//
+// 2 sleep
+//
+// One can put an upper limit on the excess waiting by using
+// sleep in a loop, instead of using pause.
+//
+// Example:
+// // The irq flag is set by some signal handler.
+// while (irq == 0) {
+//     sleep(1);
+// }
+// // Do work once the signal arrives.
+// ...
+//
+// For some purposes, that is good enough.
+//
+// 3 signals of the operating system
+//
+// With a little more complexity, one can wait reliably until
+// a particular signal handler is run, using sigsuspend.
+//
+// Solution in CYBOI
+//
+// The signal handler approach was tried out and implemented.
+// However, when the process was sent to sleep with sigsuspend,
+// all its threads were sleeping as well. This is a problem,
+// because the input/output (including user interface control)
+// is running in special threads. Since these were sleeping,
+// there was no way to wake up the CYBOI system on user request.
+//
+// Another approach was to let the input/output run in their
+// own process (instead of only a thread), each.
+// The problem here is resource sharing between the processes.
+// While threads use the same resources as their parent process,
+// child processes copy their parent process' resources at
+// creation and afterwards work independently on their own resources.
+// This is a problem because CYBOI's signal memory needs to be
+// accessed by all input/output processes without conflicts.
+//
+// Furthermore, the usage of operating system signals enforces
+// a global interrupt request flag variable. Since a signal
+// handler procedure may receive only the numeric code of the
+// signal, but not further parametres, the interrupt request
+// flag may not be handed over within the internal memory and
+// a global flag would have to be used, which is undesirable.
+//
+// Therefore, the decision fell on the usage of a simple SLEEP
+// procedure, which seems sufficient for the purposes of CYBOI.
+//
 
 /**
  * Waits for an interrupt request.
@@ -67,35 +143,6 @@ void check_wait(void* p0, void* p1) {
     // The www service interrupt request.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-#ifdef WIN32
-    // The return value.
-    BOOL b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The message structure.
-    //
-    // It just serves as placeholder here, since
-    // the message is read and removed only later,
-    // in the main thread.
-    MSG msg;
-
-    // The window.
-    //
-    // CAUTION! It is initialised with null,
-    // so that not only the main window's messages,
-    // but all messages of the thread are received.
-    //
-    // This is important if using a dialogue window
-    // besides the main window, for example.
-    // CYBOI will then have to find out internally,
-    // to which window a message belongs.
-    // It thus has to keep a list of existing windows
-    // in a container structure stored in internal memory.
-    HWND wnd = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
-#elif defined GNU_LINUX_OPERATING_SYSTEM
-    // The connexion.
-    void* con = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* evt = *NULL_POINTER_STATE_CYBOI_MODEL;
-#endif
-
     // Get interrupt requests.
     //
     // CAUTION! They actually do not have to be retrieved again each time,
@@ -115,13 +162,9 @@ void check_wait(void* p0, void* p1) {
     copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &w, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    // Get connexion.
-    copy_array_forward((void*) &con, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-#endif
 
     //
-    // REMARK! The following variable checks and casts are not indented,
+    // CAUTION! The following variable checks and casts are not indented,
     // since many more variables may have to be added in the future,
     // so that indentation would lead to unreadable source code here.
     //
@@ -139,182 +182,44 @@ void check_wait(void* p0, void* p1) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Wait for an interrupt request.");
 
-        //
-        // Sleep for some time.
-        //
-        // If no signals are waiting in the signal memory (queue)
-        // and no hardware requests have been received from either the:
-        // - terminal
-        // - display
-        // - www service
-        // - cyboi service
-        // then cpu processing time may be saved by sending the system to sleep.
-        //
-        // Several possibilities have been considered to achieve this:
-        //
-        // 1 pause
-        //
-        // The simplicity of pause can conceal serious timing errors
-        // that can make a program hang mysteriously.
-        // One can't safely use pause to wait until one more signal
-        // arrives, and then resume real work. Even if one arranges
-        // for the signal handler to cooperate by setting a flag,
-        // one still can't use pause reliably.
-        //
-        // Example:
-        // // The irq flag is set by some signal handler.
-        // if (irq == 0) {
-        //     pause();
-        // }
-        // // Do work once the signal arrives.
-        // ...
-        //
-        // This has a bug: the signal could arrive after the variable
-        // irq is checked, but before the call to pause. If no further
-        // signals arrive, the process would never wake up again.
-        //
-        // 2 sleep
-        //
-        // One can put an upper limit on the excess waiting by using
-        // sleep in a loop, instead of using pause.
-        //
-        // Example:
-        // // The irq flag is set by some signal handler.
-        // while (irq == 0) {
-        //     sleep(1);
-        // }
-        // // Do work once the signal arrives.
-        // ...
-        //
-        // For some purposes, that is good enough.
-        //
-        // 3 signals of the operating system
-        //
-        // With a little more complexity, one can wait reliably until
-        // a particular signal handler is run, using sigsuspend.
-        //
-        // Solution in CYBOI
-        //
-        // The signal handler approach was tried out and implemented.
-        // However, when the process was sent to sleep with sigsuspend,
-        // all its threads were sleeping as well. This is a problem,
-        // because the input/output (including user interface control)
-        // is running in special threads. Since these were sleeping,
-        // there was no way to wake up the CYBOI system on user request.
-        //
-        // Another approach was to let the input/output run in their
-        // own process (instead of only a thread), each.
-        // The problem here is resource sharing between the processes.
-        // While threads use the same resources as their parent process,
-        // child processes copy their parent process' resources at
-        // creation and afterwards work independently on their own resources.
-        // This is a problem because CYBOI's signal memory needs to be
-        // accessed by all input/output processes without conflicts.
-        //
-        // Furthermore, the usage of operating system signals enforces
-        // a global interrupt request flag variable. Since a signal
-        // handler procedure may receive only the numeric code of the
-        // signal, but not further parametres, the interrupt request
-        // flag may not be handed over within the internal memory and
-        // a global flag would have to be used, which is undesirable.
-        //
-        // Therefore, the decision fell on the usage of a simple SLEEP
-        // procedure, which seems sufficient for the purposes of CYBOI.
-        //
-
 //?? fwprintf(stdout, L"TEST wait *sl: %i\n", *((int*) p0));
+
+        // The break flag.
+        // CAUTION! Using this single break flag is easier than
+        // querying all possible interrupt request flags below.
+        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (
-            (*((int*) c) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            || (*((int*) d) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            || (*((int*) s) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            || (*((int*) t) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-            || (*((int*) w) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 break;
+            }
 
-            } else {
+            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-#ifdef WIN32
-                // CAUTION! Moving the following code to an own thread in files
-                // "win32_display_sensor.c" and "message_win32_display_sensor.c"
-                // does NOT work, since the "PeekMessage" function
-                // checks the message queue of the CALLING thread ONLY.
-                //
-                // If it was called within an external "sensing" thread,
-                // then messages of the cyboi main thread
-                // (to which all windows belong) would never get recognised.
-                // Therefore, this main thread has to check for messages.
-                //
-                // CAUTION! The message MUST NOT be removed here,
-                // since it has to be read again in a "receive" function,
-                // where the actual processing happens.
-                // This call here is just made to detect available messages.
-                b = PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_NOREMOVE);
+                // Check if flags have been set within a sensing thread,
+                // running in parallel to this main thread.
+                if (
+                (*((int*) c) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                || (*((int*) d) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                || (*((int*) s) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                || (*((int*) t) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                || (*((int*) w) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
-                if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // CAUTION! Setting a mutex is NOT necessary here,
-                    // since this is the main thread and no other threads
-                    // are writing to the interrupt request variable.
-
-                    // Set display interrupt request to indicate
-                    // that a message has been received via display,
-                    // which may now be processed in the main thread of this system.
-                    copy_integer(d, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                    break;
+                    // Set break flag.
+                    copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
+            }
 
-#elif defined GNU_LINUX_OPERATING_SYSTEM
-                evt = (void*) xcb_poll_for_event((xcb_connection_t*) con);
+            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Get next event available from the server.
-                // If none is available, NULL gets returned.
-                //
-                // CAUTION! The event gets REMOVED from the queue
-                // by the "xcb_poll_for_event" function.
-                // It therefore HAS TO BE STORED temporarily
-                // in internal memory, in order to be able to
-                // process it later on in "executor/receiver/".
-                //
-                // The ideal solution would be a blocking xcb function
-                // running in an own sensing thread in files
-                // "x_window_system_sensor.c" and "message_x_window_system_sensor.c".
-                //
-                // The xcb developers have been asked to add a function like
-                // "xcb_test_for_event" that would return on availability
-                // of an event WITHOUT ACTUALLY REMOVING the event from the queue.
-                // However, the xcb developers did not like the idea for now.
-                //
-                // See mailing list discussion in xcb project:
-                // http://stackoverflow.com/questions/15775281/need-for-xeventsqueueddisplay-queuedafterreading-in-xcb
-                // http://lists.freedesktop.org/archives/xcb/2013-April/008219.html
-                // http://lists.freedesktop.org/archives/xcb/2013-May/008245.html
-                // http://lists.freedesktop.org/archives/xcb/2013-May/008249.html
-                // http://xcb.freedesktop.org/
-                //
-                // Therefore, this workaround here in the main thread is necessary.
-                if (evt != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                sense_display(d, (void*) &b, p1);
+            }
 
-                    // Store event in internal memory.
-                    copy_array_forward(p1, (void*) &evt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    // CAUTION! Setting a mutex is NOT necessary here,
-                    // since this is the main thread and no other threads
-                    // are writing to the interrupt request variable.
-
-                    // Set display interrupt request to indicate
-                    // that a message has been received via display,
-                    // which may now be processed in the main thread of this system.
-                    copy_integer(d, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                    break;
-                }
-
-#endif
+                // Sleep for some time.
                 sleep_nano(p0);
             }
         }

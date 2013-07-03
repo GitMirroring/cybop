@@ -30,6 +30,9 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
+#ifdef WIN32
+    #include "../../../../executor/lifeguard/sensor/win32_display/win32_display_sensor.c"
+#endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/lifeguard/sensor/x_window_system/x_window_system_sensor.c"
 #endif
@@ -37,24 +40,20 @@
 /**
  * Senses display messages.
  *
- * @param p0 the internal memory data
+ * @param p0 the display interrupt request
+ * @param p1 the checking loop break flag
+ * @param p2 the internal memory data
  */
-void sense_display(void* p0) {
+void sense_display(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense display.");
 
+#ifdef WIN32
+    sense_win32_display(p0, p1);
+#endif
+
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    //?? As long as xcb does not offer a blocking
-    //?? "xcb_test_for_event" function, a sensing thread
-    //?? may NOT be used.
-    //?? See file "wait_checker.c" instead,
-    //?? where the event queue gets checked
-    //?? in the main thread now.
-    //??
-    //?? If this changes in the future and
-    //?? xcb offers a "test" or "check" function,
-    //?? then the following line may be activated again.
-//??    sense_x_window_system(p0);
+    sense_x_window_system(p0, p1, p2);
 #endif
 }
 

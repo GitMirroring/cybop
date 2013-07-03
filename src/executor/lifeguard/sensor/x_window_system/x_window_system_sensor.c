@@ -26,64 +26,84 @@
 #ifndef X_WINDOW_SYSTEM_SENSOR_SOURCE
 #define X_WINDOW_SYSTEM_SENSOR_SOURCE
 
+#include <xcb/xcb.h>
+
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/lifeguard/sensor/x_window_system/message_x_window_system_sensor.c"
 
 /**
  * Senses x window system messages.
  *
- * @param p0 the internal memory data
+ * @param p0 the display interrupt request
+ * @param p1 the checking loop break flag
+ * @param p2 the internal memory data
  */
-void sense_x_window_system(void* p0) {
+void sense_x_window_system(void* p0, void* p1, void* p2) {
 
-    // CAUTION! DO NOT log this function call!
-    // This function is executed within a thread, but the
-    // logging is not guaranteed to be thread-safe and might
-    // cause unpredictable programme behaviour.
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense x window system.");
 
-    // The interrupt.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mutex.
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sleep time.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get interrupt.
-    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get mutex.
-    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get sleep time.
-    copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get connexion.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // A break condition does not exist here because the loop
-        // is running neverendingly while sensing messages.
+        // Get next event available from the server.
+        // If none is available, NULL gets returned.
         //
-        // The loop and this thread can only be exited by an external signal
-        // which is sent in the corresponding interrupt service function
-        // (situated in the applicator/interrupt/ directory)
-        // and processed in the system signal handler procedure
-        // (situated in the controller/checker.c module).
+        // CAUTION! The event gets REMOVED from the queue
+        // by the "xcb_poll_for_event" function.
+        // It therefore HAS TO BE STORED temporarily
+        // in internal memory, in order to be able to
+        // process it later on in "executor/receiver/".
+        //
+        // The ideal solution would be a blocking xcb function
+        // running in an own sensing thread in files
+        // "x_window_system_sensor.c" and "message_x_window_system_sensor.c".
+        //
+        // The xcb developers have been asked to add a function like
+        // "xcb_test_for_event" that would return on availability
+        // of an event WITHOUT ACTUALLY REMOVING the event from the queue.
+        // However, the xcb developers did not like the idea for now.
+        //
+        // See mailing list discussion in xcb project:
+        // http://stackoverflow.com/questions/15775281/need-for-xeventsqueueddisplay-queuedafterreading-in-xcb
+        // http://lists.freedesktop.org/archives/xcb/2013-April/008219.html
+        // http://lists.freedesktop.org/archives/xcb/2013-May/008245.html
+        // http://lists.freedesktop.org/archives/xcb/2013-May/008249.html
+        // http://xcb.freedesktop.org/
+        //
+        // Therefore, this workaround here in the main thread is necessary.
+        void* e = (void*) xcb_poll_for_event((xcb_connection_t*) c);
 
-        sense_x_window_system_message(i, m, t, c);
+        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // Store event in internal memory.
+            copy_array_forward(p2, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+            // CAUTION! Setting a mutex is NOT necessary here,
+            // since this is the main thread and no other threads
+            // are writing to the interrupt request variable.
+
+            // Set display interrupt request to indicate
+            // that a message has been received via display,
+            // which may now be processed in the main thread of this system.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set break flag.
+            copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system. The connexion is null.");
     }
-
-    // An implicit call to pthread_exit() is made when this thread
-    // (other than the thread in which main() was first invoked)
-    // returns from the function that was used to create it (this function).
-    // The pthread_exit() function does therefore not have to be called here.
-    // However, since this function runs an endless loop waiting for input, it may
-    // only be left using an external signal (see comment at "break" condition above).
 }
 
 /* X_WINDOW_SYSTEM_SENSOR_SOURCE */
