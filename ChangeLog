@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-07-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Set/reset "enable" flags in "sensor.c"/"interrupter.c", in order to de/activate sensing for single channels in file "sense_checker.c"
+
 2013-07-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise file "wait_checker.c" and add file "sense_checker.c"

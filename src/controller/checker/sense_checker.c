@@ -33,8 +33,9 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../executor/lifeguard/sensor/display/display_sensor.c"
+#include "../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../executor/modifier/copier/integer_copier.c"
 #include "../../executor/runner/sleeper.c"
 #include "../../logger/logger.c"
@@ -123,99 +124,79 @@
 /**
  * Senses an interrupt request.
  *
- * @param p0 the cyboi service interrupt request
- * @param p1 the display interrupt request
- * @param p2 the serial port interrupt request
- * @param p3 the terminal interrupt request
- * @param p4 the www service interrupt request
- * @param p5 the break flag
- * @param p6 the internal memory data
- * @param p7 the sleep time
+ * @param p0 the cyboi service enable flag
+ * @param p1 the cyboi service interrupt request
+ * @param p2 the display enable flag
+ * @param p3 the display interrupt request
+ * @param p4 the serial port enable flag
+ * @param p5 the serial port interrupt request
+ * @param p6 the terminal enable flag
+ * @param p7 the terminal interrupt request
+ * @param p8 the www service enable flag
+ * @param p9 the www service interrupt request
+ * @param p10 the break flag
+ * @param p11 the internal memory data
+ * @param p12 the sleep time
  */
-void check_sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void check_sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* b = (int*) p5;
+        int* b = (int*) p10;
 
-        //
-        // CAUTION! The following variable checks and casts are not indented,
-        // since many more variables may have to be added in the future,
-        // so that indentation would lead to unreadable source code here.
-        //
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense.");
 
-        if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // The results.
+        int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        int t = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        int w = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            int* w = (int*) p4;
+        // Check if flags have been set within a sensing thread,
+        // running in parallel to this main thread.
+        if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Check if both, enabled flag AND interrupt request are TRUE.
+            logify_boolean_and((void*) &c, p0, p1);
+            logify_boolean_and((void*) &d, p2, p3);
+            logify_boolean_and((void*) &s, p4, p5);
+            logify_boolean_and((void*) &t, p6, p7);
+            logify_boolean_and((void*) &w, p8, p9);
 
-            int* t = (int*) p3;
+            if (c || d || s || t || w) {
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* s = (int*) p2;
-
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* d = (int*) p1;
-
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* c = (int*) p0;
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense.");
-
-            if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Check if flags have been set within a sensing thread,
-                // running in parallel to this main thread.
-                if (
-                (*c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                || (*d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                || (*s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                || (*t != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                || (*w != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
-
-                    // Set break flag.
-                    copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                }
+                // Set break flag.
+                copy_integer(p10, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
+        }
 
-            if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // Check display for input.
+        if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                sense_display(p1, p5, p6);
+            compare_integer_unequal((void*) &d, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                sense_display(p3, p10, p11);
             }
+        }
 
-            if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // Check terminal for input.
+        if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Sleep for some time.
-                sleep_nano(p7);
+            compare_integer_unequal((void*) &t, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (t != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??                sense_terminal(p7, p10, p11);
             }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check sense. The cyboi service interrupt request is null.");
         }
 
-        } else {
+        if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check sense. The display interrupt request is null.");
-        }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check sense. The serial port interrupt request is null.");
-        }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check sense. The terminal interrupt request is null.");
-        }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check sense. The www service interrupt request is null.");
+            // Sleep for some time.
+            sleep_nano(p12);
         }
 
     } else {

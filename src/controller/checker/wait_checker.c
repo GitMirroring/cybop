@@ -49,39 +49,55 @@ void check_wait(void* p0, void* p1) {
 
     // The internal memory index.
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The cyboi service interrupt request.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The display interrupt request.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The serial port interrupt request.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The terminal interrupt request.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The www service interrupt request.
-    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The cyboi service enable flag and interrupt request.
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ci = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The display enable flag and interrupt request.
+    void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* di = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serial port enable flag and interrupt request.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* si = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal enable flag and interrupt request.
+    void* te = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The www service enable flag and interrupt request.
+    void* we = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* wi = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get interrupt requests.
-    //
-    // CAUTION! They actually do not have to be retrieved again each time,
-    // since they were allocated as steady variable at system startup.
-    // That is, it would be possible to retrieve them just once at startup
-    // and forward them as parametres via all function calls.
-    // But this would be tedious, worsen overview and moreover, further services
-    // and interrupt request variables may have to be introduced one day,
-    // which would make it necessary to adapt all function signatures then.
-    // Therefore, these variables are used locally just here.
+    // CAUTION! For reasons of efficiency, the following values
+    // are retrieved here and NOT inside the loop below.
+
+    // Get cyboi service enable flag and interrupt request.
+    copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) ENABLE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ce, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
     copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ci, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+
+    // Get display enable flag and interrupt request.
+    copy_array_forward((void*) &de, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &di, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+    // Get serial port enable flag and interrupt request.
+    copy_array_forward((void*) &se, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &si, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+    // Get terminal enable flag and interrupt request.
+    copy_array_forward((void*) &te, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ti, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+    // Get www service enable flag and interrupt request.
+    copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) ENABLE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &we, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
     copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    copy_array_forward((void*) &wi, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Wait for an interrupt request.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wait.");
 
 //?? fwprintf(stdout, L"TEST wait *sl: %i\n", *((int*) p1));
 
@@ -98,7 +114,7 @@ void check_wait(void* p0, void* p1) {
         }
 
         // Sense interrupt request or sleep.
-        check_sense(c, d, s, t, w, (void*) &b, p0, p1);
+        check_sense(ce, ci, de, di, se, si, te, ti, we, wi, (void*) &b, p0, p1);
     }
 
 /*??
