@@ -35,7 +35,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/lifeguard/sensor/serial_port/serial_port_sensor.c"
 //?? #include "../../executor/lifeguard/sensor/socket/socket_sensor.c"
-#include "../../executor/lifeguard/sensor/terminal/terminal_sensor.c"
+#include "../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
 #include "../../executor/lifeguard/message_sensor.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
@@ -60,7 +60,7 @@
 
 void sense_cyboi_socket(void* p0);
 void sense_serial_port(void* p0);
-void sense_terminal(void* p0);
+void sense_unix_terminal(void* p0);
 void sense_www_socket(void* p0);
 
 /**
@@ -158,8 +158,14 @@ void sense(void* p0, void* p1, void* p2) {
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-            // Run sensing thread.
-            sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_terminal);
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+            // Run sensing thread ONLY for unix terminal.
+            // CAUTION! A sensing thread for win32 console is NOT necessary,
+            // since its input gets sensed in the main thread.
+            // Therefore, the function "sense_unix_terminal" and NOT
+            // "sense_terminal" is called here.
+            sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_unix_terminal);
+#endif
 
             // Set enable flag.
             copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);

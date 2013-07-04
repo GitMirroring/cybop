@@ -40,8 +40,8 @@
 /**
  * Senses display messages.
  *
- * @param p0 the display interrupt request
- * @param p1 the checking loop break flag
+ * @param p0 the interrupt request
+ * @param p1 the break flag
  * @param p2 the internal memory data
  */
 void sense_display(void* p0, void* p1, void* p2) {

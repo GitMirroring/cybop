@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MESSAGE_TERMINAL_SENSOR_SOURCE
-#define MESSAGE_TERMINAL_SENSOR_SOURCE
+#ifndef MESSAGE_UNIX_TERMINAL_SENSOR_SOURCE
+#define MESSAGE_UNIX_TERMINAL_SENSOR_SOURCE
 
 #include <pthread.h>
 #include <signal.h>
@@ -40,14 +40,14 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Senses terminal message.
+ * Senses unix terminal message.
  *
  * @param p0 the interrupt
  * @param p1 the mutex
  * @param p2 the sleep time
  * @param p3 the file descriptor data
  */
-void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
+void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -144,7 +144,7 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                         // usually ungetc is used only to unread a character that was
                         // just read from the same stream.
                         //
-                        // The GNU C library only supports one character of pushback.
+                        // The GNU C library only supports ONE character of pushback.
                         // In other words, it does not work to call ungetc twice without
                         // doing input in between.
                         // Other systems might let you push back multiple characters;
@@ -163,15 +163,15 @@ void sense_terminal_message(void* p0, void* p1, void* p2, void* p3) {
                         // encounter end of file.
                         ungetwc(c, (FILE*) fs);
 
-//?? fwprintf(stdout, L"TEST sense terminal c: %lc\n", c);
+//?? fwprintf(stdout, L"TEST sense unix terminal c: %lc\n", c);
 
 /*??
 //?? TEST BEGIN
 wint_t test = fgetwc((FILE*) fs);
-fwprintf(stdout, L"TEST sense terminal c SECOND READING: %lc\n", c);
+fwprintf(stdout, L"TEST sense unix terminal c SECOND READING: %lc\n", c);
 ungetwc(test, (FILE*) fs);
 test = fgetwc((FILE*) fs);
-fwprintf(stdout, L"TEST sense terminal c THIRD READING: %lc\n", c);
+fwprintf(stdout, L"TEST sense unix terminal c THIRD READING: %lc\n", c);
 ungetwc(test, (FILE*) fs);
 //?? TEST END
 */
@@ -240,5 +240,5 @@ ungetwc(test, (FILE*) fs);
     }
 }
 
-/* MESSAGE_TERMINAL_SENSOR_SOURCE */
+/* MESSAGE_UNIX_TERMINAL_SENSOR_SOURCE */
 #endif

@@ -26,76 +26,45 @@
 #ifndef TERMINAL_SENSOR_SOURCE
 #define TERMINAL_SENSOR_SOURCE
 
-#include <pthread.h>
-#include <signal.h>
-#include <wchar.h>
-
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/lifeguard/sensor/terminal/message_terminal_sensor.c"
 #include "../../../../logger/logger.c"
+
+#ifdef WIN32
+    #include "../../../../executor/lifeguard/sensor/win32_console/win32_console_sensor.c"
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+    // since its input gets sensed in the corresponding sensing thread.
+    // Therefore, the following include is disabled.
+    // #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+#endif
 
 /**
  * Senses terminal messages.
  *
- * @param p0 the internal memory data
+ * @param p0 the interrupt request
+ * @param p1 the break flag
+ * @param p2 the internal memory data
  */
-void sense_terminal(void* p0) {
+void sense_terminal(void* p0, void* p1, void* p2) {
 
-    // CAUTION! DO NOT log this function call!
-    // This function is executed within a thread, but the
-    // logging is not guaranteed to be thread-safe and might
-    // cause unpredictable programme behaviour.
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
 
-    // The interrupt.
-    void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mutex.
-    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sleep time.
-    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input file descriptor item.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input file descriptor item data.
-    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
+#ifdef WIN32
+    sense_win32_console(p0, p1, p2);
+#endif
 
-    // Get interrupt.
-    copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get mutex.
-    copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get sleep time.
-    copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get input file descriptor item.
-    copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    // Get input file descriptor item data.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // A break condition does not exist here because the loop
-        // is running neverendingly while sensing messages.
-        //
-        // The loop and this thread can only be exited by an external signal
-        // which is sent in the corresponding interrupt service function
-        // (situated in the applicator/interrupt/ directory)
-        // and processed in the system signal handler procedure
-        // (situated in the controller/checker.c module).
-
-        sense_terminal_message(irq, mt, st, fd);
-    }
-
-    // An implicit call to pthread_exit() is made when this thread
-    // (other than the thread in which main() was first invoked)
-    // returns from the function that was used to create it (this function).
-    // The pthread_exit() function does therefore not have to be called here.
-    // However, since this function runs an endless loop waiting for input, it may
-    // only be left using an external signal (see comment at "break" condition above).
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+    // since its input gets sensed in the corresponding sensing thread.
+    // Therefore, the following function call is disabled.
+    // sense_unix_terminal(p0, p1, p2);
+#endif
 }
 
 /* TERMINAL_SENSOR_SOURCE */

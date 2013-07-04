@@ -35,6 +35,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../executor/lifeguard/sensor/display/display_sensor.c"
+#include "../../executor/lifeguard/sensor/terminal/terminal_sensor.c"
 #include "../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../executor/modifier/copier/integer_copier.c"
 #include "../../executor/runner/sleeper.c"
@@ -189,7 +190,7 @@ void check_sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
             if (t != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??                sense_terminal(p7, p10, p11);
+                sense_terminal(p7, p10, p11);
             }
         }
 

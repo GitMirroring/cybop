@@ -35,15 +35,13 @@
 /**
  * Senses win32 display messages.
  *
- * @param p0 the display interrupt request
- * @param p1 the checking loop break flag
+ * @param p0 the interrupt request
+ * @param p1 the break flag
  */
 void sense_win32_display(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 display.");
 
-    // The return value.
-    BOOL b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The message structure.
     //
     // It just serves as placeholder here, since
@@ -78,7 +76,7 @@ void sense_win32_display(void* p0, void* p1) {
     // since it has to be read again in a "receive" function,
     // where the actual processing happens.
     // This call here is just made to detect available messages.
-    b = PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_NOREMOVE);
+    BOOL b = PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_NOREMOVE);
 
     if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
