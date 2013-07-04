@@ -52,6 +52,8 @@ void interrupt(void* p0, void* p1) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The internal memory index.
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The enable flag.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -59,6 +61,15 @@ void interrupt(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // CAUTION! The order of function calls is IMPORTANT!
+
+            // Reset enable flag.
+            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) ENABLE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Interrupt sensing thread.
             interrupt_thread((void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
 
             // Reset handler.
@@ -77,7 +88,14 @@ void interrupt(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            interrupt_thread((void*) DISPLAY_THREAD, (void*) DISPLAY_EXIT);
+            // CAUTION! The order of function calls is IMPORTANT!
+
+            // Reset enable flag.
+            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Interrupt sensing thread.
+//??            interrupt_thread((void*) DISPLAY_THREAD, (void*) DISPLAY_EXIT);
 
             // Reset handler.
             // CAUTION! Assign NULL to the internal memory.
@@ -93,6 +111,13 @@ void interrupt(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // CAUTION! The order of function calls is IMPORTANT!
+
+            // Reset enable flag.
+            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Interrupt sensing thread.
             interrupt_thread((void*) SERIAL_PORT_THREAD, (void*) SERIAL_PORT_EXIT);
 
             // Reset handler.
@@ -109,6 +134,13 @@ void interrupt(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // CAUTION! The order of function calls is IMPORTANT!
+
+            // Reset enable flag.
+            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Interrupt sensing thread.
             interrupt_thread((void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
 
             // Reset handler.
@@ -125,6 +157,15 @@ void interrupt(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // CAUTION! The order of function calls is IMPORTANT!
+
+            // Reset enable flag.
+            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) ENABLE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Interrupt sensing thread.
             interrupt_thread((void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
 
             // Reset handler.
