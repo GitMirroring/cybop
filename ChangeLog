@@ -18,7 +18,7 @@
 2013-07-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug that unix terminal input did not arrive by adding and initialising "enable" flags in files "manager.c" and "internal_memory_manager.c"
-        * Prepare win32 console receiver
+        * Prepare win32 console receiver using function "ReadConsoleInputW"
 
 2013-07-04  Christian Heller  <christian.heller@tuxtax.de>
 

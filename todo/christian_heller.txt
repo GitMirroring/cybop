@@ -10,8 +10,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Activate win32 console receiver using function "ReadConsoleInput"
-
         * Follow xcb tutorial for how to change mask and values in file "rectangle_gui_serialiser.c"
         * Follow xcb tutorial for how to add font and text
         * Extend gui serialiser for "x window system" and "win32 display"
