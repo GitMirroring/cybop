@@ -147,6 +147,8 @@ void check_sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense.");
 
+//?? fwprintf(stdout, L"TEST check sense b: %i\n", *((int*) b));
+
         // The results.
         int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

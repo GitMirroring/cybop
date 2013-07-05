@@ -10,8 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Error: Input does not work anymore for unix_terminal since code was changed for function "PeekConsoleInput"
-        * Activate terminal input for win32 console using function "ReadConsoleInput"
+        * Activate win32 console receiver using function "ReadConsoleInput"
 
         * Follow xcb tutorial for how to change mask and values in file "rectangle_gui_serialiser.c"
         * Follow xcb tutorial for how to add font and text

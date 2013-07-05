@@ -86,6 +86,26 @@ void manage(void* p0) {
     // The signal memory item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // The signal memory sleep time.
+    int signal_memory_sleep_time_array[1];
+    int* signal_memory_sleep_time = signal_memory_sleep_time_array;
+
+    // The cyboi service enable flag.
+    int cyboi_service_enable_array[1];
+    int* cyboi_service_enable = cyboi_service_enable_array;
+    // The display enable flag.
+    int display_enable_array[1];
+    int* display_enable = display_enable_array;
+    // The serial port enable flag.
+    int serial_port_enable_array[1];
+    int* serial_port_enable = serial_port_enable_array;
+    // The terminal enable flag.
+    int terminal_enable_array[1];
+    int* terminal_enable = terminal_enable_array;
+    // The www service enable flag.
+    int www_service_enable_array[1];
+    int* www_service_enable = www_service_enable_array;
+
     //
     // Explanation concerning interrupt request flags:
     //
@@ -194,9 +214,6 @@ void manage(void* p0) {
     // The serial port sleep time.
     int serial_port_sleep_time_array[1];
     int* serial_port_sleep_time = serial_port_sleep_time_array;
-    // The signal memory sleep time.
-    int signal_memory_sleep_time_array[1];
-    int* signal_memory_sleep_time = signal_memory_sleep_time_array;
     // The terminal sleep time.
     int terminal_sleep_time_array[1];
     int* terminal_sleep_time = terminal_sleep_time_array;
@@ -246,6 +263,20 @@ void manage(void* p0) {
     overwrite_part_element(k, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     overwrite_part_element(k, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
+    // Initialise signal memory sleep time.
+    copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
+
+    // Initialise cyboi service enable flag.
+    copy_integer((void*) cyboi_service_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise display enable flag.
+    copy_integer((void*) display_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise serial port enable flag.
+    copy_integer((void*) serial_port_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise terminal enable flag.
+    copy_integer((void*) terminal_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise www service enable flag.
+    copy_integer((void*) www_service_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
     // Initialise cyboi service interrupt request flag.
     copy_integer((void*) cyboi_service_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise display interrupt request flag.
@@ -280,8 +311,6 @@ void manage(void* p0) {
     copy_integer((void*) display_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise serial port sleep time.
     copy_integer((void*) serial_port_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
-    // Initialise signal memory sleep time.
-    copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise terminal sleep time.
     copy_integer((void*) terminal_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise www service sleep time.
@@ -310,11 +339,11 @@ void manage(void* p0) {
     // to the internal memory, in order to be forwardable to threads.
 
     startup_internal_memory(i, (void*) &k, (void*) &s, (void*) &signal_memory_sleep_time,
-        (void*) &cyboi_service_irq, (void*) &cyboi_service_mutex, (void*) &cyboi_service_sleep_time,
-        (void*) &serial_port_irq, (void*) &serial_port_mutex, (void*) &serial_port_sleep_time,
-        (void*) &terminal_irq, (void*) &terminal_mutex, (void*) &terminal_sleep_time,
-        (void*) &www_service_irq, (void*) &www_service_mutex, (void*) &www_service_sleep_time,
-        (void*) &display_irq, (void*) &display_mutex, (void*) &display_sleep_time);
+        (void*) &cyboi_service_enable, (void*) &cyboi_service_irq, (void*) &cyboi_service_mutex, (void*) &cyboi_service_sleep_time,
+        (void*) &display_enable, (void*) &display_irq, (void*) &display_mutex, (void*) &display_sleep_time,
+        (void*) &serial_port_enable, (void*) &serial_port_irq, (void*) &serial_port_mutex, (void*) &serial_port_sleep_time,
+        (void*) &terminal_enable, (void*) &terminal_irq, (void*) &terminal_mutex, (void*) &terminal_sleep_time,
+        (void*) &www_service_enable, (void*) &www_service_irq, (void*) &www_service_mutex, (void*) &www_service_sleep_time);
 
     // Start up system signal handler.
     startup_system_signal_handler();
