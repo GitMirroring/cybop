@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_TERMINAL_RECEIVER_SOURCE
-#define CHARACTER_TERMINAL_RECEIVER_SOURCE
+#ifndef CHARACTER_UNIX_TERMINAL_RECEIVER_SOURCE
+#define CHARACTER_UNIX_TERMINAL_RECEIVER_SOURCE
 
 #include <stdio.h>
 #include <wchar.h>
@@ -68,7 +68,7 @@
 //
 
 /**
- * Receives a terminal character.
+ * Receives a unix terminal character.
  *
  * @param p0 the destination item
  * @param p1 the source file descriptor data
@@ -78,7 +78,7 @@
  * @param p5 the ansi escape code flag
  * @param p6 the input character
  */
-void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void receive_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -98,7 +98,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
 
                         int* f = (int*) p1;
 
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal character.");
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive unix terminal character.");
 
                         // The file stream created from the given file descriptor.
                         // CAUTION! The opentype string "r+" means an existing file
@@ -137,12 +137,12 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
                             // Unlock terminal mutex.
                             pthread_mutex_unlock(p2);
 
-//?? fwprintf(stdout, L"TEST receive terminal character c: %i\n", *c);
+//?? fwprintf(stdout, L"TEST receive unix terminal character c: %i\n", *c);
 
                             // Check for end-of-file condition or read error,
                             // in which case WEOF (the integer -1) is returned.
                             //
-                            // It is true, the "sense_terminal" function
+                            // It is true, the "sense_unix_terminal" function
                             // already filters out invalid characters
                             // recognised by the return value WEOF.
                             // However, to be on the safe side, they are
@@ -225,7 +225,7 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
 
                             } else {
 
-                                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The character reading failed.");
+                                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive unix terminal character. The character reading failed.");
 
                                 // Set loop break flag.
                                 copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -233,36 +233,36 @@ void receive_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4
 
                         } else {
 
-fwprintf(stdout, L"ERROR: Could not receive terminal character. The source file stream is null. fs: %i\n", fs);
+fwprintf(stdout, L"ERROR: Could not receive unix terminal character. The source file stream is null. fs: %i\n", fs);
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The source file stream is null.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive unix terminal character. The source file stream is null.");
                         }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The source file descriptor data is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive unix terminal character. The source file descriptor data is null.");
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The source mutex is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive unix terminal character. The source mutex is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The escape character mode is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive unix terminal character. The escape character mode is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The ansi escape code mode is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive unix terminal character. The ansi escape code mode is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive terminal character. The input character is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive unix terminal character. The input character is null.");
     }
 }
 
-/* CHARACTER_TERMINAL_RECEIVER_SOURCE */
+/* CHARACTER_UNIX_TERMINAL_RECEIVER_SOURCE */
 #endif

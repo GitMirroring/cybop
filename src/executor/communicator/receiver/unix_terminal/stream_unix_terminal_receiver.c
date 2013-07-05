@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STREAM_TERMINAL_RECEIVER_SOURCE
-#define STREAM_TERMINAL_RECEIVER_SOURCE
+#ifndef STREAM_UNIX_TERMINAL_RECEIVER_SOURCE
+#define STREAM_UNIX_TERMINAL_RECEIVER_SOURCE
 
 #include <errno.h>
 #include <wchar.h>
@@ -36,22 +36,22 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/receiver/terminal/character_terminal_receiver.c"
+#include "../../../../executor/communicator/receiver/unix_terminal/character_unix_terminal_receiver.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Receives data stream from terminal.
+ * Receives data stream from unix terminal.
  *
  * @param p0 the destination data item
  * @param p1 the source file descriptor data
  * @param p2 the source mutex
  */
-void receive_terminal_stream(void* p0, void* p1, void* p2) {
+void receive_unix_terminal_stream(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive unix terminal.");
 
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -81,9 +81,9 @@ void receive_terminal_stream(void* p0, void* p1, void* p2) {
             break;
         }
 
-        receive_terminal_character(p0, p1, p2, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
+        receive_unix_terminal_character(p0, p1, p2, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
     }
 }
 
-/* STREAM_TERMINAL_RECEIVER_SOURCE */
+/* STREAM_UNIX_TERMINAL_RECEIVER_SOURCE */
 #endif

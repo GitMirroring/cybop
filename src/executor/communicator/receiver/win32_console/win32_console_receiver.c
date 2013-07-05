@@ -23,22 +23,19 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TERMINAL_RECEIVER_SOURCE
-#define TERMINAL_RECEIVER_SOURCE
+#ifndef WIN32_CONSOLE_RECEIVER_SOURCE
+#define WIN32_CONSOLE_RECEIVER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/communicator/receiver/unix_terminal/unix_terminal_receiver.c"
-#endif
-#ifdef WIN32
-    #include "../../../../executor/communicator/receiver/win32_console/win32_console_receiver.c"
-#endif
-
 /**
- * Receives data via terminal.
+ * Receives data via win32 console.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -46,17 +43,10 @@
  * @param p3 the language
  * @param p4 the internal memory data
  */
-void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    receive_unix_terminal(p0, p1, p2, p3, p4);
-#endif
-#ifdef WIN32
-    receive_win32_console(p0, p1, p2, p3, p4);
-#endif
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 console.");
 }
 
-/* TERMINAL_RECEIVER_SOURCE */
+/* WIN32_CONSOLE_RECEIVER_SOURCE */
 #endif

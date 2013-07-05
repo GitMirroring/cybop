@@ -17,7 +17,8 @@
 
 2013-07-05  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Fix bug that terminal input did not arrive by adding and initialising "enable" flags in files "manager.c" and "internal_memory_manager.c"
+        * Fix bug that unix terminal input did not arrive by adding and initialising "enable" flags in files "manager.c" and "internal_memory_manager.c"
+        * Prepare win32 console receiver
 
 2013-07-04  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -122,7 +123,7 @@
 
 2013-05-07  Tobias Köhler  <tk@snake-universe.tk>
 
-        * Fix SPI(Serial Port Interface)
+        * Fix serial port interface (spi)
 
 2013-05-04  Christian Heller  <christian.heller@tuxtax.de>
 

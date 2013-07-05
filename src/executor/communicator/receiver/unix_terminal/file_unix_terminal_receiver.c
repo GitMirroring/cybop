@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FILE_TERMINAL_RECEIVER_SOURCE
-#define FILE_TERMINAL_RECEIVER_SOURCE
+#ifndef FILE_UNIX_TERMINAL_RECEIVER_SOURCE
+#define FILE_UNIX_TERMINAL_RECEIVER_SOURCE
 
 #include <errno.h>
 #include <stdio.h>
@@ -36,18 +36,18 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/receiver/terminal/stream_terminal_receiver.c"
+#include "../../../../executor/communicator/receiver/unix_terminal/stream_unix_terminal_receiver.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Receives the destination from terminal.
+ * Receives the destination from unix terminal.
  *
  * @param p0 the destination data item
  * @param p1 the internal memory data
  */
-void receive_terminal_file(void* p0, void* p1) {
+void receive_unix_terminal_file(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal file.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive unix terminal file.");
 
     // The file descriptor item.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -67,8 +67,8 @@ void receive_terminal_file(void* p0, void* p1) {
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    receive_terminal_stream(p0, fd, m);
+    receive_unix_terminal_stream(p0, fd, m);
 }
 
-/* FILE_TERMINAL_RECEIVER_SOURCE */
+/* FILE_UNIX_TERMINAL_RECEIVER_SOURCE */
 #endif
