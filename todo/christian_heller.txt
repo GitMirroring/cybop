@@ -10,6 +10,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Store win32 original input- and output mode in internal memory, similar to unix terminal attributes on startup, and reset on shutdown
+        * Debug win32 display receiver, to make cyboi compilable
+        * Continue win32 console receiver
+
         * Follow xcb tutorial for how to change mask and values in file "rectangle_gui_serialiser.c"
         * Follow xcb tutorial for how to add font and text
         * Extend gui serialiser for "x window system" and "win32 display"

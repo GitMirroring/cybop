@@ -97,7 +97,7 @@ void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
     receive_win32_console_message((void*) id, (void*) &ic, (void*) &is);
 
     // Process message.
-    receive_win32_console_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &msg);
+    receive_win32_console_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) id, (void*) &ic);
 
     // Deserialise event into a meaningful command.
     //?? TODO: Comment in or delete later.

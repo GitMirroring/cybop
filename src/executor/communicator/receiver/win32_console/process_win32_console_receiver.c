@@ -54,16 +54,21 @@
  * @param p9 the expose area y coordinate
  * @param p10 the expose area width
  * @param p11 the expose area height
- * @param p12 the message
+ * @param p12 the input buffer data
+ * @param p13 the input buffer count
  */
-void receive_win32_console_process(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void receive_win32_console_process(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     // The following code sections are NOT indented,
     // since more may have to be added in future.
 
+    if (p13 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        DWORD* ic = (DWORD*) p13;
+
     if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-//??        MSG* msg = (MSG*) p12;
+        INPUT_RECORD* id = (INPUT_RECORD*) p12;
 
     if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -107,10 +112,10 @@ void receive_win32_console_process(void* p0, void* p1, void* p2, void* p3, void*
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 console process.");
 
+/*??
         // The message type.
         UINT t = msg->message;
 
-/*??
         if (t == WM_ACTIVATE) {
 
         } else if (t == WM_CHAR) {
@@ -174,7 +179,12 @@ void receive_win32_console_process(void* p0, void* p1, void* p2, void* p3, void*
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console process. The message is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console process. The input buffer data is null.");
+    }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console process. The input buffer count is null.");
     }
 }
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef OPEN_WIN32_CONSOLE_STARTER_SOURCE
-#define OPEN_WIN32_CONSOLE_STARTER_SOURCE
+#ifndef WIN32_CONSOLE_SHUTTER_SOURCE
+#define WIN32_CONSOLE_SHUTTER_SOURCE
 
 #include <windows.h>
 
@@ -37,12 +37,12 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Opens the win32 console.
+ * Shuts down the win32 console.
  *
  * @param p0 the input handle item data
  * @param p1 the output handle item data
  */
-void startup_win32_console_open(void* p0, void* p1) {
+void shutdown_win32_console(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -52,7 +52,7 @@ void startup_win32_console_open(void* p0, void* p1) {
 
             int* i = (int*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console open.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown win32 console.");
 
             // Retrieve handle to specified standard device.
             // CAUTION! A win32 console handle is just an int value.
@@ -61,55 +61,40 @@ void startup_win32_console_open(void* p0, void* p1) {
 
             DWORD fdwSaveOldMode;
 
-            // Save current input- and output mode,
-            // in order to be restored on exit.
-            BOOL b = GetConsoleMode(*i, &fdwSaveOldMode);
+            // Restore input- and output mode on shutdown.
+            BOOL bi = SetConsoleMode(*i, mi);
+            BOOL bo = SetConsoleMode(*o, mo);
 
             // If the return value is zero, then an error occured.
-            if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // Configure input- and output events.
-                //
-                // The mode can be one or more of the following values:
-                // ENABLE_ECHO_INPUT
-                // ENABLE_EXTENDED_FLAGS
-                // ENABLE_INSERT_MODE
-                // ENABLE_LINE_INPUT
-                // ENABLE_MOUSE_INPUT
-                // ENABLE_PROCESSED_INPUT
-                // ENABLE_QUICK_EDIT_MODE
-                // ENABLE_WINDOW_INPUT
-                //
-                // CAUTION! When a console is created, all input modes
-                // EXCEPT ENABLE_WINDOW_INPUT are enabled by default.
-                // Therefore, the following lines are DISABLED.
-                //
-                // DWORD mi = ENABLE_ECHO_INPUT | ENABLE_EXTENDED_FLAGS | ENABLE_INSERT_MODE | ENABLE_LINE_INPUT | ENABLE_MOUSE_INPUT | ENABLE_PROCESSED_INPUT | ENABLE_QUICK_EDIT_MODE | ENABLE_WINDOW_INPUT;
-                // DWORD mo = ENABLE_PROCESSED_OUTPUT | ENABLE_WRAP_AT_EOL_OUTPUT;
-                //
-                // Set mode of input- and output events.
-                // BOOL bi = SetConsoleMode(*i, mi);
-                // BOOL bo = SetConsoleMode(*o, mo);
-
-            } else {
+            if (bi == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Get the calling thread's last-error code.
                 DWORD e = GetLastError();
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The get console mode failed.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown win32 console. The set console mode input failed.");
+                log_windows_system_error((void*) &e);
+            }
+
+            // If the return value is zero, then an error occured.
+            if (bo == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                // Get the calling thread's last-error code.
+                DWORD e = GetLastError();
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown win32 console. The set console mode output failed.");
                 log_windows_system_error((void*) &e);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The input item data is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown win32 console. The input item data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The output item data is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown win32 console. The output item data is null.");
     }
 }
 
-/* OPEN_WIN32_CONSOLE_STARTER_SOURCE */
+/* WIN32_CONSOLE_SHUTTER_SOURCE */
 #endif
