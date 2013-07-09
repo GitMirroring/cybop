@@ -34,6 +34,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/maintainer/starter/win32_console/get_mode_win32_console_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -41,8 +42,9 @@
  *
  * @param p0 the input handle item data
  * @param p1 the output handle item data
+ * @param p2 the internal memory data
  */
-void startup_win32_console_open(void* p0, void* p1) {
+void startup_win32_console_open(void* p0, void* p1, void* p2) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -55,49 +57,88 @@ void startup_win32_console_open(void* p0, void* p1) {
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console open.");
 
             // Retrieve handle to specified standard device.
+            //
             // CAUTION! A win32 console handle is just an int value.
-            *i = (int) GetStdHandle(STD_INPUT_HANDLE);
-            *o = (int) GetStdHandle(STD_OUTPUT_HANDLE);
+            // If the function fails, the return value is INVALID_HANDLE_VALUE.
+            // To get extended error information, call GetLastError.
+            // If an application does not have associated standard handles,
+            // such as a service running on an interactive desktop,
+            // and has not redirected them, the return value is NULL.
+            HANDLE hi = GetStdHandle(STD_INPUT_HANDLE);
+            HANDLE ho = GetStdHandle(STD_OUTPUT_HANDLE);
 
-            DWORD fdwSaveOldMode;
+            if (hi != NULL) {
 
-            // Save current input- and output mode,
-            // in order to be restored on exit.
-            BOOL b = GetConsoleMode(*i, &fdwSaveOldMode);
+                if (hi != INVALID_HANDLE_VALUE) {
 
-            // If the return value is zero, then an error occured.
-            if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    *i = (int) hi;
 
-                // Configure input- and output events.
-                //
-                // The mode can be one or more of the following values:
-                // ENABLE_ECHO_INPUT
-                // ENABLE_EXTENDED_FLAGS
-                // ENABLE_INSERT_MODE
-                // ENABLE_LINE_INPUT
-                // ENABLE_MOUSE_INPUT
-                // ENABLE_PROCESSED_INPUT
-                // ENABLE_QUICK_EDIT_MODE
-                // ENABLE_WINDOW_INPUT
-                //
-                // CAUTION! When a console is created, all input modes
-                // EXCEPT ENABLE_WINDOW_INPUT are enabled by default.
-                // Therefore, the following lines are DISABLED.
-                //
-                // DWORD mi = ENABLE_ECHO_INPUT | ENABLE_EXTENDED_FLAGS | ENABLE_INSERT_MODE | ENABLE_LINE_INPUT | ENABLE_MOUSE_INPUT | ENABLE_PROCESSED_INPUT | ENABLE_QUICK_EDIT_MODE | ENABLE_WINDOW_INPUT;
-                // DWORD mo = ENABLE_PROCESSED_OUTPUT | ENABLE_WRAP_AT_EOL_OUTPUT;
-                //
-                // Set mode of input- and output events.
-                // BOOL bi = SetConsoleMode(*i, mi);
-                // BOOL bo = SetConsoleMode(*o, mo);
+                    // Configure input events.
+                    //
+                    // The mode can be one or more of the following values:
+                    // ENABLE_ECHO_INPUT
+                    // ENABLE_EXTENDED_FLAGS
+                    // ENABLE_INSERT_MODE
+                    // ENABLE_LINE_INPUT
+                    // ENABLE_MOUSE_INPUT
+                    // ENABLE_PROCESSED_INPUT
+                    // ENABLE_QUICK_EDIT_MODE
+                    // ENABLE_WINDOW_INPUT
+                    //
+                    // CAUTION! When a console is created, all input modes
+                    // EXCEPT ENABLE_WINDOW_INPUT are enabled by default.
+                    //
+                    DWORD mi = ENABLE_ECHO_INPUT | ENABLE_EXTENDED_FLAGS | ENABLE_INSERT_MODE | ENABLE_LINE_INPUT | ENABLE_MOUSE_INPUT | ENABLE_PROCESSED_INPUT | ENABLE_QUICK_EDIT_MODE | ENABLE_WINDOW_INPUT;
+
+                    // Store original and set new input mode.
+                    startup_win32_console_mode_get((void*) &hi, p2, (void*) INPUT_MODE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) &mi);
+
+                } else {
+
+                    // Get the calling thread's last-error code.
+                    DWORD e = GetLastError();
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The input handle is invalid.");
+                    log_windows_system_error((void*) &e);
+                }
 
             } else {
 
-                // Get the calling thread's last-error code.
-                DWORD e = GetLastError();
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The input handle is null.");
+            }
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The get console mode failed.");
-                log_windows_system_error((void*) &e);
+            if (ho != NULL) {
+
+                if (ho != INVALID_HANDLE_VALUE) {
+
+                    *o = (int) ho;
+
+                    // Configure output events.
+                    //
+                    // The mode can be one or more of the following values:
+                    // ENABLE_PROCESSED_OUTPUT
+                    // ENABLE_WRAP_AT_EOL_OUTPUT
+                    //
+                    // CAUTION! When a screen buffer is created,
+                    // BOTH output modes are enabled by default.
+                    //
+                    DWORD mo = ENABLE_PROCESSED_OUTPUT | ENABLE_WRAP_AT_EOL_OUTPUT;
+
+                    // Store original and set new output mode.
+                    startup_win32_console_mode_get((void*) &ho, p2, (void*) OUTPUT_MODE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) &mo);
+
+                } else {
+
+                    // Get the calling thread's last-error code.
+                    DWORD e = GetLastError();
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The output handle is invalid.");
+                    log_windows_system_error((void*) &e);
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The output handle is null.");
             }
 
         } else {

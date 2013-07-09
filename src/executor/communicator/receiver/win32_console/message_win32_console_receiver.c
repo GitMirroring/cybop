@@ -78,7 +78,7 @@ void receive_win32_console_message(void* p0, void* p1, void* p2) {
                     // This is just to be sure that the correct type is used.
                     HANDLE h = (HANDLE) *cdi;
 
-                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 console.");
+                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 console message.");
 
                     // Receive and REMOVE data from console input buffer.
                     // CAUTION! The function does not return until
@@ -86,44 +86,35 @@ void receive_win32_console_message(void* p0, void* p1, void* p2) {
                     BOOL b = ReadConsoleInputW(h, id, *is, ic);
 
                     // If the return value is zero, then an error occured.
-                    if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (b == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        // CAUTION! Setting a mutex is NOT necessary here,
-                        // since this is the main thread and no other threads
-                        // are writing to the interrupt request variable.
-
-                        if (*ic > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                            fwprintf(stdout, L"TEST events received ic: %i\n", *ic);
-                        }
-
-                    } else {
+fwprintf(stdout, L"TEST: receive win32 console message ERROR returned from ReadConsoleInputW b: %i\n", b);
 
                         // Get the calling thread's last-error code.
                         DWORD e = GetLastError();
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense win32 console. The peek console input failed.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console message. The read console input failed.");
                         log_windows_system_error((void*) &e);
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console. The input console item data is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console message. The input console item data is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console. The input buffer data is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console message. The input buffer data is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console. The input buffer count is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console message. The input buffer count is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console. The input buffer size is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive win32 console message. The input buffer size is null.");
     }
 }
 

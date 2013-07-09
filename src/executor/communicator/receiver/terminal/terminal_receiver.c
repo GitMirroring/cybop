@@ -42,19 +42,22 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the format
- * @param p3 the language
- * @param p4 the internal memory data
+ * @param p2 the source root window data
+ * @param p3 the source root window count
+ * @param p4 the knowledge memory part
+ * @param p5 the internal memory data
+ * @param p6 the format
+ * @param p7 the language
  */
-void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    receive_unix_terminal(p0, p1, p2, p3, p4);
+    receive_unix_terminal(p0, p1, p6, p7, p5);
 #endif
 #ifdef WIN32
-    receive_win32_console(p0, p1, p2, p3, p4);
+    receive_win32_console(p0, p1, p2, p3, p4, p5, p6, p7);
 #endif
 }
 

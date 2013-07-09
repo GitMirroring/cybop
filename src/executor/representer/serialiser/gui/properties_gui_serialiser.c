@@ -34,8 +34,14 @@
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/gui/rectangle_gui_serialiser.c"
 #include "../../../../logger/logger.c"
+
+#ifdef WIN32
+    //?? TODO
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/gui/rectangle_gui_serialiser.c"
+#endif
 
 /**
  * Serialises the properties into gui.
@@ -212,8 +218,13 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
     calculate_integer_add((void*) &pmdx, (void*) &wpmdx);
     calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
 
+#ifdef WIN32
+    //?? TODO
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     // Serialise rectangle border and area.
     serialise_gui_rectangle(p0, p1, p2, p3, (void*) &pmdx, (void*) &pmdy, (void*) &smdx, (void*) &smdy);
+#endif
 }
 
 /* PROPERTIES_GUI_SERIALISER_SOURCE */

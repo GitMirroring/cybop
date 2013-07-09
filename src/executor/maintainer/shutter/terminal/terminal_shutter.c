@@ -36,7 +36,7 @@
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
-    //?? TODO: Reset attributes? (Already done in serialiser.)
+    #include "../../../../executor/maintainer/shutter/win32_console/win32_console_shutter.c"
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/maintainer/shutter/unix_terminal/unix_terminal_shutter.c"
@@ -81,7 +81,7 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) &opd, op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 #ifdef WIN32
-        //?? TODO: Reset attributes? (Already done in serialiser.)
+        shutdown_win32_console(ipd, opd, p0);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
         shutdown_unix_terminal(ipd, opd, p0);

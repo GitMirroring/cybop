@@ -99,7 +99,7 @@ void startup_terminal_open(void* p0) {
         copy_array_forward((void*) &opd, op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 #ifdef WIN32
-        startup_win32_console_open(ipd, opd);
+        startup_win32_console_open(ipd, opd, p0);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
         startup_unix_terminal_open(ipd, opd, p0);

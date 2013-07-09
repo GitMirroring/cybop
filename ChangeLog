@@ -15,6 +15,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-07-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt terminal starter and shutter to store/restore win32 original input- and output mode in internal memory
+        * Complete win32 console receiver
+
 2013-07-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug that unix terminal input did not arrive by adding and initialising "enable" flags in files "manager.c" and "internal_memory_manager.c"

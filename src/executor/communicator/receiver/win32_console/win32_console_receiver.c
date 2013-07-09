@@ -43,18 +43,29 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the format
- * @param p3 the language
- * @param p4 the internal memory data
+ * @param p2 the source root window data
+ * @param p3 the source root window count
+ * @param p4 the knowledge memory part
+ * @param p5 the internal memory data
+ * @param p6 the format
+ * @param p7 the language
  */
-void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 console.");
 
     // The input count (number of records read).
     DWORD ic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input buffer size.
-    DWORD is = *NUMBER_128_INTEGER_STATE_CYBOI_MODEL;
+    // CAUTION! The size HAS TO HAVE a value of one.
+    // The reason is that each input needs to be processed
+    // and deserialised, in order to identify the command
+    // corresponding e.g. to the button pressed by key or mouse.
+    // Afterwards, that command gets processed in cyboi's
+    // MAIN LOOP, before the next input may be received.
+    // One advantage of this kind of relying on the main loop
+    // is the possibility of real-time processing.
+    DWORD is = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The input buffer.
     // It is an array of INPUT_RECORD structures
     // that receives the input buffer data.
@@ -101,7 +112,7 @@ void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Deserialise event into a meaningful command.
     //?? TODO: Comment in or delete later.
-    //?? However, "gui" is probably ALWAYS used as language in conjunction with the x window system.
+    //?? However, "tui" is probably ALWAYS used as language in conjunction with the terminal.
     deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
 //??    deserialise_tui_??(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
 }

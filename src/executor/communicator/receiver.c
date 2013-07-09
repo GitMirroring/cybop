@@ -150,7 +150,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            receive_terminal(p0, p1, p8, p9, p5);
+            receive_terminal(p0, p1, p2, p3, p4, p5, p8, p9);
         }
     }
 

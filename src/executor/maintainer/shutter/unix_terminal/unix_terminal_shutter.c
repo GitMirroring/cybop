@@ -59,7 +59,7 @@ void shutdown_unix_terminal(void* p0, void* p1, void* p2) {
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown unix terminal.");
 
             //
-            // Reset attributes of terminal.
+            // Restore original terminal attributes.
             //
             // Although tcgetattr and tcsetattr specify the terminal device with a file descriptor,
             // the attributes are those of the terminal device itself and not of the file descriptor.

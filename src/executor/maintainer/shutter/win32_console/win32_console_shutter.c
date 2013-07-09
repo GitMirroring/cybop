@@ -34,66 +34,38 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/maintainer/shutter/win32_console/mode_win32_console_shutter.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Shuts down the win32 console.
  *
- * @param p0 the input handle item data
- * @param p1 the output handle item data
+ * @param p0 the input handle data
+ * @param p1 the output handle data
+ * @param p2 the internal memory data
  */
-void shutdown_win32_console(void* p0, void* p1) {
+void shutdown_win32_console(void* p0, void* p1, void* p2) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown win32 console.");
 
-        int* o = (int*) p1;
+    // Restore original console mode.
+    shutdown_win32_console_mode(p0, p2, (void*) INPUT_MODE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    shutdown_win32_console_mode(p1, p2, (void*) OUTPUT_MODE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* i = (int*) p0;
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown win32 console.");
-
-            // Retrieve handle to specified standard device.
-            // CAUTION! A win32 console handle is just an int value.
-            *i = (int) GetStdHandle(STD_INPUT_HANDLE);
-            *o = (int) GetStdHandle(STD_OUTPUT_HANDLE);
-
-            DWORD fdwSaveOldMode;
-
-            // Restore input- and output mode on shutdown.
-            BOOL bi = SetConsoleMode(*i, mi);
-            BOOL bo = SetConsoleMode(*o, mo);
-
-            // If the return value is zero, then an error occured.
-            if (bi == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // Get the calling thread's last-error code.
-                DWORD e = GetLastError();
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown win32 console. The set console mode input failed.");
-                log_windows_system_error((void*) &e);
-            }
-
-            // If the return value is zero, then an error occured.
-            if (bo == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // Get the calling thread's last-error code.
-                DWORD e = GetLastError();
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown win32 console. The set console mode output failed.");
-                log_windows_system_error((void*) &e);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown win32 console. The input item data is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown win32 console. The output item data is null.");
-    }
+    //
+    // CAUTION! The input- and output file descriptors are NOT closed here,
+    // since they reference the "stdin" and "stdout" streams of the system,
+    // which MUST NOT be closed.
+    //
+    // However, if they have to be closed one day for some reason,
+    // then do NOT put these function calls in the if-else branch
+    // of the attributes above!
+    // Whilst the attributes have to be reset just ONCE for the terminal,
+    // no matter which of the file descriptors are given,
+    // the file descriptors themselves have to be closed each, one by one.
+    //
+    // shutdown_unix_terminal_close(p0);
+    // shutdown_unix_terminal_close(p1);
 }
 
 /* WIN32_CONSOLE_SHUTTER_SOURCE */

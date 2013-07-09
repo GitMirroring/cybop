@@ -43,6 +43,19 @@
  */
 void shutdown_unix_terminal_close(void* p0) {
 
+    //
+    // CAUTION! Do NOT close the file descriptor here.
+    //
+    // The standard input/output were assigned
+    // at startup, and they MUST NOT be closed.
+    // Therefore, this whole block ist disabled.
+    //
+    // This might change later, in case a new
+    // pseudo terminal (not standard input/output)
+    // is created and assigned at startup.
+    //
+
+/*??
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
@@ -94,6 +107,7 @@ void shutdown_unix_terminal_close(void* p0) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix terminal close. The file descriptor data is null.");
     }
+*/
 }
 
 /* CLOSE_UNIX_TERMINAL_SHUTTER_SOURCE */
