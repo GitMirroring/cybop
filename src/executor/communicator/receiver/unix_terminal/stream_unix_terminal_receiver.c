@@ -26,9 +26,6 @@
 #ifndef STREAM_UNIX_TERMINAL_RECEIVER_SOURCE
 #define STREAM_UNIX_TERMINAL_RECEIVER_SOURCE
 
-#include <errno.h>
-#include <wchar.h>
-
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -46,7 +43,7 @@
  * Receives data stream from unix terminal.
  *
  * @param p0 the destination data item
- * @param p1 the source file descriptor data
+ * @param p1 the source file descriptor
  * @param p2 the source mutex
  */
 void receive_unix_terminal_stream(void* p0, void* p1, void* p2) {

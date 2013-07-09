@@ -40,8 +40,9 @@
  * @param p0 the input buffer data
  * @param p1 the input buffer count
  * @param p2 the input buffer size
+ * @param p3 the internal memory data
  */
-void receive_win32_console_message(void* p0, void* p1, void* p2) {
+void receive_win32_console_message(void* p0, void* p1, void* p2, void* p3) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -55,28 +56,21 @@ void receive_win32_console_message(void* p0, void* p1, void* p2) {
 
                 INPUT_RECORD* id = (INPUT_RECORD*) p0;
 
-                // The input console item.
+                // The input console.
                 void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-                // The input console item data.
-                void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-                // Get input console item.
-                copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-                // Get input console item data.
-                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-                // Inside the structure, arrays may have been reallocated,
-                // with elements pointing to different memory areas now.
-                copy_array_forward((void*) &cd, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                // Get input console.
+                copy_array_forward((void*) &c, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-                if (cd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    int* cdi = (int*) cd;
+                    int* ci = (int*) c;
 
                     // Cast DEREFERENCED value to handle.
                     // CAUTION! The input data is stored as int value,
                     // but actually references a win32 console handle.
                     // This is just to be sure that the correct type is used.
-                    HANDLE h = (HANDLE) *cdi;
+                    HANDLE h = (HANDLE) *ci;
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 console message.");
 

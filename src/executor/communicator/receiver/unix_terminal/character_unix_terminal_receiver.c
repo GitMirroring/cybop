@@ -71,7 +71,7 @@
  * Receives a unix terminal character.
  *
  * @param p0 the destination item
- * @param p1 the source file descriptor data
+ * @param p1 the source file descriptor
  * @param p2 the source mutex
  * @param p3 the loop break flag
  * @param p4 the escape character flag

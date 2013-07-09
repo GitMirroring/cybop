@@ -34,6 +34,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
@@ -53,9 +54,6 @@ void startup_terminal_open(void* p0) {
     // The input- and output item.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input- and output item data.
-    void* ipd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* opd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get input- and output item.
     copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -67,7 +65,7 @@ void startup_terminal_open(void* p0) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal open.");
 
-        // Allocate input- and output item.
+        // Allocate input- and output array.
         //
         // A unix file descriptor AS WELL AS a win32
         // console handle is just an int value.
@@ -77,11 +75,8 @@ void startup_terminal_open(void* p0) {
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         //
-        // CAUTION! Use "item" for input- and output storage in internal memory,
-        // since their counts and sizes are needed for deallocation.
-        //
-        allocate_item((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        allocate_item((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Set input- and output item.
         // CAUTION! Add it as soon as it was allocated above
@@ -91,18 +86,11 @@ void startup_terminal_open(void* p0) {
         copy_array_forward(p0, (void*) &ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-        // Get input- and output item data.
-        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-        // Inside the structure, arrays may have been reallocated,
-        // with elements pointing to different memory areas now.
-        copy_array_forward((void*) &ipd, ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &opd, op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
 #ifdef WIN32
-        startup_win32_console_open(ipd, opd, p0);
+        startup_win32_console_open(ip, op, p0);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-        startup_unix_terminal_open(ipd, opd, p0);
+        startup_unix_terminal_open(ip, op, p0);
 #endif
 
     } else {

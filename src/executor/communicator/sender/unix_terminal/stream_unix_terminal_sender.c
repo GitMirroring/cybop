@@ -40,7 +40,7 @@
 /**
  * Sends the source to the unix terminal output.
  *
- * @param p0 the destination output data
+ * @param p0 the destination output file descriptor
  * @param p1 the source data (null-terminated)
  * @param p2 the source count
  */

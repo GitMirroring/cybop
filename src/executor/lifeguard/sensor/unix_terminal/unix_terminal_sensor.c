@@ -52,10 +52,8 @@ void sense_unix_terminal(void* p0) {
     void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sleep time.
     void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input file descriptor item.
+    // The input file descriptor.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input file descriptor item data.
-    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get interrupt.
     copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -63,14 +61,8 @@ void sense_unix_terminal(void* p0) {
     copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get sleep time.
     copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get input file descriptor item.
+    // Get input file descriptor.
     copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    // Get input file descriptor item data.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +75,7 @@ void sense_unix_terminal(void* p0) {
         // and processed in the system signal handler procedure
         // (situated in the controller/checker.c module).
 
-        sense_unix_terminal_message(irq, mt, st, fd);
+        sense_unix_terminal_message(irq, mt, st, f);
     }
 
     // An implicit call to pthread_exit() is made when this thread

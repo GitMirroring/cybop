@@ -55,10 +55,8 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui initial.");
 
-    // The output item.
+    // The output.
     void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The output item data.
-    void* opd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The tree level.
     // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL
     // constant directly, since the value gets changed in the functions!
@@ -87,14 +85,8 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 #endif
 
-    // Get output item.
+    // Get output.
     copy_array_forward((void*) &op, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    // Get output item data.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &opd, op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // CAUTION! Handing over the output item is necessary
     // for serialising into a win32 console, since
@@ -105,7 +97,7 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The only difference is the CLI FLAG handed over,
     // which is used to avoid cursor positioning,
     // since that is NOT wanted for cli.
-    serialise_tui_part_element_content(p0, opd, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p7, p8, (void*) &l, p9, (void*) &a, p10);
+    serialise_tui_part_element_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p7, p8, (void*) &l, p9, (void*) &a, p10);
 }
 
 /* INITIAL_TUI_SERIALISER_SOURCE */

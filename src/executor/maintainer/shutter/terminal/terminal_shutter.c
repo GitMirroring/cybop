@@ -33,6 +33,7 @@
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/lifeguard/interrupter/thread_interrupter.c"
+#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
@@ -58,9 +59,6 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
     // The input- and output item.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input- and output item data.
-    void* ipd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* opd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get input- and output item.
     copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -73,23 +71,16 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
         // Interrupt terminal service thread.
         interrupt_thread(p1, p2);
 
-        // Get input- and output item data.
-        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-        // Inside the structure, arrays may have been reallocated,
-        // with elements pointing to different memory areas now.
-        copy_array_forward((void*) &ipd, ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &opd, op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
 #ifdef WIN32
-        shutdown_win32_console(ipd, opd, p0);
+        shutdown_win32_console(ip, op, p0);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-        shutdown_unix_terminal(ipd, opd, p0);
+        shutdown_unix_terminal(ip, op, p0);
 #endif
 
-        // Deallocate input- and output item.
-        deallocate_item((void*) &ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_item((void*) &op, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // Deallocate input- and output array.
+        deallocate_array((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Reset terminal values.
         // CAUTION! Assign NULL to the internal memory.

@@ -19,6 +19,7 @@
 
         * Adapt terminal starter and shutter to store/restore win32 original input- and output mode in internal memory
         * Complete win32 console receiver
+        * Fix wrong handle causing zero input records to arrive in win32 console receiver
 
 2013-07-05  Christian Heller  <christian.heller@tuxtax.de>
 

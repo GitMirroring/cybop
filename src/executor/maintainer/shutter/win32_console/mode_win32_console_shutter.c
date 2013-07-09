@@ -74,8 +74,8 @@ void shutdown_win32_console_mode(void* p0, void* p1, void* p2) {
                 log_windows_system_error((void*) &e);
             }
 
-            // Deallocate original mode.
-            free(m);
+            // Deallocate mode.
+            deallocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             // Reset original mode.
             // CAUTION! Assign NULL to the internal memory.

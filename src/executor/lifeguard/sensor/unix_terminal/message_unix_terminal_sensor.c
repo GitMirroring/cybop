@@ -45,7 +45,7 @@
  * @param p0 the interrupt
  * @param p1 the mutex
  * @param p2 the sleep time
- * @param p3 the file descriptor data
+ * @param p3 the file descriptor
  */
 void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3) {
 

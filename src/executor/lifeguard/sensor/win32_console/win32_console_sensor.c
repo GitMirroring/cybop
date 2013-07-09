@@ -48,33 +48,34 @@
  */
 void sense_win32_console(void* p0, void* p1, void* p2) {
 
-    // The input console item.
+    // The input console.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input console item data.
-    void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get input console item.
+    // Get input console.
     copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get input console item data.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &cd, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    if (cd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* cdi = (int*) cd;
+        int* ci = (int*) c;
 
         // Cast DEREFERENCED value to handle.
         // CAUTION! The input data is stored as int value,
         // but actually references a win32 console handle.
         // This is just to be sure that the correct type is used.
-        HANDLE h = (HANDLE) *cdi;
+        HANDLE h = (HANDLE) *ci;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 console.");
 
         // The input buffer size.
-        int is = *NUMBER_128_INTEGER_STATE_CYBOI_MODEL;
+        // CAUTION! The size HAS TO HAVE a value of one.
+        // The reason is that each input needs to be processed
+        // and deserialised, in order to identify the command
+        // corresponding e.g. to the button pressed by key or mouse.
+        // Afterwards, that command gets processed in cyboi's
+        // MAIN LOOP, before the next input may be received.
+        // One advantage of this kind of relying on the main loop
+        // is the possibility of real-time processing.
+        DWORD is = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
         // The input buffer.
         // It is an array of INPUT_RECORD structures
         // that receives the input buffer data.
