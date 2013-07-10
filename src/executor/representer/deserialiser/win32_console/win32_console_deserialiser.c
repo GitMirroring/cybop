@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TUI_DESERIALISER_SOURCE
-#define TUI_DESERIALISER_SOURCE
+#ifndef WIN32_CONSOLE_DESERIALISER_SOURCE
+#define WIN32_CONSOLE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,31 +33,21 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
-    #include "../../../../executor/representer/deserialiser/win32_console/win32_console_deserialiser.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
-#endif
-
 /**
- * Deserialises the tui input data into a command.
+ * Deserialises the win32 console button key character data into a command.
  *
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_tui(void* p0, void* p1, void* p2) {
+void deserialise_win32_console(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise tui.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise win32 console.");
 
-#ifdef WIN32
-    deserialise_win32_console(p0, p1, p2);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    deserialise_ansi_escape_code(p0, p1, p2);
-#endif
+    //?? TODO: TESTING ONLY! The <ESC> command is used as default.
+    //?? Later, search down the tui tree to identify the actual command!
+    append_item_element(p0, (void*) ESCAPE_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ESCAPE_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* TUI_DESERIALISER_SOURCE */
+/* WIN32_CONSOLE_DESERIALISER_SOURCE */
 #endif
