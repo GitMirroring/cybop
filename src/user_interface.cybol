@@ -1,0 +1,29 @@
+<model>
+    <part name="menu_item_1" channel="inline" format="text/plain" model="Example Menu Item">
+
+        <property name="super" channel="inline" format="path/knowledge" model=".settings.tui.menu_item"/>
+
+        <property name="position" channel="inline" format="number/integer" model="1,3"/>
+        <property name="size" channel="inline" format="number/integer" model="68,1"/>
+
+        <!-- A parent element may have a layout for arranging its child elements. -->
+        <property name="layout" channel="inline" format="text/plain" model="compass"/>
+        <property name="cell" channel="inline" format="text/plain" model="north"/>
+
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+
+        <!-- A child element may point to the previous and next sibling for walking through elements using the tab button. -->
+        <property name="previous" channel="inline" format="text/plain" model=".tui.window.menu.exit"/>
+        <property name="next" channel="inline" format="text/plain" model=".tui.window.menu.menu_item_2"/>
+
+        <!-- A parent element may point to the child currently owning the focus. -->
+        <property name="focus" channel="inline" format="text/plain" model=".tui.window.menu.menu_item_1"/>
+
+        <property name="button_press_action" channel="inline" format="text/plain" model=".logic.execute_action"/>
+        <property name="mouse_over_action" channel="inline" format="text/plain" model=".logic.execute_action"/>
+        <property name="mouse_click_action" channel="inline" format="text/plain" model=".logic.execute_action"/>
+
+    </part>
+</model>
