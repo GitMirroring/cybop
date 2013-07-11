@@ -10,6 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue file "src/user_interface.ods" as overview of input event constants of various operating systems
+
         * Deserialise win32 console input into command
 
         * Follow xcb tutorial for how to change mask and values in file "rectangle_gui_serialiser.c"
@@ -107,9 +109,8 @@
             You might also look at timerfd, signalfd, and similar calls; those make
             it possible to include even more things in your select/poll/epoll.
 
-            Depending on your target platforms, you may also find the portable
-            libevent or libev wrappers useful, rather than calling epoll or similar
-            directly.
+            Depending on your target platforms, you may also find the portable libevent
+            or libev wrappers useful, rather than calling epoll or similar directly.
 
         * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
             to find out why file descriptor-to-stream conversion does not work
@@ -124,18 +125,16 @@
             int* var = (int[]) { 6 };
 
         * Add OpenGL functionality
-            Ich hab' das Problem nun gelöst! Zu tun hatte das alles mit dem
-            sogenannten OpenGL - Context,
-            der, wie ich das verstanden habe, an ein Fenster gebunden ist. Das heißt
-            also, ohne Fenster für OpenGL,
-            kein OpenGL - Context (Speicher für Objekte, Texturen, Flags etc.) und
-            damit kein Bild...
+            Ich hab' das Problem nun gelöst!
+            Zu tun hatte das alles mit dem sogenannten OpenGL - Context, der,
+            wie ich das verstanden habe, an ein Fenster gebunden ist.
+            Das heißt also, ohne Fenster für OpenGL, kein OpenGL - Context
+            (Speicher für Objekte, Texturen, Flags etc.) und damit kein Bild...
             Das Vorhandene Fenster war dafür nicht zu nutzen, da es bereits von Qt
             "bemalt" wird.
-            Deshalb ist jetzt ein zweites Fenster auf dem Screenshot zu sehen. Das
-            kann man allerdings mit einem
-            simplen befehl verstecken lassen, ich habe es allerdings noch zu
-            Debug-Zwecken aktiviert gelassen.
+            Deshalb ist jetzt ein zweites Fenster auf dem Screenshot zu sehen.
+            Das kann man allerdings mit einem simplen befehl verstecken lassen,
+            ich habe es allerdings noch zu Debug-Zwecken aktiviert gelassen.
             Christian Thiele <post@thiele-christian.de>
 
         * Provide default dialogues (similar to JOptionPane) as cybol applications
