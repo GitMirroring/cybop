@@ -21,9 +21,15 @@
         <!-- A parent element may point to the child currently owning the focus. -->
         <property name="focus" channel="inline" format="text/plain" model=".tui.window.menu.menu_item_1"/>
 
-        <property name="button_press_action" channel="inline" format="text/plain" model=".logic.execute_action"/>
-        <property name="mouse_over_action" channel="inline" format="text/plain" model=".logic.execute_action"/>
-        <property name="mouse_click_action" channel="inline" format="text/plain" model=".logic.execute_action"/>
+        <property name="button_press" channel="inline" format="text/plain" model=".logic.execute_action">
+            <constraint name="control" channel="inline" format="logicvalue/boolean" model="true"/>
+            <constraint name="alt" channel="inline" format="logicvalue/boolean" model="false"/>
+            <constraint name="shift" channel="inline" format="logicvalue/boolean" model="false"/>
+            <constraint name="meta" channel="inline" format="logicvalue/boolean" model="false"/>
+        </property>
+
+        <property name="mouse_over" channel="inline" format="text/plain" model=".logic.execute_action"/>
+        <property name="mouse_click" channel="inline" format="text/plain" model=".logic.execute_action"/>
 
     </part>
 </model>
