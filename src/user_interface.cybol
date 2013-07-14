@@ -21,7 +21,21 @@
         <!-- A parent element may point to the child currently owning the focus. -->
         <property name="focus" channel="inline" format="text/plain" model=".tui.window.menu.menu_item_1"/>
 
-        <!-- Keyboard. -->
+        <!-- TODO: How to specify multiple hotkeys resulting in the same action?? -->
+
+        <!-- Keyboard press/release. -->
+        <!-- TODO: better implement the "focus" functionality once in cyboi or repeatedly in cybol, for each single element?? -->
+        <!--
+            CYBOI: identify gui element that has the focus;
+            if (key == tab)
+                deserialise "unfocus" with current gui element part;
+                set focus to next element (pointed to by current element's "next" property);
+                deserialise "focus" with next gui element part;
+            else
+                compare typed key with gui element's key;
+                (a) if equal, then deserialise "keyboard_press" or "keyboard_release";
+                (b) else compare next higher gui element's key etc.
+        -->
         <property name="keyboard_press" channel="inline" format="text/plain" model=".logic.execute_action">
             <constraint name="key" channel="inline" format="number/integer" model="0x1B"/>
             <constraint name="character" channel="inline" format="text/plain" model="e"/>
@@ -31,20 +45,69 @@
             <constraint name="mask_shift" channel="inline" format="logicvalue/boolean" model="false"/>
         </property>
 
-        <!-- Mouse. -->
-        <property name="mouse_click" channel="inline" format="text/plain" model=".logic.execute_action">
+        <!-- Mouse press/release/click/drop. -->
+        <!--
+            CYBOI: always remember position in internal memory to be used to determine a "click";
+            identify gui element using its position and size;
+            remember button state to be used in next "mouse_move" event to determine "drag";
+            on press:
+                deserialise "mouse_press";
+                TODO: deserialise "focus"??; remember previous part and deserialise "unfocus"; combine with "keyboard_press"
+            on release: compare if "drag" flag is set in internal memory;
+            (a) if yes, then deserialise "mouse_drop" (the end of a drag operation);
+            (b) else deserialise normal "mouse_release" and deserialise "mouse_click" (in addition to "mouse_release")
+                (possibly, if necessary, check if position is equal to position of previous event in internal memory)
+        -->
+        <property name="mouse_release" channel="inline" format="text/plain" model=".logic.execute_action">
+            <constraint name="button" channel="inline" format="text/plain" model="left"/>
+            <constraint name="drop" channel="inline" format="text/plain" model=".logic.execute_drop_action"/>
+        </property>
+
+        <!-- Mouse move/drag. -->
+        <!--
+            CYBOI: identify current gui element using current coordinates;
+            get previous gui element part from internal memory;
+            compare previous with current gui element part;
+            if unequal, then store current gui element as part in internal memory, to be used to determine "enter/leave";
+                serialise "mouse_leave" with previous part;
+                serialise "mouse_enter" with current part;
+            get button state (pressed/released) of previous event from internal memory;
+            (a) if button was (and still is) pressed and now a move event occurs, then this is a "drag" operation;
+                set the corresponding "drag" flag in internal memory;
+            (b) serialise normal "mouse_move"
+        -->
+        <property name="mouse_move" channel="inline" format="text/plain" model=".logic.execute_action">
             <constraint name="button" channel="inline" format="text/plain" model="left"/>
         </property>
 
-        <!-- mehrere Hotkeys die die gleiche Aktion auslösen?? -->
+        <!-- Mouse wheel/wheel_horizontally. -->
+        <property name="mouse_wheel" channel="inline" format="text/plain" model=".logic.execute_action"/>
+
+        <!-- Joystick axis/ball/hat/button/device. -->
+        <property name="joystick_axis" channel="inline" format="text/plain" model=".logic.execute_action"/>
+
+        <!-- Touchpad start/move/cancel/end. -->
+        <property name="touchpad_start" channel="inline" format="text/plain" model=".logic.execute_action"/>
+
+        <!-- Gesture start/change/end. -->
+        <property name="gesture_start" channel="inline" format="text/plain" model=".logic.execute_action"/>
 
         <!-- Expose. -->
+        <!--
+            CYBOI: draw the whole window;
+            all gui elements inside are "lightweight", i.e. not taken
+            from the operating system, but drawn by cyboi itself
+        -->
         <property name="expose" channel="inline" format="text/plain" model=".logic.execute_action"/>
 
-        <!-- Joystick. -->
-        <!-- Touchpad. -->
-        <!-- Gesture. -->
+        <!-- Window. -->
+        <!--
+            CYBOI: the "window_close" event may be needed to call an exit operation
+        -->
+        <property name="window_close" channel="inline" format="text/plain" model=".logic.execute_action"/>
+
         <!-- Miscellaneous. -->
+        <property name="mouse_wheel" channel="inline" format="text/plain" model=".logic.execute_action"/>
 
     </part>
 </model>
