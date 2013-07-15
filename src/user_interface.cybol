@@ -1,4 +1,5 @@
 <model>
+
     <part name="menu_item_1" channel="inline" format="text/plain" model="Example Menu Item">
 
         <property name="super" channel="inline" format="path/knowledge" model=".settings.tui.menu_item"/>
@@ -20,8 +21,6 @@
 
         <!-- A parent element may point to the child currently owning the focus. -->
         <property name="focus" channel="inline" format="text/plain" model=".tui.window.menu.menu_item_1"/>
-
-        <!-- TODO: How to specify multiple hotkeys resulting in the same action?? -->
 
         <!-- Keyboard press/release. -->
         <!-- TODO: better implement the "focus" functionality once in cyboi or repeatedly in cybol, for each single element?? -->
@@ -45,7 +44,7 @@
             <constraint name="mask_shift" channel="inline" format="logicvalue/boolean" model="false"/>
         </property>
 
-        <!-- Mouse press/release/click/drop. -->
+        <!-- Mouse press/release/click. -->
         <!--
             CYBOI: always remember position in internal memory to be used to determine a "click";
             identify gui element using its position and size;
@@ -60,10 +59,9 @@
         -->
         <property name="mouse_release" channel="inline" format="text/plain" model=".logic.execute_action">
             <constraint name="button" channel="inline" format="text/plain" model="left"/>
-            <constraint name="drop" channel="inline" format="text/plain" model=".logic.execute_drop_action"/>
         </property>
 
-        <!-- Mouse move/drag. -->
+        <!-- Mouse move. -->
         <!--
             CYBOI: identify current gui element using current coordinates;
             get previous gui element part from internal memory;
@@ -74,9 +72,13 @@
             get button state (pressed/released) of previous event from internal memory;
             (a) if button was (and still is) pressed and now a move event occurs, then this is a "drag" operation;
                 set the corresponding "drag" flag in internal memory;
+                deserialise "mouse_drag";
             (b) serialise normal "mouse_move"
         -->
-        <property name="mouse_move" channel="inline" format="text/plain" model=".logic.execute_action">
+        <property name="mouse_move" channel="inline" format="text/plain" model=".logic.execute_action"/>
+
+        <!-- Mouse drag/drop. -->
+        <property name="mouse_drag" channel="inline" format="text/plain" model=".logic.execute_action">
             <constraint name="button" channel="inline" format="text/plain" model="left"/>
         </property>
 
@@ -110,4 +112,9 @@
         <property name="mouse_wheel" channel="inline" format="text/plain" model=".logic.execute_action"/>
 
     </part>
+
+    <!-- Remark: Multiple hotkeys may be specified in an extra file, e.g. "hotkeys.cybol". -->
+    <part name="strg+c" channel="inline" format="text/plain" model=".logic.copy"/>
+    <part name="strg+v" channel="inline" format="text/plain" model=".logic.paste"/>
+
 </model>

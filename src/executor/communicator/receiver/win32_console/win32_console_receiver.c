@@ -56,7 +56,7 @@ void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     // The input count (number of records read).
     DWORD ic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The input buffer size.
+    // The input size.
     // CAUTION! The size HAS TO HAVE a value of one.
     // The reason is that each input needs to be processed
     // and deserialised, in order to identify the command
@@ -66,10 +66,10 @@ void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // One advantage of this kind of relying on the main loop
     // is the possibility of real-time processing.
     DWORD is = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-    // The input buffer.
+    // The input data.
     // It is an array of INPUT_RECORD structures
     // that receives the input buffer data.
-    INPUT_RECORD id[is];
+    INPUT_RECORD id;
 
     // The event type string data, count.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -105,10 +105,10 @@ void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     //
 
     // Receive message.
-    receive_win32_console_message((void*) id, (void*) &ic, (void*) &is, p5);
+    receive_win32_console_message((void*) &id, (void*) &ic, (void*) &is, p5);
 
     // Process message.
-    receive_win32_console_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) id, (void*) &ic);
+    receive_win32_console_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &id, (void*) &ic);
 
     // Deserialise event into a meaningful command.
     //?? TODO: Comment in or delete later.

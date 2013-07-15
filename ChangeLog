@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-07-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt to new MinGW-w64 using "libwinpthread-1.dll" instead of "pthreadGC2.dll"
+
 2013-07-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add files "src/user_interface.*" as overview of input event constants of various operating systems
