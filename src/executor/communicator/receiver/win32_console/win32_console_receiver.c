@@ -111,8 +111,6 @@ void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     receive_win32_console_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &id, (void*) &ic);
 
     // Deserialise event into a meaningful command.
-    //?? TODO: Comment in or delete later.
-    //?? However, "tui" is probably ALWAYS used as language in conjunction with the terminal.
 //??    deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
     deserialise_tui(p0, (void*) &bk, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 }

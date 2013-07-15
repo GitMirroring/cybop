@@ -10,9 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue file "src/user_interface.ods" as overview of input event constants of various operating systems
-
-        * Deserialise win32 console input into command
+        * Deserialise win32 console input (also arrow keys etc.) into command, see:
+            http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
 
         * Follow xcb tutorial for how to change mask and values in file "rectangle_gui_serialiser.c"
         * Follow xcb tutorial for how to add font and text

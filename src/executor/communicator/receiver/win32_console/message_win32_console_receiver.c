@@ -75,9 +75,22 @@ void receive_win32_console_message(void* p0, void* p1, void* p2, void* p3) {
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 console message.");
 
                     // Receive and REMOVE data from console input buffer.
+                    //
                     // CAUTION! The function does not return until
                     // at least one input record has been read.
+                    //
+                    // CAUTION! The standard c function:
+                    // wint_t c = fgetwc(stdin);
+                    // does NOT work here, since it does not
+                    // reliably detect arrow- and other keys.
+                    // Therefore, a win32 function is used,
+                    // since the KEY_EVENT_RECORD's elements
+                    // "wVirtualScanCode" and "wVirtualKeyCode"
+                    // help identify each (physical) key.
                     BOOL b = ReadConsoleInputW(h, id, *is, ic);
+
+fwprintf(stdout, L"TEST: receive win32 console message *id.Event.uChar: %i\n", (*id).Event.KeyEvent.uChar);
+fwprintf(stdout, L"TEST: receive win32 console message *id.Event.uChar as char: %lc\n", (*id).Event.KeyEvent.uChar);
 
                     // If the return value is zero, then an error occured.
                     if (b == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {

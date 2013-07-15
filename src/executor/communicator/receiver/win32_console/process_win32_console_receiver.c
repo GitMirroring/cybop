@@ -117,7 +117,7 @@ void receive_win32_console_process(void* p0, void* p1, void* p2, void* p3, void*
             if (*ic < *NUMBER_2_INTEGER_STATE_CYBOI_MODEL) {
 
                 // The message type.
-                WORD t = id[*NUMBER_0_INTEGER_STATE_CYBOI_MODEL].EventType;
+                WORD t = (*id).EventType;
 
                 if (t == FOCUS_EVENT) {
 
@@ -128,7 +128,7 @@ void receive_win32_console_process(void* p0, void* p1, void* p2, void* p3, void*
                 } else if (t == KEY_EVENT) {
 
                     // Get event record.
-                    KEY_EVENT_RECORD r = id[*NUMBER_0_INTEGER_STATE_CYBOI_MODEL].Event.KeyEvent;
+                    KEY_EVENT_RECORD r = (*id).Event.KeyEvent;
 
                     // Get flag if key is pressed
                     // (true - pressed; false - released).
@@ -166,7 +166,7 @@ void receive_win32_console_process(void* p0, void* p1, void* p2, void* p3, void*
                 } else if (t == MOUSE_EVENT) {
 
                     // Get event record.
-                    MOUSE_EVENT_RECORD r = id[*NUMBER_0_INTEGER_STATE_CYBOI_MODEL].Event.MouseEvent;
+                    MOUSE_EVENT_RECORD r = (*id).Event.MouseEvent;
 
                     // Get mouse coordinates.
                     COORD c = r.dwMousePosition;
@@ -185,7 +185,7 @@ void receive_win32_console_process(void* p0, void* p1, void* p2, void* p3, void*
                 } else if (t == WINDOW_BUFFER_SIZE_EVENT) {
 
                     // Get event record.
-                    WINDOW_BUFFER_SIZE_RECORD r = id[*NUMBER_0_INTEGER_STATE_CYBOI_MODEL].Event.WindowBufferSizeEvent;
+                    WINDOW_BUFFER_SIZE_RECORD r = (*id).Event.WindowBufferSizeEvent;
 
                     // Get new size of console screen buffer,
                     // in character cell columns and rows.

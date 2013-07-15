@@ -17,7 +17,8 @@
 
 2013-07-15  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt to new MinGW-w64 using "libwinpthread-1.dll" instead of "pthreadGC2.dll"
+        * Adapt to new MinGW-w64 compiler using option "pthread" instead of "pthreadGC2"
+        * Verify that function "fgetwc" does not recognise arrow- and other keys and therefore use win32 console function "ReadConsoleInputW"
 
 2013-07-11  Christian Heller  <christian.heller@tuxtax.de>
 

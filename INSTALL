@@ -30,7 +30,6 @@ Debian packages for CYBOL application execution:
 Debian packages for compilation:
     autotools (autoconf, automake)
     glut or freeglut3 or the like
-    libpthreads-mingw-w64
     libtool
     mesa etc.
     xlibs-dev (now possibly contained in xorg-dev)
@@ -59,7 +58,6 @@ Required libraries for CYBOL application execution:
     libxcb-xinerama-0.dll
     libxcb-xtest-0.dll
     libXdmcp-6.dll
-    pthread.dll (OLD: pthreadGC2.dll)
 
 They have to be placed in either:
     %WINDIR%\system32
@@ -71,7 +69,6 @@ Debian packages for compilation:
     mingw32
 
 Headers for compilation:
-    OLD: Pthreads-Win32  (ftp://sourceware.org/pub/pthreads-win32)
     X11 (http://docs.google.com/leaf?id=0B4o4WuYAoiUTZmFiNzhiNDUtNGJkNS00OWQxLThlNzctZDcwMDQyMmQ0Y2Fh&hl=en)
     xcb
 
@@ -82,7 +79,6 @@ They have to exist or be copied into:
     /usr/i586-mingw32msvc/include/
 
 Libraries for compilation:
-    libpthread; OLD: libpthreadGC2 (make CROSS=i586-mingw32msvc- clean GC-inlined)
     libX11 and libXau (http://docs.google.com/leaf?id=0B4o4WuYAoiUTNTlmYmMwMDgtMzlmMC00NWNmLWE4M2UtZGIxZTQzMTQyZGZk&hl=en)
     libxcb
 
@@ -146,12 +142,13 @@ _______________________________
 
 - Execute the mingw32 compiler:
 
-    i686-w64-mingw32-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -DPTW32_STATIC_LIB -lpthread -lws2_32 -lgdi32 -w
+    i686-w64-mingw32-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -static -lpthread -lws2_32 -lgdi32 -w
 
 - OLD:
 
-    i686-w64-mingw32-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -DPTW32_STATIC_LIB -lpthreadGC2 -lws2_32 -lgdi32 -w
+    i686-w64-mingw32-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -DPTW32_STATIC_LIB -lpthread -lws2_32 -lgdi32 -w
     i586-mingw32msvc-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -DPTW32_STATIC_LIB -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32 -w
+
 
 CYBOI Compilation Windows (MSVC)
 ________________________________
