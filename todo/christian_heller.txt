@@ -11,6 +11,7 @@
 #
 
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
             http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
 
         * Follow xcb tutorial for how to change mask and values in file "rectangle_gui_serialiser.c"

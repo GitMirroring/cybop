@@ -54,9 +54,13 @@ void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive win32 console.");
 
-    // The input count (number of records read).
-    DWORD ic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The input size.
+    // The input record data.
+    // CAUTION! It can be an array of INPUT_RECORD
+    // structures that receives the input buffer data.
+    INPUT_RECORD rd;
+    // The input record count (number of records read).
+    DWORD rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The input record size.
     // CAUTION! The size HAS TO HAVE a value of one.
     // The reason is that each input needs to be processed
     // and deserialised, in order to identify the command
@@ -65,38 +69,7 @@ void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // MAIN LOOP, before the next input may be received.
     // One advantage of this kind of relying on the main loop
     // is the possibility of real-time processing.
-    DWORD is = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-    // The input data.
-    // It is an array of INPUT_RECORD structures
-    // that receives the input buffer data.
-    INPUT_RECORD id;
-
-    // The event type string data, count.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mouse button or keycode of the physical key on the keyboard.
-    // Possible types are: xcb_button_t, uint8_t, xcb_keycode_t
-    int bk = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The identification of the window where event occured.
-    // This is needed if the application uses more
-    // than just one window, e.g. dialogue windows.
-    // In this case, the application registers
-    // for events on all of these several windows.
-    // The actual type is: xcb_window_t
-    int win = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mouse position (x, y).
-    int px = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int py = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The button- or key mask.
-    int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mouse button identification.
-    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The origo (x, y) of the area that needs to be redrawn.
-    int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The size (width, height) of the area that needs to be redrawn.
-    int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    DWORD rs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // CAUTION! A loop is NOT used here, since the
@@ -105,14 +78,17 @@ void receive_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     //
 
     // Receive message.
-    receive_win32_console_message((void*) &id, (void*) &ic, (void*) &is, p5);
+    receive_win32_console_message((void*) &rd, (void*) &rc, (void*) &rs, p5);
+
+    // Get event type.
+    WORD t = rd.EventType;
 
     // Process message.
-    receive_win32_console_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &id, (void*) &ic);
+    receive_win32_console_process(p5, (void*) &rd, (void*) &t);
 
     // Deserialise event into a meaningful command.
 //??    deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
-    deserialise_tui(p0, (void*) &bk, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+//    deserialise_tui(p0, (void*) &bk, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 }
 
 /* WIN32_CONSOLE_RECEIVER_SOURCE */

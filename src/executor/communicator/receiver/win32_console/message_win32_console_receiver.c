@@ -89,8 +89,10 @@ void receive_win32_console_message(void* p0, void* p1, void* p2, void* p3) {
                     // help identify each (physical) key.
                     BOOL b = ReadConsoleInputW(h, id, *is, ic);
 
+/*??
 fwprintf(stdout, L"TEST: receive win32 console message *id.Event.uChar: %i\n", (*id).Event.KeyEvent.uChar);
 fwprintf(stdout, L"TEST: receive win32 console message *id.Event.uChar as char: %lc\n", (*id).Event.KeyEvent.uChar);
+*/
 
                     // If the return value is zero, then an error occured.
                     if (b == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
