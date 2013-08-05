@@ -72,8 +72,6 @@ void startup_x_window_system(void* p0) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
 
-        // The screen.
-        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 /*??
         // The default colourmap id.
         // For allocation on the specified screen.
@@ -111,7 +109,10 @@ void startup_x_window_system(void* p0) {
 
 fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
 
-        // Open connexion.
+        // Allocate and open connexion.
+        // CAUTION! Do NOT allocate the connexion manually here.
+        // The xcb_connection_t is a structure containing
+        // all data needed to communicate with an x server.
         c = (void*) xcb_connect(NULL, NULL);
 
         if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -125,11 +126,23 @@ fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
                 xcb_screen_iterator_t iter = xcb_setup_roots_iterator(setup);
 
                 // Get first screen.
-                s = (void*) iter.data;
+                // CAUTION! Do NOT allocate the screen manually here.
+                // It gets allocated through the connexion above.
+                void* s = (void*) iter.data;
 
                 if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
 fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
+
+                    // The window.
+                    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    // The graphic context.
+                    void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+                    // Allocate window.
+                    allocate_array((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+                    // Allocate graphic context.
+                    allocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
                     // The window value mask.
                     //
@@ -248,18 +261,18 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
 /*??
                     gcv[0] = (*((xcb_screen_t*) s)).white_pixel;
                     gcv[1] = (*((xcb_screen_t*) s)).black_pixel;
-//??                        gcv[2] = font;
+//??                    gcv[2] = font;
 */
 
                     // Allocate xid for window.
-                    xcb_window_t w = xcb_generate_id((xcb_connection_t*) c);
+                    *((int*) w) = (int) xcb_generate_id((xcb_connection_t*) c);
                     // Allocate xid for graphic context.
-                    xcb_gcontext_t gc = xcb_generate_id((xcb_connection_t*) c);
+                    *((int*) gc) = (int) xcb_generate_id((xcb_connection_t*) c);
 
                     // Create window.
                     xcb_create_window((xcb_connection_t*) c, // connexion
                         XCB_COPY_FROM_PARENT, // depth (same as root)
-                        w, // window id
+                        (xcb_window_t) *((int*) w), // window id
                         (*((xcb_screen_t*) s)).root, // parent window
                         0, 0, // x, y
                         150, 150, // width, height
@@ -281,7 +294,7 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                     //
                     // CAUTION! The last parametre has to be a pointer,
                     // and it already IS one, since it is an array.
-                    xcb_create_gc((xcb_connection_t*) c, gc, (xcb_drawable_t) w, gcm, gcv);
+                    xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) *((int*) gc), (xcb_drawable_t) *((int*) w), gcm, gcv);
 
             /*??
                     *((int*) cm) = XDefaultColormap((struct _XDisplay*) d, *((int*) sn));

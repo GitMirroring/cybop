@@ -87,10 +87,14 @@ fwprintf(stdout, L"TEST serialise gui rectangle h: %i\n", *((int*) h));
 fwprintf(stdout, L"TEST serialise gui rectangle w: %i\n", *((int*) w));
 fwprintf(stdout, L"TEST serialise gui rectangle y: %i\n", *((int*) y));
 fwprintf(stdout, L"TEST serialise gui rectangle x: %i\n", *((int*) x));
-fwprintf(stdout, L"TEST serialise gui rectangle gc: %i\n", gc);
-fwprintf(stdout, L"TEST serialise gui rectangle d: %i\n", d);
-fwprintf(stdout, L"TEST serialise gui rectangle s: %i\n", s);
 fwprintf(stdout, L"TEST serialise gui rectangle c: %i\n", c);
+fwprintf(stdout, L"TEST serialise gui rectangle *c: %i\n", *((uint32_t*) c));
+fwprintf(stdout, L"TEST serialise gui rectangle s: %i\n", s);
+fwprintf(stdout, L"TEST serialise gui rectangle *s: %i\n", *((uint32_t*) s));
+fwprintf(stdout, L"TEST serialise gui rectangle d: %i\n", d);
+fwprintf(stdout, L"TEST serialise gui rectangle *d: %i\n", *((uint32_t*) d));
+fwprintf(stdout, L"TEST serialise gui rectangle gc: %i\n", gc);
+fwprintf(stdout, L"TEST serialise gui rectangle *gc: %i\n", *((uint32_t*) gc));
 
                                     // The value mask.
                                     // CAUTION! It is possible to set several attributes
@@ -115,6 +119,7 @@ fwprintf(stdout, L"TEST serialise gui rectangle c: %i\n", c);
                                     v[1] = s->black_pixel;
 //??                                    v[2] = font;
 */
+
                                     // Initialise rectangle.
                                     r.x = *x;
                                     r.y = *y;
@@ -122,11 +127,7 @@ fwprintf(stdout, L"TEST serialise gui rectangle c: %i\n", c);
                                     r.height = *h;
 
                                     // Create graphic context.
-                                    // CAUTION! The "xcb_change_gc" function call
-                                    // does not work for some unknown reason.
-                                    // xcb_change_gc(c, *gc, m, v);
-                                    *gc = xcb_generate_id(c);
-                                    xcb_create_gc(c, *gc, *d, m, v);
+                                    xcb_change_gc(c, *gc, m, v);
 
                                     // Draw rectangle.
                                     xcb_poly_rectangle(c, *d, *gc, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &r);

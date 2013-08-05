@@ -26,12 +26,7 @@
 #ifndef X_WINDOW_SYSTEM_SHUTTER_SOURCE
 #define X_WINDOW_SYSTEM_SHUTTER_SOURCE
 
-#ifdef WIN32
-    #include <winsock2.h>
-#endif
 #include <xcb/xcb.h>
-
-//?? #include <X11/Xlib.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -113,8 +108,10 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
         if (gc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Use xcb type.
-            xcb_gcontext_t gcontext = *((int*) gc);
-//??            xcb_destroy_??((xcb_connection_t*) c, gcontext);
+/*??
+            xcb_gcontext_t gct = *((int*) gc);
+            xcb_destroy_??((xcb_connection_t*) c, gct);
+*/
             deallocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         } else {
@@ -126,8 +123,8 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
         if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Use xcb type.
-            xcb_window_t window = *((int*) w);
-            xcb_destroy_window((xcb_connection_t*) c, window);
+            xcb_window_t wt = *((int*) w);
+            xcb_destroy_window((xcb_connection_t*) c, wt);
             deallocate_array((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         } else {
@@ -135,29 +132,27 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. The window is null.");
         }
 
+        // CAUTION! Do NOT deallocate the screen manually here.
+        // It was retrieved via the connexion and
+        // gets deallocated via the connexion below.
+
+        // Close and deallocate connexion.
+        // CAUTION! Do NOT deallocate the connexion manually here.
+        // The called function closes the file descriptor
+        // and frees ALL memory associated with the connexion.
+        xcb_disconnect((xcb_connection_t*) c);
+
 /*??
         // CAUTION! Use descending order!
         // Example: The values (v) are destroyed BEFORE the value mask (vm)
         // attributes, since v might still reference vm internally.
-//        deallocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TODO);
 //??        free(v);
         deallocate_array((void*) &vm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
 //        deallocate_array((void*) &gc_menu_border_bottom, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         deallocate_array((void*) &fg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
         deallocate_array((void*) &bg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
         deallocate_array((void*) &cm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-        XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc_menu_font);
-        XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_bottom);
-        XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc_menu_border_top);
-        XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc_menu);
 */
-
-        // Free x window system internals.
-//??            XFreeGC((struct _XDisplay*) d, (struct _XGC*) gc);
-
-        // Close connexion.
-        xcb_disconnect((xcb_connection_t*) c);
 
         // Reset x window system internals.
         //
@@ -176,7 +171,6 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
         copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) COLOUR_MAP_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BACKGROUND_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FOREGROUND_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BOTTOM_BORDER_MENU_GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_MASK_GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUES_GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 */

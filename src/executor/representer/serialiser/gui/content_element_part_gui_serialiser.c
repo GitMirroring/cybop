@@ -60,7 +60,8 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part element content.");
 
-fwprintf(stdout, L"TEST serialise gui part element content: %i\n", p5);
+fwprintf(stdout, L"TEST serialise gui part element content model count: %i\n", *((int*) p5));
+fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\n", *((int*) p7));
 
     // Append properties.
     serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
