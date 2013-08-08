@@ -1,14 +1,17 @@
 <model>
     <part name="window" channel="file" format="element/part" model="gui/window.cybol">
+        <!-- This flag indicates that this is a window to which the properties are to be applied. -->
+        <property name="window" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
+        <property name="icon" channel="file" format="png" model="gui/icon.png"/>
         <property name="position" channel="inline" format="number/integer" model="30,30"/>
         <property name="size" channel="inline" format="number/integer" model="600,400"/>
         <property name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
         <property name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
-        <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
-        <property name="icon" channel="file" format="png" model="gui/icon.png"/>
         <property name="layout" channel="inline" format="text/plain" model="absolute"/>
         <property name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
     </part>
+    <!-- CAUTION! The action is used in file "handler.cybol". -->
     <part name="action" channel="inline" format="text/plain" model=""/>
 </model>
 

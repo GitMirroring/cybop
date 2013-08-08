@@ -15,6 +15,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-08-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Remove superfluous directory "executor/representer/serialiser/x_window_system/"
+        * Distinguish between root window and child gui element in gui serialiser
+
 2013-08-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bugs in files "x_window_system_starter.c" and "rectangle_gui_serialiser.c"
