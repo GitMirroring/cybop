@@ -10,6 +10,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue xdt deserialiser using three xdt processing steps: field-record-bdt/gdt/ldt
+        * Comment out tests for -1 in file "part_field_xdt_deserialiser.c", if all fields should be generated (even those for which a format has not been added yet)
+        * Define selector files for record begin and end etc.
+        * Delete files "file_xdt_deserialiser.c", "hierarchy_field_xdt_deserialiser.c", "name_field_xdt_deserialiser.c"
+        * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
+
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
             http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
@@ -31,12 +37,6 @@
                 uncommenting lines sporadically delivers leaks, depending on which cybol application gets executed
             --> all "malloc" function calls were already checked; they are freed correctly for terminal
             ==> TODO: check function calls of "realloc" and "free", since there MIGHT be the bug
-
-        * Continue xdt deserialiser
-        * Use three xdt processing steps: field-record-bdt/gdt/ldt
-        * Define selector files for record begin and end etc.
-        * Delete files "file_xdt_deserialiser.c", "hierarchy_field_xdt_deserialiser.c", "name_field_xdt_deserialiser.c"
-        * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
 
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)

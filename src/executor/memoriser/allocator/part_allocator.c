@@ -74,6 +74,8 @@ void allocate_part(void* p0, void* p1, void* p2) {
         if (m != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Allocate references, name, channel, encoding, language, format, type, model, properties.
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
             // CAUTION! Initialise integer items with a size of ONE,
             // in order to avoid later reallocation when overwriting
             // the element and to thus increase efficiency.

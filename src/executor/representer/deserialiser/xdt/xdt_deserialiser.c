@@ -41,9 +41,9 @@
  * Deserialises xdt data.
  *
  * Parse data in three steps:
- * 1 parse all xdt fields and add them to a temporary part
- * 2 loop through the list of fields and identify records
- * 3 loop through the list of records and interpret their fields
+ * 1 identify all xdt fields; add them to a temporary part
+ * 2 loop through the list of fields; identify records; add them to a temporary part
+ * 3 loop through the list of records; interpret their fields
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item

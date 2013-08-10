@@ -222,9 +222,11 @@ void deserialise_xdt_bdt_record_content(void* p0, void* p1, void* p2, void* p3, 
         copy_array_forward((void*) &td, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
         // Allocate part.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         // CAUTION! Use the cyboi runtime type determined above
-        // (NOT the mime type format)!
-        allocate_part((void*) &p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, td);
+        // (NOT the xdt format)!
+        allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
 
         // Get part name, channel, encoding, language, format, type, model, properties item.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
