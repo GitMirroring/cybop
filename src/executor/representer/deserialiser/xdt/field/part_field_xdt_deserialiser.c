@@ -73,9 +73,11 @@ void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4
     // It is needed for allocating the new part.
     deserialise_xdt_field_type((void*) &t, (void*) &f);
 
+/*??
     if (f != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
         if (t != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+*/
 
             // Allocate part.
             // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -116,6 +118,7 @@ void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4
             // This is necessary in order to activate rubbish (garbage) collection.
             append_item_element(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
+/*??
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field part. The field type is invalid.");
@@ -131,6 +134,7 @@ void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4
         // CAUTION! An invalid format would lead to an allocation error.
         fwprintf(stdout, L"Could not deserialise xdt field part. The field format is invalid: %i\n", f);
     }
+*/
 }
 
 /* PART_FIELD_XDT_DESERIALISER_SOURCE */

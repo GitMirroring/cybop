@@ -30,7 +30,7 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-//?? #include "../../../../../executor/representer/deserialiser/xdt/bdt/xx_bdt_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/bdt/records_bdt_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 //
@@ -59,7 +59,7 @@ void deserialise_xdt_bdt(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt.");
 
-//??    deserialise_xdt_bdt_record_content();
+    deserialise_xdt_bdt_records(p0, p1, p2, p3);
 }
 
 /* BDT_XDT_DESERIALISER_SOURCE */

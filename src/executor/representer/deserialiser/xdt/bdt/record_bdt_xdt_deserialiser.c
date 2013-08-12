@@ -35,6 +35,7 @@
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
+//??#include "../../../../../executor/searcher/selector/xdt/bdt/record_bdt_xdt_selector.c"
 #include "../../../../../executor/representer/deserialiser/xdt/bdt/content_record_bdt_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
@@ -72,6 +73,12 @@ void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    //?? POSSIBLY, a different treatment of records is NOT necessary,
+    //?? if their fields may be processed in a uniform way.
+    //?? Therefore, "select" is commented out here for now.
+//??    select_xdt_bdt_record();
+
+    // Process child fields of record.
     deserialise_xdt_bdt_record_content(p0, p1, pnd, pnc, pmd, pmc);
 }
 

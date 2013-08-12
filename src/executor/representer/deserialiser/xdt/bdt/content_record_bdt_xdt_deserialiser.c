@@ -62,7 +62,13 @@ void deserialise_xdt_bdt_record_content(void* p0, void* p1, void* p2, void* p3, 
 /*??
     parametres: parent part, current part index
 
-    find record begin by name
+    find record begin by name is NOT necessary,
+    since we are already within a record here,
+    whose child fields are to be processed now
+
+    TRIAL: process fields for ALL records in a uniform way;
+    if this does not work, then much more effort has to be taken,
+    in order to process fields differently for each kind of record
 
     if (name is one of a hierarchical xdt field) {
 
@@ -90,7 +96,7 @@ void deserialise_xdt_bdt_record_content(void* p0, void* p1, void* p2, void* p3, 
 
             // Allocate ONE MORE part using the source part's type (which is NOT hierarchical).
 
-            // Copy source field name to ONCE MORE to second new part's name.
+            // Copy source field name ONCE MORE to second new part's name.
         }
 
     } else {

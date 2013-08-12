@@ -88,8 +88,9 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Deserialise field temporary model item
     // into record temporary model item.
-//??    deserialise_xdt_record(rm, fmd, fmc);
-    deserialise_xdt_record(p0, fmd, fmc);
+    deserialise_xdt_record(rm, fmd, fmc);
+    //?? TEST ONLY
+//??    deserialise_xdt_record(p0, fmd, fmc);
 
     // Get record temporary model data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -100,7 +101,7 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Deserialise record temporary model item (bdt or gdt or ldt)
     // into cyboi model, depending on given language.
-//??    deserialise_xdt_standard(p0, p1, rmd, rmc, p4);
+    deserialise_xdt_standard(p0, p1, rmd, rmc, p4);
 
     // Deallocate field temporary model item.
     deallocate_item((void*) &fm, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
