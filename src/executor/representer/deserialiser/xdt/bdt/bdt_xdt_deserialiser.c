@@ -52,8 +52,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
+ * @param p2 the source bdt data
+ * @param p3 the source bdt count
  */
 void deserialise_xdt_bdt(void* p0, void* p1, void* p2, void* p3) {
 

@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-08-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue xdt deserialiser adding new files for field processing
+
 2013-08-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue xdt deserialiser adding format/type error tests in file "part_field_xdt_deserialiser.c"

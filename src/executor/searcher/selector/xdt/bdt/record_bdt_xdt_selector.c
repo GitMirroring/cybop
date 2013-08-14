@@ -383,7 +383,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt bdt record. The record type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt bdt record. The record is unknown.");
     }
 }
 

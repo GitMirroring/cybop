@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RECORDS_BDT_XDT_DESERIALISER_SOURCE
-#define RECORDS_BDT_XDT_DESERIALISER_SOURCE
+#ifndef FIELDS_BDT_XDT_DESERIALISER_SOURCE
+#define FIELDS_BDT_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -32,20 +32,22 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../../executor/representer/deserialiser/xdt/bdt/record_bdt_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/bdt/field_bdt_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the xdt bdt records.
+ * Deserialises the xdt bdt fields.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source bdt data
- * @param p3 the source bdt count
+ * @param p2 the source record model data
+ * @param p3 the source record model count
+ * @param p4 the source record name data
+ * @param p5 the source record name count
  */
-void deserialise_xdt_bdt_records(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_bdt_fields(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt records.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt fields.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -73,12 +75,12 @@ void deserialise_xdt_bdt_records(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        deserialise_xdt_bdt_record(p0, p1, p2, (void*) &j);
+        deserialise_xdt_bdt_field(p0, p1, p2, (void*) &j, p4, p5);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* RECORDS_BDT_XDT_DESERIALISER_SOURCE */
+/* FIELDS_BDT_XDT_DESERIALISER_SOURCE */
 #endif

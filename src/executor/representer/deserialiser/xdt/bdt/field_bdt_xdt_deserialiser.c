@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RECORD_BDT_XDT_DESERIALISER_SOURCE
-#define RECORD_BDT_XDT_DESERIALISER_SOURCE
+#ifndef FIELD_BDT_XDT_DESERIALISER_SOURCE
+#define FIELD_BDT_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,54 +35,52 @@
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
-//?? #include "../../../../../executor/searcher/selector/xdt/bdt/record_bdt_xdt_selector.c"
-//?? #include "../../../../../executor/representer/deserialiser/xdt/bdt/content_record_bdt_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/bdt/fields_bdt_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/field_bdt_xdt_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the xdt bdt record.
+ * Deserialises the xdt bdt field.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source bdt data
- * @param p3 the source bdt index
+ * @param p2 the source record model data
+ * @param p3 the source record model index
+ * @param p4 the source record name data
+ * @param p5 the source record name count
  */
-void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt record.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt field.");
 
-    // The source record part.
+    // The source field part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source record part name, model.
+    // The source field part name, model.
     void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source record part name, model data, count.
+    // The source field part name, model data, count.
     void* pnd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pnc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source field part name as integer.
+    int pni = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get source record part with given index.
+    // Get source field part with given index.
     copy_array_forward((void*) &p, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
-    // Get source record part name, model.
+    // Get source field part name, model.
     copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get source record part name, model data, count.
+    // Get source field part name, model data, count.
     copy_array_forward((void*) &pnd, pn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pnc, pn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Deserialise source field part name string into integer number.
+    deserialise_cybol_integer_value_primitive((void*) &pni, pnd, pnc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    //?? POSSIBLY, a different treatment of records is NOT necessary,
-    //?? if their fields may be processed in a uniform way.
-    //?? Therefore, "select" is commented out here for now.
-//??    select_xdt_bdt_record();
-
-    // Process child fields of record.
-//??    deserialise_xdt_bdt_record_content(p0, p1, pnd, pnc, pmd, pmc);
-    deserialise_xdt_bdt_fields(p0, p1, pmd, pmc, pnd, pnc);
+    select_xdt_bdt_field(p0, p1, p2, p3, p4, p5, pmd, pmc, (void*) &pni);
 }
 
-/* RECORD_BDT_XDT_DESERIALISER_SOURCE */
+/* FIELD_BDT_XDT_DESERIALISER_SOURCE */
 #endif

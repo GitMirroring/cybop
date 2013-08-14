@@ -23,61 +23,72 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NAME_FIELD_XDT_DESERIALISER_SOURCE
-#define NAME_FIELD_XDT_DESERIALISER_SOURCE
+#ifndef FIELD_BDT_XDT_SELECTOR_SOURCE
+#define FIELD_BDT_XDT_SELECTOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/xdt/field_xdt_cyboi_name.c"
-#include "../../../../constant/name/xdt/field_xdt_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../executor/modifier/overwriter/item_overwriter.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/name/cyboi/xdt/field_xdt_cyboi_name.c"
+#include "../../../../../constant/name/xdt/field_xdt_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/accessor/name_getter/array_name_getter.c"
+#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/record/part_record_xdt_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Deserialise xdt field name (number) into cyboi-internal name (word).
+ * Selects an xdt bdt field by filtering its name (number).
  *
- * @param p0 the destination cyboi-internal name item
- * @param p1 the source xdt field identification data
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
+ * @param p2 the source record model data
+ * @param p3 the source record model index
+ * @param p4 the source record name data
+ * @param p5 the source record name count
+ * @param p6 the source field model data
+ * @param p7 the source field model index
+ * @param p8 the source field name as integer
  */
-void deserialise_xdt_field_name(void* p0, void* p1) {
+void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field name.");
-
-    // CAUTION! Do NOT use the "append" function here!
-    // The destination has been given a size of ONE,
-    // so that reallocation is not necessary for adding an element.
-    // Therefore, the "overwrite" function has to be used instead.
-    //
-    // CAUTION! The "true" flag HAS TO BE SET for the "overwrite" function,
-    // so that the destination gets reallocated automatically when necessary.
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt bdt field.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // TODO: Category
+    //
+
+    //?? TEST ONLY
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p8, (void*) PATIENT_FIRST_NAME_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST select xdt bdt field PATIENT FIRST NAME: %i\n", *((int*) p8));
+
+//??            deserialise_xdt_bdt_field_xyz();
         }
     }
 
+    //?? TEST ONLY
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) RECORD_IDENTIFICATION_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p8, (void*) SOFTWARE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, (void*) RECORD_IDENTIFICATION_FIELD_XDT_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECORD_IDENTIFICATION_FIELD_XDT_CYBOI_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p8));
+
+//??            deserialise_xdt_bdt_field_xyz();
         }
     }
-
-    //?? Copy name for ALL possible xdt fields here ...
 
 /*??
     if (*id == *KBV_TEST_NUMBER_FIELD_XDT_NAME) {
@@ -2126,14 +2137,11 @@ void deserialise_xdt_field_name(void* p0, void* p1) {
     }
 */
 
-    //??
-    //?? TEST ONLY! DELETE LATER!
-    //??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        overwrite_item_element(p0, (void*) L"empty", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt bdt field. The field is unknown.");
     }
 }
 
-/* NAME_FIELD_XDT_DESERIALISER_SOURCE */
+/* FIELD_BDT_XDT_SELECTOR_SOURCE */
 #endif
