@@ -49,42 +49,65 @@
  * @param p3 the source record model index
  * @param p4 the source record name data
  * @param p5 the source record name count
- * @param p6 the source field model data
- * @param p7 the source field model index
- * @param p8 the source field name as integer
+ * @param p6 the source field part (pointer reference)
+ * @param p7 the source field model data
+ * @param p8 the source field model index
+ * @param p9 the source field name as integer
  */
-void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt bdt field.");
+
+    //
+    // Only COMPOUND xdt fields need special treatment here, since they
+    // represent new parent nodes to which child nodes will be added.
+    //
+    // Those xdt fields with primitive data type are NOT filtered here.
+    // They may be processed uniformly by just adding the source part
+    // to the destination in the last if-else-branch below.
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // TODO: Category
-    //
-
     //?? TEST ONLY
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) PATIENT_FIRST_NAME_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p9, (void*) SOFTWARE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST select xdt bdt field PATIENT FIRST NAME: %i\n", *((int*) p8));
+fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p9));
 
 //??            deserialise_xdt_bdt_field_xyz();
         }
     }
 
-    //?? TEST ONLY
+    //
+    // Record ??
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) SOFTWARE_FIELD_XDT_NAME);
+        // Field xdt name: 6200
+        compare_integer_equal((void*) &r, p9, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p8));
+//??            deserialise_xdt_bdt_field_compound();
+        }
+    }
+
+    //
+    // Record "spec"
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Field xdt name: 9900
+        compare_integer_equal((void*) &r, p9, (void*) SPECIFICATION_IDENTIFICATION_FIELD_XDT_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //??            deserialise_xdt_bdt_field_xyz();
         }
@@ -2139,7 +2162,15 @@ fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p8));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt bdt field. The field is unknown.");
+        // Append source field part to destination model item.
+        //
+        // CAUTION! All xdt fields with PRIMITIVE data type are
+        // processed uniformly and just added to the destination here.
+        // The COMPOUND xdt fields have been filtered above.
+        //
+        // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+        // This is necessary in order to activate rubbish (garbage) collection.
+        append_item_element(p0, p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
 

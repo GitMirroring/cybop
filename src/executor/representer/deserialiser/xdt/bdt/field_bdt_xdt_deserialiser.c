@@ -79,7 +79,7 @@ void deserialise_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Deserialise source field part name string into integer number.
     deserialise_cybol_integer_value_primitive((void*) &pni, pnd, pnc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    select_xdt_bdt_field(p0, p1, p2, p3, p4, p5, pmd, pmc, (void*) &pni);
+    select_xdt_bdt_field(p0, p1, p2, p3, p4, p5, (void*) &p, pmd, pmc, (void*) &pni);
 }
 
 /* FIELD_BDT_XDT_DESERIALISER_SOURCE */

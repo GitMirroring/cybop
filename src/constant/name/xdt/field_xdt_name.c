@@ -4516,6 +4516,15 @@ static int* DATA_PACKAGE_STORAGE_PERIOD_FIELD_XDT_NAME = NUMBER_9601_INTEGER_STA
 static int* DATA_PACKAGE_TRANSFER_BEGIN_FIELD_XDT_NAME = NUMBER_9602_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The specification identification field xdt name.
+ *
+ * German: ID der Datensatzbeschreibung (Spec-ID)
+ * Type: character array
+ * Example: DMP001
+ */
+static int* SPECIFICATION_IDENTIFICATION_FIELD_XDT_NAME = NUMBER_9900_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The system internal parametre field xdt name.
  *
  * German: Systeminterner Parametre
