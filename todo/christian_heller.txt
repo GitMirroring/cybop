@@ -10,12 +10,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Use data position and count remaining to parse xdt fields, since many nested loops are used and stepwise increment the data position;
-            foward current xdt source record as parametre through all functions, so that its xdt fields may be processed in all nested loops
-        * Continue in file "field_bdt_xdt_deserialiser.c" and "field_bdt_xdt_selector";
-            possibly no need to distinguish the different kinds of records via select;
-            try processing all fields for all records in a uniform way
-        * Continue xdt deserialiser using three xdt processing steps: field-record-bdt/gdt/ldt
+        * Continue xdt deserialiser; find out why nothing gets generated
+        * Complete file "compound_field_bdt_xdt_deserialiser.c"
+        * Complete file "field_bdt_xdt_selector.c"
         * Delete files "hierarchy_field_xdt_deserialiser.c", "content_record_bdt_xdt_deserialiser.c"
         * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
         * Comment in tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors

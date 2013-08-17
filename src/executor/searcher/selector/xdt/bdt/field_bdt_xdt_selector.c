@@ -31,13 +31,10 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/xdt/field_xdt_cyboi_name.c"
 #include "../../../../../constant/name/xdt/field_xdt_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/record/part_record_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/bdt/compound_field_bdt_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -45,16 +42,17 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source record model data
- * @param p3 the source record model index
- * @param p4 the source record name data
- * @param p5 the source record name count
- * @param p6 the source field part (pointer reference)
- * @param p7 the source field model data
- * @param p8 the source field model index
- * @param p9 the source field name as integer
+ * @param p2 the source record model (fields) data
+ * @param p3 the source record model (fields) count
+ * @param p4 the source record model (fields) index
+ * @param p5 the source record name data
+ * @param p6 the source record name count
+ * @param p7 the source field part (pointer reference)
+ * @param p8 the source field model data
+ * @param p9 the source field model count
+ * @param p10 the source field name as integer
  */
-void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt bdt field.");
 
@@ -64,37 +62,37 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //
     // Those xdt fields with primitive data type are NOT filtered here.
     // They may be processed uniformly by just adding the source part
-    // to the destination in the last if-else-branch below.
+    // to the destination in the last if-branch below, at the bottom.
     //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //?? TEST ONLY
+    //?? TEST ONLY; delete later!
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) SOFTWARE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p10, (void*) SOFTWARE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p9));
+fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p10));
 
 //??            deserialise_xdt_bdt_field_xyz();
         }
     }
 
     //
-    // Record ??
+    // Record 6200
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Field xdt name: 6200
-        compare_integer_equal((void*) &r, p9, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p10, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            deserialise_xdt_bdt_field_compound();
+            deserialise_xdt_bdt_field_compound(p0, p1, p2, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
         }
     }
 
@@ -105,7 +103,7 @@ fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p9));
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Field xdt name: 9900
-        compare_integer_equal((void*) &r, p9, (void*) SPECIFICATION_IDENTIFICATION_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p10, (void*) SPECIFICATION_IDENTIFICATION_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -2162,15 +2160,14 @@ fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p9));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Append source field part to destination model item.
-        //
-        // CAUTION! All xdt fields with PRIMITIVE data type are
-        // processed uniformly and just added to the destination here.
         // The COMPOUND xdt fields have been filtered above.
-        //
+        // All xdt fields with PRIMITIVE data type are processed
+        // uniformly and just added to the destination here.
+
+        // Append source field part to destination model item.
         // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
         // This is necessary in order to activate rubbish (garbage) collection.
-        append_item_element(p0, p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
 

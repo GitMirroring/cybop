@@ -45,8 +45,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source bdt data
- * @param p3 the source bdt index
+ * @param p2 the source record data
+ * @param p3 the source record index
  */
 void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
 
@@ -62,6 +62,12 @@ void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
     void* pnc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source field index.
+    // CAUTION! Its value gets incremented while processing
+    // the record's fields and compound fields in loops.
+    // This is the initial value, since processing
+    // starts at the record level.
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get source record part with given index.
     copy_array_forward((void*) &p, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
@@ -74,14 +80,8 @@ void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    //?? POSSIBLY, a different treatment of records is NOT necessary,
-    //?? if their fields may be processed in a uniform way.
-    //?? Therefore, "select" is commented out here for now.
-//??    select_xdt_bdt_record();
-
     // Process child fields of record.
-//??    deserialise_xdt_bdt_record_content(p0, p1, pnd, pnc, pmd, pmc);
-    deserialise_xdt_bdt_fields(p0, p1, pmd, pmc, pnd, pnc);
+    deserialise_xdt_bdt_fields(p0, p1, pmd, pmc, (void*) &i, pnd, pnc, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* RECORD_BDT_XDT_DESERIALISER_SOURCE */

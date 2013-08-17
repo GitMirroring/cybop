@@ -30,7 +30,8 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/representer/deserialiser/xdt/bdt/records_bdt_xdt_deserialiser.c"
+#include "../../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../../executor/representer/deserialiser/xdt/bdt/fields_bdt_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -38,32 +39,35 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source bdt data
- * @param p3 the source bdt count
+ * @param px the source bdt data
+ * @param py the source bdt count
  */
 void deserialise_xdt_bdt_field_compound(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt field compound.");
 
-    // Allocate part of type "element/part".
+    // The compound field part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Copy source field model to part's name.
+    // Allocate compound field part.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+    // Fill compound field part.
+    // CAUTION! Copy source field model to part's name.
+    overwrite_part_element(p, "TESTNAME"/*??p2*/, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL/*??p3*/, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
     // Process following source fields.
     // CAUTION! Hand over part as new parent node.
 //??    deserialise_xdt_bdt_fields(p0, p1, pmd, pmc, pnd, pnc);
 
-    // CONTINUE: Call "select" function in "deserialise_fields"
-    // (or in "deserialise_field" called from there), in order to
-    // set break flag.
-    // If a loop is left, then the next higher level loop will
-    // check again for break calling a "select" function etc.
-    // Possibly, the tree level has to be forwarded as parametre,
-    // since zero level fields (directly below the record)
-    // do not have to be checked for an end of loop/sub hierarchy.
-    // Therefore, possibly check for (loop level == 0) first.
-
-    // Add part to destination node.
+    // Append part to destination model item.
+    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+    // This is necessary in order to activate rubbish (garbage) collection.
+    append_item_element(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* COMPOUND_FIELD_BDT_XDT_DESERIALISER_SOURCE */
