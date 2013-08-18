@@ -49,6 +49,8 @@
  */
 void deserialise_xdt_bdt_fields(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
+fwprintf(stdout, L"TEST deserialise xdt bdt fields: %i\n", p0);
+
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt fields.");
 
     // The break flag.

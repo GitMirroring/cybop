@@ -56,6 +56,8 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt bdt field.");
 
+//?? fwprintf(stdout, L"TEST select xdt bdt field ALL: %i\n", *((int*) p10));
+
     //
     // Only COMPOUND xdt fields need special treatment here, since they
     // represent new parent nodes to which child nodes will be added.
@@ -71,6 +73,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //?? TEST ONLY; delete later!
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Field xdt name: 0103
         compare_integer_equal((void*) &r, p10, (void*) SOFTWARE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -91,6 +94,8 @@ fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p10));
         compare_integer_equal((void*) &r, p10, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST select xdt bdt field TREATMENT: %i\n", *((int*) p10));
 
             deserialise_xdt_bdt_field_compound(p0, p1, p2, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
         }

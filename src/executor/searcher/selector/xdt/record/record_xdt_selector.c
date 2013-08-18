@@ -76,9 +76,6 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     } else {
 
-//?? fwprintf(stdout, L"TEST select xdt record *p1: %i\n", *((void**) p1));
-//?? fwprintf(stdout, L"TEST select xdt record p2: %i\n", p2);
-
         // Append current field part to destination record model item.
         // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
         // This is necessary in order to activate rubbish (garbage) collection.

@@ -104,6 +104,36 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
 
+    //
+    // Record 6200
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Field xdt name: 6200
+        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        }
+    }
+
+    //
+    // Record "spec"
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Field xdt name: 9900
+        compare_integer_equal((void*) &r, p1, (void*) SPECIFICATION_IDENTIFICATION_FIELD_XDT_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        }
+    }
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field format. The field identification is unknown.");

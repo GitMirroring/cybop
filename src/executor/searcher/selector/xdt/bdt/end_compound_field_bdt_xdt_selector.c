@@ -54,7 +54,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         compare_integer_equal((void*) &r, p2, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             select_xdt_bdt_field_compound_end_treatment_data_collection_date(p0, p1);
         }

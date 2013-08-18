@@ -129,7 +129,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
         } else if (ma == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate array. The memory area to be allocated is zero.");
-            fwprintf(stdout, L"ERROR: Could not allocate array. The memory area to be allocated is zero: %i\n", *a);
+//??            fwprintf(stdout, L"ERROR: Could not allocate array. The memory area to be allocated is zero: %i\n", *a);
 
         } else {
 

@@ -35,8 +35,6 @@
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
-//?? #include "../../../../../executor/searcher/selector/xdt/bdt/record_bdt_xdt_selector.c"
-//?? #include "../../../../../executor/representer/deserialiser/xdt/bdt/content_record_bdt_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/bdt/fields_bdt_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
@@ -49,6 +47,8 @@
  * @param p3 the source record index
  */
 void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
+
+fwprintf(stdout, L"TEST deserialise xdt bdt record: %i\n", p0);
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt record.");
 
