@@ -1,0 +1,10 @@
+
+Programming Activities
+======================
+
+Philosophise and think
+Architect prototype
+Routine diligence work, e.g. adding constants
+Search bug, e.g. by adding test log messages
+Write cybol application
+Test

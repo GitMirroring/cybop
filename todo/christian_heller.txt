@@ -11,7 +11,6 @@
 #
 
         * Complete file "field_bdt_xdt_selector.c"
-        * Delete files "hierarchy_field_xdt_deserialiser.c"
         * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
         * Uncomment in tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
