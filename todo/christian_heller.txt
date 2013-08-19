@@ -10,12 +10,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue xdt deserialiser: not all fields are sorted into hierarchy, e.g. not 6205
         * Complete file "field_bdt_xdt_selector.c"
-        * Delete files "hierarchy_field_xdt_deserialiser.c", "content_record_bdt_xdt_deserialiser.c"
+        * Delete files "hierarchy_field_xdt_deserialiser.c"
         * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
-        * Comment line 132 in file "array_allocator.c" again
-        * Comment in tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors
+        * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
+        * Uncomment in tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
 
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input

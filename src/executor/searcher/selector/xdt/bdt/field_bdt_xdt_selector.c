@@ -70,20 +70,6 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //?? TEST ONLY; delete later!
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // Field xdt name: 0103
-        compare_integer_equal((void*) &r, p12, (void*) SOFTWARE_FIELD_XDT_NAME);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p12));
-
-//??            deserialise_xdt_bdt_field_xyz();
-        }
-    }
-
     //
     // Record 6200
     //
@@ -105,6 +91,7 @@ fwprintf(stdout, L"TEST select xdt bdt field TREATMENT: %i\n", *((int*) p12));
     // Record "spec"
     //
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Field xdt name: 9900
@@ -115,6 +102,7 @@ fwprintf(stdout, L"TEST select xdt bdt field TREATMENT: %i\n", *((int*) p12));
 //??            deserialise_xdt_bdt_field_xyz();
         }
     }
+*/
 
 /*??
     if (*id == *KBV_TEST_NUMBER_FIELD_XDT_NAME) {

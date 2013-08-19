@@ -18,6 +18,7 @@
 2013-08-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete file "compound_field_bdt_xdt_deserialiser.c"
+        * Fix bugs that not all xdt fields are properly sorted into record hierarchy
 
 2013-08-17  Christian Heller  <christian.heller@tuxtax.de>
 

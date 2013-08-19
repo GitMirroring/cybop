@@ -89,27 +89,38 @@ void deserialise_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4,
 
         select_xdt_bdt_field_compound_end(p8, (void*) &pni, p7);
 
+        // CAUTION! The source record model index gets incremented ONLY if
+        // the field got processed (selected + deserialised) right above.
+        // If the field demarcates the end of a compound field's children,
+        // then the source record model index does NOT get incremented,
+        // so that the field can be processed once again on a higher level.
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Following the xdt standard, the next field IS
             // permitted to be a child of the current compound field.
             // Therefore, it may be deserialised and added.
 
-            select_xdt_bdt_field(p0, p1, p2, p3, p4, p5, p6, (void*) &p, pmd, pmc, pnd, pnc, (void*) &pni);
-
             // Increment source record model index.
-            // CAUTION! It gets incremented ONLY if the field got
-            // processed (selected + deserialised) right above.
-            // If the field demarcates the end of a compound field's children,
-            // then the source record model index does NOT get incremented,
-            // so that the field can be processed once again on a higher level.
+            //
+            // CAUTION! It has to be incremented BEFORE
+            // deserialising the field below.
+            // Otherwise, following fields are not properly
+            // sorted into the compound field hierarchy!
+            // This is because a wrong next field is identified
+            // which seemingly demarcates the end of a compound field,
+            // even though it has NOT been reached yet.
             calculate_integer_add(p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+            // Find out whether this is a simple or compound field.
+            // Deserialise field, if compound.
+            // Append field to destination.
+            select_xdt_bdt_field(p0, p1, p2, p3, p4, p5, p6, (void*) &p, pmd, pmc, pnd, pnc, (void*) &pni);
 
         } else {
 
             // Following the xdt standard, the next field is NOT
             // permitted to be a child of the current compound field.
-            // Therefore, it demarcates the end of this list of child fields.
+            // Therefore, it demarcates the END of this list of child fields.
 
             // The break flag was set so that the loop
             // will be left in the next loop cycle.
