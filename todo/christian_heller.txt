@@ -10,8 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue xdt deserialiser: Why are hieroglyphs generated instead of a proper name?
-        * Complete file "compound_field_bdt_xdt_deserialiser.c"
+        * Continue xdt deserialiser: not all fields are sorted into hierarchy, e.g. not 6205
         * Complete file "field_bdt_xdt_selector.c"
         * Delete files "hierarchy_field_xdt_deserialiser.c", "content_record_bdt_xdt_deserialiser.c"
         * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)

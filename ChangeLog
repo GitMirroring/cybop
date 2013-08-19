@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-08-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete file "compound_field_bdt_xdt_deserialiser.c"
+
 2013-08-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Forward record index as parametre in xdt deserialiser, so that it may be incremented in the many nested loops used
