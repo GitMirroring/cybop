@@ -45,11 +45,11 @@
  * @param p0 the destination root model item
  * @param p1 the destination record model item (pointer reference)
  * @param p2 the destination record model item
- * @param p3 the source part model data
- * @param p4 the source part model count
- * @param p5 the source part name data
- * @param p6 the source part name count
- * @param p7 the source part (pointer reference)
+ * @param p3 the source record part model data
+ * @param p4 the source record part model count
+ * @param p5 the source record part name data
+ * @param p6 the source record part name count
+ * @param p7 the source record part (pointer reference)
  */
 void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 

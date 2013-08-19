@@ -50,13 +50,13 @@
  * @param p7 the source field part (pointer reference)
  * @param p8 the source field model data
  * @param p9 the source field model count
- * @param p10 the source field name as integer
+ * @param p10 the source field name data
+ * @param p11 the source field name count
+ * @param p12 the source field name as integer
  */
-void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt bdt field.");
-
-//?? fwprintf(stdout, L"TEST select xdt bdt field ALL: %i\n", *((int*) p10));
 
     //
     // Only COMPOUND xdt fields need special treatment here, since they
@@ -74,11 +74,11 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Field xdt name: 0103
-        compare_integer_equal((void*) &r, p10, (void*) SOFTWARE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p12, (void*) SOFTWARE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p10));
+fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p12));
 
 //??            deserialise_xdt_bdt_field_xyz();
         }
@@ -91,13 +91,13 @@ fwprintf(stdout, L"TEST select xdt bdt field SOFTWARE: %i\n", *((int*) p10));
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Field xdt name: 6200
-        compare_integer_equal((void*) &r, p10, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p12, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST select xdt bdt field TREATMENT: %i\n", *((int*) p10));
+fwprintf(stdout, L"TEST select xdt bdt field TREATMENT: %i\n", *((int*) p12));
 
-            deserialise_xdt_bdt_field_compound(p0, p1, p2, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
+            deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
 
@@ -108,7 +108,7 @@ fwprintf(stdout, L"TEST select xdt bdt field TREATMENT: %i\n", *((int*) p10));
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Field xdt name: 9900
-        compare_integer_equal((void*) &r, p10, (void*) SPECIFICATION_IDENTIFICATION_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p12, (void*) SPECIFICATION_IDENTIFICATION_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

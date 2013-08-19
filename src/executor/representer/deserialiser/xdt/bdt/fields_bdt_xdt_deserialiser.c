@@ -45,7 +45,7 @@
  * @param p4 the source record model (fields) index
  * @param p5 the source record name data
  * @param p6 the source record name count
- * @param p7 the parent field name
+ * @param p7 the parent field name as integer
  */
 void deserialise_xdt_bdt_fields(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 

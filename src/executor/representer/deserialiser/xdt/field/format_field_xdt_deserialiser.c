@@ -62,8 +62,21 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // BDT meta data
+    //
+    // German: Metadaten zur BDT-Übermittlung
+    //
+
+    //
+    // Medical practice administrative data
+    //
+    // German: Praxisdaten
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Field xdt name: 0101
         compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -74,6 +87,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Field xdt name: 0102
         compare_integer_equal((void*) &r, p1, (void*) RESPONSIBLE_ENTITY_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -84,6 +98,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Field xdt name: 0103
         compare_integer_equal((void*) &r, p1, (void*) SOFTWARE_FIELD_XDT_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -92,20 +107,40 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
 
-    //?? Copy types for ALL possible xdt fields here ...
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) RECORD_IDENTIFICATION_FIELD_XDT_NAME);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
-        }
-    }
+    //
+    // Medical practice management data
+    //
+    // German: Praxisverwaltungsdaten
+    //
 
     //
-    // Record 6200
+    // Miscellaneous
+    //
+    // German: Verschiedenes
+    //
+
+    //
+    // Patient
+    //
+    // German: Patient
+    //
+
+    //
+    // Visit
+    //
+    // German: Behandlungsfall
+    //
+
+    //
+    // Service
+    //
+    // German: Leistungsfeld
+    //
+
+    //
+    // Medical documentation
+    //
+    // German: Medizinische Dokumentation
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -115,12 +150,72 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            copy_integer(p0, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Field xdt name: 6205
+        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_CURRENT_DIAGNOSIS_FIELD_XDT_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
 
     //
-    // Record "spec"
+    // Special documentation
+    //
+    // German: Besondere Dokumentationsform
+    //
+
+    //
+    // Record description
+    //
+    // German: Satzbeschreibung
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Field xdt name: 8000
+        compare_integer_equal((void*) &r, p1, (void*) RECORD_IDENTIFICATION_FIELD_XDT_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        }
+    }
+
+    //
+    // Laboratory data
+    //
+    // German: Labordaten
+    //
+
+    //
+    // Signature
+    //
+    // German: Befundfreigabe/Signatur
+    //
+
+    //
+    // Identification
+    //
+    // German: KVDT/BDT-Identifikationsfelder
+    //
+
+    //
+    // Internal identification
+    //
+    // German: BDT-interne Identifikatoren (iden)
+    //
+
+    //
+    // File reference
+    //
+    // German: Referenzierte Dateien (spec)
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -133,6 +228,8 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
+
+    //?? Copy types for ALL possible xdt fields here ...
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
