@@ -48,8 +48,6 @@
  */
 void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
 
-fwprintf(stdout, L"TEST deserialise xdt bdt record: %i\n", p0);
-
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt record.");
 
     // The destination record part.

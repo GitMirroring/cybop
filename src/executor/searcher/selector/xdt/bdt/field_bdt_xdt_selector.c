@@ -38,7 +38,7 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Selects an xdt bdt field by filtering its name (number).
+ * Selects a compound xdt bdt field by filtering its name (number).
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -81,7 +81,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST select xdt bdt field TREATMENT: %i\n", *((int*) p12));
+//?? fwprintf(stdout, L"TEST select xdt bdt field TREATMENT: %i\n", *((int*) p12));
 
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }

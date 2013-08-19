@@ -45,8 +45,6 @@
  */
 void deserialise_xdt_bdt_records(void* p0, void* p1, void* p2, void* p3) {
 
-fwprintf(stdout, L"TEST deserialise xdt bdt records: %i\n", p0);
-
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt bdt records.");
 
     // The loop variable.

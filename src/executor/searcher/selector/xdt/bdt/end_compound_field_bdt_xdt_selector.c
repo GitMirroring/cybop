@@ -35,9 +35,10 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Checks if the field is permitted to be a child of the given compound field.
+ * Checks if the source field is permitted to be a child of parent.
  *
- * If it is not, then the field demarcates the end of a compound field's children.
+ * If it is not, then the source field demarcates the end
+ * of the compound parent field's children.
  *
  * @param p0 the end flag
  * @param p1 the source field name
