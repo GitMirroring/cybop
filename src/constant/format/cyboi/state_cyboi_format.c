@@ -98,6 +98,9 @@ static int* XDT_TIME_HHMM_DATETIME_STATE_CYBOI_FORMAT = NUMBER_210_INTEGER_STATE
 /** The part element state cyboi format. */
 static int* PART_ELEMENT_STATE_CYBOI_FORMAT = NUMBER_220_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The property element state cyboi format. */
+static int* PROPERTY_ELEMENT_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // example
 //

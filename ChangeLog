@@ -15,6 +15,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-08-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Create file "element_cybol_deserialiser.c" to handle "part" and "property" in the same manner only using different destination
+        * Test functionality with wui templates in cybol application "xdt2html" of resmedicinae.org project
+
 2013-08-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete file "compound_field_bdt_xdt_deserialiser.c"

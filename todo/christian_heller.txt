@@ -10,7 +10,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Add "translate" logic to cybol application "bdt2html"
         * Complete file "field_bdt_xdt_selector.c"
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
         * Uncomment in tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented

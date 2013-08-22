@@ -49,7 +49,7 @@ static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY
 /**
  * The part element state cyboi type.
  *
- * CAUTION! The part constant has to be defined as primitive type here,
+ * CAUTION! The part constant HAS TO BE defined as primitive type here,
  * in order to be able to distinguish cyboi runtime parts from other pointers.
  */
 static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
