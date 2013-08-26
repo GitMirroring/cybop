@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-08-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add further "access/" cybol operations "get-name", "get-channel", "get-encoding", "get-language", "get-format", "get-type"
+
 2013-08-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Create file "element_cybol_deserialiser.c" to handle "part" and "property" in the same manner only using different destination

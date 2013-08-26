@@ -66,6 +66,50 @@ static wchar_t* COUNT_ACCESS_LOGIC_CYBOL_FORMAT = COUNT_ACCESS_LOGIC_CYBOL_FORMA
 static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The access/get-channel logic cybol format.
+ *
+ * Get a part's channel.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'a', L'c', L'c', L'e', L's', L's', L'/', L'g', L'e', L't', L'-', L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
+static wchar_t* CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT = CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The access/get-encoding logic cybol format.
+ *
+ * Get a part's encoding.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'a', L'c', L'c', L'e', L's', L's', L'/', L'g', L'e', L't', L'-', L'e', L'n', L'c', L'o', L'd', L'i', L'n', L'g'};
+static wchar_t* ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT = ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The access/get-format logic cybol format.
+ *
+ * Get a part's format.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'a', L'c', L'c', L'e', L's', L's', L'/', L'g', L'e', L't', L'-', L'f', L'o', L'r', L'm', L'a', L't'};
+static wchar_t* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT = FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The access/get-language logic cybol format.
+ *
+ * Get a part's language.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'a', L'c', L'c', L'e', L's', L's', L'/', L'g', L'e', L't', L'-', L'l', L'a', L'n', L'g', L'u', L'a', L'g', L'e'};
+static wchar_t* LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT = LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The access/get-name logic cybol format.
  *
  * Get a part's name.
@@ -75,6 +119,17 @@ static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 static wchar_t NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'a', L'c', L'c', L'e', L's', L's', L'/', L'g', L'e', L't', L'-', L'n', L'a', L'm', L'e'};
 static wchar_t* NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT = NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The access/get-type logic cybol format.
+ *
+ * Get a part's type.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'a', L'c', L'c', L'e', L's', L's', L'/', L'g', L'e', L't', L'-', L't', L'y', L'p', L'e'};
+static wchar_t* TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT = TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The access/indicate-empty logic cybol format.

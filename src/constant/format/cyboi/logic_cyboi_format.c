@@ -45,17 +45,32 @@
 // access
 //
 
-/** The count access logic cyboi format. */
-static int* COUNT_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_500_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The channel get access logic cyboi format. */
+static int* CHANNEL_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_500_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The name get access logic cyboi format. */
-static int* NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_501_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The count access logic cyboi format. */
+static int* COUNT_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_501_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The empty indicate access logic cyboi format. */
 static int* EMPTY_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_502_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The encoding get access logic cyboi format. */
+static int* ENCODING_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_503_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The exists indicate access logic cyboi format. */
-static int* EXISTS_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_503_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* EXISTS_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_504_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The format get access logic cyboi format. */
+static int* FORMAT_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_505_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The language get access logic cyboi format. */
+static int* LANGUAGE_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_506_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The name get access logic cyboi format. */
+static int* NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_507_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The type get access logic cyboi format. */
+static int* TYPE_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_508_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // calculate

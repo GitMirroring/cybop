@@ -94,21 +94,21 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) COUNT_ACCESS_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) CHANNEL_GET_ACCESS_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_count(p0, p1, p3);
+            apply_get(p0, p1, p3, (void*) CHANNEL_GET_ACCESS_LOGIC_CYBOI_FORMAT);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) COUNT_ACCESS_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_get(p0, p1, p3, (void*) NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+            apply_count(p0, p1, p3);
         }
     }
 
@@ -124,11 +124,61 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p6, (void*) ENCODING_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_get(p0, p1, p3, (void*) ENCODING_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p6, (void*) EXISTS_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_indicate(p0, p1, p3, (void*) EXISTS_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) FORMAT_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_get(p0, p1, p3, (void*) FORMAT_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) LANGUAGE_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_get(p0, p1, p3, (void*) LANGUAGE_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_get(p0, p1, p3, (void*) NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) TYPE_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_get(p0, p1, p3, (void*) TYPE_GET_ACCESS_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -862,7 +912,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown p6: %i\n", p6);
-//?? fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown *p6: %i\n", *((int*) p6));
+fwprintf(stdout, L"ERROR: Could not handle operation. The operation is unknown *p6: %i\n", *((int*) p6));
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, "Could not handle operation. The operation is unknown.");
     }
