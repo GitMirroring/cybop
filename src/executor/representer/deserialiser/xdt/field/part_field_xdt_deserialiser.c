@@ -36,6 +36,7 @@
 #include "../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/format_field_xdt_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/xdt/field/model_field_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/type_field_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
@@ -57,8 +58,10 @@ void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4
     int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The field type.
     int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The record part.
+    // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part model item.
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Deserialise field identification into field format.
     deserialise_xdt_field_format((void*) &f, p5);
@@ -79,11 +82,18 @@ void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4
             // (NOT the xdt format)!
             allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
 
+            // Get part model item.
+            //
+            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+            // Inside the structure, arrays may have been reallocated,
+            // with elements pointing to different memory areas now.
+            copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
             // Fill part.
             overwrite_part_element(p, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
             overwrite_part_element(p, (void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
             overwrite_part_element(p, (void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-            overwrite_part_element(p, p3, (void*) &t, p4, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            deserialise_xdt_field_model(pm, p3, p4, (void*) &f);
 
             // Add part to destination.
             // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.

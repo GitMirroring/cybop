@@ -15,6 +15,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-08-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Deserialise (not just copy) model in file "part_field_xdt_deserialiser.c" using new file "model_field_xdt_deserialiser.c"
+
 2013-08-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add further "access/" cybol operations "get-name", "get-channel", "get-encoding", "get-language", "get-format", "get-type"

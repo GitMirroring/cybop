@@ -188,6 +188,17 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
 
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Field xdt name: 8100
+        compare_integer_equal((void*) &r, p1, (void*) RECORD_SIZE_FIELD_XDT_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        }
+    }
+
     //
     // Laboratory data
     //
