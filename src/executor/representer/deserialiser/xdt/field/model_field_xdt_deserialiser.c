@@ -53,11 +53,12 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //?? TODO: where is the following conversion done?
+    //
     // CAUTION! The xDT format uses the extended ASCII format "ISO 8859-15",
     // but the deserialisation functions used here expect wide characters.
-    // Therefore, a CONVERSION of source data is necessary BEFORE
-    // deserialising them here.
+    // Therefore, a CONVERSION of source data is done when reading xdt
+    // into cyboi, using the cybol "encoding" attribute.
+    //
 
     //
     // datetime
