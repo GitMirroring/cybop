@@ -48,13 +48,16 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data (file name)
- * @param p3 the source count
- * @param p4 the format
- * @param p5 the language
- * @param p6 the encoding
+ * @param p2 the source model data (file name)
+ * @param p3 the source model count
+ * @param p4 the source properties data (binary mode etc.)
+ * @param p5 the source properties count
+ * @param p6 the knowledge memory part
+ * @param p7 the format
+ * @param p8 the language
+ * @param p9 the encoding
  */
-void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive file.");
 
@@ -79,7 +82,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Receive byte data via channel.
-    receive_file_stream(e, p2, p3);
+    receive_file_stream(e, p2, p3, p4, p5, p6);
 
     // Get encoded message item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -89,7 +92,7 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Decode data via encoding.
-    decode(d, ed, ec, p6);
+    decode(d, ed, ec, p9);
 
     // Get decoded message item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -100,12 +103,12 @@ void receive_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
 /*??
 fwprintf(stdout, L"\nTEST receive file ec: %i\n", *((int*) ec));
-fwprintf(stdout, L"TEST receive file encoding: %i\n", *((int*) p6));
+fwprintf(stdout, L"TEST receive file encoding: %i\n", *((int*) p9));
 fwprintf(stdout, L"TEST receive file dc: %i\n", *((int*) dc));
 */
 
     // Deserialise data via type (language).
-    deserialise(p0, p1, dd, dc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5);
+    deserialise(p0, p1, dd, dc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7, p8);
 
 /*??
 //?? TEST BEGIN

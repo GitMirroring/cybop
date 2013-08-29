@@ -89,8 +89,6 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Deserialise field temporary model item
     // into record temporary model item.
     deserialise_xdt_record(rm, fmd, fmc);
-    //?? TEST ONLY
-//??    deserialise_xdt_record(p0, fmd, fmc);
 
     // Get record temporary model data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
