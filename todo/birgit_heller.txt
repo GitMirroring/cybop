@@ -1,0 +1,11 @@
+#
+# Copyright (C) 1999-2013. Birgit Heller.
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# Birgit Heller <>
+#
+
+        * Continue file "format_field_xdt_deserialiser.c", following BDT 3.0 standard

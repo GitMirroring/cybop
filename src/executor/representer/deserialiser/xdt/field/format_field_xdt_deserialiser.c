@@ -62,6 +62,18 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+/*?? TODO: Birgit
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_TODO_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) TODO_STATE_CYBOI_FORMAT);
+        }
+    }
+*/
+
     //
     // BDT meta data
     //
@@ -76,8 +88,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 0101
-        compare_integer_equal((void*) &r, p1, (void*) KBV_TEST_NUMBER_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_101_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,8 +98,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 0102
-        compare_integer_equal((void*) &r, p1, (void*) RESPONSIBLE_ENTITY_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_102_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -98,8 +108,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 0103
-        compare_integer_equal((void*) &r, p1, (void*) SOFTWARE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_103_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -145,8 +154,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6200
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6200_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -156,8 +164,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6205
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_CURRENT_DIAGNOSIS_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6205_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -179,8 +186,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 8000
-        compare_integer_equal((void*) &r, p1, (void*) RECORD_IDENTIFICATION_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8000_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -190,8 +196,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 8100
-        compare_integer_equal((void*) &r, p1, (void*) RECORD_SIZE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8100_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -231,8 +236,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 9900
-        compare_integer_equal((void*) &r, p1, (void*) SPECIFICATION_IDENTIFICATION_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_9900_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -240,11 +244,18 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
 
-    //?? Copy types for ALL possible xdt fields here ...
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field format. The field identification is unknown.");
+
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            fwprintf(stdout, L"Could not deserialise xdt field format. The field identification is unknown: %i\n", *((int*) p1));
+
+        } else {
+
+            fwprintf(stdout, L"Could not deserialise xdt field format. The field identification is null.\n");
+        }
     }
 }
 

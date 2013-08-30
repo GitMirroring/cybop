@@ -29,7 +29,6 @@
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/name/xdt/field_xdt_name.c"
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
@@ -51,92 +50,77 @@ void select_xdt_bdt_field_compound_end_treatment_data_collection_date(void* p0, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 3622
-        compare_integer_equal((void*) &r, p1, (void*) PATIENT_BODY_HEIGHT_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_3622_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 3623
-        compare_integer_equal((void*) &r, p1, (void*) PATIENT_BODY_WEIGHT_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_3623_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6205
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_CURRENT_DIAGNOSIS_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6205_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6210
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_DRUG_PRESCRIBED_WITH_PRESCRIPTION_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6210_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6211
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_DRUG_PRESCRIBED_WITHOUT_PRESCRIPTION_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6211_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6215
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_PHYSICIAN_SAMPLE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6215_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6230
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_BLOOD_PRESSURE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6230_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6280
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_REFERRAL_CONTENT_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6280_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6285
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_WORK_DISABILITY_DURATION_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6285_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6286
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_WORK_DISABILITY_CAUSE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6286_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6290
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_HOSPITALISATION_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6290_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6291
-        compare_integer_equal((void*) &r, p1, (void*) TREATMENT_HOSPITALISATION_CAUSE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6291_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 6325
-        compare_integer_equal((void*) &r, p1, (void*) LETTER_IMAGE_ARCHIVE_NUMBER_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6325_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 8401
-        compare_integer_equal((void*) &r, p1, (void*) FINDINGS_KIND_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8401_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Field xdt name: 8990
-        compare_integer_equal((void*) &r, p1, (void*) FINDINGS_SIGNATURE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8990_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
