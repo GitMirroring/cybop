@@ -31,7 +31,7 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/xdt/field_xdt_name.c"
+#include "../../../../../constant/name/xdt/record_xdt_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../../../../executor/modifier/appender/item_appender.c"

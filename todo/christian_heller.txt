@@ -11,13 +11,10 @@
 #
 
         * Implement function "deserialise_cybol_datetime" and uncomment in file "model_field_xdt_deserialiser.c"
-        * Complete file "field_bdt_xdt_selector.c"
-        * Add constants for German KVDT standard which differs from xDT
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
         * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
         * Delete superfluous file "record_bdt_xdt_selector.c"
         * Delete superfluous files "record_xdt_name.c", "field_xdt_name.c"
-        * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
 
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input

@@ -29,9 +29,9 @@
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/name/xdt/field_xdt_name.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../../executor/searcher/selector/xdt/bdt/treatment_data_collection_date_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -51,24 +51,154 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // Record 0001
+    //
+
+    //
+    // Record 0020
+    //
+
+    //
+    // Record spec
+    //
+
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) TREATMENT_DATA_COLLECTION_DATE_FIELD_XDT_NAME);
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_9900_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_treatment_data_collection_date(p0, p1);
+            select_xdt_bdt_field_compound_end_9900(p0, p1);
+        }
+    }
+*/
+
+    //
+    // Record iden
+    //
+
+    //
+    // Record 0010
+    //
+
+    //
+    // Record adrs
+    //
+
+    //
+    // Record term
+    //
+
+    //
+    // Record diag
+    //
+
+    //
+    // Record grnk
+    //
+
+    //
+    // Record hapo
+    //
+
+    //
+    // Record bbst
+    //
+
+    //
+    // Record text
+    //
+
+    //
+    // Record 6100
+    //
+
+    //
+    // Record 6200
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_6200_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            select_xdt_bdt_field_compound_end_6200(p0, p1);
         }
     }
 
-    //?? Add further comparisons here ...
+    //
+    // Record 0101
+    //
+
+    //
+    // Record 0102
+    //
+
+    //
+    // Record 0103
+    //
+
+    //
+    // Record 0104
+    //
+
+    //
+    // Record 0109
+    //
+
+    //
+    // Record sad1
+    //
+
+    //
+    // Record sad2
+    //
+
+    //
+    // Record sad3
+    //
+
+    //
+    // Record gevk
+    //
+
+    //
+    // Record hävg
+    //
+
+    //
+    // Record medi
+    //
+
+    //
+    // Record kv
+    //
+
+    //
+    // Record padx
+    //
+
+    //
+    // Record 0021
+    //
+
+    //
+    // Record 0002
+    //
+
+    //
+    // ... else ...
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // CAUTION! Do NOT log this case, since it is
         // normal on the root level of each record,
         // where fields do not have a parent field.
-        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt bdt field compound end all. The parent field name is unknown.");
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt bdt field compound end. The parent field name is unknown.");
     }
 }
 

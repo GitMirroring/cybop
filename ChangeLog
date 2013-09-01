@@ -13,6 +13,10 @@
 # Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-09-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Reorganise files "field_bdt_xdt_selector.c" and "end_compound_field_bdt_xdt_selector.c"
+
 2013-08-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Provide cybol "binary" property for reading files without removing any characters (such as carriage return), caused by mingw compilation

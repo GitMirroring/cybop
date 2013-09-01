@@ -31,7 +31,6 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/xdt/field_xdt_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../../../../executor/modifier/appender/item_appender.c"
@@ -64,7 +63,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     deserialise_cybol_integer_value_primitive((void*) &i, p5, p6, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Compare if field represents a record identification.
-    compare_integer_equal((void*) &r, (void*) &i, (void*) RECORD_IDENTIFICATION_FIELD_XDT_NAME);
+    compare_integer_equal((void*) &r, (void*) &i, (void*) NUMBER_8000_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
