@@ -10,6 +10,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Delete file "part_copier.c"
+        * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
+            using the function "copy_part" for deep copying makes no sense, since a part's child nodes change dynamically and are not predictable
+            USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
+            shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
+
         * Implement function "deserialise_cybol_datetime" and uncomment in file "model_field_xdt_deserialiser.c"
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
         * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
@@ -47,12 +53,6 @@
         * Investigate socket-based communication with "Scratch" visual programming language for pupil projects
             http://wiki.scratch.mit.edu/wiki/Remote_Sensor_Connections
             http://wiki.scratch.mit.edu/wiki/Remote_Sensors_Protocol
-
-        * Delete file "part_copier.c"
-        * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
-            using the function "copy_part" for deep copying does not make sense, since a part's child nodes change dynamically and are not predictable
-            USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
-            shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
 
         * Reactivate socket functionality
         * Study "libcurl3" library for URL transfer
