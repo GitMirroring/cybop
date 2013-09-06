@@ -26,7 +26,7 @@
 #ifndef FINDER_TESTER
 #define FINDER_TESTER
 
-#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../executor/communicator/sender/file/stream_file_sender.c"
 #include "../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../executor/accessor/name_getter/part_name_getter.c"

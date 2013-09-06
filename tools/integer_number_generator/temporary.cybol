@@ -1,0 +1,22 @@
+<model>
+
+    <!-- The loop parametres. -->
+    <part name="count" channel="inline" format="number/integer" model="10000"/>
+    <part name="index" channel="inline" format="number/integer" model="0"/>
+    <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="model" channel="file" format="element/part" model="integer_number_generator/append_element.cybol"/>
+
+    <!-- The string. -->
+    <part name="string" channel="inline" format="text/plain" model=""/>
+    <part name="number" channel="inline" format="text/plain" model=""/>
+    <part name="line_break" channel="file" format="text/plain" model="integer_number_generator/line_break.txt"/>
+    <part name="comment_prefix" channel="inline" format="text/plain" model="/** The number "/>
+    <part name="comment_postfix" channel="inline" format="text/plain" model=" integer state cyboi model. */"/>
+    <part name="array_prefix" channel="inline" format="text/plain" model="static int NUMBER_"/>
+    <part name="array_midfix" channel="inline" format="text/plain" model="_INTEGER_STATE_CYBOI_MODEL_ARRAY[] = {"/>
+    <part name="array_postfix" channel="inline" format="text/plain" model="};"/>
+    <part name="pointer_prefix" channel="inline" format="text/plain" model="static int* NUMBER_"/>
+    <part name="pointer_midfix" channel="inline" format="text/plain" model="_INTEGER_STATE_CYBOI_MODEL = NUMBER_"/>
+    <part name="pointer_postfix" channel="inline" format="text/plain" model="_INTEGER_STATE_CYBOI_MODEL_ARRAY;"/>
+
+</model>

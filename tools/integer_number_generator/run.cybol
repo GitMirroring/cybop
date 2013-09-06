@@ -1,0 +1,45 @@
+<model>
+
+    <!-- Create parts. -->
+    <part name="create_temporary" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="temporary"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+    <!-- Initialise parts. -->
+    <part name="initialise_temporary" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="integer_number_generator/temporary.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".temporary"/>
+    </part>
+
+    <!-- The break condition has to be GREATER-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <part name="compare_loop_count" channel="inline" format="compare/greater" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".temporary.break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".temporary.index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".temporary.count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
+    </part>
+    <part name="append_element" channel="inline" format="flow/loop" model="">
+        <property name="break" channel="inline" format="path/knowledge" model=".temporary.break"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".temporary.model"/>
+    </part>
+
+    <part name="write_string" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="receiver" channel="inline" format="text/plain" model="integer_state_cyboi_model.c"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+    </part>
+
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</model>

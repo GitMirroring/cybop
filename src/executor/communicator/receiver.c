@@ -28,6 +28,7 @@
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/communication/receive_communication_logic_cybol_name.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"

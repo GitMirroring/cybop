@@ -26,6 +26,7 @@
 #ifndef TESTER_SOURCE
 #define TESTER_SOURCE
 
+#include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../tester/accessor_tester.c"
 #include "../tester/arithmetiser_tester.c"
 #include "../tester/assembler_tester.c"

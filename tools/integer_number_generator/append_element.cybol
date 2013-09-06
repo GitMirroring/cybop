@@ -1,0 +1,128 @@
+<model>
+
+    <!-- Number -->
+    <!--
+        CAUTION! Do NOT delete this "empty" operation!
+        The "serialise" operation below appends its result,
+        so that previous results are not overwritten.
+        Therefore, the result variable HAS TO BE emptied beforehand.
+    -->
+    <part name="empty" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".temporary.number"/>
+    </part>
+    <part name="serialise_index" channel="inline" format="represent/serialise" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.number"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.index"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </part>
+
+    <!-- Comment -->
+    <part name="append_comment_prefix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.comment_prefix"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_comment_number" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.number"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_comment_postfix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.comment_postfix"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_comment_line_break" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.line_break"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- Array -->
+    <part name="append_array_prefix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.array_prefix"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_array_number_1" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.number"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_array_midfix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.array_midfix"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_array_number_2" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.number"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_array_postfix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.array_postfix"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_array_line_break" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.line_break"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- Pointer -->
+    <part name="append_pointer_prefix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.pointer_prefix"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_pointer_number_1" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.number"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_pointer_midfix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.pointer_midfix"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_pointer_number_2" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.number"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_pointer_postfix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.pointer_postfix"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_pointer_line_break" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.line_break"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- Extra line break -->
+    <part name="append_pointer_line_break" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.string"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.line_break"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- Loop -->
+    <part name="increment_loop_count" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".temporary.index"/>
+        <property name="operand" channel="inline" format="number/integer" model="1"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <part name="compare_loop_count" channel="inline" format="compare/greater" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".temporary.break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".temporary.index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".temporary.count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
+    </part>
+
+</model>

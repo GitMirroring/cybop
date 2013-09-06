@@ -53,6 +53,7 @@
 #include <wchar.h>
 
 #include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../logger/logger.c"
 
