@@ -16,8 +16,10 @@
             USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
             shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
 
+        * Enter Birgit as author
         * Provide constants and translation of "description", in addition to "Feldkennung (FK)" e.g. "Anamnesetyp" for FK "3663"
         * Implement function "deserialise_cybol_datetime" and uncomment in file "model_field_xdt_deserialiser.c"
+        * Uncomment HH_MM_DATETIME_STATE_CYBOI_FORMAT in file "format_field_xdt_deserialiser.c"
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
         * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
         * Delete superfluous file "record_bdt_xdt_selector.c"
