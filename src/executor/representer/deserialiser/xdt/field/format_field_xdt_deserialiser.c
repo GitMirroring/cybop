@@ -17,8 +17,8 @@
  * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
  *
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * Birgit Heller <birgit.h@arcor.de>
  * Christian Heller <christian.heller@tuxtax.de>
- * 
  */
 
 #ifndef FORMAT_FIELD_XDT_DESERIALISER_SOURCE
@@ -37,19 +37,26 @@
 /**
  * Deserialises the xdt field format into a cyboi format.
  *
- * All fields listed in the xdt standard have one of
- * the following defined formats (types), e.g.:
- * - num
- * - float
- * - datum
- * - alnum
+ * The fields listed in the xdt standard have
+ * defined formats (types), e.g.:
+ * - n = num = numeric
+ * - f = float
+ * - a = alnum = alphanumeric
+ * - d = date
+ * - 2xd = duration
+ * - 4 = ??
  *
  * The following constants may be returned:
  * - INTEGER_NUMBER_STATE_CYBOI_FORMAT
  * - FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT
- * - XDT_DATE_DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT
  * - PLAIN_TEXT_STATE_CYBOI_FORMAT
- *
+ * - YYYY_DATETIME_STATE_CYBOI_FORMAT
+ * - DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT
+ * - HHMM_DATETIME_STATE_CYBOI_FORMAT
+ * - YYYYYYYY_DURATION_DATETIME_STATE_CYBOI_FORMAT
+ * - MMYYYYMMYYYY_DURATION_DATETIME_STATE_CYBOI_FORMAT
+ * - DDMMYYYYDDMMYYYY_DURATION_DATETIME_STATE_CYBOI_FORMAT
+ * 
  * @param p0 the destination cyboi format data
  * @param p1 the source xdt field identification data
  */
@@ -63,15 +70,10 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
     //
     // BDT meta data
     //
-    // German: Metadaten zur BDT-Übermittlung
+    // German: Metadaten zur BDT-Übermittlung 
+    // 0000 - 0049 0050 - 0079 0080 - 0099
     //
 
-    //
-    // Medical practice administrative data
-    //
-    // German: Praxisdaten
-    //
-    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -203,6 +205,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
 
+    //
+    // Medical practice administrative data
+    //
+    // German: Praxisdaten
+    // 01xx 02xx 03xx 04xx 05xx
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_102_INTEGER_STATE_CYBOI_MODEL);
@@ -222,8 +231,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
-
-    //?? BIRGIT! Diese Zeile löschen und hier weiter machen!
+   
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_104_INTEGER_STATE_CYBOI_MODEL);
@@ -524,6 +532,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
     
+    //
+    // ???
+    //
+    // ???
+    // 09xx
+    //
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_919_INTEGER_STATE_CYBOI_MODEL);
@@ -573,6 +588,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
         }
     }
+    
+    //
+    // Medical practice management data
+    //
+    // German: Praxisverwaltungsdaten
+    // 12xx 13xx 14xx 15xx 16xx 17xx 18xx
+    //
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -1184,6 +1206,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
     
+    //
+    // Miscellaneous
+    //
+    // German: Verschiedenes
+    // 20xx 25xx 2700 27xx (außer 2700) 28xx
+    //
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_2002_INTEGER_STATE_CYBOI_MODEL);
@@ -1244,6 +1273,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
     
+    //
+    // Patient
+    //
+    // German: Patient
+    // 3000 30xx 31xx 32xx 3300 33xx (außer 3300) 34xx 35xx 36xx 37xx 38xx 39xx
+    //
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_3000_INTEGER_STATE_CYBOI_MODEL);
@@ -1257,6 +1293,16 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_3001_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        }
+    }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_3050_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -1699,7 +1745,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
+//??            copy_integer(p0, (void*) DDMMYYYYDDMMYYYY_DURATION_DATETIME_STATE_CYBOI_FORMAT);
         }
     }
     
@@ -2029,7 +2075,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
+//??            copy_integer(p0, (void*) DDMMYYYYDDMMYYYY_DURATION_DATETIME_STATE_CYBOI_FORMAT);
         }
     }
     
@@ -2689,10 +2735,10 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            copy_integer(p0, (void*) HH_MM_DATETIME_STATE_CYBOI_FORMAT);
+//??            copy_integer(p0, (void*) HHMM_DATETIME_STATE_CYBOI_FORMAT);
         }
     }
-
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_3688_INTEGER_STATE_CYBOI_MODEL);
@@ -2752,6 +2798,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
+    
+    //
+    // Visit
+    //
+    // German: Behandlungsfall
+    // 41xx 42xx 45xx 46xx
+    //
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -2932,8 +2985,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
-    
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_4217_INTEGER_STATE_CYBOI_MODEL);
@@ -3054,6 +3106,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
     
+    //
+    // Service
+    //
+    // German: Leistungsfeld
+    // 5xxx
+    //
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_5001_INTEGER_STATE_CYBOI_MODEL);
@@ -3083,6 +3142,33 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_5098_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        }
+    }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_5099_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        }
+    }
+    
+    //
+    // Medical documentation
+    //
+    // German: Medizinische Dokumentation
+    // 600x 62xx 63xx 64xx 65xx 66xx 67xx 68xx 69xx
+    //
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -3234,7 +3320,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_6216_INTEGER_STATE_CYBOI_MODEL);
 
@@ -3320,7 +3406,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
+//??            copy_integer(p0, (void*) DDMMYYYYDDMMYYYY_DURATION_DATETIME_STATE_CYBOI_FORMAT);
         }
     }
     
@@ -3473,6 +3559,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
+
+    //
+    // Special documentation
+    //
+    // German: Besondere Dokumentationsform
+    // 70xx - 71xx 72xx 77xx - 79xx
+    //
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -3514,7 +3607,7 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_7922_INTEGER_STATE_CYBOI_MODEL);
 
@@ -3523,6 +3616,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
         }
     }
+    
+    //
+    // Record description
+    //
+    // German: Satzbeschreibung
+    // 80xx 8000 8100 8110 8111
+    //
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -3576,6 +3676,23 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8100_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        }
+    }
+    
+    //
+    // ???
+    //
+    // ???
+    // 82xx
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_8202_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -3583,6 +3700,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
+
+    //
+    // Laboratory data
+    //
+    // German: Labordaten
+    // 83xx 84xx 85xx 86xx 87xx 88xx 89xx (außer 8990)
+    //
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -4024,6 +4148,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
     
+    //
+    // Signature
+    //
+    // German: Befundfreigabe/Signatur
+    // 8990
+    //
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_8990_INTEGER_STATE_CYBOI_MODEL);
@@ -4033,6 +4164,13 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
         }
     }
+    
+    //
+    // Identification
+    //
+    // German: KVDT/BDT-Identifikationsfelder
+    // 91xx 92xx 96xx
+    //
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -4080,9 +4218,16 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
+//??            copy_integer(p0, (void*) DDMMYYYYDDMMYYYY_DURATION_DATETIME_STATE_CYBOI_FORMAT);
         }
     }
+    
+    //
+    // Internal identification
+    //
+    // German: BDT-interne Identifikatoren (iden)
+    // 98xx
+    //
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -4103,7 +4248,14 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
         }
     }
-    
+
+    //
+    // File reference
+    //
+    // German: Referenzierte Dateien (spec)
+    // 99xx
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_9900_INTEGER_STATE_CYBOI_MODEL);
@@ -4243,135 +4395,10 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
             copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
         }
     }
-    
-   
-    //
-    // Medical practice management data
-    //
-    // German: Praxisverwaltungsdaten
-    //
 
     //
-    // Miscellaneous
+    // Unknown field identification
     //
-    // German: Verschiedenes
-    //
-
-    //
-    // Patient
-    //
-    // German: Patient
-    //
-
-    //
-    // Visit
-    //
-    // German: Behandlungsfall
-    //
-
-    //
-    // Service
-    //
-    // German: Leistungsfeld
-    //
-
-    //
-    // Medical documentation
-    //
-    // German: Medizinische Dokumentation
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6200_INTEGER_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6205_INTEGER_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
-        }
-    }
-
-    //
-    // Special documentation
-    //
-    // German: Besondere Dokumentationsform
-    //
-
-    //
-    // Record description
-    //
-    // German: Satzbeschreibung
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8000_INTEGER_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8100_INTEGER_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
-        }
-    }
-
-    //
-    // Laboratory data
-    //
-    // German: Labordaten
-    //
-
-    //
-    // Signature
-    //
-    // German: Befundfreigabe/Signatur
-    //
-
-    //
-    // Identification
-    //
-    // German: KVDT/BDT-Identifikationsfelder
-    //
-
-    //
-    // Internal identification
-    //
-    // German: BDT-interne Identifikatoren (iden)
-    //
-
-    //
-    // File reference
-    //
-    // German: Referenzierte Dateien (spec)
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_9900_INTEGER_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
-        }
-    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

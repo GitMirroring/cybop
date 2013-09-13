@@ -16,7 +16,7 @@
 2013-09-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Create cybol-based tool to generate integer number constants in directory "tools/integer_number_generator/"
-        * Add new constants of Birgit Heller in file "format_field_xdt_deserialiser.c", following BDT 3.0 standard
+        * Add new entries of Birgit Heller in file "format_field_xdt_deserialiser.c", following BDT 3.0 standard
 
 2013-09-01  Christian Heller  <christian.heller@tuxtax.de>
 

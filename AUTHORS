@@ -32,6 +32,7 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Falk Müller <falk89@web.de> (de-/serialiser and calculator for double type)
         * Tobias Köhler <tk@snake-universe.tk> (debian packaging; cross-compilation using pre-processor defines and mingw; serial port communication)
         * Marcel Wesberg <marcel.wesberg@it2010.ba-leipzig.de> (calculator and comparator functions for double, pointer, fraction, complex)
+        * Birgit Heller <birgit.h@arcor.de> (xdt constants and translation)
 
 CYBOP Project
         * Christian Heller <christian.heller@tuxtax.de> (administration, website, releases)
