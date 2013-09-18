@@ -179,6 +179,13 @@ static wchar_t* URI_TEXT_STATE_CYBOL_LANGUAGE = URI_TEXT_STATE_CYBOL_LANGUAGE_AR
 static int* URI_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The text/xdt-field-description cybol language.
+ */
+static wchar_t XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'x', L'd', L't', L'-', L'f', L'i', L'e', L'l', L'd', L'-', L'd', L'e', L's', L'c', L'r', L'i', L'p', L't', L'i', L'o', L'n'};
+static wchar_t* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE = XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static int* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_26_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The text/xml cybol language.
  *
  * Extensible Markup Language.

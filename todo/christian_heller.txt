@@ -10,6 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Add file "bdt_description_serialiser.c"
+
         * Delete file "part_copier.c"
         * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
             using the function "copy_part" for deep copying makes no sense, since a part's child nodes change dynamically and are not predictable

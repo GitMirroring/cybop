@@ -51,6 +51,7 @@
 #include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 #include "../../executor/representer/serialiser/tui/initial_tui_serialiser.c"
+#include "../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
 #include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
 
@@ -175,7 +176,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_BDT(p0, p1, p2, p3, p4);
+//??            serialise_xdt(p0, p1, p2, p3, p4, p11);
         }
     }
 
@@ -195,7 +196,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_GDT(p0, p1, p2, p3, p4);
+//??            serialise_xdt(p0, p1, p2, p3, p4, p11);
         }
     }
 
@@ -226,7 +227,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_LDT(p0, p1, p2, p3, p4);
+//??            serialise_xdt(p0, p1, p2, p3, p4, p11);
         }
     }
 
@@ -252,6 +253,16 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //??            serialise_uri(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p11, (void*) XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_xdt_field_description(p0, p1);
         }
     }
 
