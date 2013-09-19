@@ -118,7 +118,14 @@ void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2) {
     //
     // CAUTION! Hand over number base 0 as parametre
     // (automatic identification of the correct number base).
-    deserialise_cybol_integer_value(p0, e, (void*) &ec, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
+    //
+    // ??TODO: TEMPORARY SOLUTION! The number base 10 is handed over for now,
+    // since it is needed for proper conversion of xdt field names.
+    // Some of them start with zero and would  be interpreted as octal number.
+    // In the future, a cybol property or constraint for the given numbers
+    // should be provided indicating their number base being interpreted here then.
+    //
+    deserialise_cybol_integer_value(p0, e, (void*) &ec, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
 }
 
 /* VECTOR_INTEGER_CYBOL_DESERIALISER_SOURCE */

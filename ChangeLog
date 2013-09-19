@@ -13,6 +13,12 @@
 # Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-09-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug in file "part_record_xdt_deserialiser.c" that assigned record part name as integer without converting to string beforehand
+        * Add file "xdt_field_description_serialiser.c" providing field description in addition to field name
+        * Fix bug in file "vector_integer_cybol_deserialiser.c" that used automatic detection of number base, so that xdt field identifications with zero as prefix got interpreted as octal number
+
 2013-09-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Create cybol-based tool to generate integer number constants in directory "tools/integer_number_generator/"

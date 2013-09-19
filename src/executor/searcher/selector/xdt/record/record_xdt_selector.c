@@ -45,9 +45,9 @@
  * @param p0 the destination root model item
  * @param p1 the destination record model item (pointer reference)
  * @param p2 the destination record model item
- * @param p3 the source record part model data
+ * @param p3 the source record part model data (record name as integer, if part is a record)
  * @param p4 the source record part model count
- * @param p5 the source record part name data
+ * @param p5 the source record part name data (field name)
  * @param p6 the source record part name count
  * @param p7 the source record part (pointer reference)
  */
@@ -72,7 +72,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // CAUTION! The source part may NOT be reused as record part,
         // since the source's model is of type "character",
         // while the new record part's type has to be "part" (a compound).
-        deserialise_xdt_record_part(p0, p1, p3, p4);
+        deserialise_xdt_record_part(p0, p1, p3);
 
     } else {
 
