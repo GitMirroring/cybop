@@ -13,6 +13,10 @@
 # Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-09-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add further encoding entries into file "encoding_cybol_serialiser.c"
+
 2013-09-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug in file "part_record_xdt_deserialiser.c" that assigned record part name as integer without converting to string beforehand
