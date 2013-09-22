@@ -15,12 +15,12 @@
 
 CYBOP 0.15.0, 2013-09-22, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:
-            - Factor out parts of channel interrupt detection from threads into main loop using "enable" flags
-            - Get all event properties for x window system receiver
-            - Complete win32 display receiver, to be used with gui deserialiser
+            - Improve channel interrupt detection outside threads in main loop
+            - Complete x window system receiver
+            - Complete win32 display receiver
             - Complete win32 console receiver
-            - Add further "access/" cybol operations get-name, get-channel, get-encoding, get-language, get-format, get-type
-            - Provide first working version of xdt deserialiser, to be used in Res Medicinae tool "xdt2html" (routine piece of work by Birgit Heller)
+            - Add further "access/" cybol operations
+            - Provide first working version of xdt deserialiser, to be used in Res Medicinae tool "xdt2html" (partly by Birgit Heller)
         * CYBOL:
             - Create tool "integer_number_generator" to generate integer number constants
 

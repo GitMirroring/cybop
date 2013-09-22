@@ -2,7 +2,7 @@
 Release
 =======
 
-Compile cyboi
+Compile cyboi (make clean; ./autogen.sh; ./configure; make)
 Test cybol applications
 Adapt copyright year in directories "src/", "examples/", "todo/" and in root files
 Adapt version in configure.ac
@@ -11,8 +11,8 @@ Update AUTHORS reading ChangeLog entries and todo/* files
 Update NEWS subsumpting ChangeLog entries
 Commit SVN
 Tag SVN
-make dist
-Upload tarball file to
+Pack (make dist)
+Upload tarball file to sftp://USERNAME@download.savannah.gnu.org/releases/cybop
 Create new file for release in www/cybop/plan/
 Copy content from NEWS to www/cybop/plan/cybop-x.x.x.html
 Update www/cybop/plan/index.html
