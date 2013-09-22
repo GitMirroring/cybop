@@ -5,10 +5,13 @@
 # to be worked on in the future.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-# Birgit Heller <>
+# CYBOP Developers <cybop-developers@nongnu.org>
+#
+# @version CYBOP 0.15.0 2013-09-22
+# @author Birgit Heller <birgit.h@arcor.de>
 #
 
-        * Complete file "format_field_xdt_deserialiser.c", following all BDT standard documents < 3.0 (legacy fields)
+        * Complete file "format_field_xdt_deserialiser.c", following all BDT standard documents < 3.0 (legacy fields of BDT 2.7 and 1994)
         * Complete files "field_description_xdt_model.c" and "xdt_field_description_serialiser.c", following all BDT standard documents
         * Continue files "field_bdt_xdt_selector.c" and "end_compound_field_bdt_xdt_selector.c" and also consider German KVDT standard which extends xDT
         * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)

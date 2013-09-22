@@ -17,9 +17,9 @@
  * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
  *
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
- * Christian Heller <christian.heller@tuxtax.de>
+ * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.14.0 2013-05-31
+ * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
  * @author Enrico Gallus <enrico.gallus@googlemail.com>
  */

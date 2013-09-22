@@ -5,7 +5,7 @@
 # how to structure the new container framework of CYBOI.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-# Christian Heller <christian.heller@tuxtax.de>
+# CYBOP Developers <cybop-developers@nongnu.org>
 #
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
