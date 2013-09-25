@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-09-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new entries of Birgit Heller in file "format_field_xdt_deserialiser.c", following deprecated BDT 2.7 standard
+
 2013-09-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Release CYBOP 0.15.0

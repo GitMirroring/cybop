@@ -11,6 +11,18 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Comments from Karsten:
+
+            > Fehlermeldungen:
+            Zeige doch bei den unbekannten Kennungen als Beschreibung
+            "unbekannte Kennung <Kennung>" an und interpretiere den
+            Inhalt lediglich als Text.
+
+            > Could not deserialise xdt field format. The field identification is unknown: 101
+            Das riecht auch nach einem Parser-Fehler (oder einer
+            kaputten Datei - aber wieso meldet der Parser dann die
+            fehlerhafte Datei nicht ?).
+
         * Implement function "deserialise_cybol_datetime" and uncomment in file "model_field_xdt_deserialiser.c"
         * Uncomment HH_MM_DATETIME_STATE_CYBOI_FORMAT in file "format_field_xdt_deserialiser.c"
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
