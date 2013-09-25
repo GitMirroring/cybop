@@ -11,6 +11,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Comments from Birgit (betrifft alles aus Standard 2.7):
+
+            - Seite 25- dort habe ich die großen Buchstaben der Datentypen wie kleine behandelt
+            - 3704-3719 Seite 37 steht als todo drin (nur 3704)
+            - 6334-6339 Seite 42 steht als todo drin (nur 6334)
+            - die Kategorie mit FK 8xx gibt es nicht, es stehen wieder ???-Kommentare drin
+            - sehr viele FK haben im alten Standard andere Datentypen, die habe ich ignoriert
+
         * Comments from Karsten:
 
             > Fehlermeldungen:
