@@ -101,6 +101,9 @@ void serialise_xdt_field_description(void* p0, void* p1) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xdt field description. The field identification is not known.");
+
+        // Add warning text by default.
+        append_item_element(p0, (void*) ID_0000_FIELD_DESCRIPTION_XDT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ID_0000_FIELD_DESCRIPTION_XDT_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

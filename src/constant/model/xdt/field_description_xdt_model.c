@@ -28,12 +28,16 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The id 0000 field description xdt model. */
+static wchar_t* ID_0000_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
+static int* ID_0000_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The id 0001 field description xdt model. */
-static wchar_t* ID_0001_FIELD_DESCRIPTION_XDT_MODEL = (wchar_t[]) {L"BDT Version"};
+static wchar_t* ID_0001_FIELD_DESCRIPTION_XDT_MODEL = L"BDT Version";
 static int* ID_0001_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 0102 field description xdt model. */
-static wchar_t* ID_0102_FIELD_DESCRIPTION_XDT_MODEL = (wchar_t[]) {L"Softwareverantwortlicher (SV)"};
+static wchar_t* ID_0102_FIELD_DESCRIPTION_XDT_MODEL = L"Softwareverantwortlicher (SV)";
 static int* ID_0102_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_29_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 0103 field description xdt model. */
@@ -41,14 +45,12 @@ static wchar_t* ID_0103_FIELD_DESCRIPTION_XDT_MODEL = L"Name der Software";
 static int* ID_0103_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 0104 field description xdt model. */
-static wchar_t ID_0104_FIELD_DESCRIPTION_XDT_MODEL_ARRAY[] = {L'H', L'a', L'r', L'd', L'w', L'a', L'r', L'e'};
-static wchar_t* ID_0104_FIELD_DESCRIPTION_XDT_MODEL = ID_0104_FIELD_DESCRIPTION_XDT_MODEL_ARRAY;
+static wchar_t* ID_0104_FIELD_DESCRIPTION_XDT_MODEL = L"Hardware";
 static int* ID_0104_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 8100 field description xdt model. */
-static wchar_t ID_8100_FIELD_DESCRIPTION_XDT_MODEL_ARRAY[] = {L'T', L'E', L'S', L'T', L' ', L'8', L'1', L'0', L'0', L' ', L'E', L'N', L'T', L'R', L'Y'};
-static wchar_t* ID_8100_FIELD_DESCRIPTION_XDT_MODEL = ID_8100_FIELD_DESCRIPTION_XDT_MODEL_ARRAY;
-static int* ID_8100_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_8100_FIELD_DESCRIPTION_XDT_MODEL = L"Satzlänge";
+static int* ID_8100_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* FIELD_DESCRIPTION_XDT_MODEL_CONSTANT_SOURCE */
 #endif

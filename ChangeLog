@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-09-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add further entries in file "format_field_xdt_deserialiser.c", following deprecated BDT standards 2.7 and 1994-2
+        * Use PLAIN_TEXT_STATE_CYBOI_FORMAT for unknown field identifications and show warning in generated output, by default
+
 2013-09-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new entries of Birgit Heller in file "format_field_xdt_deserialiser.c", following deprecated BDT 2.7 standard

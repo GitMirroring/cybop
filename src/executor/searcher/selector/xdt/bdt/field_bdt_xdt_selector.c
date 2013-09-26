@@ -37,6 +37,8 @@
 
 /**
  * Selects a compound xdt bdt field by filtering its name (number).
+ * 
+ * CAUTION! Other, non-compound fields are ignored here.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
