@@ -22,6 +22,7 @@
 
         * Add further entries in file "format_field_xdt_deserialiser.c", following deprecated BDT standards 2.7 and 1994-2
         * Use PLAIN_TEXT_STATE_CYBOI_FORMAT for unknown field identifications and show warning in generated output, by default
+        * Add "date" cybol example application for testing various date formats
 
 2013-09-25  Christian Heller  <christian.heller@tuxtax.de>
 
