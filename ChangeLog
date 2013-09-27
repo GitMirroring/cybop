@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-09-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add constants for date and duration
+
 2013-09-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add further entries in file "format_field_xdt_deserialiser.c", following deprecated BDT standards 2.7 and 1994-2

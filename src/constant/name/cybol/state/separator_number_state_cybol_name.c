@@ -23,17 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SEPARATOR_NUMBER_CYBOL_NAME_CONSTANT_SOURCE
-#define SEPARATOR_NUMBER_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef SEPARATOR_NUMBER_STATE_CYBOL_NAME_CONSTANT_SOURCE
+#define SEPARATOR_NUMBER_STATE_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The separator number cybol name. */
-static wchar_t* SEPARATOR_NUMBER_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_NUMBER_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The separator number state cybol name. */
+static wchar_t* SEPARATOR_NUMBER_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* SEPARATOR_NUMBER_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* SEPARATOR_NUMBER_CYBOL_NAME_CONSTANT_SOURCE */
+/* SEPARATOR_NUMBER_STATE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
