@@ -2,9 +2,22 @@
 Programming Activities
 ======================
 
-Philosophise and think
-Architect prototype
-Routine diligence work, e.g. adding constants
-Search bug, e.g. by adding test log messages
-Write cybol application
+Architecture
+____________
+
+Philosophise and think --> e.g. container framework --> one week to many months
+Design prototype --> one to three months
+
+New Data Format Im-/Export
+__________________________
+
+Investigate format, history, similar formats --> e.g. date-time formats --> two to four weeks
+Define constants for as many things as possible --> routine diligence work --> one to two weeks
+Write de-/serialiser --> one to many months
+
 Test
+____
+
+Write cybol application --> one to two weeks
+Test
+Search bug, e.g. by adding test log messages --> one day to four weeks

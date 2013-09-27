@@ -81,36 +81,20 @@
 //
 
 /**
- * The duration separator date state cybol name.
- *
- * Symbol: P
+ * The ce separator date state cybol name.
  * 
- * It is placed at the start of the duration representation
- * and may thus separate a date and duration.
- * The duration designator is historically called "period".
- */
-static wchar_t* DURATION_SEPARATOR_DATE_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_P_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* DURATION_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The time separator date state cybol name.
- * 
- * It separates date and time.
+ * It indicates that a date lies after (or "in") an epoch (era).
  *
- * Symbol: T
- */
-static wchar_t* TIME_SEPARATOR_DATE_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_T_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* TIME_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The week separator date state cybol name.
+ * CE is the abbreviation for Common/Current/Christian Era.
+ * It is an alternative naming of the traditional
+ * calendar era Anno Domini, abbreviated AD.
  * 
- * It indicates that a week value is following.
+ * "2013 CE" corresponds to "AD 2013"
  *
- * Symbol: W
+ * Symbol: +
  */
-static wchar_t* WEEK_SEPARATOR_DATE_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_W_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* WEEK_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* CE_SEPARATOR_DATE_STATE_CYBOL_NAME = PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* CE_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The bce separator date state cybol name.
@@ -129,22 +113,6 @@ static wchar_t* BCE_SEPARATOR_DATE_STATE_CYBOL_NAME = HYPHEN_MINUS_UNICODE_CHARA
 static int* BCE_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The ce separator date state cybol name.
- * 
- * It indicates that a date lies after (or "in") an epoch (era).
- *
- * CE is the abbreviation for Common/Current/Christian Era.
- * It is an alternative naming of the traditional
- * calendar era Anno Domini, abbreviated AD.
- * 
- * "2013 CE" corresponds to "AD 2013"
- *
- * Symbol: +
- */
-static wchar_t* CE_SEPARATOR_DATE_STATE_CYBOL_NAME = PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* CE_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The date element separator date state cybol name.
  * 
  * It separates date elements.
@@ -153,6 +121,26 @@ static int* CE_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CY
  */
 static wchar_t* DATE_ELEMENT_SEPARATOR_DATE_STATE_CYBOL_NAME = HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 static int* DATE_ELEMENT_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The week separator date state cybol name.
+ * 
+ * It indicates that a week value is following.
+ *
+ * Symbol: W
+ */
+static wchar_t* WEEK_SEPARATOR_DATE_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_W_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* WEEK_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The time separator date state cybol name.
+ * 
+ * It separates date and time.
+ *
+ * Symbol: T
+ */
+static wchar_t* TIME_SEPARATOR_DATE_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_T_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* TIME_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The time element separator date state cybol name.
@@ -186,6 +174,18 @@ static int* FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_ST
  */
 static wchar_t* ALTERNATIVE_FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME = FULL_STOP_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 static int* ALTERNATIVE_FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The duration separator date state cybol name.
+ *
+ * Symbol: P
+ * 
+ * It is placed at the start of the duration representation
+ * and may thus separate a date and duration.
+ * The duration designator is historically called "period".
+ */
+static wchar_t* DURATION_SEPARATOR_DATE_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_P_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* DURATION_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SEPARATOR_DATE_STATE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

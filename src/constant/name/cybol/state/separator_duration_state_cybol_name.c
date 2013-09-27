@@ -47,70 +47,115 @@
 // 2005-08-09/30: "Vom 9. bis 30. August 2005."
 //
 
-/** The separator duration state cybol name. */
-static wchar_t* SEPARATOR_DURATION_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The year separator duration state cybol name.
+ * 
+ * It is the designator that follows the value
+ * for the number of years.
+ *
+ * Symbol: Y
+ */
+static wchar_t* YEAR_SEPARATOR_DURATION_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_Y_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* YEAR_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-Y is the year designator that follows the value for the number of years.
-/** The separator duration state cybol name. */
-static wchar_t* SEPARATOR_DURATION_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The month separator duration state cybol name.
+ * 
+ * It is the designator that follows the value
+ * for the number of months.
+ *
+ * Symbol: M
+ */
+static wchar_t* MONTH_SEPARATOR_DURATION_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_M_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* MONTH_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-M is the month designator that follows the value for the number of months.
-/** The separator duration state cybol name. */
-static wchar_t* SEPARATOR_DURATION_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The week separator duration state cybol name.
+ * 
+ * It is the designator that follows the value
+ * for the number of weeks.
+ *
+ * Symbol: W
+ */
+static wchar_t* WEEK_SEPARATOR_DURATION_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_W_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* WEEK_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-W is the week designator that follows the value for the number of weeks.
-/** The separator duration state cybol name. */
-static wchar_t* SEPARATOR_DURATION_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The day separator duration state cybol name.
+ * 
+ * It is the designator that follows the value
+ * for the number of days.
+ *
+ * Symbol: D
+ */
+static wchar_t* DAY_SEPARATOR_DURATION_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_D_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* DAY_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-D is the day designator that follows the value for the number of days.
-/** The separator duration state cybol name. */
-static wchar_t* SEPARATOR_DURATION_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The time separator duration state cybol name.
+ * 
+ * It is the designator that precedes the
+ * time components of the representation.
+ *
+ * Symbol: T
+ */
+static wchar_t* TIME_SEPARATOR_DURATION_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_T_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* TIME_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-T is the time designator that precedes the time components of the representation.
-/** The separator duration state cybol name. */
-static wchar_t* SEPARATOR_DURATION_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The hour separator duration state cybol name.
+ * 
+ * It is the designator that follows the value
+ * for the number of hours.
+ *
+ * Symbol: H
+ */
+static wchar_t* HOUR_SEPARATOR_DURATION_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_H_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* HOUR_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-H is the hour designator that follows the value for the number of hours.
-/** The separator duration state cybol name. */
-static wchar_t* SEPARATOR_DURATION_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The minute separator duration state cybol name.
+ * 
+ * It is the designator that follows the value
+ * for the number of minutes.
+ *
+ * Symbol: M
+ */
+static wchar_t* MINUTE_SEPARATOR_DURATION_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_M_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* MINUTE_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-M is the minute designator that follows the value for the number of minutes.
-/** The separator duration state cybol name. */
-static wchar_t* SEPARATOR_DURATION_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The second separator duration state cybol name.
+ * 
+ * It is the designator that follows the value
+ * for the number of seconds.
+ *
+ * Symbol: S
+ */
+static wchar_t* SECOND_SEPARATOR_DURATION_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_S_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* SECOND_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-S is the second designator that follows the value for the number of seconds.
-/** The separator duration state cybol name. */
-static wchar_t* SEPARATOR_DURATION_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The fraction separator duration state cybol name.
+ * 
+ * It is the designator that precedes the
+ * decimal fraction of a second.
+ *
+ * Symbol: F
+ */
+static wchar_t* FRACTION_SEPARATOR_DURATION_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_F_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* FRACTION_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
---
-
-Y
-    Jahr (year)
-M 
-    Monat (month)
-W 
-    Woche (week)
-D 
-    Tag (day)
-h 
-    Stunde (hour)
-m 
-    Minute (minute)
-s 
-    Sekunde (second)
-f 
-    dezimale Bruchteile einer Sekunde (fraction)
-/ 
-    Trenner von Start- und Enddatum (bis)
+/**
+ * The start-end separator duration state cybol name.
+ * 
+ * It separates a start- and an end date
+ * and has the meaning of "to".
+ *
+ * Symbol: /
+ */
+static wchar_t* START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME = SOLIDUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SEPARATOR_DURATION_STATE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
