@@ -143,39 +143,6 @@ static wchar_t* TIME_SEPARATOR_DATE_STATE_CYBOL_NAME = LATIN_CAPITAL_LETTER_T_UN
 static int* TIME_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The time element separator date state cybol name.
- * 
- * It separates time elements.
- *
- * Symbol: :
- */
-static wchar_t* TIME_ELEMENT_SEPARATOR_DATE_STATE_CYBOL_NAME = COLON_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* TIME_ELEMENT_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The fraction separator date state cybol name.
- * 
- * It separates the integer part of a number and decimal fraction.
- *
- * Symbol: ,
- */
-static wchar_t* FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The alternative fraction separator date state cybol name.
- * 
- * It separates the integer part of a number and decimal fraction.
- * 
- * CAUTION! The FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME should
- * be used instead of this alternative.
- *
- * Symbol: .
- */
-static wchar_t* ALTERNATIVE_FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME = FULL_STOP_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* ALTERNATIVE_FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The duration separator date state cybol name.
  *
  * Symbol: P

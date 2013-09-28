@@ -55,64 +55,72 @@
 //
 
 /**
- * The datetime/yyyy-mm-dd state cybol type.
+ * The datetime/ddmmyyyy state cybol type.
  *
- * The international standard date notation is:
- * YYYY-MM-DD
+ * It is used e.g. in the German xDT medical standard.
  *
- * where:
- * - YYYY is the year in the usual Gregorian calendar
- * - MM is the month of the year between 01 (January) and 12 (December)
- * - DD is the day of the month between 01 and 31
- *
- * Example: The fourth day of February in the year 1995 is written as:
- * 1995-02-04
- *
- * Defined in ISO 8601.
+ * This is a CYBOL extension.
  */
-static wchar_t YYYY_MM_DD_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'y', L'y', L'y', L'y', L'-', L'm', L'm', L'-', L'd', L'd'};
-static wchar_t* YYYY_MM_DD_DATETIME_STATE_CYBOL_FORMAT = YYYY_MM_DD_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
-static int* YYYY_MM_DD_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y'};
+static wchar_t* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT = DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The datetime/hh-mm-ss state cybol type.
+ * The datetime/ddmmyyyyddmmyyyy state cybol type.
  *
- * The international standard time of day notation is:
- * hh:mm:ss
+ * This format represents a duration (period).
+ * It is used e.g. in the German xDT medical standard.
  *
- * where:
- * - hh is the number of complete hours that have passed since midnight (00-24)
- * - mm is the number of complete minutes that have passed since the start of the hour (00-59)
- * - ss is the number of complete seconds since the start of the minute (00-60)
- *
- * If the hour value is 24, then the minute and second values must be zero.
- *
- * Example: The time one second before midnight is written as:
- * 23:59:59
- *
- * Defined in ISO 8601.
+ * This is a CYBOL extension.
  */
-static wchar_t HH_MM_SS_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'h', L'h', L'-', L'm', L'm', L'-', L's', L's'};
-static wchar_t* HH_MM_SS_DATETIME_STATE_CYBOL_FORMAT = HH_MM_SS_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
-static int* HH_MM_SS_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y'};
+static wchar_t* DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_FORMAT = DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The datetime/yyyymmddthhmmss state cybol type.
+ * The datetime/hhmmhhmm state cybol type.
  *
- * If a date and a time are displayed on the same line,
- * then the date is always written in front of the time.
- * If a date and a time value are stored together in a single data field,
- * then ISO 8601 suggests that they should be separated by a latin capital letter T:
- * YYYYMMDDThhmmss
+ * This format represents a duration (period).
+ * It is used e.g. in the German xDT medical standard.
  *
- * Example: The fourth day of February in the year 1995 at the time one second before midnight is written as:
- * 19950204T235959
- *
- * Defined in ISO 8601.
+ * This is a CYBOL extension.
  */
-static wchar_t YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'y', L'y', L'y', L'y', L'm', L'm', L'd', L'd', L't', L'h', L'h', L'm', L'm', L's', L's'};
-static wchar_t* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_FORMAT = YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
-static int* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t HHMMHHMM_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'h', L'h', L'm', L'm', L'h', L'h', L'm', L'm'};
+static wchar_t* HHMMHHMM_DATETIME_STATE_CYBOL_FORMAT = HHMMHHMM_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* HHMMHHMM_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/iso state cybol type.
+ *
+ * It is defined in ISO 8601.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t ISO_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'i', L's', L'o'};
+static wchar_t* ISO_DATETIME_STATE_CYBOL_FORMAT = ISO_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* ISO_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/mmyy state cybol type.
+ *
+ * It is used e.g. in the German xDT medical standard.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t MMYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'm', L'm', L'y', L'y'};
+static wchar_t* MMYY_DATETIME_STATE_CYBOL_FORMAT = MMYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* MMYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/qyyyy state cybol type.
+ *
+ * It is used e.g. in the German xDT medical standard.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t QYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'q', L'y', L'y', L'y', L'y'};
+static wchar_t* QYYYY_DATETIME_STATE_CYBOL_FORMAT = QYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* QYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DATETIME_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

@@ -72,21 +72,11 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) HH_MM_SS_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p12, (void*) ISO_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_hhmmss_date_time(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p12, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_ddmmyyyy_date_time(p0, p2, p3);
+            serialise_cybol_datetime_iso(p0, p2, p3);
         }
     }
 

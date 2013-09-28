@@ -37,14 +37,14 @@
 // 
 // Examples:
 // 
-// 2005-08-09T18:31:42P3Y6M4DT12H30M17S: bestimmt eine Zeitspanne von 3 Jahren, 6 Monaten, 4 Tagen 12 Stunden, 30 Minuten und 17 Sekunden ab dem 9. August 2005 "kurz nach halb sieben Abends"
-// P3Y6M4DT12H30M17S: die gleiche Zeitspanne wie das erste Beispiel, allerdings ohne ein bestimmtes Startdatum zu definieren
-// P1D: "Bis morgen zur jetzigen Uhrzeit."
-// PT24H: "Bis in 24 Stunden ab jetzt.", was im Falle einer Zeitumstellung vom vorherigen Beispiel abweicht
-// 2005-08-09P14W: "Die 14 Wochen beginnend ab dem 9. August 2005."
-// 2005-08-09/2005-08-30: "Vom 9. zum 30. August 2005"
-// 2005-08-09--2005-08-30: "Vom 9. zum 30. August 2005"
-// 2005-08-09/30: "Vom 9. bis 30. August 2005."
+// 2005-08-09T18:31:42P3Y6M4DT12H30M17S bestimmt eine Zeitspanne von 3 Jahren, 6 Monaten, 4 Tagen 12 Stunden, 30 Minuten und 17 Sekunden ab dem 9. August 2005 "kurz nach halb sieben Abends"
+// P3Y6M4DT12H30M17S                    die gleiche Zeitspanne wie das erste Beispiel, allerdings ohne ein bestimmtes Startdatum zu definieren
+// P1D                                  "Bis morgen zur jetzigen Uhrzeit."
+// PT24H                                "Bis in 24 Stunden ab jetzt.", was im Falle einer Zeitumstellung vom vorherigen Beispiel abweicht
+// 2005-08-09P14W                       "Die 14 Wochen beginnend ab dem 9. August 2005."
+// 2005-08-09/2005-08-30                "Vom 9. zum 30. August 2005"
+// 2005-08-09--2005-08-30               "Vom 9. zum 30. August 2005"
+// 2005-08-09/30                        "Vom 9. bis 30. August 2005."
 //
 
 /**
@@ -156,6 +156,21 @@ static int* FRACTION_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGE
  */
 static wchar_t* START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME = SOLIDUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 static int* START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The alternative start-end separator duration state cybol name.
+ * 
+ * It separates a start- and an end date
+ * and has the meaning of "to".
+ *
+ * CAUTION! The START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME should
+ * be used instead of this alternative.
+ *
+ * Symbol: --
+ */
+static wchar_t ALTERNATIVE_START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME_ARRAY[] = {0x002D, 0x002D};
+static wchar_t* ALTERNATIVE_START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME = ALTERNATIVE_START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME_ARRAY;
+static int* ALTERNATIVE_START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SEPARATOR_DURATION_STATE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

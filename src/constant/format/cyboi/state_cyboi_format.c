@@ -58,38 +58,23 @@ static int* TERMINAL_COLOUR_STATE_CYBOI_FORMAT = NUMBER_182_INTEGER_STATE_CYBOI_
 // datetime
 //
 
-/** The yyyy-mm-dd datetime state cyboi format. */
-static int* YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The ddmmyyyy datetime state cyboi format. */
+static int* DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The hh-mm-ss datetime state cyboi format. */
-static int* HH_MM_SS_DATETIME_STATE_CYBOI_FORMAT = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The ddmmyyyyddmmyyyy datetime state cyboi format. */
+static int* DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The yyyymmddthhmmss datetime state cyboi format. */
-static int* YYYYMMDDTHHMMSS_DATETIME_STATE_CYBOI_FORMAT = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The hhmmhhmm datetime state cyboi format. */
+static int* HHMMHHMM_DATETIME_STATE_CYBOI_FORMAT = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-date-hhmm datetime state cyboi format. */
-static int* XDT_DATE_HHMM_DATETIME_STATE_CYBOI_FORMAT = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The iso datetime state cyboi format. */
+static int* ISO_DATETIME_STATE_CYBOI_FORMAT = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-date-hhmmhhmm datetime state cyboi format. */
-static int* XDT_DATE_HHMMHHMM_DATETIME_STATE_CYBOI_FORMAT = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The mmyy datetime state cyboi format. */
+static int* MMYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xdt-date-yymmnnn datetime state cyboi format. */
-static int* XDT_DATE_YYMMNNN_DATETIME_STATE_CYBOI_FORMAT = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xdt-date-ddmmyyyy datetime state cyboi format. */
-static int* XDT_DATE_DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_206_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xdt-date-mmyy datetime state cyboi format. */
-static int* XDT_DATE_MMYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_207_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xdt-date-ddmmyyyyddmmyyyy datetime state cyboi format. */
-static int* XDT_DATE_DDMMYYYYDDMMYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_208_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xdt-time-hhmmss datetime state cyboi format. */
-static int* XDT_TIME_HHMMSS_DATETIME_STATE_CYBOI_FORMAT = NUMBER_209_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xdt-time-hhmm datetime state cyboi format. */
-static int* XDT_TIME_HHMM_DATETIME_STATE_CYBOI_FORMAT = NUMBER_210_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The qyyyy datetime state cyboi format. */
+static int* QYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // element

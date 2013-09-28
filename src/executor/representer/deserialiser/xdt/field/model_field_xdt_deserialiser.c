@@ -66,11 +66,11 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) YYYY_MM_DD_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p3, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            deserialise_cybol_datetime(p0, p1, p2);
+            deserialise_cybol_datetime_ddmmyyyy(p0, p1, p2);
         }
     }
 
