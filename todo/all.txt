@@ -47,9 +47,9 @@ _____
         * Factor out parts of cyboi into special libraries, e.g. x-window-system,
             in order to minimise cyboi size for usage in embedded systems and to improve portability
 
-        * Add calculator functions for types: complex
+        * Add calculator functions for types: complex, duration
         * Find solution for handling calculation of pointer difference in file "difference_pointer_calculator.c"
-        * Add comparator functions for types: complex
+        * Add comparator functions for types: complex, duration
 
         * Implement bit manipulation functions in directory "executor/manipulator/"
 

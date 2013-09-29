@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATETIME_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
-#define DATETIME_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#ifndef DURATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
+#define DURATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -47,56 +47,45 @@
 //
 
 //
-// Datetime (a point in time; calendar date and time formats).
+// Duration (a period in time).
 //
 // IANA media type: not defined
-// Self-defined media type: datetime
+// Self-defined media type: duration
 // This media type is a CYBOL extension.
 //
 
 /**
- * The datetime/ddmmyyyy state cybol type.
+ * The duration/ddmmyyyyddmmyyyy state cybol type.
  *
- * It is used e.g. in the German xDT medical standard.
+ * This format is used e.g. in the German xDT medical standard.
  *
  * This is a CYBOL extension.
  */
-static wchar_t DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y'};
-static wchar_t* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT = DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
-static int* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y'};
+static wchar_t* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT = DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The datetime/iso state cybol type.
+ * The duration/hhmmhhmm state cybol type.
+ *
+ * This format is used e.g. in the German xDT medical standard.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'h', L'h', L'm', L'm', L'h', L'h', L'm', L'm'};
+static wchar_t* HHMMHHMM_DURATION_STATE_CYBOL_FORMAT = HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The duration/iso state cybol type.
  *
  * It is defined in ISO 8601.
  *
  * This is a CYBOL extension.
  */
-static wchar_t ISO_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'i', L's', L'o'};
-static wchar_t* ISO_DATETIME_STATE_CYBOL_FORMAT = ISO_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
-static int* ISO_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t ISO_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'i', L's', L'o'};
+static wchar_t* ISO_DURATION_STATE_CYBOL_FORMAT = ISO_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* ISO_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The datetime/mmyy state cybol type.
- *
- * It is used e.g. in the German xDT medical standard.
- *
- * This is a CYBOL extension.
- */
-static wchar_t MMYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'm', L'm', L'y', L'y'};
-static wchar_t* MMYY_DATETIME_STATE_CYBOL_FORMAT = MMYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
-static int* MMYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The datetime/qyyyy state cybol type.
- *
- * It is used e.g. in the German xDT medical standard.
- *
- * This is a CYBOL extension.
- */
-static wchar_t QYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'q', L'y', L'y', L'y', L'y'};
-static wchar_t* QYYYY_DATETIME_STATE_CYBOL_FORMAT = QYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
-static int* QYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/* DATETIME_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
+/* DURATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

@@ -53,6 +53,9 @@
 // 2009-06-30T18:30:00+02:00    18:30:00 Uhr am 30. Juni 2009 in Wien (MESZ – Sommerzeit)
 // 2013-09-16T08:24+02:00       Beispiel einer Zeit am heutigen Tage (für Deutschland, Liechtenstein, Österreich, Schweiz u.a.)
 //
+// The letter "Z" may be used as abbreviation
+// of the utc time zone.
+//
 
 /**
  * The time element separator date state cybol name.

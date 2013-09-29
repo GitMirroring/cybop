@@ -59,6 +59,14 @@ void determine_size(void* p0, void* p1) {
 
         if (*t == *DATETIME_STATE_CYBOI_TYPE) {
 
+            copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+
+        //
+        // duration
+        //
+
+        } else if (*t == *DURATION_STATE_CYBOI_TYPE) {
+
             // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part.
             // It is actually a pointer array, of which each
             // pointer references a structure element.

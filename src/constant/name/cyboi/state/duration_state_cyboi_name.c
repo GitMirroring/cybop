@@ -23,22 +23,19 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DESCRIPTION_GET_LOGIC_CYBOL_MODEL_CONSTANT_SOURCE
-#define DESCRIPTION_GET_LOGIC_CYBOL_MODEL_CONSTANT_SOURCE
-
-#include <stddef.h>
+#ifndef DURATION_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#define DURATION_STATE_CYBOI_NAME_CONSTANT_SOURCE
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The name description get logic cybol model. */
-static wchar_t NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_ARRAY[] = {L'n', L'a', L'm', L'e'};
-static wchar_t* NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL = NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_ARRAY;
-static int* NAME_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The value duration state cyboi name. */
+static int* VALUE_DURATION_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The type description get logic cybol model. */
-static wchar_t TYPE_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_ARRAY[] = {L't', L'y', L'p', L'e'};
-static wchar_t* TYPE_DESCRIPTION_GET_LOGIC_CYBOL_MODEL = TYPE_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_ARRAY;
-static int* TYPE_DESCRIPTION_GET_LOGIC_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The start duration state cyboi name. */
+static int* START_DURATION_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* DESCRIPTION_GET_LOGIC_CYBOL_MODEL_CONSTANT_SOURCE */
+/** The end duration state cyboi name. */
+static int* END_DURATION_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* DURATION_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

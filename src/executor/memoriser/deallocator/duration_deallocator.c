@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATE_TIME_DEALLOCATOR_SOURCE
-#define DATE_TIME_DEALLOCATOR_SOURCE
+#ifndef DURATION_DEALLOCATOR_SOURCE
+#define DURATION_DEALLOCATOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -34,16 +34,16 @@
 #include "../../../logger/logger.c"
 
 /**
- * Deallocates the datetime.
+ * Deallocates the duration.
  *
- * @param p0 the datetime (pointer reference)
+ * @param p0 the duration (pointer reference)
  */
-void deallocate_datetime(void* p0) {
+void deallocate_duration(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate datetime.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate duration.");
 
-    deallocate_array(p0, (void*) DATETIME_STATE_CYBOI_MODEL_COUNT, (void*) DATETIME_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array(p0, (void*) DURATION_STATE_CYBOI_MODEL_COUNT, (void*) DURATION_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
-/* DATE_TIME_DEALLOCATOR_SOURCE */
+/* DURATION_DEALLOCATOR_SOURCE */
 #endif

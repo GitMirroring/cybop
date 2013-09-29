@@ -36,7 +36,9 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/modifier/copier/character_copier.c"
+#include "../../../executor/modifier/copier/complex_copier.c"
 #include "../../../executor/modifier/copier/double_copier.c"
+#include "../../../executor/modifier/copier/duration_copier.c"
 #include "../../../executor/modifier/copier/fraction_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../executor/modifier/copier/part_copier.c"
@@ -62,6 +64,34 @@ void copy_value(void* p0, void* p1, void* p2) {
     // CAUTION! It is used instead of if-else statements.
     // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // datetime
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) DATETIME_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, p1);
+        }
+    }
+
+    //
+    // duration
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) DURATION_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_duration(p0, p1);
+        }
+    }
 
     //
     // element
@@ -105,6 +135,16 @@ void copy_value(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             copy_character(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_complex(p0, p1);
         }
     }
 

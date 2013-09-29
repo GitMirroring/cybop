@@ -31,8 +31,8 @@
 /** The complex cyboi model count. */
 static int* COMPLEX_STATE_CYBOI_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The datetime cyboi model count. */
-static int* DATETIME_STATE_CYBOI_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The duration cyboi model count. */
+static int* DURATION_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The fraction cyboi model count. */
 static int* FRACTION_STATE_CYBOI_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -48,6 +48,9 @@ static int* PART_STATE_CYBOI_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_AR
 
 /** The primitive cyboi model count. */
 static int* PRIMITIVE_STATE_CYBOI_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vector cyboi model count. */
+static int* VECTOR_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STATE_CYBOI_MODEL_CONSTANT_SOURCE */
 #endif

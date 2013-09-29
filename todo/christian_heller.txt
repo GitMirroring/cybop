@@ -11,8 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Think through implementation of calendar, date and time in cyboi
-        * Implement function "deserialise_cybol_datetime" and uncomment in file "model_field_xdt_deserialiser.c"
+        * Implement de-/serialiser for "datetime" and "duration" cybol format and -type
+        * Implement functions "de/serialise_cybol_datetime" and "de/serialise_cybol_duration" and uncomment in file "model_field_xdt_deserialiser.c"
         * Uncomment HH_MM_DATETIME_STATE_CYBOI_FORMAT in file "format_field_xdt_deserialiser.c"
         * Comment testing warning message in file "format_field_xdt_deserialiser.c", in order to deactivate it
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented

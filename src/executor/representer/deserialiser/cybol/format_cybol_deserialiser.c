@@ -135,6 +135,10 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
     }
 
     //
+    // duration
+    //
+
+    //
     // element
     //
 

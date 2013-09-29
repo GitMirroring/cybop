@@ -18,8 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-09-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add executor files for "datetime" and "duration" memoriser and modifier
+
 2013-09-27  Christian Heller  <christian.heller@tuxtax.de>
 
+        * Think through implementation of calendar/date/time/duration in cyboi
         * Add constants for date, time and duration
 
 2013-09-26  Christian Heller  <christian.heller@tuxtax.de>

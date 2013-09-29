@@ -43,6 +43,13 @@
 static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// duration
+//
+
+/** The duration state cyboi type. */
+static int* DURATION_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // element
 //
 
