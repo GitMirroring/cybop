@@ -13,7 +13,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="integer_number_generator/temporary.cybol"/>
+        <property name="message" channel="inline" format="text/plain" model="xdt_field_description_serialiser_generator/temporary.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".temporary"/>
     </part>
 
@@ -36,7 +36,7 @@
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".temporary.string"/>
-        <property name="receiver" channel="inline" format="text/plain" model="integer_state_cyboi_model.c"/>
+        <property name="receiver" channel="inline" format="text/plain" model="xdt_field_description_serialiser.c"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </part>
 

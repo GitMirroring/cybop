@@ -1,0 +1,22 @@
+<model>
+
+    <!-- The loop parametres. -->
+    <part name="count" channel="inline" format="number/integer" model="10000"/>
+    <part name="index" channel="inline" format="number/integer" model="0"/>
+    <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="model" channel="file" format="element/part" model="field_description_xdt_model_generator/append_element.cybol"/>
+
+    <!-- The string. -->
+    <part name="string" channel="inline" format="text/plain" model=""/>
+    <part name="number" channel="inline" format="text/plain" model=""/>
+    <part name="line_break" channel="file" format="text/plain" model="field_description_xdt_model_generator/line_break.txt"/>
+
+    <!-- The building blocks. -->
+    <part name="comment_prefix" channel="inline" format="text/plain" model="/** The id "/>
+    <part name="comment_postfix" channel="inline" format="text/plain" model=" field description xdt model. */"/>
+    <part name="array_prefix" channel="inline" format="text/plain" model="static wchar_t* ID_"/>
+    <part name="array_postfix" channel="inline" format="text/plain" model="_FIELD_DESCRIPTION_XDT_MODEL = L'Unbekannte Feldkennung';"/>
+    <part name="count_prefix" channel="inline" format="text/plain" model="static int* ID_"/>
+    <part name="count_postfix" channel="inline" format="text/plain" model="_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;"/>
+
+</model>

@@ -51,7 +51,7 @@
 #include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 #include "../../executor/representer/serialiser/tui/initial_tui_serialiser.c"
-#include "../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
+//?? #include "../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
 #include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
 
@@ -262,7 +262,12 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_xdt_field_description(p0, p1);
+            //?? TODO: Uncomment this later again!
+            //?? It is already implemented, but too large (4 MiB),
+            //?? so that compilation takes much too long.
+            //?? The xDT de-/serialisation should be moved
+            //?? into a library in the future.
+//??            serialise_xdt_field_description(p0, p1);
         }
     }
 

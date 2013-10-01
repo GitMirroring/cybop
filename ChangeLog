@@ -21,6 +21,10 @@
 2013-10-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement de-/serialiser for "datetime" and "duration" cybol format and -type
+        * Uncomment datetime and duration constants in file "format_field_xdt_deserialiser.c"
+        * Create cybol-based tool "tools/field_description_xdt_model_generator/"
+        * Create cybol-based tool "tools/xdt_field_description_serialiser_generator/"
+        * Complete file "xdt_field_description_serialiser.c"
 
 2013-09-29  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -57,7 +61,7 @@
 
 2013-09-06  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Create cybol-based tool to generate integer number constants in directory "tools/integer_number_generator/"
+        * Create cybol-based tool "tools/integer_state_cyboi_model_generator/" to generate integer number constants
         * Add new entries of Birgit Heller in file "format_field_xdt_deserialiser.c", following BDT 3.0 standard
 
 2013-09-01  Christian Heller  <christian.heller@tuxtax.de>

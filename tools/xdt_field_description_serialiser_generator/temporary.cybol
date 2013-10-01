@@ -1,0 +1,25 @@
+<model>
+
+    <!-- The loop parametres. -->
+    <part name="count" channel="inline" format="number/integer" model="10000"/>
+    <part name="index" channel="inline" format="number/integer" model="0"/>
+    <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="model" channel="file" format="element/part" model="xdt_field_description_serialiser_generator/append_element.cybol"/>
+
+    <!-- The string. -->
+    <part name="string" channel="inline" format="text/plain" model=""/>
+    <part name="number" channel="inline" format="text/plain" model=""/>
+    <part name="line_break" channel="file" format="text/plain" model="xdt_field_description_serialiser_generator/line_break.txt"/>
+
+    <!-- The building blocks. -->
+    <part name="first_condition" channel="inline" format="text/plain" model="    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {"/>
+    <part name="comparison_prefix" channel="inline" format="text/plain" model="        compare_integer_equal((void*) &r, p1, (void*) NUMBER_"/>
+    <part name="comparison_postfix" channel="inline" format="text/plain" model="_INTEGER_STATE_CYBOI_MODEL);"/>
+    <part name="second_condition" channel="inline" format="text/plain" model="        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {"/>
+    <part name="append_prefix" channel="inline" format="text/plain" model="            append_item_element(p0, (void*) ID_"/>
+    <part name="append_midfix" channel="inline" format="text/plain" model="_FIELD_DESCRIPTION_XDT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ID_"/>
+    <part name="append_postfix" channel="inline" format="text/plain" model="_FIELD_DESCRIPTION_XDT_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);"/>
+    <part name="second_condition_closing" channel="inline" format="text/plain" model="        }"/>
+    <part name="first_condition_closing" channel="inline" format="text/plain" model="    }"/>
+
+</model>
