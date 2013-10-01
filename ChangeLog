@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-10-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement de-/serialiser for "datetime" and "duration" cybol format and -type
+
 2013-09-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add executor files for "datetime" and "duration" memoriser and modifier

@@ -49,6 +49,7 @@
 #include "../../../../constant/format/cybol/state/bluetooth_state_cybol_format.c"
 #include "../../../../constant/format/cybol/state/colour_state_cybol_format.c"
 #include "../../../../constant/format/cybol/state/datetime_state_cybol_format.c"
+#include "../../../../constant/format/cybol/state/duration_state_cybol_format.c"
 #include "../../../../constant/format/cybol/state/element_state_cybol_format.c"
 #include "../../../../constant/format/cybol/state/example_state_cybol_format.c"
 #include "../../../../constant/format/cybol/state/fonts_state_cybol_format.c"
@@ -114,11 +115,75 @@ void serialise_cybol_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p1, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p1, (void*) ISO_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_element(p0, (void*) ISO_DATETIME_STATE_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ISO_DATETIME_STATE_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) MMYY_DATETIME_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) MMYY_DATETIME_STATE_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MMYY_DATETIME_STATE_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) QYYYY_DATETIME_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) QYYYY_DATETIME_STATE_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    //
+    // duration
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) HHMMHHMM_DURATION_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) HHMMHHMM_DURATION_STATE_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) ISO_DURATION_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) ISO_DURATION_STATE_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ISO_DURATION_STATE_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
