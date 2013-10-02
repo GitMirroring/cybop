@@ -20,6 +20,8 @@
         * Delete superfluous file "record_bdt_xdt_selector.c"
         * Delete superfluous files "record_xdt_name.c", "field_xdt_name.c"
         * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation takes much too long
+            uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
+            compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
 
         * Clean up local directory "tmp/" and collect new ideas from code examples
 
