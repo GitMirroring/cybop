@@ -11,6 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue deserialiser for "datetime/ddmmyyyy" models
         * Implement functions "de/serialise_cybol_datetime" and "de/serialise_cybol_duration" and uncomment in file "model_field_xdt_deserialiser.c"
         * Complete file "field_description_xdt_model.c" using xDT standard documents and
             http://www.gnumed.de/~ncq/gnumed/api/Gnumed.business.gmXdtMappings-pysrc.html

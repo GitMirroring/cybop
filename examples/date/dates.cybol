@@ -1,6 +1,6 @@
 <model>
 
-    <part name="date_yyyy_mm_dd" channel="inline" format="date/yyyy-mm-dd" model="1971-04-06"/>
-    <part name="date_ddmmyyyy" channel="inline" format="date/ddmmyyyy" model="06041971"/>
+    <part name="date_yyyy_mm_dd" channel="inline" format="datetime/yyyy-mm-dd" model="1971-04-06"/>
+    <part name="date_ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06041971"/>
 
 </model>

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-10-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Start deserialiser for "datetime/ddmmyyyy" models
+
 2013-10-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement de-/serialiser for "datetime" and "duration" cybol format and -type
