@@ -120,3 +120,168 @@ NO for now.
 - a new sensing thread would have to be created every some miliseconds
 - is whole process context (memory?) copied for each new thread?
 - probably causes more effort than busy waiting
+
+Date Time
+_________
+
+There are dozens of calendars, historic and in use.
+Most of them are based on the position of the sun or/and moon,
+others on an era/epoch in which a certain king was ruling.
+Neither CYBOI, nor any other system can support them all
+with 100 % accuracy, since some epochs of kings can only
+be estimated.
+Decision: CYBOI will only support the most important calendars.
+
+The modern calendar is the "Gregorian Calendar",
+introduced by pope Gregor in the 16th century (1582-10-15).
+Decision: Therefore, CYBOI has to offer this date representation.
+
+Another often used calendar is the "Julian Calendar",
+introduced by Julius Caesar around 40 B. C.
+It was valid until the Gregorian Calendar was introduced.
+Decision: CYBOI should additionally support also this date representation.
+
+For computing and many sciences like astronomy etc. it is useful
+to have a CONTINUOUS COUNTING of time. This is not the case
+with calendars, since they use "leap days" and have inconsistencies,
+e.g. the two weeks left out when the Julian was switched to
+the Gregorian calendar.
+Therefore, a so-called "Julian Day Number" (JDN) exists, which is
+something different than the "Julian Calendar". It is the continuous
+count of days since the beginning of the Julian Period, starting at
+noon on January 1, 4713 BC proleptic Julian calendar, which is
+equal to November 24, 4714 BC, in the proleptic Gregorian calendar.
+The "Julian Date" (JD) of any instant is the Julian day number for
+the preceding noon plus the fraction of the day since that instant.
+Julian Dates are expressed as a Julian day number with a decimal
+fraction added. For example, The Julian Date for 00:30:00.0
+January 1, 2013 is 2456293.520833.
+Decision: CYBOI does NOT use the Julian Date, since it is to be
+represented as floating point number, which is not very efficient.
+
+Another option is to use a single signed integer number which
+increments every second.
+This is done so in Unix-like and many other operating systems and
+file formats and called "Unix time", or "POSIX time".
+It is defined as the number of seconds that have elapsed since
+00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970,
+NOT counting leap seconds.
+Modern Unix time is based on UTC, which counts time using SI seconds,
+and breaks up the span of time into days almost always 86400 seconds
+long, but due to "leap seconds" occasionally 86401 seconds.
+This extra second keeps the days synchronized with the rotation
+of the Earth, per Universal Time.
+Due to its handling of leap seconds, it is NEITHER a linear
+representation of time NOR a true representation of UTC.
+When a leap second occurs, so that the UTC day is not exactly
+86400 seconds long, a DISCONTINUITY occurs in the Unix time number.
+When a leap second is inserted, the Unix time number increases
+continuously during the leap second, and then jumps back by 1
+at the end of the leap second. This leads to ambiguous Unix
+time numbers that can refer either to the instant in the middle
+of a leap second, or to the instant one second later.
+Decision: CYBOI will use a signed integer number.
+
+Generally, it is necessary to decide whether a time scale is counting:
+1 calendar days:
+- measurand: time-of-day [mean solar second]
+- count of mean solar seconds (which are subdivisions of calendar days)
+- determined by astronomy
+- example: Julian Date (JD), Coordinated Universal Time (UTC)
+- application: civil purposes, modern calendars, most legal systems of time
+2 SI seconds:
+- measurand: elapsed time interval [SI second]
+- following atomic seconds (which are unrelated to calendar days)
+- calendar becomes influenceable by politics
+- example: Temps Atomique International (TAI)
+- application: modern telecommunication, navigation systems
+3 other effects:
+- just recently, it was found that TAI is not quite accurate
+- it was proposed by astronomers to observe effects of pulsars (stars)
+
+UTC is a combination of the first two incommensurate concepts.
+It only works fine through the concept of occasional "leap seconds".
+
+Also POSIX tries to be both and as a result it cannot address leap
+seconds meaningfully. The Realtime and Advanced Realtime extensions
+to POSIX now offer two separate clocks:
+http://pubs.opengroup.org/onlinepubs/007904975/basedefs/time.h.html
+
+Decision: CYBOI will use TWO TIMES (separate clocks) internally.
+
+A "leap second" as well as "daylight/summer time" are decisions
+by some humans to reset all of the clocks to comply with changes.
+These two kinds of clock resets are extremely similar, and the
+zoneinfo (or tz library) files and POSIX rules already have the
+mechanisms for handling both. It now consists of two separate databases:
+
+1 posix: considers a Unix time_t value to be equivalent to the number
+of mean solar seconds since 1970-01-01; since 1972-01-01 its value
+matches UTC except during leap seconds; every day has 86400 seconds;
+for correct time this requires that the system clock be retarded or
+reset backward at each leap second; this is the default provided
+with most Unix systems, and it is most consistent with POSIX
+
+2 right: considers a Unix time_t value to be equivalent to the count
+of seconds actually broadcast in radio time signals since 1970-01-01;
+it requires a file of leap seconds to be updated whenever a new one
+occurs; for correct time this requires that the system clock
+increment monotonically using TAI seconds; despite its name, this is
+generally regarded as experimental and inconsistent with POSIX;
+this was the branch of code which was briefly used by default in 4.4BSD Unix
+
+There are two time scales which can reasonably be extrapolated back to 1601:
+- Universal Time (UT): mean solar second
+- Terrestrial Time (TT): SI second
+
+However, UT in all its forms (including GMT) is actually a measure of
+time-of-day, which is really the earth rotation angle, and should not
+be used anymore, possibly for calculating historic dates, as an exception.
+
+See:
+http://en.wikipedia.org/wiki/Unix_Time
+http://www.ucolick.org/~sla/leapsecs/timescales.html
+
+Decision: CYBOI will use internal "zoneinfo" maps with information
+similar to the "zoneinfo" (or tz library) database files in Unix.
+UTC will be treated as timezone distinct from the underlying
+operating system time, based on the broadcast time signals.
+The only frequent change needed is to place the leap second
+information into the internal "zoneinfo" maps, just like timezones.
+That way, CYBOI will remain flexible even if broadcast time signals
+abandon leap seconds and are based on atomic time only.
+
+The relevant pieces of the POSIX 2008 specification are the definition
+of tzset(), and the definition of environment variable TZ.
+The only change needed in the POSIX spec is to substitute the
+new name of an internationally-approved, uniformly-incrementing,
+atomically-regulated broadcast time scale (e.g., "TI", as the
+2003 Colloquium in Torino suggested) in place of the current "UTC".
+This would allow the underlying system time to increment uniformly while
+also allowing the time presented to humans to keep pace with the sun.
+It would remove the need for the kernel to handle leap seconds.
+It would remove the need for other coding hacks and code complexity
+which try to work around the non-uniform timing hiccup which POSIX
+compliance currently demands.
+
+See:
+http://pubs.opengroup.org/onlinepubs/007904975/basedefs/time.h.html
+http://www.ucolick.org/~sla/leapsecs/right+gps.html
+
+--
+
+datetime/ddmmyyyy
+datetime/iso
+
+duration/iso
+
+timescale/posix
+timescale/gregorian
+timescale/julian
+timescale/jd
+timescale/tai
+timescale/utc
+timescale/ut1
+
+timeunit/mean-solar
+timeunit/si-atomic
