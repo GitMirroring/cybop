@@ -268,6 +268,15 @@ See:
 http://pubs.opengroup.org/onlinepubs/007904975/basedefs/time.h.html
 http://www.ucolick.org/~sla/leapsecs/right+gps.html
 
+Decision: CYBOI will use International Time (TI) in the future,
+which is likely to start in year 2022.
+It is a candidate for radio broadcast time signals.
+TI would be a purely atomic time scale offset from Temps Atomique
+International (TAI) by a fixed integer number of seconds.
+In order to avoid discontinuities for systems using radio
+broadcast time signals the offset would be equal to the
+offset of UTC at the instant of switching from UTC to TI.
+
 --
 
 datetime/ddmmyyyy
@@ -275,13 +284,9 @@ datetime/iso
 
 duration/iso
 
-timescale/posix
+timescale/tai (= integer)
+timescale/posix (= integer)
+timescale/utc (= integer; will be replaced by "timescale/ti" in 2022)
 timescale/gregorian
 timescale/julian
 timescale/jd
-timescale/tai
-timescale/utc
-timescale/ut1
-
-timeunit/mean-solar
-timeunit/si-atomic
