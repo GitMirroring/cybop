@@ -12,23 +12,8 @@
 #
 
         * Continue deserialiser for "datetime/ddmmyyyy" models
-        * Implement functions "de/serialise_cybol_datetime" and "de/serialise_cybol_duration" and uncomment in file "model_field_xdt_deserialiser.c"
-        * Conversion:
-            http://de.wikipedia.org/wiki/Julianisches_Datum
-            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
-            http://www.ortelius.de/kalender/calc_de.php
-            http://hydra.geht.net/tino/howto/programming/algorithm/datetime/
-            http://scienceblogs.de/astrodicticum-simplex/2009/10/25/das-problem-mit-der-zeit/
-            http://www.fourmilab.ch/documents/calendar/
-            https://en.wikipedia.org/wiki/System_time
-        * Links:
-            http://de.wikipedia.org/wiki/Zeitrechnung
-            http://de.wikipedia.org/wiki/Proleptisch
-            http://de.wikipedia.org/wiki/Jahr_Null
-            http://docs.oracle.com/javase/1.5.0/docs/api/java/util/GregorianCalendar.html
-            http://de.wikipedia.org/wiki/Datumsformat
-            http://de.wikipedia.org/wiki/ISO_8601
-            http://de.wikipedia.org/wiki/Uhrzeit
+        * Implement functions "de-/serialise_cybol_datetime" and "de-/serialise_cybol_duration" and uncomment in file "model_field_xdt_de-/serialiser.c"
+        * See file "design_decisions.txt"
 
         * Complete file "field_description_xdt_model.c" using xDT standard documents and
             http://www.gnumed.de/~ncq/gnumed/api/Gnumed.business.gmXdtMappings-pysrc.html
