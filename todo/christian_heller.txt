@@ -262,6 +262,9 @@
         * Add a "fill_array" function, useful e.g. in function "startup_internal_memory";
             possibly use function pointer to hand over function to be executed as loop body
 
+        * Use "memmove" for "modify/insert" and "modify/remove" and similar functions?
+        * Offer "push" as synonym/delegation for "overwrite" (at end)/"append" and "pop" for "remove" (from end)
+        * Make "modify/clean" function use "modify/pop" then
         * Optimise performance by NOT comparing every single element of an array for its type,
             but rather ONLY ONCE compare for the type at first and then process all array elements
         * Refactor loops into an own function using function pointers? See "language/loop.c"!
