@@ -288,6 +288,7 @@ datetime/utc (format: iso; unit: SI-second; range of seconds: 0..60 due to "leap
 datetime/gregorian (format: iso; unit: day; begin: 1582-10-15; note: identical to "datetime/utc", but based on days and not seconds)
 datetime/julian (format: iso; unit: day)
 datetime/ddmmyyyy (timescale: gregorian calendar; unit: day)
+datetime/* (further national and other specific formats; timescale: mostly gregorian calendar, but other national calendars are possible)
 
 duration/si (unit: SI-second; for "datetime/ti", "datetime/tai", "datetime/posix")
 duration/jd (unit: day; for "datetime/jd", "datetime/mjd")

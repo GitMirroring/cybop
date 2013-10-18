@@ -57,6 +57,13 @@
 /**
  * The datetime/ddmmyyyy state cybol type.
  *
+ * format: ddmmyyyy
+ * unit: day
+ * timescale: gregorian calendar
+ * begin: TODO
+ *
+ * TODO
+ *
  * It is used e.g. in the German xDT medical standard.
  *
  * This is a CYBOL extension.
@@ -66,19 +73,106 @@ static wchar_t* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT = DDMMYYYY_DATETIME_STATE_C
 static int* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The datetime/iso state cybol type.
+ * The datetime/gregorian state cybol type.
  *
- * It is defined in ISO 8601.
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
+ * format: iso (defined in ISO 8601)
+ * unit: day
+ * begin: 1582-10-15
+ * note: identical to "datetime/utc", but based on days and not seconds
  *
  * This is a CYBOL extension.
  */
-static wchar_t ISO_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'i', L's', L'o'};
-static wchar_t* ISO_DATETIME_STATE_CYBOL_FORMAT = ISO_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
-static int* ISO_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t GREGORIAN_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'g', L'r', L'e', L'g', L'o', L'r', L'i', L'a', L'n'};
+static wchar_t* GREGORIAN_DATETIME_STATE_CYBOL_FORMAT = GREGORIAN_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* GREGORIAN_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/jd state cybol type.
+ *
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
+ * format: double
+ * unit: day
+ * timescale: proleptic julian calendar
+ * begin: January 1, 4713 B.C.
+ * note: used by astronomers
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t JD_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'j', L'd'};
+static wchar_t* JD_DATETIME_STATE_CYBOL_FORMAT = JD_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* JD_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/julian state cybol type.
+ *
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
+ * format: iso (defined in ISO 8601)
+ * unit: day
+ * note: replaced by gregorian calendar on 1582-10-15 (gregorian date)
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t JULIAN_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'j', L'u', L'l', L'i', L'a', L'n'};
+static wchar_t* JULIAN_DATETIME_STATE_CYBOL_FORMAT = JULIAN_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* JULIAN_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/mjd state cybol type.
+ *
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
+ * format: double
+ * unit: day
+ * timescale: proleptic julian calendar
+ * begin: 1858-11-17T00:00:00
+ * definition: JD - 2400000.5
+ * note: used by astronomers
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t MJD_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'm', L'j', L'd'};
+static wchar_t* MJD_DATETIME_STATE_CYBOL_FORMAT = MJD_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* MJD_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/mmyy state cybol type.
  *
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
  * It is used e.g. in the German xDT medical standard.
  *
  * This is a CYBOL extension.
@@ -88,8 +182,38 @@ static wchar_t* MMYY_DATETIME_STATE_CYBOL_FORMAT = MMYY_DATETIME_STATE_CYBOL_FOR
 static int* MMYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The datetime/posix state cybol type.
+ *
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
+ * format: integer
+ * unit: SI-second
+ * begin: 1970-01-01
+ * note: leaving out (jumping over) leap seconds
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t POSIX_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'p', L'o', L's', L'i', L'x'};
+static wchar_t* POSIX_DATETIME_STATE_CYBOL_FORMAT = POSIX_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* POSIX_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The datetime/qyyyy state cybol type.
  *
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
  * It is used e.g. in the German xDT medical standard.
  *
  * This is a CYBOL extension.
@@ -97,6 +221,72 @@ static int* MMYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 static wchar_t QYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'q', L'y', L'y', L'y', L'y'};
 static wchar_t* QYYYY_DATETIME_STATE_CYBOL_FORMAT = QYYYY_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
 static int* QYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/tai state cybol type.
+ *
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
+ * format: integer
+ * unit: SI-second
+ * begin: 1955
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t TAI_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L't', L'a', L'i'};
+static wchar_t* TAI_DATETIME_STATE_CYBOL_FORMAT = TAI_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* TAI_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/ti state cybol type.
+ *
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
+ * format: integer
+ * unit: SI-second
+ * begin: 2022-01-01
+ * note: based on "datetime/tai"; will replace "datetime/utc"
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t TI_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L't', L'i'};
+static wchar_t* TI_DATETIME_STATE_CYBOL_FORMAT = TI_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* TI_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/utc state cybol type.
+ *
+ * format: TODO
+ * unit: TODO
+ * timescale: TODO
+ * begin: TODO
+ *
+ * TODO
+ *
+--
+ * format: iso (defined in ISO 8601)
+ * unit: SI-second
+ * timescale: gregorian calendar
+ * begin: 1967-08
+ * note: will be replaced by "datetime/ti" on 2022-01-01
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t UTC_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L'u', L't', L'c'};
+static wchar_t* UTC_DATETIME_STATE_CYBOL_FORMAT = UTC_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* UTC_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DATETIME_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif
