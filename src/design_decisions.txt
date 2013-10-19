@@ -279,21 +279,10 @@ offset of UTC at the instant of switching from UTC to TI.
 
 MIME type formats:
 
-datetime/ti (format: integer; unit: SI-second; based on "datetime/tai"; begin: 2022; will replace "datetime/utc")
-datetime/tai (format: integer; unit: SI-second; begin: 1955)
-datetime/posix (format: integer; unit: SI-second; 1970-01-01)
-datetime/jd (format: double; timescale: proleptic julian calendar; unit: day; begin: January 1, 4713 B.C.)
-datetime/mjd (format: double; timescale: proleptic julian calendar; unit: day; begin: 1858-11-17T00:00:00; definition: JD - 2400000.5)
-datetime/utc (format: iso; unit: SI-second; range of seconds: 0..60 due to "leap second"; timescale: gregorian calendar; begin: 1967-08; note: will be replaced by "datetime/ti" in 2022)
-datetime/gregorian (format: iso; unit: day; begin: 1582-10-15; note: identical to "datetime/utc", but based on days and not seconds)
-datetime/julian (format: iso; unit: day)
-datetime/ddmmyyyy (timescale: gregorian calendar; unit: day)
-datetime/* (further national and other specific formats; timescale: mostly gregorian calendar, but other national calendars are possible)
-
-duration/si (unit: SI-second; for "datetime/ti", "datetime/tai", "datetime/posix")
-duration/jd (unit: day; for "datetime/jd", "datetime/mjd")
 duration/iso (format: iso; timescale: gregorian calendar; unit: two dates or one date and a difference; for "datetime/utc", "datetime/gregorian")
+duration/jd (unit: day; for "datetime/jd", "datetime/mjd")
 duration/julian (format: iso; timescale: julian calendar; unit: two dates or one date and a difference; for "datetime/julian")
+duration/si (unit: SI-second; for "datetime/ti", "datetime/tai", "datetime/posix")
 duration/yyyy (timescale: gregorian calendar)
 
 Conversion:

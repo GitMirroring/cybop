@@ -87,5 +87,20 @@ static wchar_t ISO_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a'
 static wchar_t* ISO_DURATION_STATE_CYBOL_FORMAT = ISO_DURATION_STATE_CYBOL_FORMAT_ARRAY;
 static int* ISO_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The duration/TODO state cybol type.
+ *
+ * format: iso (defined in ISO 8601)
+ * unit: SI-second
+ * timescale: gregorian calendar
+ *
+ * It is TODO.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t TODO_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'i', L's', L'o'};
+static wchar_t* TODO_DURATION_STATE_CYBOL_FORMAT = TODO_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* TODO_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* DURATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

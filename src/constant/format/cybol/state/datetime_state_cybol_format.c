@@ -60,9 +60,7 @@
  * format: ddmmyyyy
  * unit: day
  * timescale: gregorian calendar
- * begin: TODO
- *
- * TODO
+ * begin: 1582-10-15
  *
  * It is used e.g. in the German xDT medical standard.
  *
@@ -75,18 +73,12 @@ static int* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
 /**
  * The datetime/gregorian state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
- *
- * TODO
- *
---
  * format: iso (defined in ISO 8601)
  * unit: day
+ * timescale: gregorian calendar
  * begin: 1582-10-15
- * note: identical to "datetime/utc", but based on days and not seconds
+ *
+ * Identical to "datetime/utc", but based on DAYS and NOT seconds.
  *
  * This is a CYBOL extension.
  */
@@ -97,19 +89,13 @@ static int* GREGORIAN_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
 /**
  * The datetime/jd state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
- *
- * TODO
- *
---
  * format: double
  * unit: day
  * timescale: proleptic julian calendar
  * begin: January 1, 4713 B.C.
- * note: used by astronomers
+ *
+ * Continuous counting of days.
+ * Used by astronomers.
  *
  * This is a CYBOL extension.
  */
@@ -120,17 +106,12 @@ static int* JD_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
 /**
  * The datetime/julian state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
- *
- * TODO
- *
---
  * format: iso (defined in ISO 8601)
  * unit: day
- * note: replaced by gregorian calendar on 1582-10-15 (gregorian date)
+ * timescale: julian calendar
+ * begin: 45 B.C.
+ *
+ * Replaced by gregorian calendar on 1582-10-15 (gregorian date).
  *
  * This is a CYBOL extension.
  */
@@ -141,20 +122,14 @@ static int* JULIAN_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
 /**
  * The datetime/mjd state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
- *
- * TODO
- *
---
  * format: double
  * unit: day
  * timescale: proleptic julian calendar
  * begin: 1858-11-17T00:00:00
  * definition: JD - 2400000.5
- * note: used by astronomers
+ *
+ * Continuous counting of days.
+ * Used by astronomers.
  *
  * This is a CYBOL extension.
  */
@@ -165,15 +140,14 @@ static int* MJD_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 /**
  * The datetime/mmyy state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
+ * format: mmyyyy
+ * unit: month
+ * timescale: gregorian calendar
+ * begin: 1582-10-15
  *
- * TODO
- *
---
  * It is used e.g. in the German xDT medical standard.
+ * After conversion to the cyboi-internal format,
+ * the date specifies the FIRST DAY of the given month.
  *
  * This is a CYBOL extension.
  */
@@ -184,18 +158,13 @@ static int* MMYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 /**
  * The datetime/posix state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
- *
- * TODO
- *
---
  * format: integer
  * unit: SI-second
+ * timescale: gregorian calendar
  * begin: 1970-01-01
- * note: leaving out (jumping over) leap seconds
+ *
+ * Continuous counting of SI-seconds, INCONSISTENTLY
+ * leaving out (jumping over) leap seconds.
  *
  * This is a CYBOL extension.
  */
@@ -206,15 +175,15 @@ static int* POSIX_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
 /**
  * The datetime/qyyyy state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
+ * format: qyyyy
+ * unit: quarter
+ * timescale: gregorian calendar
+ * begin: 1582-10-15
  *
- * TODO
- *
---
  * It is used e.g. in the German xDT medical standard.
+ * After conversion to the cyboi-internal format,
+ * the date specifies the FIRST DAY of the FIRST MONTH
+ * of the given quarter.
  *
  * This is a CYBOL extension.
  */
@@ -225,17 +194,12 @@ static int* QYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
 /**
  * The datetime/tai state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
- *
- * TODO
- *
---
  * format: integer
  * unit: SI-second
- * begin: 1955
+ * timescale: tai
+ * begin: 1958-01-01T00:00 TAI roughly corresponding to Universal Time (UT)
+ *
+ * Continuous counting of SI-seconds.
  *
  * This is a CYBOL extension.
  */
@@ -246,18 +210,14 @@ static int* TAI_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 /**
  * The datetime/ti state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
- *
- * TODO
- *
---
  * format: integer
  * unit: SI-second
- * begin: 2022-01-01
- * note: based on "datetime/tai"; will replace "datetime/utc"
+ * timescale: ti
+ * begin: 2022-01-01T00:00 UTC
+ *
+ * Continuous counting of SI-seconds.
+ * Based upon "datetime/tai".
+ * Will replace "datetime/utc" on 2022-01-01T00:00 UTC.
  *
  * This is a CYBOL extension.
  */
@@ -268,19 +228,13 @@ static int* TI_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
 /**
  * The datetime/utc state cybol type.
  *
- * format: TODO
- * unit: TODO
- * timescale: TODO
- * begin: TODO
- *
- * TODO
- *
---
  * format: iso (defined in ISO 8601)
  * unit: SI-second
+ * range of seconds: 0..60 due to "leap second"
  * timescale: gregorian calendar
- * begin: 1967-08
- * note: will be replaced by "datetime/ti" on 2022-01-01
+ * begin: 1963
+ *
+ * Will be replaced by "datetime/ti" on 2022-01-01T00:00 UTC.
  *
  * This is a CYBOL extension.
  */
