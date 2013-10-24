@@ -277,14 +277,6 @@ In order to avoid discontinuities for systems using radio
 broadcast time signals the offset would be equal to the
 offset of UTC at the instant of switching from UTC to TI.
 
-MIME type formats:
-
-duration/iso (format: iso; timescale: gregorian calendar; unit: two dates or one date and a difference; for "datetime/utc", "datetime/gregorian")
-duration/jd (unit: day; for "datetime/jd", "datetime/mjd")
-duration/julian (format: iso; timescale: julian calendar; unit: two dates or one date and a difference; for "datetime/julian")
-duration/si (unit: SI-second; for "datetime/ti", "datetime/tai", "datetime/posix")
-duration/yyyy (timescale: gregorian calendar)
-
 Conversion:
 
 http://de.wikipedia.org/wiki/Julianisches_Datum

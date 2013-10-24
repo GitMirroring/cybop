@@ -11,10 +11,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue deserialiser for "datetime/ddmmyyyy" models
+        * Continue ?? datetime deserialiser
+        * Continue ?? duration deserialiser
         * Implement functions "de-/serialise_cybol_datetime" and "de-/serialise_cybol_duration" and uncomment in file "model_field_xdt_de-/serialiser.c"
         * See file "design_decisions.txt"
 
+        * Delete all if-else clauses with "text/plain" format, in order to increase efficiency
         * Complete file "field_description_xdt_model.c" using xDT standard documents and
             http://www.gnumed.de/~ncq/gnumed/api/Gnumed.business.gmXdtMappings-pysrc.html
         * Comment testing warning message in file "format_field_xdt_deserialiser.c", in order to deactivate it

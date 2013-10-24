@@ -66,11 +66,11 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) ISO_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) UTC_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_datetime_iso(p0, p4, p5);
+//??            serialise_cybol_datetime_utc(p0, p4, p5);
         }
     }
 

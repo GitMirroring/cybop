@@ -57,7 +57,12 @@
 /**
  * The duration/ddmmyyyyddmmyyyy state cybol type.
  *
- * This format is used e.g. in the German xDT medical standard.
+ * format: ddmmyyyyddmmyyyy
+ * unit: day
+ * timescale: gregorian calendar
+ * begin: 1582-10-15
+ *
+ * It is used e.g. in the German xDT medical standard.
  *
  * This is a CYBOL extension.
  */
@@ -68,7 +73,12 @@ static int* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEG
 /**
  * The duration/hhmmhhmm state cybol type.
  *
- * This format is used e.g. in the German xDT medical standard.
+ * format: hhmmhhmm
+ * unit: minute
+ * timescale: gregorian calendar
+ * begin: 1582-10-15
+ *
+ * It is used e.g. in the German xDT medical standard.
  *
  * This is a CYBOL extension.
  */
@@ -79,7 +89,16 @@ static int* HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
 /**
  * The duration/iso state cybol type.
  *
- * It is defined in ISO 8601.
+ * format: iso (defined in ISO 8601)
+ * unit: two dates or one date and a difference
+ * timescale: gregorian calendar
+ * begin: 1582-10-15
+ *
+ * Identical to "datetime/utc", but based on DAYS and NOT seconds.
+ *
+ * It may be used together with the following datetime formats:
+ * - datetime/utc
+ * - datetime/gregorian
  *
  * This is a CYBOL extension.
  */
@@ -88,19 +107,76 @@ static wchar_t* ISO_DURATION_STATE_CYBOL_FORMAT = ISO_DURATION_STATE_CYBOL_FORMA
 static int* ISO_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The duration/TODO state cybol type.
+ * The duration/jd state cybol type.
+ *
+ * format: double
+ * unit: day
+ * timescale: proleptic julian calendar
+ * begin: January 1, 4713 B.C.
+ *
+ * Continuous counting of days.
+ * Used by astronomers.
+ * 
+ * It may be used together with the following datetime formats:
+ * - datetime/jd
+ * - datetime/mjd
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t JD_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'j', L'd'};
+static wchar_t* JD_DURATION_STATE_CYBOL_FORMAT = JD_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* JD_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The duration/julian state cybol type.
+ *
+ * format: iso (defined in ISO 8601)
+ * unit: two dates or one date and a difference
+ * timescale: julian calendar
+ * begin: 45 B.C.
+ *
+ * Replaced by gregorian calendar on 1582-10-15 (gregorian date).
+ * It may be used together with the following datetime formats:
+ * - datetime/julian
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t JULIAN_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'j', L'u', L'l', L'i', L'a', L'n'};
+static wchar_t* JULIAN_DURATION_STATE_CYBOL_FORMAT = JULIAN_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* JULIAN_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The duration/si state cybol type.
  *
  * format: iso (defined in ISO 8601)
  * unit: SI-second
  * timescale: gregorian calendar
  *
- * It is TODO.
+ * It may be used together with the following datetime formats:
+ * - datetime/ti
+ * - datetime/tai
+ * - datetime/posix
  *
  * This is a CYBOL extension.
  */
-static wchar_t TODO_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'i', L's', L'o'};
-static wchar_t* TODO_DURATION_STATE_CYBOL_FORMAT = TODO_DURATION_STATE_CYBOL_FORMAT_ARRAY;
-static int* TODO_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t SI_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L's', L'i'};
+static wchar_t* SI_DURATION_STATE_CYBOL_FORMAT = SI_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* SI_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The duration/yyyy state cybol type.
+ *
+ * format: iso (defined in ISO 8601)
+ * unit: year
+ * timescale: gregorian calendar
+ *
+ * It is used e.g. in the German xDT medical standard.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t YYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'y', L'y', L'y', L'y'};
+static wchar_t* YYYY_DURATION_STATE_CYBOL_FORMAT = YYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* YYYY_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DURATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif
