@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-10-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement "tai" datetime serialiser
+
 2013-10-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete constants and cybol de-/serialiser for "datetime" and "duration" formats

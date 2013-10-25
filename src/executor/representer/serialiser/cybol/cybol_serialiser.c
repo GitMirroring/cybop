@@ -40,6 +40,7 @@
 #include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/ddmmyyyy/ddmmyyyy_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/iso/iso_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/tai/tai_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
@@ -174,7 +175,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_tai(p0, p1, p2);
+            serialise_cybol_datetime_tai(p0, p1, p2);
         }
     }
 
