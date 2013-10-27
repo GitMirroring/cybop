@@ -46,6 +46,8 @@
 void serialise_cybol_datetime_ti(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime ti.");
+
+    serialise_cybol_integer_value(p0, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 }
 
 /* TI_DATETIME_CYBOL_SERIALISER_SOURCE */

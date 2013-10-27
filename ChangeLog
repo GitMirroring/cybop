@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-10-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Enable datetime and duration in file "model_field_xdt_deserialiser.c"
+
 2013-10-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare "datetime" and "duration" de-/serialisers

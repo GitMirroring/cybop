@@ -34,6 +34,7 @@
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../../executor/representer/deserialiser/cybol/datetime/ddmmyyyy/ddmmyyyy_datetime_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/cybol/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_cybol_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
 #include "../../../../../logger/logger.c"
@@ -71,6 +72,20 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_cybol_datetime_ddmmyyyy(p0, p1, p2);
+        }
+    }
+
+    //
+    // duration
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_cybol_duration_ddmmyyyyddmmyyyy(p0, p1, p2);
         }
     }
 

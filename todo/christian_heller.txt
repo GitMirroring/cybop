@@ -11,9 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue ?? datetime deserialiser
-        * Continue ?? duration deserialiser
-        * Implement functions "de-/serialise_cybol_datetime" and "de-/serialise_cybol_duration" and uncomment in file "model_field_xdt_de-/serialiser.c"
+        * Implement ?? datetime deserialiser
+        * Implement ?? duration deserialiser
         * See file "design_decisions.txt"
 
         * Delete all if-else clauses with "text/plain" format, in order to increase efficiency

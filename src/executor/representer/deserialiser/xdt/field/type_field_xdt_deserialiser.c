@@ -71,6 +71,20 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
     }
 
     //
+    // duration
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) DURATION_STATE_CYBOI_TYPE);
+        }
+    }
+
+    //
     // number
     //
 

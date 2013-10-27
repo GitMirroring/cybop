@@ -286,6 +286,8 @@ http://hydra.geht.net/tino/howto/programming/algorithm/datetime/
 http://scienceblogs.de/astrodicticum-simplex/2009/10/25/das-problem-mit-der-zeit/
 http://www.fourmilab.ch/documents/calendar/
 https://en.wikipedia.org/wiki/System_time
+TAI --> TT: http://cr.yp.to/libtai/tai64.html
+Gregorian --> Julian Calendar: http://www.scribd.com/doc/28678552/Astronomische-Berechnungen
 
 Links:
 
