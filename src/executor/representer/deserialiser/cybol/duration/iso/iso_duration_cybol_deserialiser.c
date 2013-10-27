@@ -23,32 +23,27 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TAI_DATETIME_CYBOL_SERIALISER_SOURCE
-#define TAI_DATETIME_CYBOL_SERIALISER_SOURCE
+#ifndef ISO_DURATION_CYBOL_DESERIALISER_SOURCE
+#define ISO_DURATION_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime model into international atomic time (tai).
- *
- * TAI is an integer number indicating SI-seconds.
+ * Deserialises the iso duration wide character data into a duration model.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_datetime_tai(void* p0, void* p1, void* p2) {
+void deserialise_cybol_duration_iso(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime tai.");
-
-    serialise_cybol_integer_value(p0, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol duration iso.");
 }
 
-/* TAI_DATETIME_CYBOL_SERIALISER_SOURCE */
+/* ISO_DURATION_CYBOL_DESERIALISER_SOURCE */
 #endif

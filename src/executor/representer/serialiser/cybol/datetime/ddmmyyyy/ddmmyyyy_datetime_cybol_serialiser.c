@@ -26,15 +26,12 @@
 #ifndef DDMMYYYY_DATETIME_CYBOL_SERIALISER_SOURCE
 #define DDMMYYYY_DATETIME_CYBOL_SERIALISER_SOURCE
 
-#include "../../../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../../logger/logger.c"
-#include "../../../../../../variable/type_size/integral_type_size.c"
-#include "../../../../../../variable/reallocation_factor.c"
 
 /**
  * Serialises the datetime model into ddmmyyyy date wide character data.

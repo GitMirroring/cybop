@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TAI_DATETIME_CYBOL_SERIALISER_SOURCE
-#define TAI_DATETIME_CYBOL_SERIALISER_SOURCE
+#ifndef GREGORIAN_DATETIME_CYBOL_SERIALISER_SOURCE
+#define GREGORIAN_DATETIME_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,20 +35,16 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime model into international atomic time (tai).
- *
- * TAI is an integer number indicating SI-seconds.
+ * Serialises the datetime model into a gregorian date.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_datetime_tai(void* p0, void* p1, void* p2) {
+void serialise_cybol_datetime_gregorian(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime tai.");
-
-    serialise_cybol_integer_value(p0, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime gregorian.");
 }
 
-/* TAI_DATETIME_CYBOL_SERIALISER_SOURCE */
+/* GREGORIAN_DATETIME_CYBOL_SERIALISER_SOURCE */
 #endif

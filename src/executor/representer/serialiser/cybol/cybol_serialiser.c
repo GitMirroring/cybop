@@ -26,20 +26,39 @@
 #ifndef CYBOL_SERIALISER_SOURCE
 #define CYBOL_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../executor/converter/decoder.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/ddmmyyyy/ddmmyyyy_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/gregorian/gregorian_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/jd/jd_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/julian/julian_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/mjd/mjd_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/mmyy/mmyy_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/posix/posix_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/qyyyy/qyyyy_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/tai/tai_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/ti/ti_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/duration/hhmmhhmm/hhmmhhmm_duration_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/duration/iso/iso_duration_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/duration/jd/jd_duration_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/duration/julian/julian_duration_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/duration/si/si_duration_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/duration/yyyy/yyyy_duration_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/byte_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/ddmmyyyy/ddmmyyyy_datetime_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/datetime/iso/iso_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/tai/tai_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
@@ -47,6 +66,7 @@
 #include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/terminal_colour_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/type_cybol_serialiser.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Serialises the source into the destination, according to the given format.
@@ -95,7 +115,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_ddmmyyyy(p0, p1, p2);
+            serialise_cybol_datetime_ddmmyyyy(p0, p1, p2);
         }
     }
 
@@ -105,7 +125,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_gregorian(p0, p1, p2);
+            serialise_cybol_datetime_gregorian(p0, p1, p2);
         }
     }
 
@@ -115,7 +135,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_jd(p0, p1, p2);
+            serialise_cybol_datetime_jd(p0, p1, p2);
         }
     }
 
@@ -125,7 +145,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_julian(p0, p1, p2);
+            serialise_cybol_datetime_julian(p0, p1, p2);
         }
     }
 
@@ -135,7 +155,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_mjd(p0, p1, p2);
+            serialise_cybol_datetime_mjd(p0, p1, p2);
         }
     }
 
@@ -145,7 +165,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_mmyy(p0, p1, p2);
+            serialise_cybol_datetime_mmyy(p0, p1, p2);
         }
     }
 
@@ -155,7 +175,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_posix(p0, p1, p2);
+            serialise_cybol_datetime_posix(p0, p1, p2);
         }
     }
 
@@ -165,7 +185,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_qyyyy(p0, p1, p2);
+            serialise_cybol_datetime_qyyyy(p0, p1, p2);
         }
     }
 
@@ -185,7 +205,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_ti(p0, p1, p2);
+            serialise_cybol_datetime_ti(p0, p1, p2);
         }
     }
 
@@ -195,7 +215,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_utc(p0, p1, p2);
+            serialise_cybol_datetime_utc(p0, p1, p2);
         }
     }
 
@@ -209,7 +229,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_duration_ddmmyyyyddmmyyyy(p0, p1, p2);
+            serialise_cybol_duration_ddmmyyyyddmmyyyy(p0, p1, p2);
         }
     }
 
@@ -219,7 +239,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_duration_hhmmhhmm(p0, p1, p2);
+            serialise_cybol_duration_hhmmhhmm(p0, p1, p2);
         }
     }
 
@@ -229,7 +249,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_duration_iso(p0, p1, p2);
+            serialise_cybol_duration_iso(p0, p1, p2);
         }
     }
 
@@ -239,7 +259,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_duration_jd(p0, p1, p2);
+            serialise_cybol_duration_jd(p0, p1, p2);
         }
     }
 
@@ -249,7 +269,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_duration_julian(p0, p1, p2);
+            serialise_cybol_duration_julian(p0, p1, p2);
         }
     }
 
@@ -259,7 +279,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_duration_si(p0, p1, p2);
+            serialise_cybol_duration_si(p0, p1, p2);
         }
     }
 
@@ -269,7 +289,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_duration_yyyy(p0, p1, p2);
+            serialise_cybol_duration_yyyy(p0, p1, p2);
         }
     }
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ISO_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define ISO_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef UTC_DATETIME_CYBOL_DESERIALISER_SOURCE
+#define UTC_DATETIME_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -37,15 +37,15 @@
 #include "../../../../../../variable/reallocation_factor.c"
 
 /**
- * Deserialises the iso date wide character data into a datetime model.
+ * Deserialises the utc date wide character data into a datetime model.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_datetime_iso(void* p0, void* p1, void* p2) {
+void deserialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime iso.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime utc.");
 
 /*??
     // The temporary null-terminated day string.
@@ -169,5 +169,5 @@ void deserialise_cybol_datetime_iso(void* p0, void* p1, void* p2) {
 */
 }
 
-/* ISO_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/* UTC_DATETIME_CYBOL_DESERIALISER_SOURCE */
 #endif

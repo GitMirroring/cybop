@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-10-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare "datetime" and "duration" de-/serialisers
+
 2013-10-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement "tai" datetime serialiser

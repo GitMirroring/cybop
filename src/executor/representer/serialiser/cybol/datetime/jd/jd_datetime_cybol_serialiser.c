@@ -23,30 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ISO_DATETIME_CYBOL_SERIALISER_SOURCE
-#define ISO_DATETIME_CYBOL_SERIALISER_SOURCE
+#ifndef JD_DATETIME_CYBOL_SERIALISER_SOURCE
+#define JD_DATETIME_CYBOL_SERIALISER_SOURCE
 
-#include "../../../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
-#include "../../../../../../variable/type_size/integral_type_size.c"
-#include "../../../../../../variable/reallocation_factor.c"
 
 /**
- * Serialises the datetime model into iso date wide character data.
+ * Serialises the datetime model into a jd date.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_datetime_iso(void* p0, void* p1, void* p2) {
+void serialise_cybol_datetime_jd(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime iso.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime jd.");
 }
 
-/* ISO_DATETIME_CYBOL_SERIALISER_SOURCE */
+/* JD_DATETIME_CYBOL_SERIALISER_SOURCE */
 #endif
