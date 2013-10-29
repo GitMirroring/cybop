@@ -28,7 +28,7 @@
 #define VALUE_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE
 
 #ifdef WIN32
-#include <windows.h>
+    #include <windows.h>
 #endif
 
 #include <errno.h>
@@ -46,7 +46,7 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the wide character data into an double value.
+ * Deserialises the wide character data into a double value.
  *
  * @param p0 the destination item
  * @param p1 the source data

@@ -21,6 +21,7 @@
 2013-10-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue datetime infrastructure, currently based on julian day (int) and julian second (double)
+        * Implement "jd" datetime deserialiser
 
 2013-10-27  Christian Heller  <christian.heller@tuxtax.de>
 

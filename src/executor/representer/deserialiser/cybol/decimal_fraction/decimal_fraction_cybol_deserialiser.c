@@ -27,10 +27,6 @@
 #ifndef DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE
 #define DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE
 
-#ifdef WIN32
-#include <windows.h>
-#endif
-
 #include <stdio.h>
 #include <string.h>
 #include <wchar.h>

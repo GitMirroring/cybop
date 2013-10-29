@@ -23,12 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PRIMITIVE_VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE
-#define PRIMITIVE_VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE
-
-#ifdef WIN32
-    #include <windows.h>
-#endif
+#ifndef PRIMITIVE_VALUE_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE
+#define PRIMITIVE_VALUE_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE
 
 #include <errno.h>
 #include <stdio.h>
@@ -44,6 +40,7 @@
 #include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/modifier/inserter/item_inserter.c"
+#include "../../../../../executor/representer/deserialiser/cybol/decimal_fraction/value_decimal_fraction_cybol_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -52,17 +49,12 @@
  * @param p0 the destination data
  * @param p1 the source data
  * @param p2 the source count
- * @param p3 the number base:
- *           0 - tries to automatically identify the correct number base
- *           8 - octal, e.g. 083
- *           10 - decimal, e.g. 1234
- *           16 - hexadecimal, e.g. 3d4 or, optionally, 0x3d4
- * @param p4 the prepend flag (false - append value at destination end; true - prepend value at destination beginning)
- * @param p5 the old destination item count (only needed if prepend flag is true, for insertion; may otherwise be null)
+ * @param p3 the prepend flag (false - append value at destination end; true - prepend value at destination beginning)
+ * @param p4 the old destination item count (only needed if prepend flag is true, for insertion; may otherwise be null)
  */
-void deserialise_cybol_integer_value_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_cybol_decimal_fraction_value_primitive(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol integer value primitive.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol decimal fraction value primitive.");
 
     // The temporary item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -72,10 +64,10 @@ void deserialise_cybol_integer_value_primitive(void* p0, void* p1, void* p2, voi
     // Allocate temporary item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
 
     // Deserialise source.
-    deserialise_cybol_integer_value(i, p1, p2, p3, p4, p5);
+    deserialise_cybol_fraction_decimal_value(i, p1, p2, p3, p4);
 
     // Get temporary item data.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -84,11 +76,11 @@ void deserialise_cybol_integer_value_primitive(void* p0, void* p1, void* p2, voi
     copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Copy temporary value to destination.
-    copy_integer(p0, id);
+    copy_double(p0, id);
 
     // Deallocate temporary item.
-    deallocate_item((void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &i, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
 }
 
-/* PRIMITIVE_VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE */
+/* PRIMITIVE_VALUE_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE */
 #endif

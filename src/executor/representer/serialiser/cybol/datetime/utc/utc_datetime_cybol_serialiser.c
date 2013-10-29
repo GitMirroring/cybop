@@ -88,7 +88,7 @@ void serialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
 /*??
     public void normalize() {
 
-        int dayover = (int) (julianSecond / SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
+        int dayover = (int) (julianSecond / *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
 
         if (julianSecond < 0.0) {
 
@@ -97,9 +97,9 @@ void serialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
 
         julianDay = julianDay + dayover;
 
-        julianSecond = julianSecond - (dayover * SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
+        julianSecond = julianSecond - (dayover * *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
 
-        if (Math.abs(julianSecond - SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL) < (10.0 * SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL * EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL)) {
+        if (Math.abs(julianSecond - *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL) < (10.0 * *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL * *EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL)) {
 
             julianSecond = 0.0;
             julianDay++;
