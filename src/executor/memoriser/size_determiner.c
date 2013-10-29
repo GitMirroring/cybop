@@ -59,7 +59,7 @@ void determine_size(void* p0, void* p1) {
 
         if (*t == *DATETIME_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         //
         // duration
@@ -67,9 +67,6 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *DURATION_STATE_CYBOI_TYPE) {
 
-            // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part.
-            // It is actually a pointer array, of which each
-            // pointer references a structure element.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         //
@@ -103,9 +100,6 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE) {
 
-            // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part.
-            // It is actually a pointer array, of which each
-            // pointer references a structure element.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         } else if (*t == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {
@@ -114,9 +108,6 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *FRACTION_NUMBER_STATE_CYBOI_TYPE) {
 
-            // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part.
-            // It is actually a pointer array, of which each
-            // pointer references a structure element.
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         } else if (*t == *INTEGER_NUMBER_STATE_CYBOI_TYPE) {

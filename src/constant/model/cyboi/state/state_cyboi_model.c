@@ -31,6 +31,9 @@
 /** The complex cyboi model count. */
 static int* COMPLEX_STATE_CYBOI_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The datetime cyboi model count. */
+static int* DATETIME_STATE_CYBOI_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The duration cyboi model count. */
 static int* DURATION_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

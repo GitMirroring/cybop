@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-10-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue datetime infrastructure, currently based on julian day (int) and julian second (double)
+
 2013-10-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Enable datetime and duration in file "model_field_xdt_deserialiser.c"

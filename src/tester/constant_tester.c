@@ -28,7 +28,7 @@
 
 #include <stdio.h>
 
-#include "../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/mathematics_state_cyboi_model.c"
 #include "../logger/logger.c"
 
 /**
