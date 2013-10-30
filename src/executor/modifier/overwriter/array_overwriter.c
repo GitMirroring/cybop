@@ -159,10 +159,13 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
                 // Make sure allocation size is at least one.
                 if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
                     fwprintf(stdout, L"ERROR: Could not overwrite array. The new size is negative ns: %i\n", ns);
+
                 } else if (ns == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
                     fwprintf(stdout, L"ERROR: Could not overwrite array. The new size is zero ns: %i\n", ns);
-//??                        ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+//??                    ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                 }
 
                 // Enlarge array using new destination size.

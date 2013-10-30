@@ -26,6 +26,7 @@
 #ifndef GLOBALISER_SOURCE
 #define GLOBALISER_SOURCE
 
+#include "../controller/globaliser/compound_globaliser.c"
 #include "../controller/globaliser/conversion_globaliser.c"
 #include "../controller/globaliser/display_globaliser.c"
 #include "../controller/globaliser/integral_globaliser.c"
@@ -104,6 +105,15 @@ void globalise() {
     globalise_socket();
     globalise_thread();
     globalise_thread_identification();
+
+    //
+    // CAUTION! The order of above function calls is arbitrary,
+    // since most use the "sizeof" function and are independent
+    // from each other.
+    // However, the "globalise_compound" function depends upon
+    // other type sizes, so that it can only be called as LAST.
+    //
+    globalise_compound();
 }
 
 /* GLOBALISER_SOURCE */

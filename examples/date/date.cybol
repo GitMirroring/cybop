@@ -1,0 +1,33 @@
+<model>
+
+    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06041971"/>
+
+    <part name="gregorian" channel="inline" format="datetime/gregorian" model="1971-04-06"/>
+
+    <!-- 1st January 2008 14 h MEZ corresponds to JD 2 454 467.04167 -->
+    <part name="jd" channel="inline" format="datetime/jd" model="2454467.04167"/>
+
+    <part name="julian" channel="inline" format="datetime/julian" model=""/>
+
+    <!-- 1st January 2008 14 h MEZ corresponds to MJD 54 466.54167 -->
+    <part name="mjd" channel="inline" format="datetime/mjd" model="54466.54167"/>
+
+    <!--
+        The truncated julian date, often used by space agencies.
+        Example: 1st January 2008 0 h UT corresponds to TJD 14 466.0
+    -->
+    <part name="tjd" channel="inline" format="datetime/tjd" model="54466.54167"/>
+
+    <part name="mmyy" channel="inline" format="datetime/mmyy" model="1013"/>
+
+    <part name="posix" channel="inline" format="datetime/posix" model=""/>
+
+    <part name="qyyyy" channel="inline" format="datetime/qyyyy" model="32013"/>
+
+    <part name="tai" channel="inline" format="datetime/tai" model=""/>
+
+    <part name="ti" channel="inline" format="datetime/ti" model=""/>
+
+    <part name="utc" channel="inline" format="datetime/utc" model="1971-04-06T10:06"/>
+
+</model>

@@ -1,16 +1,26 @@
 <model>
 
     <!-- Creation -->
-    <part name="create_dates" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="dates"/>
+    <part name="create_date" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="date"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="create_duration" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="duration"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
 
     <!-- Initialisation -->
-    <part name="initialise_dates" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".dates"/>
-        <property name="source" channel="file" format="element/part" model="date/dates.cybol"/>
+    <part name="initialise_date" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".date"/>
+        <property name="source" channel="file" format="element/part" model="date/date.cybol"/>
+        <property name="type" channel="inline" format="meta/type" model="element/part"/>
+    </part>
+    <part name="initialise_duration" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".duration"/>
+        <property name="source" channel="file" format="element/part" model="date/duration.cybol"/>
         <property name="type" channel="inline" format="meta/type" model="element/part"/>
     </part>
 
@@ -19,24 +29,76 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 
-    <!-- Output. -->
-    <part name="print_dates_label" channel="inline" format="communicate/send" model="">
+    <!-- Print date examples. -->
+    <part name="print_date_label" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Dates:"/>
+        <property name="message" channel="inline" format="text/plain" model="Date:"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="print_dates_values" channel="inline" format="communicate/send" model="">
+    <part name="print_date_values" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".dates"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".date"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="print_line_end" channel="inline" format="communicate/send" model="">
+    <part name="print_date_line_end" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model=""/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <!-- Print special date example. -->
+    <part name="print_special_date_label" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Special Date:"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_special_date_values" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="datetime/jd"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".date.jd"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_special_date_line_end" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model=""/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <!-- Print duration examples. -->
+    <part name="print_duration_label" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Duration:"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_duration_values" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".duration"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_duration_line_end" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -51,7 +113,8 @@
 </model>
 
 <!--
-    This example deserialises (parses) and serialises values in various "datetime" formats.
+    This example deserialises (parses) and serialises values
+    in various "datetime" and "duration" formats.
 -->
 
 <!--

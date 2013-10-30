@@ -293,6 +293,7 @@ https://en.wikipedia.org/wiki/System_time
 
 Links:
 
+http://de.wikibooks.org/wiki/Astronomische_Berechnungen_f%C3%BCr_Amateure/_Druckversion
 http://de.wikipedia.org/wiki/Zeitrechnung
 http://de.wikipedia.org/wiki/Proleptisch
 http://de.wikipedia.org/wiki/Jahr_Null

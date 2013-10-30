@@ -45,7 +45,7 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Serialises the doube value into wide character data.
+ * Serialises the double value into wide character data.
  *
  * @param p0 the destination item
  * @param p1 the source data

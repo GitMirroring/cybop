@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-10-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend "date" cybol example application
+        * Continue "jd" datetime de-/serialiser
+        * Change handling of compound types, e.g. complex, datetime, duration, fraction, which are treated like primitives now
+        * Adapt type size variables, de-/allocators, copiers accordingly
+
 2013-10-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue datetime infrastructure, currently based on julian day (int) and julian second (double)

@@ -23,27 +23,16 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DURATION_DEALLOCATOR_SOURCE
-#define DURATION_DEALLOCATOR_SOURCE
+#ifndef COMPOUND_UNGLOBALISER_SOURCE
+#define COMPOUND_UNGLOBALISER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../logger/logger.c"
+#include <stdlib.h>
 
 /**
- * Deallocates the duration.
- *
- * @param p0 the duration (pointer reference)
+ * Finalises compound global variables.
  */
-void deallocate_duration(void* p0) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate duration.");
-
-    deallocate_array(p0, (void*) DURATION_STATE_CYBOI_MODEL_COUNT, (void*) DURATION_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+void unglobalise_compound() {
 }
 
-/* DURATION_DEALLOCATOR_SOURCE */
+/* COMPOUND_UNGLOBALISER_SOURCE */
 #endif

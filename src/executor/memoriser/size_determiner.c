@@ -59,7 +59,7 @@ void determine_size(void* p0, void* p1) {
 
         if (*t == *DATETIME_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+            copy_integer(p0, (void*) DATETIME_COMPOUND_TYPE_SIZE);
 
         //
         // duration
@@ -67,7 +67,7 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *DURATION_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+            copy_integer(p0, (void*) DURATION_COMPOUND_TYPE_SIZE);
 
         //
         // element
@@ -100,7 +100,7 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+            copy_integer(p0, (void*) COMPLEX_COMPOUND_TYPE_SIZE);
 
         } else if (*t == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {
 
@@ -108,7 +108,7 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *FRACTION_NUMBER_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+            copy_integer(p0, (void*) FRACTION_COMPOUND_TYPE_SIZE);
 
         } else if (*t == *INTEGER_NUMBER_STATE_CYBOI_TYPE) {
 

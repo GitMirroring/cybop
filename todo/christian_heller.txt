@@ -11,13 +11,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE looking in file "JulianTime.java" and implementing functions
+        * Adapt "jd_datetime_cybol_deserialiser.c" and "jd_datetime_cybol_serialiser.c" using code of datetime_copier.c
         * Implement "jd" datetime deserialiser; see file "JulianTime.java::julianDate()
             (example: setJulianDate --> deserialise_cybol_datetime_jd already done)
-        * CONTINUE with file "utc_datetime_cybol_serialiser.c"
+        * CONTINUE looking in file "JulianTime.java" and implementing functions
+        * Continue file "utc_datetime_cybol_serialiser.c"
         * See "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions)
         * See file "design_decisions.txt"
-            http://de.wikibooks.org/wiki/Astronomische_Berechnungen_f%C3%BCr_Amateure/_Druckversion
 
         * Delete all if-else clauses with "text/plain" format, in order to increase efficiency
         * Complete file "field_description_xdt_model.c" using xDT standard documents and

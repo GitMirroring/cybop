@@ -26,6 +26,7 @@
 #ifndef UNGLOBALISER_SOURCE
 #define UNGLOBALISER_SOURCE
 
+#include "../controller/unglobaliser/compound_unglobaliser.c"
 #include "../controller/unglobaliser/conversion_unglobaliser.c"
 #include "../controller/unglobaliser/display_unglobaliser.c"
 #include "../controller/unglobaliser/integral_unglobaliser.c"
@@ -52,6 +53,7 @@ void unglobalise() {
     // Instead, use malloc, free and similar functions directly!
     //
 
+    unglobalise_compound();
     unglobalise_conversion();
     unglobalise_display();
     unglobalise_integral();

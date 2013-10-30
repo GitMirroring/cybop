@@ -28,14 +28,20 @@
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/datetime_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
 #include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
+#include "../../../../../../executor/calculator/basic/double/add_double_calculator.c"
+#include "../../../../../../executor/calculator/basic/double/divide_double_calculator.c"
+#include "../../../../../../executor/modifier/copier/double_copier.c"
+#include "../../../../../../executor/modifier/overwriter/item_overwriter.c"
+#include "../../../../../../executor/representer/serialiser/cybol/decimal_fraction/value_decimal_fraction_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime model into a jd date.
+ * Serialises the source datetime model into the destination julian date (jd).
  *
  * @param p0 the destination model item
  * @param p1 the source data
@@ -44,6 +50,32 @@
 void serialise_cybol_datetime_jd(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime jd.");
+
+    // The destination julian date.
+    double djd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The source julian day, julian second.
+    void* sjd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sjs = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+/*??
+    // Get source julian day, julian second.
+    copy_array_forward((void*) &sjd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sjs, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+
+    // Initialise destination julian date with source julian second.
+    copy_double((void*) &djd, sjs);
+fwprintf(stdout, L"TEST serialise cybol datetime jd djd init: %f\n", djd);
+    // Denormalise fractional part
+    // from duration of day in solar seconds.
+    calculate_double_divide((void*) &djd, (void*) SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
+fwprintf(stdout, L"TEST serialise cybol datetime jd djd divide: %f\n", djd);
+    // Add source julian day integer part.
+    calculate_double_add((void*) &djd, (void*) &sjd);
+fwprintf(stdout, L"TEST serialise cybol datetime jd djd add: %f\n", djd);
+    // Assign resulting julian date to destination.
+    serialise_cybol_fraction_decimal_value(p0, (void*) &djd, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST serialise cybol datetime jd djd serialise to wchar_t: %ls\n", (wchar_t*) *((void**) p0));
+*/
 }
 
 /* JD_DATETIME_CYBOL_SERIALISER_SOURCE */

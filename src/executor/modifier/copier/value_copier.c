@@ -37,6 +37,8 @@
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/modifier/copier/character_copier.c"
 #include "../../../executor/modifier/copier/complex_copier.c"
+#include "../../../executor/modifier/copier/datetime_copier.c"
+#include "../../../executor/modifier/copier/duration_copier.c"
 #include "../../../executor/modifier/copier/double_copier.c"
 #include "../../../executor/modifier/copier/duration_copier.c"
 #include "../../../executor/modifier/copier/fraction_copier.c"
@@ -75,7 +77,7 @@ void copy_value(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, p1);
+            copy_datetime(p0, p1);
         }
     }
 
