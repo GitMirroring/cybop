@@ -37,8 +37,13 @@
 /**
  * Serialises the datetime model into international time (ti).
  *
- * TI is ...
- *
+ * International Time (TI) is a purely atomic time scale
+ * offset from TAI, by a fixed integer number of seconds.
+ * In order to avoid discontinuities for systems
+ * using radio broadcast time signals,
+ * the offset would be equal to the offset of UTC
+ * at the instant of switching from UTC to TI.
+ * 
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
@@ -47,7 +52,7 @@ void serialise_cybol_datetime_ti(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime ti.");
 
-    serialise_cybol_integer_value(p0, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    //?? TODO: To be defined in year 2022.
 }
 
 /* TI_DATETIME_CYBOL_SERIALISER_SOURCE */

@@ -279,15 +279,17 @@ offset of UTC at the instant of switching from UTC to TI.
 
 Conversion:
 
-http://de.wikipedia.org/wiki/Julianisches_Datum
-http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
-http://www.ortelius.de/kalender/calc_de.php
-http://hydra.geht.net/tino/howto/programming/algorithm/datetime/
-http://scienceblogs.de/astrodicticum-simplex/2009/10/25/das-problem-mit-der-zeit/
-http://www.fourmilab.ch/documents/calendar/
-https://en.wikipedia.org/wiki/System_time
+Julian Day --> any other: http://www.fourmilab.ch/documents/calendar/
 TAI --> TT: http://cr.yp.to/libtai/tai64.html
 Gregorian --> Julian Calendar: http://www.scribd.com/doc/28678552/Astronomische-Berechnungen
+http://www.ortelius.de/kalender/calc_de.php
+
+Definition:
+
+http://de.wikipedia.org/wiki/Julianisches_Datum
+http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+http://www.fourmilab.ch/documents/calendar/
+https://en.wikipedia.org/wiki/System_time
 
 Links:
 
