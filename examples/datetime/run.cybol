@@ -15,12 +15,12 @@
     <!-- Initialisation -->
     <part name="initialise_date" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".date"/>
-        <property name="source" channel="file" format="element/part" model="date/date.cybol"/>
+        <property name="source" channel="file" format="element/part" model="datetime/date.cybol"/>
         <property name="type" channel="inline" format="meta/type" model="element/part"/>
     </part>
     <part name="initialise_duration" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".duration"/>
-        <property name="source" channel="file" format="element/part" model="date/duration.cybol"/>
+        <property name="source" channel="file" format="element/part" model="datetime/duration.cybol"/>
         <property name="type" channel="inline" format="meta/type" model="element/part"/>
     </part>
 

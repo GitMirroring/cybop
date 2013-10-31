@@ -103,6 +103,12 @@ void get(void* p0, void* p1, void* p2) {
         }
     }
 
+    //
+    // A part's MODEL may NOT be retrieved here.
+    // The reason is that it is accessible via knowledge tree,
+    // with . # (dot-number sign notation).
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT);
@@ -113,6 +119,18 @@ void get(void* p0, void* p1, void* p2) {
             copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
         }
     }
+
+    //
+    // A part's PROPERTIES may NOT be retrieved here.
+    // The reason is that it is accessible via knowledge tree,
+    // with . # (dot-number sign notation).
+    //
+
+    //
+    // A part's REFERENCE may NOT be retrieved here.
+    // The reason is that it is managed internally,
+    // since used for rubbish (garbage) collection.
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

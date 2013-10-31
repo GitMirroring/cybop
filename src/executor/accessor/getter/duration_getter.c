@@ -1,0 +1,140 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.15.0 2013-09-22
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef DURATION_GETTER_SOURCE
+#define DURATION_GETTER_SOURCE
+
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/duration_state_cyboi_name.c"
+#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/basic/pointer/add_pointer_calculator.c"
+#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../logger/logger.c"
+#include "../../../variable/type_size/compound_type_size.c"
+
+/**
+ * Gets the offset belonging to the element at the given index.
+ *
+ * @param p0 the destination offset
+ * @param p1 the source element index
+ */
+void get_duration_element_offset(void* p0, void* p1) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get duration element offset.");
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! Add the type sizes of all elements PRECEDING
+            // this one, but NOT the type size of this element itself.
+            copy_integer(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) START_DURATION_STATE_CYBOI_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! Add the type sizes of all elements PRECEDING
+            // this one, but NOT the type size of this element itself.
+            copy_integer(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            calculate_integer_add(p0, (void*) DATETIME_COMPOUND_TYPE_SIZE);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) END_DURATION_STATE_CYBOI_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! Add the type sizes of all elements PRECEDING
+            // this one, but NOT the type size of this element itself.
+            copy_integer(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            calculate_integer_add(p0, (void*) DATETIME_COMPOUND_TYPE_SIZE);
+            calculate_integer_add(p0, (void*) DATETIME_COMPOUND_TYPE_SIZE);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get duration element offset. The given source element index is not known.");
+    }
+}
+
+/**
+ * Gets the source duration's element at the given index.
+ *
+ * @param p0 the destination data (pointer reference)
+ * @param p1 the source data (pointer reference)
+ * @param p2 the source element index
+ */
+void get_duration_element(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get duration element.");
+
+    // The offset memory area.
+    int o = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+    // Determine offset.
+    get_duration_element_offset((void*) &o, p2);
+
+    if (o >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        // The element pointer.
+        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Initialise element pointer.
+        copy_pointer((void*) &e, p1);
+
+        // Add offset to element pointer.
+        // CAUTION! The pointer type is needed here, since
+        // the result is a pointer to which the offset is added.
+        calculate_pointer_add((void*) &e, (void*) &o);
+
+        // Copy element pointer to destination.
+        copy_pointer(p0, (void*) &e);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get duration element. The offset is invalid.");
+    }
+}
+
+/* DURATION_GETTER_SOURCE */
+#endif

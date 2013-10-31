@@ -28,22 +28,13 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/calculator/basic/pointer/add_pointer_calculator.c"
+#include "../../../executor/accessor/getter/datetime_getter.c"
 #include "../../../executor/modifier/copier/double_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../logger/logger.c"
-
-//
-// Forward declarations.
-//
-
-void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Copies the datetime.
@@ -57,27 +48,31 @@ void copy_datetime(void* p0, void* p1) {
 
     // The destination julian day, julian second.
     // CAUTION! Initialise with destination parametre.
-    void* dd = p0;
-    void* ds = p0;
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source julian day, julian second.
     // CAUTION! Initialise with source parametre.
-    void* sd = p1;
-    void* ss = p1;
-    // The offset memory area for julian day, julian second.
-    int od = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int os = od + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Add offset to pointer.
-    // CAUTION! The pointer type is needed here, since
-    // the result is a pointer to which the offset is added.
-    calculate_pointer_add((void*) &dd, (void*) &od);
-    calculate_pointer_add((void*) &ds, (void*) &os);
-    calculate_pointer_add((void*) &sd, (void*) &od);
-    calculate_pointer_add((void*) &ss, (void*) &os);
+    // Get destination julian day, julian second.
+    get_datetime_element((void*) &dd, (void*) &p0, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &ds, (void*) &p0, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+    // Get source julian day, julian second.
+    get_datetime_element((void*) &sd, (void*) &p1, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &ss, (void*) &p1, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
 
-    // Set source- to destination.
+fwprintf(stdout, L"TEST copy datetime dd: %i\n", *((int*) dd));
+fwprintf(stdout, L"TEST copy datetime ds: %f\n", *((double*) ds));
+fwprintf(stdout, L"TEST copy datetime sd: %i\n", *((int*) sd));
+fwprintf(stdout, L"TEST copy datetime ss: %f\n", *((double*) ss));
+
+    // Copy source- to destination values.
     copy_integer(dd, sd);
     copy_double(ds, ss);
+
+fwprintf(stdout, L"TEST copy datetime dd: %i\n", *((int*) dd));
+fwprintf(stdout, L"TEST copy datetime ds: %f\n", *((double*) ds));
 }
 
 /* DATETIME_COPIER_SOURCE */

@@ -18,9 +18,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-10-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Provide functions for compound types complex, datetime, duration, fraction in directory "executor/accessor/getter/"
+        * Adapt "jd" datetime de-/serialiser to finally make it work
+
 2013-10-30  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Extend "date" cybol example application
+        * Extend "datetime" cybol example application
         * Continue "jd" datetime de-/serialiser
         * Change handling of compound types, e.g. complex, datetime, duration, fraction, which are treated like primitives now
         * Adapt type size variables, de-/allocators, copiers accordingly
@@ -71,7 +76,7 @@
 
         * Add further entries in file "format_field_xdt_deserialiser.c", following deprecated BDT standards 2.7 and 1994-2
         * Use PLAIN_TEXT_STATE_CYBOI_FORMAT for unknown field identifications and show warning in generated output, by default
-        * Add "date" cybol example application for testing various date formats
+        * Add "datetime" cybol example application for testing various date formats
 
 2013-09-25  Christian Heller  <christian.heller@tuxtax.de>
 
