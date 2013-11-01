@@ -70,3 +70,6 @@ Help and Support
         * Allan "TheForkOfJustice" <theforkofjustice@gmail.com> of Linux for Clinics (ubuntu/ debian packaging)
         * Daniel Fischer via StackOverflow developer portal (hint on memory bug caused by int-to-size_t cast found with valgrind)
         * Josh Triplett <josh@joshtriplett.org> (various hints on event handling architecture and new function "xcb_block_until_event")
+
+External References (GNU GPL Projects)
+        * Dieter Egger <dieter.egger@bv.tum.de> (Java based project http://www.astro-toolbox.com/)

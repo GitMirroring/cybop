@@ -48,124 +48,75 @@ void deserialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime utc.");
 
 /*??
-    // The temporary null-terminated day string.
-    wchar_t* tmpd = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    int tmpds = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-    // The temporary null-terminated month string.
-    wchar_t* tmpm = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    int tmpms = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-    // The temporary null-terminated year string.
-    wchar_t* tmpy = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    int tmpys = *NUMBER_4_INTEGER_STATE_CYBOI_MODEL + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    // Calendar Date ---> Julian Date
+    public int julianDay(int year, int month, int day) {
 
-    // Create temporary null-terminated day string.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &tmpd, (void*) &tmpds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Create temporary null-terminated month string.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &tmpm, (void*) &tmpms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Create temporary null-terminated year string.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &tmpy, (void*) &tmpys, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        boolean reform;
+        int a, b = 0, c, d;
+        double x1;
+        int xj;
 
-    // The index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The source day index.
-    void* sdi = p3 + (*NUMBER_0_INTEGER_STATE_CYBOI_MODEL * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-    // The source month index.
-    void* smi = p3 + (*NUMBER_2_INTEGER_STATE_CYBOI_MODEL * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-    // The source year index.
-    void* syi = p3 + (*NUMBER_4_INTEGER_STATE_CYBOI_MODEL * *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
+        if (month < 3) {
 
-/*?? TODO!
-    // Copy original string to temporary null-terminated day string.
-    overwrite_array((void*) &tmpd, sdi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-    // Copy original string to temporary null-terminated month string.
-    overwrite_array((void*) &tmpm, smi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-    // Copy original string to temporary null-terminated year string.
-    overwrite_array((void*) &tmpy, syi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-*/
+            year--;
+            month += 12;
+        }
 
-/*??
-    // The day termination character index.
-    int dti = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
-    // The month termination character index.
-    int mti = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
-    // The year termination character index.
-    int yti = *NUMBER_4_INTEGER_STATE_CYBOI_MODEL;
+        reform = (year == 1582) && ((month == 10) && (day >= 15) || (month > 10)) || (year > 1582);
 
-/*?? TODO!
-    // Add string termination to temporary null-terminated day string.
-    overwrite_array((void*) &tmpd, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &dti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-    // Add string termination to temporary null-terminated month string.
-    overwrite_array((void*) &tmpm, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-    // Add string termination to temporary null-terminated year string.
-    overwrite_array((void*) &tmpy, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &yti, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-*/
+        if (reform) {
 
-/*??
-    // The tail variable is useless here and only needed for the string
-    // transformation function. If the whole string array consists of
-    // many sub strings, separated by space characters, then each sub
-    // string gets interpreted as integer number.
-    // The tail variable in this case points to the remaining sub string.
-    wchar_t* tail = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+            a = year / 100;
+            c = a / 4;
+            b = 2 - a + c;
+        }
 
-    // Transform string to day integer value.
-    // The third parametre is the number base:
-    // 0 - tries to automatically identify the correct number base
-    // 8 - octal
-    // 10 - decimal
-    // 16 - hexadecimal
-    int dv = wcstol(tmpd, &tail, *NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-    // Transform string to month integer value.
-    // The third parametre is the number base:
-    // 0 - tries to automatically identify the correct number base
-    // 8 - octal
-    // 10 - decimal
-    // 16 - hexadecimal
-    int mv = wcstol(tmpm, &tail, *NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-    // Transform string to year integer value.
-    // The third parametre is the number base:
-    // 0 - tries to automatically identify the correct number base
-    // 8 - octal
-    // 10 - decimal
-    // 16 - hexadecimal
-    int yv = wcstol(tmpy, &tail, *NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+        x1 = 365.25 * year;
 
-    // Check date time size.
-    if (*dc >= *ds) {
+        if (year < 0) {
 
-        // Calculate new date time size.
-        *ds = *ds * *ARRAY_REALLOCATION_FACTOR + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+            x1 -= 0.75;
+        }
 
-        // Reallocate date time.
-        reallocate(p0, p1, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        c = (int) (x1);
+        d = (int) (30.6001 * (month + 1));
+        xj = c + d + day + 1720994;
+
+        if (reform) {
+
+            xj = xj + b;
+        }
+
+        return xj;
     }
 
-/*?? TODO!
-    // Set date time integer values.
-    overwrite_array(p0, (void*) &yv, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) YEAR_DATETIME_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-    overwrite_array(p0, (void*) &mv, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MONTH_DATETIME_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-    overwrite_array(p0, (void*) &dv, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DAY_DATETIME_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-    overwrite_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HOUR_DATETIME_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-    overwrite_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MINUTE_DATETIME_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-    overwrite_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SECOND_DATETIME_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2);
-*/
+    public void normalize(JulianTime dt) {
 
-/*??
-    // Increase date time count by one, because of new element.
-    (*dc)++;
+        int dayover = (int) (dt.julianSecond / *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
 
-    // Destroy temporary null-terminated day string.
-    deallocate_array((void*) &tmpd, (void*) &tmpds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Destroy temporary null-terminated month string.
-    deallocate_array((void*) &tmpm, (void*) &tmpms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Destroy temporary null-terminated year string.
-    deallocate_array((void*) &tmpy, (void*) &tmpys, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        if (dt.julianSecond < 0.0) {
+
+            dayover--;
+        }
+
+        dt.julianDay = dt.julianDay + dayover;
+        dt.julianSecond = dt.julianSecond - (dayover * *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
+
+        if (Math.abs(dt.julianSecond - *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL) < (10.0 * *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL * *EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL)) {
+
+            dt.julianSecond = 0.0;
+            (dt.julianDay)++;
+        }
+    }
+
+    public void setDmyHms(int day, int month, int year, int hour, int minute, double second) {
+
+        julianDay = julianDay(year, month, day);
+        julianSecond = hour * 3600.0 + minute * 60.0 + second;
+        julianSecond = julianSecond + (*SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL / 2);
+
+        normalize();
+    }
 */
 }
 

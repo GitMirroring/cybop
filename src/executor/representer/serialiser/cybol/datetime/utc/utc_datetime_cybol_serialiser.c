@@ -36,9 +36,7 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime model into utc.
- *
- * UTC is ...
+ * Serialises the datetime into utc wide character data.
  *
  * @param p0 the destination model item
  * @param p1 the source data
@@ -48,62 +46,64 @@ void serialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime utc.");
 
-    // The conversion difference datetime.
-    void* dt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The julian day.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The julian second.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-
 /*??
-    // Allocate conversion difference datetime.
-    allocate_datetime((void*) &dt);
+    // Julian Date ---> Calendar Date
+    private void civildate() {
 
-    // Get julian day, julian second.
-    copy_array_forward((void*) &d, dt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &s, dt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+        double f, x, jdt;
+        int alfa, a, b, c, d, e, z;
 
-/*??
-    // Initialise julian day, julian second.
-    overwrite_array(d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    //?? TODO: EopData pd; pd.tai_utc
-    overwrite_array(s, ??TODO: pd.tai_utc, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        //?? TODO: Replace "Java::julianDate()" call with:
+        //?? cyboi::serialise_julian_date(double dest, datetime src)
+        jdt = julianDate() + 0.5;
+        z = (int) Math.floor(jdt);
 
-    // CAUTION! DO CALL "normalise" after having set
-    // the values for julian day and julian second!
-    normalize(dt);
+        f = jdt - z;
+        f = f * 24.0;
 
-    // Subtract conversion difference datetime from source.
-    DESTjulianDay = SOURCEjulianDay - dt.julianDay;
-    DESTjulianSecond = SOURCEjulianSecond - dt.julianSecond;
-    normalize(DEST);
-*/
+        if (z < 2299161) {
 
-/*??
-    // Deallocate conversion difference datetime.
-    deallocate_datetime((void*) &dt);
+            a = z;
 
-//?? ----------
+        } else {
 
-/*??
-    public void normalize() {
-
-        int dayover = (int) (julianSecond / *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
-
-        if (julianSecond < 0.0) {
-
-            dayover--;
+            alfa = (int) Math.floor(((z - 1867216.25) / 36524.25));
+            a = z + 1 + alfa - alfa / 4;
         }
 
-        julianDay = julianDay + dayover;
+        b = a + 1524;
+        c = (int) Math.floor((b - 122.1) / 365.25);
+        d = (int) Math.floor((365.25 * c));
+        e = (int) Math.floor(((b - d) / 30.6001));
 
-        julianSecond = julianSecond - (dayover * *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
+        this.day = (int) (b - d - (int) Math.floor((30.6001 * e)));
 
-        if (Math.abs(julianSecond - *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL) < (10.0 * *SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL * *EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL)) {
+        if (e < 14) {
 
-            julianSecond = 0.0;
-            julianDay++;
+            this.month = (int) (e - 1);
+
+        } else {
+
+            this.month = (int) (e - 13);
         }
+
+        if (month < 3) {
+
+            this.year = c - 4715;
+
+        } else {
+
+            this.year = c - 4716;
+        }
+
+        x = f;
+        this.hour = (int) Math.floor(x);
+        x = x - hour;
+        x = x * 60.0;
+
+        this.minute = (int) Math.floor(x);
+        x = x - minute;
+        this.second = x * 60.0;
     }
 */
 }

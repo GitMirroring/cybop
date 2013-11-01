@@ -11,10 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * CONTINUE looking in file "JulianTime.java" and implementing functions
-        * Continue file "utc_datetime_cybol_serialiser.c"
-        * See "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions)
-        * See file "design_decisions.txt"
+        * Implement "utc" datetime de-/serialiser
+        * See "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
 
         * Delete all if-else clauses with "text/plain" format, in order to increase efficiency
         * Complete file "field_description_xdt_model.c" using xDT standard documents and

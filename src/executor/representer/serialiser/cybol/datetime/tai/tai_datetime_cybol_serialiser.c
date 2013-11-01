@@ -47,7 +47,38 @@ void serialise_cybol_datetime_tai(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime tai.");
 
-    serialise_cybol_integer_value(p0, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+/*??
+    // The conversion difference datetime.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source julian day, julian second.
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Allocate conversion difference datetime.
+    allocate_datetime((void*) &d);
+
+    // Get source julian day, julian second.
+    get_datetime_element((void*) &dd, (void*) &p1, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &ds, (void*) &p1, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+
+    // Initialise source julian day, julian second.
+    copy_integer((void*) &dd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    //?? TODO: EopData pd; pd.tai_utc; see "AstroToolbox/data/tai_utc.txt"
+    copy_double((void*) &ds, ??TODO: pd.tai_utc);
+
+    // Normalise conversion difference datetime.
+    // CAUTION! DO CALL "normalise" after having set
+    // the values for julian day and julian second!
+    normalize(d);
+
+    // Subtract conversion difference datetime from source.
+    DESTjulianDay = SOURCEjulianDay - d.julianDay;
+    DESTjulianSecond = SOURCEjulianSecond - d.julianSecond;
+    normalize(DEST);
+
+    // Deallocate conversion difference datetime.
+    deallocate_datetime((void*) &d);
+*/
 }
 
 /* TAI_DATETIME_CYBOL_SERIALISER_SOURCE */
