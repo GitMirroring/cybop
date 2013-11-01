@@ -1,0 +1,75 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.15.0 2013-09-22
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef JULIAN_DATE_SERIALISER_SOURCE
+#define JULIAN_DATE_SERIALISER_SOURCE
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/datetime_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
+#include "../../../../executor/accessor/getter/datetime_getter.c"
+#include "../../../../executor/calculator/basic/double/add_double_calculator.c"
+#include "../../../../executor/calculator/basic/double/divide_double_calculator.c"
+#include "../../../../executor/caster/basic/double/integer_double_caster.c"
+#include "../../../../executor/modifier/copier/double_copier.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Serialises the source datetime into the destination julian date (jd) double.
+ *
+ * @param p0 the destination data
+ * @param p1 the source data
+ */
+void serialise_julian_date(void* p0, void* p1) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise julian date.");
+
+    // The source julian day, julian second.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source julian day as double.
+    double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    // Get source julian day, julian second.
+    get_datetime_element((void*) &d, (void*) &p1, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &s, (void*) &p1, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+
+    // Cast julian day into a double number.
+    cast_double_integer((void*) &dd, d);
+
+    // Initialise destination julian date.
+    copy_double(p0, s);
+    // Denormalise fractional part
+    // from duration of day in solar seconds.
+    calculate_double_divide(p0, (void*) SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
+    // Add source julian day integer part.
+    calculate_double_add(p0, (void*) &dd);
+}
+
+/* JULIAN_DATE_SERIALISER_SOURCE */
+#endif

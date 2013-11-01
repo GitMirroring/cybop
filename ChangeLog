@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-11-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Factor out "julian_date" de-/serialiser from "jd" datetime de-/serialiser to be used with modified and truncated julian date (mjd and tjd)
+        * Implement "mjd" and "tjd" datetime de-/serialisers
+
 2013-10-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Provide functions for compound types complex, datetime, duration, fraction in directory "executor/accessor/getter/"

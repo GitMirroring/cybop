@@ -38,8 +38,9 @@
 #include "../../../../executor/representer/serialiser/cybol/datetime/ddmmyyyy/ddmmyyyy_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/gregorian/gregorian_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/jd/jd_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/jd/mjd_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/jd/tjd_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/julian/julian_datetime_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/datetime/mjd/mjd_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/mmyy/mmyy_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/posix/posix_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/qyyyy/qyyyy_datetime_cybol_serialiser.c"
@@ -206,6 +207,16 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_cybol_datetime_ti(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) TJD_DATETIME_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_datetime_tjd(p0, p1, p2);
         }
     }
 

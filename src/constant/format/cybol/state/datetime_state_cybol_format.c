@@ -128,7 +128,7 @@ static int* JULIAN_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * begin: 1858-11-17T00:00:00
  * definition: JD - 2400000.5
  *
- * Continuous counting of days.
+ * Continuous counting of days since 24th May 1968 0 h UT (JD 2 440 000.5).
  * Used by astronomers.
  *
  * This is a CYBOL extension.
@@ -224,6 +224,24 @@ static int* TAI_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 static wchar_t TI_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L't', L'i'};
 static wchar_t* TI_DATETIME_STATE_CYBOL_FORMAT = TI_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
 static int* TI_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/tjd state cybol type.
+ *
+ * format: double
+ * unit: day
+ * timescale: proleptic julian calendar
+ * begin: 1858-11-17T00:00:00
+ * definition: JD - 2440000.5
+ *
+ * Continuous counting of days since 17th November 1858 0 h UT (JD 2 400 000.5).
+ * Used by space agencies.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t TJD_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e', L't', L'i', L'm', L'e', L'/', L't', L'j', L'd'};
+static wchar_t* TJD_DATETIME_STATE_CYBOL_FORMAT = TJD_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
+static int* TJD_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/utc state cybol type.

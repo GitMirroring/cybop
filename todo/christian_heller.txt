@@ -11,13 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Possibly introduce "set" functions for compound types complex, datetime, duration, fraction in new directory "executor/modifier/setter/"
-        * Simplify "jd" datetime de-/serialiser by using "set" instead of "get"
-        * Add missing conversions to "model_diagram", "html" etc.
-
-        * Adapt "jd_datetime_cybol_deserialiser.c" and "jd_datetime_cybol_serialiser.c" using code of datetime_copier.c
-        * Implement "jd" datetime deserialiser; see file "JulianTime.java::julianDate()
-            (example: setJulianDate --> deserialise_cybol_datetime_jd already done)
         * CONTINUE looking in file "JulianTime.java" and implementing functions
         * Continue file "utc_datetime_cybol_serialiser.c"
         * See "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions)

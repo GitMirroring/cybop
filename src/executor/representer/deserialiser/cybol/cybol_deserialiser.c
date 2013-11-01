@@ -38,8 +38,9 @@
 #include "../../../../executor/representer/deserialiser/cybol/datetime/ddmmyyyy/ddmmyyyy_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/gregorian/gregorian_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/jd/jd_datetime_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/datetime/jd/mjd_datetime_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/datetime/jd/tjd_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/julian/julian_datetime_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/datetime/mjd/mjd_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/mmyy/mmyy_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/posix/posix_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/qyyyy/qyyyy_datetime_cybol_deserialiser.c"
@@ -231,6 +232,16 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_cybol_datetime_ti(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) TJD_DATETIME_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_cybol_datetime_tjd(p0, p2, p3);
         }
     }
 

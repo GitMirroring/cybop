@@ -23,28 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef JD_DATETIME_CYBOL_SERIALISER_SOURCE
-#define JD_DATETIME_CYBOL_SERIALISER_SOURCE
+#ifndef TJD_DATETIME_CYBOL_DESERIALISER_SOURCE
+#define TJD_DATETIME_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/datetime_state_cyboi_model.c"
-#include "../../../../../../executor/representer/serialiser/cybol/datetime/jd/basic_jd_datetime_cybol_serialiser.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/datetime/jd/basic_jd_datetime_cybol_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime into julian date (jd) wide character data.
+ * Deserialises the truncated julian date (tjd) wide character data into a datetime model.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_datetime_jd(void* p0, void* p1, void* p2) {
+void deserialise_cybol_datetime_tjd(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime jd.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime tjd.");
 
-    serialise_cybol_datetime_jd_basic(p0, p1, p2, (void*) JD_DATETIME_STATE_CYBOI_MODEL);
+    deserialise_cybol_datetime_jd_basic(p0, p1, p2, (void*) TJD_DATETIME_STATE_CYBOI_MODEL);
 }
 
-/* JD_DATETIME_CYBOL_SERIALISER_SOURCE */
+/* TJD_DATETIME_CYBOL_DESERIALISER_SOURCE */
 #endif

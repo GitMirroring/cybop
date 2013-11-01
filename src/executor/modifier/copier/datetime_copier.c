@@ -62,17 +62,9 @@ void copy_datetime(void* p0, void* p1) {
     get_datetime_element((void*) &sd, (void*) &p1, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
     get_datetime_element((void*) &ss, (void*) &p1, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST copy datetime dd: %i\n", *((int*) dd));
-fwprintf(stdout, L"TEST copy datetime ds: %f\n", *((double*) ds));
-fwprintf(stdout, L"TEST copy datetime sd: %i\n", *((int*) sd));
-fwprintf(stdout, L"TEST copy datetime ss: %f\n", *((double*) ss));
-
     // Copy source- to destination values.
     copy_integer(dd, sd);
     copy_double(ds, ss);
-
-fwprintf(stdout, L"TEST copy datetime dd: %i\n", *((int*) dd));
-fwprintf(stdout, L"TEST copy datetime ds: %f\n", *((double*) ds));
 }
 
 /* DATETIME_COPIER_SOURCE */

@@ -26,23 +26,10 @@
 #ifndef JD_DATETIME_CYBOL_DESERIALISER_SOURCE
 #define JD_DATETIME_CYBOL_DESERIALISER_SOURCE
 
-#include <math.h>
-
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/datetime_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/accessor/getter/datetime_getter.c"
-#include "../../../../../../executor/calculator/basic/double/multiply_double_calculator.c"
-#include "../../../../../../executor/calculator/basic/double/subtract_double_calculator.c"
-#include "../../../../../../executor/caster/basic/integer/double_integer_caster.c"
-#include "../../../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../../../executor/modifier/appender/item_appender.c"
-#include "../../../../../../executor/modifier/copier/double_copier.c"
-#include "../../../../../../executor/representer/deserialiser/cybol/decimal_fraction/primitive_value_decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/datetime/jd/basic_jd_datetime_cybol_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -56,60 +43,7 @@ void deserialise_cybol_datetime_jd(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime jd.");
 
-    // The temporary datetime.
-    void* dt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The destination julian day, julian second.
-    void* djd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* djs = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The destination julian day as double.
-    double djdd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    // The source julian date data.
-    double sd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-
-    // Allocate temporary datetime.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &dt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
-
-    // Get destination julian day, julian second.
-    get_datetime_element((void*) &djd, (void*) &dt, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
-    get_datetime_element((void*) &djs, (void*) &dt, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
-    // Get source julian date data.
-    deserialise_cybol_decimal_fraction_value_primitive((void*) &sd, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-fwprintf(stdout, L"TEST deserialise cybol datetime jd djd: %i\n", *((int*) djd));
-fwprintf(stdout, L"TEST deserialise cybol datetime jd djs: %f\n", *((double*) djs));
-fwprintf(stdout, L"TEST deserialise cybol datetime jd sd: %f\n", sd);
-
-    // Extract integer part of source julian date data,
-    // by rounding downwards to the nearest integer.
-    // The result, however, is of type "double".
-    //
-    // Example:
-    // floor (1.5) is 1.0 and floor (-1.5) is -2.0
-    djdd = floor(sd);
-fwprintf(stdout, L"TEST deserialise cybol datetime jd djdd floor: %f\n", djdd);
-    // Cast julian day into an integer number.
-    cast_integer_double(djd, (void*) &djdd);
-fwprintf(stdout, L"TEST deserialise cybol datetime jd djd cast: %i\n", *((int*) djd));
-
-    // Initialise destination julian second with source julian date data.
-    copy_double(djs, (void*) &sd);
-fwprintf(stdout, L"TEST deserialise cybol datetime jd djs init: %f\n", *((double*) djs));
-    // Extract fractional part of source, by
-    // subtracting the julian day integer part.
-    calculate_double_subtract(djs, (void*) &djdd);
-fwprintf(stdout, L"TEST deserialise cybol datetime jd djs subtract: %f\n", *((double*) djs));
-    // Normalise fractional part of source
-    // to duration of day in solar seconds.
-    calculate_double_multiply(djs, (void*) SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
-fwprintf(stdout, L"TEST deserialise cybol datetime jd djs multiply: %f\n", *((double*) djs));
-
-    // Append destination datetime data to destination.
-    append_item_element(p0, dt, (void*) DATETIME_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    // Deallocate temporary datetime.
-    deallocate_array((void*) &dt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+    deserialise_cybol_datetime_jd_basic(p0, p1, p2, (void*) JD_DATETIME_STATE_CYBOI_MODEL);
 }
 
 /* JD_DATETIME_CYBOL_DESERIALISER_SOURCE */

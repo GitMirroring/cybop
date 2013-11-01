@@ -23,27 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MJD_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define MJD_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef TJD_DATETIME_CYBOL_SERIALISER_SOURCE
+#define TJD_DATETIME_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../constant/model/cyboi/state/datetime_state_cyboi_model.c"
+#include "../../../../../../executor/representer/serialiser/cybol/datetime/jd/basic_jd_datetime_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the mjd date wide character data into a datetime model.
+ * Serialises the datetime into truncated julian date (tjd) wide character data.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_datetime_mjd(void* p0, void* p1, void* p2) {
+void serialise_cybol_datetime_tjd(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime mjd.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime tjd.");
+
+    serialise_cybol_datetime_jd_basic(p0, p1, p2, (void*) TJD_DATETIME_STATE_CYBOI_MODEL);
 }
 
-/* MJD_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/* TJD_DATETIME_CYBOL_SERIALISER_SOURCE */
 #endif

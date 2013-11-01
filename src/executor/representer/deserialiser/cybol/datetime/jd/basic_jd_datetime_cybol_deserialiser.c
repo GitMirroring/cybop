@@ -1,0 +1,83 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.15.0 2013-09-22
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef BASIC_JD_DATETIME_CYBOL_DESERIALISER_SOURCE
+#define BASIC_JD_DATETIME_CYBOL_DESERIALISER_SOURCE
+
+#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../executor/calculator/basic/double/add_double_calculator.c"
+#include "../../../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/decimal_fraction/primitive_value_decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/julian_date/julian_date_deserialiser.c"
+#include "../../../../../../logger/logger.c"
+
+/**
+ * Deserialises the jd/mjd/tjd wide character data into a datetime model.
+ *
+ * @param p0 the destination model item
+ * @param p1 the source data
+ * @param p2 the source count
+ * @param p3 the jd/mjd/tjd correction
+ */
+void deserialise_cybol_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime jd basic.");
+
+    // The temporary datetime.
+    // CAUTION! This value is TEMPORARY.
+    // It is needed for assigning the julian day and julian second.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source julian date.
+    double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    // Allocate temporary datetime.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_array((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+
+    // Deserialise source julian date.
+    deserialise_cybol_decimal_fraction_value_primitive((void*) &s, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Add jd/mjd/tjd correction.
+    calculate_double_add((void*) &s, p3);
+    // Deserialise julian date.
+    deserialise_julian_date(d, (void*) &s);
+
+    // Append temporary datetime data to destination.
+    append_item_element(p0, d, (void*) DATETIME_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+    // Deallocate temporary datetime.
+    deallocate_array((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+}
+
+/* BASIC_JD_DATETIME_CYBOL_DESERIALISER_SOURCE */
+#endif

@@ -37,6 +37,14 @@
 static double EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {2.2204460492503131E-16};
 static double* EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL = EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL_ARRAY;
 
+/** The julian day (jd) datetime state cyboi model. */
+static double JD_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {0.0};
+static double* JD_DATETIME_STATE_CYBOI_MODEL = JD_DATETIME_STATE_CYBOI_MODEL_ARRAY;
+
+/** The modified julian day (mjd) datetime state cyboi model. */
+static double MJD_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {2400000.5};
+static double* MJD_DATETIME_STATE_CYBOI_MODEL = MJD_DATETIME_STATE_CYBOI_MODEL_ARRAY;
+
 /**
  * The solar day in seconds datetime state cyboi model.
  *
@@ -44,6 +52,10 @@ static double* EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL = EPSILON_DOUBLE_DATETI
  */
 static double SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {86400.0};
 static double* SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL = SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL_ARRAY;
+
+/** The truncated julian day (tjd) datetime state cyboi model. */
+static double TJD_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {2440000.5};
+static double* TJD_DATETIME_STATE_CYBOI_MODEL = TJD_DATETIME_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 static double SpeedOfLight         = 299792458.0;
@@ -70,7 +82,6 @@ static double TDT_TAI           = 32.184;
 static double TAI_UTC           = 35.0; // as of 2012/09/05
 
 static double JulianEphemZero   = 2440000.0;
-static double JulianMJDZero     = 2400000.5;
 static double JulianComputerZero   = 2440587.5;
 
 static double GM_Sun            =132712438000.0E9;
