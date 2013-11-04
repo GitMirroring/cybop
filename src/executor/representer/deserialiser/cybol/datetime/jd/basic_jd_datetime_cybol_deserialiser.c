@@ -38,7 +38,7 @@
 #include "../../../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../../executor/representer/deserialiser/cybol/decimal_fraction/primitive_value_decimal_fraction_cybol_deserialiser.c"
-#include "../../../../../../executor/representer/deserialiser/julian_date/julian_date_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/time_scale/julian_date/julian_date_time_scale_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -70,7 +70,7 @@ void deserialise_cybol_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3)
     // Add jd/mjd/tjd correction.
     calculate_double_add((void*) &s, p3);
     // Deserialise julian date.
-    deserialise_julian_date(d, (void*) &s);
+    deserialise_time_scale_julian_date(d, (void*) &s);
 
     // Append temporary datetime data to destination.
     append_item_element(p0, d, (void*) DATETIME_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

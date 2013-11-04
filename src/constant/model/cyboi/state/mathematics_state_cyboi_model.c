@@ -29,8 +29,6 @@
 #include <math.h>
 
 //
-// Mathematical.
-//
 // The header math.h defines several useful mathematical constants.
 // All values are defined as preprocessor macros starting with M_.
 //

@@ -32,7 +32,7 @@
 #include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../executor/calculator/basic/double/subtract_double_calculator.c"
 #include "../../../../../../executor/representer/serialiser/cybol/decimal_fraction/value_decimal_fraction_cybol_serialiser.c"
-#include "../../../../../../executor/representer/serialiser/julian_date/julian_date_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/time_scale/julian_date/julian_date_time_scale_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -51,7 +51,7 @@ void serialise_cybol_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3) {
     double d = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Serialise datetime.
-    serialise_julian_date((void*) &d, p1);
+    serialise_time_scale_julian_date((void*) &d, p1);
 
     // Subtract jd/mjd/tjd correction.
     calculate_double_subtract((void*) &d, p3);

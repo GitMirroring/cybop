@@ -23,22 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef JULIAN_DATE_DESERIALISER_SOURCE
-#define JULIAN_DATE_DESERIALISER_SOURCE
+#ifndef JULIAN_DATE_TIME_SCALE_DESERIALISER_SOURCE
+#define JULIAN_DATE_TIME_SCALE_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/datetime_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
-#include "../../../../executor/accessor/getter/datetime_getter.c"
-#include "../../../../executor/calculator/basic/double/floor_double_calculator.c"
-#include "../../../../executor/calculator/basic/double/multiply_double_calculator.c"
-#include "../../../../executor/calculator/basic/double/subtract_double_calculator.c"
-#include "../../../../executor/caster/basic/integer/double_integer_caster.c"
-#include "../../../../executor/modifier/copier/double_copier.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/model/time_scale/duration_time_scale_model.c"
+#include "../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
+#include "../../../../../executor/accessor/getter/datetime_getter.c"
+#include "../../../../../executor/calculator/basic/double/floor_double_calculator.c"
+#include "../../../../../executor/calculator/basic/double/multiply_double_calculator.c"
+#include "../../../../../executor/calculator/basic/double/subtract_double_calculator.c"
+#include "../../../../../executor/caster/basic/integer/double_integer_caster.c"
+#include "../../../../../executor/modifier/copier/double_copier.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Deserialises the julian date (jd) double into a datetime.
@@ -46,9 +46,9 @@
  * @param p0 the destination data
  * @param p1 the source data
  */
-void deserialise_julian_date(void* p0, void* p1) {
+void deserialise_time_scale_julian_date(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise julian date.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise time scale julian date.");
 
     // The destination julian day, julian second.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -78,8 +78,8 @@ void deserialise_julian_date(void* p0, void* p1) {
     calculate_double_subtract(s, (void*) &dd);
     // Normalise fractional part of source
     // to duration of day in solar seconds.
-    calculate_double_multiply(s, (void*) SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL);
+    calculate_double_multiply(s, (void*) DAY_SOLAR_DURATION_TIME_SCALE_MODEL);
 }
 
-/* JULIAN_DATE_DESERIALISER_SOURCE */
+/* JULIAN_DATE_TIME_SCALE_DESERIALISER_SOURCE */
 #endif

@@ -23,27 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef UTC_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define UTC_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef GREGORIAN_CALENDAR_TIME_SCALE_MODEL_SOURCE
+#define GREGORIAN_CALENDAR_TIME_SCALE_MODEL_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/**
- * Deserialises the utc date wide character data into a datetime model.
- *
- * @param p0 the destination model item
- * @param p1 the source data
- * @param p2 the source count
- */
-void deserialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
+/** The year gregorian calendar time scale state cyboi model. */
+static int YEAR_GREGORIAN_CALENDAR_TIME_SCALE_MODEL_ARRAY[] = {1582};
+static int* YEAR_GREGORIAN_CALENDAR_TIME_SCALE_MODEL = YEAR_GREGORIAN_CALENDAR_TIME_SCALE_MODEL_ARRAY;
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime utc.");
-}
+/** The month gregorian calendar time scale state cyboi model. */
+static int MONTH_GREGORIAN_CALENDAR_TIME_SCALE_MODEL_ARRAY[] = {10};
+static int* MONTH_GREGORIAN_CALENDAR_TIME_SCALE_MODEL = MONTH_GREGORIAN_CALENDAR_TIME_SCALE_MODEL_ARRAY;
 
-/* UTC_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/** The day gregorian calendar time scale state cyboi model. */
+static int DAY_GREGORIAN_CALENDAR_TIME_SCALE_MODEL_ARRAY[] = {15};
+static int* DAY_GREGORIAN_CALENDAR_TIME_SCALE_MODEL = DAY_GREGORIAN_CALENDAR_TIME_SCALE_MODEL_ARRAY;
+
+/* GREGORIAN_CALENDAR_TIME_SCALE_MODEL_SOURCE */
 #endif

@@ -23,46 +23,26 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATETIME_STATE_CYBOI_MODEL_CONSTANT_SOURCE
-#define DATETIME_STATE_CYBOI_MODEL_CONSTANT_SOURCE
+#ifndef ASTRONOMY_TIME_SCALE_MODEL_SOURCE
+#define ASTRONOMY_TIME_SCALE_MODEL_SOURCE
 
-#include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+
+/** The epsilon double astronomy time scale state cyboi model. */
+static double EPSILON_DOUBLE_ASTRONOMY_TIME_SCALE_MODEL_ARRAY[] = {2.2204460492503131E-16};
+static double* EPSILON_DOUBLE_ASTRONOMY_TIME_SCALE_MODEL = EPSILON_DOUBLE_ASTRONOMY_TIME_SCALE_MODEL_ARRAY;
 
 //
-// Some of the constants below were taken from:
+// The constants below were taken from:
 // http://www.astro-toolbox.com/
 //
-
-/** The epsilon double datetime state cyboi model. */
-static double EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {2.2204460492503131E-16};
-static double* EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL = EPSILON_DOUBLE_DATETIME_STATE_CYBOI_MODEL_ARRAY;
-
-/** The julian day (jd) datetime state cyboi model. */
-static double JD_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {0.0};
-static double* JD_DATETIME_STATE_CYBOI_MODEL = JD_DATETIME_STATE_CYBOI_MODEL_ARRAY;
-
-/** The modified julian day (mjd) datetime state cyboi model. */
-static double MJD_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {2400000.5};
-static double* MJD_DATETIME_STATE_CYBOI_MODEL = MJD_DATETIME_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The solar day in seconds datetime state cyboi model.
- *
- * 60 s * 60 min * 24 h = 86400 s
- */
-static double SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {86400.0};
-static double* SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL = SOLAR_DAY_IN_SECONDS_DATETIME_STATE_CYBOI_MODEL_ARRAY;
-
-/** The truncated julian day (tjd) datetime state cyboi model. */
-static double TJD_DATETIME_STATE_CYBOI_MODEL_ARRAY[] = {2440000.5};
-static double* TJD_DATETIME_STATE_CYBOI_MODEL = TJD_DATETIME_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
 static double SpeedOfLight         = 299792458.0;
 static double EarthEquatorialRadius= 6378137.0;
 static double EarthOblateness      = 1.0/298.2572;
 static double AstronomicalUnit     = 149.5978707E9;
-   // new value for 1 au = 1.49597870691(30)e11
+// new value for 1 au = 1.49597870691(30)e11
 
 static double Epsilon2000       = 84381.448;
 static double Planck            = 6.62607e-34;
@@ -112,5 +92,5 @@ static double EpsilonRelative   = 1.0 - Epsilon;
 static double Parsec            = AstronomicalUnit*648000.0/Pi;
 */
 
-/* DATETIME_STATE_CYBOI_MODEL_CONSTANT_SOURCE */
+/* ASTRONOMY_TIME_SCALE_MODEL_SOURCE */
 #endif

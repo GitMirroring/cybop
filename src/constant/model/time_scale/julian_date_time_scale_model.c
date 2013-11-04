@@ -23,27 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef UTC_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define UTC_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef JULIAN_DATE_TIME_SCALE_MODEL_SOURCE
+#define JULIAN_DATE_TIME_SCALE_MODEL_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 
-/**
- * Deserialises the utc date wide character data into a datetime model.
- *
- * @param p0 the destination model item
- * @param p1 the source data
- * @param p2 the source count
- */
-void deserialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
+/** The julian date (jd) time scale state cyboi model. */
+static double JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = {0.0};
+static double* JULIAN_DATE_TIME_SCALE_MODEL = JULIAN_DATE_TIME_SCALE_MODEL_ARRAY;
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime utc.");
-}
+/** The modified julian date (mjd) time scale state cyboi model. */
+static double MODIFIED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = {2400000.5};
+static double* MODIFIED_JULIAN_DATE_TIME_SCALE_MODEL = MODIFIED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY;
 
-/* UTC_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/** The truncated julian date (tjd) time scale state cyboi model. */
+static double TRUNCATED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = {2440000.5};
+static double* TRUNCATED_JULIAN_DATE_TIME_SCALE_MODEL = TRUNCATED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY;
+
+/* JULIAN_DATE_TIME_SCALE_MODEL_SOURCE */
 #endif
