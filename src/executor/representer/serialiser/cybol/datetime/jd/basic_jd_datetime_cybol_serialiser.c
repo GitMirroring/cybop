@@ -36,7 +36,7 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the source datetime model into a destination jd/mjd/tjd wide character model.
+ * Serialises the datetime into a destination jd/mjd/tjd wide character.
  *
  * @param p0 the destination model item
  * @param p1 the source data

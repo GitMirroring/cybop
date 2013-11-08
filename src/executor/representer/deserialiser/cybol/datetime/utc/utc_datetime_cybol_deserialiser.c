@@ -31,10 +31,14 @@
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the utc date wide character data into a datetime model.
+ * Deserialises the utc date wide character data into a datetime.
  *
  * @param p0 the destination model item
  * @param p1 the source data
@@ -43,6 +47,29 @@
 void deserialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime utc.");
+
+    // The datetime.
+    void* dt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The year/month/day/hour/minute/second.
+    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int min = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    // Allocate temporary datetime.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_array((void*) &dt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+
+    deserialise_time_scale_gregorian_calendar(dt, (void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s);
+
+    // Append temporary datetime data to destination.
+    append_item_element(p0, dt, (void*) DATETIME_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+    // Deallocate temporary datetime.
+    deallocate_array((void*) &dt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
 
 /* UTC_DATETIME_CYBOL_DESERIALISER_SOURCE */

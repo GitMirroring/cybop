@@ -26,43 +26,67 @@
 #ifndef DURATION_TIME_SCALE_MODEL_SOURCE
 #define DURATION_TIME_SCALE_MODEL_SOURCE
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 
 //
-// Solar seconds.
+// Solar units.
 //
 
 /**
- * The solar day in seconds datetime state cyboi model.
+ * The solar day in seconds duration time scale model.
  *
  * 1 solar day = 24 h * 60 min * 60 s = 86400 s
  */
-static int DAY_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY[] = {86400};
-static int* DAY_SOLAR_DURATION_TIME_SCALE_MODEL = DAY_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY;
+static double DAY_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY[] = {86400.0};
+static double* DAY_SOLAR_DURATION_TIME_SCALE_MODEL = DAY_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY;
 
 /**
- * The solar hour in seconds datetime state cyboi model.
+ * The solar hour in seconds duration time scale model.
  *
  * 1 solar hour = 60 min * 60 s = 3600 s
  */
-static int HOUR_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY[] = {3600};
-static int* HOUR_SOLAR_DURATION_TIME_SCALE_MODEL = HOUR_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY;
+static double HOUR_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY[] = {3600.0};
+static double* HOUR_SOLAR_DURATION_TIME_SCALE_MODEL = HOUR_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY;
 
 /**
- * The solar minute in seconds datetime state cyboi model.
+ * The solar minute in seconds duration time scale model.
  *
  * 1 solar minute = 60 s
  */
-static int MINUTE_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY[] = {60};
-static int* MINUTE_SOLAR_DURATION_TIME_SCALE_MODEL = MINUTE_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY;
+static double MINUTE_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY[] = {60.0};
+static double* MINUTE_SOLAR_DURATION_TIME_SCALE_MODEL = MINUTE_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY;
 
 /**
- * The solar second in seconds datetime state cyboi model.
+ * The solar second in seconds duration time scale model.
  *
  * 1 solar second = 1 s
  */
-static int SECOND_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY[] = {1};
-static int* SECOND_SOLAR_DURATION_TIME_SCALE_MODEL = SECOND_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY;
+static double SECOND_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY[] = {1.0};
+static double* SECOND_SOLAR_DURATION_TIME_SCALE_MODEL = SECOND_SOLAR_DURATION_TIME_SCALE_MODEL_ARRAY;
+
+//
+// Gregorian units.
+//
+
+/** The gregorian year in days duration time scale model. */
+static double YEAR_GREGORIAN_DURATION_TIME_SCALE_MODEL_ARRAY[] = {365.25};
+static double* YEAR_GREGORIAN_DURATION_TIME_SCALE_MODEL = YEAR_GREGORIAN_DURATION_TIME_SCALE_MODEL_ARRAY;
+
+/** The gregorian century in days duration time scale model. */
+static double CENTURY_GREGORIAN_DURATION_TIME_SCALE_MODEL_ARRAY[] = {36524.25};
+static double* CENTURY_GREGORIAN_DURATION_TIME_SCALE_MODEL = CENTURY_GREGORIAN_DURATION_TIME_SCALE_MODEL_ARRAY;
+
+//
+// Julian units.
+//
+
+/** The julian year in days duration time scale model. */
+static double YEAR_JULIAN_DURATION_TIME_SCALE_MODEL_ARRAY[] = {365.25};
+static double* YEAR_JULIAN_DURATION_TIME_SCALE_MODEL = YEAR_JULIAN_DURATION_TIME_SCALE_MODEL_ARRAY;
+
+/** The julian century in days duration time scale model. */
+static double CENTURY_JULIAN_DURATION_TIME_SCALE_MODEL_ARRAY[] = {36525.0};
+static double* CENTURY_JULIAN_DURATION_TIME_SCALE_MODEL = CENTURY_JULIAN_DURATION_TIME_SCALE_MODEL_ARRAY;
 
 /* DURATION_TIME_SCALE_MODEL_SOURCE */
 #endif

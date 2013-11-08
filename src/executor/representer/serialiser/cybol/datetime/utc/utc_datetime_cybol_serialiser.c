@@ -28,14 +28,13 @@
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
-#include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime into utc wide character data.
+ * Serialises the datetime into utc date wide character data.
  *
  * @param p0 the destination model item
  * @param p1 the source data
@@ -44,6 +43,16 @@
 void serialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime utc.");
+
+    // The year/month/day/hour/minute/second.
+    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int min = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    serialise_time_scale_gregorian_calendar((void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s, p1);
 }
 
 /* UTC_DATETIME_CYBOL_SERIALISER_SOURCE */

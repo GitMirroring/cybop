@@ -78,5 +78,21 @@ static double* NUMBER_0_9_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_9_DOUBLE_STATE_CYB
 static double NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {1.0};
 static double* NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL = NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
+//
+// Numbers 2.0 - 2.9.
+//
+
+/** The number 2.0 double state cyboi model. */
+static double NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {2.0};
+static double* NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL = NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Numbers 10.0 - 10.9.
+//
+
+/** The number 10.0 double state cyboi model. */
+static double NUMBER_10_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {10.0};
+static double* NUMBER_10_0_DOUBLE_STATE_CYBOI_MODEL = NUMBER_10_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
+
 /* DOUBLE_STATE_CYBOI_MODEL_CONSTANT_SOURCE */
 #endif
