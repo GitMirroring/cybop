@@ -23,27 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef QYYYY_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define QYYYY_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef QYYYY_DATETIME_XDT_SERIALISER_SOURCE
+#define QYYYY_DATETIME_XDT_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the qyyyy date wide character data into a datetime model.
+ * Serialises the datetime model into a qyyyy date.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_datetime_qyyyy(void* p0, void* p1, void* p2) {
+void serialise_xdt_datetime_qyyyy(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime qyyyy.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xdt datetime qyyyy.");
 }
 
-/* QYYYY_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/* QYYYY_DATETIME_XDT_SERIALISER_SOURCE */
 #endif

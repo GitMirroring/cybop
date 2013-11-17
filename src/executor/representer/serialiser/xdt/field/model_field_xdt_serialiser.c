@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MODEL_FIELD_XDT_DESERIALISER_SOURCE
-#define MODEL_FIELD_XDT_DESERIALISER_SOURCE
+#ifndef MODEL_FIELD_XDT_SERIALISER_SOURCE
+#define MODEL_FIELD_XDT_SERIALISER_SOURCE
 
 #include "../../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -33,35 +33,35 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../../executor/modifier/overwriter/item_overwriter.c"
-#include "../../../../../executor/representer/deserialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/datetime/mmyy/mmyy_datetime_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/datetime/qyyyy/qyyyy_datetime_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/duration/hhmmhhmm/hhmmhhmm_duration_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/duration/yyyy/yyyy_duration_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
+#include "../../../../../executor/representer/serialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_serialiser.c"
+#include "../../../../../executor/representer/serialiser/xdt/datetime/mmyy/mmyy_datetime_xdt_serialiser.c"
+#include "../../../../../executor/representer/serialiser/xdt/datetime/qyyyy/qyyyy_datetime_xdt_serialiser.c"
+#include "../../../../../executor/representer/serialiser/xdt/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_xdt_serialiser.c"
+#include "../../../../../executor/representer/serialiser/xdt/duration/hhmmhhmm/hhmmhhmm_duration_xdt_serialiser.c"
+#include "../../../../../executor/representer/serialiser/xdt/duration/yyyy/yyyy_duration_xdt_serialiser.c"
+#include "../../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
+#include "../../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the xdt field model.
+ * Serialises into an xdt field model.
  *
- * @param p0 the destination model item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination item
+ * @param p1 the source model data
+ * @param p2 the source model count
  * @param p3 the format
  */
-void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
+void serialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field model.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xdt field model.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // CAUTION! The xDT format uses the extended ASCII format "ISO 8859-15",
-    // but the deserialisation functions used here expect wide characters.
-    // Therefore, a CONVERSION of source data is done when reading xdt
+    // but the serialisation functions used here produce wide characters.
+    // Therefore, a CONVERSION of destination data is done when writing xdt
     // into cyboi, using the cybol "encoding" attribute.
     //
 
@@ -75,7 +75,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt_datetime_ddmmyyyy(p0, p1, p2);
+            serialise_xdt_datetime_ddmmyyyy(p0, p1, p2);
         }
     }
 
@@ -85,7 +85,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt_datetime_mmyy(p0, p1, p2);
+            serialise_xdt_datetime_mmyy(p0, p1, p2);
         }
     }
 
@@ -95,7 +95,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt_datetime_qyyyy(p0, p1, p2);
+            serialise_xdt_datetime_qyyyy(p0, p1, p2);
         }
     }
 
@@ -109,7 +109,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt_duration_ddmmyyyyddmmyyyy(p0, p1, p2);
+            serialise_xdt_duration_ddmmyyyyddmmyyyy(p0, p1, p2);
         }
     }
 
@@ -119,7 +119,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt_duration_hhmmhhmm(p0, p1, p2);
+            serialise_xdt_duration_hhmmhhmm(p0, p1, p2);
         }
     }
 
@@ -129,7 +129,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt_duration_yyyy(p0, p1, p2);
+            serialise_xdt_duration_yyyy(p0, p1, p2);
         }
     }
 
@@ -143,7 +143,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_fraction_decimal(p0, p1, p2);
+            serialise_cybol_fraction_decimal(p0, p1, p2);
         }
     }
 
@@ -153,7 +153,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_integer(p0, p1, p2);
+            serialise_cybol_integer(p0, p1, p2);
         }
     }
 
@@ -173,9 +173,9 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field model. The format is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xdt field model. The format is unknown.");
     }
 }
 
-/* MODEL_FIELD_XDT_DESERIALISER_SOURCE */
+/* MODEL_FIELD_XDT_SERIALISER_SOURCE */
 #endif

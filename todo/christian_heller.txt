@@ -11,6 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Compile and Commit to svn
         * Implement "utc" datetime de-/serialiser
         * See "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
 

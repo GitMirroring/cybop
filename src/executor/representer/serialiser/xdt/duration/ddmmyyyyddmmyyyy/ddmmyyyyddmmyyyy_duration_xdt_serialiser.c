@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef YYYY_DURATION_CYBOL_SERIALISER_SOURCE
-#define YYYY_DURATION_CYBOL_SERIALISER_SOURCE
+#ifndef DDMMYYYYDDMMYYYY_DURATION_XDT_SERIALISER_SOURCE
+#define DDMMYYYYDDMMYYYY_DURATION_XDT_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,16 +35,16 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the duration model into an yyyy duration.
+ * Serialises the duration model into an ddmmyyyyddmmyyyy duration.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_duration_yyyy(void* p0, void* p1, void* p2) {
+void serialise_xdt_duration_ddmmyyyyddmmyyyy(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol duration yyyy.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xdt duration ddmmyyyyddmmyyyy.");
 }
 
-/* YYYY_DURATION_CYBOL_SERIALISER_SOURCE */
+/* DDMMYYYYDDMMYYYY_DURATION_XDT_SERIALISER_SOURCE */
 #endif

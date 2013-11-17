@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef QYYYY_DATETIME_CYBOL_SERIALISER_SOURCE
-#define QYYYY_DATETIME_CYBOL_SERIALISER_SOURCE
+#ifndef MMYY_DATETIME_XDT_SERIALISER_SOURCE
+#define MMYY_DATETIME_XDT_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,16 +35,16 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime model into a qyyyy date.
+ * Serialises the datetime model into an mmyy date.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_datetime_qyyyy(void* p0, void* p1, void* p2) {
+void serialise_xdt_datetime_mmyy(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime qyyyy.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xdt datetime mmyy.");
 }
 
-/* QYYYY_DATETIME_CYBOL_SERIALISER_SOURCE */
+/* MMYY_DATETIME_XDT_SERIALISER_SOURCE */
 #endif

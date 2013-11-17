@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef YYYY_DURATION_CYBOL_DESERIALISER_SOURCE
-#define YYYY_DURATION_CYBOL_DESERIALISER_SOURCE
+#ifndef QYYYY_DATETIME_XDT_DESERIALISER_SOURCE
+#define QYYYY_DATETIME_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -34,16 +34,16 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the yyyy duration wide character data into a duration model.
+ * Deserialises the qyyyy date wide character data into a datetime model.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_duration_yyyy(void* p0, void* p1, void* p2) {
+void deserialise_xdt_datetime_qyyyy(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol duration yyyy.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt datetime qyyyy.");
 }
 
-/* YYYY_DURATION_CYBOL_DESERIALISER_SOURCE */
+/* QYYYY_DATETIME_XDT_DESERIALISER_SOURCE */
 #endif

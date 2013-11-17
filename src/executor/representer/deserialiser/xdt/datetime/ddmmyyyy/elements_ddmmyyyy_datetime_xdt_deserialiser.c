@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ELEMENTS_DDMMYYYY_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define ELEMENTS_DDMMYYYY_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef ELEMENTS_DDMMYYYY_DATETIME_XDT_DESERIALISER_SOURCE
+#define ELEMENTS_DDMMYYYY_DATETIME_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -42,9 +42,9 @@
  * @param p0 the destination model item
  * @param p1 the source data
  */
-void deserialise_cybol_datetime_ddmmyyyy_elements(void* p0, void* p1) {
+void deserialise_xdt_datetime_ddmmyyyy_elements(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime ddmmyyyy elements.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt datetime ddmmyyyy elements.");
 
     // The day destination and source.
     int dd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -66,9 +66,9 @@ void deserialise_cybol_datetime_ddmmyyyy_elements(void* p0, void* p1) {
     deserialise_cybol_integer_value_primitive((void*) &md, ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     deserialise_cybol_integer_value_primitive((void*) &yd, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST deserialise cybol datetime ddmmyyyy elements dd: %i\n", dd);
-fwprintf(stdout, L"TEST deserialise cybol datetime ddmmyyyy elements md: %i\n", md);
-fwprintf(stdout, L"TEST deserialise cybol datetime ddmmyyyy elements yd: %i\n", yd);
+fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements dd: %i\n", dd);
+fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements md: %i\n", md);
+fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements yd: %i\n", yd);
 
     // The result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -85,9 +85,9 @@ fwprintf(stdout, L"TEST deserialise cybol datetime ddmmyyyy elements yd: %i\n", 
     // Copy result to destination.
     overwrite_item_element(p0, (void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST deserialise cybol datetime ddmmyyyy elements p0 data: %i\n", *((int*) *((void**) p0)));
-fwprintf(stdout, L"TEST deserialise cybol datetime ddmmyyyy elements p0 count: %i\n", *((int*) *((void**) (p0 + sizeof(void*)))));
+fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements p0 data: %i\n", *((int*) *((void**) p0)));
+fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements p0 count: %i\n", *((int*) *((void**) (p0 + sizeof(void*)))));
 }
 
-/* ELEMENTS_DDMMYYYY_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/* ELEMENTS_DDMMYYYY_DATETIME_XDT_DESERIALISER_SOURCE */
 #endif

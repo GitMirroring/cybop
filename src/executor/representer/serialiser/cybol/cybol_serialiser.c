@@ -35,32 +35,24 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/converter/decoder.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/datetime/ddmmyyyy/ddmmyyyy_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/gregorian/gregorian_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/jd/jd_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/jd/mjd_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/jd/tjd_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/julian/julian_datetime_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/datetime/mmyy/mmyy_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/posix/posix_datetime_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/datetime/qyyyy/qyyyy_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/tai/tai_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/ti/ti_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/duration/hhmmhhmm/hhmmhhmm_duration_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/duration/iso/iso_duration_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/duration/jd/jd_duration_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/duration/julian/julian_duration_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/duration/si/si_duration_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/duration/yyyy/yyyy_duration_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/byte_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/datetime/ddmmyyyy/ddmmyyyy_datetime_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/datetime/tai/tai_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
@@ -112,16 +104,6 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_ddmmyyyy(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p5, (void*) GREGORIAN_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -162,31 +144,11 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) MMYY_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_mmyy(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p5, (void*) POSIX_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_cybol_datetime_posix(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) QYYYY_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_qyyyy(p0, p1, p2);
         }
     }
 
@@ -236,26 +198,6 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_duration_ddmmyyyyddmmyyyy(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) HHMMHHMM_DURATION_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_duration_hhmmhhmm(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p5, (void*) ISO_DURATION_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -291,16 +233,6 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_cybol_duration_si(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) YYYY_DURATION_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_duration_yyyy(p0, p1, p2);
         }
     }
 

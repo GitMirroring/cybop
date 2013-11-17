@@ -23,27 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DDMMYYYYDDMMYYYY_DURATION_CYBOL_DESERIALISER_SOURCE
-#define DDMMYYYYDDMMYYYY_DURATION_CYBOL_DESERIALISER_SOURCE
+#ifndef YYYY_DURATION_XDT_SERIALISER_SOURCE
+#define YYYY_DURATION_XDT_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the ddmmyyyyddmmyyyy duration wide character data into a duration model.
+ * Serialises the duration model into an yyyy duration.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_duration_ddmmyyyyddmmyyyy(void* p0, void* p1, void* p2) {
+void serialise_xdt_duration_yyyy(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol duration ddmmyyyyddmmyyyy.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xdt duration yyyy.");
 }
 
-/* DDMMYYYYDDMMYYYY_DURATION_CYBOL_DESERIALISER_SOURCE */
+/* YYYY_DURATION_XDT_SERIALISER_SOURCE */
 #endif

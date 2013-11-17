@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef HHMMHHMM_DURATION_CYBOL_DESERIALISER_SOURCE
-#define HHMMHHMM_DURATION_CYBOL_DESERIALISER_SOURCE
+#ifndef HHMMHHMM_DURATION_XDT_DESERIALISER_SOURCE
+#define HHMMHHMM_DURATION_XDT_DESERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -40,10 +40,10 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_duration_hhmmhhmm(void* p0, void* p1, void* p2) {
+void deserialise_xdt_duration_hhmmhhmm(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol duration hhmmhhmm.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt duration hhmmhhmm.");
 }
 
-/* HHMMHHMM_DURATION_CYBOL_DESERIALISER_SOURCE */
+/* HHMMHHMM_DURATION_XDT_DESERIALISER_SOURCE */
 #endif
