@@ -80,7 +80,7 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
         calculate_integer_add(p2, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
     }
 
-    deserialise_time_scale_gregorian_calendar_julian_day_check_reform((void*) reform, p1, p2, p3);
+    deserialise_time_scale_gregorian_calendar_julian_day_check_reform((void*) &reform, p1, p2, p3);
 
     if (reform != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
